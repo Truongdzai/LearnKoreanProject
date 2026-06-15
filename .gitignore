@@ -1,0 +1,21 @@
+# Môi trường ảo Python
+.venv/
+
+# Node / React
+node_modules/
+frontend/dist/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Cấu hình riêng (chứa API key) — KHÔNG đưa lên git
+config.toml
+
+# Dữ liệu học của bạn (DB, media tải về, backup)
+/data/
+*.db
+
+# Khác
+.DS_Store
+Thumbs.db
