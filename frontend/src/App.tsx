@@ -5,6 +5,7 @@ import LearnPage from '@/features/learn/LearnPage'
 import LibraryPage from '@/features/library/LibraryPage'
 import DashboardPage from '@/features/dashboard/DashboardPage'
 import ReviewPage from '@/features/review/ReviewPage'
+import PricingPage from '@/features/pricing/PricingPage'
 import Placeholder from '@/features/shared/Placeholder'
 import { useAppStore } from '@/store/app.store'
 
@@ -22,6 +23,7 @@ export default function App() {
           {view === 'library' && <LibraryPage />}
           {view === 'dashboard' && <DashboardPage />}
           {view === 'vocab' && <ReviewPage />}
+          {view === 'pricing' && <PricingPage />}
           {(view === 'myvideos' || view === 'courses') && <Placeholder view={view} />}
         </div>
       </div>

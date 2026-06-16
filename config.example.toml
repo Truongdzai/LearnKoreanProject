@@ -4,9 +4,12 @@ native_language = "vie"
 target_language = "kor"
 
 [llm]
-provider = "none"
+provider = "gemini"
 api_key  = ""
-model    = ""
+# Bậc thang model: app dùng model đầu tiên, khi model đó hết hạn mức (lỗi 429)
+# hoặc quá tải thì TỰ ĐỘNG chuyển xuống model kế tiếp. Dán đúng ID model bạn có
+# trong trang giới hạn của Google AI Studio, xếp từ ưu tiên cao xuống thấp.
+models   = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
 
 [anki]
 url       = "http://127.0.0.1:8765"
