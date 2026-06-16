@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react'
 import { formatTime } from '@/core/utils/format'
+import { romanizeWord } from '@/core/utils/romanize'
 import { addCard } from '@/core/api/srs.api'
 import { defineWord } from '@/core/api/dict.api'
 import Icon from '@/core/components/Icon'
@@ -25,6 +26,7 @@ interface PopupState {
 export default function SubtitleList({ segments, activeIndex, source, onSeek }: Props) {
   const listRef = useRef<HTMLDivElement>(null)
   const [popup, setPopup] = useState<PopupState | null>(null)
+  const [showRomaja, setShowRomaja] = useState(true)
 
   useEffect(() => {
     const list = listRef.current
@@ -49,7 +51,16 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
     <div className="subs">
       <div className="subs-head">
         <span>Phụ đề</span>
-        <span className="count"><Icon name="bulb" /> bấm vào từ tiếng Hàn để tra nghĩa</span>
+        <div className="subs-tools">
+          <button
+            className={'romaja-toggle' + (showRomaja ? ' on' : '')}
+            onClick={() => setShowRomaja((v) => !v)}
+            title="Bật/tắt phiên âm cách đọc"
+          >
+            <Icon name="letters" size={15} /> Phiên âm
+          </button>
+          <span className="count"><Icon name="bulb" /> bấm vào từ tiếng Hàn để tra nghĩa</span>
+        </div>
       </div>
       <div className="subs-list" ref={listRef}>
         {segments.map((s, i) => (
@@ -58,6 +69,7 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
             seg={s}
             active={i === activeIndex}
             source={source}
+            showRomaja={showRomaja}
             onSeek={() => onSeek(s.start)}
             onWordClick={handleWordClick}
           />
@@ -83,12 +95,14 @@ function SegmentRow({
   seg,
   active,
   source,
+  showRomaja,
   onSeek,
   onWordClick,
 }: {
   seg: Segment
   active: boolean
   source: string
+  showRomaja: boolean
   onSeek: () => void
   onWordClick: (word: string, rect: DOMRect) => void
 }) {
@@ -116,14 +130,17 @@ function SegmentRow({
     <div className={'seg' + (active ? ' active' : '')} onClick={onSeek}>
       <div className="t">{formatTime(seg.start)}</div>
       <div className="txt">
-        <div className="ko" lang="ko">
+        <div className={'ko' + (showRomaja ? ' has-romaja' : '')} lang="ko">
           {seg.ko.split(/(\s+)/).map((tok, i) =>
             tok.trim() ? (
-              <span className="w" key={i} onClick={clickWord}>
-                {tok}
+              <span className="wword" key={i}>
+                {showRomaja && <span className="romaja">{romanizeWord(tok)}</span>}
+                <span className="w" onClick={clickWord}>
+                  {tok}
+                </span>
               </span>
             ) : (
-              tok
+              <span key={i}> </span>
             ),
           )}
         </div>

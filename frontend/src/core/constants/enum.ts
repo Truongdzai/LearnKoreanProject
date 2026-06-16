@@ -6,5 +6,6 @@ export type AppView =
   | 'courses'
   | 'vocab'
   | 'dashboard'
+  | 'pricing'
 
 export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'tomtat'

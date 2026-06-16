@@ -9,6 +9,7 @@ const NAV: NavItem[] = [
   { id: 'courses', icon: 'book', label: 'Khoá học' },
   { id: 'vocab', icon: 'cards', label: 'Ôn tập' },
   { id: 'dashboard', icon: 'chart', label: 'Trạng thái' },
+  { id: 'pricing', icon: 'rocket', label: 'Nâng cấp' },
 ]
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
