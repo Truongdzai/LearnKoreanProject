@@ -1,41 +1,81 @@
-# VYORA.COM
+## VYTERRA.COM
 **V – Voice**
 
 Khám phá tiếng nói của bản thân.
+
+Mỗi người đều có một câu chuyện, một suy nghĩ và một giọng nói riêng. Vyterra giúp người học tự tin thể hiện bản thân bằng bất kỳ ngôn ngữ nào.
 
 **Y – Your Journey**
 
 Mỗi người có một hành trình học khác nhau.
 
-**O – Open World**
+Không có một con đường chung cho tất cả mọi người. Với AI và công nghệ cá nhân hóa, Vyterra đồng hành cùng từng người học theo tốc độ và mục tiêu riêng.
 
-Mở cánh cửa đến thế giới.
+**T – Terra**
+
+Mở ra một thế giới không giới hạn.
+
+**Terra** trong tiếng **Latin** có nghĩa là **Trái Đất** – biểu tượng của sự kết nối, khám phá và giao lưu giữa các nền văn hóa trên toàn cầu.
+
+**E – Evolve**
+
+Không ngừng phát triển.
+
+Học ngôn ngữ là một hành trình dài. Mỗi ngày một chút tiến bộ sẽ tạo nên những thay đổi lớn trong tương lai.
 
 **R – Rise**
 
-Tiến bộ mỗi ngày.
+Vươn lên mỗi ngày.
+
+Từ những câu nói đầu tiên đến khả năng giao tiếp tự nhiên, Vyterra giúp người học vượt qua giới hạn của bản thân.
+
+**R – Reach**
+
+Vươn tới những chân trời mới.
+
+Ngôn ngữ không chỉ là công cụ giao tiếp, mà còn là chìa khóa để mở ra cơ hội nghề nghiệp, tri thức và những mối quan hệ trên khắp thế giới.
 
 **A – Achieve**
 
-Chinh phục mục tiêu
+Chinh phục mục tiêu.
 
+Mỗi bài học hoàn thành, mỗi cuộc hội thoại thành công đều là một cột mốc trên hành trình làm chủ ngôn ngữ.
 
----
-## Vyora không chỉ là một ứng dụng học ngoại ngữ.
+## 🌱 Vyterra không chỉ là một ứng dụng/website học ngoại ngữ.
 
-## Đó là một người bạn đồng hành giúp hàng triệu người trên thế giới:
+Đó là một người bạn đồng hành thông minh, giúp hàng triệu người trên thế giới:
 
-**Nghe tốt hơn**
+**🎧 Nghe tốt hơn**
+**🗣️ Nói tự tin hơn**
+**🌍 Kết nối với nhiều nền văn hóa hơn**
+**🚀 Trở thành phiên bản tốt hơn của chính mình**
 
-**Nói tự tin hơn**
+## Câu chuyện thương hiệu
 
-**Kết nối với nhiều nền văn hóa hơn**
+Vyterra được sinh ra từ một nguồn cảm hứng nhỏ nhưng mang theo một khát vọng lớn: giúp mọi người tìm thấy tiếng nói của mình trong bất kỳ ngôn ngữ nào.
 
-**Trở thành phiên bản tốt hơn của chính mình**
+Bằng sức mạnh của AI, video, Shadowing và các phương pháp học tự nhiên, Vyterra biến việc học ngôn ngữ thành một hành trình vui vẻ, cá nhân hóa và không ngừng phát triển.
 
-## Vyora được sinh ra từ một nguồn cảm hứng nhỏ nhưng mang theo một khát vọng lớn: giúp mọi người tìm thấy tiếng nói của mình trong bất kỳ ngôn ngữ nào. Bằng sức mạnh của AI, video và phương pháp học tự nhiên, Vyora biến việc học ngôn ngữ thành một hành trình vui vẻ, cá nhân hóa và không ngừng phát triển.
-## One Day. One Word. One Step Forward 
-**Tạm dịch: Mỗi ngày. Mỗi từ. Tiến một bước.**
+## 🌟 Triết lý học tập
+One Day. One Word. One Step Forward.
+
+Mỗi ngày một từ. Mỗi ngày một bước tiến.
+
+Không cần học thật nhiều trong một ngày, chỉ cần kiên trì tiến bộ một chút mỗi ngày. Theo thời gian, những bước nhỏ sẽ tạo nên sự thay đổi lớn.
+
+## 💙 Sứ mệnh của Vyterra
+
+**Empowering every voice to connect with the world.**
+
+**Tạm dịch:**
+**Trao sức mạnh cho mọi tiếng nói để kết nối với thế giới.**
+
+## 🌎 Tầm nhìn
+
+**To build a world where everyone can learn, speak and belong beyond language barriers.**
+
+**Tạm dịch:**
+**Xây dựng một thế giới nơi mọi người đều có thể học hỏi, giao tiếp và thuộc về một cộng đồng không còn rào cản ngôn ngữ.**
 ## ✨ Tính năng chính
 
 - **Phụ đề song ngữ tự động** — dán link YouTube tiếng Hàn, app tải phụ đề Hàn và dịch sang tiếng Việt.
