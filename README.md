@@ -1,11 +1,41 @@
-# 🇰🇷 Trường Học Ngoại Ngữ — Học tiếng Hàn qua video
+# VYORA.COM
+**V – Voice**
 
-Website học tiếng Hàn chạy **100% trên máy bạn**, **0 đồng**, dữ liệu học là **của riêng bạn**.
+Khám phá tiếng nói của bản thân.
 
-Dán một link YouTube tiếng Hàn → app tự lấy phụ đề Hàn, dịch sang Việt, cho bạn **tra từ ngay khi bấm vào chữ**, **lưu từ thành thẻ** và **ôn tập** lại theo lịch thông minh — tất cả trong một cửa sổ.
+**Y – Your Journey**
+
+Mỗi người có một hành trình học khác nhau.
+
+**O – Open World**
+
+Mở cánh cửa đến thế giới.
+
+**R – Rise**
+
+Tiến bộ mỗi ngày.
+
+**A – Achieve**
+
+Chinh phục mục tiêu
+
 
 ---
+## Vyora không chỉ là một ứng dụng học ngoại ngữ.
 
+## Đó là một người bạn đồng hành giúp hàng triệu người trên thế giới:
+
+**Nghe tốt hơn**
+
+**Nói tự tin hơn**
+
+**Kết nối với nhiều nền văn hóa hơn**
+
+**Trở thành phiên bản tốt hơn của chính mình**
+
+## Vyora được sinh ra từ một nguồn cảm hứng nhỏ nhưng mang theo một khát vọng lớn: giúp mọi người tìm thấy tiếng nói của mình trong bất kỳ ngôn ngữ nào. Bằng sức mạnh của AI, video và phương pháp học tự nhiên, Vyora biến việc học ngôn ngữ thành một hành trình vui vẻ, cá nhân hóa và không ngừng phát triển.
+## One Day. One Word. One Step Forward 
+**Tạm dịch: Mỗi ngày. Mỗi từ. Tiến một bước.**
 ## ✨ Tính năng chính
 
 - **Phụ đề song ngữ tự động** — dán link YouTube tiếng Hàn, app tải phụ đề Hàn và dịch sang tiếng Việt.
