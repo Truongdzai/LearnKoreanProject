@@ -46,8 +46,11 @@ Mỗi bài học hoàn thành, mỗi cuộc hội thoại thành công đều l�
 Đó là một người bạn đồng hành thông minh, giúp hàng triệu người trên thế giới:
 
 **🎧 Nghe tốt hơn**
+
 **🗣️ Nói tự tin hơn**
+
 **🌍 Kết nối với nhiều nền văn hóa hơn**
+
 **🚀 Trở thành phiên bản tốt hơn của chính mình**
 
 ## Câu chuyện thương hiệu
