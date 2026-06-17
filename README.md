@@ -1,84 +1,74 @@
-## VYTERRA.COM
+## VYLING.COM
 **V – Voice**
 
 Khám phá tiếng nói của bản thân.
 
-Mỗi người đều có một câu chuyện, một suy nghĩ và một giọng nói riêng. Vyterra giúp người học tự tin thể hiện bản thân bằng bất kỳ ngôn ngữ nào.
+Ngôn ngữ không chỉ là từ vựng hay ngữ pháp, mà là khả năng truyền đạt suy nghĩ, cảm xúc và câu chuyện của mỗi người.
 
 **Y – Your Journey**
 
-Mỗi người có một hành trình học khác nhau.
+Mỗi người có một hành trình học tập khác nhau.
 
-Không có một con đường chung cho tất cả mọi người. Với AI và công nghệ cá nhân hóa, Vyterra đồng hành cùng từng người học theo tốc độ và mục tiêu riêng.
+Vyling sử dụng AI để cá nhân hóa con đường học, giúp mỗi người học theo tốc độ, mục tiêu và phong cách riêng.
 
-**T – Terra**
+**LING – Language / Linguistics**
 
-Mở ra một thế giới không giới hạn.
+Thế giới của ngôn ngữ.
 
-**Terra** trong tiếng **Latin** có nghĩa là **Trái Đất** – biểu tượng của sự kết nối, khám phá và giao lưu giữa các nền văn hóa trên toàn cầu.
+Ling được lấy cảm hứng từ:
 
-**E – Evolve**
+**Language** – Ngôn ngữ
+**Linguistics** – Ngôn ngữ học
+**Lingo** – Cách nói, cách diễn đạt
 
-Không ngừng phát triển.
+## Đại diện cho:
 
-Học ngôn ngữ là một hành trình dài. Mỗi ngày một chút tiến bộ sẽ tạo nên những thay đổi lớn trong tương lai.
+**🌎 Đa ngôn ngữ**
+**🗣️ Giao tiếp**
 
-**R – Rise**
+**🧠 Thấu hiểu văn hóa**
 
-Vươn lên mỗi ngày.
+**📚 Khám phá tri thức**
 
-Từ những câu nói đầu tiên đến khả năng giao tiếp tự nhiên, Vyterra giúp người học vượt qua giới hạn của bản thân.
+**🌱 Ý nghĩa tổng thể của VYLING**
 
-**R – Reach**
+## VYLING = Voice + Your Journey + Language
 
-Vươn tới những chân trời mới.
+Một nơi giúp bạn tìm thấy tiếng nói của chính mình, trên hành trình chinh phục mọi ngôn ngữ.
 
-Ngôn ngữ không chỉ là công cụ giao tiếp, mà còn là chìa khóa để mở ra cơ hội nghề nghiệp, tri thức và những mối quan hệ trên khắp thế giới.
+## 🤖 Triết lý sản phẩm
 
-**A – Achieve**
+Vyling không chỉ là một ứng dụng học ngoại ngữ.
 
-Chinh phục mục tiêu.
+Đó là một người bạn đồng hành AI, giúp hàng triệu người trên thế giới:
 
-Mỗi bài học hoàn thành, mỗi cuộc hội thoại thành công đều là một cột mốc trên hành trình làm chủ ngôn ngữ.
-
-## 🌱 Vyterra không chỉ là một ứng dụng/website học ngoại ngữ.
-
-Đó là một người bạn đồng hành thông minh, giúp hàng triệu người trên thế giới:
-
-**🎧 Nghe tốt hơn**
+**🎧 Nghe tự nhiên hơn**
 
 **🗣️ Nói tự tin hơn**
 
-**🌍 Kết nối với nhiều nền văn hóa hơn**
+**🎬 Học qua video thực tế**
 
-**🚀 Trở thành phiên bản tốt hơn của chính mình**
+**🤖 Luyện tập cùng AI cá nhân hóa**
 
-## Câu chuyện thương hiệu
+**🌎 Kết nối với nhiều nền văn hóa hơn**
 
-Vyterra được sinh ra từ một nguồn cảm hứng nhỏ nhưng mang theo một khát vọng lớn: giúp mọi người tìm thấy tiếng nói của mình trong bất kỳ ngôn ngữ nào.
+## 🎯 Phương pháp học cốt lõi
+Listen → Repeat → Understand → Express
+**🎧 Listen**
 
-Bằng sức mạnh của AI, video, Shadowing và các phương pháp học tự nhiên, Vyterra biến việc học ngôn ngữ thành một hành trình vui vẻ, cá nhân hóa và không ngừng phát triển.
+Nghe ngôn ngữ trong ngữ cảnh thực tế.
 
-## 🌟 Triết lý học tập
-One Day. One Word. One Step Forward.
+**🗣️ Repeat**
 
-Mỗi ngày một từ. Mỗi ngày một bước tiến.
+Luyện Shadowing, bắt chước phát âm và ngữ điệu.
 
-Không cần học thật nhiều trong một ngày, chỉ cần kiên trì tiến bộ một chút mỗi ngày. Theo thời gian, những bước nhỏ sẽ tạo nên sự thay đổi lớn.
+**🧠 Understand**
 
-## 💙 Sứ mệnh của Vyterra
+Hiểu ý nghĩa, văn hóa và cách sử dụng.
 
-**Empowering every voice to connect with the world.**
+**✨ Express**
 
-**Tạm dịch:**
-**Trao sức mạnh cho mọi tiếng nói để kết nối với thế giới.**
-
-## 🌎 Tầm nhìn
-
-**To build a world where everyone can learn, speak and belong beyond language barriers.**
-
-**Tạm dịch:**
-**Xây dựng một thế giới nơi mọi người đều có thể học hỏi, giao tiếp và thuộc về một cộng đồng không còn rào cản ngôn ngữ.**
+Tự tin thể hiện suy nghĩ của bản thân.
 ## ✨ Tính năng chính
 
 - **Phụ đề song ngữ tự động** — dán link YouTube tiếng Hàn, app tải phụ đề Hàn và dịch sang tiếng Việt.
