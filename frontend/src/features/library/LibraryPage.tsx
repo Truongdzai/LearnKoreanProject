@@ -6,10 +6,13 @@ import { useAppStore } from '@/store/app.store'
 import type { Video } from '@/models/video.model'
 
 export default function LibraryPage() {
-  const { loadLesson } = useAppStore()
+  const { loadLesson, saveVideo } = useAppStore()
   const [level, setLevel] = useState<string>('Tất cả')
   const list = level === 'Tất cả' ? VIDEOS : VIDEOS.filter((v) => v.level === level)
-  const pick = (v: Video) => loadLesson(videoUrl(v.id))
+  const pick = (v: Video) => {
+    saveVideo(v)
+    loadLesson(videoUrl(v.id))
+  }
 
   return (
     <>

@@ -21,7 +21,7 @@ export default function DashboardPage() {
   return (
     <>
       <h1 className="page-title">Trạng thái hệ thống</h1>
-      <p className="page-sub">Kiểm tra các thành phần chạy nền của Trường Học Ngoại Ngữ.</p>
+      <p className="page-sub">Kiểm tra các thành phần chạy nền của VyLing.</p>
 
       <section className={'dash-banner ' + (ready ? 'ok' : 'warn')}>
         <h1>{ready ? <>Mọi thứ đã sẵn sàng <Icon name="party" /></> : 'Đang hoàn tất thiết lập…'}</h1>

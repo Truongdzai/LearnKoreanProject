@@ -1,0 +1,27 @@
+{
+  "name": "learnkorean",
+  "version": "1.0.0",
+  "description": "Website học tiếng Hàn chạy **100% trên máy bạn**, **0 đồng**, dữ liệu học là **của riêng bạn**.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Truongdzai/LearnKoreanProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Truongdzai/LearnKoreanProject/issues"
+  },
+  "homepage": "https://github.com/Truongdzai/LearnKoreanProject#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}

@@ -6,12 +6,15 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import CurrentLine from './components/CurrentLine'
 import SubtitleList from './components/SubtitleList'
 import ComingSoon from './components/ComingSoon'
+import SummaryView from './components/SummaryView'
+import TranslatePractice from './components/TranslatePractice'
 import type { LearnTab } from '@/core/constants/enum'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'Shadowing' },
   { id: 'phatam', ic: 'mic', label: 'Phát âm' },
   { id: 'chepchinhta', ic: 'headphones', label: 'Chép chính tả' },
+  { id: 'luyendich', ic: 'globe', label: 'Luyện dịch' },
   { id: 'tomtat', ic: 'note', label: 'Tóm tắt' },
 ]
 
@@ -96,6 +99,10 @@ export default function LearnPage() {
             onSeek={yt.seek}
           />
         </div>
+      ) : tab === 'tomtat' ? (
+        <SummaryView lesson={lesson} />
+      ) : tab === 'luyendich' ? (
+        <TranslatePractice lesson={lesson} />
       ) : (
         <ComingSoon tab={tab} />
       )}
