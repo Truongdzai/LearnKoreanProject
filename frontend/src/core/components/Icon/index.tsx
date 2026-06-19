@@ -191,6 +191,135 @@ const ICONS = {
       />
     </>
   ),
+  moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />,
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </>
+  ),
+  coin: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v10M9.3 9.2c0-1.1 1.2-1.7 2.7-1.7s2.7.6 2.7 1.7-1 1.6-2.7 1.9-2.7.8-2.7 1.9 1.2 1.8 2.7 1.8 2.7-.7 2.7-1.8" />
+    </>
+  ),
+  trophy: (
+    <>
+      <path d="M7 4h10v4a5 5 0 0 1-10 0z" />
+      <path d="M7 5H4v1a3 3 0 0 0 3 3M17 5h3v1a3 3 0 0 1-3 3" />
+      <path d="M9 14.5h6M10 21h4M12 14.5V18" />
+      <path d="M9 21h6" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+    </>
+  ),
+  store: (
+    <>
+      <path d="M4 9.5L5 4h14l1 5.5" />
+      <path d="M4 9.5a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 6 0 2.5 2.5 0 0 0 5 0" />
+      <path d="M5 11v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8" />
+      <path d="M10 20v-5h4v5" />
+    </>
+  ),
+  sprout: (
+    <>
+      <path d="M12 21v-8" />
+      <path d="M12 13c0-3-2-5-6-5 0 3 2 5 6 5z" />
+      <path d="M12 11c0-3 2-5 6-5 0 3-2 5-6 5z" />
+    </>
+  ),
+  gift: (
+    <>
+      <rect x="3.5" y="9" width="17" height="11" rx="1.5" />
+      <path d="M3.5 13h17M12 9v11" />
+      <path d="M12 9C12 9 11 4 8.5 4A2.5 2.5 0 0 0 8.5 9zM12 9s1-5 3.5-5A2.5 2.5 0 0 1 15.5 9z" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="9" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </>
+  ),
+  map: (
+    <>
+      <path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z" />
+      <path d="M9 4v14M15 6v14" />
+    </>
+  ),
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z" />
+    </>
+  ),
+  'chevron-down': <path d="M6 9l6 6 6-6" />,
+  'chevron-left': <path d="M15 6l-6 6 6 6" />,
+  flame: (
+    <path d="M12 22c4 0 6.5-2.6 6.5-6 0-3.6-3-5.4-3.5-9-2.2 1.5-3 3.5-3 5.5-1.5-1-1.8-2.8-1.5-4.5C8 5 5.5 8 5.5 12c0 3.4 2.5 6 6.5 6z" />
+  ),
+  volume: (
+    <>
+      <path d="M5 9.5v5h3l4 3.5V6L8 9.5z" />
+      <path d="M16 9a4 4 0 0 1 0 6M18.5 7a7 7 0 0 1 0 10" />
+    </>
+  ),
+  copy: (
+    <>
+      <rect x="9" y="9" width="11" height="11" rx="2" />
+      <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+    </>
+  ),
+  crown: <path d="M3 7l4 5 5-7 5 7 4-5v11H3z" />,
+  trash: (
+    <>
+      <path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+      <path d="M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13" />
+    </>
+  ),
+  heart: <path d="M12 20s-7-4.3-7-9.3A3.7 3.7 0 0 1 12 7a3.7 3.7 0 0 1 7 3.7c0 5-7 9.3-7 9.3z" />,
+  bell: (
+    <>
+      <path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6z" />
+      <path d="M10 20a2 2 0 0 0 4 0" />
+    </>
+  ),
+  send: (
+    <>
+      <path d="M22 2L11 13" />
+      <path d="M22 2l-7 20-4-9-9-4z" />
+    </>
+  ),
+  droplet: <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />,
+  trending: (
+    <>
+      <path d="M3 17l6-6 4 4 7-7" />
+      <path d="M17 8h4v4" />
+    </>
+  ),
+  calendar: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 9h18M8 3v4M16 3v4" />
+    </>
+  ),
+  fire: (
+    <path d="M12 22c4 0 6.5-2.6 6.5-6 0-3.6-3-5.4-3.5-9-2.2 1.5-3 3.5-3 5.5-1.5-1-1.8-2.8-1.5-4.5C8 5 5.5 8 5.5 12c0 3.4 2.5 6 6.5 6z" />
+  ),
+  vyling: (
+    <>
+      <path d="M4 11.5C4 6.8 7.6 4 12 4s8 2.8 8 7.5c0 3.6-2.4 6.2-6 6.9V21l-3.4-2.4C6.7 17.9 4 15.1 4 11.5z" />
+      <circle cx="9.3" cy="11" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="14.7" cy="11" r="1.1" fill="currentColor" stroke="none" />
+      <path d="M9.5 13.6c.8.7 1.6 1 2.5 1s1.7-.3 2.5-1" />
+    </>
+  ),
 } satisfies Record<string, ReactElement>
 
 export type IconName = keyof typeof ICONS

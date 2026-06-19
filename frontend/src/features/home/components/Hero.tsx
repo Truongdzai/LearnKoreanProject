@@ -32,7 +32,7 @@ export default function Hero() {
             </button>
           </div>
           <p className="maker-hint">
-            Mẹo: chọn video có phụ đề tiếng Hàn để chất lượng tốt nhất. Lần đầu tải mất ~10–60 giây.
+            Mẹo: chọn video có phụ đề tiếng Hàn để chất lượng tốt nhất. Lần đầu tải mất ~10-60 giây.
             {' · '}
             <button type="button" className="link-sample" onClick={loadSample}>
               <Icon name="film" /> Thử ngay bài học mẫu (không cần dán link)

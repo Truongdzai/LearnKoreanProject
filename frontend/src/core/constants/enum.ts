@@ -4,8 +4,21 @@ export type AppView =
   | 'library'
   | 'myvideos'
   | 'courses'
+  | 'path'
+  | 'speaking'
   | 'vocab'
+  | 'flashcards'
+  | 'activities'
+  | 'leaderboard'
+  | 'quests'
+  | 'shop'
+  | 'garden'
+  | 'lingo'
   | 'dashboard'
   | 'pricing'
 
-export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'tomtat'
+export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'luyendich' | 'tomtat' | 'dubbing'
+
+export type ThemeMode = 'light' | 'dark'
+
+export type TopikLevel = 'Toàn bộ' | 'TOPIK1' | 'TOPIK2' | 'TOPIK3' | 'TOPIK4' | 'TOPIK5' | 'TOPIK6'

@@ -9,10 +9,13 @@ import type { Video } from '@/models/video.model'
 const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView } = useAppStore()
+  const { loadLesson, status, statusError, setView, saveVideo } = useAppStore()
   const [cat, setCat] = useState('Toàn bộ')
 
-  const pick = (v: Video) => loadLesson(videoUrl(v.id))
+  const pick = (v: Video) => {
+    saveVideo(v)
+    loadLesson(videoUrl(v.id))
+  }
 
   return (
     <>
@@ -31,8 +34,8 @@ export default function HomePage() {
       </div>
 
       <div className="section-title"><span className="pin" /> Bắt đầu lộ trình của bạn</div>
-      <div className="cta">
-        <div className="cta-ic"><Icon name="rocket" /></div>
+      <div className="cta" style={{ cursor: 'pointer' }} onClick={() => setView('path')}>
+        <div className="cta-ic"><Icon name="map" /></div>
         <div>
           <h3>Tạo lộ trình học cá nhân hoá</h3>
           <ul>
@@ -41,6 +44,9 @@ export default function HomePage() {
             <li>Tự gom video yêu thích thành khoá học riêng</li>
           </ul>
         </div>
+        <button className="btn-primary" style={{ marginLeft: 'auto', alignSelf: 'center' }}>
+          <Icon name="sparkles" size={15} /> Tạo lộ trình
+        </button>
       </div>
 
       <div className="section-title">
