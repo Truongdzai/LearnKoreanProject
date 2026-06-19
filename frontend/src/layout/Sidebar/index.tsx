@@ -9,11 +9,15 @@ const NAV: NavItem[] = [
   { id: 'library', icon: 'film', label: 'Kho video' },
   { id: 'myvideos', icon: 'tv', label: 'Video của tôi' },
   { id: 'path', icon: 'map', label: 'Lộ trình' },
+  { id: 'speaking', icon: 'mic', label: 'Luyện nói' },
+  { id: 'lingo', icon: 'trending', label: 'Hot Lingo' },
   { id: 'vocab', icon: 'cards', label: 'Từ vựng' },
   { id: 'flashcards', icon: 'letters', label: 'Ôn tập' },
+  { id: 'activities', icon: 'chart', label: 'Hoạt động' },
   { id: 'leaderboard', icon: 'trophy', label: 'Bảng xếp hạng' },
   { id: 'quests', icon: 'target', label: 'Nhiệm vụ' },
   { id: 'shop', icon: 'store', label: 'Cửa hàng' },
+  { id: 'garden', icon: 'sprout', label: 'Vườn của tôi' },
 ]
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']

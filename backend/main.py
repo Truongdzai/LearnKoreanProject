@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from .config import settings, ROOT
 from . import db
 from .services import health, media, dictionary
-from .routers import learn, dict as dict_router, srs as srs_router
+from .routers import learn, dict as dict_router, srs as srs_router, pronounce as pronounce_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -23,6 +23,7 @@ app = FastAPI(title=settings["app"]["name"], lifespan=lifespan)
 app.include_router(learn.router)
 app.include_router(dict_router.router)
 app.include_router(srs_router.router)
+app.include_router(pronounce_router.router)
 
 @app.get("/api/health")
 def api_health():

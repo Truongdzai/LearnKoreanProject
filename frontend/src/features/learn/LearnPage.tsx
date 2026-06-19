@@ -5,15 +5,18 @@ import Spinner from '@/core/components/Spinner'
 import Icon, { type IconName } from '@/core/components/Icon'
 import CurrentLine from './components/CurrentLine'
 import SubtitleList from './components/SubtitleList'
-import ComingSoon from './components/ComingSoon'
 import SummaryView from './components/SummaryView'
 import TranslatePractice from './components/TranslatePractice'
+import ShadowingPractice from './components/ShadowingPractice'
+import DictationPractice from './components/DictationPractice'
+import DubbingStudio from './components/DubbingStudio'
 import type { LearnTab } from '@/core/constants/enum'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'Shadowing' },
-  { id: 'phatam', ic: 'mic', label: 'Phát âm' },
+  { id: 'phatam', ic: 'mic', label: 'Luyện nói AI' },
   { id: 'chepchinhta', ic: 'headphones', label: 'Chép chính tả' },
+  { id: 'dubbing', ic: 'mic', label: 'Dubbing Studio' },
   { id: 'luyendich', ic: 'globe', label: 'Luyện dịch' },
   { id: 'tomtat', ic: 'note', label: 'Tóm tắt' },
 ]
@@ -99,12 +102,16 @@ export default function LearnPage() {
             onSeek={yt.seek}
           />
         </div>
+      ) : tab === 'phatam' ? (
+        <ShadowingPractice lesson={lesson} />
+      ) : tab === 'chepchinhta' ? (
+        <DictationPractice lesson={lesson} />
+      ) : tab === 'dubbing' ? (
+        <DubbingStudio lesson={lesson} />
       ) : tab === 'tomtat' ? (
         <SummaryView lesson={lesson} />
-      ) : tab === 'luyendich' ? (
-        <TranslatePractice lesson={lesson} />
       ) : (
-        <ComingSoon tab={tab} />
+        <TranslatePractice lesson={lesson} />
       )}
     </>
   )
