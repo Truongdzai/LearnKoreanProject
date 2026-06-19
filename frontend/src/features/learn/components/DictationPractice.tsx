@@ -1,0 +1,117 @@
+import { useState } from 'react'
+import Icon from '@/core/components/Icon'
+import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
+import { useAppStore } from '@/store/app.store'
+import type { Lesson } from '@/models/lesson.model'
+
+const REWARD = 6
+
+export default function DictationPractice({ lesson }: { lesson: Lesson }) {
+  const { addCoins } = useAppStore()
+  const segs = lesson.segments
+  const [i, setI] = useState(0)
+  const [val, setVal] = useState('')
+  const [checked, setChecked] = useState(false)
+  const [rewarded, setRewarded] = useState<Set<number>>(new Set())
+
+  const cur = segs[i]
+
+  const speak = (rate = 0.85) => {
+    try {
+      speechSynthesis.cancel()
+      const u = new SpeechSynthesisUtterance(cur.ko)
+      u.lang = 'ko-KR'
+      u.rate = rate
+      speechSynthesis.speak(u)
+    } catch {
+      /* unsupported */
+    }
+  }
+
+  const score = checked ? pronunciationScore(cur.ko, val) : 0
+  const band = scoreBand(score)
+  const marks = checked ? markWords(cur.ko, val) : []
+
+  const check = () => {
+    if (!val.trim()) return
+    setChecked(true)
+    const sc = pronunciationScore(cur.ko, val)
+    if (sc >= 70 && !rewarded.has(i)) {
+      addCoins(REWARD)
+      setRewarded((r) => new Set(r).add(i))
+    }
+  }
+
+  const go = (idx: number) => {
+    if (idx < 0 || idx >= segs.length) return
+    setI(idx); setVal(''); setChecked(false)
+  }
+
+  return (
+    <div className="dictation">
+      <div className="shadow-bar">
+        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> Trước</button>
+        <div className="shadow-prog">
+          <span>Câu {i + 1}/{segs.length}</span>
+          <div className="tp-bar"><span style={{ width: ((i + 1) / segs.length) * 100 + '%' }} /></div>
+          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {rewarded.size} đúng</span>
+        </div>
+        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>Tiếp <Icon name="arrow-right" size={15} /></button>
+      </div>
+
+      <div className="dict-card">
+        <div className="dict-label"><Icon name="headphones" size={15} /> Nghe và gõ lại bằng tiếng Hàn</div>
+
+        <div className="dict-listen">
+          <button className="dict-play" onClick={() => speak(0.85)}><Icon name="volume" size={22} /> Nghe</button>
+          <button className="btn-ghost" onClick={() => speak(0.55)}><Icon name="volume" size={16} /> Nghe chậm</button>
+        </div>
+
+        {!checked ? (
+          <textarea
+            lang="ko"
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); check() } }}
+            placeholder="Gõ những gì bạn nghe được…"
+            rows={2}
+            autoFocus
+          />
+        ) : (
+          <div className="dict-review">
+            <div className="dict-yours">
+              <span className="dict-mini">Bạn gõ:</span>
+              <span lang="ko">{val || '(trống)'}</span>
+            </div>
+            <div className="dict-correct">
+              <span className="dict-mini">Đáp án:</span>
+              <span lang="ko">
+                {marks.map((m, k) => <span key={k} className={'sw ' + (m.ok ? 'ok' : 'miss')}>{m.word} </span>)}
+              </span>
+            </div>
+            {cur.vi && <div className="dict-vi">{cur.vi}</div>}
+          </div>
+        )}
+
+        {checked && (
+          <div className={'dict-score ' + band.tone}>
+            <b>{band.label}</b>
+            <span className="dict-pct">{score}%</span>
+            {score >= 70 && rewarded.has(i) && <span className="sr-coin">+{REWARD} <Icon name="coin" size={13} /></span>}
+          </div>
+        )}
+
+        <div className="dict-actions">
+          {!checked ? (
+            <button className="btn-primary" disabled={!val.trim()} onClick={check}><Icon name="check" size={16} /> Kiểm tra</button>
+          ) : (
+            <>
+              <button className="btn-ghost sm" onClick={() => { setChecked(false); setVal('') }}><Icon name="headphones" size={14} /> Gõ lại</button>
+              {i < segs.length - 1 && <button className="btn-primary sm" onClick={() => go(i + 1)}>Câu tiếp <Icon name="arrow-right" size={15} /></button>}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

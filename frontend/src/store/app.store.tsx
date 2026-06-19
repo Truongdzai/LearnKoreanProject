@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { AppView, ThemeMode } from '@/core/constants/enum'
 import type { Lesson } from '@/models/lesson.model'
 import type { Video } from '@/models/video.model'
@@ -94,6 +94,8 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [view, setView] = useState<AppView>('home')
   const [theme, setTheme] = useState<ThemeMode>(initial.theme)
   const [user, setUser] = useState<UserProfile>(initial.user)
+  const userRef = useRef(user)
+  userRef.current = user
   const [owned, setOwned] = useState<string[]>(initial.owned)
   const [savedVideos, setSavedVideos] = useState<Video[]>(initial.savedVideos)
   const [paths, setPaths] = useState<LearningPath[]>(initial.paths)
@@ -123,30 +125,18 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const addCoins = useCallback((n: number) => setUser((u) => ({ ...u, coins: u.coins + n })), [])
   const spendCoins = useCallback((n: number) => {
-    let ok = false
-    setUser((u) => {
-      if (u.coins >= n) {
-        ok = true
-        return { ...u, coins: u.coins - n }
-      }
-      return u
-    })
-    return ok
+    if (userRef.current.coins < n) return false
+    setUser((u) => ({ ...u, coins: u.coins - n }))
+    return true
   }, [])
   const upgradePlus = useCallback(() => setUser((u) => ({ ...u, isPlus: true })), [])
   const equipFrame = useCallback((id: string | null) => setUser((u) => ({ ...u, equippedFrame: id })), [])
 
   const buyItem = useCallback((id: string, price: number) => {
-    let ok = false
-    setUser((u) => {
-      if (u.coins >= price) {
-        ok = true
-        return { ...u, coins: u.coins - price }
-      }
-      return u
-    })
-    if (ok) setOwned((o) => (o.includes(id) ? o : [...o, id]))
-    return ok
+    if (userRef.current.coins < price) return false
+    setUser((u) => ({ ...u, coins: u.coins - price }))
+    setOwned((o) => (o.includes(id) ? o : [...o, id]))
+    return true
   }, [])
 
   const saveVideo = useCallback((v: Video) => {

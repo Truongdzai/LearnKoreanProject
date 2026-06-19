@@ -296,6 +296,34 @@ const ICONS = {
       <path d="M22 2l-7 20-4-9-9-4z" />
     </>
   ),
+  stop: <rect x="6" y="6" width="12" height="12" rx="2" />,
+  pause: (
+    <>
+      <rect x="7" y="5" width="3.5" height="14" rx="1" />
+      <rect x="13.5" y="5" width="3.5" height="14" rx="1" />
+    </>
+  ),
+  download: (
+    <>
+      <path d="M12 3v12" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M4 20h16" />
+    </>
+  ),
+  share: (
+    <>
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
+    </>
+  ),
+  mute: (
+    <>
+      <path d="M5 9.5v5h3l4 3.5V6L8 9.5z" />
+      <path d="M16 9l5 5M21 9l-5 5" />
+    </>
+  ),
   droplet: <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />,
   trending: (
     <>

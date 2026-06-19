@@ -4,9 +4,13 @@ export interface YouTubePlayer {
   load: (id: string) => void
   seek: (sec: number) => void
   getTime: () => number | null
+  play: () => void
+  pause: () => void
+  mute: () => void
+  unMute: () => void
 }
 
-export function useYouTubePlayer(): YouTubePlayer {
+export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
   const playerRef = useRef<any>(null)
 
   useEffect(() => {
@@ -21,8 +25,8 @@ export function useYouTubePlayer(): YouTubePlayer {
     const make = () => {
       if (playerRef.current?.loadVideoById) {
         playerRef.current.loadVideoById(id)
-      } else if (document.getElementById('player')) {
-        playerRef.current = new window.YT.Player('player', {
+      } else if (document.getElementById(elementId)) {
+        playerRef.current = new window.YT.Player(elementId, {
           videoId: id,
           height: '100%',
           width: '100%',
@@ -59,5 +63,10 @@ export function useYouTubePlayer(): YouTubePlayer {
     }
   }
 
-  return { load, seek, getTime }
+  const play = () => { try { playerRef.current?.playVideo?.() } catch { /* */ } }
+  const pause = () => { try { playerRef.current?.pauseVideo?.() } catch { /* */ } }
+  const mute = () => { try { playerRef.current?.mute?.() } catch { /* */ } }
+  const unMute = () => { try { playerRef.current?.unMute?.() } catch { /* */ } }
+
+  return { load, seek, getTime, play, pause, mute, unMute }
 }
