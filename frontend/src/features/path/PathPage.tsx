@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Icon from '@/core/components/Icon'
+import Flag from '@/core/components/Flag'
 import { LANGUAGES, GOALS, INTERESTS, LEVELS, buildSteps } from '@/data/pathOptions'
 import type { LearningPath } from '@/models/path.model'
 import { useAppStore } from '@/store/app.store'
@@ -26,13 +27,13 @@ export default function PathPage() {
     setStep(0); setLang(''); setGoals([]); setInterests([]); setLevel(''); setCreated(null)
   }
 
-  const finish = () => {
+  const finish = async () => {
     const l = LANGUAGES.find((x) => x.code === lang)
     const lv = LEVELS.find((x) => x.code === level)
     const path: LearningPath = {
       id: 'p' + Date.now(),
       language: l?.name || 'Tiếng Hàn',
-      languageFlag: l?.flag || '🇰🇷',
+      languageFlag: l?.flag || 'kr',
       goals,
       interests,
       level: lv ? `${lv.code} · ${lv.name}` : 'A1',
@@ -40,7 +41,7 @@ export default function PathPage() {
       steps: buildSteps(goals, interests, lv ? `${lv.code} ${lv.name}` : 'A1'),
       progress: 0,
     }
-    addPath(path)
+    try { await addPath(path) } catch { /* khách: vẫn xem được, đăng nhập để lưu */ }
     setCreated(path)
     setMode('result')
   }
@@ -74,7 +75,7 @@ export default function PathPage() {
             <div className="path-list">
               {paths.map((p) => (
                 <div key={p.id} className="path-card" onClick={() => { setCreated(p); setMode('result') }}>
-                  <div className="path-card-flag">{p.languageFlag}</div>
+                  <div className="path-card-flag"><Flag code={p.languageFlag} size={38} /></div>
                   <div className="path-card-body">
                     <b>{p.language} · {p.level}</b>
                     <span>{p.steps.length} giai đoạn · {p.goals.length} mục tiêu</span>
@@ -104,7 +105,7 @@ export default function PathPage() {
         </div>
 
         <div className="path-summary">
-          <span className="ps-flag">{created.languageFlag}</span>
+          <span className="ps-flag"><Flag code={created.languageFlag} size={46} /></span>
           <div>
             <h2>{created.language} · {created.level}</h2>
             <div className="ps-tags">
@@ -155,7 +156,7 @@ export default function PathPage() {
             <div className="lang-grid">
               {LANGUAGES.map((l) => (
                 <button key={l.code} className={'lang-card' + (lang === l.code ? ' on' : '')} onClick={() => setLang(l.code)}>
-                  <span className="lang-flag">{l.flag}</span>
+                  <span className="lang-flag"><Flag code={l.flag} size={54} /></span>
                   <span>{l.name}</span>
                 </button>
               ))}

@@ -4,10 +4,10 @@ import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce
 import { useAppStore } from '@/store/app.store'
 import type { Lesson } from '@/models/lesson.model'
 
-const REWARD = 6
+const REWARD = 2
 
 export default function DictationPractice({ lesson }: { lesson: Lesson }) {
-  const { addCoins } = useAppStore()
+  const { recordEvent } = useAppStore()
   const segs = lesson.segments
   const [i, setI] = useState(0)
   const [val, setVal] = useState('')
@@ -37,7 +37,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
     setChecked(true)
     const sc = pronunciationScore(cur.ko, val)
     if (sc >= 70 && !rewarded.has(i)) {
-      addCoins(REWARD)
+      recordEvent('review', 1)
       setRewarded((r) => new Set(r).add(i))
     }
   }
@@ -97,7 +97,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
           <div className={'dict-score ' + band.tone}>
             <b>{band.label}</b>
             <span className="dict-pct">{score}%</span>
-            {score >= 70 && rewarded.has(i) && <span className="sr-coin">+{REWARD} <Icon name="coin" size={13} /></span>}
+            {score >= 70 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}
           </div>
         )}
 

@@ -7,10 +7,10 @@ import { fetchPronounceFeedback, type PronounceFeedback } from '@/core/api/prono
 import { useAppStore } from '@/store/app.store'
 import type { Lesson } from '@/models/lesson.model'
 
-const REWARD = 8
+const REWARD = 5
 
 export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
-  const { addCoins } = useAppStore()
+  const { recordEvent } = useAppStore()
   const segs = lesson.segments
   const [i, setI] = useState(0)
   const [score, setScore] = useState<number | null>(null)
@@ -18,7 +18,6 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [ai, setAi] = useState<PronounceFeedback | null>(null)
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState('')
-  const [manual, setManual] = useState('')
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
   const sr = useSpeechRecognition('ko-KR')
 
@@ -38,7 +37,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   }
 
   const resetAttempt = () => {
-    setScore(null); setHeard(''); setAi(null); setAiError(''); setManual(''); sr.reset()
+    setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()
   }
 
   const go = (idx: number) => {
@@ -57,7 +56,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     setHeard(said)
     setScore(sc)
     if (sc >= 65 && !rewarded.has(i)) {
-      addCoins(REWARD)
+      recordEvent('pronounce', 1)
       setRewarded((r) => new Set(r).add(i))
     }
   }
@@ -113,7 +112,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           <button className="btn-ghost" onClick={() => speak(cur.ko, 0.6)}><Icon name="volume" size={16} /> Nghe chậm</button>
         </div>
 
-        {sr.supported && (
+        {sr.supported ? (
           <>
             <button className={'mic-btn' + (sr.listening ? ' on' : '')} onClick={record}>
               <Icon name="mic" size={26} />
@@ -122,26 +121,9 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
             {(sr.listening || sr.interim) && <div className="shadow-interim" lang="ko">{sr.interim || '…'}</div>}
             {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
           </>
+        ) : (
+          <div className="shadow-err"><Icon name="x-circle" size={15} /> Trình duyệt chưa hỗ trợ nhận diện giọng nói. Hãy dùng <b>Chrome</b> hoặc <b>Edge</b> để luyện nói.</div>
         )}
-
-        {/* Fallback: works without speech recognition (no mic / network error / Firefox-Safari). */}
-        <div className="shadow-manual">
-          <span className="shadow-manual-lbl">
-            {sr.supported ? 'Micro lỗi? Gõ lại câu bạn vừa nói để chấm điểm:' : 'Trình duyệt chưa hỗ trợ micro (hãy dùng Chrome/Edge). Bạn vẫn có thể gõ câu để chấm điểm:'}
-          </span>
-          <div className="shadow-manual-row">
-            <input
-              lang="ko"
-              value={manual}
-              onChange={(e) => setManual(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && manual.trim() && applyResult(manual.trim())}
-              placeholder="Gõ câu tiếng Hàn bạn vừa đọc…"
-            />
-            <button className="btn-primary sm" disabled={!manual.trim()} onClick={() => manual.trim() && applyResult(manual.trim())}>
-              <Icon name="check" size={15} /> Chấm
-            </button>
-          </div>
-        </div>
       </div>
 
       {score !== null && band && (
@@ -156,7 +138,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
             <b>{score}<small>%</small></b>
           </div>
           <div className="sr-body">
-            <div className="sr-band">{band.label}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} <Icon name="coin" size={13} /></span>}</div>
+            <div className="sr-band">{band.label}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}</div>
             <div className="sr-heard"><span>Bạn đã nói:</span> <em lang="ko">{heard || '(không nghe rõ)'}</em></div>
             <div className="sr-actions">
               <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> Thử lại</button>

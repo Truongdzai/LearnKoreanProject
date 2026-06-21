@@ -1,0 +1,71 @@
+import { apiClient } from './client'
+import type { Account } from '@/models/account.model'
+import type { PlantedSeed, Quest } from '@/models/gamification.model'
+import type { Video } from '@/models/video.model'
+import type { LearningPath } from '@/models/path.model'
+
+export interface MeState {
+  user: Account
+  owned: string[]
+  garden: PlantedSeed[]
+  paths: LearningPath[]
+  savedVideos: Video[]
+}
+
+export interface Activities {
+  labels: string[]
+  minutes: number[]
+  words: number[]
+  todayIdx: number
+  totalMinutes: number
+  totalWords: number
+  srsTotal: number
+}
+
+export type EventType = 'lesson' | 'pronounce' | 'review' | 'video' | 'word' | 'login'
+
+export const fetchState = () => apiClient.get<MeState>('/api/me/state')
+
+export const fetchMyQuests = () =>
+  apiClient.get<{ quests: Quest[]; bonusAvailable: boolean }>('/api/me/quests')
+
+export const fetchActivities = () => apiClient.get<Activities>('/api/me/activities')
+
+export const buyItemApi = (item_id: string) =>
+  apiClient.post<{ ok: boolean; owned: string[]; user: Account }>('/api/me/buy', { item_id })
+
+export const equipFrameApi = (frame: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip', { frame })
+
+export const upgradePlusApi = (plan_id = '') =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/plus', { plan_id })
+
+export const plantSeedApi = (item_id: string, art: string, name: string) =>
+  apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/plant', { item_id, art, name })
+
+export const waterPlantApi = (plant_id: string) =>
+  apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/water', { plant_id })
+
+export const removePlantApi = (plant_id: string) =>
+  apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/remove', { plant_id })
+
+export const addPathApi = (title: string, data: Record<string, unknown>) =>
+  apiClient.post<{ ok: boolean; paths: LearningPath[] }>('/api/me/paths', { title, data })
+
+export const saveVideoApi = (v: Video) =>
+  apiClient.post<{ ok: boolean; savedVideos: Video[] }>('/api/me/videos/save', v)
+
+export const removeVideoApi = (id: string) =>
+  apiClient.post<{ ok: boolean; savedVideos: Video[] }>('/api/me/videos/remove', { id })
+
+export const claimQuestApi = (quest_id: string) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/quests/claim', { quest_id })
+
+export const dailyBonusApi = () =>
+  apiClient.post<{ ok: boolean; reward: number; user: Account }>('/api/me/daily-bonus')
+
+export const ackGiftApi = () =>
+  apiClient.post<{ ok: boolean }>('/api/me/gift/ack')
+
+export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words = 0) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/event', { type, amount, minutes, words })

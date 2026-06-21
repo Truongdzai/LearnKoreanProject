@@ -1,50 +1,29 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { AppView, ThemeMode } from '@/core/constants/enum'
 import type { Lesson } from '@/models/lesson.model'
 import type { Video } from '@/models/video.model'
-import type { UserProfile, PlantedSeed } from '@/models/gamification.model'
+import type { Account } from '@/models/account.model'
+import type { PlantedSeed } from '@/models/gamification.model'
 import type { LearningPath } from '@/models/path.model'
 import { fetchTranscript } from '@/core/api/learn.api'
+import { fetchVideos } from '@/core/api/content.api'
+import {
+  fetchState, buyItemApi, equipFrameApi, upgradePlusApi, plantSeedApi, waterPlantApi,
+  removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
+  recordEventApi, type EventType,
+} from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
+import { useAuth } from '@/store/auth.store'
 
-const LS_KEY = 'vyling.v1'
+const THEME_KEY = 'vyling.theme'
 
-interface Persisted {
-  theme: ThemeMode
-  user: UserProfile
-  owned: string[]
-  savedVideos: Video[]
-  paths: LearningPath[]
-  garden: PlantedSeed[]
+const GUEST: Account = {
+  id: '', name: 'Khách', provider: 'email', role: 'user',
+  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null,
 }
 
-const DEFAULT_USER: UserProfile = {
-  name: 'Bạn',
-  isPlus: false,
-  coins: 480,
-  xp: 4820,
-  level: 12,
-  streak: 5,
-  equippedFrame: null,
-}
-
-function loadPersisted(): Persisted {
-  const base: Persisted = { theme: 'dark', user: DEFAULT_USER, owned: [], savedVideos: [], paths: [], garden: [] }
-  try {
-    const raw = localStorage.getItem(LS_KEY)
-    if (!raw) return base
-    const p = JSON.parse(raw) as Partial<Persisted>
-    return {
-      theme: p.theme === 'light' ? 'light' : 'dark',
-      user: { ...DEFAULT_USER, ...(p.user || {}) },
-      owned: p.owned || [],
-      savedVideos: p.savedVideos || [],
-      paths: p.paths || [],
-      garden: p.garden || [],
-    }
-  } catch {
-    return base
-  }
+function loadTheme(): ThemeMode {
+  try { return localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark' } catch { return 'dark' }
 }
 
 interface AppStore {
@@ -54,26 +33,28 @@ interface AppStore {
   theme: ThemeMode
   toggleTheme: () => void
 
-  user: UserProfile
-  addCoins: (n: number) => void
-  spendCoins: (n: number) => boolean
-  upgradePlus: () => void
-  equipFrame: (id: string | null) => void
+  user: Account
+  isAuthed: boolean
+
+  videos: Video[]
 
   owned: string[]
-  buyItem: (id: string, price: number) => boolean
-
   savedVideos: Video[]
-  saveVideo: (v: Video) => void
-  removeVideo: (id: string) => void
-
   paths: LearningPath[]
-  addPath: (p: LearningPath) => void
-
   garden: PlantedSeed[]
-  plantSeed: (itemId: string, art: string, name: string) => void
-  waterPlant: (id: string) => void
-  removePlant: (id: string) => void
+
+  buyItem: (itemId: string) => Promise<void>
+  equipFrame: (frame: string | null) => Promise<void>
+  upgradePlus: (planId?: string) => Promise<void>
+  plantSeed: (itemId: string, art: string, name: string) => Promise<void>
+  waterPlant: (id: string) => Promise<void>
+  removePlant: (id: string) => Promise<void>
+  saveVideo: (v: Video) => Promise<void>
+  removeVideo: (id: string) => Promise<void>
+  addPath: (p: LearningPath) => Promise<void>
+  claimQuest: (id: string) => Promise<void>
+  dailyBonus: () => Promise<number>
+  recordEvent: (type: EventType, amount?: number, minutes?: number, words?: number) => void
 
   lookupOpen: boolean
   openLookup: (term?: string) => void
@@ -90,16 +71,16 @@ interface AppStore {
 const AppContext = createContext<AppStore | null>(null)
 
 export function AppStoreProvider({ children }: { children: ReactNode }) {
-  const initial = useMemo(loadPersisted, [])
+  const { account, isAuthed, setAccount, openAuth, setBonusAvailable } = useAuth()
+
   const [view, setView] = useState<AppView>('home')
-  const [theme, setTheme] = useState<ThemeMode>(initial.theme)
-  const [user, setUser] = useState<UserProfile>(initial.user)
-  const userRef = useRef(user)
-  userRef.current = user
-  const [owned, setOwned] = useState<string[]>(initial.owned)
-  const [savedVideos, setSavedVideos] = useState<Video[]>(initial.savedVideos)
-  const [paths, setPaths] = useState<LearningPath[]>(initial.paths)
-  const [garden, setGarden] = useState<PlantedSeed[]>(initial.garden)
+  const [theme, setTheme] = useState<ThemeMode>(loadTheme)
+
+  const [videos, setVideos] = useState<Video[]>([])
+  const [owned, setOwned] = useState<string[]>([])
+  const [savedVideos, setSavedVideos] = useState<Video[]>([])
+  const [paths, setPaths] = useState<LearningPath[]>([])
+  const [garden, setGarden] = useState<PlantedSeed[]>([])
 
   const [lookupOpen, setLookupOpen] = useState(false)
   const [lookupSeed, setLookupSeed] = useState('')
@@ -108,53 +89,113 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState('')
   const [statusError, setStatusError] = useState(false)
 
+  const user = account ?? GUEST
+
   useEffect(() => {
     document.documentElement.dataset.theme = theme
+    try { localStorage.setItem(THEME_KEY, theme) } catch { /* ignore */ }
   }, [theme])
 
   useEffect(() => {
-    const data: Persisted = { theme, user, owned, savedVideos, paths, garden }
-    try {
-      localStorage.setItem(LS_KEY, JSON.stringify(data))
-    } catch {
-      /* ignore quota */
+    fetchVideos().then((r) => setVideos(r.videos)).catch(() => setVideos([]))
+  }, [])
+
+  useEffect(() => {
+    if (!isAuthed) {
+      setOwned([]); setSavedVideos([]); setPaths([]); setGarden([])
+      return
     }
-  }, [theme, user, owned, savedVideos, paths, garden])
+    fetchState()
+      .then((s) => {
+        setOwned(s.owned)
+        setSavedVideos(s.savedVideos)
+        setPaths(s.paths)
+        setGarden(s.garden)
+        setAccount(s.user)
+      })
+      .catch(() => { /* ignore */ })
+  }, [isAuthed, setAccount])
 
   const toggleTheme = useCallback(() => setTheme((t) => (t === 'dark' ? 'light' : 'dark')), [])
 
-  const addCoins = useCallback((n: number) => setUser((u) => ({ ...u, coins: u.coins + n })), [])
-  const spendCoins = useCallback((n: number) => {
-    if (userRef.current.coins < n) return false
-    setUser((u) => ({ ...u, coins: u.coins - n }))
-    return true
-  }, [])
-  const upgradePlus = useCallback(() => setUser((u) => ({ ...u, isPlus: true })), [])
-  const equipFrame = useCallback((id: string | null) => setUser((u) => ({ ...u, equippedFrame: id })), [])
+  const guard = useCallback((): boolean => {
+    if (isAuthed) return true
+    openAuth()
+    return false
+  }, [isAuthed, openAuth])
 
-  const buyItem = useCallback((id: string, price: number) => {
-    if (userRef.current.coins < price) return false
-    setUser((u) => ({ ...u, coins: u.coins - price }))
-    setOwned((o) => (o.includes(id) ? o : [...o, id]))
-    return true
+  const buyItem = useCallback(async (itemId: string) => {
+    if (!guard()) throw new Error('Hãy đăng nhập để mua vật phẩm.')
+    const r = await buyItemApi(itemId)
+    setOwned(r.owned)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const equipFrame = useCallback(async (frame: string | null) => {
+    if (!guard()) return
+    const r = await equipFrameApi(frame)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const upgradePlus = useCallback(async (planId = '') => {
+    if (!guard()) return
+    const r = await upgradePlusApi(planId)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const plantSeed = useCallback(async (itemId: string, art: string, name: string) => {
+    if (!guard()) return
+    const r = await plantSeedApi(itemId, art, name)
+    setGarden(r.garden)
+  }, [guard])
+
+  const waterPlant = useCallback(async (id: string) => {
+    const r = await waterPlantApi(id)
+    setGarden(r.garden)
   }, [])
 
-  const saveVideo = useCallback((v: Video) => {
-    setSavedVideos((list) => (list.some((x) => x.id === v.id) ? list : [v, ...list]))
-  }, [])
-  const removeVideo = useCallback((id: string) => {
-    setSavedVideos((list) => list.filter((x) => x.id !== id))
+  const removePlant = useCallback(async (id: string) => {
+    const r = await removePlantApi(id)
+    setGarden(r.garden)
   }, [])
 
-  const addPath = useCallback((p: LearningPath) => setPaths((list) => [p, ...list]), [])
+  const saveVideo = useCallback(async (v: Video) => {
+    if (!isAuthed) return
+    const r = await saveVideoApi(v)
+    setSavedVideos(r.savedVideos)
+  }, [isAuthed])
 
-  const plantSeed = useCallback((itemId: string, art: string, name: string) => {
-    setGarden((g) => [...g, { id: 'pl' + Date.now() + Math.random().toString(36).slice(2, 6), itemId, art, name, growth: 8, plantedAt: Date.now() }])
+  const removeVideo = useCallback(async (id: string) => {
+    const r = await removeVideoApi(id)
+    setSavedVideos(r.savedVideos)
   }, [])
-  const waterPlant = useCallback((id: string) => {
-    setGarden((g) => g.map((p) => (p.id === id ? { ...p, growth: Math.min(100, p.growth + 14) } : p)))
-  }, [])
-  const removePlant = useCallback((id: string) => setGarden((g) => g.filter((p) => p.id !== id)), [])
+
+  const addPath = useCallback(async (p: LearningPath) => {
+    if (!guard()) throw new Error('Hãy đăng nhập để lưu lộ trình.')
+    const r = await addPathApi(`${p.language} · ${p.level}`, p as unknown as Record<string, unknown>)
+    setPaths(r.paths)
+  }, [guard])
+
+  const claimQuest = useCallback(async (id: string) => {
+    if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
+    const r = await claimQuestApi(id)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const dailyBonus = useCallback(async (): Promise<number> => {
+    if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
+    const r = await dailyBonusApi()
+    setAccount(r.user)
+    setBonusAvailable(false)
+    return r.reward
+  }, [guard, setAccount, setBonusAvailable])
+
+  const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0) => {
+    if (!isAuthed) return
+    recordEventApi(type, amount, minutes, words)
+      .then((r) => setAccount(r.user))
+      .catch(() => { /* non-blocking */ })
+  }, [isAuthed, setAccount])
 
   const openLookup = useCallback((term = '') => {
     setLookupSeed(term)
@@ -177,11 +218,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       const d = await fetchTranscript(u)
       setLesson(d)
       setStatus('')
+      recordEvent('video', 1, 0, 0)
     } catch (e) {
       setStatusError(true)
       setStatus((e as Error).message)
     }
-  }, [])
+  }, [recordEvent])
 
   const loadSample = useCallback(() => {
     setStatusError(false)
@@ -193,11 +235,13 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const value: AppStore = {
     view, setView,
     theme, toggleTheme,
-    user, addCoins, spendCoins, upgradePlus, equipFrame,
-    owned, buyItem,
-    savedVideos, saveVideo, removeVideo,
-    paths, addPath,
-    garden, plantSeed, waterPlant, removePlant,
+    user, isAuthed,
+    videos,
+    owned, savedVideos, paths, garden,
+    buyItem, equipFrame, upgradePlus,
+    plantSeed, waterPlant, removePlant,
+    saveVideo, removeVideo, addPath,
+    claimQuest, dailyBonus, recordEvent,
     lookupOpen, openLookup, closeLookup, lookupSeed,
     lesson, status, statusError, loadLesson, loadSample,
   }

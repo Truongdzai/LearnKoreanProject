@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flower from '@/core/components/Flower'
 import Avatar from '@/core/components/Avatar'
-import { SHOP_ITEMS } from '@/data/gamification'
+import { fetchShop } from '@/core/api/content.api'
 import type { ShopCategory, ShopItem } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
 
 const CATS: { id: ShopCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'Tất cả vật phẩm' },
@@ -22,22 +23,44 @@ function ItemArt({ item }: { item: ShopItem }) {
 }
 
 export default function ShopPage() {
-  const { user, owned, buyItem, equipFrame, setView } = useAppStore()
+  const { user, owned, buyItem, equipFrame, setView, isAuthed } = useAppStore()
+  const { openAuth } = useAuth()
+  const [items, setItems] = useState<ShopItem[]>([])
   const [cat, setCat] = useState<ShopCategory | 'all'>('all')
   const [tab, setTab] = useState<'shop' | 'inv'>('shop')
   const [flash, setFlash] = useState('')
+  const [busy, setBusy] = useState('')
 
-  let items = SHOP_ITEMS.filter((i) => cat === 'all' || i.category === cat)
-  if (tab === 'inv') items = items.filter((i) => owned.includes(i.id))
+  useEffect(() => {
+    fetchShop().then((r) => setItems(r.shop)).catch(() => setItems([]))
+  }, [])
 
-  const onBuy = (item: ShopItem) => {
+  const showFlash = (msg: string) => {
+    setFlash(msg)
+    setTimeout(() => setFlash(''), 2400)
+  }
+
+  let view = items.filter((i) => cat === 'all' || i.category === cat)
+  if (tab === 'inv') view = view.filter((i) => owned.includes(i.id))
+
+  const onBuy = async (item: ShopItem) => {
     if (item.plus && !user.isPlus) {
       setView('pricing')
       return
     }
-    const ok = buyItem(item.id, item.price)
-    setFlash(ok ? `Đã mua "${item.name}"!` : 'Không đủ xu — hãy hoàn thành nhiệm vụ để kiếm thêm.')
-    setTimeout(() => setFlash(''), 2200)
+    setBusy(item.id)
+    try {
+      await buyItem(item.id)
+      showFlash(`Đã mua "${item.name}"!`)
+    } catch (e) {
+      showFlash((e as Error).message)
+    } finally {
+      setBusy('')
+    }
+  }
+
+  const onEquip = async (item: ShopItem, equipped: boolean) => {
+    try { await equipFrame(equipped ? null : item.art) } catch (e) { showFlash((e as Error).message) }
   }
 
   return (
@@ -49,6 +72,13 @@ export default function ShopPage() {
         </div>
         <div className="coin-balance"><Icon name="coin" size={20} /> {user.coins.toLocaleString('vi')}</div>
       </div>
+
+      {!isAuthed && (
+        <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>
+          Đăng nhập để mua vật phẩm và lưu kho đồ của bạn.{' '}
+          <button className="link-more" onClick={openAuth}>Đăng nhập</button>
+        </div>
+      )}
 
       <div className="shop-toptabs">
         <button className={tab === 'shop' ? 'on' : ''} onClick={() => setTab('shop')}>Vật phẩm</button>
@@ -64,11 +94,11 @@ export default function ShopPage() {
 
       {flash && <div className="shop-flash">{flash}</div>}
 
-      {items.length === 0 ? (
+      {view.length === 0 ? (
         <div className="empty"><div className="big">🛍️</div>{tab === 'inv' ? 'Kho đồ trống — hãy mua vật phẩm đầu tiên!' : 'Không có vật phẩm.'}</div>
       ) : (
         <div className="shop-grid">
-          {items.map((item) => {
+          {view.map((item) => {
             const isOwned = owned.includes(item.id)
             const equipped = item.category === 'frame' && user.equippedFrame === item.art
             return (
@@ -83,14 +113,16 @@ export default function ShopPage() {
                   <span className="item-price"><Icon name="coin" size={16} /> {item.price}</span>
                   {isOwned ? (
                     item.category === 'frame' ? (
-                      <button className={'item-btn ' + (equipped ? 'equipped' : 'equip')} onClick={() => equipFrame(equipped ? null : item.art)}>
+                      <button className={'item-btn ' + (equipped ? 'equipped' : 'equip')} onClick={() => onEquip(item, equipped)}>
                         {equipped ? 'Đang dùng ✓' : 'Trang bị'}
                       </button>
                     ) : (
                       <button className="item-btn owned" disabled>Đã sở hữu</button>
                     )
                   ) : (
-                    <button className="item-btn buy" onClick={() => onBuy(item)}>Mua</button>
+                    <button className="item-btn buy" disabled={busy === item.id} onClick={() => onBuy(item)}>
+                      {busy === item.id ? '…' : 'Mua'}
+                    </button>
                   )}
                 </div>
               </div>

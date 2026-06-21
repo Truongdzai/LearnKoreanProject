@@ -12,6 +12,14 @@ DEFAULTS: dict = {
     "llm": {"provider": "none", "api_key": "", "model": "", "models": []},
     "anki": {"url": "http://127.0.0.1:8765", "deck": "TiengHan", "note_type": "HanQuan"},
     "whisper": {"model": "small"},
+    "network": {"proxy": ""},
+    "admin": {"email": "admin@vyling.vn", "password": "Admin@123", "name": "Quản trị viên"},
+    "oauth": {
+        "google_client_id": "",
+        "google_client_secret": "",
+        "facebook_app_id": "",
+        "facebook_app_secret": "",
+    },
 }
 
 def _merge(base: dict, over: dict) -> dict:

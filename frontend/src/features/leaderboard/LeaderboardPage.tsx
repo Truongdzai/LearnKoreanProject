@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Avatar from '@/core/components/Avatar'
-import { LEADERBOARD } from '@/data/gamification'
+import { fetchLeaderboard } from '@/core/api/content.api'
+import type { LeaderEntry } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
 
 function nextWeekReset() {
   const now = new Date()
   const d = new Date(now)
-  const day = (now.getDay() + 6) % 7 // Mon=0
+  const day = (now.getDay() + 6) % 7
   d.setDate(now.getDate() + (7 - day))
   d.setHours(0, 0, 0, 0)
   return d.getTime()
@@ -36,9 +37,20 @@ export default function LeaderboardPage() {
   const [target] = useState(nextWeekReset)
   const cd = useCountdown(target)
 
-  const top3 = LEADERBOARD.slice(0, 3)
-  const rest = LEADERBOARD.slice(3)
-  const podiumOrder = [top3[1], top3[0], top3[2]].filter(Boolean)
+  const [entries, setEntries] = useState<LeaderEntry[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+    fetchLeaderboard()
+      .then((r) => setEntries(r.entries))
+      .catch(() => setEntries([]))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const top3 = entries.slice(0, 3)
+  const rest = entries.slice(3)
+  const podiumOrder = [top3[1], top3[0], top3[2]].filter(Boolean) as LeaderEntry[]
 
   return (
     <div className="lb">
@@ -68,38 +80,43 @@ export default function LeaderboardPage() {
         <div className="lb-cd-foot">Top 3 nhận thưởng xu lớn & khung viền giới hạn mỗi tuần</div>
       </div>
 
-      <div className="podium">
-        {podiumOrder.map((e) => (
-          <div key={e.rank} className={'podium-card r' + e.rank + (e.isPlus ? ' plus' : '')}>
-            <div className="podium-rank">#{e.rank}</div>
-            <Avatar size={e.rank === 1 ? 84 : 68} frame={e.frame} initials={e.name.charAt(0)} />
-            <div className="podium-name">
-              {e.name}
-              {e.isPlus && <span className="plus-tag"><Icon name="sparkles" size={11} /> Plus</span>}
-            </div>
-            <div className="podium-xp"><Icon name="star" size={13} /> {e.xp.toLocaleString('vi')} XP</div>
-            <div className="podium-meta">Lv {e.level} · <Icon name="flame" size={12} /> {e.streak}</div>
+      {loading ? (
+        <div className="empty"><div className="big">🏆</div>Đang tải bảng xếp hạng…</div>
+      ) : entries.length === 0 ? (
+        <div className="empty"><div className="big">🏆</div>Chưa có ai trên bảng xếp hạng. Hãy là người đầu tiên — bắt đầu học ngay!</div>
+      ) : (
+        <>
+          <div className="podium">
+            {podiumOrder.map((e) => (
+              <div key={e.rank} className={'podium-card r' + e.rank + (e.isPlus ? ' plus' : '')}>
+                <div className="podium-rank">#{e.rank}</div>
+                <Avatar size={e.rank === 1 ? 84 : 68} frame={e.frame} initials={e.name.charAt(0)} />
+                <div className="podium-name">
+                  {e.name}
+                  {e.isPlus && <span className="plus-tag"><Icon name="sparkles" size={11} /> Plus</span>}
+                </div>
+                <div className="podium-xp"><Icon name="star" size={13} /> {e.xp.toLocaleString('vi')} XP</div>
+                <div className="podium-meta">Lv {e.level} · <Icon name="flame" size={12} /> {e.streak}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="lb-list">
-        {rest.map((e) => {
-          const me = e.name === 'Bạn'
-          return (
-            <div key={e.rank} className={'lb-row' + (me ? ' me' : '') + (e.isPlus ? ' plus' : '')}>
-              <span className="lb-rank">{e.rank}</span>
-              <Avatar size={40} frame={e.frame} initials={e.name.charAt(0)} />
-              <span className="lb-name">
-                {e.name}
-                {e.isPlus && <span className="plus-tag sm"><Icon name="sparkles" size={10} /> Plus</span>}
-              </span>
-              <span className="lb-streak"><Icon name="flame" size={13} /> {e.streak}</span>
-              <span className="lb-xp">{e.xp.toLocaleString('vi')} XP</span>
-            </div>
-          )
-        })}
-      </div>
+          <div className="lb-list">
+            {rest.map((e) => (
+              <div key={e.rank} className={'lb-row' + (e.me ? ' me' : '') + (e.isPlus ? ' plus' : '')}>
+                <span className="lb-rank">{e.rank}</span>
+                <Avatar size={40} frame={e.frame} initials={e.name.charAt(0)} />
+                <span className="lb-name">
+                  {e.name}
+                  {e.isPlus && <span className="plus-tag sm"><Icon name="sparkles" size={10} /> Plus</span>}
+                </span>
+                <span className="lb-streak"><Icon name="flame" size={13} /> {e.streak}</span>
+                <span className="lb-xp">{e.xp.toLocaleString('vi')} XP</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {!user.isPlus && (
         <div className="lb-upsell">

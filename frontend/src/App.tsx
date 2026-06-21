@@ -16,11 +16,16 @@ import QuestsPage from '@/features/quests/QuestsPage'
 import ShopPage from '@/features/shop/ShopPage'
 import GardenPage from '@/features/garden/GardenPage'
 import LingoRadarPage from '@/features/lingo/LingoRadarPage'
+import AdminPage from '@/features/admin/AdminPage'
 import LookupModal from '@/features/lookup/LookupModal'
+import AuthModal from '@/features/auth/AuthModal'
+import GiftModal from '@/features/gift/GiftModal'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
 
 export default function App() {
   const { view } = useAppStore()
+  const { isAdmin } = useAuth()
 
   return (
     <div className="app">
@@ -44,9 +49,12 @@ export default function App() {
           {view === 'lingo' && <LingoRadarPage />}
           {view === 'dashboard' && <DashboardPage />}
           {view === 'pricing' && <PricingPage />}
+          {view === 'admin' && isAdmin && <AdminPage />}
         </div>
       </div>
       <LookupModal />
+      <AuthModal />
+      <GiftModal />
     </div>
   )
 }

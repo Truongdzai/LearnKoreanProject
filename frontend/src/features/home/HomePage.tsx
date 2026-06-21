@@ -2,14 +2,14 @@ import { useState } from 'react'
 import Hero from './components/Hero'
 import VideoCard from '@/features/shared/VideoCard'
 import Icon from '@/core/components/Icon'
-import { VIDEOS, videoUrl } from '@/data/videos'
+import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import type { Video } from '@/models/video.model'
 
 const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView, saveVideo } = useAppStore()
+  const { loadLesson, status, statusError, setView, saveVideo, videos } = useAppStore()
   const [cat, setCat] = useState('Toàn bộ')
 
   const pick = (v: Video) => {
@@ -54,7 +54,7 @@ export default function HomePage() {
         <button className="link-more" onClick={() => setView('library')}>Xem tất cả <Icon name="arrow-right" size={15} /></button>
       </div>
       <div className="vgrid">
-        {VIDEOS.slice(0, 8).map((v) => (
+        {videos.slice(0, 8).map((v) => (
           <VideoCard key={v.id} video={v} onPick={pick} />
         ))}
       </div>

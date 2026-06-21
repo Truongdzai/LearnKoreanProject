@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flower from '@/core/components/Flower'
-import { SHOP_ITEMS } from '@/data/gamification'
+import { fetchShop } from '@/core/api/content.api'
+import type { ShopItem } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
 
 function stage(g: number) {
@@ -13,8 +15,13 @@ function stage(g: number) {
 
 export default function GardenPage() {
   const { owned, garden, plantSeed, waterPlant, removePlant, setView } = useAppStore()
+  const [seeds, setSeeds] = useState<ShopItem[]>([])
 
-  const ownedSeeds = SHOP_ITEMS.filter((i) => i.category === 'seed' && owned.includes(i.id))
+  useEffect(() => {
+    fetchShop().then((r) => setSeeds(r.shop.filter((i) => i.category === 'seed'))).catch(() => setSeeds([]))
+  }, [])
+
+  const ownedSeeds = seeds.filter((i) => owned.includes(i.id))
   const bloomed = garden.filter((p) => p.growth >= 100).length
 
   return (
