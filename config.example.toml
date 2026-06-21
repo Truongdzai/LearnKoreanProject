@@ -18,3 +18,28 @@ note_type = "HanQuan"
 
 [whisper]
 model = "small"
+
+# Proxy để lấy phụ đề / tải audio từ YouTube khi deploy lên máy chủ cloud.
+# YouTube CHẶN IP trung tâm dữ liệu, nên trên cloud cần proxy DÂN CƯ (residential)
+# thì việc "người dùng dán link YouTube bất kỳ" mới chạy được. Để TRỐNG khi chạy ở
+# máy nhà (IP nhà không bị chặn). Ví dụ: "http://user:pass@host:port".
+[network]
+proxy = ""
+
+# Tài khoản quản trị (đăng nhập trang Admin để quản lý nội dung & người dùng).
+# Đổi mật khẩu này trước khi đưa web cho người khác dùng.
+[admin]
+email    = "admin@vyling.vn"
+password = "Admin@123"
+name     = "Quản trị viên"
+
+# Đăng nhập Google / Facebook (tùy chọn). Để trống thì 2 nút đó sẽ ẩn.
+#   Google : tạo OAuth Client ID (Web) tại https://console.cloud.google.com/apis/credentials
+#            thêm Authorized redirect URI: http://127.0.0.1:8000/api/auth/google/callback
+#   Facebook: tạo app tại https://developers.facebook.com → Facebook Login
+#            Valid OAuth Redirect URI: http://127.0.0.1:8000/api/auth/facebook/callback
+[oauth]
+google_client_id     = ""
+google_client_secret = ""
+facebook_app_id      = ""
+facebook_app_secret  = ""

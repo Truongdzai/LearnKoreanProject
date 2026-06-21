@@ -16,6 +16,7 @@ export type AppView =
   | 'lingo'
   | 'dashboard'
   | 'pricing'
+  | 'admin'
 
 export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'luyendich' | 'tomtat' | 'dubbing'
 

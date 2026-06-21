@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import Spinner from '@/core/components/Spinner'
 import { useAppStore } from '@/store/app.store'
+import { defineWordRich } from '@/core/api/dict.api'
+import { addCard } from '@/core/api/srs.api'
+import { romanizeWord } from '@/core/utils/romanize'
+import type { DictRichResult } from '@/models/dict.model'
 
-interface Entry {
+interface View {
   term: string
-  hanja?: string
+  hanja: string
   phon: string
   pos: string
   level: string
@@ -15,61 +20,68 @@ interface Entry {
   phrases: string[]
   mistakes: string
   synonyms: string[]
+  ai: boolean
+  found: boolean
 }
 
-const DICT: Record<string, Entry> = {
-  틈: {
-    term: '틈', phon: '/tɯm/', pos: 'Danh từ', level: 'Trung cấp',
-    meaning: 'khe hở, khoảng trống, thời gian rảnh',
-    explain: 'Từ này dùng để chỉ một khoảng trống giữa hai vật thể, hoặc ám chỉ thời gian rảnh rỗi hiếm hoi giữa các công việc bận rộn.',
-    usage: 'Dùng trong cả ngữ cảnh vật lý (khe hở) và trừu tượng (thời gian, cơ hội). Phổ biến trong đời sống hằng ngày.',
-    examples: [{ ko: '잠깐 틈을 내서 전화했어요.', vi: 'Tôi tranh thủ chút thời gian để gọi điện.' }, { ko: '문 틈으로 바람이 들어와요.', vi: 'Gió lùa vào qua khe cửa.' }],
-    phrases: ['틈을 내다 — tranh thủ thời gian', '틈이 나다 — có thời gian rảnh', '틈새시장 — thị trường ngách'],
-    mistakes: 'Đừng nhầm 틈 (khe hở/thời gian rảnh) với 시간 (thời gian nói chung).',
-    synonyms: ['겨를 (gần nghĩa)', '간격 (khoảng cách)', '여유 (sự thong thả)'],
-  },
-  안녕하세요: {
-    term: '안녕하세요', phon: '/annjʌŋhasejo/', pos: 'Thán từ / Câu chào', level: 'Sơ cấp (TOPIK 1)',
-    meaning: 'xin chào (lịch sự)',
-    explain: 'Lời chào lịch sự phổ biến nhất, dùng được mọi lúc trong ngày với người lạ hoặc người lớn tuổi.',
-    usage: 'Dạng trang trọng. Với bạn bè thân có thể nói 안녕. Khi gọi điện thường nói 여보세요.',
-    examples: [{ ko: '안녕하세요, 만나서 반갑습니다.', vi: 'Xin chào, rất vui được gặp bạn.' }],
-    phrases: ['안녕히 가세요 — tạm biệt (người ở lại nói)', '안녕히 계세요 — tạm biệt (người đi nói)'],
-    mistakes: 'Không dùng 안녕하세요 khi nghe điện thoại — hãy dùng 여보세요.',
-    synonyms: ['안녕 (thân mật)', '반갑습니다 (rất vui được gặp)'],
-  },
-}
+const SUGGEST = ['안녕하세요', '갓생', '사랑', '괜찮아요', '맛있다', '행복']
 
-function generic(term: string): Entry {
+function toView(r: DictRichResult): View {
+  const term = r.entries[0]?.term || r.word
+  const rich = r.rich
+  const dictMeaning = r.entries.map((e) => e.meaning).filter(Boolean).join(' / ')
   return {
-    term, phon: '/…/', pos: 'Đang phân tích', level: 'Tự động',
-    meaning: `Nghĩa của “${term}” (kết quả AI mẫu).`,
-    explain: 'Đây là kết quả minh hoạ. Khi kết nối AI thật, phần này sẽ giải thích chi tiết nghĩa, sắc thái và ngữ cảnh của từ.',
-    usage: 'AI sẽ gợi ý cách dùng phù hợp theo từng tình huống giao tiếp.',
-    examples: [{ ko: `${term} 예문이 여기에 표시됩니다.`, vi: 'Câu ví dụ sẽ hiển thị ở đây.' }],
-    phrases: ['Cụm từ thường gặp sẽ hiển thị ở đây.'],
-    mistakes: 'Các lỗi thường gặp khi dùng từ này sẽ được liệt kê.',
-    synonyms: ['(từ đồng nghĩa)', '(từ trái nghĩa)'],
+    term,
+    hanja: r.entries.find((e) => e.hanja)?.hanja || '',
+    phon: rich?.phon || (romanizeWord(term) || ''),
+    pos: rich?.pos || r.entries[0]?.pos || '',
+    level: rich?.level || '',
+    meaning: rich?.meaning || dictMeaning,
+    explain: rich?.explain || '',
+    usage: rich?.usage || '',
+    examples: rich?.examples || [],
+    phrases: rich?.phrases || [],
+    mistakes: rich?.mistakes || '',
+    synonyms: rich?.synonyms || [],
+    ai: !!rich?.ai,
+    found: r.matched !== 'none' || !!rich,
   }
 }
 
-const LANGS = [
-  { code: 'vi', label: 'Việt' },
-  { code: 'en', label: 'English' },
-  { code: 'ko', label: '한국어' },
-]
-
 export default function LookupModal() {
-  const { lookupOpen, closeLookup, lookupSeed } = useAppStore()
+  const { lookupOpen, closeLookup, lookupSeed, isAuthed } = useAppStore()
   const [q, setQ] = useState('')
-  const [lang, setLang] = useState('vi')
-  const [entry, setEntry] = useState<Entry | null>(null)
+  const [view, setView] = useState<View | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [saved, setSaved] = useState(false)
+
+  const run = async (raw: string) => {
+    const t = raw.trim()
+    if (!t) return
+    setLoading(true)
+    setError('')
+    setView(null)
+    setSaved(false)
+    try {
+      const r = await defineWordRich(t)
+      setView(toView(r))
+    } catch {
+      setError('Không kết nối được máy chủ tra cứu. Hãy thử lại sau giây lát.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
     if (lookupOpen) {
       setQ(lookupSeed)
-      setEntry(lookupSeed ? DICT[lookupSeed.trim()] || generic(lookupSeed.trim()) : null)
+      setView(null)
+      setError('')
+      setSaved(false)
+      if (lookupSeed.trim()) run(lookupSeed)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lookupOpen, lookupSeed])
 
   useEffect(() => {
@@ -80,12 +92,6 @@ export default function LookupModal() {
 
   if (!lookupOpen) return null
 
-  const search = () => {
-    const t = q.trim()
-    if (!t) return
-    setEntry(DICT[t] || generic(t))
-  }
-
   const speak = (text: string) => {
     try {
       const u = new SpeechSynthesisUtterance(text)
@@ -93,6 +99,16 @@ export default function LookupModal() {
       speechSynthesis.speak(u)
     } catch {
       /* not supported */
+    }
+  }
+
+  const save = async () => {
+    if (!view || saved) return
+    try {
+      await addCard({ front: view.term, back: view.meaning, source: 'Tra cứu từ vựng' })
+      setSaved(true)
+    } catch {
+      setError(isAuthed ? 'Lưu thẻ thất bại, hãy thử lại.' : 'Hãy đăng nhập để lưu vào flashcard.')
     }
   }
 
@@ -110,64 +126,87 @@ export default function LookupModal() {
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && search()}
+            onKeyDown={(e) => e.key === 'Enter' && run(q)}
             placeholder="Nhập từ tiếng Hàn cần tra…"
           />
-          <select value={lang} onChange={(e) => setLang(e.target.value)} className="lookup-lang">
-            {LANGS.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
-          </select>
-          <button className="lookup-go" onClick={search}><Icon name="sparkles" size={15} /> Tra cứu</button>
+          <button className="lookup-go" onClick={() => run(q)}><Icon name="sparkles" size={15} /> Tra cứu</button>
         </div>
 
-        {!entry ? (
+        {loading ? (
+          <div className="lookup-empty"><Spinner /><p>Đang tra cứu “{q.trim()}”…</p></div>
+        ) : error && !view ? (
+          <div className="lookup-empty">
+            <Icon name="x-circle" size={36} />
+            <p>{error}</p>
+            <div className="lookup-suggest">
+              {SUGGEST.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
+            </div>
+          </div>
+        ) : !view ? (
           <div className="lookup-empty">
             <Icon name="vyling" size={40} />
-            <p>Nhập một từ tiếng Hàn rồi nhấn <b>Tra cứu</b>. VyLing sẽ phân tích nghĩa, phiên âm, từ loại, cấp độ TOPIK, cách dùng, ví dụ và lỗi thường gặp.</p>
+            <p>Nhập một từ tiếng Hàn rồi nhấn <b>Tra cứu</b>. VyLing tra trong từ điển Hàn–Việt KRDICT và phân tích nghĩa, phiên âm, từ loại, cách dùng, ví dụ và lỗi thường gặp.</p>
             <div className="lookup-suggest">
-              {Object.keys(DICT).map((k) => (
-                <button key={k} onClick={() => { setQ(k); setEntry(DICT[k]) }}>{k}</button>
-              ))}
+              {SUGGEST.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
             </div>
+          </div>
+        ) : !view.found ? (
+          <div className="lookup-empty">
+            <Icon name="frown" size={36} />
+            <p>Không tìm thấy “<b lang="ko">{view.term}</b>” trong từ điển. Hãy kiểm tra lại chính tả hoặc thử dạng gốc của từ.</p>
+            <button className="lr-speak" onClick={() => speak(view.term)} title="Phát âm"><Icon name="volume" size={16} /> Nghe phát âm</button>
           </div>
         ) : (
           <div className="lookup-result">
             <div className="lr-term">
-              <span className="lr-word" lang="ko">{entry.term}</span>
-              {entry.hanja && <span className="lr-hanja">{entry.hanja}</span>}
-              <span className="lr-phon">{entry.phon}</span>
-              <button className="lr-speak" onClick={() => speak(entry.term)} title="Phát âm"><Icon name="volume" size={16} /></button>
+              <span className="lr-word" lang="ko">{view.term}</span>
+              {view.hanja && <span className="lr-hanja">{view.hanja}</span>}
+              {view.phon && <span className="lr-phon">{view.phon}</span>}
+              <button className="lr-speak" onClick={() => speak(view.term)} title="Phát âm"><Icon name="volume" size={16} /></button>
+              <span className="lr-source">{view.ai ? 'KRDICT + AI' : 'Từ điển KRDICT'}</span>
             </div>
 
-            <div className="lr-tags">
-              <span className="lr-tag pos"><small>Từ loại</small>{entry.pos}</span>
-              <span className="lr-tag lvl"><small>Level</small>{entry.level}</span>
-            </div>
+            {(view.pos || view.level) && (
+              <div className="lr-tags">
+                {view.pos && <span className="lr-tag pos"><small>Từ loại</small>{view.pos}</span>}
+                {view.level && <span className="lr-tag lvl"><small>Level</small>{view.level}</span>}
+              </div>
+            )}
 
-            <div className="lr-block accent"><div className="lr-label">Nghĩa</div><b lang={lang === 'ko' ? 'ko' : 'vi'}>{entry.meaning}</b></div>
-            <div className="lr-block"><div className="lr-label"><Icon name="bulb" size={13} /> Giải thích</div><p>{entry.explain}</p></div>
-            <div className="lr-block"><div className="lr-label"><Icon name="note" size={13} /> Cách sử dụng</div><p>{entry.usage}</p></div>
+            <div className="lr-block accent"><div className="lr-label">Nghĩa</div><b lang="vi">{view.meaning}</b></div>
+            {view.explain && <div className="lr-block"><div className="lr-label"><Icon name="bulb" size={13} /> Giải thích</div><p>{view.explain}</p></div>}
+            {view.usage && <div className="lr-block"><div className="lr-label"><Icon name="note" size={13} /> Cách sử dụng</div><p>{view.usage}</p></div>}
 
-            <div className="lr-block"><div className="lr-label"><Icon name="film" size={13} /> Ví dụ</div>
-              {entry.examples.map((ex, i) => (
-                <div key={i} className="lr-ex">
-                  <span lang="ko">{ex.ko}</span>
-                  <button className="lr-speak sm" onClick={() => speak(ex.ko)}><Icon name="volume" size={13} /></button>
-                  <em>{ex.vi}</em>
-                </div>
-              ))}
-            </div>
+            {view.examples.length > 0 && (
+              <div className="lr-block"><div className="lr-label"><Icon name="film" size={13} /> Ví dụ</div>
+                {view.examples.map((ex, i) => (
+                  <div key={i} className="lr-ex">
+                    <span lang="ko">{ex.ko}</span>
+                    <button className="lr-speak sm" onClick={() => speak(ex.ko)}><Icon name="volume" size={13} /></button>
+                    <em>{ex.vi}</em>
+                  </div>
+                ))}
+              </div>
+            )}
 
-            <div className="lr-block"><div className="lr-label"><Icon name="sparkles" size={13} /> Cụm từ thường gặp</div>
-              <ul className="lr-list">{entry.phrases.map((p, i) => <li key={i}>{p}</li>)}</ul>
-            </div>
+            {view.phrases.length > 0 && (
+              <div className="lr-block"><div className="lr-label"><Icon name="sparkles" size={13} /> Cụm từ thường gặp</div>
+                <ul className="lr-list">{view.phrases.map((p, i) => <li key={i}>{p}</li>)}</ul>
+              </div>
+            )}
 
-            <div className="lr-block warn"><div className="lr-label"><Icon name="x-circle" size={13} /> Lỗi thường gặp</div><p>{entry.mistakes}</p></div>
+            {view.mistakes && <div className="lr-block warn"><div className="lr-label"><Icon name="x-circle" size={13} /> Lỗi thường gặp</div><p>{view.mistakes}</p></div>}
 
-            <div className="lr-block"><div className="lr-label"><Icon name="copy" size={13} /> Đồng nghĩa / khác nghĩa</div>
-              <div className="lr-syn">{entry.synonyms.map((s, i) => <span key={i}>{s}</span>)}</div>
-            </div>
+            {view.synonyms.length > 0 && (
+              <div className="lr-block"><div className="lr-label"><Icon name="copy" size={13} /> Đồng nghĩa / liên quan</div>
+                <div className="lr-syn">{view.synonyms.map((s, i) => <span key={i}>{s}</span>)}</div>
+              </div>
+            )}
 
-            <button className="lr-save"><Icon name="plus" size={15} /> Lưu vào flashcard của tôi</button>
+            {error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {error}</div>}
+            <button className="lr-save" onClick={save} disabled={saved}>
+              <Icon name={saved ? 'check' : 'plus'} size={15} /> {saved ? 'Đã lưu vào flashcard' : 'Lưu vào flashcard của tôi'}
+            </button>
           </div>
         )}
       </div>

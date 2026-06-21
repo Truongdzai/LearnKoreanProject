@@ -3,15 +3,16 @@ import type { PathStep } from '@/models/path.model'
 export interface LangOption {
   code: string
   name: string
+  /** ISO country code used to render a real flag (see Flag component). */
   flag: string
 }
 
 export const LANGUAGES: LangOption[] = [
-  { code: 'ko', name: 'Tiếng Hàn', flag: '🇰🇷' },
-  { code: 'en', name: 'Tiếng Anh', flag: '🇺🇸' },
-  { code: 'ja', name: 'Tiếng Nhật', flag: '🇯🇵' },
-  { code: 'zh', name: 'Tiếng Trung', flag: '🇨🇳' },
-  { code: 'de', name: 'Tiếng Đức', flag: '🇩🇪' },
+  { code: 'ko', name: 'Tiếng Hàn', flag: 'kr' },
+  { code: 'en', name: 'Tiếng Anh', flag: 'us' },
+  { code: 'ja', name: 'Tiếng Nhật', flag: 'jp' },
+  { code: 'zh', name: 'Tiếng Trung', flag: 'cn' },
+  { code: 'de', name: 'Tiếng Đức', flag: 'de' },
 ]
 
 export const GOALS: { title: string; detail: string }[] = [

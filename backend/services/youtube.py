@@ -1,11 +1,28 @@
 from __future__ import annotations
 
 import json
+import re
 
 import httpx
 import yt_dlp
 
+from ..config import settings
+
 _KO_KEYS = ("ko", "ko-KR", "ko-orig")
+
+_ID_RE = re.compile(r"(?:v=|/shorts/|/embed/|youtu\.be/)([0-9A-Za-z_-]{11})")
+
+def extract_id(url: str) -> str:
+    url = (url or "").strip()
+    m = _ID_RE.search(url)
+    if m:
+        return m.group(1)
+    if re.fullmatch(r"[0-9A-Za-z_-]{11}", url):
+        return url
+    return ""
+
+def proxy() -> str:
+    return (settings.get("network", {}) or {}).get("proxy", "") or ""
 
 def _pick_track(tracks_map: dict):
     for key in _KO_KEYS:
@@ -70,10 +87,12 @@ def _download_subs(track: list) -> list[dict]:
     if not order:
         order.append((track[0].get("ext"), track[0]))
 
+    px = proxy() or None
     last = None
     for ext, fmt in order:
         try:
-            resp = httpx.get(fmt["url"], timeout=30.0, headers=_SUB_HEADERS)
+            with httpx.Client(timeout=30.0, headers=_SUB_HEADERS, proxy=px) as client:
+                resp = client.get(fmt["url"])
         except Exception as exc:
             last = exc
             continue
@@ -97,6 +116,8 @@ def _download_subs(track: list) -> list[dict]:
 
 def get_korean_segments(url: str) -> dict:
     ydl_opts = {"skip_download": True, "quiet": True, "no_warnings": True}
+    if proxy():
+        ydl_opts["proxy"] = proxy()
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAppStore } from '@/store/app.store'
 import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
+import Flag from '@/core/components/Flag'
 import type { NavItem } from '@/types'
 
 const NAV: NavItem[] = [
@@ -21,12 +22,12 @@ const NAV: NavItem[] = [
 ]
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
-const LANGS = ['🇯🇵', '🇺🇸', '🇨🇳', '🇰🇷', '🇩🇪']
+const LANGS = ['ja', 'en', 'zh', 'ko', 'de']
 
 export default function Sidebar() {
   const { view, setView, user } = useAppStore()
   const todayIdx = (new Date().getDay() + 6) % 7
-  const [lang, setLang] = useState('🇰🇷')
+  const [lang, setLang] = useState('ko')
 
   return (
     <aside className="sidebar">
@@ -56,7 +57,9 @@ export default function Sidebar() {
         <div className="s-label"><Icon name="globe" size={12} /> Ngôn ngữ</div>
         <div className="lang-row">
           {LANGS.map((f) => (
-            <button key={f} className={'lang-flag-btn' + (lang === f ? ' on' : '')} onClick={() => setLang(f)}>{f}</button>
+            <button key={f} className={'lang-flag-btn' + (lang === f ? ' on' : '')} onClick={() => setLang(f)}>
+              <Flag code={f} size={26} />
+            </button>
           ))}
         </div>
       </div>

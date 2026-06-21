@@ -6,8 +6,9 @@ import re
 import zipfile
 from pathlib import Path
 
-from ..config import ROOT
+from ..config import ROOT, settings
 from .. import db
+from . import llm
 
 DICT_ZIP = ROOT / "dictionaries" / "KO-VI.KRDICT.zip"
 
@@ -166,9 +167,11 @@ def _fetch(conn, term: str) -> list[dict]:
     )
     return [dict(r) for r in cur.fetchall()]
 
+def _clean(word: str) -> str:
+    return (word or "").strip().strip(" .,!?\"'()[]{}…·~—-、。！？​")
+
 def lookup(word: str) -> dict:
-    word = (word or "").strip()
-    word = word.strip(" .,!?\"'()[]{}…·~—-、。！？​")
+    word = _clean(word)
     if not word:
         return {"word": word, "matched": "none", "entries": []}
 
@@ -184,3 +187,68 @@ def lookup(word: str) -> dict:
     finally:
         conn.close()
     return {"word": word, "matched": "none", "entries": []}
+
+_RICH_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "phon": {"type": "string"},
+        "level": {"type": "string"},
+        "pos": {"type": "string"},
+        "meaning": {"type": "string"},
+        "explain": {"type": "string"},
+        "usage": {"type": "string"},
+        "examples": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {"ko": {"type": "string"}, "vi": {"type": "string"}},
+                "required": ["ko", "vi"],
+            },
+        },
+        "phrases": {"type": "array", "items": {"type": "string"}},
+        "mistakes": {"type": "string"},
+        "synonyms": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": ["meaning", "explain", "usage", "examples", "phrases", "mistakes", "synonyms"],
+}
+
+def _ai_analyze(word: str, dict_meaning: str) -> dict | None:
+    if settings["llm"].get("provider", "none") == "none":
+        return None
+    ref = f"Nghĩa tham khảo từ từ điển KRDICT: {dict_meaning}." if dict_meaning else ""
+    prompt = (
+        f"Phân tích chi tiết từ tiếng Hàn '{word}' cho người Việt đang học tiếng Hàn. {ref}\n"
+        "Trả về JSON với: phon (phiên âm IPA hoặc romaja), level (cấp độ TOPIK, vd 'Sơ cấp (TOPIK 1)'), "
+        "pos (từ loại bằng tiếng Việt), meaning (nghĩa ngắn gọn tiếng Việt), explain (giải thích nghĩa & sắc thái), "
+        "usage (cách dùng theo ngữ cảnh), examples (2-3 câu ví dụ, mỗi câu gồm 'ko' tiếng Hàn và 'vi' bản dịch tiếng Việt), "
+        "phrases (cụm từ/thành ngữ thường gặp, mỗi mục dạng 'cụm tiếng Hàn — nghĩa tiếng Việt'), "
+        "mistakes (lỗi thường gặp khi dùng từ này), synonyms (từ đồng nghĩa/liên quan kèm chú thích tiếng Việt). "
+        "Văn phong tự nhiên, chính xác."
+    )
+    try:
+        data = llm.gemini_json(prompt, _RICH_SCHEMA, temperature=0.3)
+        if isinstance(data, dict) and data.get("meaning"):
+            data["ai"] = True
+            return data
+    except Exception:
+        return None
+    return None
+
+def lookup_rich(word: str) -> dict:
+    from . import cache
+
+    key = _clean(word)
+    if key:
+        cached = cache.get_dict(key)
+        if cached:
+            return cached
+
+    base = lookup(word)
+    entries = base["entries"]
+    dict_meaning = " / ".join(e["meaning"] for e in entries[:3]) if entries else ""
+    rich = _ai_analyze(base["word"] if entries else key, dict_meaning)
+    result = {**base, "rich": rich}
+    # Only cache once AI enrichment succeeded, so dict-only results retry AI later.
+    if key and rich:
+        cache.save_dict(key, result)
+    return result

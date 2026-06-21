@@ -1,26 +1,56 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { QUESTS, DAILY_BONUS } from '@/data/gamification'
-import type { QuestPeriod } from '@/models/gamification.model'
+import { fetchMyQuests } from '@/core/api/me.api'
+import { fetchQuestCatalog } from '@/core/api/content.api'
+import type { Quest, QuestPeriod } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
 
 const PERIOD_LABEL: Record<QuestPeriod, string> = { daily: 'Hằng ngày', weekly: 'Hằng tuần', monthly: 'Hằng tháng' }
+const DAILY_BONUS = 50
 
 export default function QuestsPage() {
-  const { user, addCoins, setView } = useAppStore()
-  const [claimed, setClaimed] = useState<string[]>([])
-  const [bonusTaken, setBonusTaken] = useState(false)
+  const { user, setView, claimQuest, dailyBonus } = useAppStore()
+  const { isAuthed, openAuth, bonusAvailable } = useAuth()
 
-  const claim = (id: string, reward: number) => {
-    if (claimed.includes(id)) return
-    addCoins(reward)
-    setClaimed((c) => [...c, id])
+  const [quests, setQuests] = useState<Quest[]>([])
+  const [busy, setBusy] = useState('')
+  const [flash, setFlash] = useState('')
+
+  const load = useCallback(() => {
+    const req = isAuthed ? fetchMyQuests().then((r) => r.quests) : fetchQuestCatalog().then((r) => r.quests)
+    req.then(setQuests).catch(() => setQuests([]))
+  }, [isAuthed])
+
+  useEffect(() => { load() }, [load])
+
+  const showFlash = (m: string) => { setFlash(m); setTimeout(() => setFlash(''), 2400) }
+
+  const claim = async (id: string) => {
+    if (!isAuthed) { openAuth(); return }
+    setBusy(id)
+    try {
+      await claimQuest(id)
+      showFlash('Đã nhận thưởng! 🎉')
+      load()
+    } catch (e) {
+      showFlash((e as Error).message)
+    } finally {
+      setBusy('')
+    }
   }
 
-  const takeBonus = () => {
-    if (bonusTaken) return
-    addCoins(DAILY_BONUS)
-    setBonusTaken(true)
+  const takeBonus = async () => {
+    if (!isAuthed) { openAuth(); return }
+    setBusy('bonus')
+    try {
+      const reward = await dailyBonus()
+      showFlash(`Đã nhận +${reward} xu thưởng đăng nhập! 🎁`)
+    } catch (e) {
+      showFlash((e as Error).message)
+    } finally {
+      setBusy('')
+    }
   }
 
   return (
@@ -30,26 +60,33 @@ export default function QuestsPage() {
         <p>Hoàn thành nhiệm vụ để nhận xu, dùng mua hạt giống & khung viền trong cửa hàng.</p>
       </div>
 
-      <button className={'daily-bonus' + (bonusTaken ? ' taken' : '')} onClick={takeBonus} disabled={bonusTaken}>
+      {flash && <div className="shop-flash">{flash}</div>}
+
+      <button
+        className={'daily-bonus' + (isAuthed && !bonusAvailable ? ' taken' : '')}
+        onClick={takeBonus}
+        disabled={busy === 'bonus' || (isAuthed && !bonusAvailable)}
+      >
         <span className="db-left">
           <Icon name="gift" size={22} /> Phần thưởng đăng nhập hằng ngày
         </span>
         <span className="db-reward">
-          {bonusTaken ? 'Đã nhận ✓' : <>+{DAILY_BONUS} <Icon name="coin" size={16} /></>}
+          {isAuthed && !bonusAvailable ? 'Đã nhận ✓' : <>+{DAILY_BONUS} <Icon name="coin" size={16} /></>}
         </span>
       </button>
 
       {(['daily', 'weekly', 'monthly'] as QuestPeriod[]).map((period) => {
-        const list = QUESTS.filter((q) => q.period === period)
+        const list = quests.filter((q) => q.period === period)
         if (!list.length) return null
         return (
           <div key={period}>
             <div className="section-title"><span className="pin" /> {PERIOD_LABEL[period]}</div>
             <div className="quest-grid">
               {list.map((q) => {
-                const done = q.progress >= q.target
-                const isClaimed = claimed.includes(q.id)
-                const pct = Math.min(100, Math.round((q.progress / q.target) * 100))
+                const progress = q.progress ?? 0
+                const done = progress >= q.target
+                const isClaimed = !!q.claimed
+                const pct = Math.min(100, Math.round((progress / q.target) * 100))
                 const locked = q.plus && !user.isPlus
                 return (
                   <div key={q.id} className={'quest-card' + (q.plus ? ' is-plus' : '')}>
@@ -62,7 +99,7 @@ export default function QuestsPage() {
 
                     <div className="quest-prog-row">
                       <span>Tiến trình</span>
-                      <b>{q.progress}/{q.target}</b>
+                      <b>{progress}/{q.target}</b>
                     </div>
                     <div className="quest-bar"><span style={{ width: pct + '%' }} /></div>
 
@@ -73,7 +110,9 @@ export default function QuestsPage() {
                       ) : isClaimed ? (
                         <button className="quest-btn done" disabled>Đã nhận ✓</button>
                       ) : done ? (
-                        <button className="quest-btn claim" onClick={() => claim(q.id, q.reward)}>Nhận thưởng</button>
+                        <button className="quest-btn claim" disabled={busy === q.id} onClick={() => claim(q.id)}>
+                          {busy === q.id ? '…' : 'Nhận thưởng'}
+                        </button>
                       ) : (
                         <button className="quest-btn" disabled>Đang thực hiện</button>
                       )}

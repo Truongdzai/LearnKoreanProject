@@ -1,0 +1,7 @@
+# Tuỳ chọn — chỉ cần cho tính năng "Nhận diện người nói theo giọng" (Dubbing Studio).
+# Chạy ở máy local (nơi tải được audio YouTube). KHÔNG cần cho bản deploy cloud.
+#   pip install -r backend/requirements-voice.txt
+numpy
+scipy
+scikit-learn
+python_speech_features
