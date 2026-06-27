@@ -5,6 +5,7 @@ import { useAppStore } from '@/store/app.store'
 import { defineWordRich } from '@/core/api/dict.api'
 import { addCard } from '@/core/api/srs.api'
 import { romanizeWord } from '@/core/utils/romanize'
+import { studyLang } from '@/core/constants/languages'
 import type { DictRichResult } from '@/models/dict.model'
 
 interface View {
@@ -23,8 +24,6 @@ interface View {
   ai: boolean
   found: boolean
 }
-
-const SUGGEST = ['안녕하세요', '갓생', '사랑', '괜찮아요', '맛있다', '행복']
 
 function toView(r: DictRichResult): View {
   const term = r.entries[0]?.term || r.word
@@ -49,7 +48,8 @@ function toView(r: DictRichResult): View {
 }
 
 export default function LookupModal() {
-  const { lookupOpen, closeLookup, lookupSeed, isAuthed } = useAppStore()
+  const { lookupOpen, closeLookup, lookupSeed, isAuthed, learnLang, nativeLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const [q, setQ] = useState('')
   const [view, setView] = useState<View | null>(null)
   const [loading, setLoading] = useState(false)
@@ -64,7 +64,7 @@ export default function LookupModal() {
     setView(null)
     setSaved(false)
     try {
-      const r = await defineWordRich(t)
+      const r = await defineWordRich(t, learnLang, nativeLang)
       setView(toView(r))
     } catch {
       setError('Không kết nối được máy chủ tra cứu. Hãy thử lại sau giây lát.')
@@ -95,7 +95,7 @@ export default function LookupModal() {
   const speak = (text: string) => {
     try {
       const u = new SpeechSynthesisUtterance(text)
-      u.lang = 'ko-KR'
+      u.lang = cfg.locale
       speechSynthesis.speak(u)
     } catch {
       /* not supported */
@@ -127,7 +127,7 @@ export default function LookupModal() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && run(q)}
-            placeholder="Nhập từ tiếng Hàn cần tra…"
+            placeholder={`Nhập từ ${cfg.name} cần tra…`}
           />
           <button className="lookup-go" onClick={() => run(q)}><Icon name="sparkles" size={15} /> Tra cứu</button>
         </div>
@@ -139,31 +139,31 @@ export default function LookupModal() {
             <Icon name="x-circle" size={36} />
             <p>{error}</p>
             <div className="lookup-suggest">
-              {SUGGEST.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
+              {cfg.sample.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
             </div>
           </div>
         ) : !view ? (
           <div className="lookup-empty">
             <Icon name="vyling" size={40} />
-            <p>Nhập một từ tiếng Hàn rồi nhấn <b>Tra cứu</b>. VyLing tra trong từ điển Hàn–Việt KRDICT và phân tích nghĩa, phiên âm, từ loại, cách dùng, ví dụ và lỗi thường gặp.</p>
+            <p>Nhập một từ {cfg.name} rồi nhấn <b>Tra cứu</b>. VyLing phân tích nghĩa, phiên âm, từ loại, cách dùng, ví dụ và lỗi thường gặp{learnLang === 'ko' ? ' (kèm từ điển Hàn–Việt KRDICT)' : ''}.</p>
             <div className="lookup-suggest">
-              {SUGGEST.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
+              {cfg.sample.map((k) => <button key={k} onClick={() => { setQ(k); run(k) }}>{k}</button>)}
             </div>
           </div>
         ) : !view.found ? (
           <div className="lookup-empty">
             <Icon name="frown" size={36} />
-            <p>Không tìm thấy “<b lang="ko">{view.term}</b>” trong từ điển. Hãy kiểm tra lại chính tả hoặc thử dạng gốc của từ.</p>
+            <p>Không tìm thấy “<b lang={learnLang}>{view.term}</b>”. Hãy kiểm tra lại chính tả hoặc thử dạng gốc của từ.</p>
             <button className="lr-speak" onClick={() => speak(view.term)} title="Phát âm"><Icon name="volume" size={16} /> Nghe phát âm</button>
           </div>
         ) : (
           <div className="lookup-result">
             <div className="lr-term">
-              <span className="lr-word" lang="ko">{view.term}</span>
+              <span className="lr-word" lang={learnLang}>{view.term}</span>
               {view.hanja && <span className="lr-hanja">{view.hanja}</span>}
               {view.phon && <span className="lr-phon">{view.phon}</span>}
               <button className="lr-speak" onClick={() => speak(view.term)} title="Phát âm"><Icon name="volume" size={16} /></button>
-              <span className="lr-source">{view.ai ? 'KRDICT + AI' : 'Từ điển KRDICT'}</span>
+              <span className="lr-source">{learnLang === 'ko' ? (view.ai ? 'KRDICT + AI' : 'Từ điển KRDICT') : 'Phân tích bằng AI'}</span>
             </div>
 
             {(view.pos || view.level) && (
@@ -181,7 +181,7 @@ export default function LookupModal() {
               <div className="lr-block"><div className="lr-label"><Icon name="film" size={13} /> Ví dụ</div>
                 {view.examples.map((ex, i) => (
                   <div key={i} className="lr-ex">
-                    <span lang="ko">{ex.ko}</span>
+                    <span lang={learnLang}>{ex.ko}</span>
                     <button className="lr-speak sm" onClick={() => speak(ex.ko)}><Icon name="volume" size={13} /></button>
                     <em>{ex.vi}</em>
                   </div>

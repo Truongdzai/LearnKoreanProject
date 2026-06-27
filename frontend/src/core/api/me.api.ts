@@ -37,6 +37,9 @@ export const buyItemApi = (item_id: string) =>
 export const equipFrameApi = (frame: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip', { frame })
 
+export const equipPetApi = (pet: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip-pet', { pet })
+
 export const upgradePlusApi = (plan_id = '') =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/plus', { plan_id })
 

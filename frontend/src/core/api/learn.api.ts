@@ -1,8 +1,8 @@
 import { apiClient } from './client'
 import type { Lesson } from '@/models/lesson.model'
 
-export const fetchTranscript = (url: string) =>
-  apiClient.post<Lesson>('/api/transcript', { url })
+export const fetchTranscript = (url: string, lang = 'ko') =>
+  apiClient.post<Lesson>('/api/transcript', { url, lang })
 
 export interface MinePayload {
   ko: string

@@ -10,6 +10,7 @@ import MyVideosPage from '@/features/myvideos/MyVideosPage'
 import PathPage from '@/features/path/PathPage'
 import SpeakingPage from '@/features/speaking/SpeakingPage'
 import VocabHomePage from '@/features/vocab/VocabHomePage'
+import EnglishPage from '@/features/english/EnglishPage'
 import ActivitiesPage from '@/features/activities/ActivitiesPage'
 import LeaderboardPage from '@/features/leaderboard/LeaderboardPage'
 import QuestsPage from '@/features/quests/QuestsPage'
@@ -20,6 +21,7 @@ import AdminPage from '@/features/admin/AdminPage'
 import LookupModal from '@/features/lookup/LookupModal'
 import AuthModal from '@/features/auth/AuthModal'
 import GiftModal from '@/features/gift/GiftModal'
+import PetWidget from '@/features/pet/PetWidget'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
@@ -39,6 +41,7 @@ export default function App() {
           {(view === 'courses' || view === 'path') && <PathPage />}
           {view === 'myvideos' && <MyVideosPage />}
           {view === 'speaking' && <SpeakingPage />}
+          {view === 'english' && <EnglishPage />}
           {view === 'vocab' && <VocabHomePage />}
           {view === 'flashcards' && <ReviewPage />}
           {view === 'activities' && <ActivitiesPage />}
@@ -55,6 +58,7 @@ export default function App() {
       <LookupModal />
       <AuthModal />
       <GiftModal />
+      <PetWidget />
     </div>
   )
 }

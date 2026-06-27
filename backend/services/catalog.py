@@ -5,18 +5,29 @@ from fastapi import HTTPException
 from .. import db
 
 DEFAULT_VIDEOS = [
-    ("GnwIG51ah7k", "Podcast cho người mới #01 — 취미 (Sở thích)", "최수수 ChoiSusu", "TOPIK 1", "3:58", "취미", "tone-a"),
-    ("U_ZzQIV5KgM", "Podcast cho người mới #02 — 날씨와 계절 (Thời tiết & mùa)", "최수수 ChoiSusu", "TOPIK 1", "7:13", "날씨", "tone-b"),
-    ("b11o5ykzKZQ", "Podcast cho người mới #07 — 여행 (Du lịch)", "최수수 ChoiSusu", "TOPIK 1", "15:41", "여행", "tone-c"),
-    ("aZi2d3k0BEE", "Podcast cho người mới #11 — 주말 (Cuối tuần)", "최수수 ChoiSusu", "TOPIK 1", "12:48", "주말", "tone-d"),
-    ("sO14dpV2hv4", "Podcast cho người mới #16 — 일본 여행 후 (Sau chuyến đi Nhật)", "최수수 ChoiSusu", "TOPIK 1", "12:23", "여행 후", "tone-e"),
-    ("8rvv4RXQYb4", "Nghe chậm — 자기소개 (Giới thiệu bản thân)", "Korean with Mina", "TOPIK 1", "7:31", "자기소개", "tone-f"),
-    ("kHsEZUcyD7c", "Nghe chậm lặp lại — luyện phản xạ", "Korean with Mina", "TOPIK 1", "5:22", "반복 듣기", "tone-a"),
-    ("o6AP3nVNj_8", "Truyện ngắn A0 — 윤지는 학교에 가요", "몰입한국어 Immersion", "Vỡ lòng", "10:01", "짧은 이야기", "tone-b"),
-    ("tpnmeXH9VZ4", "Truyện ngắn A1 — 우리 가족 (Gia đình tôi)", "몰입한국어 Immersion", "Vỡ lòng", "5:50", "우리 가족", "tone-c"),
-    ("xHCZVokgaKU", "100 câu hội thoại sơ cấp (TOPIK 1)", "Everyday Korean 매일 한국어", "TOPIK 1", "19:32", "100문장", "tone-d"),
-    ("uRvvbTD5cIw", "Hội thoại sơ cấp 1.1 — nghe & hiểu", "KTS KOREA", "TOPIK 1", "14:03", "초급 대화", "tone-e"),
-    ("abuhSDWTuHE", "Hội thoại đời sống — hỏi đường, mua sắm, tàu điện", "Everyday Korean 매일 한국어", "TOPIK 1-2", "23:49", "일상 회화", "tone-f"),
+    ("GnwIG51ah7k", "Podcast cho người mới #01 — 취미 (Sở thích)", "최수수 ChoiSusu", "TOPIK 1", "3:58", "취미", "tone-a", "ko"),
+    ("U_ZzQIV5KgM", "Podcast cho người mới #02 — 날씨와 계절 (Thời tiết & mùa)", "최수수 ChoiSusu", "TOPIK 1", "7:13", "날씨", "tone-b", "ko"),
+    ("b11o5ykzKZQ", "Podcast cho người mới #07 — 여행 (Du lịch)", "최수수 ChoiSusu", "TOPIK 1", "15:41", "여행", "tone-c", "ko"),
+    ("aZi2d3k0BEE", "Podcast cho người mới #11 — 주말 (Cuối tuần)", "최수수 ChoiSusu", "TOPIK 1", "12:48", "주말", "tone-d", "ko"),
+    ("sO14dpV2hv4", "Podcast cho người mới #16 — 일본 여행 후 (Sau chuyến đi Nhật)", "최수수 ChoiSusu", "TOPIK 1", "12:23", "여행 후", "tone-e", "ko"),
+    ("8rvv4RXQYb4", "Nghe chậm — 자기소개 (Giới thiệu bản thân)", "Korean with Mina", "TOPIK 1", "7:31", "자기소개", "tone-f", "ko"),
+    ("kHsEZUcyD7c", "Nghe chậm lặp lại — luyện phản xạ", "Korean with Mina", "TOPIK 1", "5:22", "반복 듣기", "tone-a", "ko"),
+    ("o6AP3nVNj_8", "Truyện ngắn A0 — 윤지는 학교에 가요", "몰입한국어 Immersion", "Vỡ lòng", "10:01", "짧은 이야기", "tone-b", "ko"),
+    ("tpnmeXH9VZ4", "Truyện ngắn A1 — 우리 가족 (Gia đình tôi)", "몰입한국어 Immersion", "Vỡ lòng", "5:50", "우리 가족", "tone-c", "ko"),
+    ("xHCZVokgaKU", "100 câu hội thoại sơ cấp (TOPIK 1)", "Everyday Korean 매일 한국어", "TOPIK 1", "19:32", "100문장", "tone-d", "ko"),
+    ("uRvvbTD5cIw", "Hội thoại sơ cấp 1.1 — nghe & hiểu", "KTS KOREA", "TOPIK 1", "14:03", "초급 대화", "tone-e", "ko"),
+    ("abuhSDWTuHE", "Hội thoại đời sống — hỏi đường, mua sắm, tàu điện", "Everyday Korean 매일 한국어", "TOPIK 1-2", "23:49", "일상 회화", "tone-f", "ko"),
+]
+
+# Kho video tiếng Anh — chọn lọc từ các kênh học tiếng Anh uy tín, đều có phụ đề
+# và đã kiểm tra tải được qua pipeline. (Video VOA bị YouTube chặn tải nên không dùng.)
+DEFAULT_EN_VIDEOS = [
+    ("_PIlvBI9rXY", "6 Minute English — How reading shapes your brain", "BBC Learning English", "B1", "6:13", "Đọc sách", "tone-a", "en"),
+    ("QdE63sYqwd8", "6 Minute English — Why are we all so stressed?", "BBC Learning English", "B1", "6:14", "Căng thẳng", "tone-b", "en"),
+    ("-idY8F7LOSE", "6 Minute English — Stress-free family meals", "BBC Learning English", "B1", "6:16", "Gia đình", "tone-c", "en"),
+    ("vOuhs1mA0xo", "6 Minute English — How advertisers make us spend money", "BBC Learning English", "B2", "6:14", "Quảng cáo", "tone-d", "en"),
+    ("_LlyKiROzhU", "6 Minute English — Human Emotions (mega class)", "BBC Learning English", "B2", "1:00:59", "Cảm xúc", "tone-e", "en"),
+    ("b-PzAyZae-g", "Real English Conversation — luyện hội thoại nâng cao", "Learn English With TV Series", "Nâng cao", "28:39", "Hội thoại thực tế", "tone-f", "en"),
 ]
 
 DEFAULT_QUESTS = [
@@ -70,6 +81,13 @@ DEFAULT_SHOP = [
     ("b-crown", "Vương Miện", "Danh hiệu cho cao thủ", 600, "badge", "crown", 1),
 ]
 
+# Thú cưng nổi ở góc màn hình — đồng hành cùng bạn khi học.
+# Hiện chỉ còn Shiba (ảnh thật, nhiều biểu cảm); các loài khác sẽ phát triển sau.
+# Cơ chế seed bên dưới tự dọn mọi loài không có trong danh sách này khỏi cửa hàng.
+DEFAULT_PETS = [
+    ("p-shiba", "Cún Shiba", "Shiba ảnh thật với loạt biểu cảm sống động — tra từ vựng & cùng bạn tập trung Pomodoro", 0, "pet", "shiba", 0),
+]
+
 
 def seed() -> None:
     conn = db.get_conn()
@@ -77,10 +95,28 @@ def seed() -> None:
         if conn.execute("SELECT COUNT(*) AS n FROM catalog_videos").fetchone()["n"] == 0:
             for i, v in enumerate(DEFAULT_VIDEOS):
                 conn.execute(
-                    "INSERT INTO catalog_videos (id, title, channel, level, dur, topic, tone, sort) "
-                    "VALUES (?,?,?,?,?,?,?,?)",
+                    "INSERT INTO catalog_videos (id, title, channel, level, dur, topic, tone, lang, sort) "
+                    "VALUES (?,?,?,?,?,?,?,?,?)",
                     (*v, i),
                 )
+        # Keep the curated English library in sync on every startup so corrections
+        # (e.g. replacing videos that YouTube made unavailable) reach existing databases.
+        for i, v in enumerate(DEFAULT_EN_VIDEOS):
+            conn.execute(
+                "INSERT INTO catalog_videos (id, title, channel, level, dur, topic, tone, lang, sort) "
+                "VALUES (?,?,?,?,?,?,?,?,?) "
+                "ON CONFLICT(id) DO UPDATE SET title=excluded.title, channel=excluded.channel, "
+                "level=excluded.level, dur=excluded.dur, topic=excluded.topic, tone=excluded.tone, "
+                "lang=excluded.lang, sort=excluded.sort",
+                (*v, 50 + i),
+            )
+        # Remove English videos no longer in the curated list (e.g. ones that became unavailable).
+        keep_en = [v[0] for v in DEFAULT_EN_VIDEOS]
+        ph = ",".join("?" for _ in keep_en)
+        conn.execute(
+            f"DELETE FROM catalog_videos WHERE lang = 'en' AND id NOT IN ({ph})",
+            keep_en,
+        )
         if conn.execute("SELECT COUNT(*) AS n FROM catalog_quests").fetchone()["n"] == 0:
             for i, q in enumerate(DEFAULT_QUESTS):
                 conn.execute(
@@ -102,6 +138,24 @@ def seed() -> None:
                     "VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                     (*p, i),
                 )
+        # Pets ship after the first seed — keep the roster (name/art/price) in
+        # sync on every startup so design refreshes reach existing databases.
+        for i, s in enumerate(DEFAULT_PETS):
+            conn.execute(
+                "INSERT INTO catalog_shop (id, name, descr, price, category, art, plus, sort) "
+                "VALUES (?,?,?,?,?,?,?,?) "
+                "ON CONFLICT(id) DO UPDATE SET name=excluded.name, descr=excluded.descr, "
+                "price=excluded.price, category=excluded.category, art=excluded.art, "
+                "plus=excluded.plus, sort=excluded.sort",
+                (*s, 100 + i),
+            )
+        # Dọn các loài cũ đã bỏ khỏi cửa hàng ở những database đã seed từ trước.
+        keep = [p[0] for p in DEFAULT_PETS]
+        placeholders = ",".join("?" for _ in keep)
+        conn.execute(
+            f"DELETE FROM catalog_shop WHERE category = 'pet' AND id NOT IN ({placeholders})",
+            keep,
+        )
         conn.commit()
     finally:
         conn.close()
@@ -116,7 +170,8 @@ def videos(active_only: bool = True) -> list[dict]:
         conn.close()
     return [
         {"id": r["id"], "title": r["title"], "channel": r["channel"], "level": r["level"],
-         "dur": r["dur"], "topic": r["topic"], "tone": r["tone"], "active": bool(r["active"])}
+         "dur": r["dur"], "topic": r["topic"], "tone": r["tone"],
+         "lang": (r["lang"] if "lang" in r.keys() else "ko") or "ko", "active": bool(r["active"])}
         for r in rows
     ]
 
@@ -189,7 +244,7 @@ def shop_item(item_id: str) -> dict | None:
 
 
 _TABLES = {
-    "videos": ("catalog_videos", {"id", "title", "channel", "level", "dur", "topic", "tone", "sort", "active"}),
+    "videos": ("catalog_videos", {"id", "title", "channel", "level", "dur", "topic", "tone", "lang", "sort", "active"}),
     "quests": ("catalog_quests", {"id", "title", "descr", "period", "metric", "reward", "target", "plus", "sort", "active"}),
     "shop": ("catalog_shop", {"id", "name", "descr", "price", "category", "art", "plus", "sort", "active"}),
     "plans": ("catalog_plans", {"id", "name", "tagline", "original", "price", "unit", "note", "cta", "days", "featured", "sort", "active"}),

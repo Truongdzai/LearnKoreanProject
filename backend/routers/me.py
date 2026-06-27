@@ -17,6 +17,10 @@ class EquipIn(BaseModel):
     frame: str | None = None
 
 
+class EquipPetIn(BaseModel):
+    pet: str | None = None
+
+
 class PlantIn(BaseModel):
     item_id: str = ""
     art: str
@@ -84,6 +88,11 @@ def api_buy(body: BuyIn, user: dict = Auth):
 @router.post("/equip")
 def api_equip(body: EquipIn, user: dict = Auth):
     return {"ok": True, "user": accounts.public_user(accounts.equip_frame(user["id"], body.frame))}
+
+
+@router.post("/equip-pet")
+def api_equip_pet(body: EquipPetIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.equip_pet(user["id"], body.pet))}
 
 
 @router.post("/plus")

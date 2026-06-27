@@ -5,12 +5,14 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
 import { fetchPronounceFeedback, type PronounceFeedback } from '@/core/api/pronounce.api'
 import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import type { Lesson } from '@/models/lesson.model'
 
 const REWARD = 5
 
 export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
-  const { recordEvent } = useAppStore()
+  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const [i, setI] = useState(0)
   const [score, setScore] = useState<number | null>(null)
@@ -19,16 +21,16 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState('')
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
-  const sr = useSpeechRecognition('ko-KR')
+  const sr = useSpeechRecognition(cfg.locale)
 
   const cur = segs[i]
-  const romaja = useMemo(() => romanizeLine(cur.ko), [cur.ko])
+  const romaja = useMemo(() => (cfg.romanizeChat ? romanizeLine(cur.ko) : ''), [cur.ko, cfg.romanizeChat])
 
   const speak = (text: string, rate = 0.9) => {
     try {
       speechSynthesis.cancel()
       const u = new SpeechSynthesisUtterance(text)
-      u.lang = 'ko-KR'
+      u.lang = cfg.locale
       u.rate = rate
       speechSynthesis.speak(u)
     } catch {
@@ -73,7 +75,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     if (score === null) return
     setAiLoading(true); setAiError(''); setAi(null)
     try {
-      const fb = await fetchPronounceFeedback({ target: cur.ko, heard, score, vi: cur.vi || '' })
+      const fb = await fetchPronounceFeedback({ target: cur.ko, heard, score, vi: cur.vi || '', lang: learnLang, native: nativeLang })
       setAi(fb)
     } catch (e) {
       setAiError((e as Error).message)
@@ -99,12 +101,12 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
       </div>
 
       <div className="shadow-card">
-        <div className="shadow-ko" lang="ko">
+        <div className="shadow-ko" lang={learnLang}>
           {marks.length
             ? marks.map((m, k) => <span key={k} className={'sw ' + (m.ok ? 'ok' : 'miss')}>{m.word} </span>)
             : cur.ko}
         </div>
-        <div className="shadow-romaja">{romaja}</div>
+        {romaja && <div className="shadow-romaja">{romaja}</div>}
         {cur.vi && <div className="shadow-vi">{cur.vi}</div>}
 
         <div className="shadow-listen">
@@ -118,7 +120,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
               <Icon name="mic" size={26} />
               <span>{sr.listening ? 'Đang nghe… (bấm để dừng)' : 'Bấm và nói câu trên'}</span>
             </button>
-            {(sr.listening || sr.interim) && <div className="shadow-interim" lang="ko">{sr.interim || '…'}</div>}
+            {(sr.listening || sr.interim) && <div className="shadow-interim" lang={learnLang}>{sr.interim || '…'}</div>}
             {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
           </>
         ) : (
@@ -139,7 +141,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           </div>
           <div className="sr-body">
             <div className="sr-band">{band.label}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}</div>
-            <div className="sr-heard"><span>Bạn đã nói:</span> <em lang="ko">{heard || '(không nghe rõ)'}</em></div>
+            <div className="sr-heard"><span>Bạn đã nói:</span> <em lang={learnLang}>{heard || '(không nghe rõ)'}</em></div>
             <div className="sr-actions">
               <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> Thử lại</button>
               <button className="btn-primary sm" onClick={askAI} disabled={aiLoading}>

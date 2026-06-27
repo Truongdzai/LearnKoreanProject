@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import { romanizeLine } from '@/core/utils/romanize'
 import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import { detectSpeakers, diarizeVoice } from '@/core/api/learn.api'
 import type { Lesson } from '@/models/lesson.model'
 
@@ -30,7 +31,8 @@ function delayScore(delay: number): number {
 const charLabel = (c: number) => String.fromCharCode(65 + c)
 
 export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
-  const { recordEvent, user, setView } = useAppStore()
+  const { recordEvent, user, setView, learnLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const yt = useYouTubePlayer('dub-player')
 
@@ -421,11 +423,11 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                     </span>
                   )}
                 </div>
-                <div className="dub-ko" lang="ko">{s.ko}</div>
-                <div className="dub-romaja">{romanizeLine(s.ko)}</div>
+                <div className="dub-ko" lang={learnLang}>{s.ko}</div>
+                {cfg.romanizeChat && <div className="dub-romaja">{romanizeLine(s.ko)}</div>}
                 {s.vi && <div className="dub-vi">{s.vi}</div>}
                 <div className="dub-line-actions">
-                  <button className="btn-ghost sm" onClick={() => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(s.ko); u.lang = 'ko-KR'; u.rate = 0.9; speechSynthesis.speak(u) } catch { /* */ } }}>
+                  <button className="btn-ghost sm" onClick={() => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(s.ko); u.lang = cfg.locale; u.rate = 0.9; speechSynthesis.speak(u) } catch { /* */ } }}>
                     <Icon name="volume" size={14} /> Nghe mẫu
                   </button>
                   {isRec ? (

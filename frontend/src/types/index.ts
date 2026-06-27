@@ -5,6 +5,8 @@ export interface NavItem {
   id: AppView
   icon: IconName
   label: string
+  /** Learning languages this item belongs to; omit for universal items. */
+  langs?: string[]
 }
 
 export type { AppView, LearnTab } from '@/core/constants/enum'

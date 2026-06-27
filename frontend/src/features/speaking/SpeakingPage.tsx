@@ -1,160 +1,310 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { romanizeLine } from '@/core/utils/romanize'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
+import { scenariosFor, type Scenario } from './scenarios'
+import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
-interface Line { ko: string; vi: string }
-interface Scenario {
-  id: string
-  title: string
-  emoji: string
-  opener: Line
-  bot: Line[]
-  suggestions: Line[][]
+interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
+
+function speak(text: string, locale: string, rate = 0.95) {
+  if (!text) return
+  try {
+    speechSynthesis.cancel()
+    const u = new SpeechSynthesisUtterance(text)
+    u.lang = locale
+    u.rate = rate
+    const base = locale.split('-')[0]
+    const voice = speechSynthesis.getVoices().find((v) => v.lang === locale || v.lang.startsWith(base))
+    if (voice) u.voice = voice
+    speechSynthesis.speak(u)
+  } catch { /* unsupported */ }
 }
 
-const SCENARIOS: Scenario[] = [
-  {
-    id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    opener: { ko: '안녕하세요! 만나서 반갑습니다. 이름이 뭐예요?', vi: 'Xin chào! Rất vui được gặp. Bạn tên gì?' },
-    bot: [
-      { ko: '와, 좋은 이름이네요! 어디에서 왔어요?', vi: 'Ồ, tên hay đấy! Bạn đến từ đâu?' },
-      { ko: '베트남이군요! 한국어를 왜 배워요?', vi: 'Việt Nam à! Bạn học tiếng Hàn vì sao?' },
-      { ko: '멋져요! 매일 조금씩 연습하면 금방 늘어요. 화이팅!', vi: 'Tuyệt vời! Mỗi ngày luyện một chút là tiến bộ nhanh thôi. Cố lên!' },
-    ],
-    suggestions: [
-      [{ ko: '제 이름은 민수예요.', vi: 'Tên tôi là Minsu.' }, { ko: '저는 흐엉이에요.', vi: 'Tôi là Hương.' }],
-      [{ ko: '베트남에서 왔어요.', vi: 'Tôi đến từ Việt Nam.' }],
-      [{ ko: 'K-pop을 좋아해서 배워요.', vi: 'Tôi học vì thích K-pop.' }, { ko: '한국 여행을 가고 싶어요.', vi: 'Tôi muốn đi du lịch Hàn Quốc.' }],
-    ],
-  },
-  {
-    id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    opener: { ko: '어서 오세요! 무엇을 드릴까요?', vi: 'Mời vào! Bạn muốn dùng gì ạ?' },
-    bot: [
-      { ko: '따뜻한 거요, 차가운 거요?', vi: 'Bạn muốn nóng hay lạnh ạ?' },
-      { ko: '사이즈는 어떻게 하시겠어요?', vi: 'Bạn muốn cỡ nào ạ?' },
-      { ko: '네, 잠시만 기다려 주세요. 감사합니다!', vi: 'Vâng, xin đợi một chút. Cảm ơn ạ!' },
-    ],
-    suggestions: [
-      [{ ko: '아메리카노 한 잔 주세요.', vi: 'Cho tôi một ly americano.' }, { ko: '카페라떼 주세요.', vi: 'Cho tôi cà phê latte.' }],
-      [{ ko: '차가운 걸로 주세요.', vi: 'Cho tôi loại lạnh.' }, { ko: '따뜻한 걸로요.', vi: 'Loại nóng ạ.' }],
-      [{ ko: '큰 사이즈로 주세요.', vi: 'Cho tôi cỡ lớn.' }],
-    ],
-  },
-  {
-    id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    opener: { ko: '저기요, 무엇을 찾으세요?', vi: 'Xin lỗi, bạn đang tìm gì vậy?' },
-    bot: [
-      { ko: '아, 지하철역이요? 이 길로 쭉 가세요.', vi: 'À, ga tàu điện ngầm à? Bạn cứ đi thẳng đường này.' },
-      { ko: '걸어서 5분 정도 걸려요.', vi: 'Đi bộ khoảng 5 phút.' },
-      { ko: '천만에요! 조심히 가세요.', vi: 'Không có gì! Đi cẩn thận nhé.' },
-    ],
-    suggestions: [
-      [{ ko: '지하철역이 어디예요?', vi: 'Ga tàu điện ngầm ở đâu ạ?' }, { ko: '화장실이 어디예요?', vi: 'Nhà vệ sinh ở đâu ạ?' }],
-      [{ ko: '얼마나 걸려요?', vi: 'Mất bao lâu ạ?' }],
-      [{ ko: '감사합니다!', vi: 'Cảm ơn ạ!' }],
-    ],
-  },
-]
-
-interface Msg { who: 'bot' | 'me'; ko: string; vi: string }
-
 export default function SpeakingPage() {
+  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const cfg = studyLang(learnLang)
+  const scenarios = scenariosFor(learnLang)
   const [scenario, setScenario] = useState<Scenario | null>(null)
-  const [msgs, setMsgs] = useState<Msg[]>([])
-  const [step, setStep] = useState(0)
-  const [input, setInput] = useState('')
+  const [msgs, setMsgs] = useState<ChatMsg[]>([])
+  const [suggestions, setSuggestions] = useState<SpeakLine[]>([])
+  const [draft, setDraft] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [finished, setFinished] = useState(false)
+  const [aiOff, setAiOff] = useState(false)
+  const [showSuggest, setShowSuggest] = useState(true)
+  const [viShown, setViShown] = useState<Set<number>>(new Set())
+  const [romaShown, setRomaShown] = useState<Set<number>>(new Set())
+  const fallbackStep = useRef(0)
+  const turns = useRef(0)
   const endRef = useRef<HTMLDivElement>(null)
+  const sr = useSpeechRecognition(cfg.locale)
 
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [msgs])
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [msgs, loading])
 
-  const speak = (text: string) => {
-    try { const u = new SpeechSynthesisUtterance(text); u.lang = 'ko-KR'; speechSynthesis.speak(u) } catch { /* unsupported */ }
+  // Leaving a scenario when the user switches study language keeps things consistent.
+  useEffect(() => { setScenario(null) }, [learnLang])
+
+  // Khi micro dừng và có kết quả, đưa câu nhận diện vào ô soạn để người học kiểm tra trước khi gửi.
+  useEffect(() => {
+    if (!sr.listening && sr.transcript.trim()) setDraft(sr.transcript.trim())
+  }, [sr.listening, sr.transcript])
+
+  const toggle = (set: React.Dispatch<React.SetStateAction<Set<number>>>, i: number) =>
+    set((prev) => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n })
+
+  const finish = () => {
+    setFinished(true)
+    setSuggestions([])
+    if (sr.listening) sr.stop()
+  }
+
+  const endNoAi = () => {
+    setMsgs((prev) => [...prev, { who: 'bot', ko: 'Mất kết nối với AI. Hãy thử lại sau giây lát nhé.', vi: '' }])
+    finish()
   }
 
   const start = (s: Scenario) => {
-    setScenario(s); setStep(0); setMsgs([{ who: 'bot', ...s.opener }]); setInput('')
-    setTimeout(() => speak(s.opener.ko), 250)
-  }
+    setScenario(s)
+    setDraft(''); setFinished(false); setAiOff(false); setShowSuggest(true)
+    setViShown(new Set()); setRomaShown(new Set())
+    fallbackStep.current = 0; turns.current = 0
+    sr.reset()
 
-  const send = (ko: string, vi = '') => {
-    if (!scenario || !ko.trim()) return
-    const next = [...msgs, { who: 'me' as const, ko, vi }]
-    const reply = scenario.bot[step]
-    if (reply) {
-      next.push({ who: 'bot', ...reply })
-      setStep(step + 1)
-      setTimeout(() => speak(reply.ko), 400)
-    } else {
-      next.push({ who: 'bot', ko: '잘했어요! 정말 자연스러워요. 다시 연습할까요?', vi: 'Giỏi lắm! Rất tự nhiên. Mình luyện lại nhé?' })
+    if (s.opener) {
+      setMsgs([{ who: 'bot', ...s.opener }])
+      setSuggestions(s.fallback?.suggestions[0] || [])
+      setLoading(false)
+      setTimeout(() => speak(s.opener!.ko, cfg.locale), 250)
+      return
     }
-    setMsgs(next); setInput('')
+
+    // No hand-written lines for this language → let the AI open the conversation.
+    setMsgs([]); setSuggestions([]); setLoading(true)
+    fetchSpeakReply({ persona: s.persona, situation: s.situation, user_say: '', history: [], lang: learnLang, native: nativeLang })
+      .then((r) => {
+        setMsgs([{ who: 'bot', ko: r.reply_ko, vi: r.reply_vi }])
+        setSuggestions(r.suggestions || [])
+        setTimeout(() => speak(r.reply_ko, cfg.locale), 250)
+      })
+      .catch(() => {
+        setAiOff(true)
+        setMsgs([{ who: 'bot', ko: 'Cần kết nối AI để luyện nói tình huống này. Hãy thử lại sau giây lát.', vi: '' }])
+        setFinished(true)
+      })
+      .finally(() => setLoading(false))
   }
 
-  const curSuggestions = scenario && step < scenario.suggestions.length ? scenario.suggestions[step] : []
+  const fallbackReply = (sc: Scenario) => {
+    if (!sc.fallback) { endNoAi(); return }
+    const step = fallbackStep.current
+    fallbackStep.current += 1
+    const bot = sc.fallback.bot[step]
+    if (bot) {
+      setMsgs((prev) => [...prev, { who: 'bot', ...bot }])
+      setSuggestions(sc.fallback!.suggestions[step + 1] || [])
+      setTimeout(() => speak(bot.ko, cfg.locale), 300)
+    } else {
+      setMsgs((prev) => [...prev, { who: 'bot', ko: 'Tuyệt lắm! Bạn nói rất tự nhiên. Mình luyện lại nhé?', vi: '' }])
+      finish()
+    }
+  }
+
+  const send = async (raw: string) => {
+    const text = raw.trim()
+    if (!scenario || !text || loading || finished) return
+    if (sr.listening) sr.stop()
+    sr.reset(); setDraft('')
+
+    const userMsg: ChatMsg = { who: 'me', ko: text, vi: '' }
+    const history = [...msgs, userMsg].map((m) => ({ role: m.who, ko: m.ko }))
+    setMsgs((prev) => [...prev, userMsg])
+    setSuggestions([])
+    turns.current += 1
+    recordEvent('pronounce', 1)
+
+    if (aiOff) { fallbackReply(scenario); return }
+
+    setLoading(true)
+    try {
+      const r = await fetchSpeakReply({
+        persona: scenario.persona,
+        situation: scenario.situation,
+        user_say: text,
+        history,
+        lang: learnLang,
+        native: nativeLang,
+      })
+      setMsgs((prev) => {
+        const copy = [...prev]
+        if (r.feedback) copy[copy.length - 1] = { ...copy[copy.length - 1], feedback: r.feedback }
+        return [...copy, { who: 'bot', ko: r.reply_ko, vi: r.reply_vi }]
+      })
+      setSuggestions(r.suggestions || [])
+      setTimeout(() => speak(r.reply_ko, cfg.locale), 300)
+      if (r.done) finish()
+    } catch {
+      setAiOff(true)
+      fallbackReply(scenario)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const record = useCallback(() => {
+    if (loading || finished) return
+    if (sr.listening) sr.stop()
+    else { setDraft(''); sr.start() }
+  }, [loading, finished, sr])
+
+  // Nhấn Enter để bắt đầu / dừng ghi âm (trừ khi đang gõ trong ô soạn).
+  useEffect(() => {
+    if (!scenario || finished) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter' || e.repeat) return
+      const tag = (document.activeElement as HTMLElement | null)?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+      e.preventDefault()
+      record()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [scenario, finished, record])
 
   if (!scenario) {
     return (
       <div className="speaking">
-        <h1 className="page-title"><Icon name="mic" /> Luyện giao tiếp với AI</h1>
-        <p className="page-sub">Chọn một tình huống và trò chuyện bằng tiếng Hàn — AI trả lời, đọc to và gợi ý câu cho bạn.</p>
+        <h1 className="page-title"><Icon name="mic" /> Luyện nói với AI</h1>
+        <p className="page-sub">Chọn một tình huống và trò chuyện bằng {cfg.name} — nhân vật AI trả lời, đọc to, gợi ý câu và nhận xét cách bạn nói.</p>
         <div className="scenario-grid">
-          {SCENARIOS.map((s) => (
-            <button key={s.id} className="scenario-card" onClick={() => start(s)}>
-              <span className="scenario-emoji">{s.emoji}</span>
-              <b>{s.title}</b>
+          {scenarios.map((s) => (
+            <button key={s.id} className="scenario-card sp-pick" onClick={() => start(s)}>
+              <span className="sp-pick-ava">{s.avatar}</span>
+              <div className="sp-pick-body">
+                <b>{s.emoji} {s.title}</b>
+                <span className="sp-pick-char">{s.character} · {s.role}</span>
+                <span className="sp-pick-sit">{s.situation}</span>
+              </div>
               <span className="scenario-go">Bắt đầu <Icon name="arrow-right" size={14} /></span>
             </button>
           ))}
         </div>
         <div className="speaking-note">
-          <Icon name="bulb" size={16} /> Đây là bản luyện tập theo kịch bản. Khi kết nối AI hội thoại đầy đủ, bạn có thể nói tự do và được chấm phát âm.
+          <Icon name="bulb" size={16} /> Mẹo: dùng <b>Chrome</b> hoặc <b>Edge</b> và cho phép micro để nói. Bạn cũng có thể gõ câu trả lời nếu muốn.
         </div>
       </div>
     )
   }
 
   return (
-    <div className="speaking chat-mode">
-      <div className="chat-head">
+    <div className="speaking sp-chat">
+      <div className="sp-head">
         <button className="btn-ghost sm" onClick={() => setScenario(null)}><Icon name="chevron-left" size={15} /> Đổi tình huống</button>
-        <span className="chat-title">{scenario.emoji} {scenario.title}</span>
+        <div className="sp-head-who">
+          <span className="sp-head-ava">{scenario.avatar}</span>
+          <div>
+            <b>{scenario.character}</b>
+            <span>{scenario.emoji} {scenario.role}</span>
+          </div>
+        </div>
       </div>
 
-      <div className="chat-box">
+      <div className="sp-box">
         {msgs.map((m, i) => (
-          <div key={i} className={'chat-msg ' + m.who}>
-            {m.who === 'bot' && <span className="chat-ava"><Icon name="vyling" size={18} /></span>}
-            <div className="chat-bubble">
-              <div className="chat-ko" lang="ko">
-                {m.ko}
-                {m.who === 'bot' && <button className="chat-speak" onClick={() => speak(m.ko)}><Icon name="volume" size={13} /></button>}
+          m.who === 'bot' ? (
+            <div key={i} className="sp-msg bot">
+              <span className="sp-ava">{scenario.avatar}</span>
+              <div className="sp-bubble">
+                <div className="sp-name">{scenario.character}</div>
+                <div className="sp-ko" lang={learnLang}>{m.ko}</div>
+                {romaShown.has(i) && <div className="sp-roma">{romanizeLine(m.ko)}</div>}
+                {viShown.has(i) && <div className="sp-trans"><b>BẢN DỊCH</b> {m.vi}</div>}
+                <div className="sp-tools">
+                  <button onClick={() => speak(m.ko, cfg.locale)}><Icon name="volume" size={13} /> Nghe lại</button>
+                  <button className={viShown.has(i) ? 'on' : ''} onClick={() => toggle(setViShown, i)}><Icon name="globe" size={13} /> Dịch</button>
+                  {cfg.romanizeChat && (
+                    <button className={romaShown.has(i) ? 'on' : ''} onClick={() => toggle(setRomaShown, i)}><Icon name="letters" size={13} /> {romaShown.has(i) ? 'Ẩn cách đọc' : 'Hiện cách đọc'}</button>
+                  )}
+                </div>
               </div>
-              {m.who === 'bot' && <div className="chat-romaja">{romanizeLine(m.ko)}</div>}
-              {m.vi && <div className="chat-vi">{m.vi}</div>}
             </div>
-          </div>
+          ) : (
+            <div key={i} className="sp-msg me">
+              <div className="sp-bubble" lang={learnLang}>{m.ko}</div>
+              {m.feedback && <div className="sp-fb"><Icon name="sparkles" size={12} /> {m.feedback}</div>}
+            </div>
+          )
         ))}
+        {loading && (
+          <div className="sp-msg bot">
+            <span className="sp-ava">{scenario.avatar}</span>
+            <div className="sp-bubble"><div className="sp-typing"><span /><span /><span /></div></div>
+          </div>
+        )}
         <div ref={endRef} />
       </div>
 
-      {curSuggestions.length > 0 && (
-        <div className="chat-suggest">
-          {curSuggestions.map((s, i) => (
-            <button key={i} onClick={() => send(s.ko, s.vi)} title={s.vi}><span lang="ko">{s.ko}</span></button>
-          ))}
+      {finished ? (
+        <div className="sp-done">
+          <Icon name="party" size={26} />
+          <b>Hoàn thành hội thoại!</b>
+          <p>Bạn đã luyện {turns.current} lượt nói với {scenario.character}. Tuyệt vời, tiếp tục phát huy nhé!</p>
+          <div className="sp-done-actions">
+            <button className="btn-primary sm" onClick={() => start(scenario)}><Icon name="mic" size={14} /> Luyện lại</button>
+            <button className="btn-ghost sm" onClick={() => setScenario(null)}>Đổi tình huống</button>
+          </div>
         </div>
-      )}
+      ) : (
+        <>
+          {suggestions.length > 0 && (
+            <div className="sp-suggest">
+              <button className="sp-suggest-head" onClick={() => setShowSuggest((v) => !v)}>
+                {showSuggest ? 'Ẩn câu gợi ý' : 'Hiện câu gợi ý'} <Icon name="chevron-down" size={14} style={{ transform: showSuggest ? 'none' : 'rotate(-90deg)' }} />
+              </button>
+              {showSuggest && (
+                <div className="sp-sug-list">
+                  {suggestions.map((s, i) => (
+                    <div key={i} className="sp-sug-card">
+                      <button className="sp-sug-main" onClick={() => send(s.ko)} disabled={loading}>
+                        <span lang={learnLang}>{s.ko}</span>
+                        <span className="sp-sug-vi"><b>Bản dịch:</b> {s.vi}</span>
+                      </button>
+                      <button className="sp-sug-speak" onClick={() => speak(s.ko, cfg.locale)} title="Nghe"><Icon name="volume" size={15} /></button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
-      <div className="chat-input">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && send(input)}
-          placeholder="Nhập câu trả lời tiếng Hàn…"
-        />
-        <button className="chat-send" onClick={() => send(input)}><Icon name="send" size={18} /></button>
-      </div>
+          <div className="sp-foot">
+            <div className="sp-draft">
+              <input
+                value={sr.listening ? (sr.interim || 'Đang nghe…') : draft}
+                onChange={(e) => setDraft(e.target.value)}
+                readOnly={sr.listening}
+                lang={learnLang}
+                placeholder={`Nói hoặc gõ câu trả lời ${cfg.name}…`}
+                onKeyDown={(e) => { if (e.key === 'Enter') send(draft) }}
+              />
+              <button className="sp-send" disabled={!draft.trim() || loading} onClick={() => send(draft)}><Icon name="send" size={18} /></button>
+            </div>
+            {sr.error && <div className="sp-err"><Icon name="x-circle" size={14} /> {sr.error}</div>}
+            {sr.supported ? (
+              <>
+                <button className={'sp-mic' + (sr.listening ? ' on' : '')} onClick={record} disabled={loading}>
+                  <Icon name="mic" size={28} />
+                </button>
+                <div className="sp-mic-hint">{sr.listening ? 'Đang ghi âm… nhấn để dừng' : 'Nhấn Enter để bắt đầu / dừng ghi âm'}</div>
+              </>
+            ) : (
+              <div className="sp-mic-hint">Trình duyệt chưa hỗ trợ ghi âm — hãy gõ câu trả lời ở trên (dùng Chrome/Edge để nói).</div>
+            )}
+          </div>
+        </>
+      )}
     </div>
   )
 }

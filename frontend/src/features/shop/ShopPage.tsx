@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flower from '@/core/components/Flower'
 import Avatar from '@/core/components/Avatar'
+import Pet from '@/core/components/Pet'
 import { fetchShop } from '@/core/api/content.api'
 import type { ShopCategory, ShopItem } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
@@ -9,6 +10,7 @@ import { useAuth } from '@/store/auth.store'
 
 const CATS: { id: ShopCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'Tất cả vật phẩm' },
+  { id: 'pet', label: 'Thú cưng' },
   { id: 'seed', label: 'Hạt giống' },
   { id: 'frame', label: 'Khung viền' },
   { id: 'avatar', label: 'Hiệu ứng Avatar' },
@@ -16,6 +18,7 @@ const CATS: { id: ShopCategory | 'all'; label: string }[] = [
 ]
 
 function ItemArt({ item }: { item: ShopItem }) {
+  if (item.category === 'pet') return <Pet art={item.art} size={92} mood="happy" />
   if (item.category === 'seed') return <Flower art={item.art} size={92} />
   if (item.category === 'frame') return <Avatar size={92} frame={item.art} initials="V" />
   if (item.category === 'avatar') return <span className={'fx-preview fx-' + item.art}><Avatar size={72} initials="V" /></span>
@@ -23,10 +26,10 @@ function ItemArt({ item }: { item: ShopItem }) {
 }
 
 export default function ShopPage() {
-  const { user, owned, buyItem, equipFrame, setView, isAuthed } = useAppStore()
+  const { user, owned, buyItem, equipFrame, equipPet, setView, isAuthed } = useAppStore()
   const { openAuth } = useAuth()
   const [items, setItems] = useState<ShopItem[]>([])
-  const [cat, setCat] = useState<ShopCategory | 'all'>('all')
+  const [cat, setCat] = useState<ShopCategory | 'all'>('pet')
   const [tab, setTab] = useState<'shop' | 'inv'>('shop')
   const [flash, setFlash] = useState('')
   const [busy, setBusy] = useState('')
@@ -61,6 +64,13 @@ export default function ShopPage() {
 
   const onEquip = async (item: ShopItem, equipped: boolean) => {
     try { await equipFrame(equipped ? null : item.art) } catch (e) { showFlash((e as Error).message) }
+  }
+
+  const onEquipPet = async (item: ShopItem, equipped: boolean) => {
+    try {
+      await equipPet(equipped ? null : item.art)
+      if (!equipped) showFlash(`${item.name} đang đồng hành cùng bạn!`)
+    } catch (e) { showFlash((e as Error).message) }
   }
 
   return (
@@ -101,6 +111,9 @@ export default function ShopPage() {
           {view.map((item) => {
             const isOwned = owned.includes(item.id)
             const equipped = item.category === 'frame' && user.equippedFrame === item.art
+            const isPet = item.category === 'pet'
+            const petEquipped = isPet && (user.equippedPet || 'shiba') === item.art
+            const canEquipPet = isPet && (isOwned || item.art === 'shiba')
             return (
               <div key={item.id} className={'shop-item' + (item.plus ? ' is-plus' : '')}>
                 {item.plus && <span className="item-plus"><Icon name="sparkles" size={11} /> PLUS</span>}
@@ -110,8 +123,20 @@ export default function ShopPage() {
                 <div className="item-name">{item.name}</div>
                 <div className="item-desc">{item.desc}</div>
                 <div className="item-foot">
-                  <span className="item-price"><Icon name="coin" size={16} /> {item.price}</span>
-                  {isOwned ? (
+                  <span className="item-price">
+                    {isPet && item.price === 0 ? <span className="item-free">Miễn phí</span> : <><Icon name="coin" size={16} /> {item.price}</>}
+                  </span>
+                  {isPet ? (
+                    canEquipPet ? (
+                      <button className={'item-btn ' + (petEquipped ? 'equipped' : 'equip')} onClick={() => onEquipPet(item, petEquipped)}>
+                        {petEquipped ? 'Đang nuôi ✓' : 'Chọn nuôi'}
+                      </button>
+                    ) : (
+                      <button className="item-btn buy" disabled={busy === item.id} onClick={() => onBuy(item)}>
+                        {busy === item.id ? '…' : 'Mua'}
+                      </button>
+                    )
+                  ) : isOwned ? (
                     item.category === 'frame' ? (
                       <button className={'item-btn ' + (equipped ? 'equipped' : 'equip')} onClick={() => onEquip(item, equipped)}>
                         {equipped ? 'Đang dùng ✓' : 'Trang bị'}

@@ -16,13 +16,13 @@ export const LANGUAGES: LangOption[] = [
 ]
 
 export const GOALS: { title: string; detail: string }[] = [
-  { title: 'Bảng chữ cái Hangul', detail: 'Làm quen và ghi nhớ hệ thống chữ cái Hangul, nguyên âm, phụ âm và cách ghép chữ.' },
-  { title: 'Phát âm cơ bản', detail: 'Luyện phát âm chuẩn các âm tiếng Hàn, quy tắc nối âm và biến âm.' },
+  { title: 'Bảng chữ cái & cách đọc', detail: 'Làm quen và ghi nhớ hệ thống chữ viết, cách đọc và quy tắc ghép âm của ngôn ngữ.' },
+  { title: 'Phát âm cơ bản', detail: 'Luyện phát âm chuẩn, quy tắc nối âm và ngữ điệu tự nhiên.' },
   { title: 'Từ vựng sơ cấp', detail: 'Xây dựng vốn từ vựng cơ bản theo các chủ đề quen thuộc: gia đình, trường học, ăn uống.' },
   { title: 'Ngữ pháp cơ bản', detail: 'Nắm được các cấu trúc câu cơ bản: câu khẳng định, phủ định, câu hỏi.' },
   { title: 'Giao tiếp cơ bản', detail: 'Sử dụng các mẫu câu đơn giản để chào hỏi, giới thiệu bản thân và giao tiếp hằng ngày.' },
-  { title: 'Giao tiếp trung cấp (TOPIK I–II)', detail: 'Mở rộng khả năng giao tiếp trong nhiều tình huống: học tập, công việc, du lịch.' },
-  { title: 'Luyện thi TOPIK', detail: 'Ôn tập và nâng cao kỹ năng để đạt mục tiêu chứng chỉ TOPIK mong muốn.' },
+  { title: 'Giao tiếp trung cấp', detail: 'Mở rộng khả năng giao tiếp trong nhiều tình huống: học tập, công việc, du lịch.' },
+  { title: 'Luyện thi chứng chỉ', detail: 'Ôn tập và nâng cao kỹ năng để đạt mục tiêu chứng chỉ ngoại ngữ mong muốn.' },
 ]
 
 export const INTERESTS: { name: string; emoji: string }[] = [

@@ -8,22 +8,34 @@ import type { LearningPath } from '@/models/path.model'
 import { fetchTranscript } from '@/core/api/learn.api'
 import { fetchVideos } from '@/core/api/content.api'
 import {
-  fetchState, buyItemApi, equipFrameApi, upgradePlusApi, plantSeedApi, waterPlantApi,
+  fetchState, buyItemApi, equipFrameApi, equipPetApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
   recordEventApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
+import { viewAllowedForLang } from '@/core/constants/nav'
+import { studyLang } from '@/core/constants/languages'
 import { useAuth } from '@/store/auth.store'
 
 const THEME_KEY = 'vyling.theme'
+const LANG_KEY = 'vyling.learnLang'
+const NATIVE_KEY = 'vyling.nativeLang'
 
 const GUEST: Account = {
   id: '', name: 'Khách', provider: 'email', role: 'user',
-  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null,
+  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null, equippedPet: null,
 }
 
 function loadTheme(): ThemeMode {
   try { return localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark' } catch { return 'dark' }
+}
+
+function loadLang(): string {
+  try { return localStorage.getItem(LANG_KEY) || 'ko' } catch { return 'ko' }
+}
+
+function loadNative(): string {
+  try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
 }
 
 interface AppStore {
@@ -32,6 +44,17 @@ interface AppStore {
 
   theme: ThemeMode
   toggleTheme: () => void
+
+  learnLang: string
+  setLearnLang: (code: string) => void
+
+  nativeLang: string
+  setNativeLang: (code: string) => void
+
+  /** One-shot signal asking PathPage to open its wizard (e.g. after switching language). */
+  wizardRequested: boolean
+  requestWizard: () => void
+  clearWizard: () => void
 
   user: Account
   isAuthed: boolean
@@ -45,6 +68,7 @@ interface AppStore {
 
   buyItem: (itemId: string) => Promise<void>
   equipFrame: (frame: string | null) => Promise<void>
+  equipPet: (pet: string | null) => Promise<void>
   upgradePlus: (planId?: string) => Promise<void>
   plantSeed: (itemId: string, art: string, name: string) => Promise<void>
   waterPlant: (id: string) => Promise<void>
@@ -75,6 +99,9 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const [view, setView] = useState<AppView>('home')
   const [theme, setTheme] = useState<ThemeMode>(loadTheme)
+  const [learnLang, setLearnLangState] = useState<string>(loadLang)
+  const [nativeLang, setNativeLangState] = useState<string>(loadNative)
+  const [wizardRequested, setWizardRequested] = useState(false)
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
@@ -118,6 +145,21 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const toggleTheme = useCallback(() => setTheme((t) => (t === 'dark' ? 'light' : 'dark')), [])
 
+  const setLearnLang = useCallback((code: string) => {
+    setLearnLangState(code)
+    try { localStorage.setItem(LANG_KEY, code) } catch { /* ignore */ }
+    // Leaving a view that no longer belongs to this language → back home.
+    if (!viewAllowedForLang(view, code)) setView('home')
+  }, [view])
+
+  const setNativeLang = useCallback((code: string) => {
+    setNativeLangState(code)
+    try { localStorage.setItem(NATIVE_KEY, code) } catch { /* ignore */ }
+  }, [])
+
+  const requestWizard = useCallback(() => setWizardRequested(true), [])
+  const clearWizard = useCallback(() => setWizardRequested(false), [])
+
   const guard = useCallback((): boolean => {
     if (isAuthed) return true
     openAuth()
@@ -134,6 +176,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const equipFrame = useCallback(async (frame: string | null) => {
     if (!guard()) return
     const r = await equipFrameApi(frame)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const equipPet = useCallback(async (pet: string | null) => {
+    if (!guard()) return
+    const r = await equipPetApi(pet)
     setAccount(r.user)
   }, [guard, setAccount])
 
@@ -207,7 +255,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     const u = (url || '').trim()
     if (!u) {
       setStatusError(false)
-      setStatus('Hãy dán link YouTube tiếng Hàn.')
+      setStatus(`Hãy dán link YouTube ${studyLang(learnLang).name}.`)
       return
     }
     setStatusError(false)
@@ -215,7 +263,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     setLesson(null)
     setView('learn')
     try {
-      const d = await fetchTranscript(u)
+      const d = await fetchTranscript(u, learnLang)
       setLesson(d)
       setStatus('')
       recordEvent('video', 1, 0, 0)
@@ -223,7 +271,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       setStatusError(true)
       setStatus((e as Error).message)
     }
-  }, [recordEvent])
+  }, [recordEvent, learnLang])
 
   const loadSample = useCallback(() => {
     setStatusError(false)
@@ -235,10 +283,13 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const value: AppStore = {
     view, setView,
     theme, toggleTheme,
+    learnLang, setLearnLang,
+    nativeLang, setNativeLang,
+    wizardRequested, requestWizard, clearWizard,
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,
-    buyItem, equipFrame, upgradePlus,
+    buyItem, equipFrame, equipPet, upgradePlus,
     plantSeed, waterPlant, removePlant,
     saveVideo, removeVideo, addPath,
     claimQuest, dailyBonus, recordEvent,

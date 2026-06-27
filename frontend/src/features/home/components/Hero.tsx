@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import Icon from '@/core/components/Icon'
 
 export default function Hero() {
-  const { loadLesson, loadSample } = useAppStore()
+  const { loadLesson, loadSample, learnLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const [url, setUrl] = useState('')
   const [tab, setTab] = useState<'youtube' | 'upload'>('youtube')
 
@@ -11,7 +13,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-in">
         <h1>Luyện Shadowing qua bất kỳ video nào bạn thích <Icon name="film" /></h1>
-        <p>Dán link YouTube tiếng Hàn có ngay phụ đề Hàn - Việt, học theo từng câu và lưu vào Anki.</p>
+        <p>Dán link YouTube {cfg.name} có ngay phụ đề song ngữ, học theo từng câu và lưu vào flashcard.</p>
 
         <div className="maker">
           <div className="maker-tabs">
@@ -25,14 +27,14 @@ export default function Hero() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && loadLesson(url)}
-              placeholder="Dán link YouTube tiếng Hàn vào đây…"
+              placeholder={`Dán link YouTube ${cfg.name} vào đây…`}
             />
             <button className="go" onClick={() => loadLesson(url)}>
               <Icon name="sparkles" /> Tạo bài học
             </button>
           </div>
           <p className="maker-hint">
-            Mẹo: chọn video có phụ đề tiếng Hàn để chất lượng tốt nhất. Lần đầu tải mất ~10-60 giây.
+            Mẹo: chọn video có phụ đề {cfg.name} để chất lượng tốt nhất. Lần đầu tải mất ~10-60 giây.
             {' · '}
             <button type="button" className="link-sample" onClick={loadSample}>
               <Icon name="film" /> Thử ngay bài học mẫu (không cần dán link)

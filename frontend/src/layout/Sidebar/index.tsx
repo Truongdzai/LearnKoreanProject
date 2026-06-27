@@ -1,33 +1,24 @@
-import { useState } from 'react'
 import { useAppStore } from '@/store/app.store'
 import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
 import Flag from '@/core/components/Flag'
-import type { NavItem } from '@/types'
-
-const NAV: NavItem[] = [
-  { id: 'home', icon: 'home', label: 'Trang chủ' },
-  { id: 'library', icon: 'film', label: 'Kho video' },
-  { id: 'myvideos', icon: 'tv', label: 'Video của tôi' },
-  { id: 'path', icon: 'map', label: 'Lộ trình' },
-  { id: 'speaking', icon: 'mic', label: 'Luyện nói' },
-  { id: 'lingo', icon: 'trending', label: 'Hot Lingo' },
-  { id: 'vocab', icon: 'cards', label: 'Từ vựng' },
-  { id: 'flashcards', icon: 'letters', label: 'Ôn tập' },
-  { id: 'activities', icon: 'chart', label: 'Hoạt động' },
-  { id: 'leaderboard', icon: 'trophy', label: 'Bảng xếp hạng' },
-  { id: 'quests', icon: 'target', label: 'Nhiệm vụ' },
-  { id: 'shop', icon: 'store', label: 'Cửa hàng' },
-  { id: 'garden', icon: 'sprout', label: 'Vườn của tôi' },
-]
+import { navForLang } from '@/core/constants/nav'
+import { STUDY_LANGS } from '@/core/constants/languages'
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
-const LANGS = ['ja', 'en', 'zh', 'ko', 'de']
 
 export default function Sidebar() {
-  const { view, setView, user } = useAppStore()
+  const { view, setView, user, learnLang, setLearnLang, requestWizard } = useAppStore()
   const todayIdx = (new Date().getDay() + 6) % 7
-  const [lang, setLang] = useState('ko')
+  const nav = navForLang(learnLang)
+
+  // Picking a different flag opens the learning-path wizard (pick native + target language).
+  const pickLang = (code: string) => {
+    if (code === learnLang) return
+    setLearnLang(code)
+    requestWizard()
+    setView('path')
+  }
 
   return (
     <aside className="sidebar">
@@ -56,16 +47,16 @@ export default function Sidebar() {
       <div>
         <div className="s-label"><Icon name="globe" size={12} /> Ngôn ngữ</div>
         <div className="lang-row">
-          {LANGS.map((f) => (
-            <button key={f} className={'lang-flag-btn' + (lang === f ? ' on' : '')} onClick={() => setLang(f)}>
-              <Flag code={f} size={26} />
+          {STUDY_LANGS.map((l) => (
+            <button key={l.code} className={'lang-flag-btn' + (learnLang === l.code ? ' on' : '')} onClick={() => pickLang(l.code)} title={l.name}>
+              <Flag code={l.code} size={26} />
             </button>
           ))}
         </div>
       </div>
 
       <nav className="nav">
-        {NAV.map((n) => (
+        {nav.map((n) => (
           <button key={n.id} className={view === n.id ? 'active' : ''} onClick={() => setView(n.id)}>
             <span className="ic"><Icon name={n.icon} size={19} /></span> {n.label}
           </button>

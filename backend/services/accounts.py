@@ -74,6 +74,7 @@ def public_user(row: dict) -> dict:
         "level": level_for(row["xp"]),
         "streak": row["streak"],
         "equippedFrame": row["equipped_frame"],
+        "equippedPet": row["equipped_pet"] if "equipped_pet" in row.keys() else None,
     }
 
 
@@ -329,6 +330,16 @@ def equip_frame(user_id: str, frame: str | None) -> dict:
     conn = db.get_conn()
     try:
         conn.execute("UPDATE users SET equipped_frame = ? WHERE id = ?", (frame, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
+
+
+def equip_pet(user_id: str, pet: str | None) -> dict:
+    conn = db.get_conn()
+    try:
+        conn.execute("UPDATE users SET equipped_pet = ? WHERE id = ?", (pet, user_id))
         conn.commit()
     finally:
         conn.close()

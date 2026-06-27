@@ -42,6 +42,17 @@ def due_cards(user_id: str = USER, limit: int = 300) -> list[dict]:
     finally:
         conn.close()
 
+def all_cards(user_id: str = USER, limit: int = 2000) -> list[dict]:
+    conn = db.get_conn()
+    try:
+        cur = conn.execute(
+            "SELECT * FROM srs_cards WHERE user_id = ? ORDER BY id LIMIT ?",
+            (user_id, limit),
+        )
+        return [dict(r) for r in cur.fetchall()]
+    finally:
+        conn.close()
+
 def schedule(reps: int, ivl: int, ease: float, rating: int) -> tuple[int, int, float]:
     if rating == 1:
         return 0, 0, max(MIN_EASE, ease - 0.20)

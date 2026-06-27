@@ -28,7 +28,7 @@ const GRAMMAR = [
 ]
 
 export default function SummaryView({ lesson }: { lesson: Lesson }) {
-  const { openLookup } = useAppStore()
+  const { openLookup, learnLang } = useAppStore()
   const words = keywords(lesson)
   const phrases = lesson.segments.slice(0, 5)
 
@@ -47,7 +47,7 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
           <div className="sm-label"><Icon name="note" size={15} /> Thông tin chung</div>
           <ul className="sm-info">
             <li><span>Mục tiêu</span><b>Nghe hiểu & phản xạ câu cơ bản</b></li>
-            <li><span>Đối tượng</span><b>Người mới bắt đầu (TOPIK 1)</b></li>
+            <li><span>Đối tượng</span><b>Người mới bắt đầu</b></li>
             <li><span>Số câu</span><b>{lesson.segments.length} câu</b></li>
             <li><span>Khái niệm chính</span><b>{Math.max(3, Math.round(lesson.segments.length / 2))} chủ điểm</b></li>
           </ul>
@@ -58,25 +58,27 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
           <p className="sm-sub">Bấm vào từ để tra cứu nhanh với AI</p>
           <div className="sm-words">
             {words.map((w) => (
-              <button key={w} lang="ko" onClick={() => openLookup(w)}>{w}</button>
+              <button key={w} lang={learnLang} onClick={() => openLookup(w)}>{w}</button>
             ))}
           </div>
         </div>
 
-        <div className="sm-card">
-          <div className="sm-label"><Icon name="letters" size={15} /> Ngữ pháp</div>
-          <ul className="sm-grammar">
-            {GRAMMAR.map((g) => (
-              <li key={g.p}><b lang="ko">{g.p}</b><span>{g.d}</span><em lang="ko">{g.ex}</em></li>
-            ))}
-          </ul>
-        </div>
+        {learnLang === 'ko' && (
+          <div className="sm-card">
+            <div className="sm-label"><Icon name="letters" size={15} /> Ngữ pháp</div>
+            <ul className="sm-grammar">
+              {GRAMMAR.map((g) => (
+                <li key={g.p}><b lang="ko">{g.p}</b><span>{g.d}</span><em lang="ko">{g.ex}</em></li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="sm-card">
           <div className="sm-label"><Icon name="volume" size={15} /> Cụm nói hữu ích</div>
           <ul className="sm-phrases">
             {phrases.map((s, i) => (
-              <li key={i}><span lang="ko">{s.ko}</span><em>{s.vi}</em></li>
+              <li key={i}><span lang={learnLang}>{s.ko}</span><em>{s.vi}</em></li>
             ))}
           </ul>
         </div>

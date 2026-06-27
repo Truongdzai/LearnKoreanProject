@@ -12,6 +12,24 @@ from . import llm
 
 DICT_ZIP = ROOT / "dictionaries" / "KO-VI.KRDICT.zip"
 
+# Readable Vietnamese names so AI prompts read naturally for every language pair.
+_LANG_NAMES = {
+    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
+    "zh": "tiếng Trung", "de": "tiếng Đức",
+}
+_NATIVE_NAMES = {
+    "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
+    "ko": "tiếng Hàn", "id": "tiếng Indonesia", "es": "tiếng Tây Ban Nha",
+    "fr": "tiếng Pháp", "de": "tiếng Đức", "ru": "tiếng Nga", "it": "tiếng Ý",
+    "pt": "tiếng Bồ Đào Nha",
+}
+
+def _lang_name(code: str) -> str:
+    return _LANG_NAMES.get(code, "tiếng Hàn")
+
+def _native_name(code: str) -> str:
+    return _NATIVE_NAMES.get(code, "tiếng Việt")
+
 _HANJA_RE = re.compile(r"〔(.+?)〕")
 _WS_RE = re.compile(r"\s+")
 
@@ -212,17 +230,21 @@ _RICH_SCHEMA = {
     "required": ["meaning", "explain", "usage", "examples", "phrases", "mistakes", "synonyms"],
 }
 
-def _ai_analyze(word: str, dict_meaning: str) -> dict | None:
+def _ai_analyze(word: str, dict_meaning: str, lang: str = "ko", native: str = "vi") -> dict | None:
     if settings["llm"].get("provider", "none") == "none":
         return None
-    ref = f"Nghĩa tham khảo từ từ điển KRDICT: {dict_meaning}." if dict_meaning else ""
+    lname = _lang_name(lang)
+    nname = _native_name(native)
+    ref = f"Nghĩa tham khảo từ từ điển: {dict_meaning}." if dict_meaning else ""
     prompt = (
-        f"Phân tích chi tiết từ tiếng Hàn '{word}' cho người Việt đang học tiếng Hàn. {ref}\n"
-        "Trả về JSON với: phon (phiên âm IPA hoặc romaja), level (cấp độ TOPIK, vd 'Sơ cấp (TOPIK 1)'), "
-        "pos (từ loại bằng tiếng Việt), meaning (nghĩa ngắn gọn tiếng Việt), explain (giải thích nghĩa & sắc thái), "
-        "usage (cách dùng theo ngữ cảnh), examples (2-3 câu ví dụ, mỗi câu gồm 'ko' tiếng Hàn và 'vi' bản dịch tiếng Việt), "
-        "phrases (cụm từ/thành ngữ thường gặp, mỗi mục dạng 'cụm tiếng Hàn — nghĩa tiếng Việt'), "
-        "mistakes (lỗi thường gặp khi dùng từ này), synonyms (từ đồng nghĩa/liên quan kèm chú thích tiếng Việt). "
+        f"Phân tích chi tiết từ {lname} '{word}' cho người đang học {lname}, giải thích bằng {nname}. {ref}\n"
+        "Trả về JSON với: phon (phiên âm IPA / cách đọc), level (cấp độ, ví dụ CEFR A1–C2 hoặc tương đương), "
+        f"pos (từ loại bằng {nname}), meaning (nghĩa ngắn gọn bằng {nname}), explain (giải thích nghĩa & sắc thái bằng {nname}), "
+        f"usage (cách dùng theo ngữ cảnh, bằng {nname}), "
+        f"examples (2-3 câu ví dụ, mỗi câu gồm 'ko' là câu {lname} và 'vi' là bản dịch {nname}), "
+        f"phrases (cụm từ/thành ngữ thường gặp, mỗi mục dạng 'cụm {lname} — nghĩa {nname}'), "
+        f"mistakes (lỗi thường gặp khi dùng từ này, bằng {nname}), "
+        f"synonyms (từ đồng nghĩa/liên quan kèm chú thích {nname}). "
         "Văn phong tự nhiên, chính xác."
     )
     try:
@@ -234,19 +256,26 @@ def _ai_analyze(word: str, dict_meaning: str) -> dict | None:
         return None
     return None
 
-def lookup_rich(word: str) -> dict:
+def lookup_rich(word: str, lang: str = "ko", native: str = "vi") -> dict:
     from . import cache
 
-    key = _clean(word)
+    clean = _clean(word)
+    key = f"{lang}:{native}:{clean}" if clean else ""
     if key:
         cached = cache.get_dict(key)
         if cached:
             return cached
 
-    base = lookup(word)
-    entries = base["entries"]
-    dict_meaning = " / ".join(e["meaning"] for e in entries[:3]) if entries else ""
-    rich = _ai_analyze(base["word"] if entries else key, dict_meaning)
+    # KRDICT only covers Korean; other languages rely purely on AI analysis.
+    if lang == "ko":
+        base = lookup(word)
+        entries = base["entries"]
+        dict_meaning = " / ".join(e["meaning"] for e in entries[:3]) if entries else ""
+        rich = _ai_analyze(base["word"] if entries else clean, dict_meaning, lang, native)
+    else:
+        base = {"word": clean, "matched": "none", "entries": []}
+        rich = _ai_analyze(clean, "", lang, native)
+
     result = {**base, "rich": rich}
     # Only cache once AI enrichment succeeded, so dict-only results retry AI later.
     if key and rich:

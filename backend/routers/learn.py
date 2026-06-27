@@ -30,7 +30,7 @@ def api_transcript(body: TranscriptIn):
     try:
         with jobs.heavy_slot(timeout=45.0):
             try:
-                data = youtube.get_korean_segments(body.url)
+                data = youtube.get_segments(body.url, body.lang)
             except Exception as exc:
                 raise HTTPException(status_code=400, detail=str(exc))
             if not data["segments"]:
