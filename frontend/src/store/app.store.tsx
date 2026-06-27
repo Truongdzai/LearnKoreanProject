@@ -88,7 +88,7 @@ interface AppStore {
   lesson: Lesson | null
   status: string
   statusError: boolean
-  loadLesson: (url: string) => Promise<void>
+  loadLesson: (url: string, opts?: { lang?: string; video?: Video }) => Promise<void>
   loadSample: () => void
 }
 
@@ -251,11 +251,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   }, [])
   const closeLookup = useCallback(() => setLookupOpen(false), [])
 
-  const loadLesson = useCallback(async (url: string) => {
+  const loadLesson = useCallback(async (url: string, opts?: { lang?: string; video?: Video }) => {
     const u = (url || '').trim()
+    const lang = opts?.lang || learnLang
     if (!u) {
       setStatusError(false)
-      setStatus(`Hãy dán link YouTube ${studyLang(learnLang).name}.`)
+      setStatus(`Hãy dán link YouTube ${studyLang(lang).name}.`)
       return
     }
     setStatusError(false)
@@ -263,15 +264,17 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     setLesson(null)
     setView('learn')
     try {
-      const d = await fetchTranscript(u, learnLang)
+      const d = await fetchTranscript(u, lang)
       setLesson(d)
       setStatus('')
       recordEvent('video', 1, 0, 0)
+      // Only save to "Video của tôi" once the lesson actually loaded — never save a broken video.
+      if (opts?.video) saveVideo(opts.video)
     } catch (e) {
       setStatusError(true)
       setStatus((e as Error).message)
     }
-  }, [recordEvent, learnLang])
+  }, [recordEvent, learnLang, saveVideo])
 
   const loadSample = useCallback(() => {
     setStatusError(false)

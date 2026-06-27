@@ -30,6 +30,20 @@ DEFAULT_EN_VIDEOS = [
     ("b-PzAyZae-g", "Real English Conversation — luyện hội thoại nâng cao", "Learn English With TV Series", "Nâng cao", "28:39", "Hội thoại thực tế", "tone-f", "en"),
 ]
 
+# Kho video tiếng Nhật — đã kiểm tra tải được phụ đề qua pipeline.
+DEFAULT_JA_VIDEOS = [
+    ("_8b_ERSJ6_Q", "GENKI — Hội thoại bài 1: あたらしいともだち", "GENKI 日本語", "Sơ cấp", "1:15", "Hội thoại", "tone-a", "ja"),
+    ("PweksFQGzmI", "Nhật ký buổi sáng ở Nhật (vlog có phụ đề)", "Japanese Vlog", "Sơ–trung cấp", "8:58", "Đời sống", "tone-b", "ja"),
+    ("lNb98HLnkfs", "Nghe tiếng Nhật đơn giản — Đời sống gia đình", "Japanese Listening", "Sơ cấp", "56:03", "Gia đình", "tone-c", "ja"),
+    ("4EeTnIV05j4", "Podcast tiếng Nhật — luyện nghe 1 giờ", "Japanese Podcast", "Trung cấp", "1:05:52", "Podcast", "tone-d", "ja"),
+]
+
+# Bộ video mặc định theo từng ngôn ngữ (đồng bộ vào kho mỗi lần khởi động).
+DEFAULT_LANG_VIDEOS = {
+    "en": DEFAULT_EN_VIDEOS,
+    "ja": DEFAULT_JA_VIDEOS,
+}
+
 DEFAULT_QUESTS = [
     ("q1", "Luyện phát âm 20 câu", "Thực hành phát âm với 20 câu", "daily", "pronounce", 50, 20, 1),
     ("q2", "Hoàn thành 5 bài học", "Hoàn thành 5 bài học trong ngày", "daily", "lesson", 100, 5, 1),
@@ -99,24 +113,25 @@ def seed() -> None:
                     "VALUES (?,?,?,?,?,?,?,?,?)",
                     (*v, i),
                 )
-        # Keep the curated English library in sync on every startup so corrections
+        # Keep curated per-language libraries in sync on every startup so corrections
         # (e.g. replacing videos that YouTube made unavailable) reach existing databases.
-        for i, v in enumerate(DEFAULT_EN_VIDEOS):
+        for code, vids in DEFAULT_LANG_VIDEOS.items():
+            for i, v in enumerate(vids):
+                conn.execute(
+                    "INSERT INTO catalog_videos (id, title, channel, level, dur, topic, tone, lang, sort) "
+                    "VALUES (?,?,?,?,?,?,?,?,?) "
+                    "ON CONFLICT(id) DO UPDATE SET title=excluded.title, channel=excluded.channel, "
+                    "level=excluded.level, dur=excluded.dur, topic=excluded.topic, tone=excluded.tone, "
+                    "lang=excluded.lang, sort=excluded.sort",
+                    (*v, 50 + i),
+                )
+            # Remove videos for this language no longer in the curated list.
+            keep = [v[0] for v in vids]
+            ph = ",".join("?" for _ in keep)
             conn.execute(
-                "INSERT INTO catalog_videos (id, title, channel, level, dur, topic, tone, lang, sort) "
-                "VALUES (?,?,?,?,?,?,?,?,?) "
-                "ON CONFLICT(id) DO UPDATE SET title=excluded.title, channel=excluded.channel, "
-                "level=excluded.level, dur=excluded.dur, topic=excluded.topic, tone=excluded.tone, "
-                "lang=excluded.lang, sort=excluded.sort",
-                (*v, 50 + i),
+                f"DELETE FROM catalog_videos WHERE lang = ? AND id NOT IN ({ph})",
+                (code, *keep),
             )
-        # Remove English videos no longer in the curated list (e.g. ones that became unavailable).
-        keep_en = [v[0] for v in DEFAULT_EN_VIDEOS]
-        ph = ",".join("?" for _ in keep_en)
-        conn.execute(
-            f"DELETE FROM catalog_videos WHERE lang = 'en' AND id NOT IN ({ph})",
-            keep_en,
-        )
         if conn.execute("SELECT COUNT(*) AS n FROM catalog_quests").fetchone()["n"] == 0:
             for i, q in enumerate(DEFAULT_QUESTS):
                 conn.execute(

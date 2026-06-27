@@ -74,7 +74,8 @@ def saved_videos(user_id: str) -> list[dict]:
         conn.close()
     return [
         {"id": r["video_id"], "title": r["title"], "channel": r["channel"], "level": r["level"],
-         "dur": r["dur"], "topic": r["topic"], "tone": r["tone"]}
+         "dur": r["dur"], "topic": r["topic"], "tone": r["tone"],
+         "lang": (r["lang"] if "lang" in r.keys() else "ko") or "ko"}
         for r in rows
     ]
 
@@ -163,10 +164,10 @@ def save_video(user: dict, v: dict) -> dict:
     conn = db.get_conn()
     try:
         conn.execute(
-            "INSERT OR IGNORE INTO user_videos (user_id, video_id, title, channel, level, dur, topic, tone) "
-            "VALUES (?,?,?,?,?,?,?,?)",
+            "INSERT OR IGNORE INTO user_videos (user_id, video_id, title, channel, level, dur, topic, tone, lang) "
+            "VALUES (?,?,?,?,?,?,?,?,?)",
             (user["id"], v.get("id"), v.get("title"), v.get("channel"), v.get("level"),
-             v.get("dur"), v.get("topic"), v.get("tone")),
+             v.get("dur"), v.get("topic"), v.get("tone"), v.get("lang") or "ko"),
         )
         conn.commit()
     finally:

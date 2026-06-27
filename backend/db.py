@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS user_videos (
     dur        TEXT,
     topic      TEXT,
     tone       TEXT,
+    lang       TEXT NOT NULL DEFAULT 'ko',
     created_at TEXT DEFAULT (datetime('now','localtime')),
     PRIMARY KEY (user_id, video_id)
 );
@@ -276,6 +277,9 @@ def _migrate(conn: sqlite3.Connection) -> None:
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
     if "lang" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
+    uvcols = {r["name"] for r in conn.execute("PRAGMA table_info(user_videos)").fetchall()}
+    if "lang" not in uvcols:
+        conn.execute("ALTER TABLE user_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
 
 
 def init_db() -> None:

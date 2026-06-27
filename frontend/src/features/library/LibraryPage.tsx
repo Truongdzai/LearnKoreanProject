@@ -7,7 +7,7 @@ import { studyLang } from '@/core/constants/languages'
 import type { Video } from '@/models/video.model'
 
 export default function LibraryPage() {
-  const { loadLesson, saveVideo, videos, learnLang } = useAppStore()
+  const { loadLesson, videos, learnLang } = useAppStore()
   const [level, setLevel] = useState<string>('Tất cả')
   const cfg = studyLang(learnLang)
 
@@ -25,8 +25,7 @@ export default function LibraryPage() {
 
   const list = level === 'Tất cả' ? langVideos : langVideos.filter((v) => v.level === level)
   const pick = (v: Video) => {
-    saveVideo(v)
-    loadLesson(videoUrl(v.id))
+    loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
   }
 
   return (
