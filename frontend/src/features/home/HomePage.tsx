@@ -10,14 +10,13 @@ import type { Video } from '@/models/video.model'
 const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView, saveVideo, videos, learnLang } = useAppStore()
+  const { loadLesson, status, statusError, setView, videos, learnLang } = useAppStore()
   const [cat, setCat] = useState('Toàn bộ')
   const cfg = studyLang(learnLang)
   const langVideos = videos.filter((v) => (v.lang || 'ko') === learnLang)
 
   const pick = (v: Video) => {
-    saveVideo(v)
-    loadLesson(videoUrl(v.id))
+    loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
   }
 
   return (

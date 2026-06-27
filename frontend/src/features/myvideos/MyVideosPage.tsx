@@ -22,7 +22,7 @@ export default function MyVideosPage() {
         <div className="vgrid">
           {savedVideos.map((v) => (
             <div key={v.id} className="vcard saved" title={v.title}>
-              <div className={'thumb ' + v.tone} onClick={() => loadLesson(videoUrl(v.id))}>
+              <div className={'thumb ' + v.tone} onClick={() => loadLesson(videoUrl(v.id), { lang: v.lang || 'ko' })}>
                 <img src={thumbUrl(v.id)} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none' }} />
                 <span className="ko-tag" lang="ko">{v.topic}</span>
                 <span className="play">▶</span>
