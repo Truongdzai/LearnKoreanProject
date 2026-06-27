@@ -150,6 +150,7 @@ CREATE TABLE IF NOT EXISTS catalog_videos (
     dur      TEXT,
     topic    TEXT,
     tone     TEXT,
+    lang     TEXT NOT NULL DEFAULT 'ko',
     sort     INTEGER NOT NULL DEFAULT 0,
     active   INTEGER NOT NULL DEFAULT 1
 );
@@ -270,6 +271,11 @@ def _migrate(conn: sqlite3.Connection) -> None:
     cols = {r["name"] for r in conn.execute("PRAGMA table_info(users)").fetchall()}
     if "plus_until" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN plus_until TEXT")
+    if "equipped_pet" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN equipped_pet TEXT")
+    vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
+    if "lang" not in vcols:
+        conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
 
 
 def init_db() -> None:

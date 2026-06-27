@@ -34,6 +34,10 @@ def api_due(user: dict | None = Depends(auth.get_optional_user)):
     cards = srs.due_cards(uid)
     return {"cards": cards, **srs.stats(uid)}
 
+@router.get("/api/srs/all")
+def api_all(user: dict | None = Depends(auth.get_optional_user)):
+    return {"cards": srs.all_cards(_uid(user))}
+
 @router.post("/api/srs/review")
 def api_review(body: ReviewIn, user: dict | None = Depends(auth.get_optional_user)):
     if body.rating not in (1, 2, 3, 4):

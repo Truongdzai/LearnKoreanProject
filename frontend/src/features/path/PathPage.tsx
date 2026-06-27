@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flag from '@/core/components/Flag'
-import { LANGUAGES, GOALS, INTERESTS, LEVELS, buildSteps } from '@/data/pathOptions'
+import { GOALS, INTERESTS, LEVELS, buildSteps } from '@/data/pathOptions'
+import { STUDY_LANGS, NATIVE_LANGS, studyLang } from '@/core/constants/languages'
 import type { LearningPath } from '@/models/path.model'
 import { useAppStore } from '@/store/app.store'
 
@@ -9,14 +10,32 @@ const STEPS = ['Ngôn ngữ', 'Mục tiêu', 'Sở thích', 'Trình độ']
 const STEP_ICON = ['globe', 'star', 'sparkles', 'cards'] as const
 
 export default function PathPage() {
-  const { paths, addPath, setView } = useAppStore()
-  const [mode, setMode] = useState<'landing' | 'wizard' | 'result'>(paths.length ? 'landing' : 'landing')
+  const {
+    paths, addPath, setView,
+    learnLang, setLearnLang, nativeLang, setNativeLang,
+    wizardRequested, clearWizard,
+  } = useAppStore()
+  const [mode, setMode] = useState<'landing' | 'wizard' | 'result'>('landing')
   const [step, setStep] = useState(0)
-  const [lang, setLang] = useState('')
+  const [lang, setLang] = useState(learnLang)
+  const [native, setNative] = useState(nativeLang)
   const [goals, setGoals] = useState<string[]>([])
   const [interests, setInterests] = useState<string[]>([])
   const [level, setLevel] = useState('')
   const [created, setCreated] = useState<LearningPath | null>(null)
+
+  // Arriving here from the sidebar flag switch → jump straight into the wizard.
+  useEffect(() => {
+    if (!wizardRequested) return
+    setStep(0); setLang(learnLang); setNative(nativeLang)
+    setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setMode('wizard')
+    clearWizard()
+  }, [wizardRequested, learnLang, nativeLang, clearWizard])
+
+  // Selecting the study language inside the wizard applies it live across the app.
+  const pickStudy = (code: string) => { setLang(code); setLearnLang(code) }
+  const pickNative = (code: string) => { setNative(code); setNativeLang(code) }
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string, max = 5) => {
     if (arr.includes(v)) set(arr.filter((x) => x !== v))
@@ -24,16 +43,18 @@ export default function PathPage() {
   }
 
   const reset = () => {
-    setStep(0); setLang(''); setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals([]); setInterests([]); setLevel(''); setCreated(null)
   }
 
   const finish = async () => {
-    const l = LANGUAGES.find((x) => x.code === lang)
+    const l = studyLang(lang)
     const lv = LEVELS.find((x) => x.code === level)
+    setLearnLang(lang)
+    setNativeLang(native)
     const path: LearningPath = {
       id: 'p' + Date.now(),
-      language: l?.name || 'Tiếng Hàn',
-      languageFlag: l?.flag || 'kr',
+      language: l.name,
+      languageFlag: l.flag,
       goals,
       interests,
       level: lv ? `${lv.code} · ${lv.name}` : 'A1',
@@ -46,7 +67,7 @@ export default function PathPage() {
     setMode('result')
   }
 
-  const canNext = [lang !== '', goals.length > 0, true, level !== ''][step]
+  const canNext = [lang !== '' && native !== '', goals.length > 0, true, level !== ''][step]
 
   // ---- Landing ----
   if (mode === 'landing') {
@@ -151,13 +172,25 @@ export default function PathPage() {
       <div className="wiz-body">
         {step === 0 && (
           <>
-            <h2 className="wiz-title">Chọn ngôn ngữ</h2>
-            <p className="wiz-sub">Chọn ngôn ngữ bạn muốn học</p>
+            <h2 className="wiz-title">Bạn muốn học ngôn ngữ nào?</h2>
+            <p className="wiz-sub">Chọn ngoại ngữ bạn muốn học</p>
             <div className="lang-grid">
-              {LANGUAGES.map((l) => (
-                <button key={l.code} className={'lang-card' + (lang === l.code ? ' on' : '')} onClick={() => setLang(l.code)}>
+              {STUDY_LANGS.map((l) => (
+                <button key={l.code} className={'lang-card' + (lang === l.code ? ' on' : '')} onClick={() => pickStudy(l.code)}>
                   <span className="lang-flag"><Flag code={l.flag} size={54} /></span>
                   <span>{l.name}</span>
+                  <small className="lang-endonym">{l.endonym}</small>
+                </button>
+              ))}
+            </div>
+
+            <h2 className="wiz-title" style={{ marginTop: 30 }}>Ngôn ngữ mẹ đẻ của bạn?</h2>
+            <p className="wiz-sub">Lời giải thích, bản dịch và gợi ý sẽ hiển thị bằng ngôn ngữ này</p>
+            <div className="native-grid">
+              {NATIVE_LANGS.map((n) => (
+                <button key={n.code} className={'native-card' + (native === n.code ? ' on' : '')} onClick={() => pickNative(n.code)}>
+                  <Flag code={n.flag} size={24} />
+                  <span>{n.name}</span>
                 </button>
               ))}
             </div>

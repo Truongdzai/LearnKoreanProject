@@ -12,6 +12,8 @@ export const addCard = (payload: AddCardPayload) =>
 
 export const fetchDue = () => apiClient.get<DueResponse>('/api/srs/due')
 
+export const fetchAllCards = () => apiClient.get<{ cards: SrsCard[] }>('/api/srs/all')
+
 export const reviewCard = (card_id: number, rating: SrsRating) =>
   apiClient.post<SrsCard>('/api/srs/review', { card_id, rating })
 

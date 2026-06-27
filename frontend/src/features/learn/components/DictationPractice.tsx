@@ -2,12 +2,14 @@ import { useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
 import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import type { Lesson } from '@/models/lesson.model'
 
 const REWARD = 2
 
 export default function DictationPractice({ lesson }: { lesson: Lesson }) {
-  const { recordEvent } = useAppStore()
+  const { recordEvent, learnLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const [i, setI] = useState(0)
   const [val, setVal] = useState('')
@@ -20,7 +22,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
     try {
       speechSynthesis.cancel()
       const u = new SpeechSynthesisUtterance(cur.ko)
-      u.lang = 'ko-KR'
+      u.lang = cfg.locale
       u.rate = rate
       speechSynthesis.speak(u)
     } catch {
@@ -60,7 +62,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
       </div>
 
       <div className="dict-card">
-        <div className="dict-label"><Icon name="headphones" size={15} /> Nghe và gõ lại bằng tiếng Hàn</div>
+        <div className="dict-label"><Icon name="headphones" size={15} /> Nghe và gõ lại bằng {cfg.name}</div>
 
         <div className="dict-listen">
           <button className="dict-play" onClick={() => speak(0.85)}><Icon name="volume" size={22} /> Nghe</button>
@@ -69,7 +71,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
 
         {!checked ? (
           <textarea
-            lang="ko"
+            lang={learnLang}
             value={val}
             onChange={(e) => setVal(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); check() } }}
@@ -81,11 +83,11 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
           <div className="dict-review">
             <div className="dict-yours">
               <span className="dict-mini">Bạn gõ:</span>
-              <span lang="ko">{val || '(trống)'}</span>
+              <span lang={learnLang}>{val || '(trống)'}</span>
             </div>
             <div className="dict-correct">
               <span className="dict-mini">Đáp án:</span>
-              <span lang="ko">
+              <span lang={learnLang}>
                 {marks.map((m, k) => <span key={k} className={'sw ' + (m.ok ? 'ok' : 'miss')}>{m.word} </span>)}
               </span>
             </div>

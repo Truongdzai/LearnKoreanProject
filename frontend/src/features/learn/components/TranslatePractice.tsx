@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { useAppStore } from '@/store/app.store'
+import { nativeLangViName } from '@/core/constants/languages'
 import type { Lesson } from '@/models/lesson.model'
 
 const norm = (s: string) =>
@@ -23,6 +25,7 @@ function band(n: number) {
 }
 
 export default function TranslatePractice({ lesson }: { lesson: Lesson }) {
+  const { learnLang, nativeLang } = useAppStore()
   const items = useMemo(() => lesson.segments.filter((s) => s.vi), [lesson])
   const [i, setI] = useState(0)
   const [val, setVal] = useState('')
@@ -65,8 +68,8 @@ export default function TranslatePractice({ lesson }: { lesson: Lesson }) {
       </div>
 
       <div className="tp-card">
-        <div className="tp-label">Dịch câu sau sang tiếng Việt</div>
-        <div className="tp-ko" lang="ko">{cur.ko}</div>
+        <div className="tp-label">Dịch câu sau sang {nativeLangViName(nativeLang)}</div>
+        <div className="tp-ko" lang={learnLang}>{cur.ko}</div>
 
         <textarea
           value={val}

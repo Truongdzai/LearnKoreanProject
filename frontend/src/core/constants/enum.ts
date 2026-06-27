@@ -6,6 +6,7 @@ export type AppView =
   | 'courses'
   | 'path'
   | 'speaking'
+  | 'english'
   | 'vocab'
   | 'flashcards'
   | 'activities'

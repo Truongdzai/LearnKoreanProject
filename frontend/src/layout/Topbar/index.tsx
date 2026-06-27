@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
+import { studyLang } from '@/core/constants/languages'
 import Icon from '@/core/components/Icon'
 import Avatar from '@/core/components/Avatar'
 
 export default function Topbar() {
-  const { setView, openLookup, theme, toggleTheme, user } = useAppStore()
+  const { setView, openLookup, theme, toggleTheme, user, learnLang } = useAppStore()
+  const cfg = studyLang(learnLang)
   const { account, isAuthed, isAdmin, openAuth, signOut } = useAuth()
   const [q, setQ] = useState('')
   const [menu, setMenu] = useState(false)
@@ -22,7 +24,7 @@ export default function Topbar() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && q.trim() && openLookup(q.trim())}
-          placeholder="Tra cứu từ vựng tiếng Hàn…"
+          placeholder={`Tra cứu từ vựng ${cfg.name}…`}
         />
       </div>
 

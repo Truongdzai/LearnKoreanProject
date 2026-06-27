@@ -3,6 +3,8 @@ import { formatTime } from '@/core/utils/format'
 import { romanizeWord } from '@/core/utils/romanize'
 import { addCard } from '@/core/api/srs.api'
 import { defineWord } from '@/core/api/dict.api'
+import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import Icon from '@/core/components/Icon'
 import type { Segment } from '@/models/lesson.model'
 import type { DictResult } from '@/models/dict.model'
@@ -24,6 +26,8 @@ interface PopupState {
 }
 
 export default function SubtitleList({ segments, activeIndex, source, onSeek }: Props) {
+  const { learnLang, openLookup } = useAppStore()
+  const cfg = studyLang(learnLang)
   const listRef = useRef<HTMLDivElement>(null)
   const [popup, setPopup] = useState<PopupState | null>(null)
   const [showRomaja, setShowRomaja] = useState(true)
@@ -36,6 +40,9 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
   }, [activeIndex])
 
   const handleWordClick = async (word: string, rect: DOMRect) => {
+    // Korean has a fast local dictionary (inline popup); other languages use the
+    // shared, AI-powered lookup modal that works for every language.
+    if (learnLang !== 'ko') { openLookup(word); return }
     const x = rect.left
     const y = rect.bottom
     setPopup({ x, y, loading: true, result: null })
@@ -52,14 +59,16 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
       <div className="subs-head">
         <span>Phụ đề</span>
         <div className="subs-tools">
-          <button
-            className={'romaja-toggle' + (showRomaja ? ' on' : '')}
-            onClick={() => setShowRomaja((v) => !v)}
-            title="Bật/tắt phiên âm cách đọc"
-          >
-            <Icon name="letters" size={15} /> Phiên âm
-          </button>
-          <span className="count"><Icon name="bulb" /> bấm vào từ tiếng Hàn để tra nghĩa</span>
+          {cfg.romanizeChat && (
+            <button
+              className={'romaja-toggle' + (showRomaja ? ' on' : '')}
+              onClick={() => setShowRomaja((v) => !v)}
+              title="Bật/tắt phiên âm cách đọc"
+            >
+              <Icon name="letters" size={15} /> Phiên âm
+            </button>
+          )}
+          <span className="count"><Icon name="bulb" /> bấm vào từ {cfg.name} để tra nghĩa</span>
         </div>
       </div>
       <div className="subs-list" ref={listRef}>
@@ -69,7 +78,8 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
             seg={s}
             active={i === activeIndex}
             source={source}
-            showRomaja={showRomaja}
+            showRomaja={showRomaja && cfg.romanizeChat}
+            lang={learnLang}
             onSeek={() => onSeek(s.start)}
             onWordClick={handleWordClick}
           />
@@ -96,6 +106,7 @@ function SegmentRow({
   active,
   source,
   showRomaja,
+  lang,
   onSeek,
   onWordClick,
 }: {
@@ -103,6 +114,7 @@ function SegmentRow({
   active: boolean
   source: string
   showRomaja: boolean
+  lang: string
   onSeek: () => void
   onWordClick: (word: string, rect: DOMRect) => void
 }) {
@@ -130,7 +142,7 @@ function SegmentRow({
     <div className={'seg' + (active ? ' active' : '')} onClick={onSeek}>
       <div className="t">{formatTime(seg.start)}</div>
       <div className="txt">
-        <div className={'ko' + (showRomaja ? ' has-romaja' : '')} lang="ko">
+        <div className={'ko' + (showRomaja ? ' has-romaja' : '')} lang={lang}>
           {seg.ko.split(/(\s+)/).map((tok, i) =>
             tok.trim() ? (
               <span className="wword" key={i}>

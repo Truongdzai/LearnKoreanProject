@@ -4,13 +4,16 @@ import VideoCard from '@/features/shared/VideoCard'
 import Icon from '@/core/components/Icon'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
+import { studyLang } from '@/core/constants/languages'
 import type { Video } from '@/models/video.model'
 
 const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView, saveVideo, videos } = useAppStore()
+  const { loadLesson, status, statusError, setView, saveVideo, videos, learnLang } = useAppStore()
   const [cat, setCat] = useState('Toàn bộ')
+  const cfg = studyLang(learnLang)
+  const langVideos = videos.filter((v) => (v.lang || 'ko') === learnLang)
 
   const pick = (v: Video) => {
     saveVideo(v)
@@ -50,14 +53,18 @@ export default function HomePage() {
       </div>
 
       <div className="section-title">
-        <span className="pin" /> Kho video tiếng Hàn
+        <span className="pin" /> Kho video {cfg.name}
         <button className="link-more" onClick={() => setView('library')}>Xem tất cả <Icon name="arrow-right" size={15} /></button>
       </div>
-      <div className="vgrid">
-        {videos.slice(0, 8).map((v) => (
-          <VideoCard key={v.id} video={v} onPick={pick} />
-        ))}
-      </div>
+      {langVideos.length > 0 ? (
+        <div className="vgrid">
+          {langVideos.slice(0, 8).map((v) => (
+            <VideoCard key={v.id} video={v} onPick={pick} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty"><div className="big">📺</div>Kho video {cfg.name} đang được cập nhật. Bạn có thể dán link YouTube {cfg.name} ở trên để tạo bài học ngay.</div>
+      )}
     </>
   )
 }

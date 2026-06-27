@@ -8,7 +8,14 @@ import yt_dlp
 
 from ..config import settings
 
-_KO_KEYS = ("ko", "ko-KR", "ko-orig")
+# Preferred caption track keys per learning language (first match wins).
+_LANG_KEYS = {
+    "ko": ("ko", "ko-KR", "ko-orig"),
+    "en": ("en", "en-US", "en-GB", "en-orig"),
+    "ja": ("ja", "ja-JP", "ja-orig"),
+    "zh": ("zh", "zh-Hans", "zh-CN", "zh-Hant", "zh-TW", "zh-orig"),
+    "de": ("de", "de-DE", "de-orig"),
+}
 
 _ID_RE = re.compile(r"(?:v=|/shorts/|/embed/|youtu\.be/)([0-9A-Za-z_-]{11})")
 
@@ -24,10 +31,16 @@ def extract_id(url: str) -> str:
 def proxy() -> str:
     return (settings.get("network", {}) or {}).get("proxy", "") or ""
 
-def _pick_track(tracks_map: dict):
-    for key in _KO_KEYS:
+def _pick_track(tracks_map: dict, lang: str = "ko"):
+    keys = _LANG_KEYS.get(lang, _LANG_KEYS["ko"])
+    for key in keys:
         if key in tracks_map and tracks_map[key]:
             return tracks_map[key]
+    # Fall back to a prefix match (e.g. 'en-CA') before giving up.
+    base = keys[0]
+    for key, val in tracks_map.items():
+        if val and key.split("-")[0] == base:
+            return val
     return None
 
 def _parse_json3(text: str) -> list[dict]:
@@ -114,7 +127,10 @@ def _download_subs(track: list) -> list[dict]:
         last = RuntimeError("phụ đề trống")
     raise RuntimeError(f"không đọc được phụ đề ({last})")
 
-def get_korean_segments(url: str) -> dict:
+_LANG_VI = {"ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung", "de": "tiếng Đức"}
+
+
+def get_segments(url: str, lang: str = "ko") -> dict:
     ydl_opts = {"skip_download": True, "quiet": True, "no_warnings": True}
     if proxy():
         ydl_opts["proxy"] = proxy()
@@ -139,15 +155,15 @@ def get_korean_segments(url: str) -> dict:
     subs = info.get("subtitles") or {}
     autos = info.get("automatic_captions") or {}
 
-    track = _pick_track(subs)
+    track = _pick_track(subs, lang)
     source = "phụ đề chính thức"
     if track is None:
-        track = _pick_track(autos)
+        track = _pick_track(autos, lang)
         source = "phụ đề tự động (auto)"
     if track is None:
         raise RuntimeError(
-            "Video này không có phụ đề tiếng Hàn. "
-            "(Phase 2 sẽ bổ sung tự tạo phụ đề bằng Whisper.)"
+            f"Video này không có phụ đề {_LANG_VI.get(lang, 'tiếng Hàn')}. "
+            "Hãy chọn video khác có phụ đề."
         )
 
     segments = _download_subs(track)
@@ -159,3 +175,8 @@ def get_korean_segments(url: str) -> dict:
         "source": source,
         "segments": segments,
     }
+
+
+# Backwards-compatible alias.
+def get_korean_segments(url: str) -> dict:
+    return get_segments(url, "ko")

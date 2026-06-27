@@ -15,6 +15,7 @@ from .routers import (
     dict as dict_router,
     srs as srs_router,
     pronounce as pronounce_router,
+    speaking as speaking_router,
     auth as auth_router,
     me as me_router,
     content as content_router,
@@ -45,6 +46,7 @@ app.include_router(learn.router)
 app.include_router(dict_router.router)
 app.include_router(srs_router.router)
 app.include_router(pronounce_router.router)
+app.include_router(speaking_router.router)
 app.include_router(auth_router.router)
 app.include_router(me_router.router)
 app.include_router(content_router.router)

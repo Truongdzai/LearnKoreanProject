@@ -1,0 +1,38 @@
+HƯỚNG DẪN THÊM ẢNH PET (giống Shiba)
+=====================================
+
+Mỗi pet là 1 folder ở đây. Bạn chỉ cần BỎ ẢNH vào folder tương ứng,
+rồi nhắn Claude chạy script là xong (tự xóa nền, resize, gắn biểu cảm).
+  Lệnh:  python tools/process-pet.py <tên-pet>     (vd: python tools/process-pet.py pig)
+  Script tự nhận màu nền (kem/trắng/đen đều được) rồi xóa, làm mềm mép.
+
+VIDEO cũng được: bỏ file .webm/.mp4 vào folder (nền phẳng, vd nền đen),
+script tự keo nền trong suốt thành .webm alpha. Pet có video sẽ chuyển động thật.
+
+CÁC PET ĐANG CHỜ ẢNH (hiện đang dùng hình vẽ vector):
+  cat       = Mèo Trắng
+  bunny     = Thỏ Ôm Tim
+  pig       = Heo Hồng
+  chick     = Gà Con
+  unicorn   = Kỳ Lân Lấp Lánh   (Plus)
+  dragon    = Tiểu Rồng Lửa     (Plus)
+  galaxy    = Cáo Ngân Hà       (Plus)
+
+MỖI PET NÊN CÓ 9 ẢNH BIỂU CẢM (nền gì cũng được, sẽ tự xóa nền):
+  - cười / vui          (happy)   ← bắt buộc, là mặt mặc định
+  - cười nháy mắt       (wink)
+  - mắt trái tim        (love)
+  - buồn ngủ / ngáp     (sleepy)
+  - đang ngủ            (sleep)
+  - đọc sách            (reading)
+  - ngại ngùng          (shy)
+  - ngơ ngác            (confused)
+  - sợ hãi              (scared)
+
+ĐẶT TÊN FILE: đặt tiếng Việt thoải mái như Shiba cũng được
+  (ví dụ: meocuoi.png, meongu.png, meosohai.png ...) — script tự hiểu.
+  Hoặc đặt thẳng tên tiếng Anh: happy.png, sleep.png, scared.png ...
+
+Thiếu vài biểu cảm cũng không sao — pet sẽ dùng mặt "happy" thay thế.
+
+Có ít nhất 1 ảnh là pet đó tự đổi từ vector sang ẢNH THẬT.
