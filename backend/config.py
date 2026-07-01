@@ -10,7 +10,6 @@ EXAMPLE_PATH = ROOT / "config.example.toml"
 DEFAULTS: dict = {
     "app": {"name": "Hàn Quân", "native_language": "vie", "target_language": "kor"},
     "llm": {"provider": "none", "api_key": "", "model": "", "models": []},
-    "anki": {"url": "http://127.0.0.1:8765", "deck": "TiengHan", "note_type": "HanQuan"},
     "whisper": {"model": "small"},
     "network": {"proxy": ""},
     "admin": {"email": "admin@vyling.vn", "password": "Admin@123", "name": "Quản trị viên"},

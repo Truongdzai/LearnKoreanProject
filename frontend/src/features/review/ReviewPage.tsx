@@ -92,7 +92,7 @@ export default function ReviewPage() {
     <>
       <div className="lesson-head">
         <h2><Icon name="cards" /> Ôn tập</h2>
-        <div className="meta">Lặp lại ngắt quãng — học ngay trong web, không cần Anki.</div>
+        <div className="meta">Lặp lại ngắt quãng — học ngay trong web.</div>
       </div>
 
       {stats && (

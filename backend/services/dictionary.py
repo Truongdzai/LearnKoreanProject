@@ -15,7 +15,7 @@ DICT_ZIP = ROOT / "dictionaries" / "KO-VI.KRDICT.zip"
 # Readable Vietnamese names so AI prompts read naturally for every language pair.
 _LANG_NAMES = {
     "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
-    "zh": "tiếng Trung", "de": "tiếng Đức",
+    "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt",
 }
 _NATIVE_NAMES = {
     "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",

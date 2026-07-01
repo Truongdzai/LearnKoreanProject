@@ -13,6 +13,7 @@ export const LANGUAGES: LangOption[] = [
   { code: 'ja', name: 'Tiếng Nhật', flag: 'jp' },
   { code: 'zh', name: 'Tiếng Trung', flag: 'cn' },
   { code: 'de', name: 'Tiếng Đức', flag: 'de' },
+  { code: 'vi', name: 'Tiếng Việt', flag: 'vn' },
 ]
 
 export const GOALS: { title: string; detail: string }[] = [

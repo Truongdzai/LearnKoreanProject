@@ -15,6 +15,7 @@ _LANG_KEYS = {
     "ja": ("ja", "ja-JP", "ja-orig"),
     "zh": ("zh", "zh-Hans", "zh-CN", "zh-Hant", "zh-TW", "zh-orig"),
     "de": ("de", "de-DE", "de-orig"),
+    "vi": ("vi", "vi-VN", "vi-orig"),
 }
 
 _ID_RE = re.compile(r"(?:v=|/shorts/|/embed/|youtu\.be/)([0-9A-Za-z_-]{11})")
@@ -127,7 +128,7 @@ def _download_subs(track: list) -> list[dict]:
         last = RuntimeError("phụ đề trống")
     raise RuntimeError(f"không đọc được phụ đề ({last})")
 
-_LANG_VI = {"ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung", "de": "tiếng Đức"}
+_LANG_VI = {"ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt"}
 
 
 def get_segments(url: str, lang: str = "ko") -> dict:

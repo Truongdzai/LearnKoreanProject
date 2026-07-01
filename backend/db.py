@@ -12,16 +12,6 @@ CREATE TABLE IF NOT EXISTS settings (
     value TEXT
 );
 
-CREATE TABLE IF NOT EXISTS mined_cards (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    created_at  TEXT DEFAULT (datetime('now', 'localtime')),
-    source      TEXT,
-    korean      TEXT NOT NULL,
-    vietnamese  TEXT,
-    note        TEXT,
-    anki_id     INTEGER
-);
-
 CREATE TABLE IF NOT EXISTS study_log (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     created_at  TEXT DEFAULT (datetime('now', 'localtime')),

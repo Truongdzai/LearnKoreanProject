@@ -5,7 +5,7 @@ import type { AppView } from '@/core/constants/enum'
 const INFO: Record<string, { ic: IconName; h: string; p: string }> = {
   myvideos: { ic: 'tv', h: 'Video của tôi', p: 'Danh sách các video bạn đã học và tiến độ từng video. Sẽ hiện ở đây sau khi mình thêm phần lưu lịch sử học.' },
   courses: { ic: 'book', h: 'Khoá học', p: 'Tự gom các video yêu thích thành lộ trình học riêng và theo dõi tiến độ.' },
-  vocab: { ic: 'letters', h: 'Từ vựng', p: 'Tổng hợp những thẻ bạn đã lưu vào Anki để ôn lại nhanh ngay trong web.' },
+  vocab: { ic: 'letters', h: 'Từ vựng', p: 'Tổng hợp những thẻ bạn đã lưu để ôn lại nhanh ngay trong web.' },
 }
 
 export default function Placeholder({ view }: { view: AppView }) {

@@ -2,10 +2,8 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
-from ..config import settings
-from .. import db
-from ..schemas.learn import TranscriptIn, MineIn
-from ..services import youtube, translate, ankiconnect, cache, jobs
+from ..schemas.learn import TranscriptIn
+from ..services import youtube, translate, cache, jobs
 
 router = APIRouter()
 
@@ -45,25 +43,3 @@ def api_transcript(body: TranscriptIn):
             return _attach_speakers(data)
     except jobs.Busy:
         raise HTTPException(status_code=503, detail="Máy chủ đang bận xử lý video khác, vui lòng thử lại sau giây lát.")
-
-@router.post("/api/mine")
-def api_mine(body: MineIn):
-    cfg = settings["anki"]
-    try:
-        ankiconnect.ensure_deck(cfg["url"], cfg["deck"])
-        ankiconnect.ensure_model(cfg["url"])
-        fields = {"Korean": body.ko, "Vietnamese": body.vi, "Source": body.source}
-        anki_id = ankiconnect.add_note(cfg["url"], cfg["deck"], ankiconnect.HANQUAN_MODEL, fields)
-    except Exception as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
-
-    conn = db.get_conn()
-    try:
-        conn.execute(
-            "INSERT INTO mined_cards (source, korean, vietnamese, anki_id) VALUES (?,?,?,?)",
-            (body.source, body.ko, body.vi, anki_id),
-        )
-        conn.commit()
-    finally:
-        conn.close()
-    return {"ok": True, "anki_id": anki_id}
