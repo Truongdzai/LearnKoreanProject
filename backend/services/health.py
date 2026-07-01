@@ -6,7 +6,6 @@ from importlib import import_module
 from pathlib import Path
 
 from ..config import settings, DB_PATH
-from . import ankiconnect
 
 def _try_import(module: str):
     try:
@@ -37,19 +36,6 @@ def run_checks() -> list[dict]:
     add("yt-dlp (tải video/sub)", ok, ver, "" if ok else "pip install yt-dlp")
     ok, ver = _try_import("edge_tts")
     add("edge-tts (đọc giọng Hàn)", ok, ver, "" if ok else "pip install edge-tts")
-
-    anki_candidates = [
-        Path.home() / "AppData/Local/Programs/Anki/anki.exe",
-        Path("C:/Program Files/Anki/anki.exe"),
-    ]
-    anki_exe = next((str(p) for p in anki_candidates if p.exists()), None)
-    add("Ứng dụng Anki", bool(anki_exe), anki_exe or "Chưa tìm thấy",
-        "" if anki_exe else "Cài Anki rồi mở 1 lần")
-
-    ac_ok, ac_detail = ankiconnect.check(settings["anki"]["url"])
-    add("AnkiConnect (cầu nối)", ac_ok,
-        f"API phiên bản {ac_detail}" if ac_ok else "Không kết nối được",
-        "" if ac_ok else "Mở Anki → cài add-on mã 2055492159 → mở lại Anki")
 
     provider = settings["llm"]["provider"]
     llm_ok = provider != "none" and bool(settings["llm"]["api_key"])

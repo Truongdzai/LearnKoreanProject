@@ -1,7 +1,7 @@
 import type { NavItem } from '@/types'
 
 /** Languages that learn through the video pipeline (video library, speaking, paths…). */
-export const VIDEO_LANGS = ['ko', 'en', 'ja', 'zh', 'de']
+export const VIDEO_LANGS = ['ko', 'en', 'ja', 'zh', 'de', 'vi']
 
 /**
  * Sidebar items. `langs` lists which learning languages an item belongs to;

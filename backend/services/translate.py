@@ -11,7 +11,7 @@ def translate_lines_vi(ko_lines: list[str], batch: int = 40) -> list[str]:
         chunk = ko_lines[i:i + batch]
         numbered = "\n".join(f"{idx + 1}. {line}" for idx, line in enumerate(chunk))
         prompt = (
-            "Bạn là người dịch phụ đề Hàn–Việt. Dịch sang tiếng Việt tự nhiên, "
+            "Bạn là người dịch phụ đề chuyên nghiệp. Dịch sang tiếng Việt tự nhiên, "
             f"giữ ĐÚNG thứ tự và ĐÚNG {len(chunk)} dòng. "
             "Trả về một mảng JSON gồm các chuỗi tiếng Việt, mỗi chuỗi ứng với 1 dòng theo số thứ tự.\n\n"
             + numbered

@@ -303,7 +303,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   }
 
   const share = async () => {
-    const text = `Mình vừa lồng tiếng tiếng Hàn cho "${lesson.title}" trên VyLing!`
+    const text = `Mình vừa lồng tiếng ${cfg.name.replace('Tiếng ', 'tiếng ')} cho "${lesson.title}" trên VyLing!`
     try {
       if (navigator.share) await navigator.share({ title: 'VyLing Dubbing', text })
       else { await navigator.clipboard.writeText(text); setError(''); alert('Đã sao chép nội dung chia sẻ!') }

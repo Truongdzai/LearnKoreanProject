@@ -12,7 +12,6 @@ Dán một link YouTube tiếng Hàn → app tự lấy phụ đề Hàn, dịch
 - **Từ điển tích hợp** — bấm vào bất kỳ từ tiếng Hàn nào để xem nghĩa ngay. Dùng từ điển **KRDICT Hàn–Việt đóng gói sẵn**, chạy **offline**, tự nhận dạng dạng gốc của từ (tự lược bỏ tiểu từ và đuôi chia động từ). *Không cần cài Yomitan.*
 - **Bộ thẻ ghi nhớ (SRS)** — lưu từ vừa tra thành thẻ, rồi ôn lại theo thuật toán lặp lại ngắt quãng (kiểu SM‑2): tự chấm *Lại / Khó / Tốt / Dễ*, app tự xếp lịch ôn lần sau.
 - **Riêng tư, miễn phí** — toàn bộ lịch sử học và thẻ từ lưu trong SQLite ngay trên máy bạn, không gửi đi đâu.
-- **(Tuỳ chọn) Xuất sang Anki** — nếu thích, vẫn có thể đẩy thẻ sang Anki qua AnkiConnect.
 
 ---
 
@@ -113,7 +112,6 @@ Rồi mở **http://localhost:5173**. Ngại rắc rối thì cứ dùng **`star
 | `GET`  | `/api/srs/due` | Lấy danh sách thẻ tới hạn + thống kê |
 | `POST` | `/api/srs/review` | Chấm điểm một thẻ (`card_id`, `rating` 1–4) |
 | `GET`  | `/api/srs/stats` | Thống kê bộ thẻ |
-| `POST` | `/api/mine` | (Tuỳ chọn) Đẩy thẻ sang Anki qua AnkiConnect |
 
 ---
 
@@ -128,20 +126,12 @@ provider = "gemini"
 api_key  = "DÁN_KEY_GEMINI_CỦA_BẠN_VÀO_ĐÂY"
 model    = "gemini-2.5-flash"
 
-[anki]
-# Chỉ cần nếu bạn muốn đẩy thẻ sang Anki.
-url       = "http://127.0.0.1:8765"
-deck      = "TiengHan"
-note_type = "HanQuan"
-
 [whisper]
 # Dành cho tính năng chấm phát âm sau này.
 model = "small"
 ```
 
 > 🔑 **Lấy API key Gemini** ở **Google AI Studio** (miễn phí) rồi dán vào mục `[llm]`.
-
-**Tuỳ chọn — dùng Anki:** cài add‑on **AnkiConnect** (mã `2055492159`) và mở Anki khi học; khi đó tính năng đẩy thẻ sang Anki mới hoạt động. *Không bắt buộc — app đã có bộ thẻ ôn tập riêng.*
 
 ---
 
@@ -166,12 +156,12 @@ LearnKorean/
 │  ├─ config.py              #   đọc config.toml (kèm giá trị mặc định)
 │  ├─ db.py                  #   SQLite: tạo bảng + kết nối
 │  ├─ routers/               #   điểm cuối API
-│  │  ├─ learn.py            #     /api/transcript, /api/mine
+│  │  ├─ learn.py            #     /api/transcript
 │  │  ├─ dict.py             #     /api/define
 │  │  └─ srs.py              #     /api/srs/*
 │  ├─ schemas/               #   model dữ liệu vào/ra (pydantic)
 │  ├─ services/              #   nghiệp vụ: youtube, translate, dictionary,
-│  │                         #   srs, llm, ankiconnect, media, health
+│  │                         #   srs, llm, media, health
 │  └─ requirements.txt       #   thư viện Python (bản ghim phiên bản)
 ├─ frontend/                 # ⚛️ React + TypeScript (Vite)
 │  ├─ src/

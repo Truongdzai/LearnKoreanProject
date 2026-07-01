@@ -42,6 +42,10 @@ export const STUDY_LANGS: StudyLang[] = [
     code: 'de', name: 'Tiếng Đức', endonym: 'Deutsch', flag: 'de', locale: 'de-DE',
     romanizeChat: false, sample: ['hallo', 'danke', 'schön', 'gemütlich', 'Freundschaft', 'vielleicht'],
   },
+  {
+    code: 'vi', name: 'Tiếng Việt', endonym: 'Tiếng Việt', flag: 'vn', locale: 'vi-VN',
+    romanizeChat: false, sample: ['xin chào', 'cảm ơn', 'xinh đẹp', 'cố lên', 'hạnh phúc', 'ngon'],
+  },
 ]
 
 const DEFAULT_STUDY = STUDY_LANGS.find((l) => l.code === 'ko') as StudyLang

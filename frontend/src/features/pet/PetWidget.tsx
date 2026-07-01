@@ -53,28 +53,50 @@ const mmss = (sec: number): string => {
   return `${m}:${String(s % 60).padStart(2, '0')}`
 }
 
-// Chuông nhẹ báo chuyển chặng (gọi sau thao tác của người dùng nên trình duyệt cho phát).
-function chime(up: boolean): void {
+// Một AudioContext dùng chung, được "mở khóa" ở lần người dùng tương tác đầu tiên.
+// Nhờ vậy chuông vẫn kêu được khi Pomodoro TỰ chuyển chặng (không có cú click trực tiếp).
+let audioCtx: AudioContext | null = null
+function unlockAudio(): AudioContext | null {
   try {
-    const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
-    if (!Ctx) return
-    const ctx = new Ctx()
-    const notes = up ? [523.25, 783.99] : [659.25, 392.0]
-    notes.forEach((f, i) => {
-      const osc = ctx.createOscillator()
-      const gain = ctx.createGain()
-      osc.type = 'sine'
-      osc.frequency.value = f
-      const t = ctx.currentTime + i * 0.18
-      gain.gain.setValueAtTime(0.0001, t)
-      gain.gain.exponentialRampToValueAtTime(0.18, t + 0.04)
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.5)
-      osc.connect(gain).connect(ctx.destination)
-      osc.start(t)
-      osc.stop(t + 0.55)
-    })
-    setTimeout(() => ctx.close().catch(() => {}), 1200)
-  } catch { /* ignore */ }
+    if (!audioCtx) {
+      const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      if (!Ctx) return null
+      audioCtx = new Ctx()
+    }
+    if (audioCtx.state === 'suspended') void audioCtx.resume()
+    return audioCtx
+  } catch { return null }
+}
+
+// Gõ một tiếng chuông tại thời điểm t: cộng thêm bồi âm lệch để nghe ngân như chuông thật.
+function ring(ctx: AudioContext, freq: number, t: number, vol: number): void {
+  const partials = [
+    { mult: 1, gain: 1 },
+    { mult: 2.0, gain: 0.45 },
+    { mult: 2.76, gain: 0.2 },
+  ]
+  for (const p of partials) {
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.value = freq * p.mult
+    gain.gain.setValueAtTime(0.0001, t)
+    gain.gain.exponentialRampToValueAtTime(vol * p.gain, t + 0.012)
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + 1.6)
+    osc.connect(gain).connect(ctx.destination)
+    osc.start(t)
+    osc.stop(t + 1.7)
+  }
+}
+
+// Chuông báo chuyển chặng. up=true: tới giờ HỌC (giai điệu đi lên, réo rắt);
+// up=false: tới giờ NGHỈ (giai điệu đi xuống, dịu nhẹ).
+function chime(up: boolean): void {
+  const ctx = unlockAudio()
+  if (!ctx) return
+  const seq = up ? [523.25, 659.25, 783.99] : [783.99, 659.25, 523.25] // C5 · E5 · G5
+  const t0 = ctx.currentTime + 0.02
+  seq.forEach((f, i) => ring(ctx, f, t0 + i * 0.18, 0.24))
 }
 
 type PetState = 'normal' | 'tired' | 'sleep' | 'study' | 'break'
@@ -108,7 +130,7 @@ const REST_MSGS = [
 const STUDY_MSGS = [
   'Đại caaa 📖 sách sắp mọc rêu rồi nè 🕸️ mình ôn vài từ hong?',
   'Hello? Có ai ở nhà hông ạ 🥺 Shiba ôm sách đợi nãy giờ mỏi tay quá 📚',
-  'Lâu không ôn, mớ tiếng Hàn nó rủ nhau bay đi mất tiêu giờ 😱 học lẹ kẻo quên!',
+  'Lâu không ôn, mớ từ vựng nó rủ nhau bay đi mất tiêu giờ 😱 học lẹ kẻo quên!',
   'Bài học: "다음에 (để sau)" — học hoài để sau là toang đó nha đại ca 😏 vô học thôi!',
 ]
 // Học khuya (0–5h sáng): mặt sợ hãi — hù đại ca đi ngủ
@@ -184,6 +206,17 @@ export default function PetWidget() {
   }, [])
 
   useEffect(() => () => { timers.current.forEach(clearTimeout) }, [])
+
+  // Mở khóa âm thanh ở lần tương tác đầu tiên để chuông kêu được khi tự chuyển chặng.
+  useEffect(() => {
+    const unlock = () => unlockAudio()
+    window.addEventListener('pointerdown', unlock, { once: true })
+    window.addEventListener('keydown', unlock, { once: true })
+    return () => {
+      window.removeEventListener('pointerdown', unlock)
+      window.removeEventListener('keydown', unlock)
+    }
+  }, [])
 
   useEffect(() => { try { localStorage.setItem(SIZE_KEY, size) } catch { /* ignore */ } }, [size])
   useEffect(() => { try { localStorage.setItem(HIDDEN_KEY, hidden ? '1' : '0') } catch { /* ignore */ } }, [hidden])
@@ -420,6 +453,7 @@ export default function PetWidget() {
     const f = clamp(focus, FOCUS_MIN, FOCUS_MAX)
     const b = clamp(brk, BREAK_MIN, BREAK_MAX)
     const dur = f * 60_000
+    unlockAudio()
     setPomo({ phase: 'focus', focusMin: f, breakMin: b, round: 1, endsAt: Date.now() + dur, paused: false, leftMs: dur })
     setPomoLeft(f * 60)
     setCfg({ focusMin: f, breakMin: b })
@@ -434,6 +468,7 @@ export default function PetWidget() {
   }, [])
 
   const resumePomo = useCallback(() => {
+    unlockAudio()
     setPomo((p) => (p && p.paused ? { ...p, paused: false, endsAt: Date.now() + p.leftMs } : p))
   }, [])
 
