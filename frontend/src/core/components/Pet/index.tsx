@@ -48,11 +48,16 @@ function MediaPet({ art, size, mood, className }: { art: string; size: number; m
     >
       {has.map((m) => {
         const f = set[m]!
-        const cls = 'pet-frame' + (f.video ? ' pet-frame-vid' : '') + (m === active ? ' on' : '')
+        const on = m === active
+        const cls = 'pet-frame' + (f.video ? ' pet-frame-vid' : '') + (on ? ' on' : '')
+        // Frame đang hiện tải ngay; frame ẩn để lười tải + video ẩn không preload -> nhẹ lúc đầu.
         return f.video ? (
-          <video key={m} src={f.url} className={cls} autoPlay loop muted playsInline preload="auto" />
+          <video key={m} src={f.url} className={cls} autoPlay loop muted playsInline preload={on ? 'auto' : 'none'} />
         ) : (
-          <img key={m} src={f.url} alt="" draggable={false} loading="eager" decoding="async" className={cls} />
+          <img
+            key={m} src={f.url} alt="" draggable={false} className={cls} decoding="async"
+            loading={on ? 'eager' : 'lazy'}
+          />
         )
       })}
     </span>

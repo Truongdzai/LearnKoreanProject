@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react'
 import Icon from '@/core/components/Icon'
+import { reportError } from '@/core/monitor'
 
 interface Props {
   children: ReactNode
@@ -18,6 +19,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(err: Error, info: ErrorInfo) {
     console.error('Lỗi giao diện:', err, info)
+    reportError(err, { boundary: 'react', componentStack: info.componentStack })
   }
 
   render() {
