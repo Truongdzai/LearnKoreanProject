@@ -24,9 +24,14 @@ function speak(text: string, locale: string, rate = 0.95) {
 }
 
 export default function SpeakingPage() {
-  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const { recordEvent, learnLang, nativeLang, goal } = useAppStore()
   const cfg = studyLang(learnLang)
-  const scenarios = scenariosFor(learnLang)
+  // Tình huống hợp mục tiêu onboarding được xếp lên đầu danh sách.
+  const scenarios = [...scenariosFor(learnLang)].sort((a, b) => {
+    const am = goal && a.tags?.includes(goal) ? 0 : 1
+    const bm = goal && b.tags?.includes(goal) ? 0 : 1
+    return am - bm
+  })
   const [scenario, setScenario] = useState<Scenario | null>(null)
   const [msgs, setMsgs] = useState<ChatMsg[]>([])
   const [suggestions, setSuggestions] = useState<SpeakLine[]>([])
@@ -183,7 +188,7 @@ export default function SpeakingPage() {
             <button key={s.id} className="scenario-card sp-pick" onClick={() => start(s)}>
               <span className="sp-pick-ava">{s.avatar}</span>
               <div className="sp-pick-body">
-                <b>{s.emoji} {s.title}</b>
+                <b>{s.emoji} {s.title}{goal && s.tags?.includes(goal) && <span className="sp-goal-badge">🎯 hợp mục tiêu</span>}</b>
                 <span className="sp-pick-char">{s.character} · {s.role}</span>
                 <span className="sp-pick-sit">{s.situation}</span>
               </div>

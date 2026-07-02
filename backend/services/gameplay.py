@@ -88,6 +88,7 @@ def state(user: dict) -> dict:
         "paths": paths(user["id"]),
         "savedVideos": saved_videos(user["id"]),
         "todayXp": today_xp(user["id"]),
+        "goalBonusClaimed": goal_bonus_claimed(user["id"]),
     }
 
 
@@ -303,6 +304,47 @@ def bonus_available(user_id: str) -> bool:
     finally:
         conn.close()
     return not (row and row["claimed"])
+
+
+# Rương thưởng khi đạt mục tiêu XP hằng ngày — phần thưởng tỉ lệ với mức đã chọn.
+GOAL_BONUS_ID = "sys-goal-bonus"
+GOAL_LEVELS = {30, 50, 100, 200}
+
+
+def goal_bonus_claimed(user_id: str) -> bool:
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT claimed FROM quest_progress WHERE user_id = ? AND quest_id = ? AND period_key = ?",
+            (user_id, GOAL_BONUS_ID, today),
+        ).fetchone()
+    finally:
+        conn.close()
+    return bool(row and row["claimed"])
+
+
+def goal_bonus(user: dict, goal: int) -> dict:
+    if goal not in GOAL_LEVELS:
+        raise HTTPException(status_code=400, detail="Mức mục tiêu không hợp lệ.")
+    if today_xp(user["id"]) < goal:
+        raise HTTPException(status_code=400, detail="Bạn chưa đạt mục tiêu hôm nay — cố thêm chút nữa nhé!")
+    if goal_bonus_claimed(user["id"]):
+        raise HTTPException(status_code=400, detail="Hôm nay bạn đã nhận thưởng mục tiêu rồi. Hẹn mai nhé!")
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "INSERT INTO quest_progress (user_id, quest_id, period_key, progress, claimed) "
+            "VALUES (?,?,?,1,1) ON CONFLICT(user_id, quest_id, period_key) DO UPDATE SET claimed = 1",
+            (user["id"], GOAL_BONUS_ID, today),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    reward = goal // 2
+    user2 = accounts.add_xp_coins(user["id"], coins=reward)
+    return {"ok": True, "reward": reward, "user": accounts.public_user(user2)}
 
 
 _EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0}

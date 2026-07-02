@@ -17,14 +17,49 @@ export interface Scenario {
   avatar: string
   situation: string
   persona: string
+  /** Mục tiêu onboarding liên quan — tình huống hợp mục tiêu được xếp lên đầu. */
+  tags?: string[]
   opener?: SpeakLine
   fallback?: { bot: SpeakLine[]; suggestions: SpeakLine[][] }
+}
+
+/**
+ * Các tình huống mới chưa có lời thoại viết tay — AI đóng vai và mở lời
+ * bằng ngôn ngữ đang học (mọi ngôn ngữ dùng chung, chỉ khác nhân vật).
+ */
+function extraScenarios(character: (name: string) => string): Scenario[] {
+  return [
+    {
+      id: 'interview', title: 'Phỏng vấn xin việc', emoji: '💼',
+      character: character('interview'), role: 'Người phỏng vấn', avatar: '🤝', tags: ['work'],
+      situation: 'Bạn tham gia buổi phỏng vấn xin việc và trả lời các câu hỏi của nhà tuyển dụng.',
+      persona: 'Bạn là người phỏng vấn thân thiện nhưng chuyên nghiệp. Hãy mời ứng viên giới thiệu bản thân, hỏi về kinh nghiệm, điểm mạnh, lý do ứng tuyển, rồi kết thúc tích cực.',
+    },
+    {
+      id: 'hotel', title: 'Nhận phòng khách sạn', emoji: '🏨',
+      character: character('hotel'), role: 'Lễ tân khách sạn', avatar: '🛎️', tags: ['travel'],
+      situation: 'Bạn đến khách sạn đã đặt trước và làm thủ tục nhận phòng.',
+      persona: 'Bạn là lễ tân khách sạn. Hãy xác nhận đặt phòng, xin hộ chiếu, giới thiệu giờ ăn sáng & wifi, rồi chúc khách nghỉ ngơi vui vẻ.',
+    },
+    {
+      id: 'coworker', title: 'Trò chuyện với đồng nghiệp', emoji: '👔',
+      character: character('coworker'), role: 'Đồng nghiệp cùng phòng', avatar: '💻', tags: ['work'],
+      situation: 'Giờ nghỉ trưa, bạn trò chuyện thân mật với đồng nghiệp về công việc và cuối tuần.',
+      persona: 'Bạn là đồng nghiệp vui tính. Hãy hỏi thăm dự án đang làm, than nhẹ về deadline, rủ ăn trưa và hỏi kế hoạch cuối tuần.',
+    },
+    {
+      id: 'airport', title: 'Ở sân bay & taxi', emoji: '🛫',
+      character: character('airport'), role: 'Nhân viên sân bay / tài xế', avatar: '🧳', tags: ['travel'],
+      situation: 'Bạn làm thủ tục ở sân bay rồi bắt taxi về khách sạn.',
+      persona: 'Bạn lần lượt đóng vai nhân viên check-in (hỏi hộ chiếu, hành lý, chỗ ngồi) rồi tài xế taxi (hỏi điểm đến, trò chuyện ngắn, báo giá).',
+    },
+  ]
 }
 
 const KO_SCENARIOS: Scenario[] = [
   {
     id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: '지우', role: 'Người bạn Hàn Quốc', avatar: '🧑',
+    character: '지우', role: 'Người bạn Hàn Quốc', avatar: '🧑', tags: ['talk'],
     situation: 'Bạn gặp một người bạn Hàn Quốc lần đầu và làm quen.',
     persona: 'Bạn là 지우, một người Hàn Quốc trẻ, thân thiện, đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học tiếng Hàn rồi động viên họ.',
     opener: { ko: '안녕하세요! 만나서 반갑습니다. 이름이 뭐예요?', vi: 'Xin chào! Rất vui được gặp. Bạn tên gì?' },
@@ -44,7 +79,7 @@ const KO_SCENARIOS: Scenario[] = [
   },
   {
     id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: '지우', role: 'Lễ tân phòng khám 햇살 내과', avatar: '🩺',
+    character: '지우', role: 'Lễ tân phòng khám 햇살 내과', avatar: '🩺', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám nội khoa để đặt lịch khám.',
     persona: 'Bạn là 지우, lễ tân phòng khám nội khoa 햇살 내과. Hãy hỏi triệu chứng, sắp xếp giờ hẹn, rồi xin tên và số điện thoại của bệnh nhân.',
     opener: { ko: '안녕하세요. 햇살 내과입니다. 오늘 진료 예약 때문에 전화하셨나요?', vi: 'Xin chào. Đây là phòng khám nội khoa Haetsal. Bạn gọi điện để đặt lịch khám hôm nay phải không?' },
@@ -68,7 +103,7 @@ const KO_SCENARIOS: Scenario[] = [
   },
   {
     id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: '민준', role: 'Nhân viên quán cà phê', avatar: '☕',
+    character: '민준', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là 민준, nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/lạnh, hỏi cỡ ly rồi báo khách đợi.',
     opener: { ko: '어서 오세요! 무엇을 드릴까요?', vi: 'Mời vào! Bạn muốn dùng gì ạ?' },
@@ -88,7 +123,7 @@ const KO_SCENARIOS: Scenario[] = [
   },
   {
     id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍜',
-    character: '서연', role: 'Nhân viên nhà hàng', avatar: '🍽️',
+    character: '서연', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng Hàn Quốc và gọi món ăn.',
     persona: 'Bạn là 서연, nhân viên nhà hàng Hàn Quốc. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
     opener: { ko: '어서 오세요! 몇 분이세요?', vi: 'Mời vào! Quý khách mấy người ạ?' },
@@ -108,7 +143,7 @@ const KO_SCENARIOS: Scenario[] = [
   },
   {
     id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: '하준', role: 'Nhân viên cửa hàng', avatar: '🛍️',
+    character: '하준', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là 하준, nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
     opener: { ko: '어서 오세요! 무엇을 찾으세요?', vi: 'Mời vào! Bạn tìm gì ạ?' },
@@ -128,7 +163,7 @@ const KO_SCENARIOS: Scenario[] = [
   },
   {
     id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: '행인', role: 'Người qua đường', avatar: '🧭',
+    character: '행인', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng ở Hàn Quốc. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
     opener: { ko: '저기요, 무엇을 찾으세요?', vi: 'Xin lỗi, bạn đang tìm gì vậy?' },
@@ -150,7 +185,7 @@ const KO_SCENARIOS: Scenario[] = [
 const EN_SCENARIOS: Scenario[] = [
   {
     id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: 'Emma', role: 'Người bạn nói tiếng Anh', avatar: '🧑',
+    character: 'Emma', role: 'Người bạn nói tiếng Anh', avatar: '🧑', tags: ['talk'],
     situation: 'Bạn gặp một người bạn nói tiếng Anh lần đầu và làm quen.',
     persona: 'Bạn là Emma, một người trẻ thân thiện đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học tiếng Anh rồi động viên họ.',
     opener: { ko: "Hi! Nice to meet you. What's your name?", vi: 'Chào! Rất vui được gặp bạn. Bạn tên gì?' },
@@ -170,7 +205,7 @@ const EN_SCENARIOS: Scenario[] = [
   },
   {
     id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: 'Jack', role: 'Nhân viên quán cà phê', avatar: '☕',
+    character: 'Jack', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là Jack, nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/đá, hỏi cỡ ly rồi báo khách đợi.',
     opener: { ko: 'Hi there! What can I get for you?', vi: 'Chào bạn! Bạn muốn dùng gì ạ?' },
@@ -190,7 +225,7 @@ const EN_SCENARIOS: Scenario[] = [
   },
   {
     id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍽️',
-    character: 'Olivia', role: 'Nhân viên nhà hàng', avatar: '🍽️',
+    character: 'Olivia', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng và gọi món ăn.',
     persona: 'Bạn là Olivia, nhân viên nhà hàng. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
     opener: { ko: 'Welcome! How many people?', vi: 'Mời vào! Quý khách mấy người ạ?' },
@@ -210,7 +245,7 @@ const EN_SCENARIOS: Scenario[] = [
   },
   {
     id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: 'Liam', role: 'Nhân viên cửa hàng', avatar: '🛍️',
+    character: 'Liam', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là Liam, nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
     opener: { ko: 'Hi! Are you looking for anything in particular?', vi: 'Chào bạn! Bạn đang tìm gì ạ?' },
@@ -230,7 +265,7 @@ const EN_SCENARIOS: Scenario[] = [
   },
   {
     id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: 'Passerby', role: 'Người qua đường', avatar: '🧭',
+    character: 'Passerby', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
     opener: { ko: 'Excuse me, are you looking for something?', vi: 'Xin lỗi, bạn đang tìm gì vậy?' },
@@ -249,7 +284,7 @@ const EN_SCENARIOS: Scenario[] = [
   },
   {
     id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: 'Sophia', role: 'Lễ tân phòng khám Sunshine', avatar: '🩺',
+    character: 'Sophia', role: 'Lễ tân phòng khám Sunshine', avatar: '🩺', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám để đặt lịch khám.',
     persona: 'Bạn là Sophia, lễ tân phòng khám Sunshine. Hãy hỏi triệu chứng, sắp xếp giờ hẹn rồi xin tên và số điện thoại của bệnh nhân.',
     opener: { ko: 'Hello, Sunshine Clinic. Are you calling to book an appointment?', vi: 'Xin chào, phòng khám Sunshine. Bạn gọi để đặt lịch khám ạ?' },
@@ -274,44 +309,53 @@ const EN_SCENARIOS: Scenario[] = [
 const GENERIC_SCENARIOS: Scenario[] = [
   {
     id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: 'Alex', role: 'Người bạn bản xứ', avatar: '🧑',
+    character: 'Alex', role: 'Người bạn bản xứ', avatar: '🧑', tags: ['talk'],
     situation: 'Bạn gặp một người bạn bản xứ lần đầu và làm quen.',
     persona: 'Bạn là một người bản xứ trẻ, thân thiện đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học ngoại ngữ rồi động viên họ.',
   },
   {
     id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: 'Sam', role: 'Nhân viên quán cà phê', avatar: '☕',
+    character: 'Sam', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/đá, hỏi cỡ ly rồi báo khách đợi.',
   },
   {
     id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍽️',
-    character: 'Mia', role: 'Nhân viên nhà hàng', avatar: '🍽️',
+    character: 'Mia', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng và gọi món ăn.',
     persona: 'Bạn là nhân viên nhà hàng. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
   },
   {
     id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: 'Leo', role: 'Nhân viên cửa hàng', avatar: '🛍️',
+    character: 'Leo', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
   },
   {
     id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: 'Jamie', role: 'Người qua đường', avatar: '🧭',
+    character: 'Jamie', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
   },
   {
     id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: 'Robin', role: 'Lễ tân phòng khám', avatar: '🩺',
+    character: 'Robin', role: 'Lễ tân phòng khám', avatar: '🩺', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám để đặt lịch khám.',
     persona: 'Bạn là lễ tân phòng khám. Hãy hỏi triệu chứng, sắp xếp giờ hẹn rồi xin tên và số điện thoại của bệnh nhân.',
   },
 ]
 
-const BY_LANG: Record<string, Scenario[]> = { ko: KO_SCENARIOS, en: EN_SCENARIOS }
+const KO_EXTRA_NAMES: Record<string, string> = { interview: '김 부장', hotel: '수민', coworker: '민재', airport: '하늘' }
+const EN_EXTRA_NAMES: Record<string, string> = { interview: 'Mr. Carter', hotel: 'Grace', coworker: 'Tom', airport: 'Ryan' }
+const GENERIC_EXTRA_NAMES: Record<string, string> = { interview: 'Morgan', hotel: 'Noa', coworker: 'Kim', airport: 'Ari' }
+
+const BY_LANG: Record<string, Scenario[]> = {
+  ko: [...KO_SCENARIOS, ...extraScenarios((id) => KO_EXTRA_NAMES[id] || '지우')],
+  en: [...EN_SCENARIOS, ...extraScenarios((id) => EN_EXTRA_NAMES[id] || 'Alex')],
+}
+
+const GENERIC_ALL = [...GENERIC_SCENARIOS, ...extraScenarios((id) => GENERIC_EXTRA_NAMES[id] || 'Alex')]
 
 export function scenariosFor(lang: string): Scenario[] {
-  return BY_LANG[lang] || GENERIC_SCENARIOS
+  return BY_LANG[lang] || GENERIC_ALL
 }

@@ -69,6 +69,10 @@ class GoalIn(BaseModel):
     goal: str | None = None
 
 
+class GoalBonusIn(BaseModel):
+    goal: int
+
+
 @router.get("/state")
 def api_state(user: dict = Auth):
     return gameplay.state(user)
@@ -159,3 +163,8 @@ def api_event(body: EventIn, user: dict = Auth):
 @router.post("/goal")
 def api_goal(body: GoalIn, user: dict = Auth):
     return {"ok": True, "user": accounts.public_user(accounts.set_goal(user["id"], body.goal))}
+
+
+@router.post("/goal-bonus")
+def api_goal_bonus(body: GoalBonusIn, user: dict = Auth):
+    return gameplay.goal_bonus(user, body.goal)

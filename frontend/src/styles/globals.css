@@ -1671,3 +1671,69 @@ button{font-family:inherit}
 .wiz-preset-hint{margin:-4px 0 14px;padding:8px 12px;border-radius:10px;background:var(--accent-soft);
   color:var(--text2);font-size:13px}
 .ps-tag.focus{border-color:var(--accent);color:var(--accent);font-weight:700}
+
+/* ---------- Trang chủ: cặp thẻ mục tiêu + từ của ngày ---------- */
+.home-duo{display:grid;grid-template-columns:1.55fr 1fr;gap:12px;margin:14px 0;align-items:stretch}
+.home-duo .dgoal{margin:0}
+@media(max-width:900px){.home-duo{grid-template-columns:1fr}}
+
+/* ---------- Rương thưởng & pháo giấy ---------- */
+.dgoal{position:relative;overflow:hidden}
+.dgoal-chest{white-space:nowrap}
+.dgoal-claimed{font-size:12.5px;color:var(--good);font-weight:700;white-space:nowrap}
+.dgoal-burst{position:absolute;inset:0;pointer-events:none;z-index:2}
+.dgoal-burst i{position:absolute;left:50%;top:55%;width:8px;height:12px;border-radius:2px;
+  background:hsl(calc(var(--i)*26), 90%, 62%);opacity:0;
+  animation:dg-fly 1.5s ease-out forwards;animation-delay:calc(var(--i)*18ms);
+  --dx:calc((var(--i) - 7)*26px);--dy:calc(-90px - (var(--i) - 7)*(var(--i) - 7)*2px)}
+@keyframes dg-fly{
+  0%{opacity:0;transform:translate(0,0) rotate(0)}
+  12%{opacity:1}
+  100%{opacity:0;transform:translate(var(--dx),calc(var(--dy) + 140px)) rotate(540deg)}
+}
+@media(prefers-reduced-motion:reduce){.dgoal-burst i{animation:none;opacity:0}}
+
+/* ---------- Thanh cấp độ ---------- */
+.dgoal-level{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text2)}
+.dgoal-level>span:first-child{font-weight:700;white-space:nowrap}
+.dgoal-level-bar{flex:1;height:7px;border-radius:999px;background:var(--bg2);overflow:hidden}
+.dgoal-level-bar span{display:block;height:100%;border-radius:999px;background:var(--coin)}
+.dgoal-level-next{color:var(--muted);white-space:nowrap}
+
+/* ---------- Từ của ngày ---------- */
+.wod{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.wod-head{display:flex;align-items:center;justify-content:space-between}
+.wod-head b{font-size:14px;color:var(--text)}
+.wod-lang{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px}
+.wod-term{display:flex;align-items:center;gap:8px}
+.wod-word{font-size:24px;font-weight:800;color:var(--text);line-height:1.2}
+.wod-speak{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--line);background:none;color:var(--text2);cursor:pointer}
+.wod-speak:hover{border-color:var(--accent-ring);color:var(--accent)}
+.wod-sub{font-size:12.5px;color:var(--muted)}
+.wod-vi{font-size:13.5px;color:var(--text2);font-weight:600}
+.wod-ex{background:var(--bg2);border-radius:10px;padding:8px 11px;margin:4px 0 6px}
+.wod-ex p{margin:0;font-size:13px;color:var(--text)}
+.wod-ex small{color:var(--muted);font-size:12px}
+.wod .btn-ghost{align-self:flex-start;margin-top:auto}
+
+/* ---------- Gói từ vựng theo ngữ cảnh ---------- */
+.deck-emoji{font-size:22px;line-height:1}
+.deck-goal{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+  padding:2px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+.pack-modal{max-width:560px}
+.pack-emoji{font-size:38px;line-height:1}
+.pack-words{max-height:46vh;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin:14px 0;
+  padding-right:4px}
+.pack-word{background:var(--bg2);border-radius:11px;padding:9px 12px}
+.pack-word-top{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.pack-word-top b{font-size:15px;color:var(--text)}
+.pack-sub{font-size:11.5px;color:var(--muted)}
+.pack-vi{font-size:13px;color:var(--text2);font-weight:600;margin-left:auto}
+.pack-ex{margin-top:4px;font-size:12.5px;color:var(--text2)}
+.pack-ex small{color:var(--muted)}
+.pack-add{width:100%}
+
+/* ---------- Huy hiệu tình huống hợp mục tiêu ---------- */
+.sp-goal-badge{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+  padding:2px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}

@@ -10,7 +10,7 @@ import { fetchVideos } from '@/core/api/content.api'
 import {
   fetchState, buyItemApi, equipFrameApi, equipPetApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
-  recordEventApi, setGoalApi, type EventType,
+  recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { viewAllowedForLang } from '@/core/constants/nav'
@@ -102,6 +102,8 @@ interface AppStore {
   dailyGoalXp: number
   setDailyGoalXp: (n: number) => void
   todayXp: number
+  goalBonusClaimed: boolean
+  claimGoalBonus: () => Promise<number>
 
   user: Account
   isAuthed: boolean
@@ -154,6 +156,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [onboardingOpen, setOnboardingOpen] = useState<boolean>(() => !loadGoal() && !goalAsked())
   const [dailyGoalXp, setDailyGoalXpState] = useState<number>(loadDailyGoal)
   const [todayXp, setTodayXp] = useState<number>(loadTodayXp)
+  const [goalBonusClaimed, setGoalBonusClaimed] = useState(false)
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
@@ -195,6 +198,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         const xp = Math.max(s.todayXp || 0, loadTodayXp())
         setTodayXp(xp)
         saveTodayXp(xp)
+        setGoalBonusClaimed(!!s.goalBonusClaimed)
       })
       .catch(() => { /* ignore */ })
   }, [isAuthed, setAccount])
@@ -347,6 +351,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     try { localStorage.setItem(DAILY_GOAL_KEY, String(n)) } catch { /* ignore */ }
   }, [])
 
+  const claimGoalBonus = useCallback(async (): Promise<number> => {
+    if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
+    const r = await goalBonusApi(dailyGoalXp)
+    setAccount(r.user)
+    setGoalBonusClaimed(true)
+    return r.reward
+  }, [guard, dailyGoalXp, setAccount])
+
   const openLookup = useCallback((term = '') => {
     setLookupSeed(term)
     setLookupOpen(true)
@@ -392,7 +404,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     nativeLang, setNativeLang,
     wizardRequested, requestWizard, clearWizard,
     goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
-    dailyGoalXp, setDailyGoalXp, todayXp,
+    dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,
