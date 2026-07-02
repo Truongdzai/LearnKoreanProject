@@ -10,7 +10,7 @@
  * dùng tới đâu học tới đó. Cấu trúc theo "unit" để mở rộng dần tới 3000 từ.
  */
 
-export type WordPos = 'noun' | 'verb' | 'adj' | 'question' | 'phrase'
+export type WordPos = 'noun' | 'verb' | 'adj' | 'question' | 'phrase' | 'adverb' | 'prep'
 
 export interface IcesWord {
   /** Từ tiếng Anh */
@@ -169,11 +169,178 @@ const ADJ: IcesWord[] = [
   { en: 'long', ipa: '/lɔːŋ/', vi: 'dài, lâu', pos: 'adj', img: '📏', connect: 'A long time — một thời gian dài.', ex: 'It was a long day.', exVi: 'Đó là một ngày dài.' },
 ]
 
+/* ------------------------------------------------------------------ */
+/* 5) DANH TỪ NƠI CHỐN & ĐỜI SỐNG — places, transport, time, weather    */
+/* ------------------------------------------------------------------ */
+
+const NOUNS2: IcesWord[] = [
+  { en: 'airport', ipa: '/ˈer.pɔːrt/', vi: 'sân bay', pos: 'noun', img: '✈️', connect: 'Air (không khí) + port (cảng) = cảng hàng không.', ex: 'We arrived at the airport at six.', exVi: 'Chúng tôi đến sân bay lúc sáu giờ.' },
+  { en: 'hospital', ipa: '/ˈhɑː.spɪ.təl/', vi: 'bệnh viện', pos: 'noun', img: '🏥', connect: '"Hót-xpi-tồ" — nơi có bác sĩ.', ex: 'My grandmother is in the hospital.', exVi: 'Bà tôi đang nằm viện.' },
+  { en: 'restaurant', ipa: '/ˈres.tə.rɑːnt/', vi: 'nhà hàng', pos: 'noun', img: '🍽️', connect: '"Rét-tơ-ràn" — nơi ăn ngon.', ex: 'This restaurant serves good pho.', exVi: 'Nhà hàng này bán phở ngon.' },
+  { en: 'hotel', ipa: '/hoʊˈtel/', vi: 'khách sạn', pos: 'noun', img: '🏨', connect: '"Hâu-teo" — nhấn âm sau.', ex: 'We stayed at a small hotel.', exVi: 'Chúng tôi ở một khách sạn nhỏ.' },
+  { en: 'market', ipa: '/ˈmɑːr.kɪt/', vi: 'chợ', pos: 'noun', img: '🧺', connect: 'Supermarket = siêu thị.', ex: 'Mom goes to the market every morning.', exVi: 'Mẹ đi chợ mỗi sáng.' },
+  { en: 'store', ipa: '/stɔːr/', vi: 'cửa hàng', pos: 'noun', img: '🏪', connect: 'App Store — "cửa hàng" ứng dụng.', ex: 'The store opens at eight.', exVi: 'Cửa hàng mở lúc tám giờ.' },
+  { en: 'station', ipa: '/ˈsteɪ.ʃən/', vi: 'nhà ga, trạm', pos: 'noun', img: '🚉', connect: 'Bus station, train station.', ex: 'Meet me at the train station.', exVi: 'Gặp tôi ở ga tàu nhé.' },
+  { en: 'bus', ipa: '/bʌs/', vi: 'xe buýt', pos: 'noun', img: '🚌', connect: 'Xe buýt — mượn từ "bus" luôn.', ex: 'I take the bus to school.', exVi: 'Tôi đi học bằng xe buýt.' },
+  { en: 'train', ipa: '/treɪn/', vi: 'tàu hỏa', pos: 'noun', img: '🚆', connect: 'Training — train còn là "luyện tập".', ex: 'The train leaves at nine.', exVi: 'Tàu rời ga lúc chín giờ.' },
+  { en: 'plane', ipa: '/pleɪn/', vi: 'máy bay', pos: 'noun', img: '🛫', connect: 'Viết tắt của airplane.', ex: 'The plane lands in two hours.', exVi: 'Máy bay hạ cánh sau hai giờ nữa.' },
+  { en: 'room', ipa: '/ruːm/', vi: 'căn phòng', pos: 'noun', img: '🛏️', connect: 'Living room, bedroom.', ex: 'My room is small but clean.', exVi: 'Phòng tôi nhỏ nhưng sạch.' },
+  { en: 'door', ipa: '/dɔːr/', vi: 'cửa', pos: 'noun', img: '🚪', connect: '"Đo" — mở door ra.', ex: 'Please close the door.', exVi: 'Làm ơn đóng cửa.' },
+  { en: 'window', ipa: '/ˈwɪn.doʊ/', vi: 'cửa sổ', pos: 'noun', img: '🪟', connect: 'Windows máy tính = những "cửa sổ".', ex: 'Open the window, it is hot.', exVi: 'Mở cửa sổ đi, trời nóng.' },
+  { en: 'table', ipa: '/ˈteɪ.bəl/', vi: 'cái bàn', pos: 'noun', img: '🍽️', connect: '"Thây-bồ" — bàn ăn.', ex: 'The food is on the table.', exVi: 'Đồ ăn ở trên bàn.' },
+  { en: 'chair', ipa: '/tʃer/', vi: 'cái ghế', pos: 'noun', img: '🪑', connect: '"Che" — ngồi ghế nghỉ chân.', ex: 'This chair is comfortable.', exVi: 'Cái ghế này ngồi thoải mái.' },
+  { en: 'bed', ipa: '/bed/', vi: 'cái giường', pos: 'noun', img: '🛌', connect: 'Go to bed — đi ngủ.', ex: 'I go to bed at eleven.', exVi: 'Tôi đi ngủ lúc mười một giờ.' },
+  { en: 'kitchen', ipa: '/ˈkɪtʃ.ən/', vi: 'nhà bếp', pos: 'noun', img: '🍳', connect: '"Kít-chừn" — nơi nấu ăn.', ex: 'She is cooking in the kitchen.', exVi: 'Cô ấy đang nấu ăn trong bếp.' },
+  { en: 'bathroom', ipa: '/ˈbæθ.ruːm/', vi: 'nhà vệ sinh', pos: 'noun', img: '🚿', connect: 'Bath (tắm) + room (phòng).', ex: 'Where is the bathroom?', exVi: 'Nhà vệ sinh ở đâu?' },
+  { en: 'week', ipa: '/wiːk/', vi: 'tuần', pos: 'noun', img: '📆', connect: 'Weekend = cuối tuần.', ex: 'See you next week.', exVi: 'Hẹn gặp bạn tuần sau.' },
+  { en: 'month', ipa: '/mʌnθ/', vi: 'tháng', pos: 'noun', img: '🗓️', connect: '"Măn-thờ" — 12 months một năm.', ex: 'I will travel next month.', exVi: 'Tháng sau tôi sẽ đi du lịch.' },
+  { en: 'weekend', ipa: '/ˈwiːk.end/', vi: 'cuối tuần', pos: 'noun', img: '🎉', connect: 'Week + end = cuối tuần.', ex: 'What do you do on weekends?', exVi: 'Cuối tuần bạn làm gì?' },
+  { en: 'birthday', ipa: '/ˈbɜːrθ.deɪ/', vi: 'sinh nhật', pos: 'noun', img: '🎂', connect: 'Birth (sinh) + day (ngày).', ex: 'My birthday is in May.', exVi: 'Sinh nhật tôi vào tháng Năm.' },
+  { en: 'party', ipa: '/ˈpɑːr.ti/', vi: 'bữa tiệc', pos: 'noun', img: '🥳', connect: '"Pa-ti" — tiệc tùng.', ex: 'We are having a party tonight.', exVi: 'Tối nay chúng tôi mở tiệc.' },
+  { en: 'music', ipa: '/ˈmjuː.zɪk/', vi: 'âm nhạc', pos: 'noun', img: '🎵', connect: '"Miu-dík" — nghe nhạc mỗi ngày.', ex: 'I listen to music every day.', exVi: 'Tôi nghe nhạc mỗi ngày.' },
+  { en: 'movie', ipa: '/ˈmuː.vi/', vi: 'bộ phim', pos: 'noun', img: '🎬', connect: '"Mu-vi" — phim chiếu rạp.', ex: 'Let us watch a movie tonight.', exVi: 'Tối nay xem phim nhé.' },
+  { en: 'game', ipa: '/ɡeɪm/', vi: 'trò chơi', pos: 'noun', img: '🎮', connect: 'Chơi game — quen thuộc rồi!', ex: 'Football is a fun game.', exVi: 'Bóng đá là một trò chơi vui.' },
+  { en: 'weather', ipa: '/ˈweð.ər/', vi: 'thời tiết', pos: 'noun', img: '⛅', connect: '"Que-thờ" — nói chuyện thời tiết để bắt chuyện.', ex: 'The weather is nice today.', exVi: 'Hôm nay thời tiết đẹp.' },
+  { en: 'rain', ipa: '/reɪn/', vi: 'mưa', pos: 'noun', img: '🌧️', connect: 'Rainbow = cầu vồng (sau mưa).', ex: 'It will rain this afternoon.', exVi: 'Chiều nay trời sẽ mưa.' },
+  { en: 'question', ipa: '/ˈkwes.tʃən/', vi: 'câu hỏi', pos: 'noun', img: '❓', connect: 'Question mark = dấu chấm hỏi.', ex: 'Can I ask you a question?', exVi: 'Tôi hỏi bạn một câu được không?' },
+  { en: 'answer', ipa: '/ˈæn.sər/', vi: 'câu trả lời', pos: 'noun', img: '✅', connect: 'W câm — đọc "en-xờ".', ex: 'I do not know the answer.', exVi: 'Tôi không biết câu trả lời.' },
+  { en: 'problem', ipa: '/ˈprɑː.bləm/', vi: 'vấn đề', pos: 'noun', img: '⚠️', connect: 'No problem! — Không sao!', ex: 'We have a small problem.', exVi: 'Chúng ta có một vấn đề nhỏ.' },
+  { en: 'idea', ipa: '/aɪˈdiː.ə/', vi: 'ý tưởng', pos: 'noun', img: '💡', connect: '"Ai-đia" — nảy ra ý tưởng.', ex: 'That is a great idea!', exVi: 'Đó là một ý tưởng tuyệt vời!' },
+]
+
+/* ------------------------------------------------------------------ */
+/* 6) ĐỘNG TỪ GIAO TIẾP & SINH HOẠT — daily interactions                */
+/* ------------------------------------------------------------------ */
+
+const VERBS2: IcesWord[] = [
+  { en: 'ask', ipa: '/æsk/', vi: 'hỏi', pos: 'verb', img: '🙋', connect: 'Ask a question — đặt câu hỏi.', ex: 'Can I ask you something?', exVi: 'Tôi hỏi bạn chút được không?' },
+  { en: 'tell', ipa: '/tel/', vi: 'kể, bảo', pos: 'verb', img: '🗨️', connect: 'Tell me — kể tôi nghe. Quá khứ: told.', ex: 'Tell me about your day.', exVi: 'Kể tôi nghe về ngày của bạn đi.' },
+  { en: 'talk', ipa: '/tɔːk/', vi: 'nói chuyện', pos: 'verb', img: '💬', connect: '"Tóc" — L câm.', ex: 'We talked for two hours.', exVi: 'Chúng tôi nói chuyện suốt hai tiếng.' },
+  { en: 'meet', ipa: '/miːt/', vi: 'gặp gỡ', pos: 'verb', img: '🤝', connect: 'Nice to meet you! Quá khứ: met.', ex: 'Let us meet at the cafe.', exVi: 'Gặp nhau ở quán cà phê nhé.' },
+  { en: 'call', ipa: '/kɔːl/', vi: 'gọi điện', pos: 'verb', img: '📞', connect: 'Call me — gọi cho tôi nhé.', ex: 'I will call you tomorrow.', exVi: 'Mai tôi sẽ gọi cho bạn.' },
+  { en: 'wait', ipa: '/weɪt/', vi: 'chờ đợi', pos: 'verb', img: '⏳', connect: 'Wait a minute — chờ chút.', ex: 'Please wait for me.', exVi: 'Làm ơn chờ tôi.' },
+  { en: 'walk', ipa: '/wɔːk/', vi: 'đi bộ', pos: 'verb', img: '🚶', connect: 'L câm — đọc "guóc".', ex: 'I walk to work every day.', exVi: 'Tôi đi bộ đi làm mỗi ngày.' },
+  { en: 'run', ipa: '/rʌn/', vi: 'chạy', pos: 'verb', img: '🏃', connect: 'Quá khứ: ran.', ex: 'He runs very fast.', exVi: 'Anh ấy chạy rất nhanh.' },
+  { en: 'sit', ipa: '/sɪt/', vi: 'ngồi', pos: 'verb', img: '🪑', connect: 'Sit down — ngồi xuống.', ex: 'Please sit here.', exVi: 'Mời ngồi đây.' },
+  { en: 'stand', ipa: '/stænd/', vi: 'đứng', pos: 'verb', img: '🧍', connect: 'Stand up — đứng lên.', ex: 'Do not stand in the rain.', exVi: 'Đừng đứng dưới mưa.' },
+  { en: 'play', ipa: '/pleɪ/', vi: 'chơi', pos: 'verb', img: '⚽', connect: 'Play games, play football.', ex: 'The children are playing outside.', exVi: 'Bọn trẻ đang chơi bên ngoài.' },
+  { en: 'watch', ipa: '/wɑːtʃ/', vi: 'xem', pos: 'verb', img: '📺', connect: 'Watch TV; watch còn là đồng hồ đeo tay.', ex: 'I watch videos to learn English.', exVi: 'Tôi xem video để học tiếng Anh.' },
+  { en: 'look', ipa: '/lʊk/', vi: 'nhìn', pos: 'verb', img: '👀', connect: 'Look at me — nhìn tôi này.', ex: 'Look at that beautiful bird!', exVi: 'Nhìn con chim đẹp kìa!' },
+  { en: 'live', ipa: '/lɪv/', vi: 'sống, ở', pos: 'verb', img: '🏠', connect: 'Live show — phát "sống".', ex: 'Where do you live?', exVi: 'Bạn sống ở đâu?' },
+  { en: 'stay', ipa: '/steɪ/', vi: 'ở lại', pos: 'verb', img: '🛎️', connect: 'Stay home — ở nhà.', ex: 'We stayed at home all day.', exVi: 'Chúng tôi ở nhà cả ngày.' },
+  { en: 'leave', ipa: '/liːv/', vi: 'rời đi', pos: 'verb', img: '👋', connect: 'Quá khứ: left.', ex: 'The bus leaves at seven.', exVi: 'Xe buýt rời bến lúc bảy giờ.' },
+  { en: 'arrive', ipa: '/əˈraɪv/', vi: 'đến nơi', pos: 'verb', img: '🛬', connect: '"Ơ-rai-vờ" — arrival = sự đến.', ex: 'We arrived home late.', exVi: 'Chúng tôi về đến nhà muộn.' },
+  { en: 'start', ipa: '/stɑːrt/', vi: 'bắt đầu', pos: 'verb', img: '▶️', connect: 'Nút Start — bắt đầu.', ex: 'The movie starts at eight.', exVi: 'Phim bắt đầu lúc tám giờ.' },
+  { en: 'finish', ipa: '/ˈfɪn.ɪʃ/', vi: 'hoàn thành', pos: 'verb', img: '🏁', connect: '"Phi-nís" — về đích (finish line).', ex: 'I finished my homework.', exVi: 'Tôi làm xong bài tập rồi.' },
+  { en: 'stop', ipa: '/stɑːp/', vi: 'dừng lại', pos: 'verb', img: '🛑', connect: 'Bus stop — trạm dừng xe buýt.', ex: 'The rain stopped.', exVi: 'Mưa tạnh rồi.' },
+  { en: 'try', ipa: '/traɪ/', vi: 'thử, cố gắng', pos: 'verb', img: '💪', connect: 'Try your best — cố hết sức.', ex: 'Try this food, it is delicious.', exVi: 'Thử món này đi, ngon lắm.' },
+  { en: 'pay', ipa: '/peɪ/', vi: 'trả tiền', pos: 'verb', img: '💳', connect: 'Quá khứ: paid.', ex: 'I will pay for dinner.', exVi: 'Để tôi trả tiền bữa tối.' },
+  { en: 'sell', ipa: '/sel/', vi: 'bán', pos: 'verb', img: '🏷️', connect: 'Trái nghĩa với buy. Quá khứ: sold.', ex: 'They sell fresh fruit here.', exVi: 'Ở đây bán trái cây tươi.' },
+  { en: 'cook', ipa: '/kʊk/', vi: 'nấu ăn', pos: 'verb', img: '👨‍🍳', connect: 'Cook cũng là "đầu bếp".', ex: 'My father cooks very well.', exVi: 'Bố tôi nấu ăn rất ngon.' },
+  { en: 'clean', ipa: '/kliːn/', vi: 'dọn dẹp', pos: 'verb', img: '🧹', connect: 'Vừa là động từ vừa là tính từ (sạch).', ex: 'I clean my room on Sundays.', exVi: 'Chủ nhật tôi dọn phòng.' },
+  { en: 'wash', ipa: '/wɑːʃ/', vi: 'rửa, giặt', pos: 'verb', img: '🧼', connect: 'Wash your hands — rửa tay.', ex: 'Wash your hands before eating.', exVi: 'Rửa tay trước khi ăn.' },
+  { en: 'wear', ipa: '/wer/', vi: 'mặc, đeo', pos: 'verb', img: '👕', connect: 'Quá khứ: wore.', ex: 'She is wearing a red dress.', exVi: 'Cô ấy đang mặc váy đỏ.' },
+  { en: 'drive', ipa: '/draɪv/', vi: 'lái xe', pos: 'verb', img: '🚗', connect: 'Driver = tài xế. Quá khứ: drove.', ex: 'He drives to work.', exVi: 'Anh ấy lái xe đi làm.' },
+  { en: 'remember', ipa: '/rɪˈmem.bər/', vi: 'nhớ', pos: 'verb', img: '🧠', connect: '"Ri-mem-bờ" — nhớ lại.', ex: 'I remember your name.', exVi: 'Tôi nhớ tên bạn.' },
+  { en: 'forget', ipa: '/fərˈɡet/', vi: 'quên', pos: 'verb', img: '🫥', connect: 'Trái nghĩa với remember. Quá khứ: forgot.', ex: 'Do not forget your keys.', exVi: 'Đừng quên chìa khóa nhé.' },
+  { en: 'understand', ipa: '/ˌʌn.dərˈstænd/', vi: 'hiểu', pos: 'verb', img: '💡', connect: 'Quá khứ: understood.', ex: 'Do you understand me?', exVi: 'Bạn có hiểu tôi không?' },
+]
+
+/* ------------------------------------------------------------------ */
+/* 7) TRẠNG TỪ & TẦN SUẤT — time & frequency                            */
+/* ------------------------------------------------------------------ */
+
+const ADVERBS: IcesWord[] = [
+  { en: 'now', ipa: '/naʊ/', vi: 'bây giờ', pos: 'adverb', img: '⏱️', connect: 'Right now — ngay bây giờ.', ex: 'I am busy now.', exVi: 'Bây giờ tôi đang bận.' },
+  { en: 'today', ipa: '/təˈdeɪ/', vi: 'hôm nay', pos: 'adverb', img: '📅', connect: 'To + day — ngày này.', ex: 'Today is Monday.', exVi: 'Hôm nay là thứ Hai.' },
+  { en: 'tomorrow', ipa: '/təˈmɔːr.oʊ/', vi: 'ngày mai', pos: 'adverb', img: '🌄', connect: '"Tơ-mo-râu" — ngày mai.', ex: 'See you tomorrow!', exVi: 'Hẹn gặp ngày mai!' },
+  { en: 'yesterday', ipa: '/ˈjes.tər.deɪ/', vi: 'hôm qua', pos: 'adverb', img: '🌆', connect: 'Bài hát Yesterday của The Beatles.', ex: 'I was sick yesterday.', exVi: 'Hôm qua tôi bị ốm.' },
+  { en: 'always', ipa: '/ˈɔːl.weɪz/', vi: 'luôn luôn', pos: 'adverb', img: '🔁', connect: 'All + ways — mọi lúc (100%).', ex: 'She always gets up early.', exVi: 'Cô ấy luôn dậy sớm.' },
+  { en: 'usually', ipa: '/ˈjuː.ʒu.əl.i/', vi: 'thường thường', pos: 'adverb', img: '🕗', connect: 'Thường xuyên (~80%).', ex: 'I usually walk to school.', exVi: 'Tôi thường đi bộ đến trường.' },
+  { en: 'often', ipa: '/ˈɔː.fən/', vi: 'hay, thường', pos: 'adverb', img: '📈', connect: 'T thường câm — "o-phừn" (~60%).', ex: 'We often eat out.', exVi: 'Chúng tôi hay ăn ngoài.' },
+  { en: 'sometimes', ipa: '/ˈsʌm.taɪmz/', vi: 'thỉnh thoảng', pos: 'adverb', img: '🎲', connect: 'Some + times — vài lần (~30%).', ex: 'Sometimes I cook dinner.', exVi: 'Thỉnh thoảng tôi nấu bữa tối.' },
+  { en: 'never', ipa: '/ˈnev.ər/', vi: 'không bao giờ', pos: 'adverb', img: '🚫', connect: '0% — Never give up!', ex: 'He never drinks coffee.', exVi: 'Anh ấy không bao giờ uống cà phê.' },
+  { en: 'here', ipa: '/hɪr/', vi: 'ở đây', pos: 'adverb', img: '📍', connect: 'Come here — lại đây.', ex: 'Please sign here.', exVi: 'Vui lòng ký vào đây.' },
+  { en: 'there', ipa: '/ðer/', vi: 'ở kia, đằng kia', pos: 'adverb', img: '➡️', connect: 'Trái nghĩa với here.', ex: 'The bank is over there.', exVi: 'Ngân hàng ở đằng kia.' },
+  { en: 'very', ipa: '/ˈver.i/', vi: 'rất', pos: 'adverb', img: '🔥', connect: 'Very good — rất tốt.', ex: 'This coffee is very hot.', exVi: 'Cà phê này rất nóng.' },
+  { en: 'too', ipa: '/tuː/', vi: 'cũng; quá', pos: 'adverb', img: '➕', connect: 'Me too — tôi cũng vậy; too + tính từ = quá.', ex: 'This shirt is too big.', exVi: 'Cái áo này quá rộng.' },
+  { en: 'also', ipa: '/ˈɔːl.soʊ/', vi: 'cũng', pos: 'adverb', img: '🟰', connect: '"Ôn-xâu" — đứng trước động từ.', ex: 'I also like this song.', exVi: 'Tôi cũng thích bài hát này.' },
+  { en: 'again', ipa: '/əˈɡen/', vi: 'lại, lần nữa', pos: 'adverb', img: '🔄', connect: 'Try again — thử lại.', ex: 'Please say that again.', exVi: 'Làm ơn nói lại lần nữa.' },
+  { en: 'together', ipa: '/təˈɡeð.ər/', vi: 'cùng nhau', pos: 'adverb', img: '👫', connect: '"Tu-ghe-thờ" — cùng nhau.', ex: 'Let us study together.', exVi: 'Chúng ta học cùng nhau nhé.' },
+  { en: 'soon', ipa: '/suːn/', vi: 'sớm, sắp', pos: 'adverb', img: '⏩', connect: 'See you soon — hẹn sớm gặp lại.', ex: 'The bus will come soon.', exVi: 'Xe buýt sắp đến rồi.' },
+  { en: 'early', ipa: '/ˈɜːr.li/', vi: 'sớm', pos: 'adverb', img: '🌅', connect: 'Trái nghĩa với late.', ex: 'I wake up early every day.', exVi: 'Tôi dậy sớm mỗi ngày.' },
+  { en: 'late', ipa: '/leɪt/', vi: 'muộn, trễ', pos: 'adverb', img: '⏰', connect: 'Sorry, I am late!', ex: 'Do not be late for class.', exVi: 'Đừng đi học muộn.' },
+  { en: 'only', ipa: '/ˈoʊn.li/', vi: 'chỉ', pos: 'adverb', img: '1️⃣', connect: '"Âun-li" — chỉ, duy nhất.', ex: 'I have only ten dollars.', exVi: 'Tôi chỉ có mười đô.' },
+  { en: 'really', ipa: '/ˈrɪə.li/', vi: 'thật sự', pos: 'adverb', img: '😮', connect: 'Really? — Thật á?', ex: 'This movie is really good.', exVi: 'Bộ phim này hay thật sự.' },
+  { en: 'maybe', ipa: '/ˈmeɪ.bi/', vi: 'có lẽ', pos: 'adverb', img: '🤷', connect: 'May + be — có thể vậy.', ex: 'Maybe it will rain tomorrow.', exVi: 'Có lẽ mai trời mưa.' },
+]
+
+/* ------------------------------------------------------------------ */
+/* 8) GIỚI TỪ & TỪ NỐI — glue words that build sentences                */
+/* ------------------------------------------------------------------ */
+
+const PREPS: IcesWord[] = [
+  { en: 'in', ipa: '/ɪn/', vi: 'trong', pos: 'prep', img: '📦', connect: 'In the box, in Hanoi, in May.', ex: 'She lives in Da Nang.', exVi: 'Cô ấy sống ở Đà Nẵng.' },
+  { en: 'on', ipa: '/ɑːn/', vi: 'trên', pos: 'prep', img: '🔛', connect: 'Trên bề mặt — on the table; on Monday.', ex: 'The keys are on the table.', exVi: 'Chìa khóa ở trên bàn.' },
+  { en: 'at', ipa: '/æt/', vi: 'tại, ở', pos: 'prep', img: '🎯', connect: 'Điểm cụ thể — at home, at 7 o’clock.', ex: 'I am at the coffee shop.', exVi: 'Tôi đang ở quán cà phê.' },
+  { en: 'to', ipa: '/tuː/', vi: 'đến, tới', pos: 'prep', img: '➡️', connect: 'Hướng đến — go to school.', ex: 'We went to the beach.', exVi: 'Chúng tôi đã đi biển.' },
+  { en: 'from', ipa: '/frɑːm/', vi: 'từ', pos: 'prep', img: '🛫', connect: 'Điểm xuất phát — from Vietnam.', ex: 'I am from Vietnam.', exVi: 'Tôi đến từ Việt Nam.' },
+  { en: 'with', ipa: '/wɪð/', vi: 'với, cùng', pos: 'prep', img: '🤝', connect: 'Cùng với — with friends.', ex: 'I go to school with my friend.', exVi: 'Tôi đi học cùng bạn.' },
+  { en: 'without', ipa: '/wɪˈðaʊt/', vi: 'không có', pos: 'prep', img: '🚫', connect: 'With + out = thiếu, không có.', ex: 'I cannot live without music.', exVi: 'Tôi không thể sống thiếu âm nhạc.' },
+  { en: 'for', ipa: '/fɔːr/', vi: 'cho, dành cho', pos: 'prep', img: '🎁', connect: 'This is for you — cái này cho bạn.', ex: 'This gift is for you.', exVi: 'Món quà này dành cho bạn.' },
+  { en: 'of', ipa: '/ʌv/', vi: 'của', pos: 'prep', img: '🧩', connect: 'A cup of tea — một tách trà.', ex: 'This is a photo of my family.', exVi: 'Đây là ảnh gia đình tôi.' },
+  { en: 'about', ipa: '/əˈbaʊt/', vi: 'về, khoảng', pos: 'prep', img: '💭', connect: 'Talk about — nói về.', ex: 'We talked about the movie.', exVi: 'Chúng tôi nói về bộ phim.' },
+  { en: 'before', ipa: '/bɪˈfɔːr/', vi: 'trước', pos: 'prep', img: '⏮️', connect: 'Before dinner — trước bữa tối.', ex: 'Wash your hands before meals.', exVi: 'Rửa tay trước bữa ăn.' },
+  { en: 'after', ipa: '/ˈæf.tər/', vi: 'sau', pos: 'prep', img: '⏭️', connect: 'After school — sau giờ học.', ex: 'Let us meet after work.', exVi: 'Gặp nhau sau giờ làm nhé.' },
+  { en: 'under', ipa: '/ˈʌn.dər/', vi: 'dưới', pos: 'prep', img: '⬇️', connect: 'Under the table — dưới gầm bàn.', ex: 'The cat is under the chair.', exVi: 'Con mèo ở dưới ghế.' },
+  { en: 'over', ipa: '/ˈoʊ.vər/', vi: 'phía trên, qua', pos: 'prep', img: '🔝', connect: 'Over there — đằng kia; over 100 — hơn 100.', ex: 'The plane flew over the city.', exVi: 'Máy bay bay qua thành phố.' },
+  { en: 'near', ipa: '/nɪr/', vi: 'gần', pos: 'prep', img: '📍', connect: 'Near my house — gần nhà tôi.', ex: 'The market is near my house.', exVi: 'Chợ ở gần nhà tôi.' },
+  { en: 'between', ipa: '/bɪˈtwiːn/', vi: 'giữa', pos: 'prep', img: '↔️', connect: 'Giữa hai thứ — between A and B.', ex: 'The bank is between the two shops.', exVi: 'Ngân hàng nằm giữa hai cửa hàng.' },
+  { en: 'and', ipa: '/ænd/', vi: 'và', pos: 'prep', img: '➕', connect: 'Nối hai thứ cùng loại.', ex: 'I like tea and coffee.', exVi: 'Tôi thích trà và cà phê.' },
+  { en: 'but', ipa: '/bʌt/', vi: 'nhưng', pos: 'prep', img: '↩️', connect: 'Chuyển ý ngược lại.', ex: 'The food is cheap but delicious.', exVi: 'Đồ ăn rẻ nhưng ngon.' },
+  { en: 'or', ipa: '/ɔːr/', vi: 'hoặc', pos: 'prep', img: '🔀', connect: 'Chọn một trong hai.', ex: 'Tea or coffee?', exVi: 'Trà hay cà phê?' },
+  { en: 'because', ipa: '/bɪˈkɔːz/', vi: 'bởi vì', pos: 'prep', img: '🧾', connect: 'Trả lời cho câu hỏi Why.', ex: 'I stayed home because it rained.', exVi: 'Tôi ở nhà vì trời mưa.' },
+  { en: 'so', ipa: '/soʊ/', vi: 'nên, vì vậy', pos: 'prep', img: '🎯', connect: 'Chỉ kết quả — mệt nên ngủ sớm.', ex: 'I was tired, so I slept early.', exVi: 'Tôi mệt nên đi ngủ sớm.' },
+  { en: 'if', ipa: '/ɪf/', vi: 'nếu', pos: 'prep', img: '🤔', connect: 'Mở đầu câu điều kiện.', ex: 'If it rains, we will stay home.', exVi: 'Nếu trời mưa, chúng ta sẽ ở nhà.' },
+]
+
+/* ------------------------------------------------------------------ */
+/* 9) CỤM GIAO TIẾP HẰNG NGÀY — survival phrases                        */
+/* ------------------------------------------------------------------ */
+
+const PHRASES: IcesWord[] = [
+  { en: 'hello', ipa: '/həˈloʊ/', vi: 'xin chào', pos: 'phrase', img: '👋', connect: 'Câu chào vạn năng, lúc nào cũng đúng.', ex: 'Hello! How are you?', exVi: 'Xin chào! Bạn khỏe không?' },
+  { en: 'goodbye', ipa: '/ˌɡʊdˈbaɪ/', vi: 'tạm biệt', pos: 'phrase', img: '🚪', connect: 'Good + bye; nói ngắn: Bye!', ex: 'Goodbye! See you tomorrow.', exVi: 'Tạm biệt! Mai gặp lại.' },
+  { en: 'thank you', ipa: '/ˈθæŋk juː/', vi: 'cảm ơn', pos: 'phrase', img: '🙏', connect: 'Thanks = cách nói ngắn gọn.', ex: 'Thank you for your help.', exVi: 'Cảm ơn bạn đã giúp đỡ.' },
+  { en: "you're welcome", ipa: '/jʊr ˈwel.kəm/', vi: 'không có gì', pos: 'phrase', img: '😊', connect: 'Câu đáp chuẩn khi ai đó cảm ơn.', ex: "'Thank you!' — 'You're welcome!'", exVi: '"Cảm ơn!" — "Không có gì!"' },
+  { en: 'excuse me', ipa: '/ɪkˈskjuːz miː/', vi: 'xin lỗi (gây chú ý)', pos: 'phrase', img: '🙇', connect: 'Dùng khi muốn hỏi đường, đi nhờ, gọi phục vụ.', ex: 'Excuse me, where is the bank?', exVi: 'Xin lỗi, ngân hàng ở đâu ạ?' },
+  { en: "I'm sorry", ipa: '/aɪm ˈsɑːr.i/', vi: 'tôi xin lỗi', pos: 'phrase', img: '😔', connect: 'Xin lỗi thật lòng (khác excuse me).', ex: "I'm sorry, I'm late.", exVi: 'Xin lỗi, tôi đến muộn.' },
+  { en: 'of course', ipa: '/əv kɔːrs/', vi: 'tất nhiên', pos: 'phrase', img: '👌', connect: '"Ọp-cọt" — đồng ý nhiệt tình.', ex: "'Can you help me?' — 'Of course!'", exVi: '"Giúp tôi được không?" — "Tất nhiên!"' },
+  { en: 'no problem', ipa: '/noʊ ˈprɑː.bləm/', vi: 'không vấn đề gì', pos: 'phrase', img: '🆗', connect: 'Đáp nhẹ nhàng khi ai đó nhờ/xin lỗi.', ex: "'Sorry I'm late.' — 'No problem.'", exVi: '"Xin lỗi tôi muộn." — "Không sao."' },
+  { en: 'see you later', ipa: '/siː juː ˈleɪ.tər/', vi: 'hẹn gặp lại', pos: 'phrase', img: '🕐', connect: 'Nói ngắn: See ya!', ex: 'I have to go. See you later!', exVi: 'Tôi phải đi đây. Gặp lại sau nhé!' },
+  { en: 'nice to meet you', ipa: '/naɪs tuː miːt juː/', vi: 'rất vui được gặp bạn', pos: 'phrase', img: '🤝', connect: 'Câu bắt buộc khi gặp lần đầu.', ex: "Hi, I'm Nam. Nice to meet you!", exVi: 'Chào, tôi là Nam. Rất vui được gặp bạn!' },
+  { en: 'how are you', ipa: '/haʊ ɑːr juː/', vi: 'bạn khỏe không', pos: 'phrase', img: '💬', connect: "Đáp: I'm fine / I'm good, thanks!", ex: 'How are you today?', exVi: 'Hôm nay bạn thế nào?' },
+  { en: "I don't know", ipa: '/aɪ doʊnt noʊ/', vi: 'tôi không biết', pos: 'phrase', img: '🤷', connect: 'Nói tự nhiên: "Ai-đôn-nâu".', ex: "'Where is he?' — 'I don't know.'", exVi: '"Anh ấy đâu?" — "Tôi không biết."' },
+  { en: 'wait a minute', ipa: '/weɪt ə ˈmɪn.ɪt/', vi: 'chờ một chút', pos: 'phrase', img: '⏳', connect: 'Minute = phút — chờ "một phút".', ex: "Wait a minute, I'm coming!", exVi: 'Chờ chút, tôi đến ngay!' },
+  { en: "let's go", ipa: '/lets ɡoʊ/', vi: 'đi thôi', pos: 'phrase', img: '🚀', connect: "Let us = let's — rủ nhau làm gì đó.", ex: "We're ready. Let's go!", exVi: 'Sẵn sàng rồi. Đi thôi!' },
+  { en: 'good luck', ipa: '/ɡʊd lʌk/', vi: 'chúc may mắn', pos: 'phrase', img: '🍀', connect: 'Lucky = may mắn.', ex: 'Good luck with your exam!', exVi: 'Chúc bạn thi tốt!' },
+  { en: 'congratulations', ipa: '/kənˌɡrætʃ.əˈleɪ.ʃənz/', vi: 'chúc mừng', pos: 'phrase', img: '🎉', connect: 'Nói ngắn: Congrats!', ex: 'Congratulations on your new job!', exVi: 'Chúc mừng công việc mới của bạn!' },
+  { en: 'happy birthday', ipa: '/ˈhæp.i ˈbɜːrθ.deɪ/', vi: 'chúc mừng sinh nhật', pos: 'phrase', img: '🎂', connect: 'Bài hát ai cũng thuộc.', ex: 'Happy birthday! This is for you.', exVi: 'Chúc mừng sinh nhật! Quà cho bạn này.' },
+  { en: 'take care', ipa: '/teɪk ker/', vi: 'giữ gìn sức khỏe', pos: 'phrase', img: '🤗', connect: 'Lời chào tạm biệt ấm áp.', ex: 'Goodbye, take care!', exVi: 'Tạm biệt, giữ gìn sức khỏe nhé!' },
+  { en: 'long time no see', ipa: '/lɔːŋ taɪm noʊ siː/', vi: 'lâu rồi không gặp', pos: 'phrase', img: '👀', connect: 'Nghe đồn gốc từ tiếng Trung "好久不见".', ex: 'Hey! Long time no see!', exVi: 'Ơ kìa! Lâu lắm không gặp!' },
+  { en: "what's up", ipa: '/wɑːts ʌp/', vi: 'dạo này sao rồi', pos: 'phrase', img: '😎', connect: 'Chào thân mật kiểu Mỹ — đáp: Not much!', ex: "Hey, what's up?", exVi: 'Này, dạo này sao rồi?' },
+]
+
 export const UNITS: VocabUnit[] = [
   { id: 'nouns', name: 'Danh từ cốt lõi', sub: 'Người, đồ vật, đồ ăn quanh ta', pos: 'noun', tone: 'tone-a', emoji: '🧩', words: NOUNS },
   { id: 'verbs', name: 'Động từ cốt lõi', sub: 'Những hành động dùng mỗi ngày', pos: 'verb', tone: 'tone-c', emoji: '🏃', words: VERBS },
   { id: 'questions', name: 'Từ để hỏi', sub: 'Who, What, Where, When, Why, How', pos: 'question', tone: 'tone-d', emoji: '❓', words: QUESTIONS },
   { id: 'adjectives', name: 'Tính từ ứng dụng cao', sub: 'Good, bad, big, small, happy…', pos: 'adj', tone: 'tone-e', emoji: '🎨', words: ADJ },
+  { id: 'places', name: 'Nơi chốn & đời sống', sub: 'Sân bay, nhà hàng, thời tiết, ý tưởng…', pos: 'noun', tone: 'tone-b', emoji: '🏙️', words: NOUNS2 },
+  { id: 'verbs2', name: 'Động từ giao tiếp & sinh hoạt', sub: 'Ask, meet, play, pay, remember…', pos: 'verb', tone: 'tone-f', emoji: '🤝', words: VERBS2 },
+  { id: 'adverbs', name: 'Trạng từ & tần suất', sub: 'Now, always, sometimes, very, too…', pos: 'adverb', tone: 'tone-b', emoji: '⏱️', words: ADVERBS },
+  { id: 'preps', name: 'Giới từ & từ nối', sub: 'In, on, at, because, but, if…', pos: 'prep', tone: 'tone-f', emoji: '🔗', words: PREPS },
+  { id: 'phrases', name: 'Cụm giao tiếp hằng ngày', sub: 'Thank you, excuse me, good luck…', pos: 'phrase', tone: 'tone-a', emoji: '💬', words: PHRASES },
 ]
 
 export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
