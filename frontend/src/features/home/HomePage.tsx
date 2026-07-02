@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Hero from './components/Hero'
+import DailyGoal from './components/DailyGoal'
 import VideoCard from '@/features/shared/VideoCard'
 import Icon from '@/core/components/Icon'
 import { videoUrl } from '@/data/videos'
@@ -28,6 +29,8 @@ export default function HomePage() {
       <div className={'status' + (statusError ? ' err' : '')}>
         {status && statusError && <Icon name="x-circle" />} {status}
       </div>
+
+      <DailyGoal />
 
       <div className="chips">
         <button className="goal-chip" onClick={openOnboarding} title="Đổi mục tiêu học">

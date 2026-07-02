@@ -1650,3 +1650,24 @@ button{font-family:inherit}
 .feedback-done{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:10px 0}
 .feedback-done p{color:var(--muted);font-size:13.5px;margin:0 0 6px}
 @media(max-width:760px){.feedback-fab{bottom:14px;right:12px;padding:8px 12px}}
+
+/* ---------- Mục tiêu hằng ngày (XP) ---------- */
+.dgoal{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:14px 0}
+.dgoal.done{border-color:var(--good)}
+.dgoal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dgoal-head b{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--text)}
+.dgoal-levels{display:flex;gap:6px}
+.dgoal-levels button{padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;
+  color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}
+.dgoal-levels button.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.dgoal-bar{height:10px;border-radius:999px;background:var(--bg2);overflow:hidden;margin:10px 0}
+.dgoal-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#7c5cff);transition:width .4s ease}
+.dgoal.done .dgoal-bar span{background:var(--good)}
+.dgoal-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dgoal-msg{font-size:13px;color:var(--text2)}
+.dgoal-ctas{display:flex;gap:8px}
+
+/* ---------- Wizard bám mục tiêu ---------- */
+.wiz-preset-hint{margin:-4px 0 14px;padding:8px 12px;border-radius:10px;background:var(--accent-soft);
+  color:var(--text2);font-size:13px}
+.ps-tag.focus{border-color:var(--accent);color:var(--accent);font-weight:700}

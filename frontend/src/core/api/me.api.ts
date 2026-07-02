@@ -10,6 +10,7 @@ export interface MeState {
   garden: PlantedSeed[]
   paths: LearningPath[]
   savedVideos: Video[]
+  todayXp: number
 }
 
 export interface Activities {

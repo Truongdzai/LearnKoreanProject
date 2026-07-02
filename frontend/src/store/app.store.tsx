@@ -22,6 +22,31 @@ const LANG_KEY = 'vyling.learnLang'
 const NATIVE_KEY = 'vyling.nativeLang'
 const GOAL_KEY = 'vyling.goal'
 const GOAL_ASKED_KEY = 'vyling.goalAsked'
+const DAILY_GOAL_KEY = 'vyling.dailyGoal'
+const TODAY_XP_KEY = 'vyling.todayXp'
+
+/** XP mỗi hành động — khớp với _EVENT_XP ở backend để thanh tiến độ chạy tức thời. */
+const EVENT_XP: Record<string, number> = { lesson: 30, pronounce: 5, review: 2, video: 25, word: 4, login: 0 }
+
+function todayKey(): string {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+function loadTodayXp(): number {
+  try {
+    const raw = JSON.parse(localStorage.getItem(TODAY_XP_KEY) || '{}')
+    return raw.d === todayKey() ? Number(raw.xp) || 0 : 0
+  } catch { return 0 }
+}
+
+function saveTodayXp(xp: number) {
+  try { localStorage.setItem(TODAY_XP_KEY, JSON.stringify({ d: todayKey(), xp })) } catch { /* ignore */ }
+}
+
+function loadDailyGoal(): number {
+  try { return Number(localStorage.getItem(DAILY_GOAL_KEY)) || 50 } catch { return 50 }
+}
 
 const GUEST: Account = {
   id: '', name: 'Khách', provider: 'email', role: 'user',
@@ -73,6 +98,11 @@ interface AppStore {
   openOnboarding: () => void
   closeOnboarding: () => void
 
+  /** Daily XP goal + today's earned XP (guests tracked locally, users synced from server). */
+  dailyGoalXp: number
+  setDailyGoalXp: (n: number) => void
+  todayXp: number
+
   user: Account
   isAuthed: boolean
 
@@ -122,6 +152,8 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [goal, setGoalState] = useState<string>(loadGoal)
   // Hỏi mục tiêu đúng 1 lần cho khách mới; chọn hay bỏ qua đều không hỏi lại.
   const [onboardingOpen, setOnboardingOpen] = useState<boolean>(() => !loadGoal() && !goalAsked())
+  const [dailyGoalXp, setDailyGoalXpState] = useState<number>(loadDailyGoal)
+  const [todayXp, setTodayXp] = useState<number>(loadTodayXp)
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
@@ -159,6 +191,10 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         setPaths(s.paths)
         setGarden(s.garden)
         setAccount(s.user)
+        // Máy chủ là nguồn chuẩn cho XP hôm nay của người đăng nhập.
+        const xp = Math.max(s.todayXp || 0, loadTodayXp())
+        setTodayXp(xp)
+        saveTodayXp(xp)
       })
       .catch(() => { /* ignore */ })
   }, [isAuthed, setAccount])
@@ -291,11 +327,25 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   }, [guard, setAccount, setBonusAvailable])
 
   const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0) => {
+    // Cộng XP hôm nay tại chỗ cho cả khách lẫn người đăng nhập — thanh mục tiêu ngày chạy tức thời.
+    const gain = (EVENT_XP[type] || 0) * Math.max(0, amount)
+    if (gain) {
+      setTodayXp((x) => {
+        const nx = x + gain
+        saveTodayXp(nx)
+        return nx
+      })
+    }
     if (!isAuthed) return
     recordEventApi(type, amount, minutes, words)
       .then((r) => setAccount(r.user))
       .catch(() => { /* non-blocking */ })
   }, [isAuthed, setAccount])
+
+  const setDailyGoalXp = useCallback((n: number) => {
+    setDailyGoalXpState(n)
+    try { localStorage.setItem(DAILY_GOAL_KEY, String(n)) } catch { /* ignore */ }
+  }, [])
 
   const openLookup = useCallback((term = '') => {
     setLookupSeed(term)
@@ -342,6 +392,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     nativeLang, setNativeLang,
     wizardRequested, requestWizard, clearWizard,
     goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
+    dailyGoalXp, setDailyGoalXp, todayXp,
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flag from '@/core/components/Flag'
-import { GOALS, INTERESTS, LEVELS, buildSteps } from '@/data/pathOptions'
+import { GOALS, INTERESTS, LEVELS, buildSteps, LEARN_GOAL_PRESETS } from '@/data/pathOptions'
 import { STUDY_LANGS, NATIVE_LANGS, studyLang } from '@/core/constants/languages'
+import { goalById } from '@/features/onboarding/goals'
 import type { LearningPath } from '@/models/path.model'
 import { useAppStore } from '@/store/app.store'
 
@@ -13,8 +14,10 @@ export default function PathPage() {
   const {
     paths, addPath, setView,
     learnLang, setLearnLang, nativeLang, setNativeLang,
-    wizardRequested, clearWizard,
+    wizardRequested, clearWizard, goal: learnGoal,
   } = useAppStore()
+  const learnGoalInfo = goalById(learnGoal)
+  const presetGoals = LEARN_GOAL_PRESETS[learnGoal] || []
   const [mode, setMode] = useState<'landing' | 'wizard' | 'result'>('landing')
   const [step, setStep] = useState(0)
   const [lang, setLang] = useState(learnLang)
@@ -28,10 +31,10 @@ export default function PathPage() {
   useEffect(() => {
     if (!wizardRequested) return
     setStep(0); setLang(learnLang); setNative(nativeLang)
-    setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setGoals(LEARN_GOAL_PRESETS[learnGoal] || []); setInterests([]); setLevel(''); setCreated(null)
     setMode('wizard')
     clearWizard()
-  }, [wizardRequested, learnLang, nativeLang, clearWizard])
+  }, [wizardRequested, learnLang, nativeLang, clearWizard, learnGoal])
 
   // Selecting the study language inside the wizard applies it live across the app.
   const pickStudy = (code: string) => { setLang(code); setLearnLang(code) }
@@ -43,7 +46,7 @@ export default function PathPage() {
   }
 
   const reset = () => {
-    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals(presetGoals); setInterests([]); setLevel(''); setCreated(null)
   }
 
   const finish = async () => {
@@ -59,8 +62,9 @@ export default function PathPage() {
       interests,
       level: lv ? `${lv.code} · ${lv.name}` : 'A1',
       createdAt: Date.now(),
-      steps: buildSteps(goals, interests, lv ? `${lv.code} ${lv.name}` : 'A1'),
+      steps: buildSteps(goals, interests, lv ? `${lv.code} ${lv.name}` : 'A1', learnGoal),
       progress: 0,
+      learnGoal: learnGoal || undefined,
     }
     try { await addPath(path) } catch { /* khách: vẫn xem được, đăng nhập để lưu */ }
     setCreated(path)
@@ -130,6 +134,9 @@ export default function PathPage() {
           <div>
             <h2>{created.language} · {created.level}</h2>
             <div className="ps-tags">
+              {created.learnGoal && goalById(created.learnGoal) && (
+                <span className="ps-tag focus">🎯 {goalById(created.learnGoal)!.emoji} {goalById(created.learnGoal)!.label}</span>
+              )}
               {created.goals.slice(0, 4).map((g) => <span key={g} className="ps-tag">{g}</span>)}
               {created.interests.slice(0, 3).map((i) => <span key={i} className="ps-tag soft">{i}</span>)}
             </div>
@@ -201,6 +208,11 @@ export default function PathPage() {
           <>
             <h2 className="wiz-title">Mục tiêu học tập</h2>
             <p className="wiz-sub">Chọn tối đa 5 mục tiêu ({goals.length}/5 đã chọn)</p>
+            {learnGoalInfo && (
+              <p className="wiz-preset-hint">
+                {learnGoalInfo.emoji} Đã gợi ý sẵn theo mục tiêu <b>{learnGoalInfo.label}</b> của bạn — cứ chỉnh thoải mái.
+              </p>
+            )}
             <div className="goal-list">
               {GOALS.map((g) => (
                 <button key={g.title} className={'goal-row' + (goals.includes(g.title) ? ' on' : '')} onClick={() => toggle(goals, setGoals, g.title)}>

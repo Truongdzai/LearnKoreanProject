@@ -87,7 +87,20 @@ def state(user: dict) -> dict:
         "garden": garden(user["id"]),
         "paths": paths(user["id"]),
         "savedVideos": saved_videos(user["id"]),
+        "todayXp": today_xp(user["id"]),
     }
+
+
+def today_xp(user_id: str) -> int:
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT xp FROM activity_log WHERE user_id = ? AND day = ?",
+            (user_id, date.today().isoformat()),
+        ).fetchone()
+    finally:
+        conn.close()
+    return row["xp"] if row else 0
 
 
 def buy(user: dict, item_id: str) -> dict:
