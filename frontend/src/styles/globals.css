@@ -1616,3 +1616,37 @@ button{font-family:inherit}
   .pet-float,.pet-shadow,.pet-peek,.pet-frame.on,.pet-spark,.pet-ember,.pet-aura{animation:none}
   .pet-frame{transition:opacity .2s ease}
 }
+
+/* ---------- Onboarding mục tiêu học ---------- */
+.goal-modal{max-width:520px}
+.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
+@media(max-width:520px){.goal-grid{grid-template-columns:1fr}}
+.goal-card{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--panel);
+  border:2px solid var(--line);border-radius:16px;padding:16px 12px;cursor:pointer;color:var(--text);transition:.15s}
+.goal-card:hover{border-color:var(--accent-ring);transform:translateY(-2px)}
+.goal-card.on{border-color:var(--accent);background:var(--accent-soft)}
+.goal-card b{font-size:15px}
+.goal-card small{color:var(--muted);font-size:12px;line-height:1.45}
+.goal-emoji{font-size:30px;line-height:1}
+.goal-skip{display:block;margin:14px auto 0;background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline}
+.goal-skip:hover{color:var(--text)}
+.goal-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text2);font-size:12.5px;font-weight:600;cursor:pointer}
+.goal-chip:hover{border-color:var(--accent-ring);color:var(--text)}
+
+/* ---------- Nút góp ý / báo lỗi ---------- */
+.feedback-fab{position:fixed;right:18px;bottom:18px;z-index:70;display:inline-flex;align-items:center;gap:7px;
+  padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);
+  font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(4,8,18,.28)}
+.feedback-fab:hover{border-color:var(--accent-ring);transform:translateY(-1px)}
+.feedback-modal{max-width:460px}
+.feedback-kind{display:flex;gap:10px;margin:14px 0}
+.feedback-kind button{flex:1;padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--panel);
+  color:var(--text);font-weight:600;cursor:pointer;font-size:13.5px}
+.feedback-kind button.on{border-color:var(--accent);background:var(--accent-soft)}
+.feedback-text{width:100%;resize:vertical;padding:12px;border-radius:12px;border:1px solid var(--line);
+  background:var(--bg);color:var(--text);font:inherit;font-size:14px}
+.feedback-send{width:100%;margin-top:12px}
+.feedback-done{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:10px 0}
+.feedback-done p{color:var(--muted);font-size:13.5px;margin:0 0 6px}
+@media(max-width:760px){.feedback-fab{bottom:14px;right:12px;padding:8px 12px}}

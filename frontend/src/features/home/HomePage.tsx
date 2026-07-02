@@ -5,15 +5,17 @@ import Icon from '@/core/components/Icon'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
+import { goalById } from '@/features/onboarding/goals'
 import type { Video } from '@/models/video.model'
 
 const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView, videos, learnLang } = useAppStore()
+  const { loadLesson, status, statusError, setView, videos, learnLang, goal, openOnboarding } = useAppStore()
   const [cat, setCat] = useState('Toàn bộ')
   const cfg = studyLang(learnLang)
   const langVideos = videos.filter((v) => (v.lang || 'ko') === learnLang)
+  const g = goalById(goal)
 
   const pick = (v: Video) => {
     loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
@@ -28,6 +30,9 @@ export default function HomePage() {
       </div>
 
       <div className="chips">
+        <button className="goal-chip" onClick={openOnboarding} title="Đổi mục tiêu học">
+          {g ? <>🎯 Mục tiêu: <b>{g.emoji} {g.label}</b></> : <>🎯 Chọn mục tiêu học</>}
+        </button>
         {CATS.map((c) => (
           <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>
             {c}

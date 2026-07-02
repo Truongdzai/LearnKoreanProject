@@ -5,6 +5,8 @@ import Spinner from '@/core/components/Spinner'
 import LookupModal from '@/features/lookup/LookupModal'
 import AuthModal from '@/features/auth/AuthModal'
 import GiftModal from '@/features/gift/GiftModal'
+import OnboardingModal from '@/features/onboarding/OnboardingModal'
+import FeedbackWidget from '@/features/feedback/FeedbackWidget'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
@@ -65,6 +67,8 @@ export default function App() {
       <LookupModal />
       <AuthModal />
       <GiftModal />
+      <OnboardingModal />
+      <FeedbackWidget />
       <Suspense fallback={null}><PetWidget /></Suspense>
     </div>
   )

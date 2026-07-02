@@ -75,6 +75,7 @@ def public_user(row: dict) -> dict:
         "streak": row["streak"],
         "equippedFrame": row["equipped_frame"],
         "equippedPet": row["equipped_pet"] if "equipped_pet" in row.keys() else None,
+        "goal": row["goal"] if "goal" in row.keys() else None,
     }
 
 
@@ -324,6 +325,21 @@ def ack_gifts(user_id: str) -> None:
         conn.commit()
     finally:
         conn.close()
+
+
+GOALS = {"talk", "work", "travel", "exam"}
+
+
+def set_goal(user_id: str, goal: str | None) -> dict:
+    if goal and goal not in GOALS:
+        raise HTTPException(status_code=400, detail="Mục tiêu không hợp lệ.")
+    conn = db.get_conn()
+    try:
+        conn.execute("UPDATE users SET goal = ? WHERE id = ?", (goal or None, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
 
 
 def equip_frame(user_id: str, frame: str | None) -> dict:

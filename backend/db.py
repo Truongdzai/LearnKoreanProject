@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS users (
     xp             INTEGER NOT NULL DEFAULT 0,
     streak         INTEGER NOT NULL DEFAULT 0,
     equipped_frame TEXT,
+    goal           TEXT,
     status         TEXT NOT NULL DEFAULT 'active',
     created_at     TEXT DEFAULT (datetime('now','localtime')),
     last_active    TEXT
@@ -218,6 +219,18 @@ CREATE TABLE IF NOT EXISTS speaker_cache (
     source     TEXT,
     updated_at TEXT DEFAULT (datetime('now','localtime'))
 );
+
+CREATE TABLE IF NOT EXISTS feedback (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id    TEXT,
+    name       TEXT,
+    kind       TEXT NOT NULL DEFAULT 'idea',
+    message    TEXT NOT NULL,
+    page       TEXT,
+    status     TEXT NOT NULL DEFAULT 'new',
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_feedback_status ON feedback(status, created_at);
 """
 
 def ensure_dirs() -> None:
@@ -264,6 +277,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE users ADD COLUMN plus_until TEXT")
     if "equipped_pet" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN equipped_pet TEXT")
+    if "goal" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN goal TEXT")
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
     if "lang" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")

@@ -10,7 +10,7 @@ import { fetchVideos } from '@/core/api/content.api'
 import {
   fetchState, buyItemApi, equipFrameApi, equipPetApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
-  recordEventApi, type EventType,
+  recordEventApi, setGoalApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { viewAllowedForLang } from '@/core/constants/nav'
@@ -20,6 +20,8 @@ import { useAuth } from '@/store/auth.store'
 const THEME_KEY = 'vyling.theme'
 const LANG_KEY = 'vyling.learnLang'
 const NATIVE_KEY = 'vyling.nativeLang'
+const GOAL_KEY = 'vyling.goal'
+const GOAL_ASKED_KEY = 'vyling.goalAsked'
 
 const GUEST: Account = {
   id: '', name: 'Khách', provider: 'email', role: 'user',
@@ -36,6 +38,14 @@ function loadLang(): string {
 
 function loadNative(): string {
   try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
+}
+
+function loadGoal(): string {
+  try { return localStorage.getItem(GOAL_KEY) || '' } catch { return '' }
+}
+
+function goalAsked(): boolean {
+  try { return !!localStorage.getItem(GOAL_ASKED_KEY) } catch { return true }
 }
 
 interface AppStore {
@@ -55,6 +65,13 @@ interface AppStore {
   wizardRequested: boolean
   requestWizard: () => void
   clearWizard: () => void
+
+  /** Learning goal ("talk" | "work" | "travel" | "exam" | ''). */
+  goal: string
+  setGoal: (g: string) => void
+  onboardingOpen: boolean
+  openOnboarding: () => void
+  closeOnboarding: () => void
 
   user: Account
   isAuthed: boolean
@@ -102,6 +119,9 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [learnLang, setLearnLangState] = useState<string>(loadLang)
   const [nativeLang, setNativeLangState] = useState<string>(loadNative)
   const [wizardRequested, setWizardRequested] = useState(false)
+  const [goal, setGoalState] = useState<string>(loadGoal)
+  // Hỏi mục tiêu đúng 1 lần cho khách mới; chọn hay bỏ qua đều không hỏi lại.
+  const [onboardingOpen, setOnboardingOpen] = useState<boolean>(() => !loadGoal() && !goalAsked())
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
@@ -159,6 +179,38 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
   const clearWizard = useCallback(() => setWizardRequested(false), [])
+
+  const setGoal = useCallback((g: string) => {
+    setGoalState(g)
+    try {
+      if (g) localStorage.setItem(GOAL_KEY, g)
+      else localStorage.removeItem(GOAL_KEY)
+      localStorage.setItem(GOAL_ASKED_KEY, '1')
+    } catch { /* ignore */ }
+    if (isAuthed) {
+      setGoalApi(g || null).then((r) => setAccount(r.user)).catch(() => { /* non-blocking */ })
+    }
+  }, [isAuthed, setAccount])
+
+  const openOnboarding = useCallback(() => setOnboardingOpen(true), [])
+  const closeOnboarding = useCallback(() => {
+    setOnboardingOpen(false)
+    try { localStorage.setItem(GOAL_ASKED_KEY, '1') } catch { /* ignore */ }
+  }, [])
+
+  // Đồng bộ mục tiêu giữa máy và tài khoản khi đăng nhập:
+  // tài khoản đã có -> dùng của tài khoản; máy có mà tài khoản chưa -> đẩy lên tài khoản.
+  useEffect(() => {
+    if (!isAuthed || !account) return
+    const remote = account.goal || ''
+    if (remote && remote !== goal) {
+      setGoalState(remote)
+      try { localStorage.setItem(GOAL_KEY, remote); localStorage.setItem(GOAL_ASKED_KEY, '1') } catch { /* ignore */ }
+    } else if (!remote && goal) {
+      setGoalApi(goal).then((r) => setAccount(r.user)).catch(() => { /* non-blocking */ })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthed, account?.goal])
 
   const guard = useCallback((): boolean => {
     if (isAuthed) return true
@@ -289,6 +341,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     learnLang, setLearnLang,
     nativeLang, setNativeLang,
     wizardRequested, requestWizard, clearWizard,
+    goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,

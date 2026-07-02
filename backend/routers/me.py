@@ -65,6 +65,10 @@ class EventIn(BaseModel):
     words: int = 0
 
 
+class GoalIn(BaseModel):
+    goal: str | None = None
+
+
 @router.get("/state")
 def api_state(user: dict = Auth):
     return gameplay.state(user)
@@ -150,3 +154,8 @@ def api_gift_ack(user: dict = Auth):
 @router.post("/event")
 def api_event(body: EventIn, user: dict = Auth):
     return gameplay.record_event(user, body.type, body.amount, body.minutes, body.words)
+
+
+@router.post("/goal")
+def api_goal(body: GoalIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.set_goal(user["id"], body.goal))}

@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from .. import db
-from ..services import auth, accounts, catalog
+from ..services import auth, accounts, catalog, feedback
 
 router = APIRouter(prefix="/api/admin")
 Admin = Depends(auth.get_admin)
@@ -66,6 +66,7 @@ def api_stats(admin: dict = Admin):
             "plans": n("SELECT COUNT(*) FROM catalog_plans"),
             "srsCards": n("SELECT COUNT(*) FROM srs_cards"),
             "dictEntries": n("SELECT COUNT(*) FROM dict_entries") if _has_dict(conn) else 0,
+            "feedbackNew": n("SELECT COUNT(*) FROM feedback WHERE status = 'new'"),
         }
     finally:
         conn.close()
@@ -141,3 +142,27 @@ def api_users_plus(body: PlusIn, admin: dict = Admin):
 def api_users_delete(body: IdIn, admin: dict = Admin):
     accounts.admin_delete_user(body.id)
     return {"ok": True}
+
+
+class FeedbackStatusIn(BaseModel):
+    id: int
+    status: str
+
+
+class FeedbackIdIn(BaseModel):
+    id: int
+
+
+@router.get("/feedback")
+def api_feedback_list(status: str = "", page: int = 1, page_size: int = 20, admin: dict = Admin):
+    return feedback.admin_list(status, page, page_size)
+
+
+@router.post("/feedback/status")
+def api_feedback_status(body: FeedbackStatusIn, admin: dict = Admin):
+    return feedback.set_status(body.id, body.status)
+
+
+@router.post("/feedback/delete")
+def api_feedback_delete(body: FeedbackIdIn, admin: dict = Admin):
+    return feedback.remove(body.id)

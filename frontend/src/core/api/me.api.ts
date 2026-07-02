@@ -72,3 +72,6 @@ export const ackGiftApi = () =>
 
 export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words = 0) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/event', { type, amount, minutes, words })
+
+export const setGoalApi = (goal: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/goal', { goal })

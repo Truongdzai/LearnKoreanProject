@@ -3,12 +3,13 @@ import Icon from '@/core/components/Icon'
 import {
   fetchAdminStats, fetchAdminCatalog, fetchAdminUsers, saveCatalogItem, deleteCatalogItem,
   updateAdminUser, deleteAdminUser, giftCoins, setUserPlus,
-  type AdminStats, type AdminUser, type AdminCatalog, type CatalogKind, type AdminPlan,
+  fetchAdminFeedback, setFeedbackStatus, deleteFeedback,
+  type AdminStats, type AdminUser, type AdminCatalog, type CatalogKind, type AdminPlan, type AdminFeedback,
 } from '@/core/api/admin.api'
 import { formatDate } from '@/core/utils/format'
 import { useAuth } from '@/store/auth.store'
 
-type Tab = 'overview' | 'users' | 'videos' | 'quests' | 'shop' | 'plans'
+type Tab = 'overview' | 'users' | 'videos' | 'quests' | 'shop' | 'plans' | 'feedback'
 
 interface Field { k: string; label: string; type?: 'text' | 'number' | 'bool' | 'select'; opts?: string[]; required?: boolean }
 
@@ -155,6 +156,11 @@ export default function AdminPage() {
   const [giftAmount, setGiftAmount] = useState(100)
   const [giftMsg, setGiftMsg] = useState('')
 
+  const [fb, setFb] = useState<AdminFeedback[]>([])
+  const [fbTotal, setFbTotal] = useState(0)
+  const [fbStatus, setFbStatus] = useState('')
+  const [fbPage, setFbPage] = useState(1)
+
   const showFlash = (m: string) => { setFlash(m); setTimeout(() => setFlash(''), 2600) }
 
   const loadStats = useCallback(() => { fetchAdminStats().then(setStats).catch(() => {}) }, [])
@@ -165,8 +171,15 @@ export default function AdminPage() {
       .catch(() => {})
   }, [q, fRole, fStatus, fPlus, fSort, page])
 
+  const loadFeedback = useCallback(() => {
+    fetchAdminFeedback(fbStatus, fbPage, PAGE_SIZE)
+      .then((r) => { setFb(r.items); setFbTotal(r.total) })
+      .catch(() => {})
+  }, [fbStatus, fbPage])
+
   useEffect(() => { loadStats(); loadCatalog() }, [loadStats, loadCatalog])
   useEffect(() => { loadUsers() }, [loadUsers])
+  useEffect(() => { if (tab === 'feedback') loadFeedback() }, [tab, loadFeedback])
   useEffect(() => { setCatSearch(''); setCatActive('all'); setCatFilter(''); setCatPage(1) }, [tab])
 
   const planOptions = useMemo(() => (catalog?.plans || []).filter((p) => p.active), [catalog])
@@ -182,6 +195,7 @@ export default function AdminPage() {
     { ic: 'crown', label: 'Gói đăng ký', val: stats.plans, tone: 'gold' },
     { ic: 'cards', label: 'Thẻ từ vựng', val: stats.srsCards, tone: 'blue' },
     { ic: 'book', label: 'Mục từ điển', val: stats.dictEntries, tone: 'violet' },
+    { ic: 'bulb', label: 'Phản hồi mới', val: stats.feedbackNew ?? 0, tone: 'fire' },
   ] as const : [], [stats])
 
   const resetPage = () => setPage(1)
@@ -376,6 +390,7 @@ export default function AdminPage() {
           ['quests', 'Nhiệm vụ', 'target'],
           ['shop', 'Cửa hàng', 'store'],
           ['plans', 'Gói đăng ký', 'crown'],
+          ['feedback', 'Phản hồi', 'bulb'],
         ] as [Tab, string, string][]).map(([id, label, ic]) => (
           <button key={id} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
             <Icon name={ic as never} size={15} /> {label}
@@ -493,6 +508,66 @@ export default function AdminPage() {
       {tab === 'plans' && catalog && catalogTable('plans', catalog.plans as unknown as Record<string, unknown>[], [
         { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' }, { k: 'price', label: 'Giá' }, { k: 'days', label: 'Số ngày' },
       ])}
+
+      {tab === 'feedback' && (
+        <div className="admin-card">
+          <div className="admin-card-head admin-filters">
+            <b>{fbTotal.toLocaleString('vi')} phản hồi</b>
+            <select value={fbStatus} onChange={(e) => { setFbStatus(e.target.value); setFbPage(1) }}>
+              <option value="">Tất cả trạng thái</option>
+              <option value="new">Mới</option>
+              <option value="seen">Đã xem</option>
+              <option value="done">Đã xử lý</option>
+            </select>
+          </div>
+          <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr><th>Loại</th><th>Nội dung</th><th>Người gửi</th><th>Trang</th><th>Lúc</th><th>Trạng thái</th><th></th></tr>
+            </thead>
+            <tbody>
+              {fb.map((f) => (
+                <tr key={f.id}>
+                  <td>{f.kind === 'bug' ? '🐞 Lỗi' : '💡 Góp ý'}</td>
+                  <td style={{ maxWidth: 380, whiteSpace: 'pre-wrap' }}>{f.message}</td>
+                  <td>{f.name || 'Khách'}</td>
+                  <td>{f.page}</td>
+                  <td>{formatDate(f.createdAt)}</td>
+                  <td>
+                    <select value={f.status} onChange={(e) => {
+                      setFeedbackStatus(f.id, e.target.value).then(() => { loadFeedback(); loadStats() }).catch(() => {})
+                    }}>
+                      <option value="new">Mới</option>
+                      <option value="seen">Đã xem</option>
+                      <option value="done">Đã xử lý</option>
+                    </select>
+                  </td>
+                  <td>
+                    <button className="btn-ghost sm" onClick={() => {
+                      deleteFeedback(f.id).then(() => { loadFeedback(); loadStats(); showFlash('Đã xoá phản hồi.') }).catch(() => {})
+                    }}><Icon name="trash" size={14} /></button>
+                  </td>
+                </tr>
+              ))}
+              {fb.length === 0 && <tr><td colSpan={7} style={{ textAlign: 'center', color: 'var(--muted)' }}>Chưa có phản hồi nào.</td></tr>}
+            </tbody>
+          </table>
+          </div>
+          {fbTotal > PAGE_SIZE && (
+            <div className="admin-pager">
+              <span>Trang {fbPage}/{Math.max(1, Math.ceil(fbTotal / PAGE_SIZE))}</span>
+              <div className="admin-pager-btns">
+                <button className="btn-ghost sm" disabled={fbPage <= 1} onClick={() => setFbPage((p) => Math.max(1, p - 1))}>
+                  <Icon name="chevron-left" size={15} /> Trước
+                </button>
+                <button className="btn-ghost sm" disabled={fbPage >= Math.ceil(fbTotal / PAGE_SIZE)} onClick={() => setFbPage((p) => p + 1)}>
+                  Sau <Icon name="chevron-down" size={15} />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {editKind && (
         <div className="auth-backdrop" onClick={closeEdit}>
