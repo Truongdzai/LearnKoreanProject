@@ -359,3 +359,56 @@ const GENERIC_ALL = [...GENERIC_SCENARIOS, ...extraScenarios((id) => GENERIC_EXT
 export function scenariosFor(lang: string): Scenario[] {
   return BY_LANG[lang] || GENERIC_ALL
 }
+
+/* ------------------- Hội thoại ngẫu nhiên — mỗi lần một đề tài ------------------- */
+
+const RANDOM_TOPICS: { emoji: string; topic: string; hint: string }[] = [
+  { emoji: '🌦️', topic: 'thời tiết hôm nay', hint: 'Hỏi cảm nhận về thời tiết, gợi ý hoạt động phù hợp với trời hôm nay.' },
+  { emoji: '🍜', topic: 'món ăn yêu thích', hint: 'Hỏi món ăn người học thích nhất, tả món bạn thích, rủ đi ăn thử.' },
+  { emoji: '🎬', topic: 'phim & series đang xem', hint: 'Hỏi phim gần đây họ xem, kể một phim bạn mê, tranh luận nhẹ nhàng thể loại hay nhất.' },
+  { emoji: '🎵', topic: 'âm nhạc & ca sĩ yêu thích', hint: 'Hỏi gu nhạc, ca sĩ yêu thích, concert trong mơ.' },
+  { emoji: '✈️', topic: 'nơi muốn du lịch nhất', hint: 'Hỏi nơi họ mơ ước đến, kể nơi bạn từng đi, lên kế hoạch chuyến đi tưởng tượng.' },
+  { emoji: '📅', topic: 'kế hoạch cuối tuần', hint: 'Hỏi cuối tuần này làm gì, gợi ý hoạt động thú vị, hẹn gặp thử.' },
+  { emoji: '🐶', topic: 'thú cưng', hint: 'Hỏi họ có nuôi thú cưng không, kể về thú cưng của bạn, tranh luận vui chó hay mèo.' },
+  { emoji: '💪', topic: 'thể thao & vận động', hint: 'Hỏi môn thể thao họ chơi/xem, thói quen tập luyện, rủ tập cùng.' },
+  { emoji: '📚', topic: 'sách & thói quen đọc', hint: 'Hỏi cuốn sách gần đây, thể loại yêu thích, xin gợi ý một cuốn.' },
+  { emoji: '☕', topic: 'cà phê hay trà', hint: 'Tranh luận vui cà phê vs trà, hỏi quán ruột, mô tả đồ uống yêu thích.' },
+  { emoji: '💼', topic: 'công việc & một ngày điển hình', hint: 'Hỏi công việc/ngành học, một ngày điển hình, điều thích nhất trong việc đang làm.' },
+  { emoji: '🎮', topic: 'game & giải trí', hint: 'Hỏi có chơi game không, game/ứng dụng đang nghiện, thời gian màn hình.' },
+  { emoji: '🌟', topic: 'ước mơ & mục tiêu năm nay', hint: 'Hỏi mục tiêu năm nay, ước mơ lớn nhất, động viên nhau.' },
+  { emoji: '👨‍🍳', topic: 'nấu ăn', hint: 'Hỏi họ có hay nấu ăn không, món tủ, thảm hoạ bếp núc từng gặp.' },
+  { emoji: '🛍️', topic: 'mua sắm & món đồ mới', hint: 'Hỏi món đồ mua gần đây, thích mua online hay tại cửa hàng.' },
+  { emoji: '🌙', topic: 'thói quen buổi sáng & buổi tối', hint: 'Hỏi họ là cú đêm hay chim sớm, thói quen trước khi ngủ/dậy sớm.' },
+  { emoji: '📱', topic: 'mạng xã hội & điện thoại', hint: 'Hỏi app dùng nhiều nhất, chuyện vui trên mạng gần đây.' },
+  { emoji: '🎉', topic: 'ngày lễ & kỷ niệm đáng nhớ', hint: 'Hỏi ngày lễ yêu thích, kỷ niệm vui nhất từng có.' },
+]
+
+const RANDOM_CHARACTERS: Record<string, string[]> = {
+  ko: ['하은', '지호', '유나', '도윤', '서아'],
+  en: ['Emma', 'Jack', 'Mia', 'Noah', 'Lily'],
+  ja: ['さくら', 'ハルト', 'ユイ', 'レン'],
+  zh: ['小美', '阿伟', '婷婷', '大龙'],
+  de: ['Lena', 'Max', 'Sofia', 'Jonas'],
+  vi: ['Lan', 'Minh', 'Thảo', 'Huy'],
+}
+
+function pick<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+/** Sinh một tình huống trò chuyện tự do với đề tài ngẫu nhiên — mỗi lần gọi một kiểu. */
+export function randomScenario(lang: string): Scenario {
+  const t = pick(RANDOM_TOPICS)
+  const name = pick(RANDOM_CHARACTERS[lang] || RANDOM_CHARACTERS.en)
+  return {
+    id: 'random-' + Date.now(),
+    title: `Tán gẫu: ${t.topic}`,
+    emoji: t.emoji,
+    character: name,
+    role: `Tán gẫu: ${t.topic}`,
+    avatar: '🎲',
+    tags: ['talk'],
+    situation: `Hai người bạn tán gẫu tự nhiên về ${t.topic}.`,
+    persona: `Bạn là ${name}, một người bạn bản xứ vui tính đang tán gẫu với người học. Đề tài hôm nay: ${t.topic}. ${t.hint} Nói câu ngắn, tự nhiên như bạn bè, thỉnh thoảng hỏi ngược lại để người học nói nhiều hơn.`,
+  }
+}

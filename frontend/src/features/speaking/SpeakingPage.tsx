@@ -4,7 +4,7 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
-import { scenariosFor, type Scenario } from './scenarios'
+import { scenariosFor, randomScenario, type Scenario } from './scenarios'
 import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
 interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
@@ -184,6 +184,15 @@ export default function SpeakingPage() {
         <h1 className="page-title"><Icon name="mic" /> Luyện nói với AI</h1>
         <p className="page-sub">Chọn một tình huống và trò chuyện bằng {cfg.name} — nhân vật AI trả lời, đọc to, gợi ý câu và nhận xét cách bạn nói.</p>
         <div className="scenario-grid">
+          <button className="scenario-card sp-pick sp-random" onClick={() => start(randomScenario(learnLang))}>
+            <span className="sp-pick-ava">🎲</span>
+            <div className="sp-pick-body">
+              <b>🎲 Hội thoại ngẫu nhiên</b>
+              <span className="sp-pick-char">Mỗi lần một đề tài bất ngờ</span>
+              <span className="sp-pick-sit">Tán gẫu tự do như gặp bạn bản xứ ngoài đời — thời tiết, đồ ăn, phim ảnh, ước mơ… không biết trước đề tài nào!</span>
+            </div>
+            <span className="scenario-go">Quay đề tài <Icon name="arrow-right" size={14} /></span>
+          </button>
           {scenarios.map((s) => (
             <button key={s.id} className="scenario-card sp-pick" onClick={() => start(s)}>
               <span className="sp-pick-ava">{s.avatar}</span>
@@ -214,6 +223,11 @@ export default function SpeakingPage() {
             <span>{scenario.emoji} {scenario.role}</span>
           </div>
         </div>
+        {scenario.id.startsWith('random-') && (
+          <button className="btn-ghost sm sp-reroll" disabled={loading} onClick={() => start(randomScenario(learnLang))}>
+            🎲 Đề tài khác
+          </button>
+        )}
       </div>
 
       <div className="sp-box">

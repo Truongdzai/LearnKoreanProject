@@ -1737,3 +1737,9 @@ button{font-family:inherit}
 /* ---------- Huy hiệu tình huống hợp mục tiêu ---------- */
 .sp-goal-badge{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
   padding:2px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+
+/* ---------- Hội thoại ngẫu nhiên ---------- */
+.sp-random{border:2px dashed var(--accent-ring);background:linear-gradient(135deg,var(--accent-soft),transparent 65%)}
+.sp-random:hover{border-color:var(--accent)}
+.sp-random .sp-pick-ava{font-size:30px}
+.sp-reroll{margin-left:auto;white-space:nowrap}
