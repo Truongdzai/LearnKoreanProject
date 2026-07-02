@@ -4,7 +4,7 @@ import { sendFeedbackApi, type FeedbackKind } from '@/core/api/feedback.api'
 import { useAppStore } from '@/store/app.store'
 
 export default function FeedbackWidget() {
-  const { view } = useAppStore()
+  const { view, t } = useAppStore()
   const [open, setOpen] = useState(false)
   const [kind, setKind] = useState<FeedbackKind>('idea')
   const [message, setMessage] = useState('')
@@ -38,8 +38,8 @@ export default function FeedbackWidget() {
 
   return (
     <>
-      <button className="feedback-fab" onClick={show} title="Báo lỗi hoặc góp ý cho VyLing">
-        <Icon name="bulb" size={17} /> Góp ý
+      <button className="feedback-fab" onClick={show} title={t('fb.fabHint')}>
+        <Icon name="bulb" size={17} /> {t('fb.fab')}
       </button>
 
       {open && (
@@ -50,20 +50,20 @@ export default function FeedbackWidget() {
             {done ? (
               <div className="feedback-done">
                 <span className="goal-emoji">💚</span>
-                <h2>Cảm ơn bạn!</h2>
-                <p>Phản hồi của bạn đã được gửi — mỗi góp ý đều giúp VyLing tốt hơn.</p>
-                <button className="btn-primary" onClick={() => setOpen(false)}>Đóng</button>
+                <h2>{t('fb.thanks')}</h2>
+                <p>{t('fb.thanksSub')}</p>
+                <button className="btn-primary" onClick={() => setOpen(false)}>{t('fb.close')}</button>
               </div>
             ) : (
               <>
                 <div className="auth-head">
-                  <h2>Góp ý cho VyLing</h2>
-                  <p>Gặp lỗi hay có ý tưởng hay? Kể cho tụi mình nghe nhé.</p>
+                  <h2>{t('fb.title')}</h2>
+                  <p>{t('fb.sub')}</p>
                 </div>
 
                 <div className="feedback-kind">
-                  <button className={kind === 'bug' ? 'on' : ''} onClick={() => setKind('bug')}>🐞 Báo lỗi</button>
-                  <button className={kind === 'idea' ? 'on' : ''} onClick={() => setKind('idea')}>💡 Góp ý / ý tưởng</button>
+                  <button className={kind === 'bug' ? 'on' : ''} onClick={() => setKind('bug')}>{t('fb.bug')}</button>
+                  <button className={kind === 'idea' ? 'on' : ''} onClick={() => setKind('idea')}>{t('fb.idea')}</button>
                 </div>
 
                 <textarea
@@ -72,15 +72,13 @@ export default function FeedbackWidget() {
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
                   maxLength={2000}
-                  placeholder={kind === 'bug'
-                    ? 'Bạn gặp lỗi gì, ở trang nào, bấm gì thì bị? Càng chi tiết càng dễ sửa…'
-                    : 'Bạn muốn VyLing có thêm gì, hay điều gì nên làm khác đi?'}
+                  placeholder={kind === 'bug' ? t('fb.phBug') : t('fb.phIdea')}
                 />
 
                 {err && <p className="auth-err">{err}</p>}
 
                 <button className="btn-primary feedback-send" disabled={busy || !message.trim()} onClick={submit}>
-                  <Icon name="send" size={15} /> {busy ? 'Đang gửi…' : 'Gửi phản hồi'}
+                  <Icon name="send" size={15} /> {busy ? t('fb.sending') : t('fb.send')}
                 </button>
               </>
             )}

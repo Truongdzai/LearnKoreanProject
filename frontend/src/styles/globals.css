@@ -1743,3 +1743,6 @@ button{font-family:inherit}
 .sp-random:hover{border-color:var(--accent)}
 .sp-random .sp-pick-ava{font-size:30px}
 .sp-reroll{margin-left:auto;white-space:nowrap}
+
+/* ---------- Nút ngôn ngữ giao diện (i18n) ---------- */
+.ui-lang-btn{font-size:12px;font-weight:800;letter-spacing:.4px;width:auto;padding:0 11px}

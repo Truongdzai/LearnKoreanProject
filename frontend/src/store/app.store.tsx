@@ -15,6 +15,7 @@ import {
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { viewAllowedForLang } from '@/core/constants/nav'
 import { studyLang } from '@/core/constants/languages'
+import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { useAuth } from '@/store/auth.store'
 
 const THEME_KEY = 'vyling.theme'
@@ -24,6 +25,16 @@ const GOAL_KEY = 'vyling.goal'
 const GOAL_ASKED_KEY = 'vyling.goalAsked'
 const DAILY_GOAL_KEY = 'vyling.dailyGoal'
 const TODAY_XP_KEY = 'vyling.todayXp'
+const UI_LANG_KEY = 'vyling.uiLang'
+
+function loadUiLang(nativeCode: string): UiLang {
+  try {
+    const saved = localStorage.getItem(UI_LANG_KEY)
+    if (saved === 'vi' || saved === 'en') return saved
+  } catch { /* ignore */ }
+  // Chưa chọn thủ công → theo tiếng mẹ đẻ: vi giữ tiếng Việt, còn lại dùng bản tiếng Anh.
+  return nativeCode === 'vi' ? 'vi' : 'en'
+}
 
 /** XP mỗi hành động — khớp với _EVENT_XP ở backend để thanh tiến độ chạy tức thời. */
 const EVENT_XP: Record<string, number> = { lesson: 30, pronounce: 5, review: 2, video: 25, word: 4, login: 0 }
@@ -85,6 +96,13 @@ interface AppStore {
 
   nativeLang: string
   setNativeLang: (code: string) => void
+
+  /** Ngôn ngữ giao diện (i18n) + hàm dịch chuỗi UI. */
+  uiLang: UiLang
+  setUiLang: (l: UiLang) => void
+  t: (key: string, params?: Record<string, string | number>) => string
+  /** Tên ngôn ngữ đang học, hiển thị theo ngôn ngữ giao diện. */
+  learnLangName: string
 
   /** One-shot signal asking PathPage to open its wizard (e.g. after switching language). */
   wizardRequested: boolean
@@ -150,6 +168,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeMode>(loadTheme)
   const [learnLang, setLearnLangState] = useState<string>(loadLang)
   const [nativeLang, setNativeLangState] = useState<string>(loadNative)
+  const [uiLang, setUiLangState] = useState<UiLang>(() => loadUiLang(loadNative()))
   const [wizardRequested, setWizardRequested] = useState(false)
   const [goal, setGoalState] = useState<string>(loadGoal)
   // Hỏi mục tiêu đúng 1 lần cho khách mới; chọn hay bỏ qua đều không hỏi lại.
@@ -214,8 +233,24 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const setNativeLang = useCallback((code: string) => {
     setNativeLangState(code)
-    try { localStorage.setItem(NATIVE_KEY, code) } catch { /* ignore */ }
+    try {
+      localStorage.setItem(NATIVE_KEY, code)
+      // Chưa từng chọn ngôn ngữ giao diện thủ công → đổi theo tiếng mẹ đẻ.
+      if (!localStorage.getItem(UI_LANG_KEY)) setUiLangState(code === 'vi' ? 'vi' : 'en')
+    } catch { /* ignore */ }
   }, [])
+
+  const setUiLang = useCallback((l: UiLang) => {
+    setUiLangState(l)
+    try { localStorage.setItem(UI_LANG_KEY, l) } catch { /* ignore */ }
+  }, [])
+
+  const t = useCallback(
+    (key: string, params?: Record<string, string | number>) => translate(uiLang, key, params),
+    [uiLang],
+  )
+
+  const learnLangName = studyLangName(uiLang, learnLang)
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
   const clearWizard = useCallback(() => setWizardRequested(false), [])
@@ -402,6 +437,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     theme, toggleTheme,
     learnLang, setLearnLang,
     nativeLang, setNativeLang,
+    uiLang, setUiLang, t, learnLangName,
     wizardRequested, requestWizard, clearWizard,
     goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
     dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,

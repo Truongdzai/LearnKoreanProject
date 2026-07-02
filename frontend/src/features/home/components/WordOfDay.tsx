@@ -4,7 +4,7 @@ import { studyLang } from '@/core/constants/languages'
 import { wordOfDay } from '@/data/wordOfDay'
 
 export default function WordOfDay() {
-  const { learnLang, openLookup } = useAppStore()
+  const { learnLang, openLookup, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const w = wordOfDay(learnLang)
 
@@ -21,12 +21,12 @@ export default function WordOfDay() {
   return (
     <div className="wod">
       <div className="wod-head">
-        <b>📖 Từ của ngày</b>
-        <span className="wod-lang">{cfg.name}</span>
+        <b>📖 {t('wod.title')}</b>
+        <span className="wod-lang">{learnLangName}</span>
       </div>
       <div className="wod-term">
         <span className="wod-word">{w.term}</span>
-        <button className="wod-speak" onClick={speak} title="Nghe phát âm"><Icon name="volume" size={16} /></button>
+        <button className="wod-speak" onClick={speak} title={t('wod.listen')}><Icon name="volume" size={16} /></button>
       </div>
       <div className="wod-sub">{w.sub}</div>
       <div className="wod-vi">{w.vi}</div>
@@ -35,7 +35,7 @@ export default function WordOfDay() {
         <small>{w.exVi}</small>
       </div>
       <button className="btn-ghost sm" onClick={() => openLookup(w.term)}>
-        <Icon name="search" size={14} /> Tra sâu hơn với AI
+        <Icon name="search" size={14} /> {t('wod.deep')}
       </button>
     </div>
   )

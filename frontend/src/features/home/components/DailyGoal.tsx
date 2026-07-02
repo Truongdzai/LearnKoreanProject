@@ -3,17 +3,12 @@ import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
-const GOAL_LEVELS = [
-  { xp: 30, label: 'Nhẹ nhàng' },
-  { xp: 50, label: 'Vừa sức' },
-  { xp: 100, label: 'Chăm chỉ' },
-  { xp: 200, label: 'Cày cuốc' },
-]
+const GOAL_LEVELS = [30, 50, 100, 200]
 
 const LEVEL_XP = 500
 
 export default function DailyGoal() {
-  const { todayXp, dailyGoalXp, setDailyGoalXp, user, setView, isAuthed, goalBonusClaimed, claimGoalBonus } = useAppStore()
+  const { todayXp, dailyGoalXp, setDailyGoalXp, user, setView, isAuthed, goalBonusClaimed, claimGoalBonus, t } = useAppStore()
   const { openAuth } = useAuth()
   const [burst, setBurst] = useState(false)
   const [reward, setReward] = useState<number | null>(null)
@@ -44,15 +39,15 @@ export default function DailyGoal() {
       )}
 
       <div className="dgoal-head">
-        <b><Icon name="target" size={16} /> Mục tiêu hôm nay</b>
+        <b><Icon name="target" size={16} /> {t('dgoal.title')}</b>
         <div className="dgoal-levels">
-          {GOAL_LEVELS.map((g) => (
+          {GOAL_LEVELS.map((xp) => (
             <button
-              key={g.xp}
-              className={dailyGoalXp === g.xp ? 'on' : ''}
-              onClick={() => setDailyGoalXp(g.xp)}
-              title={`${g.label} — ${g.xp} XP/ngày · thưởng ${g.xp / 2} xu`}
-            >{g.xp}</button>
+              key={xp}
+              className={dailyGoalXp === xp ? 'on' : ''}
+              onClick={() => setDailyGoalXp(xp)}
+              title={t('dgoal.levelHint', { label: t('dgoal.lv' + xp), xp, coins: xp / 2 })}
+            >{xp}</button>
           ))}
         </div>
       </div>
@@ -62,47 +57,45 @@ export default function DailyGoal() {
       <div className="dgoal-foot">
         {reached ? (
           reward !== null ? (
-            <span className="dgoal-msg">🎉 <b>+{reward} xu</b> vào túi! Hẹn rương mới vào ngày mai — chuỗi {user.streak > 0 ? `${user.streak} ngày` : 'mới'} vẫn cháy 🔥</span>
+            <span className="dgoal-msg">{t('dgoal.rewarded', { n: reward })}{user.streak > 0 ? t('dgoal.streakOn', { n: user.streak }) : ''}.</span>
           ) : (
-            <span className="dgoal-msg">🎉 Đã đạt <b>{todayXp}/{dailyGoalXp} XP</b> hôm nay{user.streak > 0 ? ` — chuỗi ${user.streak} ngày vẫn cháy 🔥` : ''}.</span>
+            <span className="dgoal-msg">{t('dgoal.reached', { a: todayXp, b: dailyGoalXp })}{user.streak > 0 ? t('dgoal.streakOn', { n: user.streak }) : ''}.</span>
           )
         ) : todayXp === 0 ? (
           <span className="dgoal-msg">
-            {user.streak > 0
-              ? <>🔥 Chuỗi <b>{user.streak} ngày</b> đang chờ — học vài phút để giữ lửa nhé!</>
-              : <>Hôm nay bạn chưa học — chỉ 1 video ngắn là đủ khởi động!</>}
+            {user.streak > 0 ? t('dgoal.zeroStreak', { n: user.streak }) : t('dgoal.zero')}
           </span>
         ) : (
-          <span className="dgoal-msg"><b>{todayXp}/{dailyGoalXp} XP</b> — cố thêm chút nữa là chạm mục tiêu!</span>
+          <span className="dgoal-msg">{t('dgoal.progress', { a: todayXp, b: dailyGoalXp })}</span>
         )}
 
         {reached && reward === null && (
           isAuthed ? (
             !goalBonusClaimed ? (
               <button className="btn-primary sm dgoal-chest" disabled={claiming} onClick={claim}>
-                🎁 {claiming ? 'Đang mở…' : `Mở rương +${dailyGoalXp / 2} xu`}
+                🎁 {claiming ? t('dgoal.chestOpening') : t('dgoal.chest', { n: dailyGoalXp / 2 })}
               </button>
             ) : (
-              <span className="dgoal-claimed">✅ Đã nhận thưởng hôm nay</span>
+              <span className="dgoal-claimed">{t('dgoal.claimed')}</span>
             )
           ) : (
-            <button className="btn-primary sm dgoal-chest" onClick={openAuth}>🎁 Đăng nhập nhận thưởng xu</button>
+            <button className="btn-primary sm dgoal-chest" onClick={openAuth}>🎁 {t('dgoal.chestLogin')}</button>
           )
         )}
 
         {!reached && (
           <div className="dgoal-ctas">
-            <button className="btn-primary sm" onClick={() => setView('library')}><Icon name="film" size={14} /> Học video</button>
-            <button className="btn-ghost sm" onClick={() => setView('flashcards')}><Icon name="cards" size={14} /> Ôn tập</button>
+            <button className="btn-primary sm" onClick={() => setView('library')}><Icon name="film" size={14} /> {t('dgoal.watch')}</button>
+            <button className="btn-ghost sm" onClick={() => setView('flashcards')}><Icon name="cards" size={14} /> {t('dgoal.review')}</button>
           </div>
         )}
       </div>
 
       {isAuthed && (
         <div className="dgoal-level">
-          <span>⭐ Cấp {user.level}</span>
+          <span>⭐ {t('dgoal.level', { n: user.level })}</span>
           <div className="dgoal-level-bar"><span style={{ width: Math.round((intoLevel / LEVEL_XP) * 100) + '%' }} /></div>
-          <span className="dgoal-level-next">còn {LEVEL_XP - intoLevel} XP lên cấp {user.level + 1}</span>
+          <span className="dgoal-level-next">{t('dgoal.levelNext', { xp: LEVEL_XP - intoLevel, n: user.level + 1 })}</span>
         </div>
       )}
     </div>

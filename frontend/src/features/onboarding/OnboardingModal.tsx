@@ -2,12 +2,10 @@ import { useEffect } from 'react'
 import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
 import { useAppStore } from '@/store/app.store'
-import { studyLang } from '@/core/constants/languages'
 import { LEARN_GOALS } from './goals'
 
 export default function OnboardingModal() {
-  const { onboardingOpen, closeOnboarding, goal, setGoal, learnLang } = useAppStore()
-  const cfg = studyLang(learnLang)
+  const { onboardingOpen, closeOnboarding, goal, setGoal, t, learnLangName } = useAppStore()
 
   useEffect(() => {
     if (!onboardingOpen) return
@@ -30,21 +28,21 @@ export default function OnboardingModal() {
 
         <div className="auth-head">
           <Logo size={48} />
-          <h2>Bạn học {cfg.name} để làm gì?</h2>
-          <p>Chọn mục tiêu để VyLing gợi ý đúng nội dung bạn cần — "dùng gì học nấy".</p>
+          <h2>{t('ob.title', { lang: learnLangName })}</h2>
+          <p>{t('ob.sub')}</p>
         </div>
 
         <div className="goal-grid">
           {LEARN_GOALS.map((g) => (
             <button key={g.id} className={'goal-card' + (goal === g.id ? ' on' : '')} onClick={() => pick(g.id)}>
               <span className="goal-emoji">{g.emoji}</span>
-              <b>{g.label}</b>
-              <small>{g.desc}</small>
+              <b>{t(`goal.${g.id}.label`)}</b>
+              <small>{t(`goal.${g.id}.desc`)}</small>
             </button>
           ))}
         </div>
 
-        <button className="goal-skip" onClick={closeOnboarding}>Để sau, tôi muốn khám phá trước</button>
+        <button className="goal-skip" onClick={closeOnboarding}>{t('ob.skip')}</button>
       </div>
     </div>
   )
