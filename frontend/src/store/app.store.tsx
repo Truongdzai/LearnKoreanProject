@@ -8,7 +8,7 @@ import type { LearningPath } from '@/models/path.model'
 import { fetchTranscript } from '@/core/api/learn.api'
 import { fetchVideos } from '@/core/api/content.api'
 import {
-  fetchState, buyItemApi, equipFrameApi, equipPetApi, upgradePlusApi, plantSeedApi, waterPlantApi,
+  fetchState, buyItemApi, equipFrameApi, equipPetApi, equipBgApi, setAvatarApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
   recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
@@ -61,7 +61,7 @@ function loadDailyGoal(): number {
 
 const GUEST: Account = {
   id: '', name: 'Khách', provider: 'email', role: 'user',
-  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null, equippedPet: null,
+  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null, equippedPet: null, equippedBg: null,
 }
 
 function loadTheme(): ThemeMode {
@@ -136,6 +136,8 @@ interface AppStore {
   buyItem: (itemId: string) => Promise<void>
   equipFrame: (frame: string | null) => Promise<void>
   equipPet: (pet: string | null) => Promise<void>
+  equipBg: (bg: string | null) => Promise<void>
+  setAvatar: (avatar: string | null) => Promise<void>
   upgradePlus: (planId?: string) => Promise<void>
   plantSeed: (itemId: string, art: string, name: string) => Promise<void>
   waterPlant: (id: string) => Promise<void>
@@ -312,6 +314,18 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     setAccount(r.user)
   }, [guard, setAccount])
 
+  const equipBg = useCallback(async (bg: string | null) => {
+    if (!guard()) return
+    const r = await equipBgApi(bg)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const setAvatar = useCallback(async (avatar: string | null) => {
+    if (!guard()) return
+    const r = await setAvatarApi(avatar)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
   const upgradePlus = useCallback(async (planId = '') => {
     if (!guard()) return
     const r = await upgradePlusApi(planId)
@@ -444,7 +458,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,
-    buyItem, equipFrame, equipPet, upgradePlus,
+    buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
     plantSeed, waterPlant, removePlant,
     saveVideo, removeVideo, addPath,
     claimQuest, dailyBonus, recordEvent,

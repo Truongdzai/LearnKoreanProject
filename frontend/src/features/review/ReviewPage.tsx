@@ -3,28 +3,32 @@ import { fetchDue, reviewCard } from '@/core/api/srs.api'
 import type { SrsCard, SrsStats, SrsRating } from '@/models/srs.model'
 import Spinner from '@/core/components/Spinner'
 import Icon from '@/core/components/Icon'
+import { useAppStore } from '@/store/app.store'
 
 const RATES: { r: SrsRating; label: string; cls: string; key: string }[] = [
-  { r: 1, label: 'Lại', cls: 'again', key: '1' },
-  { r: 2, label: 'Khó', cls: 'hard', key: '2' },
-  { r: 3, label: 'Tốt', cls: 'good', key: '3' },
-  { r: 4, label: 'Dễ', cls: 'easy', key: '4' },
+  { r: 1, label: 'rv.again', cls: 'again', key: '1' },
+  { r: 2, label: 'rv.hard', cls: 'hard', key: '2' },
+  { r: 3, label: 'rv.good', cls: 'good', key: '3' },
+  { r: 4, label: 'rv.easy', cls: 'easy', key: '4' },
 ]
 
-function hint(card: SrsCard, rating: SrsRating): string {
+type T = (key: string, params?: Record<string, string | number>) => string
+
+function hint(card: SrsCard, rating: SrsRating, t: T): string {
   const { reps, ivl, ease } = card
   let d = 0
   if (rating === 1) d = 0
   else if (rating === 2) d = Math.max(1, Math.round((ivl || 1) * 1.2))
   else if (rating === 4) d = reps === 0 ? 4 : Math.max(1, Math.round(ivl * ease * 1.3))
   else d = reps === 0 ? 1 : reps === 1 ? 6 : Math.max(1, Math.round(ivl * ease))
-  if (d === 0) return 'lát nữa'
-  if (d === 1) return '1 ngày'
-  if (d < 30) return d + ' ngày'
-  return Math.round(d / 30) + ' tháng'
+  if (d === 0) return t('rv.soon')
+  if (d === 1) return t('rv.day1')
+  if (d < 30) return t('rv.days', { n: d })
+  return t('rv.months', { n: Math.round(d / 30) })
 }
 
 export default function ReviewPage() {
+  const { t, learnLang } = useAppStore()
   const [loading, setLoading] = useState(true)
   const [queue, setQueue] = useState<SrsCard[]>([])
   const [i, setI] = useState(0)
@@ -80,7 +84,7 @@ export default function ReviewPage() {
   if (loading) {
     return (
       <div className="center-state">
-        <div><Spinner /><p>Đang tải bộ thẻ…</p></div>
+        <div><Spinner /><p>{t('rv.loading')}</p></div>
       </div>
     )
   }
@@ -91,16 +95,16 @@ export default function ReviewPage() {
   return (
     <>
       <div className="lesson-head">
-        <h2><Icon name="cards" /> Ôn tập</h2>
-        <div className="meta">Lặp lại ngắt quãng — học ngay trong web.</div>
+        <h2><Icon name="cards" /> {t('rv.title')}</h2>
+        <div className="meta">{t('rv.meta')}</div>
       </div>
 
       {stats && (
         <div className="srs-stats">
-          <div className="stat"><b>{stats.due}</b><span>đến hạn</span></div>
-          <div className="stat"><b>{stats.total}</b><span>tổng thẻ</span></div>
-          <div className="stat"><b>{stats.new}</b><span>thẻ mới</span></div>
-          <div className="stat"><b>{stats.reviewed_today}</b><span>đã ôn hôm nay</span></div>
+          <div className="stat"><b>{stats.due}</b><span>{t('rv.due')}</span></div>
+          <div className="stat"><b>{stats.total}</b><span>{t('rv.total')}</span></div>
+          <div className="stat"><b>{stats.new}</b><span>{t('rv.new')}</span></div>
+          <div className="stat"><b>{stats.reviewed_today}</b><span>{t('rv.today')}</span></div>
         </div>
       )}
 
@@ -109,21 +113,21 @@ export default function ReviewPage() {
           <div className="big"><Icon name={stats && stats.total === 0 ? 'cards' : 'party'} /></div>
           {stats && stats.total === 0 ? (
             <>
-              <h3>Chưa có thẻ nào</h3>
-              <p>Khi học video, bấm <b>“+ Lưu”</b> ở mỗi câu hoặc bấm vào từ rồi <b>“+ Lưu từ”</b> để thêm thẻ vào đây.</p>
+              <h3>{t('rv.emptyTitle')}</h3>
+              <p>{t('rv.emptyText')}</p>
             </>
           ) : (
             <>
-              <h3>Tuyệt vời! Xong thẻ đến hạn hôm nay</h3>
-              <p>Bạn đã ôn {reviewedThisSession} thẻ trong phiên này. Quay lại sau để ôn tiếp nhé.</p>
+              <h3>{t('rv.doneTitle')}</h3>
+              <p>{t('rv.doneText', { n: reviewedThisSession })}</p>
             </>
           )}
         </div>
       ) : (
         <div className="review-wrap">
-          <div className="review-progress">Còn lại {queue.length - i} thẻ</div>
+          <div className="review-progress">{t('rv.left', { n: queue.length - i })}</div>
           <div className="flashcard">
-            <div className="fc-front" lang="ko">{card.front}</div>
+            <div className="fc-front" lang={learnLang}>{card.front}</div>
             {revealed ? (
               <>
                 <div className="fc-divider" />
@@ -132,7 +136,7 @@ export default function ReviewPage() {
               </>
             ) : (
               <button className="reveal-btn" onClick={() => setRevealed(true)}>
-                Hiện đáp án <span className="kbd">Space</span>
+                {t('rv.reveal')} <span className="kbd">Space</span>
               </button>
             )}
           </div>
@@ -141,8 +145,8 @@ export default function ReviewPage() {
             <div className="rate-row">
               {RATES.map((x) => (
                 <button key={x.r} className={'rate ' + x.cls} onClick={() => rate(x.r)}>
-                  <span className="rate-label">{x.label}</span>
-                  <span className="rate-hint">{hint(card, x.r)}</span>
+                  <span className="rate-label">{t(x.label)}</span>
+                  <span className="rate-hint">{hint(card, x.r, t)}</span>
                   <span className="kbd">{x.key}</span>
                 </button>
               ))}

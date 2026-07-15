@@ -11,11 +11,11 @@ const FALLBACK: Slang[] = [
   { term: '존맛탱', read: 'jon-mat-taeng', meaning: 'ngon "bá cháy" (JMT)', example: '이거 존맛탱!', exampleVi: 'Món này ngon bá cháy!', trend: 88, platform: 'TikTok' },
 ]
 
-const FILTERS = ['Tất cả', 'YouTube', 'TikTok', 'Instagram'] as const
+const FILTERS = ['all', 'YouTube', 'TikTok', 'Instagram'] as const
 
 export default function LingoRadarPage() {
-  const { openLookup } = useAppStore()
-  const [f, setF] = useState<(typeof FILTERS)[number]>('Tất cả')
+  const { openLookup, t } = useAppStore()
+  const [f, setF] = useState<(typeof FILTERS)[number]>('all')
   const [items, setItems] = useState<Slang[]>([])
   const [source, setSource] = useState<'ai' | 'curated'>('curated')
   const [loading, setLoading] = useState(true)
@@ -30,33 +30,33 @@ export default function LingoRadarPage() {
 
   useEffect(() => { load(false) }, [])
 
-  const list = items.filter((s) => f === 'Tất cả' || s.platform === f)
-  const speak = (t: string) => { try { const u = new SpeechSynthesisUtterance(t); u.lang = 'ko-KR'; speechSynthesis.speak(u) } catch { /* */ } }
+  const list = items.filter((s) => f === 'all' || s.platform === f)
+  const speak = (text: string) => { try { const u = new SpeechSynthesisUtterance(text); u.lang = 'ko-KR'; speechSynthesis.speak(u) } catch { /* */ } }
 
   return (
     <div className="lingo">
       <div className="lingo-head">
         <div className="lingo-radar-ic"><Icon name="trending" size={24} /></div>
         <div style={{ flex: 1 }}>
-          <h1 className="page-title" style={{ margin: 0 }}>Hot Lingo — Trạm quét từ lóng</h1>
-          <p className="page-sub" style={{ margin: '4px 0 0' }}>Những từ lóng & cụm "bắt trend" người Hàn đang dùng trên mạng xã hội.</p>
+          <h1 className="page-title" style={{ margin: 0 }}>{t('lg.title')}</h1>
+          <p className="page-sub" style={{ margin: '4px 0 0' }}>{t('lg.sub')}</p>
         </div>
         <button className="btn-ghost lingo-refresh" onClick={() => load(true)} disabled={loading}>
-          <Icon name="sparkles" size={15} /> Làm mới
+          <Icon name="sparkles" size={15} /> {t('lg.refresh')}
         </button>
       </div>
 
       <div className="lingo-bar">
         <div className="chips">
           {FILTERS.map((x) => (
-            <button key={x} className={'chip' + (f === x ? ' on' : '')} onClick={() => setF(x)}>{x}</button>
+            <button key={x} className={'chip' + (f === x ? ' on' : '')} onClick={() => setF(x)}>{x === 'all' ? t('lg.all') : x}</button>
           ))}
         </div>
-        <span className={'lingo-src ' + source}>{source === 'ai' ? 'Cập nhật bằng AI' : 'Danh sách tuyển chọn'}</span>
+        <span className={'lingo-src ' + source}>{source === 'ai' ? t('lg.srcAi') : t('lg.srcCurated')}</span>
       </div>
 
       {loading ? (
-        <div className="center-state"><div><Spinner /><p>Đang quét từ lóng đang hot…</p></div></div>
+        <div className="center-state"><div><Spinner /><p>{t('lg.loading')}</p></div></div>
       ) : (
         <div className="lingo-grid">
           {list.map((s) => (
@@ -77,14 +77,14 @@ export default function LingoRadarPage() {
                   <em>{s.exampleVi}</em>
                 </div>
               )}
-              <button className="lingo-lookup" onClick={() => openLookup(s.term)}><Icon name="search" size={13} /> Tra cứu chi tiết</button>
+              <button className="lingo-lookup" onClick={() => openLookup(s.term)}><Icon name="search" size={13} /> {t('lg.lookup')}</button>
             </div>
           ))}
         </div>
       )}
 
       <div className="garden-tip" style={{ marginTop: 22 }}>
-        <Icon name="bulb" size={16} /> Từ lóng giúp bạn nói chuyện tự nhiên như người bản xứ — nhưng nhớ dùng đúng ngữ cảnh thân mật nhé!
+        <Icon name="bulb" size={16} /> {t('lg.tip')}
       </div>
     </div>
   )

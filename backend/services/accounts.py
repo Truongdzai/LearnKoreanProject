@@ -75,6 +75,7 @@ def public_user(row: dict) -> dict:
         "streak": row["streak"],
         "equippedFrame": row["equipped_frame"],
         "equippedPet": row["equipped_pet"] if "equipped_pet" in row.keys() else None,
+        "equippedBg": row["equipped_bg"] if "equipped_bg" in row.keys() else None,
         "goal": row["goal"] if "goal" in row.keys() else None,
     }
 
@@ -362,11 +363,37 @@ def equip_pet(user_id: str, pet: str | None) -> dict:
     return reload(user_id)
 
 
+def equip_bg(user_id: str, bg: str | None) -> dict:
+    conn = db.get_conn()
+    try:
+        conn.execute("UPDATE users SET equipped_bg = ? WHERE id = ?", (bg, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
+
+
+AVATAR_RE = re.compile(r"^data:image/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$")
+
+
+def set_avatar(user_id: str, avatar: str | None) -> dict:
+    if avatar is not None:
+        if len(avatar) > 200_000 or not AVATAR_RE.match(avatar):
+            raise HTTPException(status_code=400, detail="Ảnh không hợp lệ (PNG/JPG/WebP, tối đa ~150KB).")
+    conn = db.get_conn()
+    try:
+        conn.execute("UPDATE users SET avatar = ? WHERE id = ?", (avatar, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
+
+
 def leaderboard(current_id: str | None = None, limit: int = 50) -> list[dict]:
     conn = db.get_conn()
     try:
         rows = conn.execute(
-            "SELECT id, name, xp, streak, is_plus, plus_until, equipped_frame FROM users "
+            "SELECT id, name, avatar, xp, streak, is_plus, plus_until, equipped_frame, equipped_bg FROM users "
             "WHERE status = 'active' AND role != 'admin' ORDER BY xp DESC, streak DESC LIMIT ?",
             (limit,),
         ).fetchall()
@@ -383,6 +410,8 @@ def leaderboard(current_id: str | None = None, limit: int = 50) -> list[dict]:
             "streak": r["streak"],
             "isPlus": plus_active(dict(r)),
             "frame": r["equipped_frame"],
+            "bg": r["equipped_bg"],
+            "avatar": r["avatar"],
             "me": r["id"] == current_id,
         })
     return out

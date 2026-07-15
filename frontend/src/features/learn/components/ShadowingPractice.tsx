@@ -11,7 +11,7 @@ import type { Lesson } from '@/models/lesson.model'
 const REWARD = 5
 
 export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
-  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const { recordEvent, learnLang, nativeLang, t } = useAppStore()
   const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const [i, setI] = useState(0)
@@ -91,13 +91,13 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   return (
     <div className="shadow">
       <div className="shadow-bar">
-        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> Trước</button>
+        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> {t('sh.prev')}</button>
         <div className="shadow-prog">
-          <span>Câu {i + 1}/{segs.length}</span>
+          <span>{t('sh.line', { a: i + 1, b: segs.length })}</span>
           <div className="tp-bar"><span style={{ width: ((i + 1) / segs.length) * 100 + '%' }} /></div>
-          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {passed} đạt</span>
+          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {t('sh.passed', { n: passed })}</span>
         </div>
-        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>Tiếp <Icon name="arrow-right" size={15} /></button>
+        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>{t('sh.next')} <Icon name="arrow-right" size={15} /></button>
       </div>
 
       <div className="shadow-card">
@@ -110,21 +110,21 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
         {cur.vi && <div className="shadow-vi">{cur.vi}</div>}
 
         <div className="shadow-listen">
-          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={16} /> Nghe mẫu</button>
-          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.6)}><Icon name="volume" size={16} /> Nghe chậm</button>
+          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={16} /> {t('sh.listen')}</button>
+          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.6)}><Icon name="volume" size={16} /> {t('sh.slow')}</button>
         </div>
 
         {sr.supported ? (
           <>
             <button className={'mic-btn' + (sr.listening ? ' on' : '')} onClick={record}>
               <Icon name="mic" size={26} />
-              <span>{sr.listening ? 'Đang nghe… (bấm để dừng)' : 'Bấm và nói câu trên'}</span>
+              <span>{sr.listening ? t('sh.micStop') : t('sh.micStart')}</span>
             </button>
             {(sr.listening || sr.interim) && <div className="shadow-interim" lang={learnLang}>{sr.interim || '…'}</div>}
             {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
           </>
         ) : (
-          <div className="shadow-err"><Icon name="x-circle" size={15} /> Trình duyệt chưa hỗ trợ nhận diện giọng nói. Hãy dùng <b>Chrome</b> hoặc <b>Edge</b> để luyện nói.</div>
+          <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noSR')}</div>
         )}
       </div>
 
@@ -140,12 +140,12 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
             <b>{score}<small>%</small></b>
           </div>
           <div className="sr-body">
-            <div className="sr-band">{band.label}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}</div>
-            <div className="sr-heard"><span>Bạn đã nói:</span> <em lang={learnLang}>{heard || '(không nghe rõ)'}</em></div>
+            <div className="sr-band">{t(band.labelKey)}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}</div>
+            <div className="sr-heard"><span>{t('sh.youSaid')}</span> <em lang={learnLang}>{heard || t('sh.unclear')}</em></div>
             <div className="sr-actions">
-              <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> Thử lại</button>
+              <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> {t('sh.retry')}</button>
               <button className="btn-primary sm" onClick={askAI} disabled={aiLoading}>
-                <Icon name="sparkles" size={14} /> {aiLoading ? 'AI đang chấm…' : 'Nhận xét từ AI'}
+                <Icon name="sparkles" size={14} /> {aiLoading ? t('sh.aiScoring') : t('sh.aiBtn')}
               </button>
             </div>
           </div>
@@ -154,18 +154,18 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
 
       {aiError && (
         <div className="shadow-aierr">
-          <Icon name="x-circle" size={15} /> Không lấy được nhận xét AI: {aiError}
-          <span>Mẹo: cần chạy <b>start.bat</b> (backend) và đã cấu hình khoá Gemini.</span>
+          <Icon name="x-circle" size={15} /> {t('sh.aiFail', { msg: aiError })}
+          <span>{t('sh.aiFailTip')}</span>
         </div>
       )}
 
       {ai && (
         <div className="ai-feedback">
-          <div className="ai-fb-head"><Icon name="vyling" size={18} /> Nhận xét từ AI {ai.model && <span className="ai-model">{ai.model}</span>}</div>
+          <div className="ai-fb-head"><Icon name="vyling" size={18} /> {t('sh.aiHead')} {ai.model && <span className="ai-model">{ai.model}</span>}</div>
           <p className="ai-fb-text">{ai.feedback}</p>
           {ai.tips.length > 0 && (
             <ul className="ai-fb-tips">
-              {ai.tips.map((t, k) => <li key={k}><Icon name="check" size={14} /> {t}</li>)}
+              {ai.tips.map((tip, k) => <li key={k}><Icon name="check" size={14} /> {tip}</li>)}
             </ul>
           )}
           {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}

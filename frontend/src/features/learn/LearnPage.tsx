@@ -14,15 +14,15 @@ import type { LearnTab } from '@/core/constants/enum'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'Shadowing' },
-  { id: 'phatam', ic: 'mic', label: 'Luyện nói AI' },
-  { id: 'chepchinhta', ic: 'headphones', label: 'Chép chính tả' },
+  { id: 'phatam', ic: 'mic', label: 'learn.tab.speak' },
+  { id: 'chepchinhta', ic: 'headphones', label: 'learn.tab.dictation' },
   { id: 'dubbing', ic: 'mic', label: 'Dubbing Studio' },
-  { id: 'luyendich', ic: 'globe', label: 'Luyện dịch' },
-  { id: 'tomtat', ic: 'note', label: 'Tóm tắt' },
+  { id: 'luyendich', ic: 'globe', label: 'learn.tab.translate' },
+  { id: 'tomtat', ic: 'note', label: 'learn.tab.summary' },
 ]
 
 export default function LearnPage() {
-  const { lesson, status, statusError, setView } = useAppStore()
+  const { lesson, status, statusError, setView, t } = useAppStore()
   const [tab, setTab] = useState<LearnTab>('shadowing')
   const [active, setActive] = useState(-1)
   const yt = useYouTubePlayer()
@@ -58,12 +58,12 @@ export default function LearnPage() {
             <>
               <div style={{ fontSize: 40, marginBottom: 10, color: 'var(--bad)' }}><Icon name="frown" /></div>
               <p style={{ color: 'var(--bad)', fontWeight: 600 }}>{status}</p>
-              <button className="btn-new" onClick={() => setView('home')}><Icon name="arrow-left" /> Về trang chủ thử link khác</button>
+              <button className="btn-new" onClick={() => setView('home')}><Icon name="arrow-left" /> {t('learn.backHome')}</button>
             </>
           ) : (
             <>
               <Spinner />
-              <p>{status || 'Đang chuẩn bị bài học…'}</p>
+              <p>{status || t('learn.preparing')}</p>
             </>
           )}
         </div>
@@ -78,13 +78,13 @@ export default function LearnPage() {
     <>
       <div className="lesson-head">
         <h2>{lesson.title}</h2>
-        <div className="meta">Nguồn: {lesson.source} · {lesson.segments.length} câu</div>
+        <div className="meta">{t('learn.source', { src: lesson.source, n: lesson.segments.length })}</div>
       </div>
 
       <div className="learn-tabs">
-        {TABS.map((t) => (
-          <button key={t.id} className={tab === t.id ? 'on' : ''} onClick={() => setTab(t.id)}>
-            <Icon name={t.ic} /> {t.label}
+        {TABS.map((tb) => (
+          <button key={tb.id} className={tab === tb.id ? 'on' : ''} onClick={() => setTab(tb.id)}>
+            <Icon name={tb.ic} /> {tb.label.includes('.') ? t(tb.label) : tb.label}
           </button>
         ))}
       </div>

@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import settings, ROOT
+from .errors import AppError
 from . import db
 from .services import health, media, dictionary, catalog, accounts
 from .routers import (
@@ -42,6 +43,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.exception_handler(AppError)
+async def app_error_handler(_request: Request, exc: AppError):
+    return JSONResponse(status_code=exc.status, content={"detail": exc.detail, "code": exc.code})
 
 app.include_router(learn.router)
 app.include_router(dict_router.router)

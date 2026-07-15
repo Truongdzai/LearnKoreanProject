@@ -14,8 +14,8 @@ interface Props {
 
 const ACCEPT = '.txt,.csv,.md,.docx,.pdf'
 
-export default function ImportVocabModal({ title = 'Import từ', topics, defaultTopic = '', onClose, onImported }: Props) {
-  const { recordEvent } = useAppStore()
+export default function ImportVocabModal({ title, topics, defaultTopic = '', onClose, onImported }: Props) {
+  const { recordEvent, t } = useAppStore()
   const [text, setText] = useState('')
   const [topic, setTopic] = useState(defaultTopic)
   const [fileName, setFileName] = useState('')
@@ -36,11 +36,11 @@ export default function ImportVocabModal({ title = 'Import từ', topics, defaul
       const content = await readFileText(file)
       const parsed = parseWordsFromText(content)
       if (!parsed.length) {
-        setErr('Không đọc được từ nào từ tệp này. Với PDF dạng ảnh, hãy thử .docx hoặc dán văn bản.')
+        setErr(t('ivm.errNone'))
       }
       setText((prev) => (prev.trim() ? prev + '\n' : '') + content.trim())
     } catch (e) {
-      setErr((e as Error).message || 'Không đọc được tệp.')
+      setErr((e as Error).message || t('ivm.errRead'))
     } finally {
       setReading(false)
       if (fileRef.current) fileRef.current.value = ''
@@ -68,7 +68,7 @@ export default function ImportVocabModal({ title = 'Import từ', topics, defaul
       onImported(words.length)
       onClose()
     } catch (e) {
-      setErr((e as Error).message || 'Có lỗi khi import.')
+      setErr((e as Error).message || t('ivm.errImport'))
     } finally {
       setBusy(false)
     }
@@ -78,18 +78,17 @@ export default function ImportVocabModal({ title = 'Import từ', topics, defaul
     <div className="vmodal-backdrop" onClick={onClose}>
       <div className="vmodal lg" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="upload" size={18} /> {title}</h3>
+          <h3><Icon name="upload" size={18} /> {title || t('ivm.title')}</h3>
           <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
         </div>
 
         <p className="vmodal-hint">
-          Dán danh sách (mỗi dòng một từ, dạng <b>từ - nghĩa</b>) hoặc tải tệp lên.
-          Hỗ trợ <b>.txt, .csv, .docx</b> tốt nhất; <b>.pdf</b> dạng văn bản cũng đọc được.
+          {t('ivm.hint')}
         </p>
 
         <div className="vmodal-inline">
           <button className="btn-ghost" disabled={reading} onClick={() => fileRef.current?.click()}>
-            <Icon name="upload" size={15} /> {reading ? 'Đang đọc…' : 'Chọn tệp'}
+            <Icon name="upload" size={15} /> {reading ? t('ivm.reading') : t('ivm.choose')}
           </button>
           {fileName && <span className="vmodal-file">{fileName}</span>}
           <input ref={fileRef} type="file" accept={ACCEPT} hidden onChange={(e) => onFile(e.target.files?.[0])} />
@@ -102,20 +101,20 @@ export default function ImportVocabModal({ title = 'Import từ', topics, defaul
           placeholder={'안녕하세요 - xin chào\n감사합니다 - cảm ơn\n사랑 - tình yêu'}
         />
 
-        <label className="vmodal-label">Lưu vào chủ đề (tuỳ chọn)</label>
-        <input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="vd: Nhập từ sách" list="vimport-topics" />
+        <label className="vmodal-label">{t('ivm.saveTopic')}</label>
+        <input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder={t('ivm.topicPh')} list="vimport-topics" />
         <datalist id="vimport-topics">
-          {topics.map((t) => <option key={t} value={t} />)}
+          {topics.map((tp) => <option key={tp} value={tp} />)}
         </datalist>
 
         {err && <div className="vmodal-err">{err}</div>}
 
         <div className="vmodal-foot">
-          <span className="vmodal-count">{words.length} từ sẵn sàng</span>
+          <span className="vmodal-count">{t('ivm.ready', { n: words.length })}</span>
           <div className="vmodal-foot-btns">
-            <button className="btn-ghost" onClick={onClose}>Huỷ</button>
+            <button className="btn-ghost" onClick={onClose}>{t('vm.cancel')}</button>
             <button className="btn-primary" disabled={busy || !words.length} onClick={doImport}>
-              {busy ? `Đang thêm ${progress}/${words.length}…` : `Import ${words.length} từ`}
+              {busy ? t('ivm.adding', { a: progress, b: words.length }) : t('ivm.submit', { n: words.length })}
             </button>
           </div>
         </div>

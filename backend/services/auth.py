@@ -9,6 +9,7 @@ import time
 
 from fastapi import Depends, Header, HTTPException
 
+from ..errors import AppError
 from .. import db
 
 TOKEN_TTL = 60 * 60 * 24 * 30
@@ -69,15 +70,15 @@ def _load_user(user_id: str) -> dict | None:
 
 def get_current_user(authorization: str | None = Header(default=None)) -> dict:
     if not authorization or not authorization.lower().startswith("bearer "):
-        raise HTTPException(status_code=401, detail="Bạn cần đăng nhập.")
+        raise AppError("AUTH_REQUIRED", "Bạn cần đăng nhập.", 401)
     payload = read_token(authorization.split(" ", 1)[1].strip())
     if not payload:
-        raise HTTPException(status_code=401, detail="Phiên đăng nhập đã hết hạn, hãy đăng nhập lại.")
+        raise AppError("AUTH_EXPIRED", "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại.", 401)
     user = _load_user(payload["uid"])
     if not user:
-        raise HTTPException(status_code=401, detail="Tài khoản không tồn tại.")
+        raise AppError("AUTH_EXPIRED", "Tài khoản không tồn tại.", 401)
     if user["status"] != "active":
-        raise HTTPException(status_code=403, detail="Tài khoản đã bị khoá.")
+        raise AppError("ACCOUNT_LOCKED", "Tài khoản đã bị khoá.", 403)
     return user
 
 
@@ -92,5 +93,5 @@ def get_optional_user(authorization: str | None = Header(default=None)) -> dict 
 
 def get_admin(user: dict = Depends(get_current_user)) -> dict:
     if user.get("role") != "admin":
-        raise HTTPException(status_code=403, detail="Chỉ quản trị viên mới được phép.")
+        raise AppError("FORBIDDEN", "Chỉ quản trị viên mới được phép.", 403)
     return user

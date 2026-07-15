@@ -21,41 +21,40 @@ function keywords(lesson: Lesson): string[] {
 }
 
 const GRAMMAR = [
-  { p: '–아요/어요', d: 'Đuôi câu thân mật lịch sự ở thì hiện tại.', ex: '공부해요 — học' },
-  { p: '–았어요/었어요', d: 'Thì quá khứ lịch sự.', ex: '봤어요 — đã xem' },
-  { p: '에서', d: 'Trợ từ chỉ nơi chốn diễn ra hành động.', ex: '학교에서 — ở trường' },
-  { p: '을/를', d: 'Trợ từ tân ngữ (đối tượng của hành động).', ex: '영화를 — bộ phim' },
+  { p: '–아요/어요', d: 'sm.g1', ex: 'sm.g1ex' },
+  { p: '–았어요/었어요', d: 'sm.g2', ex: 'sm.g2ex' },
+  { p: '에서', d: 'sm.g3', ex: 'sm.g3ex' },
+  { p: '을/를', d: 'sm.g4', ex: 'sm.g4ex' },
 ]
 
 export default function SummaryView({ lesson }: { lesson: Lesson }) {
-  const { openLookup, learnLang } = useAppStore()
+  const { openLookup, learnLang, t } = useAppStore()
   const words = keywords(lesson)
   const phrases = lesson.segments.slice(0, 5)
 
   return (
     <div className="summary">
-      <div className="sm-ai-tag"><Icon name="sparkles" size={14} /> Tóm tắt do AI tạo từ nội dung video</div>
+      <div className="sm-ai-tag"><Icon name="sparkles" size={14} /> {t('sm.aiTag')}</div>
 
       <div className="sm-grid">
         <div className="sm-card span2">
-          <div className="sm-label"><Icon name="bulb" size={15} /> Tổng quan</div>
-          <p>Video <b>“{lesson.title}”</b> gồm {lesson.segments.length} câu, phù hợp luyện nghe – nói ở trình độ sơ cấp.
-            Nội dung xoay quanh giao tiếp đời sống hằng ngày với câu ngắn, dễ lặp lại theo phương pháp shadowing.</p>
+          <div className="sm-label"><Icon name="bulb" size={15} /> {t('sm.overview')}</div>
+          <p>{t('sm.overviewText', { title: lesson.title, n: lesson.segments.length })}</p>
         </div>
 
         <div className="sm-card">
-          <div className="sm-label"><Icon name="note" size={15} /> Thông tin chung</div>
+          <div className="sm-label"><Icon name="note" size={15} /> {t('sm.info')}</div>
           <ul className="sm-info">
-            <li><span>Mục tiêu</span><b>Nghe hiểu & phản xạ câu cơ bản</b></li>
-            <li><span>Đối tượng</span><b>Người mới bắt đầu</b></li>
-            <li><span>Số câu</span><b>{lesson.segments.length} câu</b></li>
-            <li><span>Khái niệm chính</span><b>{Math.max(3, Math.round(lesson.segments.length / 2))} chủ điểm</b></li>
+            <li><span>{t('sm.goal')}</span><b>{t('sm.goalV')}</b></li>
+            <li><span>{t('sm.audience')}</span><b>{t('sm.audienceV')}</b></li>
+            <li><span>{t('sm.lines')}</span><b>{t('sm.linesV', { n: lesson.segments.length })}</b></li>
+            <li><span>{t('sm.concepts')}</span><b>{t('sm.conceptsV', { n: Math.max(3, Math.round(lesson.segments.length / 2)) })}</b></li>
           </ul>
         </div>
 
         <div className="sm-card">
-          <div className="sm-label"><Icon name="cards" size={15} /> Từ vựng nổi bật</div>
-          <p className="sm-sub">Bấm vào từ để tra cứu nhanh với AI</p>
+          <div className="sm-label"><Icon name="cards" size={15} /> {t('sm.vocab')}</div>
+          <p className="sm-sub">{t('sm.vocabSub')}</p>
           <div className="sm-words">
             {words.map((w) => (
               <button key={w} lang={learnLang} onClick={() => openLookup(w)}>{w}</button>
@@ -65,17 +64,17 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
 
         {learnLang === 'ko' && (
           <div className="sm-card">
-            <div className="sm-label"><Icon name="letters" size={15} /> Ngữ pháp</div>
+            <div className="sm-label"><Icon name="letters" size={15} /> {t('sm.grammar')}</div>
             <ul className="sm-grammar">
               {GRAMMAR.map((g) => (
-                <li key={g.p}><b lang="ko">{g.p}</b><span>{g.d}</span><em lang="ko">{g.ex}</em></li>
+                <li key={g.p}><b lang="ko">{g.p}</b><span>{t(g.d)}</span><em lang="ko">{t(g.ex)}</em></li>
               ))}
             </ul>
           </div>
         )}
 
         <div className="sm-card">
-          <div className="sm-label"><Icon name="volume" size={15} /> Cụm nói hữu ích</div>
+          <div className="sm-label"><Icon name="volume" size={15} /> {t('sm.phrases')}</div>
           <ul className="sm-phrases">
             {phrases.map((s, i) => (
               <li key={i}><span lang={learnLang}>{s.ko}</span><em>{s.vi}</em></li>
@@ -84,12 +83,12 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
         </div>
 
         <div className="sm-card span2 sm-practice">
-          <div className="sm-label"><Icon name="target" size={15} /> Gợi ý luyện tập</div>
+          <div className="sm-label"><Icon name="target" size={15} /> {t('sm.practice')}</div>
           <ul>
-            <li><Icon name="check-circle" size={15} /> Nghe & nhại lại từng câu (shadowing) 3 lần.</li>
-            <li><Icon name="check-circle" size={15} /> Lưu 5 từ mới vào flashcard rồi ôn bằng SRS.</li>
-            <li><Icon name="check-circle" size={15} /> Thử dịch lại các câu ở tab <b>Luyện dịch</b> mà không nhìn đáp án.</li>
-            <li><Icon name="check-circle" size={15} /> Ghi âm và so sánh phát âm ở tab <b>Phát âm</b>.</li>
+            <li><Icon name="check-circle" size={15} /> {t('sm.p1')}</li>
+            <li><Icon name="check-circle" size={15} /> {t('sm.p2')}</li>
+            <li><Icon name="check-circle" size={15} /> {t('sm.p3')}</li>
+            <li><Icon name="check-circle" size={15} /> {t('sm.p4')}</li>
           </ul>
         </div>
       </div>

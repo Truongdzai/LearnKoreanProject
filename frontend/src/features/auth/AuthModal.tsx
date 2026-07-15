@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
 import { useAuth } from '@/store/auth.store'
+import { useAppStore } from '@/store/app.store'
 
 export default function AuthModal() {
   const { modalOpen, closeAuth, providers, signUpEmail, signInEmail, signInOAuth, authError, clearAuthError } = useAuth()
+  const { t } = useAppStore()
   const [signup, setSignup] = useState(false)
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState('')
@@ -52,8 +54,8 @@ export default function AuthModal() {
 
         <div className="auth-head">
           <Logo size={48} />
-          <h2>Chào mừng đến VyLing</h2>
-          <p>Đăng nhập để lưu tiến độ, xu, lộ trình và bảng xếp hạng của bạn.</p>
+          <h2>{t('auth.welcome')}</h2>
+          <p>{t('auth.sub')}</p>
         </div>
 
         {hasOAuth && (
@@ -61,16 +63,16 @@ export default function AuthModal() {
             <div className="auth-social">
               {providers.google && (
                 <button className="auth-oauth" onClick={() => { clearAuthError(); signInOAuth('google') }}>
-                  <Icon name="google" size={20} /> Tiếp tục với Google
+                  <Icon name="google" size={20} /> {t('auth.google')}
                 </button>
               )}
               {providers.facebook && (
                 <button className="auth-oauth" onClick={() => { clearAuthError(); signInOAuth('facebook') }}>
-                  <Icon name="facebook" size={20} /> Tiếp tục với Facebook
+                  <Icon name="facebook" size={20} /> {t('auth.facebook')}
                 </button>
               )}
             </div>
-            <div className="auth-divider"><span>hoặc</span></div>
+            <div className="auth-divider"><span>{t('auth.or')}</span></div>
           </>
         )}
 
@@ -78,7 +80,7 @@ export default function AuthModal() {
           {signup && (
             <label className="auth-field">
               <Icon name="user" size={16} />
-              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tên của bạn" />
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t('auth.name')} />
             </label>
           )}
           <label className="auth-field">
@@ -88,19 +90,19 @@ export default function AuthModal() {
           <label className="auth-field">
             <Icon name="lock" size={16} />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && submit()} placeholder="Mật khẩu (tối thiểu 6 ký tự)" autoComplete={signup ? 'new-password' : 'current-password'} />
+              onKeyDown={(e) => e.key === 'Enter' && submit()} placeholder={t('auth.password')} autoComplete={signup ? 'new-password' : 'current-password'} />
           </label>
           {err && <div className="auth-err"><Icon name="x-circle" size={14} /> {err}</div>}
           <button className="btn-primary auth-submit" disabled={busy} onClick={submit}>
-            {busy ? 'Đang xử lý…' : signup ? 'Đăng ký' : 'Đăng nhập'}
+            {busy ? t('auth.busy') : signup ? t('auth.signup') : t('top.login')}
           </button>
           <div className="auth-switch">
-            {signup ? 'Đã có tài khoản?' : 'Chưa có tài khoản?'}
-            <button onClick={() => { setSignup(!signup); setErr('') }}>{signup ? 'Đăng nhập' : 'Đăng ký ngay'}</button>
+            {signup ? t('auth.haveAccount') : t('auth.noAccount')}
+            <button onClick={() => { setSignup(!signup); setErr('') }}>{signup ? t('top.login') : t('auth.signupNow')}</button>
           </div>
         </div>
 
-        <button className="auth-guest" onClick={close}>Tiếp tục với tư cách khách</button>
+        <button className="auth-guest" onClick={close}>{t('auth.guest')}</button>
       </div>
     </div>
   )

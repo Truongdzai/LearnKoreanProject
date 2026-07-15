@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { useAppStore } from '@/store/app.store'
 import type { DictResult } from '@/models/dict.model'
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export default function WordPopup({ x, y, loading, result, error, onClose, onSave }: Props) {
+  const { t } = useAppStore()
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'done'>('idle')
 
   useEffect(() => {
@@ -40,15 +42,15 @@ export default function WordPopup({ x, y, loading, result, error, onClose, onSav
     <>
       <div className="wpop-backdrop" onClick={onClose} />
       <div className="wpop" style={{ left: Math.max(8, left), top: Math.max(8, top) }}>
-        <button className="wpop-close" onClick={onClose} aria-label="Đóng"><Icon name="x" /></button>
+        <button className="wpop-close" onClick={onClose} aria-label={t('wp.close')}><Icon name="x" /></button>
 
-        {loading && <div className="wpop-empty"><Icon name="clock" /> Đang tra…</div>}
+        {loading && <div className="wpop-empty"><Icon name="clock" /> {t('wp.loading')}</div>}
         {error && <div className="wpop-empty"><Icon name="x-circle" /> {error}</div>}
 
         {!loading && !error && result && result.entries.length === 0 && (
           <div className="wpop-empty">
-            Không tìm thấy <b lang="ko">{result.word}</b> trong từ điển.
-            <div className="wpop-hint">(Dạng rút gọn/bất quy tắc sẽ được hỗ trợ tốt hơn sau.)</div>
+            {t('wp.notFoundPre')} <b lang="ko">{result.word}</b> {t('wp.notFoundPost')}
+            <div className="wpop-hint">{t('wp.hint')}</div>
           </div>
         )}
 
@@ -59,7 +61,7 @@ export default function WordPopup({ x, y, loading, result, error, onClose, onSav
               {result.entries[0].hanja && (
                 <span className="wpop-hanja">〔{result.entries[0].hanja}〕</span>
               )}
-              {result.matched === 'base' && <span className="wpop-base">dạng gốc</span>}
+              {result.matched === 'base' && <span className="wpop-base">{t('wp.base')}</span>}
             </div>
             <div className="wpop-defs">
               {result.entries.map((e, i) => (
@@ -76,11 +78,11 @@ export default function WordPopup({ x, y, loading, result, error, onClose, onSav
                 onClick={save}
               >
                 {saveState === 'done' ? (
-                  <><Icon name="check" /> Đã lưu vào bộ thẻ</>
+                  <><Icon name="check" /> {t('wp.saved')}</>
                 ) : saveState === 'saving' ? (
                   '…'
                 ) : (
-                  <><Icon name="plus" /> Lưu từ này</>
+                  <><Icon name="plus" /> {t('wp.save')}</>
                 )}
               </button>
             )}

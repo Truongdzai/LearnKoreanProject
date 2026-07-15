@@ -52,7 +52,7 @@ const FIELDS: Record<CatalogKind, Field[]> = {
     { k: 'name', label: 'Tên vật phẩm', required: true },
     { k: 'descr', label: 'Mô tả' },
     { k: 'price', label: 'Giá (xu)', type: 'number' },
-    { k: 'category', label: 'Loại', type: 'select', opts: ['seed', 'frame', 'avatar', 'badge'] },
+    { k: 'category', label: 'Loại', type: 'select', opts: ['seed', 'frame', 'background', 'avatar', 'badge', 'pet'] },
     { k: 'art', label: 'Art key', required: true },
     { k: 'plus', label: 'Chỉ Plus', type: 'bool' },
     { k: 'sort', label: 'Thứ tự', type: 'number' },

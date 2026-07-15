@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function ContextPackModal({ pack, lang, onClose, onAdded }: Props) {
-  const { recordEvent } = useAppStore()
+  const { recordEvent, t } = useAppStore()
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState('')
   const words = pack.words[lang] || []
@@ -34,7 +34,7 @@ export default function ContextPackModal({ pack, lang, onClose, onAdded }: Props
         onAdded(added)
         onClose()
       } else {
-        setErr('Không thêm được lúc này. Vui lòng thử lại.')
+        setErr(t('cpm.fail'))
       }
     } finally {
       setBusy(false)
@@ -68,7 +68,7 @@ export default function ContextPackModal({ pack, lang, onClose, onAdded }: Props
         {err && <p className="auth-err">{err}</p>}
 
         <button className="btn-primary pack-add" disabled={busy} onClick={addAll}>
-          <Icon name="plus" size={15} /> {busy ? 'Đang thêm…' : `Thêm cả gói (${words.length} từ) vào ôn tập`}
+          <Icon name="plus" size={15} /> {busy ? t('cpm.adding') : t('cpm.addAll', { n: words.length })}
         </button>
       </div>
     </div>

@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
+from ..schemas.account import MeState
 from ..services import auth, accounts, gameplay
 
 router = APIRouter(prefix="/api/me")
@@ -19,6 +20,14 @@ class EquipIn(BaseModel):
 
 class EquipPetIn(BaseModel):
     pet: str | None = None
+
+
+class EquipBgIn(BaseModel):
+    bg: str | None = None
+
+
+class AvatarIn(BaseModel):
+    avatar: str | None = None
 
 
 class PlantIn(BaseModel):
@@ -73,7 +82,7 @@ class GoalBonusIn(BaseModel):
     goal: int
 
 
-@router.get("/state")
+@router.get("/state", response_model=MeState)
 def api_state(user: dict = Auth):
     return gameplay.state(user)
 
@@ -101,6 +110,16 @@ def api_equip(body: EquipIn, user: dict = Auth):
 @router.post("/equip-pet")
 def api_equip_pet(body: EquipPetIn, user: dict = Auth):
     return {"ok": True, "user": accounts.public_user(accounts.equip_pet(user["id"], body.pet))}
+
+
+@router.post("/equip-bg")
+def api_equip_bg(body: EquipBgIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.equip_bg(user["id"], body.bg))}
+
+
+@router.post("/avatar")
+def api_avatar(body: AvatarIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.set_avatar(user["id"], body.avatar))}
 
 
 @router.post("/plus")

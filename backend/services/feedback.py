@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from fastapi import HTTPException
 
+from ..errors import AppError
 from .. import db
 
 KINDS = {"bug", "idea"}
@@ -28,7 +29,7 @@ def add(user: dict | None, kind: str, message: str, page: str = "") -> dict:
             (owner, owner),
         ).fetchone()[0]
         if n >= 20:
-            raise HTTPException(status_code=429, detail="Bạn đã gửi nhiều phản hồi hôm nay, hãy quay lại ngày mai nhé.")
+            raise AppError("RATE_LIMITED", "Bạn đã gửi nhiều phản hồi hôm nay, hãy quay lại ngày mai nhé.", 429)
         conn.execute(
             "INSERT INTO feedback (user_id, name, kind, message, page) VALUES (?,?,?,?,?)",
             (owner, user["name"] if user else "Khách", kind, message, (page or "")[:100]),

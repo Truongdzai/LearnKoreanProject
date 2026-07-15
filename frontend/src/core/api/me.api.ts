@@ -42,6 +42,12 @@ export const equipFrameApi = (frame: string | null) =>
 export const equipPetApi = (pet: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip-pet', { pet })
 
+export const equipBgApi = (bg: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip-bg', { bg })
+
+export const setAvatarApi = (avatar: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/avatar', { avatar })
+
 export const upgradePlusApi = (plan_id = '') =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/plus', { plan_id })
 

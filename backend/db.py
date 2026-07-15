@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS users (
     xp             INTEGER NOT NULL DEFAULT 0,
     streak         INTEGER NOT NULL DEFAULT 0,
     equipped_frame TEXT,
+    equipped_bg    TEXT,
     goal           TEXT,
     status         TEXT NOT NULL DEFAULT 'active',
     created_at     TEXT DEFAULT (datetime('now','localtime')),
@@ -277,6 +278,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE users ADD COLUMN plus_until TEXT")
     if "equipped_pet" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN equipped_pet TEXT")
+    if "equipped_bg" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN equipped_bg TEXT")
     if "goal" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN goal TEXT")
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}

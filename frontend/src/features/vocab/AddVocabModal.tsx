@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAdded }: Props) {
-  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const { recordEvent, learnLang, nativeLang, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const [front, setFront] = useState('')
   const [back, setBack] = useState('')
@@ -40,7 +40,7 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
 
   const submit = async () => {
     const f = front.trim()
-    if (!f) { setErr('Hãy nhập từ cần thêm.'); return }
+    if (!f) { setErr(t('vam.errEmpty')); return }
     setBusy(true)
     setErr('')
     try {
@@ -49,7 +49,7 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
       onAdded()
       onClose()
     } catch (e) {
-      setErr((e as Error).message || 'Không thêm được, hãy thử lại.')
+      setErr((e as Error).message || t('vam.errFail'))
     } finally {
       setBusy(false)
     }
@@ -59,33 +59,33 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
     <div className="vmodal-backdrop" onClick={onClose}>
       <div className="vmodal" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="plus" size={18} /> Thêm từ vựng mới</h3>
+          <h3><Icon name="plus" size={18} /> {t('vam.title')}</h3>
           <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
         </div>
 
-        <label className="vmodal-label">Từ ({cfg.name})</label>
+        <label className="vmodal-label">{t('vam.word', { lang: learnLangName })}</label>
         <div className="vmodal-inline">
           <input
             ref={frontRef}
             value={front}
             onChange={(e) => setFront(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && autoTranslate()}
-            placeholder={`vd: ${cfg.sample[0]}`}
+            placeholder={t('vam.sample', { s: cfg.sample[0] })}
             lang={learnLang}
           />
           <button className="btn-ghost sm" disabled={!front.trim() || translating} onClick={autoTranslate}>
-            {translating ? '…' : <><Icon name="sparkles" size={14} /> Tự dịch</>}
+            {translating ? '…' : <><Icon name="sparkles" size={14} /> {t('vam.auto')}</>}
           </button>
         </div>
 
-        <label className="vmodal-label">Nghĩa</label>
-        <input value={back} onChange={(e) => setBack(e.target.value)} placeholder="Nghĩa tiếng Việt…" />
+        <label className="vmodal-label">{t('vam.meaning')}</label>
+        <input value={back} onChange={(e) => setBack(e.target.value)} placeholder={t('vam.meaningPh')} />
 
-        <label className="vmodal-label">Chủ đề (tuỳ chọn)</label>
+        <label className="vmodal-label">{t('vam.topic')}</label>
         <input
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          placeholder="vd: Đồ ăn, Du lịch…"
+          placeholder={t('vam.topicPh')}
           list="vmodal-topics"
         />
         <datalist id="vmodal-topics">
@@ -95,9 +95,9 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
         {err && <div className="vmodal-err">{err}</div>}
 
         <div className="vmodal-foot">
-          <button className="btn-ghost" onClick={onClose}>Huỷ</button>
+          <button className="btn-ghost" onClick={onClose}>{t('vm.cancel')}</button>
           <button className="btn-primary" disabled={busy} onClick={submit}>
-            {busy ? 'Đang lưu…' : 'Thêm thẻ'}
+            {busy ? t('vam.saving') : t('vam.submit')}
           </button>
         </div>
       </div>

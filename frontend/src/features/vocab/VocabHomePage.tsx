@@ -17,7 +17,7 @@ interface MyTopic { name: string; count: number }
 type Modal = null | 'add' | 'topic' | 'import'
 
 export default function VocabHomePage() {
-  const { user, setView, learnLang, goal } = useAppStore()
+  const { user, setView, learnLang, goal, t } = useAppStore()
   const [exporting, setExporting] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
   const [openPack, setOpenPack] = useState<ContextPack | null>(null)
@@ -57,7 +57,7 @@ export default function VocabHomePage() {
     try {
       const { cards } = await fetchAllCards()
       if (!cards.length) {
-        showFlash('Bạn chưa có từ vựng nào để xuất. Hãy thêm từ trước nhé.')
+        showFlash(t('vc.exportEmpty'))
         return
       }
       const rows: ExportRow[] = cards.map((c) => ({
@@ -65,11 +65,11 @@ export default function VocabHomePage() {
         meaning: c.back || '—',
         group: c.source || undefined,
       }))
-      const title = 'Từ vựng của tôi'
+      const title = t('vc.exportTitle')
       if (kind === 'word') exportVocabToWord(title, rows)
       else exportVocabToPdf(title, rows)
     } catch {
-      showFlash('Không xuất được lúc này. Vui lòng thử lại.')
+      showFlash(t('vc.exportFail'))
     } finally {
       setExporting(false)
     }
@@ -79,103 +79,103 @@ export default function VocabHomePage() {
 
   return (
     <div className="vocab-home">
-      <h1 className="page-title"><Icon name="cards" /> Từ vựng</h1>
-      <p className="page-sub">Học, ôn tập và quản lý kho từ vựng của bạn{learnLang === 'ko' ? ' theo cấp độ TOPIK' : ''}.</p>
+      <h1 className="page-title"><Icon name="cards" /> {t('vc.title')}</h1>
+      <p className="page-sub">{learnLang === 'ko' ? t('vc.subKo') : t('vc.sub')}</p>
 
       {flash && <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>{flash}</div>}
 
       <div className="vh-stats">
         <div className="vh-stat">
-          <div className="vh-stat-top">Tổng số từ vựng</div>
+          <div className="vh-stat-top">{t('vc.statTotal')}</div>
           <b>{total ?? '—'}</b>
-          <p>Chủ đề: theo video, đồ ăn, nhà hàng, khách sạn, du lịch…</p>
-          <button className="btn-ghost sm" onClick={() => setView('flashcards')}>Xem lại từ vựng</button>
+          <p>{t('vc.statTotalSub')}</p>
+          <button className="btn-ghost sm" onClick={() => setView('flashcards')}>{t('vc.review')}</button>
         </div>
         <div className="vh-stat warn">
-          <div className="vh-stat-top">Từ vựng cần ôn tập</div>
+          <div className="vh-stat-top">{t('vc.statDue')}</div>
           <b>{due ?? '—'}</b>
-          <p>Ôn đúng lúc giúp nhớ 50–80% lâu hơn so với học dồn.</p>
-          <button className="btn-primary sm" onClick={() => setView('flashcards')}>Ôn ngay</button>
+          <p>{t('vc.statDueSub')}</p>
+          <button className="btn-primary sm" onClick={() => setView('flashcards')}>{t('vc.reviewNow')}</button>
         </div>
       </div>
 
       <div className="vh-actions">
         <button className="vh-big play" onClick={() => setView('flashcards')}>
           <span className="vh-big-ic"><Icon name="play" size={26} /></span>
-          <b>Học từ vựng</b>
-          <span className="vh-big-go">Bắt đầu</span>
+          <b>{t('vc.learn')}</b>
+          <span className="vh-big-go">{t('vc.start')}</span>
         </button>
         <button className="vh-big quiz" onClick={() => setView('flashcards')}>
           <span className="vh-big-ic"><Icon name="target" size={26} /></span>
-          <b>Kiểm tra</b>
-          <span className="vh-big-go">Bắt đầu</span>
+          <b>{t('vc.quiz')}</b>
+          <span className="vh-big-go">{t('vc.start')}</span>
         </button>
         <div className="vh-side">
-          <button onClick={() => setModal('add')}><Icon name="plus" size={16} /> Thêm từ vựng mới</button>
-          <button onClick={() => setModal('topic')}><Icon name="cards" size={16} /> Tạo chủ đề</button>
-          <button onClick={() => setModal('import')}><Icon name="upload" size={16} /> Import từ (docx/pdf)</button>
-          <button disabled={exporting} onClick={exportVocab('word')}><Icon name="download" size={16} /> Xuất Word</button>
-          <button disabled={exporting} onClick={exportVocab('pdf')}><Icon name="copy" size={16} /> Xuất PDF</button>
+          <button onClick={() => setModal('add')}><Icon name="plus" size={16} /> {t('vc.add')}</button>
+          <button onClick={() => setModal('topic')}><Icon name="cards" size={16} /> {t('vc.topic')}</button>
+          <button onClick={() => setModal('import')}><Icon name="upload" size={16} /> {t('vc.import')}</button>
+          <button disabled={exporting} onClick={exportVocab('word')}><Icon name="download" size={16} /> {t('vc.exportWord')}</button>
+          <button disabled={exporting} onClick={exportVocab('pdf')}><Icon name="copy" size={16} /> {t('vc.exportPdf')}</button>
         </div>
       </div>
 
       {myTopics.length > 0 && (
         <>
-          <div className="section-title"><span className="pin" /> Chủ đề của tôi</div>
+          <div className="section-title"><span className="pin" /> {t('vc.myTopics')}</div>
           <div className="deck-grid">
-            {myTopics.map((t, i) => (
-              <button key={t.name} className="deck-card" onClick={() => setView('flashcards')}>
+            {myTopics.map((tp, i) => (
+              <button key={tp.name} className="deck-card" onClick={() => setView('flashcards')}>
                 <span className={'deck-thumb ' + TONES[i % TONES.length]}><Icon name="cards" size={22} /></span>
                 <span className="deck-body">
-                  <b>{t.name}</b>
-                  <span className="deck-meta">{t.count} thẻ · của bạn</span>
+                  <b>{tp.name}</b>
+                  <span className="deck-meta">{t('vc.cardMeta', { n: tp.count })}</span>
                 </span>
               </button>
             ))}
             <button className="deck-card deck-add" onClick={() => setModal('topic')}>
               <span className="deck-thumb tone-a"><Icon name="plus" size={22} /></span>
-              <span className="deck-body"><b>Tạo chủ đề mới</b><span className="deck-meta">Nhóm từ theo ý bạn</span></span>
+              <span className="deck-body"><b>{t('vc.newTopic')}</b><span className="deck-meta">{t('vc.newTopicSub')}</span></span>
             </button>
           </div>
         </>
       )}
 
-      <div className="section-title"><span className="pin" /> Gói từ vựng theo ngữ cảnh</div>
+      <div className="section-title"><span className="pin" /> {t('vc.packs')}</div>
       {packs.length > 0 ? (
         <div className="deck-grid">
           {packs.map((p) => (
             <button key={p.id} className="deck-card" onClick={() => setOpenPack(p)}>
               <span className={'deck-thumb ' + p.tone}><span className="deck-emoji">{p.emoji}</span></span>
               <span className="deck-body">
-                <b>{p.name}{goal && p.goal === goal && <span className="deck-goal">🎯 hợp mục tiêu</span>}</b>
-                <span className="deck-meta">{(p.words[learnLang] || []).length} từ kèm ví dụ · VyLing tuyển chọn</span>
+                <b>{p.name}{goal && p.goal === goal && <span className="deck-goal">{t('sp.goalBadge')}</span>}</b>
+                <span className="deck-meta">{t('vc.packMeta', { n: (p.words[learnLang] || []).length })}</span>
               </span>
             </button>
           ))}
         </div>
       ) : (
-        <div className="empty"><div className="big">📦</div>Gói từ vựng ngữ cảnh cho ngôn ngữ này đang được biên soạn — bạn vẫn có thể tự tạo chủ đề và thêm từ ở trên nhé.</div>
+        <div className="empty"><div className="big">📦</div>{t('vc.packEmpty')}</div>
       )}
 
       {modal === 'add' && (
         <AddVocabModal
-          topics={myTopics.map((t) => t.name)}
+          topics={myTopics.map((tp) => tp.name)}
           onClose={() => setModal(null)}
-          onAdded={() => { reload(); showFlash('Đã thêm từ mới vào kho của bạn!') }}
+          onAdded={() => { reload(); showFlash(t('vc.addedFlash')) }}
         />
       )}
       {modal === 'topic' && (
         <CreateTopicModal
           onClose={() => setModal(null)}
-          onCreated={(name, n) => { reload(); showFlash(n ? `Đã tạo "${name}" với ${n} từ!` : `Đã tạo chủ đề "${name}"!`) }}
+          onCreated={(name, n) => { reload(); showFlash(n ? t('vc.topicFlashN', { name, n }) : t('vc.topicFlash', { name })) }}
         />
       )}
       {modal === 'import' && (
         <ImportVocabModal
-          title="Import từ vựng"
-          topics={myTopics.map((t) => t.name)}
+          title={t('vc.importTitle')}
+          topics={myTopics.map((tp) => tp.name)}
           onClose={() => setModal(null)}
-          onImported={(n) => { reload(); showFlash(`Đã import ${n} từ vào kho của bạn!`) }}
+          onImported={(n) => { reload(); showFlash(t('vc.importFlash', { n })) }}
         />
       )}
       {openPack && (
@@ -183,7 +183,7 @@ export default function VocabHomePage() {
           pack={openPack}
           lang={learnLang}
           onClose={() => setOpenPack(null)}
-          onAdded={(n) => { reload(); showFlash(`Đã thêm ${n} từ "${openPack.name}" vào ôn tập — vào Ôn tập để học ngay!`) }}
+          onAdded={(n) => { reload(); showFlash(t('vc.packFlash', { n, name: openPack.name })) }}
         />
       )}
     </div>

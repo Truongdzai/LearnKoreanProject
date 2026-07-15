@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { UNITS, type IcesWord } from '@/data/englishCore'
 import { addCard } from '@/core/api/srs.api'
@@ -12,12 +12,21 @@ const ICES = [
   { k: 'S', label: 'Sound', desc: 'Nghe & nhại' },
 ]
 
-export default function IcesLearn() {
+export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
   const { isAuthed, recordEvent } = useAppStore()
   const { has, mark, learned } = useLearnedWords()
-  const [unitId, setUnitId] = useState('nouns')
+  const [unitId, setUnitId] = useState(initialUnit || 'nouns')
   const [i, setI] = useState(0)
   const [flipped, setFlipped] = useState(false)
+
+  // Lộ trình gửi sang unit cụ thể (nút "Học ngay" của tuần) → nhảy thẳng tới unit đó.
+  useEffect(() => {
+    if (initialUnit) {
+      setUnitId(initialUnit)
+      setI(0)
+      setFlipped(false)
+    }
+  }, [initialUnit])
 
   const unit = UNITS.find((u) => u.id === unitId) ?? UNITS[0]
   const words = unit.words

@@ -144,6 +144,15 @@ DEFAULT_SHOP = [
     ("f-ice", "Băng Giá", "Tinh thể băng lấp lánh", 800, "frame", "ice", 0),
     ("f-forest", "Forest Frolic", "Lá rừng xanh xoay nhẹ", 700, "frame", "forest", 0),
     ("f-galaxy", "Dải Ngân Hà", "Tinh vân và sao lấp lánh", 1888, "frame", "galaxy", 1),
+    ("f-khung1", "Vầng Cực Quang", "Khung ánh sáng xanh vàng chuyển động thật quanh avatar", 1200, "frame", "v-khung1", 0),
+    ("f-khung2", "Xoáy Thanh Lục", "Vòng xoáy lụa xanh ngọc uốn lượn quanh avatar", 1500, "frame", "v-khung2", 1),
+    ("f-khung3", "Băng Tinh Vân", "Vòng hạt băng xanh lấp lánh bao quanh avatar", 1800, "frame", "v-khung3", 1),
+    ("bg-nen1", "Mèo Bơi", "Chú mèo đen bơi giữa làn nước xanh dịu", 900, "background", "nen1", 0),
+    ("bg-nen2", "Đại Dương Sâu", "Cá mập lướt giữa đại dương lấp lánh tia nắng", 1400, "background", "nen2", 1),
+    ("bg-nen3", "Mắt Anh Đào", "Ánh mắt huyền ảo giữa cánh anh đào bay", 1600, "background", "nen3", 1),
+    ("bg-nen4", "Mèo Thả Trôi", "Mèo con thả mình trôi trên mặt nước xanh", 900, "background", "nen4", 0),
+    ("bg-nen5", "Ao Sen Ếch Con", "Ếch con nằm lá sen giữa ao nước trong veo", 1100, "background", "nen5", 0),
+    ("bg-nen6", "Ánh Mắt Lấp Lánh", "Đôi mắt long lanh như ngàn vì sao", 1500, "background", "nen6", 1),
     ("a-glow", "Hào Quang", "Vầng sáng dịu quanh avatar", 300, "avatar", "glow", 0),
     ("a-spark", "Tia Sáng", "Những tia lấp lánh nhỏ", 350, "avatar", "spark", 0),
     ("b-star", "Huy Hiệu Ngôi Sao", "Hiển thị cạnh tên của bạn", 250, "badge", "star", 0),
@@ -191,6 +200,13 @@ def seed() -> None:
             for i, s in enumerate(DEFAULT_SHOP):
                 conn.execute(
                     "INSERT INTO catalog_shop (id, name, descr, price, category, art, plus, sort) "
+                    "VALUES (?,?,?,?,?,?,?,?)",
+                    (*s, i),
+                )
+        else:
+            for i, s in enumerate(DEFAULT_SHOP):
+                conn.execute(
+                    "INSERT OR IGNORE INTO catalog_shop (id, name, descr, price, category, art, plus, sort) "
                     "VALUES (?,?,?,?,?,?,?,?)",
                     (*s, i),
                 )

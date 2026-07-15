@@ -7,6 +7,7 @@ import httpx
 import yt_dlp
 
 from ..config import settings
+from .langs import study_name as _study_name
 
 # Preferred caption track keys per learning language (first match wins).
 _LANG_KEYS = {
@@ -128,8 +129,6 @@ def _download_subs(track: list) -> list[dict]:
         last = RuntimeError("phụ đề trống")
     raise RuntimeError(f"không đọc được phụ đề ({last})")
 
-_LANG_VI = {"ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt"}
-
 
 def get_segments(url: str, lang: str = "ko") -> dict:
     ydl_opts = {"skip_download": True, "quiet": True, "no_warnings": True}
@@ -163,7 +162,7 @@ def get_segments(url: str, lang: str = "ko") -> dict:
         source = "phụ đề tự động (auto)"
     if track is None:
         raise RuntimeError(
-            f"Video này không có phụ đề {_LANG_VI.get(lang, 'tiếng Hàn')}. "
+            f"Video này không có phụ đề {_study_name(lang)}. "
             "Hãy chọn video khác có phụ đề."
         )
 

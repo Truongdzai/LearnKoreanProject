@@ -2,26 +2,17 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
+from ..errors import AppError
 from ..schemas.pronounce import PronounceIn
 from ..services import llm
+from ..services.langs import study_name, native_name
 
-router = APIRouter()
-
-_LANG_NAMES = {
-    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
-    "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt",
-}
-_NATIVE_NAMES = {
-    "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
-    "ko": "tiếng Hàn", "id": "tiếng Indonesia", "es": "tiếng Tây Ban Nha",
-    "fr": "tiếng Pháp", "de": "tiếng Đức", "ru": "tiếng Nga", "it": "tiếng Ý",
-    "pt": "tiếng Bồ Đào Nha",
-}
+router = APIRouter(prefix="/api/pronounce")
 
 
 def _system(lang: str, native: str) -> str:
-    lname = _LANG_NAMES.get(lang, "tiếng Hàn")
-    nname = _NATIVE_NAMES.get(native, "tiếng Việt")
+    lname = study_name(lang)
+    nname = native_name(native)
     return (
         f"Bạn là giáo viên luyện phát âm {lname} thân thiện. "
         f"Dựa trên câu mẫu {lname}, nội dung học viên thực sự nói (từ nhận diện giọng nói), "
@@ -40,11 +31,11 @@ _SCHEMA = {
 }
 
 
-@router.post("/api/pronounce")
+@router.post("")
 def api_pronounce(body: PronounceIn):
     if not body.target.strip():
         raise HTTPException(status_code=400, detail="Thiếu câu mẫu.")
-    lname = _LANG_NAMES.get(body.lang, "tiếng Hàn")
+    lname = study_name(body.lang)
     prompt = (
         f"Câu mẫu ({lname}): {body.target}\n"
         f"Nghĩa: {body.vi or '(không có)'}\n"
@@ -55,7 +46,7 @@ def api_pronounce(body: PronounceIn):
     try:
         data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native), temperature=0.4)
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"AI không phản hồi: {exc}")
+        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
     return {
         "feedback": data.get("feedback", ""),
         "tips": data.get("tips", []),

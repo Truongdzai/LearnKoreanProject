@@ -4,11 +4,12 @@ import Logo from '@/core/components/Logo'
 import Flag from '@/core/components/Flag'
 import { navForLang } from '@/core/constants/nav'
 import { STUDY_LANGS } from '@/core/constants/languages'
+import { studyLangName } from '@/core/i18n/translations'
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 
 export default function Sidebar() {
-  const { view, setView, user, learnLang, setLearnLang, requestWizard, t } = useAppStore()
+  const { view, setView, user, learnLang, setLearnLang, requestWizard, t, uiLang } = useAppStore()
   const todayIdx = (new Date().getDay() + 6) % 7
   const nav = navForLang(learnLang)
 
@@ -48,7 +49,7 @@ export default function Sidebar() {
         <div className="s-label"><Icon name="globe" size={12} /> {t('side.langs')}</div>
         <div className="lang-row">
           {STUDY_LANGS.map((l) => (
-            <button key={l.code} className={'lang-flag-btn' + (learnLang === l.code ? ' on' : '')} onClick={() => pickLang(l.code)} title={l.name}>
+            <button key={l.code} className={'lang-flag-btn' + (learnLang === l.code ? ' on' : '')} onClick={() => pickLang(l.code)} title={studyLangName(uiLang, l.code)}>
               <Flag code={l.code} size={26} />
             </button>
           ))}

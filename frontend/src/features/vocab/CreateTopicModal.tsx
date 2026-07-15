@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function CreateTopicModal({ onClose, onCreated }: Props) {
-  const { user, recordEvent } = useAppStore()
+  const { user, recordEvent, t } = useAppStore()
   const [name, setName] = useState('')
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
@@ -22,7 +22,7 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
 
   const submit = async () => {
     const clean = name.trim()
-    if (!clean) { setErr('Hãy đặt tên cho chủ đề.'); return }
+    if (!clean) { setErr(t('ctm.errEmpty')); return }
     setBusy(true)
     setErr('')
     try {
@@ -40,7 +40,7 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
       onCreated(clean, words.length)
       onClose()
     } catch (e) {
-      setErr((e as Error).message || 'Không tạo được chủ đề.')
+      setErr((e as Error).message || t('ctm.errFail'))
     } finally {
       setBusy(false)
     }
@@ -50,14 +50,14 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
     <div className="vmodal-backdrop" onClick={onClose}>
       <div className="vmodal" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="cards" size={18} /> Tạo chủ đề mới</h3>
+          <h3><Icon name="cards" size={18} /> {t('ctm.title')}</h3>
           <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
         </div>
 
-        <label className="vmodal-label">Tên chủ đề</label>
-        <input ref={nameRef} value={name} onChange={(e) => setName(e.target.value)} placeholder="vd: Từ vựng nhà hàng" />
+        <label className="vmodal-label">{t('ctm.name')}</label>
+        <input ref={nameRef} value={name} onChange={(e) => setName(e.target.value)} placeholder={t('ctm.namePh')} />
 
-        <label className="vmodal-label">Thêm từ ngay (tuỳ chọn) — mỗi dòng <b>từ - nghĩa</b></label>
+        <label className="vmodal-label">{t('ctm.words')}</label>
         <textarea
           className="vmodal-textarea sm"
           value={text}
@@ -68,9 +68,9 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
         {err && <div className="vmodal-err">{err}</div>}
 
         <div className="vmodal-foot">
-          <button className="btn-ghost" onClick={onClose}>Huỷ</button>
+          <button className="btn-ghost" onClick={onClose}>{t('vm.cancel')}</button>
           <button className="btn-primary" disabled={busy} onClick={submit}>
-            {busy ? 'Đang tạo…' : 'Tạo chủ đề'}
+            {busy ? t('ctm.creating') : t('ctm.submit')}
           </button>
         </div>
       </div>

@@ -3,30 +3,35 @@ import Icon from '@/core/components/Icon'
 import Flower from '@/core/components/Flower'
 import Avatar from '@/core/components/Avatar'
 import Pet from '@/core/components/Pet'
+import { bgVideo } from '@/core/utils/cosmetics'
 import { fetchShop } from '@/core/api/content.api'
 import type { ShopCategory, ShopItem } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
 const CATS: { id: ShopCategory | 'all'; label: string }[] = [
-  { id: 'all', label: 'Tất cả vật phẩm' },
-  { id: 'pet', label: 'Thú cưng' },
-  { id: 'seed', label: 'Hạt giống' },
-  { id: 'frame', label: 'Khung viền' },
-  { id: 'avatar', label: 'Hiệu ứng Avatar' },
-  { id: 'badge', label: 'Huy hiệu' },
+  { id: 'all', label: 'shp.catAll' },
+  { id: 'pet', label: 'shp.catPet' },
+  { id: 'seed', label: 'shp.catSeed' },
+  { id: 'frame', label: 'shp.catFrame' },
+  { id: 'background', label: 'shp.catBg' },
+  { id: 'avatar', label: 'shp.catFx' },
+  { id: 'badge', label: 'shp.catBadge' },
 ]
 
 function ItemArt({ item }: { item: ShopItem }) {
   if (item.category === 'pet') return <Pet art={item.art} size={92} mood="happy" />
   if (item.category === 'seed') return <Flower art={item.art} size={92} />
-  if (item.category === 'frame') return <Avatar size={92} frame={item.art} initials="V" />
+  if (item.category === 'frame')
+    return <span className="frame-tile"><Avatar size={92} frame={item.art} initials="V" /></span>
+  if (item.category === 'background')
+    return <span className="bg-preview"><video src={bgVideo(item.art) || ''} autoPlay loop muted playsInline /></span>
   if (item.category === 'avatar') return <span className={'fx-preview fx-' + item.art}><Avatar size={72} initials="V" /></span>
   return <span className={'badge-art badge-' + item.art}><Icon name={item.art === 'crown' ? 'crown' : 'star'} size={40} /></span>
 }
 
 export default function ShopPage() {
-  const { user, owned, buyItem, equipFrame, equipPet, setView, isAuthed } = useAppStore()
+  const { user, owned, buyItem, equipFrame, equipPet, equipBg, setView, isAuthed, t } = useAppStore()
   const { openAuth } = useAuth()
   const [items, setItems] = useState<ShopItem[]>([])
   const [cat, setCat] = useState<ShopCategory | 'all'>('pet')
@@ -54,7 +59,7 @@ export default function ShopPage() {
     setBusy(item.id)
     try {
       await buyItem(item.id)
-      showFlash(`Đã mua "${item.name}"!`)
+      showFlash(t('shp.bought', { name: item.name }))
     } catch (e) {
       showFlash((e as Error).message)
     } finally {
@@ -66,10 +71,14 @@ export default function ShopPage() {
     try { await equipFrame(equipped ? null : item.art) } catch (e) { showFlash((e as Error).message) }
   }
 
+  const onEquipBg = async (item: ShopItem, equipped: boolean) => {
+    try { await equipBg(equipped ? null : item.art) } catch (e) { showFlash((e as Error).message) }
+  }
+
   const onEquipPet = async (item: ShopItem, equipped: boolean) => {
     try {
       await equipPet(equipped ? null : item.art)
-      if (!equipped) showFlash(`${item.name} đang đồng hành cùng bạn!`)
+      if (!equipped) showFlash(t('shp.petWith', { name: item.name }))
     } catch (e) { showFlash((e as Error).message) }
   }
 
@@ -77,40 +86,41 @@ export default function ShopPage() {
     <div className="shop">
       <div className="shop-head">
         <div>
-          <h1 className="page-title"><Icon name="store" /> Cửa hàng</h1>
-          <p className="page-sub">Dùng xu kiếm từ nhiệm vụ học để mua hạt giống, khung viền & hiệu ứng.</p>
+          <h1 className="page-title"><Icon name="store" /> {t('shp.title')}</h1>
+          <p className="page-sub">{t('shp.sub')}</p>
         </div>
         <div className="coin-balance"><Icon name="coin" size={20} /> {user.coins.toLocaleString('vi')}</div>
       </div>
 
       {!isAuthed && (
         <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>
-          Đăng nhập để mua vật phẩm và lưu kho đồ của bạn.{' '}
-          <button className="link-more" onClick={openAuth}>Đăng nhập</button>
+          {t('shp.loginNote')}{' '}
+          <button className="link-more" onClick={openAuth}>{t('top.login')}</button>
         </div>
       )}
 
       <div className="shop-toptabs">
-        <button className={tab === 'shop' ? 'on' : ''} onClick={() => setTab('shop')}>Vật phẩm</button>
-        <button className={tab === 'inv' ? 'on' : ''} onClick={() => setTab('inv')}>Kho đồ ({owned.length})</button>
-        {!user.isPlus && <button className="plus-pill" onClick={() => setView('pricing')}><Icon name="sparkles" size={13} /> Nâng cấp Plus</button>}
+        <button className={tab === 'shop' ? 'on' : ''} onClick={() => setTab('shop')}>{t('shp.items')}</button>
+        <button className={tab === 'inv' ? 'on' : ''} onClick={() => setTab('inv')}>{t('shp.inv', { n: owned.length })}</button>
+        {!user.isPlus && <button className="plus-pill" onClick={() => setView('pricing')}><Icon name="sparkles" size={13} /> {t('side.upgrade')}</button>}
       </div>
 
       <div className="shop-cats">
         {CATS.map((c) => (
-          <button key={c.id} className={'shop-cat' + (cat === c.id ? ' on' : '')} onClick={() => setCat(c.id)}>{c.label}</button>
+          <button key={c.id} className={'shop-cat' + (cat === c.id ? ' on' : '')} onClick={() => setCat(c.id)}>{t(c.label)}</button>
         ))}
       </div>
 
       {flash && <div className="shop-flash">{flash}</div>}
 
       {view.length === 0 ? (
-        <div className="empty"><div className="big">🛍️</div>{tab === 'inv' ? 'Kho đồ trống — hãy mua vật phẩm đầu tiên!' : 'Không có vật phẩm.'}</div>
+        <div className="empty"><div className="big">🛍️</div>{tab === 'inv' ? t('shp.emptyInv') : t('shp.emptyShop')}</div>
       ) : (
         <div className="shop-grid">
           {view.map((item) => {
             const isOwned = owned.includes(item.id)
             const equipped = item.category === 'frame' && user.equippedFrame === item.art
+            const bgEquipped = item.category === 'background' && user.equippedBg === item.art
             const isPet = item.category === 'pet'
             const petEquipped = isPet && (user.equippedPet || 'shiba') === item.art
             const canEquipPet = isPet && (isOwned || item.art === 'shiba')
@@ -124,29 +134,33 @@ export default function ShopPage() {
                 <div className="item-desc">{item.desc}</div>
                 <div className="item-foot">
                   <span className="item-price">
-                    {isPet && item.price === 0 ? <span className="item-free">Miễn phí</span> : <><Icon name="coin" size={16} /> {item.price}</>}
+                    {isPet && item.price === 0 ? <span className="item-free">{t('shp.free')}</span> : <><Icon name="coin" size={16} /> {item.price}</>}
                   </span>
                   {isPet ? (
                     canEquipPet ? (
                       <button className={'item-btn ' + (petEquipped ? 'equipped' : 'equip')} onClick={() => onEquipPet(item, petEquipped)}>
-                        {petEquipped ? 'Đang nuôi ✓' : 'Chọn nuôi'}
+                        {petEquipped ? t('shp.petOn') : t('shp.petPick')}
                       </button>
                     ) : (
                       <button className="item-btn buy" disabled={busy === item.id} onClick={() => onBuy(item)}>
-                        {busy === item.id ? '…' : 'Mua'}
+                        {busy === item.id ? '…' : t('shp.buy')}
                       </button>
                     )
                   ) : isOwned ? (
                     item.category === 'frame' ? (
                       <button className={'item-btn ' + (equipped ? 'equipped' : 'equip')} onClick={() => onEquip(item, equipped)}>
-                        {equipped ? 'Đang dùng ✓' : 'Trang bị'}
+                        {equipped ? t('shp.using') : t('shp.equip')}
+                      </button>
+                    ) : item.category === 'background' ? (
+                      <button className={'item-btn ' + (bgEquipped ? 'equipped' : 'equip')} onClick={() => onEquipBg(item, bgEquipped)}>
+                        {bgEquipped ? t('shp.using') : t('shp.equip')}
                       </button>
                     ) : (
-                      <button className="item-btn owned" disabled>Đã sở hữu</button>
+                      <button className="item-btn owned" disabled>{t('shp.owned')}</button>
                     )
                   ) : (
                     <button className="item-btn buy" disabled={busy === item.id} onClick={() => onBuy(item)}>
-                      {busy === item.id ? '…' : 'Mua'}
+                      {busy === item.id ? '…' : t('shp.buy')}
                     </button>
                   )}
                 </div>
