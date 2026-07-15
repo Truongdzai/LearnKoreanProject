@@ -4,12 +4,15 @@ from fastapi import APIRouter, Depends
 
 from ..services import catalog, accounts, auth
 
-router = APIRouter(prefix="/api/content")
+router = APIRouter(prefix="/api/content", tags=["Catalog công khai"])
 
 
 @router.get("/videos")
-def api_videos():
-    return {"videos": catalog.videos()}
+def api_videos(lang: str = ""):
+    vids = catalog.videos()
+    if lang:
+        vids = [v for v in vids if v["lang"] == lang]
+    return {"videos": vids}
 
 
 @router.get("/quests")

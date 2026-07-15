@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -10,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from .config import settings, ROOT
 from .errors import AppError
 from . import db
-from .services import health, media, dictionary, catalog, accounts
+from .services import health, media, dictionary, catalog, accounts, backup
 from .routers import (
     learn,
     dict as dict_router,
@@ -32,7 +33,9 @@ async def lifespan(app: FastAPI):
     accounts.seed_admin()
     media.ensure_ffmpeg()
     dictionary.ensure_imported()
+    backup_task = asyncio.create_task(backup.backup_loop())
     yield
+    backup_task.cancel()
 
 app = FastAPI(title=settings["app"]["name"], lifespan=lifespan)
 
@@ -60,7 +63,7 @@ app.include_router(admin_router.router)
 app.include_router(lingo_router.router)
 app.include_router(feedback_router.router)
 
-@app.get("/api/health")
+@app.get("/api/health", tags=["Hệ thống"])
 def api_health():
     return JSONResponse(health.run_checks())
 

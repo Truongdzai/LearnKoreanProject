@@ -7,7 +7,7 @@ from ..schemas.speaking import SpeakIn
 from ..services import llm
 from ..services.langs import study_name, native_name
 
-router = APIRouter(prefix="/api/speaking")
+router = APIRouter(prefix="/api/speaking", tags=["Luyện nói"])
 
 
 def _system(lang: str, native: str) -> str:

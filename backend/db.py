@@ -67,11 +67,19 @@ CREATE TABLE IF NOT EXISTS users (
     equipped_bg    TEXT,
     goal           TEXT,
     status         TEXT NOT NULL DEFAULT 'active',
+    token_version  INTEGER NOT NULL DEFAULT 0,
     created_at     TEXT DEFAULT (datetime('now','localtime')),
     last_active    TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_users_xp ON users(xp);
+
+CREATE TABLE IF NOT EXISTS login_attempts (
+    key          TEXT PRIMARY KEY,
+    fails        INTEGER NOT NULL DEFAULT 0,
+    locked_until TEXT,
+    updated_at   TEXT
+);
 
 CREATE TABLE IF NOT EXISTS user_items (
     user_id    TEXT NOT NULL,
@@ -282,6 +290,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE users ADD COLUMN equipped_bg TEXT")
     if "goal" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN goal TEXT")
+    if "token_version" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0")
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
     if "lang" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")

@@ -4,7 +4,7 @@ from fastapi import APIRouter, Query
 
 from ..services import dictionary
 
-router = APIRouter(prefix="/api/define")
+router = APIRouter(prefix="/api/define", tags=["Từ điển"])
 
 @router.get("")
 def api_define(word: str = Query(..., min_length=1, max_length=40)):

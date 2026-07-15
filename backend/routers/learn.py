@@ -6,7 +6,7 @@ from ..errors import AppError
 from ..schemas.learn import TranscriptIn
 from ..services import youtube, translate, cache, jobs
 
-router = APIRouter(prefix="/api/transcript")
+router = APIRouter(prefix="/api/transcript", tags=["Bài học"])
 
 def _attach_speakers(lesson: dict) -> dict:
     spk = cache.get_speakers(lesson.get("id", ""))

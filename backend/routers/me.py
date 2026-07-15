@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from ..schemas.account import MeState
 from ..services import auth, accounts, gameplay
 
-router = APIRouter(prefix="/api/me")
+router = APIRouter(prefix="/api/me", tags=["Người dùng"])
 Auth = Depends(auth.get_current_user)
 
 

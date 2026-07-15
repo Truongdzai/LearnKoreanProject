@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 
 from ..services import lingo, diarize, voice_diarize, cache, jobs, auth, accounts
 
-router = APIRouter(prefix="/api")
+router = APIRouter(prefix="/api", tags=["Hot Lingo & người nói"])
 
 def _require_plus(user: dict | None) -> None:
     if not user or not (accounts.plus_active(user) or user.get("role") == "admin"):

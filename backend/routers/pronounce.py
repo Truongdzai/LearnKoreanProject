@@ -7,7 +7,7 @@ from ..schemas.pronounce import PronounceIn
 from ..services import llm
 from ..services.langs import study_name, native_name
 
-router = APIRouter(prefix="/api/pronounce")
+router = APIRouter(prefix="/api/pronounce", tags=["Phát âm"])
 
 
 def _system(lang: str, native: str) -> str:

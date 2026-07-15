@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 from ..services import auth, feedback
 
-router = APIRouter(prefix="/api/feedback")
+router = APIRouter(prefix="/api/feedback", tags=["Góp ý"])
 OptionalAuth = Depends(auth.get_optional_user)
 
 

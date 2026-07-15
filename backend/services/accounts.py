@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import re
 import secrets
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 from fastapi import HTTPException
 
+from ..errors import AppError
 from .. import db
 from ..config import settings
 from . import auth
@@ -14,29 +15,53 @@ WELCOME_COINS = 50
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
+LEGACY_ADMIN_PASSWORD = "Admin@123"
+
+
 def seed_admin() -> None:
     cfg = settings.get("admin", {})
     email = (cfg.get("email") or "").strip().lower()
     password = cfg.get("password") or ""
     name = cfg.get("name") or "Quản trị viên"
-    if not email or not password:
+    if not email:
         return
     conn = db.get_conn()
     try:
-        row = conn.execute("SELECT id, role FROM users WHERE email = ?", (email,)).fetchone()
-        pass_hash, salt = auth.hash_password(password)
+        row = conn.execute(
+            "SELECT id, role, pass_hash, pass_salt FROM users WHERE email = ?", (email,)
+        ).fetchone()
+        generated = ""
+        if not password:
+            # Config không đặt mật khẩu: chỉ can thiệp khi chưa có admin
+            # hoặc admin còn dùng mật khẩu mặc định cũ (lỗ hổng đã công bố).
+            if row and row["pass_hash"] and not auth.verify_password(
+                LEGACY_ADMIN_PASSWORD, row["pass_hash"], row["pass_salt"]
+            ):
+                return
+            password = generated = secrets.token_urlsafe(12)
         if row:
+            # Mật khẩu không đổi thì đừng ghi lại — tránh tăng token_version mỗi lần khởi động.
+            if row["pass_hash"] and auth.verify_password(password, row["pass_hash"], row["pass_salt"]):
+                if row["role"] != "admin":
+                    conn.execute("UPDATE users SET role = 'admin', status = 'active' WHERE id = ?", (row["id"],))
+                    conn.commit()
+                return
+            pass_hash, salt = auth.hash_password(password)
             conn.execute(
-                "UPDATE users SET role = 'admin', pass_hash = ?, pass_salt = ?, status = 'active' WHERE id = ?",
+                "UPDATE users SET role = 'admin', pass_hash = ?, pass_salt = ?, status = 'active', "
+                "token_version = token_version + 1 WHERE id = ?",
                 (pass_hash, salt, row["id"]),
             )
         else:
+            pass_hash, salt = auth.hash_password(password)
             conn.execute(
                 "INSERT INTO users (id, name, email, pass_hash, pass_salt, provider, role) "
                 "VALUES (?,?,?,?,?,?,?)",
                 (new_id(), name, email, pass_hash, salt, "email", "admin"),
             )
         conn.commit()
+        if generated:
+            print(f"[VyLing] Mật khẩu admin mới cho {email}: {generated} — lưu lại ngay, chỉ hiện 1 lần.")
     finally:
         conn.close()
 
@@ -109,17 +134,56 @@ def register(name: str, email: str, password: str) -> dict:
     return row
 
 
-def login(email: str, password: str) -> dict:
+LOGIN_MAX_FAILS = 10
+LOGIN_LOCK_MINUTES = 15
+
+
+def _rl_check(conn, key: str) -> None:
+    row = conn.execute("SELECT fails, locked_until, updated_at FROM login_attempts WHERE key = ?", (key,)).fetchone()
+    if not row:
+        return
+    now = datetime.now()
+    if row["locked_until"] and datetime.fromisoformat(row["locked_until"]) > now:
+        raise AppError(
+            "RATE_LIMITED",
+            f"Đăng nhập sai quá nhiều lần. Hãy thử lại sau {LOGIN_LOCK_MINUTES} phút.",
+            429,
+        )
+
+
+def _rl_fail(conn, key: str) -> None:
+    now = datetime.now()
+    row = conn.execute("SELECT fails, updated_at FROM login_attempts WHERE key = ?", (key,)).fetchone()
+    fails = 1
+    if row and row["updated_at"] and now - datetime.fromisoformat(row["updated_at"]) < timedelta(minutes=LOGIN_LOCK_MINUTES):
+        fails = row["fails"] + 1
+    locked = (now + timedelta(minutes=LOGIN_LOCK_MINUTES)).isoformat() if fails >= LOGIN_MAX_FAILS else None
+    conn.execute(
+        "INSERT INTO login_attempts (key, fails, locked_until, updated_at) VALUES (?,?,?,?) "
+        "ON CONFLICT(key) DO UPDATE SET fails = ?, locked_until = ?, updated_at = ?",
+        (key, 0 if locked else fails, locked, now.isoformat(), 0 if locked else fails, locked, now.isoformat()),
+    )
+    conn.commit()
+
+
+def _rl_clear(conn, key: str) -> None:
+    conn.execute("DELETE FROM login_attempts WHERE key = ?", (key,))
+    conn.commit()
+
+
+def login(email: str, password: str, ip: str = "") -> dict:
     email = (email or "").strip().lower()
+    rl_key = f"{email}|{ip}"
     conn = db.get_conn()
     try:
+        _rl_check(conn, rl_key)
         row = _by_email(conn, email)
-        if not row or not row["pass_hash"]:
-            raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không đúng.")
-        if not auth.verify_password(password, row["pass_hash"], row["pass_salt"]):
+        if not row or not row["pass_hash"] or not auth.verify_password(password, row["pass_hash"], row["pass_salt"]):
+            _rl_fail(conn, rl_key)
             raise HTTPException(status_code=401, detail="Email hoặc mật khẩu không đúng.")
         if row["status"] != "active":
-            raise HTTPException(status_code=403, detail="Tài khoản đã bị khoá.")
+            raise AppError("ACCOUNT_LOCKED", "Tài khoản đã bị khoá.", 403)
+        _rl_clear(conn, rl_key)
         row = dict(row)
     finally:
         conn.close()
@@ -487,6 +551,9 @@ def admin_update_user(user_id: str, fields: dict) -> dict:
             vals.append(int(v) if k in {"is_plus", "coins", "xp", "streak"} else v)
     if not sets:
         return reload(user_id)
+    # Khoá tài khoản = thu hồi ngay mọi token đang lưu hành.
+    if fields.get("status") and fields["status"] != "active":
+        sets.append("token_version = token_version + 1")
     vals.append(user_id)
     conn = db.get_conn()
     try:

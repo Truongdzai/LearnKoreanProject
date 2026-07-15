@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from ..schemas.account import AuthMeOut, ProvidersOut, SessionOut
 from ..services import accounts, auth, gameplay, oauth
 
-router = APIRouter(prefix="/api/auth")
+router = APIRouter(prefix="/api/auth", tags=["Tài khoản"])
 
 
 class RegisterIn(BaseModel):
@@ -23,7 +23,7 @@ class LoginIn(BaseModel):
 
 def _session(row: dict) -> dict:
     return {
-        "token": auth.make_token(row["id"], row["role"]),
+        "token": auth.make_token(row["id"], row["role"], row.get("token_version") or 0),
         "user": accounts.public_user(row),
     }
 
@@ -35,8 +35,9 @@ def api_register(body: RegisterIn):
 
 
 @router.post("/login", response_model=SessionOut)
-def api_login(body: LoginIn):
-    row = accounts.login(body.email, body.password)
+def api_login(body: LoginIn, request: Request):
+    ip = request.client.host if request.client else ""
+    row = accounts.login(body.email, body.password, ip)
     return _session(row)
 
 
@@ -80,7 +81,7 @@ def api_oauth_callback(provider: str, request: Request, code: str = "", state: s
     try:
         info = oauth.exchange(provider, code, _redirect_uri(request, provider))
         row = accounts.upsert_oauth_user(provider, info)
-        token = auth.make_token(row["id"], row["role"])
+        token = auth.make_token(row["id"], row["role"], row.get("token_version") or 0)
         return RedirectResponse(f"{origin}/#token={token}")
     except HTTPException as exc:
         return RedirectResponse(f"{origin}/#auth_error={exc.status_code}")

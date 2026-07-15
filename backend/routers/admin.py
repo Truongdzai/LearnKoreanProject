@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from .. import db
 from ..services import auth, accounts, catalog, feedback
 
-router = APIRouter(prefix="/api/admin")
+router = APIRouter(prefix="/api/admin", tags=["Quản trị"])
 Admin = Depends(auth.get_admin)
 
 

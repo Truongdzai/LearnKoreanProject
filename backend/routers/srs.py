@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 from ..services import srs, auth
 
-router = APIRouter(prefix="/api/srs")
+router = APIRouter(prefix="/api/srs", tags=["Ôn tập SRS"])
 
 
 def _uid(user: dict | None) -> str:
