@@ -50,10 +50,43 @@ export const LEVELS: { code: string; name: string; tag: string; tone: string }[]
   { code: 'C2', name: 'Proficient', tag: 'Thành thạo', tone: 'lv-f' },
 ]
 
+/**
+ * Mục tiêu onboarding ("Bạn học để làm gì?") → gợi ý sẵn các mục tiêu wizard,
+ * để lộ trình bám đúng đích thay vì học lan man.
+ */
+export const LEARN_GOAL_PRESETS: Record<string, string[]> = {
+  talk: ['Phát âm cơ bản', 'Từ vựng sơ cấp', 'Giao tiếp cơ bản'],
+  work: ['Từ vựng sơ cấp', 'Ngữ pháp cơ bản', 'Giao tiếp trung cấp'],
+  travel: ['Phát âm cơ bản', 'Từ vựng sơ cấp', 'Giao tiếp cơ bản'],
+  exam: ['Ngữ pháp cơ bản', 'Từ vựng sơ cấp', 'Luyện thi chứng chỉ'],
+}
+
+/** Giai đoạn trọng tâm theo mục tiêu — mũi nhọn của lộ trình, chống học lan man. */
+const LEARN_GOAL_FOCUS: Record<string, PathStep> = {
+  talk: {
+    title: 'Tập trung: hội thoại đời sống',
+    detail: 'Mỗi ngày shadowing 1 video hội thoại trong kho + luyện nói với AI theo tình huống thật (quán ăn, hỏi đường, kết bạn). Đúng mục tiêu Giao tiếp — bỏ qua ngữ pháp hàn lâm chưa cần.',
+  },
+  work: {
+    title: 'Tập trung: ngôn ngữ công việc',
+    detail: 'Ưu tiên từ vựng công sở, mẫu câu email/họp/báo cáo và hội thoại phỏng vấn. Học qua video chủ đề công việc trong kho — đúng thứ bạn dùng ở văn phòng.',
+  },
+  travel: {
+    title: 'Tập trung: cụm câu du lịch sinh tồn',
+    detail: 'Nắm chắc bộ câu đặt phòng, gọi món, hỏi đường, mặc cả, xử lý sự cố. Luyện phản xạ với video đường phố thật — đủ tự tin cho chuyến đi.',
+  },
+  exam: {
+    title: 'Tập trung: nền tảng luyện thi',
+    detail: 'Học từ vựng & ngữ pháp theo cấp độ đề thi, luyện nghe bằng video có phụ đề và ôn SRS đều đặn — nền chắc trước khi vào giai đoạn giải đề.',
+  },
+}
+
 /** Build a simple personalised study plan from the wizard choices. */
-export function buildSteps(goals: string[], interests: string[], level: string): PathStep[] {
+export function buildSteps(goals: string[], interests: string[], level: string, learnGoal = ''): PathStep[] {
   const steps: PathStep[] = []
   steps.push({ title: 'Khởi động & kiểm tra đầu vào', detail: `Đánh giá nhanh trình độ ${level} để chọn điểm xuất phát phù hợp.` })
+  const focus = LEARN_GOAL_FOCUS[learnGoal]
+  if (focus) steps.push(focus)
   goals.slice(0, 5).forEach((g, i) => {
     steps.push({ title: `Giai đoạn ${i + 1}: ${g}`, detail: `Học theo các bài & video phù hợp mục tiêu “${g}”.` })
   })

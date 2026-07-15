@@ -15,7 +15,7 @@ const EMPTY: Activities = {
 }
 
 export default function ActivitiesPage() {
-  const { user, savedVideos, garden, paths } = useAppStore()
+  const { user, savedVideos, garden, paths, t } = useAppStore()
   const { isAuthed, openAuth } = useAuth()
   const [data, setData] = useState<Activities>(EMPTY)
 
@@ -28,21 +28,21 @@ export default function ActivitiesPage() {
   const maxWords = Math.max(1, ...data.words)
 
   const stats = [
-    { ic: 'flame', label: 'Chuỗi ngày học', val: user.streak, unit: 'ngày', tone: 'fire' },
-    { ic: 'clock', label: 'Thời gian học tuần này', val: data.totalMinutes, unit: 'phút', tone: 'blue' },
-    { ic: 'cards', label: 'Từ mới tuần này', val: data.totalWords, unit: 'từ', tone: 'violet' },
-    { ic: 'star', label: 'Tổng XP', val: user.xp.toLocaleString('vi'), unit: 'XP', tone: 'gold' },
+    { ic: 'flame', label: t('act.streak'), val: user.streak, unit: t('act.unitDays'), tone: 'fire' },
+    { ic: 'clock', label: t('act.weekTime'), val: data.totalMinutes, unit: t('act.unitMins'), tone: 'blue' },
+    { ic: 'cards', label: t('act.weekWords'), val: data.totalWords, unit: t('act.unitWords'), tone: 'violet' },
+    { ic: 'star', label: t('act.totalXp'), val: user.xp.toLocaleString('vi'), unit: 'XP', tone: 'gold' },
   ] as const
 
   return (
     <div className="activities">
-      <h1 className="page-title"><Icon name="chart" /> Hoạt động của tôi</h1>
-      <p className="page-sub">Theo dõi tiến độ học để giữ động lực — bạn đang làm rất tốt!</p>
+      <h1 className="page-title"><Icon name="chart" /> {t('act.title')}</h1>
+      <p className="page-sub">{t('act.sub')}</p>
 
       {!isAuthed && (
         <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>
-          Đăng nhập để xem thống kê học tập thật của bạn.{' '}
-          <button className="link-more" onClick={openAuth}>Đăng nhập</button>
+          {t('act.loginNote')}{' '}
+          <button className="link-more" onClick={openAuth}>{t('top.login')}</button>
         </div>
       )}
 
@@ -60,7 +60,7 @@ export default function ActivitiesPage() {
 
       <div className="act-charts">
         <div className="act-card">
-          <div className="act-card-head"><b>Thời gian học 7 ngày</b><span>{data.totalMinutes} phút</span></div>
+          <div className="act-card-head"><b>{t('act.chartTime')}</b><span>{t('act.minsTotal', { n: data.totalMinutes })}</span></div>
           <div className="bars">
             {data.minutes.map((m, i) => (
               <div key={i} className={'bar-col' + (i === data.todayIdx ? ' today' : '')}>
@@ -74,7 +74,7 @@ export default function ActivitiesPage() {
         </div>
 
         <div className="act-card">
-          <div className="act-card-head"><b>Từ mới mỗi ngày</b><span>{data.totalWords} từ</span></div>
+          <div className="act-card-head"><b>{t('act.chartWords')}</b><span>{t('act.wordsTotal', { n: data.totalWords })}</span></div>
           <div className="bars">
             {data.words.map((w, i) => (
               <div key={i} className={'bar-col' + (i === data.todayIdx ? ' today' : '')}>
@@ -88,13 +88,13 @@ export default function ActivitiesPage() {
         </div>
       </div>
 
-      <div className="section-title"><span className="pin" /> Tổng quan tài khoản</div>
+      <div className="section-title"><span className="pin" /> {t('act.overview')}</div>
       <div className="act-summary">
-        <div className="as-item"><Icon name="rocket" size={18} /><b>Cấp {user.level}</b><span>Trình độ hiện tại</span></div>
-        <div className="as-item"><Icon name="cards" size={18} /><b>{data.srsTotal}</b><span>Thẻ từ vựng</span></div>
-        <div className="as-item"><Icon name="tv" size={18} /><b>{savedVideos.length}</b><span>Video đã lưu</span></div>
-        <div className="as-item"><Icon name="map" size={18} /><b>{paths.length}</b><span>Lộ trình đang học</span></div>
-        <div className="as-item"><Icon name="sprout" size={18} /><b>{garden.length}</b><span>Cây trong vườn</span></div>
+        <div className="as-item"><Icon name="rocket" size={18} /><b>{t('act.level', { n: user.level })}</b><span>{t('act.levelSub')}</span></div>
+        <div className="as-item"><Icon name="cards" size={18} /><b>{data.srsTotal}</b><span>{t('act.cards')}</span></div>
+        <div className="as-item"><Icon name="tv" size={18} /><b>{savedVideos.length}</b><span>{t('act.videos')}</span></div>
+        <div className="as-item"><Icon name="map" size={18} /><b>{paths.length}</b><span>{t('act.paths')}</span></div>
+        <div className="as-item"><Icon name="sprout" size={18} /><b>{garden.length}</b><span>{t('act.plants')}</span></div>
       </div>
     </div>
   )

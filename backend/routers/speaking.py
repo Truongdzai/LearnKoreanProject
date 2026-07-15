@@ -1,27 +1,18 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 
+from ..errors import AppError
 from ..schemas.speaking import SpeakIn
 from ..services import llm
+from ..services.langs import study_name, native_name
 
-router = APIRouter()
-
-_LANG_NAMES = {
-    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
-    "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt",
-}
-_NATIVE_NAMES = {
-    "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
-    "ko": "tiếng Hàn", "id": "tiếng Indonesia", "es": "tiếng Tây Ban Nha",
-    "fr": "tiếng Pháp", "de": "tiếng Đức", "ru": "tiếng Nga", "it": "tiếng Ý",
-    "pt": "tiếng Bồ Đào Nha",
-}
+router = APIRouter(prefix="/api/speaking", tags=["Luyện nói"])
 
 
 def _system(lang: str, native: str) -> str:
-    lname = _LANG_NAMES.get(lang, "tiếng Hàn")
-    nname = _NATIVE_NAMES.get(native, "tiếng Việt")
+    lname = study_name(lang)
+    nname = native_name(native)
     return (
         f"Bạn là bạn đồng hành luyện hội thoại {lname} cho người mới học (giải thích bằng {nname}). "
         f"Bạn nhập vai một nhân vật trong tình huống được mô tả và trò chuyện thật TỰ NHIÊN bằng {lname}.\n"
@@ -65,9 +56,9 @@ def _history_text(turns) -> str:
     return "\n".join(lines)
 
 
-@router.post("/api/speaking/reply")
+@router.post("/reply")
 def api_speaking_reply(body: SpeakIn):
-    lname = _LANG_NAMES.get(body.lang, "tiếng Hàn")
+    lname = study_name(body.lang)
     prompt = (
         f"TÌNH HUỐNG: {body.situation or '(không rõ)'}\n"
         f"VAI CỦA BẠN: {body.persona or 'một người bản xứ thân thiện'}\n"
@@ -80,7 +71,7 @@ def api_speaking_reply(body: SpeakIn):
     try:
         data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native), temperature=0.7)
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"AI không phản hồi: {exc}")
+        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
     return {
         "reply_ko": data.get("reply_ko", ""),
         "reply_vi": data.get("reply_vi", ""),

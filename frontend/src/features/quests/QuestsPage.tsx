@@ -6,11 +6,11 @@ import type { Quest, QuestPeriod } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
-const PERIOD_LABEL: Record<QuestPeriod, string> = { daily: 'Hằng ngày', weekly: 'Hằng tuần', monthly: 'Hằng tháng' }
+const PERIOD_KEY: Record<QuestPeriod, string> = { daily: 'q.daily', weekly: 'q.weekly', monthly: 'q.monthly' }
 const DAILY_BONUS = 50
 
 export default function QuestsPage() {
-  const { user, setView, claimQuest, dailyBonus } = useAppStore()
+  const { user, setView, claimQuest, dailyBonus, t } = useAppStore()
   const { isAuthed, openAuth, bonusAvailable } = useAuth()
 
   const [quests, setQuests] = useState<Quest[]>([])
@@ -31,7 +31,7 @@ export default function QuestsPage() {
     setBusy(id)
     try {
       await claimQuest(id)
-      showFlash('Đã nhận thưởng! 🎉')
+      showFlash(t('q.claimed'))
       load()
     } catch (e) {
       showFlash((e as Error).message)
@@ -45,7 +45,7 @@ export default function QuestsPage() {
     setBusy('bonus')
     try {
       const reward = await dailyBonus()
-      showFlash(`Đã nhận +${reward} xu thưởng đăng nhập! 🎁`)
+      showFlash(t('q.bonusGot', { n: reward }))
     } catch (e) {
       showFlash((e as Error).message)
     } finally {
@@ -56,8 +56,8 @@ export default function QuestsPage() {
   return (
     <div className="quests">
       <div className="quests-head">
-        <h1><Icon name="crown" /> Nhiệm Vụ Plus <Icon name="sparkles" /></h1>
-        <p>Hoàn thành nhiệm vụ để nhận xu, dùng mua hạt giống & khung viền trong cửa hàng.</p>
+        <h1><Icon name="crown" /> {t('q.title')} <Icon name="sparkles" /></h1>
+        <p>{t('q.sub')}</p>
       </div>
 
       {flash && <div className="shop-flash">{flash}</div>}
@@ -68,10 +68,10 @@ export default function QuestsPage() {
         disabled={busy === 'bonus' || (isAuthed && !bonusAvailable)}
       >
         <span className="db-left">
-          <Icon name="gift" size={22} /> Phần thưởng đăng nhập hằng ngày
+          <Icon name="gift" size={22} /> {t('q.dailyBonus')}
         </span>
         <span className="db-reward">
-          {isAuthed && !bonusAvailable ? 'Đã nhận ✓' : <>+{DAILY_BONUS} <Icon name="coin" size={16} /></>}
+          {isAuthed && !bonusAvailable ? t('q.taken') : <>+{DAILY_BONUS} <Icon name="coin" size={16} /></>}
         </span>
       </button>
 
@@ -80,7 +80,7 @@ export default function QuestsPage() {
         if (!list.length) return null
         return (
           <div key={period}>
-            <div className="section-title"><span className="pin" /> {PERIOD_LABEL[period]}</div>
+            <div className="section-title"><span className="pin" /> {t(PERIOD_KEY[period])}</div>
             <div className="quest-grid">
               {list.map((q) => {
                 const progress = q.progress ?? 0
@@ -91,14 +91,14 @@ export default function QuestsPage() {
                 return (
                   <div key={q.id} className={'quest-card' + (q.plus ? ' is-plus' : '')}>
                     <div className="quest-top">
-                      <span className="quest-period">{PERIOD_LABEL[q.period]}</span>
+                      <span className="quest-period">{t(PERIOD_KEY[q.period])}</span>
                       {q.plus && <span className="quest-plus"><Icon name="sparkles" size={11} /> PLUS</span>}
                     </div>
                     <div className="quest-title">{q.title}</div>
                     <div className="quest-desc">{q.desc}</div>
 
                     <div className="quest-prog-row">
-                      <span>Tiến trình</span>
+                      <span>{t('q.progress')}</span>
                       <b>{progress}/{q.target}</b>
                     </div>
                     <div className="quest-bar"><span style={{ width: pct + '%' }} /></div>
@@ -106,15 +106,15 @@ export default function QuestsPage() {
                     <div className="quest-foot">
                       <span className="quest-reward"><Icon name="coin" size={16} /> {q.reward}</span>
                       {locked ? (
-                        <button className="quest-btn locked" onClick={() => setView('pricing')}><Icon name="lock" size={13} /> Mở bằng Plus</button>
+                        <button className="quest-btn locked" onClick={() => setView('pricing')}><Icon name="lock" size={13} /> {t('q.unlockPlus')}</button>
                       ) : isClaimed ? (
-                        <button className="quest-btn done" disabled>Đã nhận ✓</button>
+                        <button className="quest-btn done" disabled>{t('q.taken')}</button>
                       ) : done ? (
                         <button className="quest-btn claim" disabled={busy === q.id} onClick={() => claim(q.id)}>
-                          {busy === q.id ? '…' : 'Nhận thưởng'}
+                          {busy === q.id ? '…' : t('q.claim')}
                         </button>
                       ) : (
-                        <button className="quest-btn" disabled>Đang thực hiện</button>
+                        <button className="quest-btn" disabled>{t('q.doing')}</button>
                       )}
                     </div>
                   </div>

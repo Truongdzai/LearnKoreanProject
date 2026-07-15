@@ -1,15 +1,17 @@
 from __future__ import annotations
 
+import asyncio
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import settings, ROOT
+from .errors import AppError
 from . import db
-from .services import health, media, dictionary, catalog, accounts
+from .services import health, media, dictionary, catalog, accounts, backup
 from .routers import (
     learn,
     dict as dict_router,
@@ -21,6 +23,7 @@ from .routers import (
     content as content_router,
     admin as admin_router,
     lingo as lingo_router,
+    feedback as feedback_router,
 )
 
 @asynccontextmanager
@@ -30,7 +33,9 @@ async def lifespan(app: FastAPI):
     accounts.seed_admin()
     media.ensure_ffmpeg()
     dictionary.ensure_imported()
+    backup_task = asyncio.create_task(backup.backup_loop())
     yield
+    backup_task.cancel()
 
 app = FastAPI(title=settings["app"]["name"], lifespan=lifespan)
 
@@ -42,6 +47,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.exception_handler(AppError)
+async def app_error_handler(_request: Request, exc: AppError):
+    return JSONResponse(status_code=exc.status, content={"detail": exc.detail, "code": exc.code})
+
 app.include_router(learn.router)
 app.include_router(dict_router.router)
 app.include_router(srs_router.router)
@@ -52,8 +61,9 @@ app.include_router(me_router.router)
 app.include_router(content_router.router)
 app.include_router(admin_router.router)
 app.include_router(lingo_router.router)
+app.include_router(feedback_router.router)
 
-@app.get("/api/health")
+@app.get("/api/health", tags=["Hệ thống"])
 def api_health():
     return JSONResponse(health.run_checks())
 

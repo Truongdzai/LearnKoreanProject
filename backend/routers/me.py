@@ -3,9 +3,10 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
+from ..schemas.account import MeState
 from ..services import auth, accounts, gameplay
 
-router = APIRouter(prefix="/api/me")
+router = APIRouter(prefix="/api/me", tags=["Người dùng"])
 Auth = Depends(auth.get_current_user)
 
 
@@ -19,6 +20,14 @@ class EquipIn(BaseModel):
 
 class EquipPetIn(BaseModel):
     pet: str | None = None
+
+
+class EquipBgIn(BaseModel):
+    bg: str | None = None
+
+
+class AvatarIn(BaseModel):
+    avatar: str | None = None
 
 
 class PlantIn(BaseModel):
@@ -65,7 +74,15 @@ class EventIn(BaseModel):
     words: int = 0
 
 
-@router.get("/state")
+class GoalIn(BaseModel):
+    goal: str | None = None
+
+
+class GoalBonusIn(BaseModel):
+    goal: int
+
+
+@router.get("/state", response_model=MeState)
 def api_state(user: dict = Auth):
     return gameplay.state(user)
 
@@ -93,6 +110,16 @@ def api_equip(body: EquipIn, user: dict = Auth):
 @router.post("/equip-pet")
 def api_equip_pet(body: EquipPetIn, user: dict = Auth):
     return {"ok": True, "user": accounts.public_user(accounts.equip_pet(user["id"], body.pet))}
+
+
+@router.post("/equip-bg")
+def api_equip_bg(body: EquipBgIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.equip_bg(user["id"], body.bg))}
+
+
+@router.post("/avatar")
+def api_avatar(body: AvatarIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.set_avatar(user["id"], body.avatar))}
 
 
 @router.post("/plus")
@@ -150,3 +177,13 @@ def api_gift_ack(user: dict = Auth):
 @router.post("/event")
 def api_event(body: EventIn, user: dict = Auth):
     return gameplay.record_event(user, body.type, body.amount, body.minutes, body.words)
+
+
+@router.post("/goal")
+def api_goal(body: GoalIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.set_goal(user["id"], body.goal))}
+
+
+@router.post("/goal-bonus")
+def api_goal_bonus(body: GoalBonusIn, user: dict = Auth):
+    return gameplay.goal_bonus(user, body.goal)

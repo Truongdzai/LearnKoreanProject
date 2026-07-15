@@ -14,9 +14,12 @@ export function setToken(token: string | null) {
 
 export class ApiError extends Error {
   status: number
-  constructor(message: string, status: number) {
+  /** Mã lỗi máy đọc được từ backend (API.md §2); thiếu thì là 'UNKNOWN'. */
+  code: string
+  constructor(message: string, status: number, code = 'UNKNOWN') {
     super(message)
     this.status = status
+    this.code = code
   }
 }
 
@@ -33,8 +36,8 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   }
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
-    const detail = (data as { detail?: string }).detail
-    throw new ApiError(detail || 'Đã có lỗi xảy ra, hãy thử lại.', res.status)
+    const { detail, code } = data as { detail?: string; code?: string }
+    throw new ApiError(detail || 'Đã có lỗi xảy ra, hãy thử lại.', res.status, code || 'UNKNOWN')
   }
   return data as T
 }

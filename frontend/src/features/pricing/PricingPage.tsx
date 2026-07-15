@@ -25,7 +25,7 @@ const DEFAULT_PERKS = [
 ]
 
 export default function PricingPage() {
-  const { user, upgradePlus } = useAppStore()
+  const { user, upgradePlus, t } = useAppStore()
   const { isAuthed, openAuth } = useAuth()
   const [busy, setBusy] = useState(false)
   const [flash, setFlash] = useState('')
@@ -45,11 +45,11 @@ export default function PricingPage() {
 
   const choose = async (planId: string) => {
     if (!isAuthed) { openAuth(); return }
-    if (isLifetime) { setFlash('Bạn đang là thành viên Plus vĩnh viễn 🎉'); return }
+    if (isLifetime) { setFlash(t('pr.alreadyLifetime')); return }
     setBusy(true)
     try {
       await upgradePlus(planId)
-      setFlash(user.isPlus ? 'Đã gia hạn gói Plus của bạn 🎉' : 'Chúc mừng! Tài khoản của bạn đã được nâng cấp Plus 🎉')
+      setFlash(user.isPlus ? t('pr.renewed') : t('pr.upgraded'))
     } catch (e) {
       setFlash((e as Error).message)
     } finally {
@@ -60,13 +60,13 @@ export default function PricingPage() {
   return (
     <div className="pricing">
       <div className="pricing-head">
-        <span className="promo-pill"><Icon name="sparkles" size={15} /> Ưu đãi ra mắt — chỉ áp dụng lần đầu tiên</span>
-        <h1>Nâng cấp Premium</h1>
-        <p>Mở khoá toàn bộ kho video, luyện phát âm với AI và học mọi ngôn ngữ — trên mọi thiết bị.</p>
+        <span className="promo-pill"><Icon name="sparkles" size={15} /> {t('pr.promo')}</span>
+        <h1>{t('pr.title')}</h1>
+        <p>{t('pr.sub')}</p>
         {user.isPlus && (
           <div className="plus-active">
             <Icon name="check-circle" size={16} />
-            {isLifetime ? ' Bạn đang là thành viên Plus trọn đời' : ` Thành viên Plus — còn hiệu lực đến ${formatDate(user.plusUntil)}`}
+            {' '}{isLifetime ? t('pr.lifetimeActive') : t('pr.activeUntil', { date: formatDate(user.plusUntil) })}
           </div>
         )}
       </div>
@@ -76,7 +76,7 @@ export default function PricingPage() {
       <div className="plan-grid">
         {plans.map((p) => (
           <div key={p.id} className={'plan' + (p.featured ? ' featured' : '')}>
-            {p.featured && <div className="plan-flag">Đáng giá nhất</div>}
+            {p.featured && <div className="plan-flag">{t('pr.best')}</div>}
             <div className="plan-name">{p.name}</div>
             <div className="plan-tag">{p.tagline}</div>
             <div className="plan-price">
@@ -88,14 +88,14 @@ export default function PricingPage() {
             </div>
             <div className="plan-note">{p.note}</div>
             <button className={'plan-cta' + (p.featured ? ' primary' : '')} disabled={busy || isLifetime} onClick={() => choose(p.id)}>
-              {isLifetime ? 'Đang dùng Plus ✓' : busy ? 'Đang xử lý…' : user.isPlus ? 'Gia hạn gói này' : p.cta}
+              {isLifetime ? t('pr.usingPlus') : busy ? t('pr.processing') : user.isPlus ? t('pr.renew') : p.cta}
             </button>
           </div>
         ))}
       </div>
 
       <div className="perks">
-        <div className="perks-title"><Icon name="rocket" size={18} /> Đặc quyền gói Premium</div>
+        <div className="perks-title"><Icon name="rocket" size={18} /> {t('pr.perksTitle')}</div>
         <ul className="perks-list">
           {perks.map((perk) => (
             <li key={perk}><Icon name="check-circle" size={17} /> {perk}</li>

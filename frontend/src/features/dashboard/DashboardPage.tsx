@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { fetchHealth } from '@/core/api/health.api'
 import Icon from '@/core/components/Icon'
 import type { HealthCheck } from '@/models/health.model'
+import { useAppStore } from '@/store/app.store'
 
 export default function DashboardPage() {
+  const { t } = useAppStore()
   const [checks, setChecks] = useState<HealthCheck[] | null>(null)
   const [err, setErr] = useState('')
 
@@ -14,27 +16,27 @@ export default function DashboardPage() {
   }, [])
 
   if (err) return <p className="status err"><Icon name="x-circle" /> {err}</p>
-  if (!checks) return <p className="muted">Đang kiểm tra…</p>
+  if (!checks) return <p className="muted">{t('dash.checking')}</p>
 
   const ready = checks.every((c) => c.ok || c.optional)
 
   return (
     <>
-      <h1 className="page-title">Trạng thái hệ thống</h1>
-      <p className="page-sub">Kiểm tra các thành phần chạy nền của VyLing.</p>
+      <h1 className="page-title">{t('dash.title')}</h1>
+      <p className="page-sub">{t('dash.sub')}</p>
 
       <section className={'dash-banner ' + (ready ? 'ok' : 'warn')}>
-        <h1>{ready ? <>Mọi thứ đã sẵn sàng <Icon name="party" /></> : 'Đang hoàn tất thiết lập…'}</h1>
+        <h1>{ready ? <>{t('dash.ready')} <Icon name="party" /></> : t('dash.notReady')}</h1>
         <p>
           {ready ? (
-            'Nền tảng chạy ổn. Sang “Trang chủ” để bắt đầu học.'
+            t('dash.readyText')
           ) : (
-            <>Hãy xử lý các mục còn <Icon name="x-circle" size={15} /> bên dưới.</>
+            <>{t('dash.fixBelow')} <Icon name="x-circle" size={15} /></>
           )}
         </p>
       </section>
 
-      <div className="section-title"><span className="pin" /> Chi tiết</div>
+      <div className="section-title"><span className="pin" /> {t('dash.detail')}</div>
       <div className="grid">
         {checks.map((c, i) => (
           <div key={i} className={'card ' + (c.ok ? 'good' : c.optional ? 'pending' : 'bad')}>

@@ -16,7 +16,7 @@ export const FLAGS: Record<string, FlagInfo> = {
 
 const CC_BY_KEY: Record<string, string> = {
   ko: 'kr', kr: 'kr', en: 'us', us: 'us', ja: 'jp', jp: 'jp',
-  zh: 'cn', cn: 'cn', de: 'de',
+  zh: 'cn', cn: 'cn', de: 'de', vi: 'vn', vn: 'vn',
 }
 
 export default function Flag({ code, size = 22, className = '' }: { code: string; size?: number; className?: string }) {

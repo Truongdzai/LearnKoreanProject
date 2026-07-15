@@ -1,6 +1,7 @@
 import Icon, { type IconName } from '@/core/components/Icon'
-import { PLAN_12_WEEKS, TARGET_WORDS, ALL_WORDS } from '@/data/englishCore'
-import { useLearnedWords } from '../progress'
+import { TARGET_WORDS, ALL_WORDS } from '@/data/englishCore'
+import { useLearnedWords, readPlan, planDay } from '../progress'
+import RoadmapWeeks from './RoadmapWeeks'
 
 const THREE_C: { k: string; vi: string; icon: IconName; tone: string; desc: string }[] = [
   { k: 'Compress', vi: 'Nén', icon: 'target', tone: 'tone-a', desc: 'Không học tràn lan. Chỉ giữ lại từ tần suất cao — dùng tới đâu học tới đó. 3000 từ lõi đủ hiểu ~90% hội thoại hằng ngày.' },
@@ -15,9 +16,16 @@ const ICES = [
   { k: 'S', label: 'Sound', desc: 'Nghe và nhại lại đúng phát âm, đúng trọng âm.' },
 ]
 
-export default function ProgramOverview({ onStart }: { onStart: () => void }) {
+interface Props {
+  onStart: () => void
+  onLearn: (unitId: string) => void
+  onQuiz: (week: number, units: string[], pass: number) => void
+  onSummary: () => void
+}
+
+export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }: Props) {
   const { learned } = useLearnedWords()
-  const monthColors = ['m1', 'm2', 'm3'] as const
+  const day = Math.min(planDay(readPlan().start), 90)
 
   return (
     <div className="en-overview">
@@ -26,12 +34,16 @@ export default function ProgramOverview({ onStart }: { onStart: () => void }) {
         <h1>Học giỏi Tiếng Anh trong 3 tháng</h1>
         <p>Đi theo <b>Quy tắc 3C</b> và phương pháp <b>ICES</b>: học đúng từ cần học, nhớ bằng hình ảnh – liên tưởng – trải nghiệm – âm thanh, rồi củng cố bằng lặp lại ngắt quãng.</p>
         <div className="en-hero-stats">
+          {day > 0 && <div><b>{day}</b><span>ngày đã đi / 90</span></div>}
           <div><b>{ALL_WORDS.length}</b><span>từ lõi sẵn sàng</span></div>
           <div><b>{learned.size}</b><span>từ bạn đã thuộc</span></div>
           <div><b>{TARGET_WORDS.toLocaleString('vi-VN')}</b><span>mục tiêu (hiểu ~90%)</span></div>
         </div>
         <button className="btn-primary lg" onClick={onStart}><Icon name="play" size={16} /> Bắt đầu học từ vựng</button>
       </div>
+
+      <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
+      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>
       <div className="threec-grid">
@@ -58,20 +70,6 @@ export default function ProgramOverview({ onStart }: { onStart: () => void }) {
           <div key={x.k} className="ices-box">
             <b>{x.k}</b>
             <div><h4>{x.label}</h4><p>{x.desc}</p></div>
-          </div>
-        ))}
-      </div>
-
-      <div className="section-title"><span className="pin" /> Lộ trình 12 tuần</div>
-      <div className="weeks-grid">
-        {PLAN_12_WEEKS.map((w) => (
-          <div key={w.week} className={'week-card ' + monthColors[w.month - 1]}>
-            <div className="week-head">
-              <span className="week-num">Tuần {w.week}</span>
-              <span className="week-phase">{w.phase}</span>
-            </div>
-            <b>{w.title}</b>
-            <p>{w.focus}</p>
           </div>
         ))}
       </div>

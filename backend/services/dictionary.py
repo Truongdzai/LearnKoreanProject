@@ -9,26 +9,9 @@ from pathlib import Path
 from ..config import ROOT, settings
 from .. import db
 from . import llm
+from .langs import study_name as _lang_name, native_name as _native_name
 
 DICT_ZIP = ROOT / "dictionaries" / "KO-VI.KRDICT.zip"
-
-# Readable Vietnamese names so AI prompts read naturally for every language pair.
-_LANG_NAMES = {
-    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
-    "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt",
-}
-_NATIVE_NAMES = {
-    "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
-    "ko": "tiếng Hàn", "id": "tiếng Indonesia", "es": "tiếng Tây Ban Nha",
-    "fr": "tiếng Pháp", "de": "tiếng Đức", "ru": "tiếng Nga", "it": "tiếng Ý",
-    "pt": "tiếng Bồ Đào Nha",
-}
-
-def _lang_name(code: str) -> str:
-    return _LANG_NAMES.get(code, "tiếng Hàn")
-
-def _native_name(code: str) -> str:
-    return _NATIVE_NAMES.get(code, "tiếng Việt")
 
 _HANJA_RE = re.compile(r"〔(.+?)〕")
 _WS_RE = re.compile(r"\s+")

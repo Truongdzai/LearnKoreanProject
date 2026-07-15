@@ -6,6 +6,7 @@ from datetime import date, datetime, timedelta
 
 from fastapi import HTTPException
 
+from ..errors import AppError
 from .. import db
 from . import accounts, catalog
 
@@ -87,19 +88,33 @@ def state(user: dict) -> dict:
         "garden": garden(user["id"]),
         "paths": paths(user["id"]),
         "savedVideos": saved_videos(user["id"]),
+        "todayXp": today_xp(user["id"]),
+        "goalBonusClaimed": goal_bonus_claimed(user["id"]),
     }
+
+
+def today_xp(user_id: str) -> int:
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT xp FROM activity_log WHERE user_id = ? AND day = ?",
+            (user_id, date.today().isoformat()),
+        ).fetchone()
+    finally:
+        conn.close()
+    return row["xp"] if row else 0
 
 
 def buy(user: dict, item_id: str) -> dict:
     item = catalog.shop_item(item_id)
     if not item:
-        raise HTTPException(status_code=404, detail="Vật phẩm không tồn tại.")
+        raise AppError("NOT_FOUND", "Vật phẩm không tồn tại.", 404)
     if item["plus"] and not user["is_plus"]:
-        raise HTTPException(status_code=403, detail="Vật phẩm này chỉ dành cho thành viên Plus.")
+        raise AppError("PLUS_REQUIRED", "Vật phẩm này chỉ dành cho thành viên Plus.", 403)
     if item_id in owned(user["id"]):
         raise HTTPException(status_code=400, detail="Bạn đã sở hữu vật phẩm này.")
     if not accounts.spend_coins(user["id"], item["price"]):
-        raise HTTPException(status_code=400, detail="Không đủ xu — hãy hoàn thành nhiệm vụ để kiếm thêm.")
+        raise AppError("INSUFFICIENT_COINS", "Không đủ xu — hãy hoàn thành nhiệm vụ để kiếm thêm.")
     conn = db.get_conn()
     try:
         conn.execute("INSERT OR IGNORE INTO user_items (user_id, item_id) VALUES (?,?)", (user["id"], item_id))
@@ -233,16 +248,16 @@ def quests_for(user: dict) -> list[dict]:
 def claim_quest(user: dict, quest_id: str) -> dict:
     quest = next((q for q in catalog.quests() if q["id"] == quest_id), None)
     if not quest:
-        raise HTTPException(status_code=404, detail="Nhiệm vụ không tồn tại.")
+        raise AppError("NOT_FOUND", "Nhiệm vụ không tồn tại.", 404)
     if quest["plus"] and not user["is_plus"]:
-        raise HTTPException(status_code=403, detail="Nhiệm vụ này chỉ dành cho thành viên Plus.")
+        raise AppError("PLUS_REQUIRED", "Nhiệm vụ này chỉ dành cho thành viên Plus.", 403)
     conn = db.get_conn()
     try:
         progress = _progress_for(conn, user["id"], quest)
         if progress < quest["target"]:
             raise HTTPException(status_code=400, detail="Bạn chưa hoàn thành nhiệm vụ này.")
         if _claimed(conn, user["id"], quest):
-            raise HTTPException(status_code=400, detail="Bạn đã nhận thưởng nhiệm vụ này rồi.")
+            raise AppError("ALREADY_CLAIMED", "Bạn đã nhận thưởng nhiệm vụ này rồi.", 409)
         pk = period_key(quest["period"])
         conn.execute(
             "INSERT INTO quest_progress (user_id, quest_id, period_key, progress, claimed) "
@@ -266,7 +281,7 @@ def daily_bonus(user: dict) -> dict:
             (user["id"], DAILY_BONUS_ID, today),
         ).fetchone()
         if row and row["claimed"]:
-            raise HTTPException(status_code=400, detail="Hôm nay bạn đã nhận thưởng đăng nhập rồi.")
+            raise AppError("ALREADY_CLAIMED", "Hôm nay bạn đã nhận thưởng đăng nhập rồi.", 409)
         conn.execute(
             "INSERT INTO quest_progress (user_id, quest_id, period_key, progress, claimed) "
             "VALUES (?,?,?,1,1) ON CONFLICT(user_id, quest_id, period_key) DO UPDATE SET claimed = 1",
@@ -290,6 +305,47 @@ def bonus_available(user_id: str) -> bool:
     finally:
         conn.close()
     return not (row and row["claimed"])
+
+
+# Rương thưởng khi đạt mục tiêu XP hằng ngày — phần thưởng tỉ lệ với mức đã chọn.
+GOAL_BONUS_ID = "sys-goal-bonus"
+GOAL_LEVELS = {30, 50, 100, 200}
+
+
+def goal_bonus_claimed(user_id: str) -> bool:
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT claimed FROM quest_progress WHERE user_id = ? AND quest_id = ? AND period_key = ?",
+            (user_id, GOAL_BONUS_ID, today),
+        ).fetchone()
+    finally:
+        conn.close()
+    return bool(row and row["claimed"])
+
+
+def goal_bonus(user: dict, goal: int) -> dict:
+    if goal not in GOAL_LEVELS:
+        raise HTTPException(status_code=400, detail="Mức mục tiêu không hợp lệ.")
+    if today_xp(user["id"]) < goal:
+        raise HTTPException(status_code=400, detail="Bạn chưa đạt mục tiêu hôm nay — cố thêm chút nữa nhé!")
+    if goal_bonus_claimed(user["id"]):
+        raise AppError("ALREADY_CLAIMED", "Hôm nay bạn đã nhận thưởng mục tiêu rồi. Hẹn mai nhé!", 409)
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "INSERT INTO quest_progress (user_id, quest_id, period_key, progress, claimed) "
+            "VALUES (?,?,?,1,1) ON CONFLICT(user_id, quest_id, period_key) DO UPDATE SET claimed = 1",
+            (user["id"], GOAL_BONUS_ID, today),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    reward = goal // 2
+    user2 = accounts.add_xp_coins(user["id"], coins=reward)
+    return {"ok": True, "reward": reward, "user": accounts.public_user(user2)}
 
 
 _EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0}

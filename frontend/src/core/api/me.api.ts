@@ -10,6 +10,8 @@ export interface MeState {
   garden: PlantedSeed[]
   paths: LearningPath[]
   savedVideos: Video[]
+  todayXp: number
+  goalBonusClaimed: boolean
 }
 
 export interface Activities {
@@ -39,6 +41,12 @@ export const equipFrameApi = (frame: string | null) =>
 
 export const equipPetApi = (pet: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip-pet', { pet })
+
+export const equipBgApi = (bg: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip-bg', { bg })
+
+export const setAvatarApi = (avatar: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/avatar', { avatar })
 
 export const upgradePlusApi = (plan_id = '') =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/plus', { plan_id })
@@ -72,3 +80,9 @@ export const ackGiftApi = () =>
 
 export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words = 0) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/event', { type, amount, minutes, words })
+
+export const setGoalApi = (goal: string | null) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/goal', { goal })
+
+export const goalBonusApi = (goal: number) =>
+  apiClient.post<{ ok: boolean; reward: number; user: Account }>('/api/me/goal-bonus', { goal })

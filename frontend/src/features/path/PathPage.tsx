@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flag from '@/core/components/Flag'
-import { GOALS, INTERESTS, LEVELS, buildSteps } from '@/data/pathOptions'
+import { GOALS, INTERESTS, LEVELS, buildSteps, LEARN_GOAL_PRESETS } from '@/data/pathOptions'
 import { STUDY_LANGS, NATIVE_LANGS, studyLang } from '@/core/constants/languages'
+import { studyLangName } from '@/core/i18n/translations'
+import { goalById } from '@/features/onboarding/goals'
 import type { LearningPath } from '@/models/path.model'
 import { useAppStore } from '@/store/app.store'
 
-const STEPS = ['Ngôn ngữ', 'Mục tiêu', 'Sở thích', 'Trình độ']
+const STEPS = ['path.step1', 'path.step2', 'path.step3', 'path.step4']
 const STEP_ICON = ['globe', 'star', 'sparkles', 'cards'] as const
 
 export default function PathPage() {
   const {
     paths, addPath, setView,
     learnLang, setLearnLang, nativeLang, setNativeLang,
-    wizardRequested, clearWizard,
+    wizardRequested, clearWizard, goal: learnGoal, t, uiLang,
   } = useAppStore()
+  const learnGoalInfo = goalById(learnGoal)
+  const presetGoals = LEARN_GOAL_PRESETS[learnGoal] || []
   const [mode, setMode] = useState<'landing' | 'wizard' | 'result'>('landing')
   const [step, setStep] = useState(0)
   const [lang, setLang] = useState(learnLang)
@@ -28,10 +32,10 @@ export default function PathPage() {
   useEffect(() => {
     if (!wizardRequested) return
     setStep(0); setLang(learnLang); setNative(nativeLang)
-    setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setGoals(LEARN_GOAL_PRESETS[learnGoal] || []); setInterests([]); setLevel(''); setCreated(null)
     setMode('wizard')
     clearWizard()
-  }, [wizardRequested, learnLang, nativeLang, clearWizard])
+  }, [wizardRequested, learnLang, nativeLang, clearWizard, learnGoal])
 
   // Selecting the study language inside the wizard applies it live across the app.
   const pickStudy = (code: string) => { setLang(code); setLearnLang(code) }
@@ -43,7 +47,7 @@ export default function PathPage() {
   }
 
   const reset = () => {
-    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals([]); setInterests([]); setLevel(''); setCreated(null)
+    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals(presetGoals); setInterests([]); setLevel(''); setCreated(null)
   }
 
   const finish = async () => {
@@ -59,8 +63,9 @@ export default function PathPage() {
       interests,
       level: lv ? `${lv.code} · ${lv.name}` : 'A1',
       createdAt: Date.now(),
-      steps: buildSteps(goals, interests, lv ? `${lv.code} ${lv.name}` : 'A1'),
+      steps: buildSteps(goals, interests, lv ? `${lv.code} ${lv.name}` : 'A1', learnGoal),
       progress: 0,
+      learnGoal: learnGoal || undefined,
     }
     try { await addPath(path) } catch { /* khách: vẫn xem được, đăng nhập để lưu */ }
     setCreated(path)
@@ -76,30 +81,30 @@ export default function PathPage() {
         <div className="path-hero">
           <div className="path-hero-ic"><Icon name="map" size={26} /></div>
           <div className="path-hero-txt">
-            <div className="kicker">KHOÁ HỌC</div>
-            <h2>Bắt đầu lộ trình học của bạn</h2>
-            <p>Tạo lộ trình học cá nhân hoá hoặc tham gia khoá học từ cộng đồng.</p>
+            <div className="kicker">{t('path.kicker')}</div>
+            <h2>{t('path.heroTitle')}</h2>
+            <p>{t('path.heroSub')}</p>
             <ul>
-              <li><Icon name="check-circle" size={15} /> Lộ trình phù hợp trình độ &amp; mục tiêu của bạn</li>
-              <li><Icon name="check-circle" size={15} /> Theo dõi tiến độ từng giai đoạn</li>
-              <li><Icon name="check-circle" size={15} /> AI gợi ý nội dung nên học tiếp theo</li>
+              <li><Icon name="check-circle" size={15} /> {t('path.li1')}</li>
+              <li><Icon name="check-circle" size={15} /> {t('path.li2')}</li>
+              <li><Icon name="check-circle" size={15} /> {t('path.li3')}</li>
             </ul>
           </div>
           <button className="btn-primary lg" onClick={() => { reset(); setMode('wizard') }}>
-            <Icon name="sparkles" /> Tạo lộ trình
+            <Icon name="sparkles" /> {t('path.create')}
           </button>
         </div>
 
         {paths.length > 0 && (
           <>
-            <div className="section-title"><span className="pin" /> Lộ trình của bạn</div>
+            <div className="section-title"><span className="pin" /> {t('path.yours')}</div>
             <div className="path-list">
               {paths.map((p) => (
                 <div key={p.id} className="path-card" onClick={() => { setCreated(p); setMode('result') }}>
                   <div className="path-card-flag"><Flag code={p.languageFlag} size={38} /></div>
                   <div className="path-card-body">
                     <b>{p.language} · {p.level}</b>
-                    <span>{p.steps.length} giai đoạn · {p.goals.length} mục tiêu</span>
+                    <span>{t('path.cardMeta', { a: p.steps.length, b: p.goals.length })}</span>
                     <div className="path-mini-bar"><span style={{ width: p.progress + '%' }} /></div>
                   </div>
                   <Icon name="arrow-right" />
@@ -119,10 +124,10 @@ export default function PathPage() {
         <div className="path-suggest">
           <Icon name="sparkles" size={20} />
           <div>
-            <b>Lộ trình đã sẵn sàng! 🎉</b>
-            <p>Gợi ý: bắt đầu ngay từ giai đoạn đầu tiên bên dưới để giữ chuỗi học mỗi ngày.</p>
+            <b>{t('path.readyTitle')}</b>
+            <p>{t('path.readySub')}</p>
           </div>
-          <button className="btn-primary" onClick={() => setView('home')}>Bắt đầu học</button>
+          <button className="btn-primary" onClick={() => setView('home')}>{t('path.startLearn')}</button>
         </div>
 
         <div className="path-summary">
@@ -130,13 +135,16 @@ export default function PathPage() {
           <div>
             <h2>{created.language} · {created.level}</h2>
             <div className="ps-tags">
+              {created.learnGoal && goalById(created.learnGoal) && (
+                <span className="ps-tag focus">🎯 {goalById(created.learnGoal)!.emoji} {t('goal.' + created.learnGoal + '.label')}</span>
+              )}
               {created.goals.slice(0, 4).map((g) => <span key={g} className="ps-tag">{g}</span>)}
               {created.interests.slice(0, 3).map((i) => <span key={i} className="ps-tag soft">{i}</span>)}
             </div>
           </div>
         </div>
 
-        <div className="section-title"><span className="pin" /> Lộ trình gợi ý</div>
+        <div className="section-title"><span className="pin" /> {t('path.suggested')}</div>
         <ol className="roadmap">
           {created.steps.map((s, i) => (
             <li key={i} className={i === 0 ? 'active' : ''}>
@@ -145,12 +153,12 @@ export default function PathPage() {
                 <b>{s.title}</b>
                 <p>{s.detail}</p>
               </div>
-              {i === 0 && <span className="rm-now">Bắt đầu tại đây</span>}
+              {i === 0 && <span className="rm-now">{t('path.startHere')}</span>}
             </li>
           ))}
         </ol>
 
-        <button className="btn-ghost" onClick={() => setMode('landing')}><Icon name="arrow-left" size={15} /> Về danh sách lộ trình</button>
+        <button className="btn-ghost" onClick={() => setMode('landing')}><Icon name="arrow-left" size={15} /> {t('path.backList')}</button>
       </div>
     )
   }
@@ -158,13 +166,13 @@ export default function PathPage() {
   // ---- Wizard ----
   return (
     <div className="wizard">
-      <div className="wiz-head"><div className="path-hero-ic sm"><Icon name="map" /></div> Tạo lộ trình học</div>
+      <div className="wiz-head"><div className="path-hero-ic sm"><Icon name="map" /></div> {t('path.wizTitle')}</div>
 
       <div className="wiz-steps">
         {STEPS.map((s, i) => (
           <div key={s} className={'wiz-step' + (i < step ? ' done' : i === step ? ' on' : '')}>
             <span className="wiz-dot">{i < step ? <Icon name="check" size={16} /> : <Icon name={STEP_ICON[i]} size={16} />}</span>
-            <span className="wiz-lbl">{s}</span>
+            <span className="wiz-lbl">{t(s)}</span>
           </div>
         ))}
       </div>
@@ -172,20 +180,20 @@ export default function PathPage() {
       <div className="wiz-body">
         {step === 0 && (
           <>
-            <h2 className="wiz-title">Bạn muốn học ngôn ngữ nào?</h2>
-            <p className="wiz-sub">Chọn ngoại ngữ bạn muốn học</p>
+            <h2 className="wiz-title">{t('path.q1')}</h2>
+            <p className="wiz-sub">{t('path.q1Sub')}</p>
             <div className="lang-grid">
               {STUDY_LANGS.map((l) => (
                 <button key={l.code} className={'lang-card' + (lang === l.code ? ' on' : '')} onClick={() => pickStudy(l.code)}>
                   <span className="lang-flag"><Flag code={l.flag} size={54} /></span>
-                  <span>{l.name}</span>
+                  <span>{studyLangName(uiLang, l.code)}</span>
                   <small className="lang-endonym">{l.endonym}</small>
                 </button>
               ))}
             </div>
 
-            <h2 className="wiz-title" style={{ marginTop: 30 }}>Ngôn ngữ mẹ đẻ của bạn?</h2>
-            <p className="wiz-sub">Lời giải thích, bản dịch và gợi ý sẽ hiển thị bằng ngôn ngữ này</p>
+            <h2 className="wiz-title" style={{ marginTop: 30 }}>{t('path.q1b')}</h2>
+            <p className="wiz-sub">{t('path.q1bSub')}</p>
             <div className="native-grid">
               {NATIVE_LANGS.map((n) => (
                 <button key={n.code} className={'native-card' + (native === n.code ? ' on' : '')} onClick={() => pickNative(n.code)}>
@@ -199,8 +207,13 @@ export default function PathPage() {
 
         {step === 1 && (
           <>
-            <h2 className="wiz-title">Mục tiêu học tập</h2>
-            <p className="wiz-sub">Chọn tối đa 5 mục tiêu ({goals.length}/5 đã chọn)</p>
+            <h2 className="wiz-title">{t('path.q2')}</h2>
+            <p className="wiz-sub">{t('path.q2Sub', { n: goals.length })}</p>
+            {learnGoalInfo && (
+              <p className="wiz-preset-hint">
+                {t('path.presetHint', { emoji: learnGoalInfo.emoji, label: t('goal.' + learnGoalInfo.id + '.label') })}
+              </p>
+            )}
             <div className="goal-list">
               {GOALS.map((g) => (
                 <button key={g.title} className={'goal-row' + (goals.includes(g.title) ? ' on' : '')} onClick={() => toggle(goals, setGoals, g.title)}>
@@ -214,8 +227,8 @@ export default function PathPage() {
 
         {step === 2 && (
           <>
-            <h2 className="wiz-title">Sở thích học tập</h2>
-            <p className="wiz-sub">Chọn tối đa 5 sở thích ({interests.length}/5 đã chọn)</p>
+            <h2 className="wiz-title">{t('path.q3')}</h2>
+            <p className="wiz-sub">{t('path.q3Sub', { n: interests.length })}</p>
             <div className="interest-grid">
               {INTERESTS.map((it) => (
                 <button key={it.name} className={'interest-card' + (interests.includes(it.name) ? ' on' : '')} onClick={() => toggle(interests, setInterests, it.name)}>
@@ -229,8 +242,8 @@ export default function PathPage() {
 
         {step === 3 && (
           <>
-            <h2 className="wiz-title">Trình độ hiện tại</h2>
-            <p className="wiz-sub">Chọn trình độ hiện tại của bạn</p>
+            <h2 className="wiz-title">{t('path.q4')}</h2>
+            <p className="wiz-sub">{t('path.q4Sub')}</p>
             <div className="level-grid">
               {LEVELS.map((l) => (
                 <button key={l.code} className={'level-card ' + l.tone + (level === l.code ? ' on' : '')} onClick={() => setLevel(l.code)}>
@@ -245,14 +258,14 @@ export default function PathPage() {
 
       <div className="wiz-foot">
         {step > 0 ? (
-          <button className="btn-ghost" onClick={() => setStep(step - 1)}><Icon name="chevron-left" size={16} /> Trở về</button>
+          <button className="btn-ghost" onClick={() => setStep(step - 1)}><Icon name="chevron-left" size={16} /> {t('path.back')}</button>
         ) : (
-          <button className="btn-ghost" onClick={() => setMode('landing')}>Huỷ</button>
+          <button className="btn-ghost" onClick={() => setMode('landing')}>{t('path.cancel')}</button>
         )}
         {step < 3 ? (
-          <button className="btn-primary" disabled={!canNext} onClick={() => setStep(step + 1)}>Tiếp <Icon name="arrow-right" size={16} /></button>
+          <button className="btn-primary" disabled={!canNext} onClick={() => setStep(step + 1)}>{t('path.next')} <Icon name="arrow-right" size={16} /></button>
         ) : (
-          <button className="btn-primary" disabled={!canNext} onClick={finish}><Icon name="sparkles" size={16} /> Xác nhận</button>
+          <button className="btn-primary" disabled={!canNext} onClick={finish}><Icon name="sparkles" size={16} /> {t('path.confirm')}</button>
         )}
       </div>
     </div>

@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import Hero from './components/Hero'
+import DailyGoal from './components/DailyGoal'
+import WordOfDay from './components/WordOfDay'
 import VideoCard from '@/features/shared/VideoCard'
 import Icon from '@/core/components/Icon'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
-import { studyLang } from '@/core/constants/languages'
+import { goalById } from '@/features/onboarding/goals'
 import type { Video } from '@/models/video.model'
 
-const CATS = ['Toàn bộ', 'Mới bắt đầu', 'Podcast', 'Hội thoại', 'Truyện ngắn', 'Vlog', 'Văn hoá', 'Khác']
+const CAT_KEYS = ['all', 'beginner', 'podcast', 'conversation', 'story', 'vlog', 'culture', 'other']
 
 export default function HomePage() {
-  const { loadLesson, status, statusError, setView, videos, learnLang } = useAppStore()
-  const [cat, setCat] = useState('Toàn bộ')
-  const cfg = studyLang(learnLang)
+  const { loadLesson, status, statusError, setView, videos, learnLang, goal, openOnboarding, t, learnLangName } = useAppStore()
+  const [cat, setCat] = useState('all')
   const langVideos = videos.filter((v) => (v.lang || 'ko') === learnLang)
+  const g = goalById(goal)
 
   const pick = (v: Video) => {
     loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
@@ -27,33 +29,41 @@ export default function HomePage() {
         {status && statusError && <Icon name="x-circle" />} {status}
       </div>
 
+      <div className="home-duo">
+        <DailyGoal />
+        <WordOfDay />
+      </div>
+
       <div className="chips">
-        {CATS.map((c) => (
+        <button className="goal-chip" onClick={openOnboarding} title={t('home.goalChip.hint')}>
+          {g ? <>{t('home.goalChip.set')} <b>{g.emoji} {t(`goal.${g.id}.label`)}</b></> : <>{t('home.goalChip.none')}</>}
+        </button>
+        {CAT_KEYS.map((c) => (
           <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>
-            {c}
+            {t('home.cat.' + c)}
           </button>
         ))}
       </div>
 
-      <div className="section-title"><span className="pin" /> Bắt đầu lộ trình của bạn</div>
+      <div className="section-title"><span className="pin" /> {t('home.pathTitle')}</div>
       <div className="cta" style={{ cursor: 'pointer' }} onClick={() => setView('path')}>
         <div className="cta-ic"><Icon name="map" /></div>
         <div>
-          <h3>Tạo lộ trình học cá nhân hoá</h3>
+          <h3>{t('home.cta.title')}</h3>
           <ul>
-            <li>Lộ trình theo trình độ &amp; mục tiêu của bạn</li>
-            <li>Theo dõi tiến độ từng video</li>
-            <li>Tự gom video yêu thích thành khoá học riêng</li>
+            <li>{t('home.cta.li1')}</li>
+            <li>{t('home.cta.li2')}</li>
+            <li>{t('home.cta.li3')}</li>
           </ul>
         </div>
         <button className="btn-primary" style={{ marginLeft: 'auto', alignSelf: 'center' }}>
-          <Icon name="sparkles" size={15} /> Tạo lộ trình
+          <Icon name="sparkles" size={15} /> {t('home.cta.btn')}
         </button>
       </div>
 
       <div className="section-title">
-        <span className="pin" /> Kho video {cfg.name}
-        <button className="link-more" onClick={() => setView('library')}>Xem tất cả <Icon name="arrow-right" size={15} /></button>
+        <span className="pin" /> {t('home.libTitle', { lang: learnLangName })}
+        <button className="link-more" onClick={() => setView('library')}>{t('home.viewAll')} <Icon name="arrow-right" size={15} /></button>
       </div>
       {langVideos.length > 0 ? (
         <div className="vgrid">
@@ -62,7 +72,7 @@ export default function HomePage() {
           ))}
         </div>
       ) : (
-        <div className="empty"><div className="big">📺</div>Kho video {cfg.name} đang được cập nhật. Bạn có thể dán link YouTube {cfg.name} ở trên để tạo bài học ngay.</div>
+        <div className="empty"><div className="big">📺</div>{t('home.empty', { lang: learnLangName })}</div>
       )}
     </>
   )

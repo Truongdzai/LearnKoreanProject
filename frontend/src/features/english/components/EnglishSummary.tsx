@@ -1,14 +1,20 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { UNITS, ALL_WORDS } from '@/data/englishCore'
+import { UNITS, ALL_WORDS, PLAN_12_WEEKS, TARGET_WORDS } from '@/data/englishCore'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
-import { useLearnedWords } from '../progress'
+import { useLearnedWords, useWordBank, readPlan, planDay, planWeek, weekDone } from '../progress'
 
 type Scope = 'learned' | 'all'
 
 export default function EnglishSummary() {
   const { learned } = useLearnedWords()
+  const bank = useWordBank(learned)
   const [scope, setScope] = useState<Scope>('learned')
+
+  const plan = readPlan()
+  const day = Math.min(planDay(plan.start), 90)
+  const week = planWeek(plan.start)
+  const doneWeeks = PLAN_12_WEEKS.filter((w) => weekDone(w, learned, plan, bank)).length
 
   const learnedList = useMemo(() => ALL_WORDS.filter((w) => learned.has(w.en)), [learned])
   const source = scope === 'learned' ? learnedList : ALL_WORDS
@@ -29,8 +35,14 @@ export default function EnglishSummary() {
         <div className="sm-card span2">
           <div className="sm-label"><Icon name="bulb" size={15} /> Bạn đang ở đâu</div>
           <p>
+            {plan.start ? (
+              <>Bạn đang ở <b>ngày {day}/90</b> (tuần {week} theo lịch), đã hoàn thành <b>{doneWeeks}/12 tuần</b> của lộ trình. </>
+            ) : (
+              <>Bạn chưa bấm bắt đầu hành trình 90 ngày — vào tab <b>Lộ trình</b> để khởi động. </>
+            )}
             Bạn đã thuộc <b>{learnedList.length}</b> / {ALL_WORDS.length} từ lõi
-            ({Math.round((learnedList.length / ALL_WORDS.length) * 100)}%). Mục tiêu là 3000 từ tần suất cao để hiểu ~90% hội thoại.
+            ({Math.round((learnedList.length / ALL_WORDS.length) * 100)}%), kho từ tích luỹ mọi nguồn đạt <b>{bank}</b> / {TARGET_WORDS} —
+            mục tiêu {TARGET_WORDS} từ tần suất cao để hiểu ~90% hội thoại.
             Hãy duy trì học mỗi ngày và để hệ thống <b>ôn tập ngắt quãng</b> nhắc bạn đúng lúc.
           </p>
         </div>

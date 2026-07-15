@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Avatar from '@/core/components/Avatar'
+import { bgVideo } from '@/core/utils/cosmetics'
 import { fetchLeaderboard } from '@/core/api/content.api'
 import type { LeaderEntry } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
@@ -32,7 +33,7 @@ function useCountdown(target: number) {
 const pad = (n: number) => String(n).padStart(2, '0')
 
 export default function LeaderboardPage() {
-  const { user, setView } = useAppStore()
+  const { user, setView, t } = useAppStore()
   const [scope, setScope] = useState<'weekly' | 'all'>('weekly')
   const [target] = useState(nextWeekReset)
   const cd = useCountdown(target)
@@ -54,22 +55,22 @@ export default function LeaderboardPage() {
 
   return (
     <div className="lb">
-      <h1 className="page-title"><Icon name="trophy" /> Bảng xếp hạng</h1>
-      <p className="page-sub">Học mỗi ngày để leo hạng và toả sáng cùng cộng đồng VyLing.</p>
+      <h1 className="page-title"><Icon name="trophy" /> {t('lb.title')}</h1>
+      <p className="page-sub">{t('lb.sub')}</p>
 
       <div className="lb-tabs">
-        <button className={scope === 'weekly' ? 'on' : ''} onClick={() => setScope('weekly')}>Tuần này</button>
-        <button className={scope === 'all' ? 'on' : ''} onClick={() => setScope('all')}>Tất cả</button>
+        <button className={scope === 'weekly' ? 'on' : ''} onClick={() => setScope('weekly')}>{t('lb.weekly')}</button>
+        <button className={scope === 'all' ? 'on' : ''} onClick={() => setScope('all')}>{t('lb.all')}</button>
       </div>
 
       <div className="lb-countdown">
-        <div className="lb-cd-title">Bảng xếp hạng sẽ kết thúc trong</div>
+        <div className="lb-cd-title">{t('lb.endsIn')}</div>
         <div className="lb-cd-grid">
           {[
-            { n: cd.d, l: 'Ngày' },
-            { n: cd.h, l: 'Giờ' },
-            { n: cd.m, l: 'Phút' },
-            { n: cd.s, l: 'Giây' },
+            { n: cd.d, l: t('lb.days') },
+            { n: cd.h, l: t('lb.hours') },
+            { n: cd.m, l: t('lb.mins') },
+            { n: cd.s, l: t('lb.secs') },
           ].map((x) => (
             <div key={x.l} className="lb-cd-box">
               <b>{pad(x.n)}</b>
@@ -77,20 +78,21 @@ export default function LeaderboardPage() {
             </div>
           ))}
         </div>
-        <div className="lb-cd-foot">Top 3 nhận thưởng xu lớn & khung viền giới hạn mỗi tuần</div>
+        <div className="lb-cd-foot">{t('lb.top3')}</div>
       </div>
 
       {loading ? (
-        <div className="empty"><div className="big">🏆</div>Đang tải bảng xếp hạng…</div>
+        <div className="empty"><div className="big">🏆</div>{t('lb.loading')}</div>
       ) : entries.length === 0 ? (
-        <div className="empty"><div className="big">🏆</div>Chưa có ai trên bảng xếp hạng. Hãy là người đầu tiên — bắt đầu học ngay!</div>
+        <div className="empty"><div className="big">🏆</div>{t('lb.empty')}</div>
       ) : (
         <>
           <div className="podium">
             {podiumOrder.map((e) => (
-              <div key={e.rank} className={'podium-card r' + e.rank + (e.isPlus ? ' plus' : '')}>
+              <div key={e.rank} className={'podium-card r' + e.rank + (e.isPlus ? ' plus' : '') + (bgVideo(e.bg) ? ' has-bg' : '')}>
+                {bgVideo(e.bg) && <video className="lb-bg-vid" src={bgVideo(e.bg) || ''} autoPlay loop muted playsInline />}
                 <div className="podium-rank">#{e.rank}</div>
-                <Avatar size={e.rank === 1 ? 84 : 68} frame={e.frame} initials={e.name.charAt(0)} />
+                <Avatar size={e.rank === 1 ? 84 : 68} frame={e.frame} src={e.avatar} initials={e.name.charAt(0)} />
                 <div className="podium-name">
                   {e.name}
                   {e.isPlus && <span className="plus-tag"><Icon name="sparkles" size={11} /> Plus</span>}
@@ -103,9 +105,10 @@ export default function LeaderboardPage() {
 
           <div className="lb-list">
             {rest.map((e) => (
-              <div key={e.rank} className={'lb-row' + (e.me ? ' me' : '') + (e.isPlus ? ' plus' : '')}>
+              <div key={e.rank} className={'lb-row' + (e.me ? ' me' : '') + (e.isPlus ? ' plus' : '') + (bgVideo(e.bg) ? ' has-bg' : '')}>
+                {bgVideo(e.bg) && <video className="lb-bg-vid" src={bgVideo(e.bg) || ''} autoPlay loop muted playsInline />}
                 <span className="lb-rank">{e.rank}</span>
-                <Avatar size={40} frame={e.frame} initials={e.name.charAt(0)} />
+                <Avatar size={48} frame={e.frame} src={e.avatar} initials={e.name.charAt(0)} />
                 <span className="lb-name">
                   {e.name}
                   {e.isPlus && <span className="plus-tag sm"><Icon name="sparkles" size={10} /> Plus</span>}
@@ -121,10 +124,10 @@ export default function LeaderboardPage() {
       {!user.isPlus && (
         <div className="lb-upsell">
           <div>
-            <b>Toả sáng trên bảng xếp hạng ✨</b>
-            <p>Thành viên Plus có khung viền animation lộng lẫy & danh hiệu rực rỡ. Nâng cấp để được chú ý!</p>
+            <b>{t('lb.upsellTitle')}</b>
+            <p>{t('lb.upsellText')}</p>
           </div>
-          <button className="btn-primary" onClick={() => setView('pricing')}>Nâng cấp Plus</button>
+          <button className="btn-primary" onClick={() => setView('pricing')}>{t('side.upgrade')}</button>
         </div>
       )}
     </div>

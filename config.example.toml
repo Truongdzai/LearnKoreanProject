@@ -22,10 +22,11 @@ model = "small"
 proxy = ""
 
 # Tài khoản quản trị (đăng nhập trang Admin để quản lý nội dung & người dùng).
-# Đổi mật khẩu này trước khi đưa web cho người khác dùng.
+# Để password TRỐNG: lần khởi động đầu hệ thống tự sinh mật khẩu ngẫu nhiên
+# và in ra console đúng 1 lần — hãy lưu lại rồi đổi trong trang Admin.
 [admin]
 email    = "admin@vyling.vn"
-password = "Admin@123"
+password = ""
 name     = "Quản trị viên"
 
 # Đăng nhập Google / Facebook (tùy chọn). Để trống thì 2 nút đó sẽ ẩn.

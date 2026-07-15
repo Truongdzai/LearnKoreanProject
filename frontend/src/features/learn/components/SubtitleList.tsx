@@ -26,7 +26,7 @@ interface PopupState {
 }
 
 export default function SubtitleList({ segments, activeIndex, source, onSeek }: Props) {
-  const { learnLang, openLookup } = useAppStore()
+  const { learnLang, openLookup, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const listRef = useRef<HTMLDivElement>(null)
   const [popup, setPopup] = useState<PopupState | null>(null)
@@ -57,18 +57,18 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
   return (
     <div className="subs">
       <div className="subs-head">
-        <span>Phụ đề</span>
+        <span>{t('subs.title')}</span>
         <div className="subs-tools">
           {cfg.romanizeChat && (
             <button
               className={'romaja-toggle' + (showRomaja ? ' on' : '')}
               onClick={() => setShowRomaja((v) => !v)}
-              title="Bật/tắt phiên âm cách đọc"
+              title={t('subs.romajaHint')}
             >
-              <Icon name="letters" size={15} /> Phiên âm
+              <Icon name="letters" size={15} /> {t('subs.romaja')}
             </button>
           )}
-          <span className="count"><Icon name="bulb" /> bấm vào từ {cfg.name} để tra nghĩa</span>
+          <span className="count"><Icon name="bulb" /> {t('subs.hint', { lang: learnLangName })}</span>
         </div>
       </div>
       <div className="subs-list" ref={listRef}>
@@ -118,6 +118,7 @@ function SegmentRow({
   onSeek: () => void
   onWordClick: (word: string, rect: DOMRect) => void
 }) {
+  const { t } = useAppStore()
   const [state, setState] = useState<'idle' | 'loading' | 'done'>('idle')
 
   const mine = async (e: MouseEvent) => {
@@ -128,7 +129,7 @@ function SegmentRow({
       setState('done')
     } catch (err) {
       setState('idle')
-      alert('Không lưu được thẻ: ' + (err as Error).message)
+      alert(t('subs.saveFail', { msg: (err as Error).message }))
     }
   }
 
@@ -162,14 +163,14 @@ function SegmentRow({
         className={'mine' + (state === 'done' ? ' done' : '')}
         disabled={state !== 'idle'}
         onClick={mine}
-        title="Lưu câu vào bộ thẻ ôn tập"
+        title={t('subs.mineTitle')}
       >
         {state === 'done' ? (
-          <><Icon name="check" /> Đã lưu</>
+          <><Icon name="check" /> {t('subs.saved')}</>
         ) : state === 'loading' ? (
           '…'
         ) : (
-          <><Icon name="plus" /> Lưu</>
+          <><Icon name="plus" /> {t('subs.save')}</>
         )}
       </button>
     </div>

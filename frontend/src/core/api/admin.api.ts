@@ -14,6 +14,7 @@ export interface AdminStats {
   plans: number
   srsCards: number
   dictEntries: number
+  feedbackNew: number
 }
 
 export interface AdminUser extends Account {
@@ -101,3 +102,24 @@ export const setUserPlus = (id: string, payload: PlusUpdate) =>
 
 export const deleteAdminUser = (id: string) =>
   apiClient.post<{ ok: boolean }>('/api/admin/users/delete', { id })
+
+export interface AdminFeedback {
+  id: number
+  userId: string | null
+  name: string
+  kind: string
+  message: string
+  page: string
+  status: string
+  createdAt: string
+}
+
+export const fetchAdminFeedback = (status = '', page = 1, pageSize = 20) =>
+  apiClient.get<{ total: number; items: AdminFeedback[] }>(
+    `/api/admin/feedback?status=${status}&page=${page}&page_size=${pageSize}`)
+
+export const setFeedbackStatus = (id: number, status: string) =>
+  apiClient.post<{ ok: boolean }>('/api/admin/feedback/status', { id, status })
+
+export const deleteFeedback = (id: number) =>
+  apiClient.post<{ ok: boolean }>('/api/admin/feedback/delete', { id })

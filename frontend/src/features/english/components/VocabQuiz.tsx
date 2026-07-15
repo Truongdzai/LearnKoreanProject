@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { ALL_WORDS, type IcesWord } from '@/data/englishCore'
+import { ALL_WORDS, UNITS, type IcesWord } from '@/data/englishCore'
 import { useAppStore } from '@/store/app.store'
 import { speakEN } from '../progress'
 
@@ -8,6 +8,19 @@ interface Q {
   word: IcesWord
   options: string[]
   answer: string
+}
+
+interface Props {
+  /** Giới hạn đề trong các unit này (bài kiểm tra tuần); bỏ trống = toàn kho. */
+  units?: string[]
+  /** Nhãn hiển thị, vd "Bài kiểm tra Tuần 3". */
+  heading?: string
+  /** Điểm % cần đạt (bài kiểm tra tuần). */
+  passPct?: number
+  /** Gọi khi nộp bài, nhận điểm %. */
+  onFinish?: (pct: number) => void
+  /** Quay về lộ trình. */
+  onBack?: () => void
 }
 
 const QUIZ_LEN = 10
@@ -21,9 +34,9 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-function buildQuiz(): Q[] {
-  const pool = shuffle(ALL_WORDS).slice(0, QUIZ_LEN)
-  return pool.map((word) => {
+function buildQuiz(pool: IcesWord[]): Q[] {
+  const picked = shuffle(pool).slice(0, Math.min(QUIZ_LEN, pool.length))
+  return picked.map((word) => {
     const distractors = shuffle(ALL_WORDS.filter((w) => w.vi !== word.vi))
       .slice(0, 3)
       .map((w) => w.vi)
@@ -31,9 +44,13 @@ function buildQuiz(): Q[] {
   })
 }
 
-export default function VocabQuiz() {
+export default function VocabQuiz({ units, heading, passPct, onFinish, onBack }: Props) {
   const { recordEvent } = useAppStore()
-  const [quiz, setQuiz] = useState<Q[]>(() => buildQuiz())
+  const pool = useMemo(
+    () => (units?.length ? UNITS.filter((u) => units.includes(u.id)).flatMap((u) => u.words) : ALL_WORDS),
+    [units],
+  )
+  const [quiz, setQuiz] = useState<Q[]>(() => buildQuiz(pool))
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [score, setScore] = useState(0)
@@ -43,12 +60,12 @@ export default function VocabQuiz() {
   const finished = done || i >= quiz.length
 
   const restart = useCallback(() => {
-    setQuiz(buildQuiz())
+    setQuiz(buildQuiz(pool))
     setI(0)
     setPicked(null)
     setScore(0)
     setDone(false)
-  }, [])
+  }, [pool])
 
   useEffect(() => {
     if (q) speakEN(q.word.en)
@@ -65,6 +82,7 @@ export default function VocabQuiz() {
     if (i + 1 >= quiz.length) {
       setDone(true)
       recordEvent('review', 1, 0, 0)
+      onFinish?.(Math.round((score / quiz.length) * 100))
     } else {
       setI((x) => x + 1)
       setPicked(null)
@@ -75,6 +93,7 @@ export default function VocabQuiz() {
 
   if (finished) {
     const band = pct >= 80 ? 'Xuất sắc!' : pct >= 50 ? 'Khá tốt, ôn thêm nhé' : 'Cần ôn lại'
+    const passed = passPct != null && pct >= passPct
     return (
       <div className="quiz-done">
         <div className="qd-ring" style={{ ['--p' as string]: pct }}>
@@ -82,14 +101,27 @@ export default function VocabQuiz() {
           <span>{score}/{quiz.length}</span>
         </div>
         <h3>{band}</h3>
+        {passPct != null && (
+          <div className={'quiz-pass' + (passed ? ' ok' : '')}>
+            {passed ? <>✅ Đạt yêu cầu ({passPct}%) — nhiệm vụ kiểm tra của tuần đã hoàn thành!</> : <>Chưa chạm mốc {passPct}% — ôn lại từ rồi làm lại nhé.</>}
+          </div>
+        )}
         <p>Bạn trả lời đúng {score} trên {quiz.length} câu. Ôn lại bằng phương pháp lặp ngắt quãng để nhớ lâu hơn.</p>
-        <button className="btn-primary" onClick={restart}><Icon name="rocket" size={16} /> Làm lại đề mới</button>
+        <div className="quiz-done-actions">
+          <button className="btn-primary" onClick={restart}><Icon name="rocket" size={16} /> Làm lại đề mới</button>
+          {onBack && <button className="btn-ghost" onClick={onBack}><Icon name="map" size={15} /> Về lộ trình</button>}
+        </div>
       </div>
     )
   }
 
   return (
     <div className="quiz">
+      {heading && (
+        <div className="quiz-week-tag">
+          <Icon name="target" size={14} /> {heading}{passPct != null && <> · cần đạt {passPct}%</>}
+        </div>
+      )}
       <div className="quiz-top">
         <span>Câu {i + 1} / {quiz.length}</span>
         <span className="quiz-score"><Icon name="star" size={14} /> {score} điểm</span>

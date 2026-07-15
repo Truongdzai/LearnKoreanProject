@@ -31,7 +31,7 @@ function delayScore(delay: number): number {
 const charLabel = (c: number) => String.fromCharCode(65 + c)
 
 export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
-  const { recordEvent, user, setView, learnLang } = useAppStore()
+  const { recordEvent, user, setView, learnLang, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const yt = useYouTubePlayer('dub-player')
@@ -45,7 +45,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
 
   // Role-play: per-line speaker + which character's original voice is turned off.
   const [speakers, setSpeakers] = useState<number[]>([])
-  const [names, setNames] = useState<string[]>(['Nhân vật A', 'Nhân vật B'])
+  const [names, setNames] = useState<string[]>([])
   const [roleChar, setRoleChar] = useState<number | null>(null)
   const [detecting, setDetecting] = useState(false)
   const [voiceDetecting, setVoiceDetecting] = useState(false)
@@ -75,7 +75,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
 
   const spkOf = (idx: number) => speakers[idx] ?? idx % 2
   const nSpk = speakers.length ? Math.max(2, Math.max(...speakers) + 1) : 2
-  const nameOf = (c: number) => names[c] || `Nhân vật ${charLabel(c)}`
+  const nameOf = (c: number) => names[c] || t('dub.char', { c: charLabel(c) })
 
   const detect = async () => {
     if (!user.isPlus) { setView('pricing'); return }
@@ -87,13 +87,13 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
         setSpeakers(r.speakers)
         if (r.names?.length) setNames(r.names)
         if (r.source !== 'ai') {
-          setError('AI chưa chắc chắn nên tạm chia luân phiên. Bạn có thể chỉnh từng câu bằng nút A/B.')
+          setError(t('dub.aiUnsure'))
         }
       } else {
-        setError('AI nhận diện chưa khớp số câu — giữ cách chia hiện tại. Bạn có thể chỉnh thủ công bằng nút A/B trên mỗi câu.')
+        setError(t('dub.aiMismatch'))
       }
     } catch {
-      setError('Chưa nhận diện tự động được (cần máy chủ AI). Bạn vẫn có thể gán nhân vật thủ công bằng nút A/B trên mỗi câu.')
+      setError(t('dub.aiFail'))
     } finally {
       setDetecting(false)
     }
@@ -109,10 +109,10 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
         setSpeakers(r.speakers)
         if (r.names?.length) setNames(r.names)
       } else {
-        setError('Phân tích giọng chưa khớp số câu — giữ cách chia hiện tại.')
+        setError(t('dub.voiceMismatch'))
       }
     } catch (e) {
-      setError((e as Error).message || 'Không phân tích được giọng nói.')
+      setError((e as Error).message || t('dub.voiceFail'))
     } finally {
       setVoiceDetecting(false)
     }
@@ -191,7 +191,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
       mr.start()
       setRecording(idx)
     } catch {
-      setError('Không truy cập được micro. Hãy cho phép quyền micro trong trình duyệt.')
+      setError(t('dub.micFail'))
       cleanupRec()
       setRecording(null)
     }
@@ -261,7 +261,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
       try {
         autoStreamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true })
       } catch {
-        setError('Không bật được micro để tự thu — vẫn phát nhập vai nhưng không thu âm. Hãy cho phép quyền micro.')
+        setError(t('dub.micAutoFail'))
       }
     }
 
@@ -303,10 +303,10 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   }
 
   const share = async () => {
-    const text = `Mình vừa lồng tiếng ${cfg.name.replace('Tiếng ', 'tiếng ')} cho "${lesson.title}" trên VyLing!`
+    const text = t('dub.shareText', { title: lesson.title, lang: learnLangName })
     try {
       if (navigator.share) await navigator.share({ title: 'VyLing Dubbing', text })
-      else { await navigator.clipboard.writeText(text); setError(''); alert('Đã sao chép nội dung chia sẻ!') }
+      else { await navigator.clipboard.writeText(text); setError(''); alert(t('dub.copied')) }
     } catch { /* cancelled */ }
   }
 
@@ -324,8 +324,8 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
       <div className="dub-intro">
         <div className="dub-intro-ic"><Icon name="mic" size={20} /></div>
         <div>
-          <b>Dubbing Studio — Lồng tiếng nhập vai</b>
-          <p>Tắt tiếng gốc và tự lồng tiếng cho từng câu. AI chấm <b>phát âm</b>, <b>nhịp điệu</b> và <b>độ trễ</b>, rồi ghép thành bản lồng tiếng của bạn.</p>
+          <b>{t('dub.introTitle')}</b>
+          <p>{t('dub.introText')}</p>
         </div>
       </div>
 
@@ -335,26 +335,26 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
 
           <div className="dub-roleplay">
             <div className="dub-rp-head">
-              <span><Icon name="user" size={15} /> Nhập vai — tắt tiếng một nhân vật</span>
+              <span><Icon name="user" size={15} /> {t('dub.rpHead')}</span>
               {user.isPlus ? (
                 <div className="dub-rp-detect">
-                  <button className="btn-ghost sm" onClick={detectVoice} disabled={voiceDetecting || detecting} title="Phân tích âm thanh thật để phân biệt giọng từng người — chính xác nhất">
-                    <Icon name="volume" size={13} /> {voiceDetecting ? 'Đang nghe giọng…' : 'Theo giọng nói'}
+                  <button className="btn-ghost sm" onClick={detectVoice} disabled={voiceDetecting || detecting} title={t('dub.byVoiceHint')}>
+                    <Icon name="volume" size={13} /> {voiceDetecting ? t('dub.byVoiceBusy') : t('dub.byVoice')}
                   </button>
-                  <button className="btn-ghost sm" onClick={detect} disabled={detecting || voiceDetecting} title="Đoán người nói từ nội dung phụ đề bằng AI">
-                    <Icon name="sparkles" size={13} /> {detecting ? 'Đang nhận diện…' : 'Theo nội dung (AI)'}
+                  <button className="btn-ghost sm" onClick={detect} disabled={detecting || voiceDetecting} title={t('dub.byAIHint')}>
+                    <Icon name="sparkles" size={13} /> {detecting ? t('dub.byAIBusy') : t('dub.byAI')}
                   </button>
                 </div>
               ) : (
-                <button className="btn-ghost sm dub-rp-plus" onClick={() => setView('pricing')} title="Nâng cấp Plus để tự động nhận diện người nói">
-                  <Icon name="sparkles" size={13} /> Tự động nhận diện ⭐ Plus
+                <button className="btn-ghost sm dub-rp-plus" onClick={() => setView('pricing')} title={t('dub.plusDetectHint')}>
+                  <Icon name="sparkles" size={13} /> {t('dub.plusDetect')}
                 </button>
               )}
             </div>
-            {voiceDetecting && <p className="dub-rp-note"><Icon name="bulb" size={13} /> Đang tải âm thanh & phân tích vân giọng — có thể mất 1–2 phút với video dài, bạn chờ chút nhé.</p>}
+            {voiceDetecting && <p className="dub-rp-note"><Icon name="bulb" size={13} /> {t('dub.voiceWait')}</p>}
             <div className="dub-rp-chips">
               <button className={'dub-rp-chip' + (roleChar === null ? ' on' : '')} onClick={() => { stopPlayback(); setRoleChar(null) }}>
-                <Icon name="mic" size={13} /> Lồng cả {nSpk} vai
+                <Icon name="mic" size={13} /> {t('dub.allRoles', { n: nSpk })}
               </button>
               {Array.from({ length: nSpk }).map((_, c) => (
                 <button key={c} className={'dub-rp-chip' + (roleChar === c ? ' on' : '')} onClick={() => { stopPlayback(); setRoleChar(c) }}>
@@ -365,17 +365,17 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
             </div>
             {!user.isPlus && (
               <p className="dub-rp-note">
-                <Icon name="bulb" size={13} /> Bản Free: bấm nhãn <b>A/B</b> trên mỗi câu để tự gán nhân vật. Nâng cấp <b>Plus</b> để tự động nhận diện theo giọng nói / nội dung.
+                <Icon name="bulb" size={13} /> {t('dub.freeNote')}
               </p>
             )}
             {roleChar !== null && (
               <>
                 <p className="dub-rp-note">
-                  <Icon name="mute" size={13} /> Tắt tiếng gốc của <b>{nameOf(roleChar)}</b> ({myLines} câu) — bạn đọc/lồng tiếng phần này. Các nhân vật khác vẫn phát tiếng gốc thật của video.
+                  <Icon name="mute" size={13} /> {t('dub.roleNote', { name: nameOf(roleChar), n: myLines })}
                 </p>
                 <label className="dub-rp-auto">
                   <input type="checkbox" checked={autoDub} onChange={(e) => setAutoDub(e.target.checked)} />
-                  <span><Icon name="mic" size={13} /> Tự động thu âm khi tới lượt của bạn (bấm “Phát nhập vai”, micro tự bật đúng câu của bạn)</span>
+                  <span><Icon name="mic" size={13} /> {t('dub.autoRec')}</span>
                 </label>
               </>
             )}
@@ -384,22 +384,22 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
           <div className="dub-controls">
             {roleChar === null && (
               <button className={'btn-ghost' + (muted ? ' on' : '')} onClick={toggleMute}>
-                <Icon name={muted ? 'mute' : 'volume'} size={16} /> {muted ? 'Đang tắt tiếng gốc' : 'Bật tiếng gốc'}
+                <Icon name={muted ? 'mute' : 'volume'} size={16} /> {muted ? t('dub.muted') : t('dub.unmuted')}
               </button>
             )}
             <button className="btn-primary" disabled={roleChar === null && doneCount === 0} onClick={play}>
-              <Icon name={playing ? 'stop' : 'play'} size={16} /> {playing ? 'Dừng' : roleChar === null ? 'Phát bản lồng tiếng' : autoDub ? 'Phát nhập vai & tự thu' : 'Phát nhập vai'}
+              <Icon name={playing ? 'stop' : 'play'} size={16} /> {playing ? t('dub.stop') : roleChar === null ? t('dub.playDub') : autoDub ? t('dub.playRoleRec') : t('dub.playRole')}
             </button>
-            <button className="btn-ghost" disabled={doneCount === 0} onClick={share}><Icon name="share" size={16} /> Chia sẻ</button>
+            <button className="btn-ghost" disabled={doneCount === 0} onClick={share}><Icon name="share" size={16} /> {t('dub.share')}</button>
           </div>
           {doneCount > 0 && (
             <div className="dub-summary">
-              <span>Đã lồng {doneCount}/{segs.length} câu</span>
-              <span className="dub-avg">Điểm trung bình: <b>{avg}%</b></span>
+              <span>{t('dub.summary', { a: doneCount, b: segs.length })}</span>
+              <span className="dub-avg">{t('dub.avg')} <b>{avg}%</b></span>
             </div>
           )}
           {error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {error}</div>}
-          <div className="dub-note"><Icon name="bulb" size={14} /> Mẹo: bấm “Nghe mẫu” để bắt nhịp, rồi thu sao cho độ dài khớp câu gốc — đó chính là điểm nhịp điệu.</div>
+          <div className="dub-note"><Icon name="bulb" size={14} /> {t('dub.tip')}</div>
         </div>
 
         <div className="dub-script">
@@ -412,14 +412,14 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
               <div key={idx} className={'dub-line' + (clip ? ' done' : '') + (isRec ? ' rec' : '') + (roleChar !== null && !mine ? ' partner' : '')}>
                 <div className="dub-line-head">
                   <span className="dub-num">{idx + 1}</span>
-                  <button className={'dub-spk c' + (spkOf(idx) % 6)} onClick={() => cycleSpeaker(idx)} title="Đổi nhân vật">
+                  <button className={'dub-spk c' + (spkOf(idx) % 6)} onClick={() => cycleSpeaker(idx)} title={t('dub.cycleTitle')}>
                     {charLabel(spkOf(idx))}
                   </button>
                   <span className="dub-ref">~{ref.toFixed(1)}s</span>
                   {clip && (
                     <span className="dub-scores">
-                      <span title="Nhịp điệu"><Icon name="trending" size={12} /> {clip.rhythm}%</span>
-                      {clip.delayScore !== null && <span title="Độ trễ"><Icon name="clock" size={12} /> {clip.delayScore}%</span>}
+                      <span title={t('dub.rhythm')}><Icon name="trending" size={12} /> {clip.rhythm}%</span>
+                      {clip.delayScore !== null && <span title={t('dub.delay')}><Icon name="clock" size={12} /> {clip.delayScore}%</span>}
                     </span>
                   )}
                 </div>
@@ -428,14 +428,14 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                 {s.vi && <div className="dub-vi">{s.vi}</div>}
                 <div className="dub-line-actions">
                   <button className="btn-ghost sm" onClick={() => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(s.ko); u.lang = cfg.locale; u.rate = 0.9; speechSynthesis.speak(u) } catch { /* */ } }}>
-                    <Icon name="volume" size={14} /> Nghe mẫu
+                    <Icon name="volume" size={14} /> {t('sh.listen')}
                   </button>
                   {isRec ? (
-                    <button className="btn-rec on" onClick={stopRecord}><Icon name="stop" size={14} /> Dừng thu</button>
+                    <button className="btn-rec on" onClick={stopRecord}><Icon name="stop" size={14} /> {t('dub.stopRec')}</button>
                   ) : (
-                    <button className="btn-rec" disabled={recording !== null} onClick={() => startRecord(idx)}><Icon name="mic" size={14} /> {clip ? 'Thu lại' : 'Thu âm'}</button>
+                    <button className="btn-rec" disabled={recording !== null} onClick={() => startRecord(idx)}><Icon name="mic" size={14} /> {clip ? t('dub.reRec') : t('dub.rec')}</button>
                   )}
-                  {clip && <button className="btn-ghost sm" onClick={() => playClip(idx)}><Icon name="play" size={13} /> Nghe lại</button>}
+                  {clip && <button className="btn-ghost sm" onClick={() => playClip(idx)}><Icon name="play" size={13} /> {t('dub.replay')}</button>}
                 </div>
               </div>
             )

@@ -3,19 +3,19 @@ import { thumbUrl, videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 
 export default function MyVideosPage() {
-  const { savedVideos, removeVideo, loadLesson, setView } = useAppStore()
+  const { savedVideos, removeVideo, loadLesson, setView, t } = useAppStore()
 
   return (
     <div className="myvideos">
-      <h1 className="page-title"><Icon name="tv" /> Video của tôi</h1>
-      <p className="page-sub">Mọi video bạn đã dán link để dịch được lưu lại đây — không cần dán lại lần sau.</p>
+      <h1 className="page-title"><Icon name="tv" /> {t('top.myvideos')}</h1>
+      <p className="page-sub">{t('mv.sub')}</p>
 
       {savedVideos.length === 0 ? (
         <div className="empty">
           <div className="big">📺</div>
-          Chưa có video nào được lưu.
+          {t('mv.empty')}
           <div style={{ marginTop: 14 }}>
-            <button className="btn-primary" onClick={() => setView('home')}><Icon name="plus" size={15} /> Dịch video đầu tiên</button>
+            <button className="btn-primary" onClick={() => setView('home')}><Icon name="plus" size={15} /> {t('mv.first')}</button>
           </div>
         </div>
       ) : (
@@ -33,7 +33,7 @@ export default function MyVideosPage() {
                 <div className="vcard-meta">
                   <span className="badge">{v.level}</span>
                   <span className="listens">{v.channel}</span>
-                  <button className="vcard-del" title="Xoá khỏi danh sách" onClick={() => removeVideo(v.id)}>
+                  <button className="vcard-del" title={t('mv.remove')} onClick={() => removeVideo(v.id)}>
                     <Icon name="trash" size={15} />
                   </button>
                 </div>

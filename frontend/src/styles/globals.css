@@ -150,6 +150,18 @@ button{font-family:inherit}
 .frame-forest::after{background:#38ef7d}
 .frame-galaxy::before{background:conic-gradient(#7028e4,#e5b2ca,#5b9dff,#9d50bb,#7028e4)}
 .frame-galaxy::after{background:#9d50bb}
+/* Video avatar frames — WebM with a real alpha channel: fully transparent
+   background, no blending tricks. The .mp4-fallback class (Safari, no VP9
+   alpha) keeps the old screen-blend + mask treatment. */
+.avatar-wrap.frame-vid{padding:0}
+.avatar-wrap.frame-vid::before,.avatar-wrap.frame-vid::after{display:none}
+.avatar-wrap.frame-vid .avatar-inner{border:none}
+.frame-video{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:184%;height:184%;object-fit:cover;pointer-events:none;z-index:3;
+  -webkit-mask-image:radial-gradient(circle,#000 58%,transparent 80%);
+  mask-image:radial-gradient(circle,#000 58%,transparent 80%)}
+.frame-video.mp4-fallback{mix-blend-mode:screen;border-radius:50%;filter:contrast(1.2)}
+.avatar-img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 
 /* ============ HEADINGS ============ */
 .page-title{font-family:"Quicksand";font-size:26px;font-weight:700;margin:6px 0 2px;display:flex;align-items:center;gap:10px}
@@ -417,7 +429,7 @@ button{font-family:inherit}
 .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:end;margin-bottom:18px}
 .podium-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 14px 16px;
   display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:var(--shadow-sm);text-align:center}
-.podium-card.r1{transform:translateY(-14px);border-color:var(--coin);box-shadow:0 14px 36px rgba(247,201,72,.28)}
+.podium-card.r1{top:-14px;border-color:var(--coin);box-shadow:0 14px 36px rgba(247,201,72,.28)}
 .podium-card.plus{background:linear-gradient(180deg,var(--panel),color-mix(in srgb,var(--accent) 12%,var(--panel)))}
 .podium-rank{position:absolute;top:-13px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
   font-weight:800;font-size:13px;color:#fff;background:var(--grad);box-shadow:0 4px 10px rgba(37,99,235,.5)}
@@ -432,10 +444,25 @@ button{font-family:inherit}
 .plus-tag.sm{font-size:9px;padding:1px 6px}
 
 .lb-list{display:flex;flex-direction:column;gap:7px;margin-top:6px}
-.lb-row{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:9px 14px;transition:.12s}
+.lb-row{position:relative;display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:9px 14px;transition:.12s}
 .lb-row:hover{border-color:var(--accent-ring)}
 .lb-row.plus{border-color:rgba(168,85,247,.4)}
 .lb-row.me{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent-ring)}
+/* Equipped background videos behind leaderboard cards */
+.lb-bg-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;z-index:0}
+.podium-card .avatar-wrap{margin-top:-14px;margin-bottom:6px}
+.podium-card.has-bg,.lb-row.has-bg{background:transparent}
+.lb-row.has-bg{overflow:hidden}
+.podium-card.has-bg::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:1;
+  background:linear-gradient(180deg,transparent 42%,color-mix(in srgb,var(--panel) 88%,transparent))}
+.lb-row.has-bg::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:1;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--panel) 85%,transparent) 30%,color-mix(in srgb,var(--panel) 35%,transparent) 65%,transparent)}
+/* avatar-wrap phải giữ z-index auto: gán z-index sẽ tạo stacking context
+   cô lập blend "screen" của video khung khỏi video nền → lộ nền đen */
+.podium-card.has-bg .podium-name,.podium-card.has-bg .podium-xp,.podium-card.has-bg .podium-meta{position:relative;z-index:2}
+.podium-card.has-bg .avatar-inner,.lb-row.has-bg .avatar-inner{z-index:2}
+.podium-card.has-bg .podium-rank{z-index:4}
+.lb-row.has-bg>*:not(.lb-bg-vid):not(.avatar-wrap){position:relative;z-index:2}
 .lb-rank{width:24px;text-align:center;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
 .lb-name{flex:1;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px}
 .lb-streak{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:#fb7185}
@@ -514,6 +541,10 @@ button{font-family:inherit}
 .item-btn.owned{background:var(--panel2);color:var(--muted);cursor:default}
 .item-btn.equip{background:var(--accent-soft);color:var(--accent-d);border:1px solid var(--accent-ring)}
 .item-btn.equipped{background:var(--accent);color:#fff}
+.bg-preview{width:150px;height:96px;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.22)}
+.bg-preview video{width:100%;height:100%;object-fit:cover;display:block}
+.frame-tile{width:100%;height:100%;display:grid;place-items:center;border-radius:13px;overflow:hidden;
+  background:radial-gradient(circle at 50% 42%,#212a42,#0b101d)}
 .fx-preview{position:relative;display:grid;place-items:center}
 .fx-glow::after,.fx-spark::after{content:"";position:absolute;inset:-10px;border-radius:50%;z-index:-1}
 .fx-glow::after{background:radial-gradient(circle,rgba(91,157,255,.6),transparent 70%);animation:pulse 2s ease-in-out infinite}
@@ -1188,7 +1219,7 @@ button{font-family:inherit}
   .plan.featured{transform:none}
   .perks-list{grid-template-columns:1fr}
   .podium{grid-template-columns:1fr}
-  .podium-card.r1{transform:none}
+  .podium-card.r1{top:0}
   .vh-stats,.vh-actions{grid-template-columns:1fr}
   .level-grid{grid-template-columns:1fr}
   .lb-cd-box{min-width:60px}
@@ -1616,3 +1647,213 @@ button{font-family:inherit}
   .pet-float,.pet-shadow,.pet-peek,.pet-frame.on,.pet-spark,.pet-ember,.pet-aura{animation:none}
   .pet-frame{transition:opacity .2s ease}
 }
+
+/* ---------- Onboarding mục tiêu học ---------- */
+.goal-modal{max-width:520px}
+.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
+@media(max-width:520px){.goal-grid{grid-template-columns:1fr}}
+.goal-card{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--panel);
+  border:2px solid var(--line);border-radius:16px;padding:16px 12px;cursor:pointer;color:var(--text);transition:.15s}
+.goal-card:hover{border-color:var(--accent-ring);transform:translateY(-2px)}
+.goal-card.on{border-color:var(--accent);background:var(--accent-soft)}
+.goal-card b{font-size:15px}
+.goal-card small{color:var(--muted);font-size:12px;line-height:1.45}
+.goal-emoji{font-size:30px;line-height:1}
+.goal-skip{display:block;margin:14px auto 0;background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline}
+.goal-skip:hover{color:var(--text)}
+.goal-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text2);font-size:12.5px;font-weight:600;cursor:pointer}
+.goal-chip:hover{border-color:var(--accent-ring);color:var(--text)}
+
+/* ---------- Nút góp ý / báo lỗi ---------- */
+.feedback-fab{position:fixed;right:18px;bottom:18px;z-index:70;display:inline-flex;align-items:center;gap:7px;
+  padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);
+  font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(4,8,18,.28)}
+.feedback-fab:hover{border-color:var(--accent-ring);transform:translateY(-1px)}
+.feedback-modal{max-width:460px}
+.feedback-kind{display:flex;gap:10px;margin:14px 0}
+.feedback-kind button{flex:1;padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--panel);
+  color:var(--text);font-weight:600;cursor:pointer;font-size:13.5px}
+.feedback-kind button.on{border-color:var(--accent);background:var(--accent-soft)}
+.feedback-text{width:100%;resize:vertical;padding:12px;border-radius:12px;border:1px solid var(--line);
+  background:var(--bg);color:var(--text);font:inherit;font-size:14px}
+.feedback-send{width:100%;margin-top:12px}
+.feedback-done{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:10px 0}
+.feedback-done p{color:var(--muted);font-size:13.5px;margin:0 0 6px}
+@media(max-width:760px){.feedback-fab{bottom:14px;right:12px;padding:8px 12px}}
+
+/* ---------- Mục tiêu hằng ngày (XP) ---------- */
+.dgoal{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:14px 0}
+.dgoal.done{border-color:var(--good)}
+.dgoal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dgoal-head b{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--text)}
+.dgoal-levels{display:flex;gap:6px}
+.dgoal-levels button{padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:none;
+  color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}
+.dgoal-levels button.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.dgoal-bar{height:10px;border-radius:999px;background:var(--bg2);overflow:hidden;margin:10px 0}
+.dgoal-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#7c5cff);transition:width .4s ease}
+.dgoal.done .dgoal-bar span{background:var(--good)}
+.dgoal-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dgoal-msg{font-size:13px;color:var(--text2)}
+.dgoal-ctas{display:flex;gap:8px}
+
+/* ---------- Wizard bám mục tiêu ---------- */
+.wiz-preset-hint{margin:-4px 0 14px;padding:8px 12px;border-radius:10px;background:var(--accent-soft);
+  color:var(--text2);font-size:13px}
+.ps-tag.focus{border-color:var(--accent);color:var(--accent);font-weight:700}
+
+/* ---------- Trang chủ: cặp thẻ mục tiêu + từ của ngày ---------- */
+.home-duo{display:grid;grid-template-columns:1.55fr 1fr;gap:12px;margin:14px 0;align-items:stretch}
+.home-duo .dgoal{margin:0}
+@media(max-width:900px){.home-duo{grid-template-columns:1fr}}
+
+/* ---------- Rương thưởng & pháo giấy ---------- */
+.dgoal{position:relative;overflow:hidden}
+.dgoal-chest{white-space:nowrap}
+.dgoal-claimed{font-size:12.5px;color:var(--good);font-weight:700;white-space:nowrap}
+.dgoal-burst{position:absolute;inset:0;pointer-events:none;z-index:2}
+.dgoal-burst i{position:absolute;left:50%;top:55%;width:8px;height:12px;border-radius:2px;
+  background:hsl(calc(var(--i)*26), 90%, 62%);opacity:0;
+  animation:dg-fly 1.5s ease-out forwards;animation-delay:calc(var(--i)*18ms);
+  --dx:calc((var(--i) - 7)*26px);--dy:calc(-90px - (var(--i) - 7)*(var(--i) - 7)*2px)}
+@keyframes dg-fly{
+  0%{opacity:0;transform:translate(0,0) rotate(0)}
+  12%{opacity:1}
+  100%{opacity:0;transform:translate(var(--dx),calc(var(--dy) + 140px)) rotate(540deg)}
+}
+@media(prefers-reduced-motion:reduce){.dgoal-burst i{animation:none;opacity:0}}
+
+/* ---------- Thanh cấp độ ---------- */
+.dgoal-level{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text2)}
+.dgoal-level>span:first-child{font-weight:700;white-space:nowrap}
+.dgoal-level-bar{flex:1;height:7px;border-radius:999px;background:var(--bg2);overflow:hidden}
+.dgoal-level-bar span{display:block;height:100%;border-radius:999px;background:var(--coin)}
+.dgoal-level-next{color:var(--muted);white-space:nowrap}
+
+/* ---------- Từ của ngày ---------- */
+.wod{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.wod-head{display:flex;align-items:center;justify-content:space-between}
+.wod-head b{font-size:14px;color:var(--text)}
+.wod-lang{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px}
+.wod-term{display:flex;align-items:center;gap:8px}
+.wod-word{font-size:24px;font-weight:800;color:var(--text);line-height:1.2}
+.wod-speak{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--line);background:none;color:var(--text2);cursor:pointer}
+.wod-speak:hover{border-color:var(--accent-ring);color:var(--accent)}
+.wod-sub{font-size:12.5px;color:var(--muted)}
+.wod-vi{font-size:13.5px;color:var(--text2);font-weight:600}
+.wod-ex{background:var(--bg2);border-radius:10px;padding:8px 11px;margin:4px 0 6px}
+.wod-ex p{margin:0;font-size:13px;color:var(--text)}
+.wod-ex small{color:var(--muted);font-size:12px}
+.wod .btn-ghost{align-self:flex-start;margin-top:auto}
+
+/* ---------- Gói từ vựng theo ngữ cảnh ---------- */
+.deck-emoji{font-size:22px;line-height:1}
+.deck-goal{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+  padding:2px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+.pack-modal{max-width:560px}
+.pack-emoji{font-size:38px;line-height:1}
+.pack-words{max-height:46vh;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin:14px 0;
+  padding-right:4px}
+.pack-word{background:var(--bg2);border-radius:11px;padding:9px 12px}
+.pack-word-top{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.pack-word-top b{font-size:15px;color:var(--text)}
+.pack-sub{font-size:11.5px;color:var(--muted)}
+.pack-vi{font-size:13px;color:var(--text2);font-weight:600;margin-left:auto}
+.pack-ex{margin-top:4px;font-size:12.5px;color:var(--text2)}
+.pack-ex small{color:var(--muted)}
+.pack-add{width:100%}
+
+/* ---------- Huy hiệu tình huống hợp mục tiêu ---------- */
+.sp-goal-badge{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+  padding:2px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+
+/* ---------- Hội thoại ngẫu nhiên ---------- */
+.sp-random{border:2px dashed var(--accent-ring);background:linear-gradient(135deg,var(--accent-soft),transparent 65%)}
+.sp-random:hover{border-color:var(--accent)}
+.sp-random .sp-pick-ava{font-size:30px}
+.sp-reroll{margin-left:auto;white-space:nowrap}
+
+/* ---------- Nút ngôn ngữ giao diện (i18n) ---------- */
+.ui-lang-btn{font-size:12px;font-weight:800;letter-spacing:.4px;width:auto;padding:0 11px}
+
+/* ---------- Tiếng Anh 3 tháng: lộ trình 12 tuần tương tác ---------- */
+.enroad{margin-bottom:26px}
+.enroad-start{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  background:var(--accent-soft);border:1.5px dashed var(--accent-ring);border-radius:16px;padding:16px 18px;margin-bottom:16px}
+.enroad-start b{font-size:15px;color:var(--text)}
+.enroad-start p{margin:4px 0 0;font-size:13px;color:var(--text2);max-width:520px}
+.enroad-status{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.enroad-day{display:flex;align-items:baseline;gap:3px;flex-shrink:0;background:var(--accent-soft);
+  border:1px solid var(--accent-ring);border-radius:13px;padding:10px 14px}
+.enroad-day b{font-family:"Quicksand";font-size:20px;color:var(--accent-d);white-space:nowrap}
+.enroad-day span{font-size:12px;color:var(--muted)}
+.enroad-mid{flex:1;min-width:220px}
+.enroad-line1{font-size:13px;color:var(--text2);margin-bottom:7px}
+.enroad-line1 b{color:var(--text)}
+.enroad-line2{font-size:12px;color:var(--muted);margin-top:6px}
+.enroad-grad{background:linear-gradient(135deg,rgba(246,183,60,.16),rgba(238,90,138,.14));
+  border:1px solid rgba(246,183,60,.45);border-radius:14px;padding:13px 16px;font-size:13.5px;color:var(--text);margin-bottom:16px}
+.week-card.road{cursor:pointer;font-family:inherit;text-align:left;color:var(--text);display:block;width:100%;transition:.13s}
+.week-card.road:hover{border-color:var(--accent-ring);transform:translateY(-2px)}
+.week-card.road.open{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-ring)}
+.week-card.road.now{background:var(--accent-soft)}
+.week-card.road.done{opacity:.88}
+.wk-ok{color:var(--good);display:inline-flex}
+.wk-bar{height:5px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);overflow:hidden;margin-top:10px}
+.wk-bar div{height:100%;background:var(--grad);border-radius:5px;transition:width .3s}
+.week-card.done .wk-bar div{background:var(--good)}
+.wk-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);margin-top:6px;font-weight:600}
+.wk-now-tag{font-size:10px;font-weight:800;color:var(--accent-d);background:var(--accent-soft);
+  border:1px solid var(--accent-ring);border-radius:20px;padding:1px 8px;text-transform:uppercase;letter-spacing:.04em}
+.wk-detail{background:var(--panel);border:1px solid var(--accent-ring);border-radius:18px;padding:18px 20px;margin-top:14px}
+.wk-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.wk-detail-kicker{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:4px}
+.wk-detail-head h3{margin:0 0 4px;font-family:"Quicksand";font-size:20px;color:var(--text)}
+.wk-detail-head p{margin:0;font-size:13.5px;color:var(--text2);line-height:1.55;max-width:640px}
+.wk-rhythm{display:flex;align-items:flex-start;gap:7px;font-size:12.5px;color:var(--muted);
+  background:var(--panel2);border:1px dashed var(--line);border-radius:11px;padding:9px 12px;margin:12px 0 14px}
+.wk-rhythm svg{flex-shrink:0;margin-top:1px}
+.wk-tasks{display:flex;flex-direction:column;gap:8px}
+.wk-task{display:flex;align-items:center;gap:11px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px}
+.wk-task.done{border-color:var(--good);background:rgba(52,211,153,.07)}
+.wk-check{flex-shrink:0;display:grid;place-items:center;width:24px;height:24px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--line2);background:var(--panel);color:#fff}
+.wk-check:hover{border-color:var(--accent)}
+.wk-check.on{background:var(--good);border-color:var(--good)}
+.wk-check.auto{cursor:default;color:var(--muted)}
+.wk-check.auto.on{color:#fff}
+.wk-task-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.wk-task-label{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.4}
+.wk-task.done .wk-task-label{color:var(--text2)}
+.wk-task-meta{font-size:11.5px;font-weight:700;color:var(--accent-d)}
+.wk-go{white-space:nowrap;flex-shrink:0}
+.wk-pt-title{font-size:13px;font-weight:800;color:var(--text);margin:16px 0 10px}
+.wk-patterns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wk-pattern{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.wk-pattern b{display:block;font-size:14.5px;color:var(--text)}
+.wk-pt-vi{display:block;font-size:11.5px;font-weight:700;color:var(--accent-d);margin:2px 0 6px}
+.wk-pattern p{display:flex;align-items:center;gap:7px;margin:0;font-size:13.5px;font-weight:600;color:var(--text2)}
+.wk-pattern small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.wk-pt-sound{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:none;color:var(--text2);flex-shrink:0}
+.wk-pt-sound:hover{border-color:var(--accent-ring);color:var(--accent)}
+.wk-congrats{margin-top:14px;background:rgba(52,211,153,.1);border:1px solid var(--good);border-radius:12px;
+  padding:11px 14px;font-size:13.5px;color:var(--text)}
+.quiz-week-tag{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:var(--accent-d);
+  background:var(--accent-soft);border:1px solid var(--accent-ring);border-radius:999px;padding:5px 13px;margin-bottom:12px}
+.quiz-pass{font-size:13.5px;font-weight:700;color:var(--text2);background:var(--panel2);border:1px solid var(--line);
+  border-radius:11px;padding:9px 14px;margin:4px 0 8px}
+.quiz-pass.ok{color:var(--good);border-color:var(--good);background:rgba(52,211,153,.08)}
+.quiz-done-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media(max-width:980px){.weeks-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+  .weeks-grid{grid-template-columns:repeat(2,1fr)}
+  .wk-patterns{grid-template-columns:1fr}
+  .wk-task{flex-wrap:wrap}
+  .wk-go{margin-left:35px}
+}
+@media(max-width:480px){.weeks-grid{grid-template-columns:1fr}}

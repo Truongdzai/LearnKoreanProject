@@ -67,9 +67,9 @@ export function markWords(target: string, heard: string): WordMark[] {
     })
 }
 
-export function scoreBand(n: number): { label: string; tone: 'good' | 'mid' | 'low' } {
-  if (n >= 85) return { label: 'Xuất sắc!', tone: 'good' }
-  if (n >= 65) return { label: 'Tốt lắm', tone: 'good' }
-  if (n >= 40) return { label: 'Khá ổn', tone: 'mid' }
-  return { label: 'Cần luyện thêm', tone: 'low' }
+export function scoreBand(n: number): { labelKey: string; tone: 'good' | 'mid' | 'low' } {
+  if (n >= 85) return { labelKey: 'band.excellent', tone: 'good' }
+  if (n >= 65) return { labelKey: 'band.great', tone: 'good' }
+  if (n >= 40) return { labelKey: 'band.ok', tone: 'mid' }
+  return { labelKey: 'band.more', tone: 'low' }
 }

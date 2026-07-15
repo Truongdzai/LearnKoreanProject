@@ -3,23 +3,23 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import type { AppView } from '@/core/constants/enum'
 
 const INFO: Record<string, { ic: IconName; h: string; p: string }> = {
-  myvideos: { ic: 'tv', h: 'Video của tôi', p: 'Danh sách các video bạn đã học và tiến độ từng video. Sẽ hiện ở đây sau khi mình thêm phần lưu lịch sử học.' },
-  courses: { ic: 'book', h: 'Khoá học', p: 'Tự gom các video yêu thích thành lộ trình học riêng và theo dõi tiến độ.' },
-  vocab: { ic: 'letters', h: 'Từ vựng', p: 'Tổng hợp những thẻ bạn đã lưu để ôn lại nhanh ngay trong web.' },
+  myvideos: { ic: 'tv', h: 'ph.myvideos', p: 'ph.myvideosText' },
+  courses: { ic: 'book', h: 'ph.courses', p: 'ph.coursesText' },
+  vocab: { ic: 'letters', h: 'ph.vocab', p: 'ph.vocabText' },
 }
 
 export default function Placeholder({ view }: { view: AppView }) {
-  const { setView } = useAppStore()
-  const x = INFO[view] ?? { ic: 'tool' as IconName, h: 'Sắp có', p: 'Tính năng này đang được xây dựng.' }
+  const { setView, t } = useAppStore()
+  const x = INFO[view] ?? { ic: 'tool' as IconName, h: 'ph.soon', p: 'ph.soonText' }
   return (
     <>
-      <h1 className="page-title">{x.h}</h1>
+      <h1 className="page-title">{t(x.h)}</h1>
       <div className="soon" style={{ marginTop: 14 }}>
         <div className="big"><Icon name={x.ic} /></div>
-        <h3>Đang xây dựng</h3>
-        <p>{x.p}</p>
+        <h3>{t('ph.building')}</h3>
+        <p>{t(x.p)}</p>
         <button className="btn-new" style={{ marginTop: 14 }} onClick={() => setView('home')}>
-          <Icon name="arrow-left" /> Về trang chủ
+          <Icon name="arrow-left" /> {t('ph.backHome')}
         </button>
       </div>
     </>

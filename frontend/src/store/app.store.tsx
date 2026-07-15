@@ -8,22 +8,60 @@ import type { LearningPath } from '@/models/path.model'
 import { fetchTranscript } from '@/core/api/learn.api'
 import { fetchVideos } from '@/core/api/content.api'
 import {
-  fetchState, buyItemApi, equipFrameApi, equipPetApi, upgradePlusApi, plantSeedApi, waterPlantApi,
+  fetchState, buyItemApi, equipFrameApi, equipPetApi, equipBgApi, setAvatarApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
-  recordEventApi, type EventType,
+  recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { viewAllowedForLang } from '@/core/constants/nav'
 import { studyLang } from '@/core/constants/languages'
+import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { useAuth } from '@/store/auth.store'
 
 const THEME_KEY = 'vyling.theme'
 const LANG_KEY = 'vyling.learnLang'
 const NATIVE_KEY = 'vyling.nativeLang'
+const GOAL_KEY = 'vyling.goal'
+const GOAL_ASKED_KEY = 'vyling.goalAsked'
+const DAILY_GOAL_KEY = 'vyling.dailyGoal'
+const TODAY_XP_KEY = 'vyling.todayXp'
+const UI_LANG_KEY = 'vyling.uiLang'
+
+function loadUiLang(nativeCode: string): UiLang {
+  try {
+    const saved = localStorage.getItem(UI_LANG_KEY)
+    if (saved === 'vi' || saved === 'en') return saved
+  } catch { /* ignore */ }
+  // Chưa chọn thủ công → theo tiếng mẹ đẻ: vi giữ tiếng Việt, còn lại dùng bản tiếng Anh.
+  return nativeCode === 'vi' ? 'vi' : 'en'
+}
+
+/** XP mỗi hành động — khớp với _EVENT_XP ở backend để thanh tiến độ chạy tức thời. */
+const EVENT_XP: Record<string, number> = { lesson: 30, pronounce: 5, review: 2, video: 25, word: 4, login: 0 }
+
+function todayKey(): string {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+function loadTodayXp(): number {
+  try {
+    const raw = JSON.parse(localStorage.getItem(TODAY_XP_KEY) || '{}')
+    return raw.d === todayKey() ? Number(raw.xp) || 0 : 0
+  } catch { return 0 }
+}
+
+function saveTodayXp(xp: number) {
+  try { localStorage.setItem(TODAY_XP_KEY, JSON.stringify({ d: todayKey(), xp })) } catch { /* ignore */ }
+}
+
+function loadDailyGoal(): number {
+  try { return Number(localStorage.getItem(DAILY_GOAL_KEY)) || 50 } catch { return 50 }
+}
 
 const GUEST: Account = {
   id: '', name: 'Khách', provider: 'email', role: 'user',
-  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null, equippedPet: null,
+  isPlus: false, coins: 0, xp: 0, level: 1, streak: 0, equippedFrame: null, equippedPet: null, equippedBg: null,
 }
 
 function loadTheme(): ThemeMode {
@@ -36,6 +74,14 @@ function loadLang(): string {
 
 function loadNative(): string {
   try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
+}
+
+function loadGoal(): string {
+  try { return localStorage.getItem(GOAL_KEY) || '' } catch { return '' }
+}
+
+function goalAsked(): boolean {
+  try { return !!localStorage.getItem(GOAL_ASKED_KEY) } catch { return true }
 }
 
 interface AppStore {
@@ -51,10 +97,31 @@ interface AppStore {
   nativeLang: string
   setNativeLang: (code: string) => void
 
+  /** Ngôn ngữ giao diện (i18n) + hàm dịch chuỗi UI. */
+  uiLang: UiLang
+  setUiLang: (l: UiLang) => void
+  t: (key: string, params?: Record<string, string | number>) => string
+  /** Tên ngôn ngữ đang học, hiển thị theo ngôn ngữ giao diện. */
+  learnLangName: string
+
   /** One-shot signal asking PathPage to open its wizard (e.g. after switching language). */
   wizardRequested: boolean
   requestWizard: () => void
   clearWizard: () => void
+
+  /** Learning goal ("talk" | "work" | "travel" | "exam" | ''). */
+  goal: string
+  setGoal: (g: string) => void
+  onboardingOpen: boolean
+  openOnboarding: () => void
+  closeOnboarding: () => void
+
+  /** Daily XP goal + today's earned XP (guests tracked locally, users synced from server). */
+  dailyGoalXp: number
+  setDailyGoalXp: (n: number) => void
+  todayXp: number
+  goalBonusClaimed: boolean
+  claimGoalBonus: () => Promise<number>
 
   user: Account
   isAuthed: boolean
@@ -69,6 +136,8 @@ interface AppStore {
   buyItem: (itemId: string) => Promise<void>
   equipFrame: (frame: string | null) => Promise<void>
   equipPet: (pet: string | null) => Promise<void>
+  equipBg: (bg: string | null) => Promise<void>
+  setAvatar: (avatar: string | null) => Promise<void>
   upgradePlus: (planId?: string) => Promise<void>
   plantSeed: (itemId: string, art: string, name: string) => Promise<void>
   waterPlant: (id: string) => Promise<void>
@@ -101,7 +170,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeMode>(loadTheme)
   const [learnLang, setLearnLangState] = useState<string>(loadLang)
   const [nativeLang, setNativeLangState] = useState<string>(loadNative)
+  const [uiLang, setUiLangState] = useState<UiLang>(() => loadUiLang(loadNative()))
   const [wizardRequested, setWizardRequested] = useState(false)
+  const [goal, setGoalState] = useState<string>(loadGoal)
+  // Hỏi mục tiêu đúng 1 lần cho khách mới; chọn hay bỏ qua đều không hỏi lại.
+  const [onboardingOpen, setOnboardingOpen] = useState<boolean>(() => !loadGoal() && !goalAsked())
+  const [dailyGoalXp, setDailyGoalXpState] = useState<number>(loadDailyGoal)
+  const [todayXp, setTodayXp] = useState<number>(loadTodayXp)
+  const [goalBonusClaimed, setGoalBonusClaimed] = useState(false)
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
@@ -139,6 +215,11 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         setPaths(s.paths)
         setGarden(s.garden)
         setAccount(s.user)
+        // Máy chủ là nguồn chuẩn cho XP hôm nay của người đăng nhập.
+        const xp = Math.max(s.todayXp || 0, loadTodayXp())
+        setTodayXp(xp)
+        saveTodayXp(xp)
+        setGoalBonusClaimed(!!s.goalBonusClaimed)
       })
       .catch(() => { /* ignore */ })
   }, [isAuthed, setAccount])
@@ -154,11 +235,59 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const setNativeLang = useCallback((code: string) => {
     setNativeLangState(code)
-    try { localStorage.setItem(NATIVE_KEY, code) } catch { /* ignore */ }
+    try {
+      localStorage.setItem(NATIVE_KEY, code)
+      // Chưa từng chọn ngôn ngữ giao diện thủ công → đổi theo tiếng mẹ đẻ.
+      if (!localStorage.getItem(UI_LANG_KEY)) setUiLangState(code === 'vi' ? 'vi' : 'en')
+    } catch { /* ignore */ }
   }, [])
+
+  const setUiLang = useCallback((l: UiLang) => {
+    setUiLangState(l)
+    try { localStorage.setItem(UI_LANG_KEY, l) } catch { /* ignore */ }
+  }, [])
+
+  const t = useCallback(
+    (key: string, params?: Record<string, string | number>) => translate(uiLang, key, params),
+    [uiLang],
+  )
+
+  const learnLangName = studyLangName(uiLang, learnLang)
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
   const clearWizard = useCallback(() => setWizardRequested(false), [])
+
+  const setGoal = useCallback((g: string) => {
+    setGoalState(g)
+    try {
+      if (g) localStorage.setItem(GOAL_KEY, g)
+      else localStorage.removeItem(GOAL_KEY)
+      localStorage.setItem(GOAL_ASKED_KEY, '1')
+    } catch { /* ignore */ }
+    if (isAuthed) {
+      setGoalApi(g || null).then((r) => setAccount(r.user)).catch(() => { /* non-blocking */ })
+    }
+  }, [isAuthed, setAccount])
+
+  const openOnboarding = useCallback(() => setOnboardingOpen(true), [])
+  const closeOnboarding = useCallback(() => {
+    setOnboardingOpen(false)
+    try { localStorage.setItem(GOAL_ASKED_KEY, '1') } catch { /* ignore */ }
+  }, [])
+
+  // Đồng bộ mục tiêu giữa máy và tài khoản khi đăng nhập:
+  // tài khoản đã có -> dùng của tài khoản; máy có mà tài khoản chưa -> đẩy lên tài khoản.
+  useEffect(() => {
+    if (!isAuthed || !account) return
+    const remote = account.goal || ''
+    if (remote && remote !== goal) {
+      setGoalState(remote)
+      try { localStorage.setItem(GOAL_KEY, remote); localStorage.setItem(GOAL_ASKED_KEY, '1') } catch { /* ignore */ }
+    } else if (!remote && goal) {
+      setGoalApi(goal).then((r) => setAccount(r.user)).catch(() => { /* non-blocking */ })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthed, account?.goal])
 
   const guard = useCallback((): boolean => {
     if (isAuthed) return true
@@ -182,6 +311,18 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const equipPet = useCallback(async (pet: string | null) => {
     if (!guard()) return
     const r = await equipPetApi(pet)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const equipBg = useCallback(async (bg: string | null) => {
+    if (!guard()) return
+    const r = await equipBgApi(bg)
+    setAccount(r.user)
+  }, [guard, setAccount])
+
+  const setAvatar = useCallback(async (avatar: string | null) => {
+    if (!guard()) return
+    const r = await setAvatarApi(avatar)
     setAccount(r.user)
   }, [guard, setAccount])
 
@@ -239,11 +380,33 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   }, [guard, setAccount, setBonusAvailable])
 
   const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0) => {
+    // Cộng XP hôm nay tại chỗ cho cả khách lẫn người đăng nhập — thanh mục tiêu ngày chạy tức thời.
+    const gain = (EVENT_XP[type] || 0) * Math.max(0, amount)
+    if (gain) {
+      setTodayXp((x) => {
+        const nx = x + gain
+        saveTodayXp(nx)
+        return nx
+      })
+    }
     if (!isAuthed) return
     recordEventApi(type, amount, minutes, words)
       .then((r) => setAccount(r.user))
       .catch(() => { /* non-blocking */ })
   }, [isAuthed, setAccount])
+
+  const setDailyGoalXp = useCallback((n: number) => {
+    setDailyGoalXpState(n)
+    try { localStorage.setItem(DAILY_GOAL_KEY, String(n)) } catch { /* ignore */ }
+  }, [])
+
+  const claimGoalBonus = useCallback(async (): Promise<number> => {
+    if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
+    const r = await goalBonusApi(dailyGoalXp)
+    setAccount(r.user)
+    setGoalBonusClaimed(true)
+    return r.reward
+  }, [guard, dailyGoalXp, setAccount])
 
   const openLookup = useCallback((term = '') => {
     setLookupSeed(term)
@@ -288,11 +451,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     theme, toggleTheme,
     learnLang, setLearnLang,
     nativeLang, setNativeLang,
+    uiLang, setUiLang, t, learnLangName,
     wizardRequested, requestWizard, clearWizard,
+    goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
+    dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
     user, isAuthed,
     videos,
     owned, savedVideos, paths, garden,
-    buyItem, equipFrame, equipPet, upgradePlus,
+    buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
     plantSeed, waterPlant, removePlant,
     saveVideo, removeVideo, addPath,
     claimQuest, dailyBonus, recordEvent,

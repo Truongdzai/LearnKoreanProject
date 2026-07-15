@@ -8,7 +8,7 @@ import type { Lesson } from '@/models/lesson.model'
 const REWARD = 2
 
 export default function DictationPractice({ lesson }: { lesson: Lesson }) {
-  const { recordEvent, learnLang } = useAppStore()
+  const { recordEvent, learnLang, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const [i, setI] = useState(0)
@@ -52,21 +52,21 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
   return (
     <div className="dictation">
       <div className="shadow-bar">
-        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> Trước</button>
+        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> {t('sh.prev')}</button>
         <div className="shadow-prog">
-          <span>Câu {i + 1}/{segs.length}</span>
+          <span>{t('sh.line', { a: i + 1, b: segs.length })}</span>
           <div className="tp-bar"><span style={{ width: ((i + 1) / segs.length) * 100 + '%' }} /></div>
-          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {rewarded.size} đúng</span>
+          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {t('dict.correct', { n: rewarded.size })}</span>
         </div>
-        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>Tiếp <Icon name="arrow-right" size={15} /></button>
+        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>{t('sh.next')} <Icon name="arrow-right" size={15} /></button>
       </div>
 
       <div className="dict-card">
-        <div className="dict-label"><Icon name="headphones" size={15} /> Nghe và gõ lại bằng {cfg.name}</div>
+        <div className="dict-label"><Icon name="headphones" size={15} /> {t('dict.label', { lang: learnLangName })}</div>
 
         <div className="dict-listen">
-          <button className="dict-play" onClick={() => speak(0.85)}><Icon name="volume" size={22} /> Nghe</button>
-          <button className="btn-ghost" onClick={() => speak(0.55)}><Icon name="volume" size={16} /> Nghe chậm</button>
+          <button className="dict-play" onClick={() => speak(0.85)}><Icon name="volume" size={22} /> {t('dict.listen')}</button>
+          <button className="btn-ghost" onClick={() => speak(0.55)}><Icon name="volume" size={16} /> {t('sh.slow')}</button>
         </div>
 
         {!checked ? (
@@ -75,18 +75,18 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
             value={val}
             onChange={(e) => setVal(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); check() } }}
-            placeholder="Gõ những gì bạn nghe được…"
+            placeholder={t('dict.placeholder')}
             rows={2}
             autoFocus
           />
         ) : (
           <div className="dict-review">
             <div className="dict-yours">
-              <span className="dict-mini">Bạn gõ:</span>
-              <span lang={learnLang}>{val || '(trống)'}</span>
+              <span className="dict-mini">{t('dict.yours')}</span>
+              <span lang={learnLang}>{val || t('dict.empty')}</span>
             </div>
             <div className="dict-correct">
-              <span className="dict-mini">Đáp án:</span>
+              <span className="dict-mini">{t('dict.answer')}</span>
               <span lang={learnLang}>
                 {marks.map((m, k) => <span key={k} className={'sw ' + (m.ok ? 'ok' : 'miss')}>{m.word} </span>)}
               </span>
@@ -97,7 +97,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
 
         {checked && (
           <div className={'dict-score ' + band.tone}>
-            <b>{band.label}</b>
+            <b>{t(band.labelKey)}</b>
             <span className="dict-pct">{score}%</span>
             {score >= 70 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}
           </div>
@@ -105,11 +105,11 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
 
         <div className="dict-actions">
           {!checked ? (
-            <button className="btn-primary" disabled={!val.trim()} onClick={check}><Icon name="check" size={16} /> Kiểm tra</button>
+            <button className="btn-primary" disabled={!val.trim()} onClick={check}><Icon name="check" size={16} /> {t('dict.check')}</button>
           ) : (
             <>
-              <button className="btn-ghost sm" onClick={() => { setChecked(false); setVal('') }}><Icon name="headphones" size={14} /> Gõ lại</button>
-              {i < segs.length - 1 && <button className="btn-primary sm" onClick={() => go(i + 1)}>Câu tiếp <Icon name="arrow-right" size={15} /></button>}
+              <button className="btn-ghost sm" onClick={() => { setChecked(false); setVal('') }}><Icon name="headphones" size={14} /> {t('dict.retype')}</button>
+              {i < segs.length - 1 && <button className="btn-primary sm" onClick={() => go(i + 1)}>{t('dict.nextLine')} <Icon name="arrow-right" size={15} /></button>}
             </>
           )}
         </div>

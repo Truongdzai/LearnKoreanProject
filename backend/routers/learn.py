@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
+from ..errors import AppError
 from ..schemas.learn import TranscriptIn
 from ..services import youtube, translate, cache, jobs
 
-router = APIRouter()
+router = APIRouter(prefix="/api/transcript", tags=["Bài học"])
 
 def _attach_speakers(lesson: dict) -> dict:
     spk = cache.get_speakers(lesson.get("id", ""))
@@ -14,7 +15,7 @@ def _attach_speakers(lesson: dict) -> dict:
             seg["speaker"] = s
     return lesson
 
-@router.post("/api/transcript")
+@router.post("")
 def api_transcript(body: TranscriptIn):
     vid = youtube.extract_id(body.url)
 
@@ -30,9 +31,9 @@ def api_transcript(body: TranscriptIn):
             try:
                 data = youtube.get_segments(body.url, body.lang)
             except Exception as exc:
-                raise HTTPException(status_code=400, detail=str(exc))
+                raise AppError("SUBTITLE_NOT_FOUND", str(exc), 404)
             if not data["segments"]:
-                raise HTTPException(status_code=400, detail="Không tìm thấy nội dung phụ đề.")
+                raise AppError("SUBTITLE_NOT_FOUND", "Không tìm thấy nội dung phụ đề.", 404)
             try:
                 translate.translate_segments(data["segments"])
             except Exception:

@@ -38,8 +38,8 @@ interface Pomo {
   leftMs: number   // thời gian còn lại (dùng khi tạm dừng / lưu lại)
 }
 const POMO_PRESETS = [
-  { id: 'standard', label: 'Standard', focus: 25, break: 5, desc: '25 phút học · 5 phút nghỉ' },
-  { id: 'deep', label: 'Deep Work', focus: 50, break: 10, desc: '50 phút học · 10 phút nghỉ' },
+  { id: 'standard', label: 'Standard', focus: 25, break: 5 },
+  { id: 'deep', label: 'Deep Work', focus: 50, break: 10 },
 ] as const
 const FOCUS_MIN = 5, FOCUS_MAX = 90
 const BREAK_MIN = 1, BREAK_MAX = 30
@@ -105,52 +105,21 @@ const BASE_MOOD: Record<PetState, PetMood> = {
   normal: 'happy', tired: 'happy', sleep: 'sleep', study: 'reading', break: 'love',
 }
 
-const CHEERS = [
-  'Mình học chút nha! 학습! 📚',
-  'Đại ca cố lên, em tin đại ca! 🔥',
-  'Tới giờ ôn từ vựng rồi đó~',
-  'Học mỗi ngày một chút, giỏi lúc nào không hay 💪',
-  'Yêu đại ca nhiều lắm luôn á 💕',
-  'Nghỉ tay xíu rồi học tiếp nhé!',
-]
+// Thoại của pet lưu dạng KHOÁ i18n; bong bóng render qua t() nên đổi ngôn ngữ là đổi thoại.
+const CHEERS = ['pet.cheer1', 'pet.cheer2', 'pet.cheer3', 'pet.cheer4', 'pet.cheer5', 'pet.cheer6']
 
 // 4h: ngáp ngắn — nhắc nhẹ
-const YAWN_MSGS = [
-  'Hoaaa~ 🥱 đại ca cày 4 tiếng rồi đó, uống miếng nước nha.',
-  'Mỏi mắt chưa đại caaa 🥱 đứng dậy vươn vai cái coi.',
-  'Học hăng quá Shiba theo hụt hơi luôn 🥱 nghỉ 5 phút hen?',
-]
+const YAWN_MSGS = ['pet.yawn1', 'pet.yawn2', 'pet.yawn3']
 // 5h: ngủ — khuyên nghỉ hẳn
-const REST_MSGS = [
-  'Khuya quá rồi đại ca ơi 😴 nghỉ đi mà, Shiba đi ngủ trước nha 💤',
-  '5 tiếng rồi đó nha cao thủ! Cho não nghỉ xíu, mai chiến tiếp 😴',
-  'Zzz… đại ca học dữ vậy trời 😵 mắt nhí lại rồi kìa, đi ngủ thôiii 💤',
-]
+const REST_MSGS = ['pet.rest1', 'pet.rest2', 'pet.rest3']
 // Lười lâu không học: cầm sách nhắc — hài
-const STUDY_MSGS = [
-  'Đại caaa 📖 sách sắp mọc rêu rồi nè 🕸️ mình ôn vài từ hong?',
-  'Hello? Có ai ở nhà hông ạ 🥺 Shiba ôm sách đợi nãy giờ mỏi tay quá 📚',
-  'Lâu không ôn, mớ từ vựng nó rủ nhau bay đi mất tiêu giờ 😱 học lẹ kẻo quên!',
-  'Bài học: "다음에 (để sau)" — học hoài để sau là toang đó nha đại ca 😏 vô học thôi!',
-]
-// Học khuya (0–5h sáng): mặt sợ hãi — hù đại ca đi ngủ
-const LATE_MSGS = [
-  'Khuyaaa lắm rồi đại ca ơi 😱 hơn 2 giờ sáng rồi đó, ngủ điii kẻo Shiba sợ ma 👻',
-  'Tối thui à 😨 đại ca thức khuya quá Shiba hết hồn luôn, đi ngủ thôi mà 🥺',
-  'Giờ này còn cày 😱 mai dậy nổi hong đại ca? Tắt đèn đi ngủ nào 💤',
-]
+const STUDY_MSGS = ['pet.study1', 'pet.study2', 'pet.study3', 'pet.study4']
+// Học khuya (0–5h sáng): mặt sợ hãi — hù đi ngủ
+const LATE_MSGS = ['pet.late1', 'pet.late2', 'pet.late3']
 // Pomodoro — vào chặng học: cổ vũ tập trung
-const FOCUS_MSGS = [
-  'Vào guồng thôi đại ca! Shiba ngồi học cùng nè 📖✨',
-  'Tập trung nào~ hết chặng này mình nghỉ một xíu nha 🔥',
-  'Cất điện thoại đi đại caaa, mình cày hết chặng này! 💪',
-]
+const FOCUS_MSGS = ['pet.focus1', 'pet.focus2', 'pet.focus3']
 // Pomodoro — vào chặng nghỉ: khen thưởng, nhắc thư giãn
-const BREAK_MSGS = [
-  'Hết chặng rồi! Đứng dậy vươn vai, uống miếng nước nha 🥤',
-  'Giỏi quá đại ca 💕 nghỉ chút cho mắt đỡ mỏi rồi học tiếp!',
-  'Nghỉ giải lao thôiii~ Shiba duỗi chân cái đã 😌',
-]
+const BREAK_MSGS = ['pet.break1', 'pet.break2', 'pet.break3']
 // Biểu cảm dễ thương random lúc rảnh (chỉ đổi mặt, không làm phiền bằng thoại)
 const IDLE_MOODS: PetMood[] = ['wink', 'shy', 'confused', 'love']
 
@@ -169,7 +138,7 @@ function loadCfg(): { focusMin: number; breakMin: number } {
 }
 
 export default function PetWidget() {
-  const { setView, openLookup } = useAppStore()
+  const { setView, openLookup, t } = useAppStore()
   const art = 'shiba' // hiện chỉ còn Shiba — các loài khác sẽ phát triển sau
 
   const [size, setSize] = useState<string>(() => {
@@ -498,7 +467,7 @@ export default function PetWidget() {
 
   if (hidden) {
     return (
-      <button className="pet-peek" onClick={() => setHidden(false)} title="Hiện Shiba">
+      <button className="pet-peek" onClick={() => setHidden(false)} title={t('pet.show')}>
         <Pet art={art} size={30} mood="happy" />
       </button>
     )
@@ -517,15 +486,15 @@ export default function PetWidget() {
           </div>
           <div className="pomo-info">
             <span className="pomo-phase">
-              {pomo.phase === 'focus' ? 'Đang học' : 'Giải lao'} · chặng {pomo.round}
+              {pomo.phase === 'focus' ? t('pet.phaseFocus') : t('pet.phaseBreak')} · {t('pet.round', { n: pomo.round })}
             </span>
             <span className="pomo-time">{mmss(pomoLeft)}{pomo.paused ? ' ⏸' : ''}</span>
           </div>
           <div className="pomo-ctl">
-            <button onClick={pomo.paused ? resumePomo : pausePomo} title={pomo.paused ? 'Tiếp tục' : 'Tạm dừng'}>
+            <button onClick={pomo.paused ? resumePomo : pausePomo} title={pomo.paused ? t('pet.resume') : t('pet.pause')}>
               <Icon name={pomo.paused ? 'play' : 'pause'} size={14} />
             </button>
-            <button onClick={stopPomo} title="Kết thúc">
+            <button onClick={stopPomo} title={t('pet.stop')}>
               <Icon name="stop" size={14} />
             </button>
           </div>
@@ -534,17 +503,17 @@ export default function PetWidget() {
 
       {bubble && (
         <div className="pet-bubble">
-          {bubble}
+          {t(bubble)}
           <div className="pet-bubble-actions">
-            <button onClick={() => setView('flashcards')}>Ôn tập ngay</button>
-            <button onClick={lookup}>Tra từ vựng</button>
+            <button onClick={() => setView('flashcards')}>{t('pet.reviewNow')}</button>
+            <button onClick={lookup}>{t('pet.lookup')}</button>
           </div>
         </div>
       )}
 
       {setup && (
         <div className="pomo-setup" onMouseLeave={() => setSetup(false)}>
-          <h4><Icon name="clock" size={15} /> Pomodoro cùng Shiba</h4>
+          <h4><Icon name="clock" size={15} /> {t('pet.pomoTitle')}</h4>
           <div className="pomo-presets">
             {POMO_PRESETS.map((p) => (
               <button
@@ -553,13 +522,13 @@ export default function PetWidget() {
                 onClick={() => setCfg({ focusMin: p.focus, breakMin: p.break })}
               >
                 <b>{p.label}</b>
-                <small>{p.desc}</small>
+                <small>{t('pet.presetDesc', { f: p.focus, b: p.break })}</small>
               </button>
             ))}
           </div>
           <div className="pomo-fields">
             <label className="pomo-field">
-              <span>Học (phút)</span>
+              <span>{t('pet.focusMin')}</span>
               <div className="pomo-step">
                 <button onClick={() => setCfg((c) => ({ ...c, focusMin: clamp(c.focusMin - 5, FOCUS_MIN, FOCUS_MAX) }))}>−</button>
                 <b>{cfg.focusMin}</b>
@@ -567,7 +536,7 @@ export default function PetWidget() {
               </div>
             </label>
             <label className="pomo-field">
-              <span>Nghỉ (phút)</span>
+              <span>{t('pet.breakMin')}</span>
               <div className="pomo-step">
                 <button onClick={() => setCfg((c) => ({ ...c, breakMin: clamp(c.breakMin - 1, BREAK_MIN, BREAK_MAX) }))}>−</button>
                 <b>{cfg.breakMin}</b>
@@ -576,7 +545,7 @@ export default function PetWidget() {
             </label>
           </div>
           <button className="pomo-start" onClick={() => startPomo(cfg.focusMin, cfg.breakMin)}>
-            <Icon name="play" size={14} /> Bắt đầu tập trung
+            <Icon name="play" size={14} /> {t('pet.start')}
           </button>
         </div>
       )}
@@ -584,36 +553,36 @@ export default function PetWidget() {
       {menu && (
         <div className="pet-menu" onMouseLeave={() => setMenu(false)}>
           <div className="pet-menu-row">
-            <span>Kích thước</span>
+            <span>{t('pet.size')}</span>
             <div className="pet-sizes">
               {(['sm', 'md', 'lg'] as const).map((s) => (
                 <button key={s} className={size === s ? 'on' : ''} onClick={() => setSize(s)}>
-                  {s === 'sm' ? 'Bé' : s === 'md' ? 'Vừa' : 'Lớn'}
+                  {s === 'sm' ? t('pet.sizeS') : s === 'md' ? t('pet.sizeM') : t('pet.sizeL')}
                 </button>
               ))}
             </div>
           </div>
           <button className="pet-menu-btn" onClick={lookup}>
-            <Icon name="search" size={14} /> Tra từ vựng
+            <Icon name="search" size={14} /> {t('pet.lookup')}
           </button>
           <button className="pet-menu-btn" onClick={() => { setSetup((s) => !s); setMenu(false) }}>
-            <Icon name="clock" size={14} /> {pomo ? 'Hẹn giờ Pomodoro' : 'Bật Pomodoro'}
+            <Icon name="clock" size={14} /> {pomo ? t('pet.pomoAdjust') : t('pet.pomoOn')}
           </button>
           <button className="pet-menu-btn" onClick={() => { setView('shop'); setMenu(false) }}>
-            <Icon name="store" size={14} /> Cửa hàng
+            <Icon name="store" size={14} /> {t('nav.shop')}
           </button>
           <button className="pet-menu-btn" onClick={() => { setHidden(true); setMenu(false) }}>
-            <Icon name="x" size={14} /> Ẩn Shiba
+            <Icon name="x" size={14} /> {t('pet.hide')}
           </button>
         </div>
       )}
 
       <div className={'pet-stage' + (hop ? ' hop' : '')}>
-        <button className="pet-body" onClick={greet} title="Shiba — chạm để cổ vũ">
+        <button className="pet-body" onClick={greet} title={t('pet.tap')}>
           <span className="pet-float"><Pet art={art} size={px} mood={mood} /></span>
           <span className="pet-shadow" />
         </button>
-        <button className="pet-gear" onClick={() => { setMenu((m) => !m); setSetup(false) }} title="Tùy chỉnh">
+        <button className="pet-gear" onClick={() => { setMenu((m) => !m); setSetup(false) }} title={t('pet.settings')}>
           <Icon name="settings" size={14} />
         </button>
       </div>

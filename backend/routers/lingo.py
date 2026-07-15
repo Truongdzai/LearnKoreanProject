@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 
 from ..services import lingo, diarize, voice_diarize, cache, jobs, auth, accounts
 
-router = APIRouter()
+router = APIRouter(prefix="/api", tags=["Hot Lingo & người nói"])
 
 def _require_plus(user: dict | None) -> None:
     if not user or not (accounts.plus_active(user) or user.get("role") == "admin"):
@@ -13,7 +13,7 @@ def _require_plus(user: dict | None) -> None:
             detail="Tự động nhận diện người nói là tính năng Plus. Bạn vẫn có thể gán nhân vật thủ công bằng nút A/B.",
         )
 
-@router.get("/api/lingo")
+@router.get("/lingo")
 def api_lingo(refresh: bool = Query(False)):
     return lingo.get(refresh=refresh)
 
@@ -26,7 +26,7 @@ def _to_starts(raw, limit=600) -> list[float]:
             out.append(0.0)
     return out
 
-@router.post("/api/speakers")
+@router.post("/speakers")
 def api_speakers(body: dict, user: dict | None = Depends(auth.get_optional_user)):
     _require_plus(user)
     lines = [str(x) for x in (body.get("lines") or [])][:600]
@@ -43,7 +43,7 @@ def api_speakers(body: dict, user: dict | None = Depends(auth.get_optional_user)
         cache.save_speakers(video_id, result)
     return result
 
-@router.post("/api/diarize/voice")
+@router.post("/diarize/voice")
 def api_diarize_voice(body: dict, user: dict | None = Depends(auth.get_optional_user)):
     _require_plus(user)
     video_id = str(body.get("id") or "").strip()

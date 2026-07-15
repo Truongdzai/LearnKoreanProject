@@ -4,7 +4,7 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
-import { scenariosFor, type Scenario } from './scenarios'
+import { scenariosFor, randomScenario, type Scenario } from './scenarios'
 import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
 interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
@@ -24,9 +24,14 @@ function speak(text: string, locale: string, rate = 0.95) {
 }
 
 export default function SpeakingPage() {
-  const { recordEvent, learnLang, nativeLang } = useAppStore()
+  const { recordEvent, learnLang, nativeLang, goal, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
-  const scenarios = scenariosFor(learnLang)
+  // Tình huống hợp mục tiêu onboarding được xếp lên đầu danh sách.
+  const scenarios = [...scenariosFor(learnLang)].sort((a, b) => {
+    const am = goal && a.tags?.includes(goal) ? 0 : 1
+    const bm = goal && b.tags?.includes(goal) ? 0 : 1
+    return am - bm
+  })
   const [scenario, setScenario] = useState<Scenario | null>(null)
   const [msgs, setMsgs] = useState<ChatMsg[]>([])
   const [suggestions, setSuggestions] = useState<SpeakLine[]>([])
@@ -62,7 +67,7 @@ export default function SpeakingPage() {
   }
 
   const endNoAi = () => {
-    setMsgs((prev) => [...prev, { who: 'bot', ko: 'Mất kết nối với AI. Hãy thử lại sau giây lát nhé.', vi: '' }])
+    setMsgs((prev) => [...prev, { who: 'bot', ko: t('sp.aiLost'), vi: '' }])
     finish()
   }
 
@@ -91,7 +96,7 @@ export default function SpeakingPage() {
       })
       .catch(() => {
         setAiOff(true)
-        setMsgs([{ who: 'bot', ko: 'Cần kết nối AI để luyện nói tình huống này. Hãy thử lại sau giây lát.', vi: '' }])
+        setMsgs([{ who: 'bot', ko: t('sp.aiNeeded'), vi: '' }])
         setFinished(true)
       })
       .finally(() => setLoading(false))
@@ -107,7 +112,7 @@ export default function SpeakingPage() {
       setSuggestions(sc.fallback!.suggestions[step + 1] || [])
       setTimeout(() => speak(bot.ko, cfg.locale), 300)
     } else {
-      setMsgs((prev) => [...prev, { who: 'bot', ko: 'Tuyệt lắm! Bạn nói rất tự nhiên. Mình luyện lại nhé?', vi: '' }])
+      setMsgs((prev) => [...prev, { who: 'bot', ko: t('sp.fallbackEnd'), vi: '' }])
       finish()
     }
   }
@@ -176,23 +181,32 @@ export default function SpeakingPage() {
   if (!scenario) {
     return (
       <div className="speaking">
-        <h1 className="page-title"><Icon name="mic" /> Luyện nói với AI</h1>
-        <p className="page-sub">Chọn một tình huống và trò chuyện bằng {cfg.name} — nhân vật AI trả lời, đọc to, gợi ý câu và nhận xét cách bạn nói.</p>
+        <h1 className="page-title"><Icon name="mic" /> {t('sp.title')}</h1>
+        <p className="page-sub">{t('sp.sub', { lang: learnLangName })}</p>
         <div className="scenario-grid">
+          <button className="scenario-card sp-pick sp-random" onClick={() => start(randomScenario(learnLang))}>
+            <span className="sp-pick-ava">🎲</span>
+            <div className="sp-pick-body">
+              <b>{t('sp.randomTitle')}</b>
+              <span className="sp-pick-char">{t('sp.randomChar')}</span>
+              <span className="sp-pick-sit">{t('sp.randomSit')}</span>
+            </div>
+            <span className="scenario-go">{t('sp.roll')} <Icon name="arrow-right" size={14} /></span>
+          </button>
           {scenarios.map((s) => (
             <button key={s.id} className="scenario-card sp-pick" onClick={() => start(s)}>
               <span className="sp-pick-ava">{s.avatar}</span>
               <div className="sp-pick-body">
-                <b>{s.emoji} {s.title}</b>
+                <b>{s.emoji} {s.title}{goal && s.tags?.includes(goal) && <span className="sp-goal-badge">{t('sp.goalBadge')}</span>}</b>
                 <span className="sp-pick-char">{s.character} · {s.role}</span>
                 <span className="sp-pick-sit">{s.situation}</span>
               </div>
-              <span className="scenario-go">Bắt đầu <Icon name="arrow-right" size={14} /></span>
+              <span className="scenario-go">{t('sp.start')} <Icon name="arrow-right" size={14} /></span>
             </button>
           ))}
         </div>
         <div className="speaking-note">
-          <Icon name="bulb" size={16} /> Mẹo: dùng <b>Chrome</b> hoặc <b>Edge</b> và cho phép micro để nói. Bạn cũng có thể gõ câu trả lời nếu muốn.
+          <Icon name="bulb" size={16} /> {t('sp.note')}
         </div>
       </div>
     )
@@ -201,7 +215,7 @@ export default function SpeakingPage() {
   return (
     <div className="speaking sp-chat">
       <div className="sp-head">
-        <button className="btn-ghost sm" onClick={() => setScenario(null)}><Icon name="chevron-left" size={15} /> Đổi tình huống</button>
+        <button className="btn-ghost sm" onClick={() => setScenario(null)}><Icon name="chevron-left" size={15} /> {t('sp.change')}</button>
         <div className="sp-head-who">
           <span className="sp-head-ava">{scenario.avatar}</span>
           <div>
@@ -209,6 +223,11 @@ export default function SpeakingPage() {
             <span>{scenario.emoji} {scenario.role}</span>
           </div>
         </div>
+        {scenario.id.startsWith('random-') && (
+          <button className="btn-ghost sm sp-reroll" disabled={loading} onClick={() => start(randomScenario(learnLang))}>
+            {t('sp.reroll')}
+          </button>
+        )}
       </div>
 
       <div className="sp-box">
@@ -220,12 +239,12 @@ export default function SpeakingPage() {
                 <div className="sp-name">{scenario.character}</div>
                 <div className="sp-ko" lang={learnLang}>{m.ko}</div>
                 {romaShown.has(i) && <div className="sp-roma">{romanizeLine(m.ko)}</div>}
-                {viShown.has(i) && <div className="sp-trans"><b>BẢN DỊCH</b> {m.vi}</div>}
+                {viShown.has(i) && <div className="sp-trans"><b>{t('sp.transLabel')}</b> {m.vi}</div>}
                 <div className="sp-tools">
-                  <button onClick={() => speak(m.ko, cfg.locale)}><Icon name="volume" size={13} /> Nghe lại</button>
-                  <button className={viShown.has(i) ? 'on' : ''} onClick={() => toggle(setViShown, i)}><Icon name="globe" size={13} /> Dịch</button>
+                  <button onClick={() => speak(m.ko, cfg.locale)}><Icon name="volume" size={13} /> {t('sp.listen')}</button>
+                  <button className={viShown.has(i) ? 'on' : ''} onClick={() => toggle(setViShown, i)}><Icon name="globe" size={13} /> {t('sp.trans')}</button>
                   {cfg.romanizeChat && (
-                    <button className={romaShown.has(i) ? 'on' : ''} onClick={() => toggle(setRomaShown, i)}><Icon name="letters" size={13} /> {romaShown.has(i) ? 'Ẩn cách đọc' : 'Hiện cách đọc'}</button>
+                    <button className={romaShown.has(i) ? 'on' : ''} onClick={() => toggle(setRomaShown, i)}><Icon name="letters" size={13} /> {romaShown.has(i) ? t('sp.hideRoma') : t('sp.showRoma')}</button>
                   )}
                 </div>
               </div>
@@ -249,11 +268,11 @@ export default function SpeakingPage() {
       {finished ? (
         <div className="sp-done">
           <Icon name="party" size={26} />
-          <b>Hoàn thành hội thoại!</b>
-          <p>Bạn đã luyện {turns.current} lượt nói với {scenario.character}. Tuyệt vời, tiếp tục phát huy nhé!</p>
+          <b>{t('sp.doneTitle')}</b>
+          <p>{t('sp.doneText', { n: turns.current, name: scenario.character })}</p>
           <div className="sp-done-actions">
-            <button className="btn-primary sm" onClick={() => start(scenario)}><Icon name="mic" size={14} /> Luyện lại</button>
-            <button className="btn-ghost sm" onClick={() => setScenario(null)}>Đổi tình huống</button>
+            <button className="btn-primary sm" onClick={() => start(scenario)}><Icon name="mic" size={14} /> {t('sp.again')}</button>
+            <button className="btn-ghost sm" onClick={() => setScenario(null)}>{t('sp.change')}</button>
           </div>
         </div>
       ) : (
@@ -261,7 +280,7 @@ export default function SpeakingPage() {
           {suggestions.length > 0 && (
             <div className="sp-suggest">
               <button className="sp-suggest-head" onClick={() => setShowSuggest((v) => !v)}>
-                {showSuggest ? 'Ẩn câu gợi ý' : 'Hiện câu gợi ý'} <Icon name="chevron-down" size={14} style={{ transform: showSuggest ? 'none' : 'rotate(-90deg)' }} />
+                {showSuggest ? t('sp.hideSug') : t('sp.showSug')} <Icon name="chevron-down" size={14} style={{ transform: showSuggest ? 'none' : 'rotate(-90deg)' }} />
               </button>
               {showSuggest && (
                 <div className="sp-sug-list">
@@ -269,9 +288,9 @@ export default function SpeakingPage() {
                     <div key={i} className="sp-sug-card">
                       <button className="sp-sug-main" onClick={() => send(s.ko)} disabled={loading}>
                         <span lang={learnLang}>{s.ko}</span>
-                        <span className="sp-sug-vi"><b>Bản dịch:</b> {s.vi}</span>
+                        <span className="sp-sug-vi"><b>{t('sp.sugVi')}</b> {s.vi}</span>
                       </button>
-                      <button className="sp-sug-speak" onClick={() => speak(s.ko, cfg.locale)} title="Nghe"><Icon name="volume" size={15} /></button>
+                      <button className="sp-sug-speak" onClick={() => speak(s.ko, cfg.locale)} title={t('sp.hear')}><Icon name="volume" size={15} /></button>
                     </div>
                   ))}
                 </div>
@@ -282,11 +301,11 @@ export default function SpeakingPage() {
           <div className="sp-foot">
             <div className="sp-draft">
               <input
-                value={sr.listening ? (sr.interim || 'Đang nghe…') : draft}
+                value={sr.listening ? (sr.interim || t('sp.listening')) : draft}
                 onChange={(e) => setDraft(e.target.value)}
                 readOnly={sr.listening}
                 lang={learnLang}
-                placeholder={`Nói hoặc gõ câu trả lời ${cfg.name}…`}
+                placeholder={t('sp.placeholder', { lang: learnLangName })}
                 onKeyDown={(e) => { if (e.key === 'Enter') send(draft) }}
               />
               <button className="sp-send" disabled={!draft.trim() || loading} onClick={() => send(draft)}><Icon name="send" size={18} /></button>
@@ -297,10 +316,10 @@ export default function SpeakingPage() {
                 <button className={'sp-mic' + (sr.listening ? ' on' : '')} onClick={record} disabled={loading}>
                   <Icon name="mic" size={28} />
                 </button>
-                <div className="sp-mic-hint">{sr.listening ? 'Đang ghi âm… nhấn để dừng' : 'Nhấn Enter để bắt đầu / dừng ghi âm'}</div>
+                <div className="sp-mic-hint">{sr.listening ? t('sp.recOn') : t('sp.recOff')}</div>
               </>
             ) : (
-              <div className="sp-mic-hint">Trình duyệt chưa hỗ trợ ghi âm — hãy gõ câu trả lời ở trên (dùng Chrome/Edge để nói).</div>
+              <div className="sp-mic-hint">{t('sp.noRec')}</div>
             )}
           </div>
         </>
