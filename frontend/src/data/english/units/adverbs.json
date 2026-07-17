@@ -1,0 +1,230 @@
+{
+  "id": "adverbs",
+  "name": "Trạng từ & tần suất",
+  "sub": "Now, always, sometimes, very, too…",
+  "pos": "adverb",
+  "tone": "tone-b",
+  "emoji": "⏱️",
+  "words": [
+    {
+      "en": "now",
+      "ipa": "/naʊ/",
+      "vi": "bây giờ",
+      "pos": "adverb",
+      "img": "⏱️",
+      "connect": "Right now — ngay bây giờ.",
+      "ex": "I am busy now.",
+      "exVi": "Bây giờ tôi đang bận."
+    },
+    {
+      "en": "today",
+      "ipa": "/təˈdeɪ/",
+      "vi": "hôm nay",
+      "pos": "adverb",
+      "img": "📅",
+      "connect": "To + day — ngày này.",
+      "ex": "Today is Monday.",
+      "exVi": "Hôm nay là thứ Hai."
+    },
+    {
+      "en": "tomorrow",
+      "ipa": "/təˈmɔːr.oʊ/",
+      "vi": "ngày mai",
+      "pos": "adverb",
+      "img": "🌄",
+      "connect": "\"Tơ-mo-râu\" — ngày mai.",
+      "ex": "See you tomorrow!",
+      "exVi": "Hẹn gặp ngày mai!"
+    },
+    {
+      "en": "yesterday",
+      "ipa": "/ˈjes.tər.deɪ/",
+      "vi": "hôm qua",
+      "pos": "adverb",
+      "img": "🌆",
+      "connect": "Bài hát Yesterday của The Beatles.",
+      "ex": "I was sick yesterday.",
+      "exVi": "Hôm qua tôi bị ốm."
+    },
+    {
+      "en": "always",
+      "ipa": "/ˈɔːl.weɪz/",
+      "vi": "luôn luôn",
+      "pos": "adverb",
+      "img": "🔁",
+      "connect": "All + ways — mọi lúc (100%).",
+      "ex": "She always gets up early.",
+      "exVi": "Cô ấy luôn dậy sớm."
+    },
+    {
+      "en": "usually",
+      "ipa": "/ˈjuː.ʒu.əl.i/",
+      "vi": "thường thường",
+      "pos": "adverb",
+      "img": "🕗",
+      "connect": "Thường xuyên (~80%).",
+      "ex": "I usually walk to school.",
+      "exVi": "Tôi thường đi bộ đến trường."
+    },
+    {
+      "en": "often",
+      "ipa": "/ˈɔː.fən/",
+      "vi": "hay, thường",
+      "pos": "adverb",
+      "img": "📈",
+      "connect": "T thường câm — \"o-phừn\" (~60%).",
+      "ex": "We often eat out.",
+      "exVi": "Chúng tôi hay ăn ngoài."
+    },
+    {
+      "en": "sometimes",
+      "ipa": "/ˈsʌm.taɪmz/",
+      "vi": "thỉnh thoảng",
+      "pos": "adverb",
+      "img": "🎲",
+      "connect": "Some + times — vài lần (~30%).",
+      "ex": "Sometimes I cook dinner.",
+      "exVi": "Thỉnh thoảng tôi nấu bữa tối."
+    },
+    {
+      "en": "never",
+      "ipa": "/ˈnev.ər/",
+      "vi": "không bao giờ",
+      "pos": "adverb",
+      "img": "🚫",
+      "connect": "0% — Never give up!",
+      "ex": "He never drinks coffee.",
+      "exVi": "Anh ấy không bao giờ uống cà phê."
+    },
+    {
+      "en": "here",
+      "ipa": "/hɪr/",
+      "vi": "ở đây",
+      "pos": "adverb",
+      "img": "📍",
+      "connect": "Come here — lại đây.",
+      "ex": "Please sign here.",
+      "exVi": "Vui lòng ký vào đây."
+    },
+    {
+      "en": "there",
+      "ipa": "/ðer/",
+      "vi": "ở kia, đằng kia",
+      "pos": "adverb",
+      "img": "➡️",
+      "connect": "Trái nghĩa với here.",
+      "ex": "The bank is over there.",
+      "exVi": "Ngân hàng ở đằng kia."
+    },
+    {
+      "en": "very",
+      "ipa": "/ˈver.i/",
+      "vi": "rất",
+      "pos": "adverb",
+      "img": "🔥",
+      "connect": "Very good — rất tốt.",
+      "ex": "This coffee is very hot.",
+      "exVi": "Cà phê này rất nóng."
+    },
+    {
+      "en": "too",
+      "ipa": "/tuː/",
+      "vi": "cũng; quá",
+      "pos": "adverb",
+      "img": "➕",
+      "connect": "Me too — tôi cũng vậy; too + tính từ = quá.",
+      "ex": "This shirt is too big.",
+      "exVi": "Cái áo này quá rộng."
+    },
+    {
+      "en": "also",
+      "ipa": "/ˈɔːl.soʊ/",
+      "vi": "cũng",
+      "pos": "adverb",
+      "img": "🟰",
+      "connect": "\"Ôn-xâu\" — đứng trước động từ.",
+      "ex": "I also like this song.",
+      "exVi": "Tôi cũng thích bài hát này."
+    },
+    {
+      "en": "again",
+      "ipa": "/əˈɡen/",
+      "vi": "lại, lần nữa",
+      "pos": "adverb",
+      "img": "🔄",
+      "connect": "Try again — thử lại.",
+      "ex": "Please say that again.",
+      "exVi": "Làm ơn nói lại lần nữa."
+    },
+    {
+      "en": "together",
+      "ipa": "/təˈɡeð.ər/",
+      "vi": "cùng nhau",
+      "pos": "adverb",
+      "img": "👫",
+      "connect": "\"Tu-ghe-thờ\" — cùng nhau.",
+      "ex": "Let us study together.",
+      "exVi": "Chúng ta học cùng nhau nhé."
+    },
+    {
+      "en": "soon",
+      "ipa": "/suːn/",
+      "vi": "sớm, sắp",
+      "pos": "adverb",
+      "img": "⏩",
+      "connect": "See you soon — hẹn sớm gặp lại.",
+      "ex": "The bus will come soon.",
+      "exVi": "Xe buýt sắp đến rồi."
+    },
+    {
+      "en": "early",
+      "ipa": "/ˈɜːr.li/",
+      "vi": "sớm",
+      "pos": "adverb",
+      "img": "🌅",
+      "connect": "Trái nghĩa với late.",
+      "ex": "I wake up early every day.",
+      "exVi": "Tôi dậy sớm mỗi ngày."
+    },
+    {
+      "en": "late",
+      "ipa": "/leɪt/",
+      "vi": "muộn, trễ",
+      "pos": "adverb",
+      "img": "⏰",
+      "connect": "Sorry, I am late!",
+      "ex": "Do not be late for class.",
+      "exVi": "Đừng đi học muộn."
+    },
+    {
+      "en": "only",
+      "ipa": "/ˈoʊn.li/",
+      "vi": "chỉ",
+      "pos": "adverb",
+      "img": "1️⃣",
+      "connect": "\"Âun-li\" — chỉ, duy nhất.",
+      "ex": "I have only ten dollars.",
+      "exVi": "Tôi chỉ có mười đô."
+    },
+    {
+      "en": "really",
+      "ipa": "/ˈrɪə.li/",
+      "vi": "thật sự",
+      "pos": "adverb",
+      "img": "😮",
+      "connect": "Really? — Thật á?",
+      "ex": "This movie is really good.",
+      "exVi": "Bộ phim này hay thật sự."
+    },
+    {
+      "en": "maybe",
+      "ipa": "/ˈmeɪ.bi/",
+      "vi": "có lẽ",
+      "pos": "adverb",
+      "img": "🤷",
+      "connect": "May + be — có thể vậy.",
+      "ex": "Maybe it will rain tomorrow.",
+      "exVi": "Có lẽ mai trời mưa."
+    }
+  ]
+}

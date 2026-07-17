@@ -1,0 +1,310 @@
+{
+  "id": "body",
+  "name": "Cơ thể & sức khoẻ",
+  "sub": "Head, heart, sick, doctor, medicine…",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "🫀",
+  "words": [
+    {
+      "en": "head",
+      "ipa": "/hed/",
+      "vi": "đầu",
+      "pos": "noun",
+      "img": "👤",
+      "connect": "\"Hét\" — đau đầu vì tiếng hét.",
+      "ex": "My head hurts.",
+      "exVi": "Đầu tôi đau."
+    },
+    {
+      "en": "face",
+      "ipa": "/feɪs/",
+      "vi": "khuôn mặt",
+      "pos": "noun",
+      "img": "🙂",
+      "connect": "\"Phêy-s\" — mặt để lên \"Facebook\".",
+      "ex": "Wash your face every morning.",
+      "exVi": "Rửa mặt mỗi sáng nhé."
+    },
+    {
+      "en": "hair",
+      "ipa": "/her/",
+      "vi": "tóc",
+      "pos": "noun",
+      "img": "💇",
+      "connect": "\"He-rờ\" — hè nóng đi cắt tóc.",
+      "ex": "She has long black hair.",
+      "exVi": "Cô ấy có mái tóc đen dài."
+    },
+    {
+      "en": "mouth",
+      "ipa": "/maʊθ/",
+      "vi": "miệng",
+      "pos": "noun",
+      "img": "👄",
+      "connect": "\"Mao-th\" — miệng mở to tròn chữ O.",
+      "ex": "Open your mouth, please.",
+      "exVi": "Há miệng ra nào."
+    },
+    {
+      "en": "nose",
+      "ipa": "/noʊz/",
+      "vi": "mũi",
+      "pos": "noun",
+      "img": "👃",
+      "connect": "\"Nâu-z\" — mũi biết (knows) mọi mùi.",
+      "ex": "My nose is itchy.",
+      "exVi": "Mũi tôi ngứa quá."
+    },
+    {
+      "en": "ear",
+      "ipa": "/ɪr/",
+      "vi": "tai",
+      "pos": "noun",
+      "img": "👂",
+      "connect": "Nghe = hear — trong hear có ear.",
+      "ex": "Speak into my left ear.",
+      "exVi": "Nói vào tai trái của tôi."
+    },
+    {
+      "en": "tooth",
+      "ipa": "/tuːθ/",
+      "vi": "răng",
+      "pos": "noun",
+      "img": "🦷",
+      "connect": "Số nhiều bất quy tắc: teeth.",
+      "ex": "I brush my teeth twice a day.",
+      "exVi": "Tôi đánh răng hai lần mỗi ngày."
+    },
+    {
+      "en": "arm",
+      "ipa": "/ɑːrm/",
+      "vi": "cánh tay",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"Am\" — ôm ai đó bằng cánh tay.",
+      "ex": "He broke his arm.",
+      "exVi": "Anh ấy bị gãy tay."
+    },
+    {
+      "en": "leg",
+      "ipa": "/leɡ/",
+      "vi": "chân",
+      "pos": "noun",
+      "img": "🦵",
+      "connect": "\"Léc\" — mỏi chân lết về nhà.",
+      "ex": "My legs are tired after running.",
+      "exVi": "Chạy xong chân tôi mỏi nhừ."
+    },
+    {
+      "en": "foot",
+      "ipa": "/fʊt/",
+      "vi": "bàn chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "Số nhiều: feet. Bóng đá = football.",
+      "ex": "My right foot hurts.",
+      "exVi": "Bàn chân phải của tôi bị đau."
+    },
+    {
+      "en": "heart",
+      "ipa": "/hɑːrt/",
+      "vi": "trái tim",
+      "pos": "noun",
+      "img": "❤️",
+      "connect": "\"Hạt\" — trái tim quý như hạt ngọc.",
+      "ex": "My heart beats fast.",
+      "exVi": "Tim tôi đập nhanh."
+    },
+    {
+      "en": "blood",
+      "ipa": "/blʌd/",
+      "vi": "máu",
+      "pos": "noun",
+      "img": "🩸",
+      "connect": "Đọc là \"blăd\", KHÔNG phải \"blu-d\".",
+      "ex": "Doctors check your blood.",
+      "exVi": "Bác sĩ kiểm tra máu của bạn."
+    },
+    {
+      "en": "skin",
+      "ipa": "/skɪn/",
+      "vi": "da",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "\"Sờ-kin\" — sờ da thấy mịn.",
+      "ex": "Her skin is very soft.",
+      "exVi": "Da cô ấy rất mềm."
+    },
+    {
+      "en": "back",
+      "ipa": "/bæk/",
+      "vi": "lưng",
+      "pos": "noun",
+      "img": "🔙",
+      "connect": "Back vừa là \"lưng\" vừa là \"quay lại\".",
+      "ex": "My back hurts from sitting.",
+      "exVi": "Ngồi nhiều nên lưng tôi đau."
+    },
+    {
+      "en": "stomach",
+      "ipa": "/ˈstʌm.ək/",
+      "vi": "bụng, dạ dày",
+      "pos": "noun",
+      "img": "🫃",
+      "connect": "Đọc \"STẮM-mờc\" — ch cuối đọc là k.",
+      "ex": "My stomach is full.",
+      "exVi": "Bụng tôi no căng."
+    },
+    {
+      "en": "sick",
+      "ipa": "/sɪk/",
+      "vi": "ốm, bệnh",
+      "pos": "adj",
+      "img": "🤒",
+      "connect": "\"Sích\" — ốm nằm xích trên giường.",
+      "ex": "I feel sick today.",
+      "exVi": "Hôm nay tôi thấy không khoẻ."
+    },
+    {
+      "en": "headache",
+      "ipa": "/ˈhed.eɪk/",
+      "vi": "đau đầu",
+      "pos": "noun",
+      "img": "🤕",
+      "connect": "head (đầu) + ache (đau) = đau đầu.",
+      "ex": "I have a headache.",
+      "exVi": "Tôi bị đau đầu."
+    },
+    {
+      "en": "fever",
+      "ipa": "/ˈfiː.vɚ/",
+      "vi": "sốt",
+      "pos": "noun",
+      "img": "🌡️",
+      "connect": "\"Phi-vờ\" — sốt phi mã.",
+      "ex": "The baby has a fever.",
+      "exVi": "Em bé bị sốt."
+    },
+    {
+      "en": "cough",
+      "ipa": "/kɔːf/",
+      "vi": "ho",
+      "pos": "verb",
+      "img": "😷",
+      "connect": "Đọc là \"cóf\" — đuôi -gh đọc là f.",
+      "ex": "I can't stop coughing.",
+      "exVi": "Tôi ho mãi không dứt."
+    },
+    {
+      "en": "medicine",
+      "ipa": "/ˈmed.ɪ.sən/",
+      "vi": "thuốc",
+      "pos": "noun",
+      "img": "💊",
+      "connect": "\"Me-đi-sừn\" — mẹ đi mua thuốc.",
+      "ex": "Take this medicine after meals.",
+      "exVi": "Uống thuốc này sau bữa ăn."
+    },
+    {
+      "en": "doctor",
+      "ipa": "/ˈdɑːk.tɚ/",
+      "vi": "bác sĩ",
+      "pos": "noun",
+      "img": "🧑‍⚕️",
+      "connect": "\"Đốc-tờ\" — bác sĩ đốc thúc uống thuốc.",
+      "ex": "You should see a doctor.",
+      "exVi": "Bạn nên đi khám bác sĩ."
+    },
+    {
+      "en": "nurse",
+      "ipa": "/nɜːrs/",
+      "vi": "y tá",
+      "pos": "noun",
+      "img": "👩‍⚕️",
+      "connect": "\"Nớc-s\" — y tá rót nước cho bệnh nhân.",
+      "ex": "The nurse is very kind.",
+      "exVi": "Cô y tá rất tận tình."
+    },
+    {
+      "en": "hurt",
+      "ipa": "/hɜːrt/",
+      "vi": "đau, làm đau",
+      "pos": "verb",
+      "img": "🤕",
+      "connect": "\"Hớt\" — đau chạy hớt hải.",
+      "ex": "Does it hurt a lot?",
+      "exVi": "Có đau lắm không?"
+    },
+    {
+      "en": "pain",
+      "ipa": "/peɪn/",
+      "vi": "cơn đau",
+      "pos": "noun",
+      "img": "😖",
+      "connect": "No pain no gain — không đau không thành.",
+      "ex": "I feel a pain in my back.",
+      "exVi": "Tôi thấy đau ở lưng."
+    },
+    {
+      "en": "healthy",
+      "ipa": "/ˈhel.θi/",
+      "vi": "khoẻ mạnh",
+      "pos": "adj",
+      "img": "🥗",
+      "connect": "health + y — ăn rau cho healthy.",
+      "ex": "Eating fruit keeps you healthy.",
+      "exVi": "Ăn trái cây giúp bạn khoẻ mạnh."
+    },
+    {
+      "en": "strong",
+      "ipa": "/strɔːŋ/",
+      "vi": "khoẻ, mạnh",
+      "pos": "adj",
+      "img": "🏋️",
+      "connect": "\"Sờ-troong\" — khoẻ mạnh như trâu.",
+      "ex": "He is strong enough to carry it.",
+      "exVi": "Anh ấy đủ khoẻ để vác nó."
+    },
+    {
+      "en": "weak",
+      "ipa": "/wiːk/",
+      "vi": "yếu",
+      "pos": "adj",
+      "img": "🥀",
+      "connect": "Ngược với strong; đồng âm week (tuần).",
+      "ex": "I feel weak after being sick.",
+      "exVi": "Ốm dậy tôi thấy yếu hẳn."
+    },
+    {
+      "en": "exercise",
+      "ipa": "/ˈek.sɚ.saɪz/",
+      "vi": "tập thể dục",
+      "pos": "verb",
+      "img": "🏃",
+      "connect": "\"Éc-xơ-sai-z\" — tập sai tư thế là \"éc\".",
+      "ex": "I exercise every morning.",
+      "exVi": "Sáng nào tôi cũng tập thể dục."
+    },
+    {
+      "en": "rest",
+      "ipa": "/rest/",
+      "vi": "nghỉ ngơi",
+      "pos": "verb",
+      "img": "😴",
+      "connect": "\"Rét-st\" — trời rét ở nhà nghỉ ngơi.",
+      "ex": "You need to rest more.",
+      "exVi": "Bạn cần nghỉ ngơi nhiều hơn."
+    },
+    {
+      "en": "body",
+      "ipa": "/ˈbɑː.di/",
+      "vi": "cơ thể",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "\"Bo-đi\" — giữ body săn chắc.",
+      "ex": "A healthy body, a healthy mind.",
+      "exVi": "Cơ thể khoẻ, tinh thần khoẻ."
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "id": "foodshop",
+  "name": "Ăn uống & mua sắm",
+  "sub": "Breakfast, menu, order, price, sale…",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🍜",
+  "words": [
+    {
+      "en": "breakfast",
+      "ipa": "/ˈbrek.fəst/",
+      "vi": "bữa sáng",
+      "pos": "noun",
+      "img": "🍳",
+      "connect": "break + fast: \"phá\" cơn đói sau một đêm.",
+      "ex": "I have breakfast at seven.",
+      "exVi": "Tôi ăn sáng lúc 7 giờ."
+    },
+    {
+      "en": "lunch",
+      "ipa": "/lʌntʃ/",
+      "vi": "bữa trưa",
+      "pos": "noun",
+      "img": "🍱",
+      "connect": "\"Lăn-ch\" — trưa đói lăn ra ăn.",
+      "ex": "What do you want for lunch?",
+      "exVi": "Trưa nay bạn muốn ăn gì?"
+    },
+    {
+      "en": "dinner",
+      "ipa": "/ˈdɪn.ɚ/",
+      "vi": "bữa tối",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "\"Đin-nơ\".",
+      "ex": "We eat dinner together.",
+      "exVi": "Cả nhà ăn tối cùng nhau."
+    },
+    {
+      "en": "meal",
+      "ipa": "/miːl/",
+      "vi": "bữa ăn",
+      "pos": "noun",
+      "img": "🥘",
+      "connect": "\"Min\" — meal ngon miễn bàn.",
+      "ex": "This meal is delicious.",
+      "exVi": "Bữa này ngon quá."
+    },
+    {
+      "en": "bread",
+      "ipa": "/bred/",
+      "vi": "bánh mì",
+      "pos": "noun",
+      "img": "🍞",
+      "connect": "\"Bờ-rét\".",
+      "ex": "I buy fresh bread every morning.",
+      "exVi": "Sáng nào tôi cũng mua bánh mì nóng."
+    },
+    {
+      "en": "egg",
+      "ipa": "/eɡ/",
+      "vi": "trứng",
+      "pos": "noun",
+      "img": "🥚",
+      "connect": "\"Éc\" — trứng ốp la.",
+      "ex": "I eat two eggs for breakfast.",
+      "exVi": "Sáng tôi ăn hai quả trứng."
+    },
+    {
+      "en": "meat",
+      "ipa": "/miːt/",
+      "vi": "thịt",
+      "pos": "noun",
+      "img": "🥩",
+      "connect": "Đồng âm meet (gặp) — đi chợ \"gặp\" thịt.",
+      "ex": "I don't eat much meat.",
+      "exVi": "Tôi không ăn nhiều thịt."
+    },
+    {
+      "en": "chicken",
+      "ipa": "/ˈtʃɪk.ɪn/",
+      "vi": "gà, thịt gà",
+      "pos": "noun",
+      "img": "🍗",
+      "connect": "\"Chích-kừn\".",
+      "ex": "Fried chicken is my favorite.",
+      "exVi": "Gà rán là món khoái khẩu của tôi."
+    },
+    {
+      "en": "beef",
+      "ipa": "/biːf/",
+      "vi": "thịt bò",
+      "pos": "noun",
+      "img": "🐄",
+      "connect": "\"Bíp\" — phở bò = beef noodle soup.",
+      "ex": "This beef is very soft.",
+      "exVi": "Thịt bò này mềm lắm."
+    },
+    {
+      "en": "pork",
+      "ipa": "/pɔːrk/",
+      "vi": "thịt heo",
+      "pos": "noun",
+      "img": "🐖",
+      "connect": "\"Pốc\".",
+      "ex": "We need pork for this dish.",
+      "exVi": "Món này cần thịt heo."
+    },
+    {
+      "en": "fish",
+      "ipa": "/fɪʃ/",
+      "vi": "cá",
+      "pos": "noun",
+      "img": "🐟",
+      "connect": "\"Phít-sh\".",
+      "ex": "Fresh fish is good for you.",
+      "exVi": "Cá tươi rất tốt cho sức khoẻ."
+    },
+    {
+      "en": "fruit",
+      "ipa": "/fruːt/",
+      "vi": "trái cây",
+      "pos": "noun",
+      "img": "🍎",
+      "connect": "Đọc \"phrút\" — KHÔNG đọc \"phru-ít\".",
+      "ex": "Eat more fruit every day.",
+      "exVi": "Ăn nhiều trái cây mỗi ngày nhé."
+    },
+    {
+      "en": "apple",
+      "ipa": "/ˈæp.əl/",
+      "vi": "táo",
+      "pos": "noun",
+      "img": "🍏",
+      "connect": "Hãng Apple — quả táo cắn dở.",
+      "ex": "An apple a day keeps the doctor away.",
+      "exVi": "Mỗi ngày một quả táo, khỏi gặp bác sĩ."
+    },
+    {
+      "en": "banana",
+      "ipa": "/bəˈnæn.ə/",
+      "vi": "chuối",
+      "pos": "noun",
+      "img": "🍌",
+      "connect": "\"Bơ-na-na\".",
+      "ex": "Monkeys love bananas.",
+      "exVi": "Khỉ mê chuối lắm."
+    },
+    {
+      "en": "vegetable",
+      "ipa": "/ˈvedʒ.tə.bəl/",
+      "vi": "rau củ",
+      "pos": "noun",
+      "img": "🥦",
+      "connect": "Đọc \"VÉ-djờ-tơ-bồ\" — 3 âm thôi.",
+      "ex": "Eat your vegetables first.",
+      "exVi": "Ăn rau trước đi nào."
+    },
+    {
+      "en": "milk",
+      "ipa": "/mɪlk/",
+      "vi": "sữa",
+      "pos": "noun",
+      "img": "🥛",
+      "connect": "\"Miu-k\".",
+      "ex": "I drink milk before bed.",
+      "exVi": "Tôi uống sữa trước khi ngủ."
+    },
+    {
+      "en": "tea",
+      "ipa": "/tiː/",
+      "vi": "trà",
+      "pos": "noun",
+      "img": "🍵",
+      "connect": "\"Ti\" — gần âm \"chè\" tiếng Việt.",
+      "ex": "Would you like some tea?",
+      "exVi": "Bạn dùng chút trà nhé?"
+    },
+    {
+      "en": "juice",
+      "ipa": "/dʒuːs/",
+      "vi": "nước ép",
+      "pos": "noun",
+      "img": "🧃",
+      "connect": "\"Djút-s\".",
+      "ex": "Orange juice, please.",
+      "exVi": "Cho một ly nước cam."
+    },
+    {
+      "en": "sugar",
+      "ipa": "/ˈʃʊɡ.ɚ/",
+      "vi": "đường",
+      "pos": "noun",
+      "img": "🍬",
+      "connect": "Đọc \"SHU-gơ\" — s đọc thành sh.",
+      "ex": "No sugar in my coffee, please.",
+      "exVi": "Cà phê của tôi không đường nhé."
+    },
+    {
+      "en": "salt",
+      "ipa": "/sɔːlt/",
+      "vi": "muối",
+      "pos": "noun",
+      "img": "🧂",
+      "connect": "\"Xon-t\".",
+      "ex": "Add a little salt to the soup.",
+      "exVi": "Thêm chút muối vào canh."
+    },
+    {
+      "en": "soup",
+      "ipa": "/suːp/",
+      "vi": "canh, súp",
+      "pos": "noun",
+      "img": "🍲",
+      "connect": "\"Súp\" — như tiếng Việt.",
+      "ex": "The soup is too hot.",
+      "exVi": "Canh nóng quá."
+    },
+    {
+      "en": "noodle",
+      "ipa": "/ˈnuː.dəl/",
+      "vi": "mì, món sợi",
+      "pos": "noun",
+      "img": "🍜",
+      "connect": "\"Nu-đồ\" — mì, phở, bún đều là noodle.",
+      "ex": "I ate a bowl of noodles.",
+      "exVi": "Tôi ăn một tô mì."
+    },
+    {
+      "en": "cake",
+      "ipa": "/keɪk/",
+      "vi": "bánh ngọt",
+      "pos": "noun",
+      "img": "🎂",
+      "connect": "\"Kêy-k\" — bánh sinh nhật.",
+      "ex": "She made a chocolate cake.",
+      "exVi": "Cô ấy làm bánh sô-cô-la."
+    },
+    {
+      "en": "menu",
+      "ipa": "/ˈmen.juː/",
+      "vi": "thực đơn",
+      "pos": "noun",
+      "img": "📋",
+      "connect": "\"Me-niu\" — như tiếng Việt.",
+      "ex": "Can I see the menu?",
+      "exVi": "Cho tôi xem thực đơn nhé?"
+    },
+    {
+      "en": "order",
+      "ipa": "/ˈɔːr.dɚ/",
+      "vi": "gọi món, đặt hàng",
+      "pos": "verb",
+      "img": "🧾",
+      "connect": "\"O-đơ\" — order trà sữa.",
+      "ex": "Are you ready to order?",
+      "exVi": "Anh chị gọi món chưa ạ?"
+    },
+    {
+      "en": "bill",
+      "ipa": "/bɪl/",
+      "vi": "hoá đơn",
+      "pos": "noun",
+      "img": "💳",
+      "connect": "\"Biu\" — xin bill tính tiền.",
+      "ex": "Can we have the bill, please?",
+      "exVi": "Cho tụi tôi xin hoá đơn nhé?"
+    },
+    {
+      "en": "price",
+      "ipa": "/praɪs/",
+      "vi": "giá",
+      "pos": "noun",
+      "img": "💲",
+      "connect": "\"Pờ-rai-s\".",
+      "ex": "The price is too high.",
+      "exVi": "Giá cao quá."
+    },
+    {
+      "en": "sale",
+      "ipa": "/seɪl/",
+      "vi": "giảm giá",
+      "pos": "noun",
+      "img": "🏷️",
+      "connect": "\"Sêu\" — săn sale cuối năm.",
+      "ex": "These shoes are on sale.",
+      "exVi": "Đôi giày này đang giảm giá."
+    },
+    {
+      "en": "gift",
+      "ipa": "/ɡɪft/",
+      "vi": "quà tặng",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "\"Ghíp-t\".",
+      "ex": "This gift is for you.",
+      "exVi": "Món quà này tặng bạn."
+    },
+    {
+      "en": "bag",
+      "ipa": "/bæɡ/",
+      "vi": "túi, cặp",
+      "pos": "noun",
+      "img": "👜",
+      "connect": "\"Bác\" — xách bag đi chợ.",
+      "ex": "My bag is very heavy.",
+      "exVi": "Túi của tôi nặng quá."
+    }
+  ]
+}

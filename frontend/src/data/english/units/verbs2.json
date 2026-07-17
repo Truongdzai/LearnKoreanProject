@@ -1,0 +1,320 @@
+{
+  "id": "verbs2",
+  "name": "Động từ giao tiếp & sinh hoạt",
+  "sub": "Ask, meet, play, pay, remember…",
+  "pos": "verb",
+  "tone": "tone-f",
+  "emoji": "🤝",
+  "words": [
+    {
+      "en": "ask",
+      "ipa": "/æsk/",
+      "vi": "hỏi",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "Ask a question — đặt câu hỏi.",
+      "ex": "Can I ask you something?",
+      "exVi": "Tôi hỏi bạn chút được không?"
+    },
+    {
+      "en": "tell",
+      "ipa": "/tel/",
+      "vi": "kể, bảo",
+      "pos": "verb",
+      "img": "🗨️",
+      "connect": "Tell me — kể tôi nghe. Quá khứ: told.",
+      "ex": "Tell me about your day.",
+      "exVi": "Kể tôi nghe về ngày của bạn đi."
+    },
+    {
+      "en": "talk",
+      "ipa": "/tɔːk/",
+      "vi": "nói chuyện",
+      "pos": "verb",
+      "img": "💬",
+      "connect": "\"Tóc\" — L câm.",
+      "ex": "We talked for two hours.",
+      "exVi": "Chúng tôi nói chuyện suốt hai tiếng."
+    },
+    {
+      "en": "meet",
+      "ipa": "/miːt/",
+      "vi": "gặp gỡ",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "Nice to meet you! Quá khứ: met.",
+      "ex": "Let us meet at the cafe.",
+      "exVi": "Gặp nhau ở quán cà phê nhé."
+    },
+    {
+      "en": "call",
+      "ipa": "/kɔːl/",
+      "vi": "gọi điện",
+      "pos": "verb",
+      "img": "📞",
+      "connect": "Call me — gọi cho tôi nhé.",
+      "ex": "I will call you tomorrow.",
+      "exVi": "Mai tôi sẽ gọi cho bạn."
+    },
+    {
+      "en": "wait",
+      "ipa": "/weɪt/",
+      "vi": "chờ đợi",
+      "pos": "verb",
+      "img": "⏳",
+      "connect": "Wait a minute — chờ chút.",
+      "ex": "Please wait for me.",
+      "exVi": "Làm ơn chờ tôi."
+    },
+    {
+      "en": "walk",
+      "ipa": "/wɔːk/",
+      "vi": "đi bộ",
+      "pos": "verb",
+      "img": "🚶",
+      "connect": "L câm — đọc \"guóc\".",
+      "ex": "I walk to work every day.",
+      "exVi": "Tôi đi bộ đi làm mỗi ngày."
+    },
+    {
+      "en": "run",
+      "ipa": "/rʌn/",
+      "vi": "chạy",
+      "pos": "verb",
+      "img": "🏃",
+      "connect": "Quá khứ: ran.",
+      "ex": "He runs very fast.",
+      "exVi": "Anh ấy chạy rất nhanh."
+    },
+    {
+      "en": "sit",
+      "ipa": "/sɪt/",
+      "vi": "ngồi",
+      "pos": "verb",
+      "img": "🪑",
+      "connect": "Sit down — ngồi xuống.",
+      "ex": "Please sit here.",
+      "exVi": "Mời ngồi đây."
+    },
+    {
+      "en": "stand",
+      "ipa": "/stænd/",
+      "vi": "đứng",
+      "pos": "verb",
+      "img": "🧍",
+      "connect": "Stand up — đứng lên.",
+      "ex": "Do not stand in the rain.",
+      "exVi": "Đừng đứng dưới mưa."
+    },
+    {
+      "en": "play",
+      "ipa": "/pleɪ/",
+      "vi": "chơi",
+      "pos": "verb",
+      "img": "⚽",
+      "connect": "Play games, play football.",
+      "ex": "The children are playing outside.",
+      "exVi": "Bọn trẻ đang chơi bên ngoài."
+    },
+    {
+      "en": "watch",
+      "ipa": "/wɑːtʃ/",
+      "vi": "xem",
+      "pos": "verb",
+      "img": "📺",
+      "connect": "Watch TV; watch còn là đồng hồ đeo tay.",
+      "ex": "I watch videos to learn English.",
+      "exVi": "Tôi xem video để học tiếng Anh."
+    },
+    {
+      "en": "look",
+      "ipa": "/lʊk/",
+      "vi": "nhìn",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "Look at me — nhìn tôi này.",
+      "ex": "Look at that beautiful bird!",
+      "exVi": "Nhìn con chim đẹp kìa!"
+    },
+    {
+      "en": "live",
+      "ipa": "/lɪv/",
+      "vi": "sống, ở",
+      "pos": "verb",
+      "img": "🏠",
+      "connect": "Live show — phát \"sống\".",
+      "ex": "Where do you live?",
+      "exVi": "Bạn sống ở đâu?"
+    },
+    {
+      "en": "stay",
+      "ipa": "/steɪ/",
+      "vi": "ở lại",
+      "pos": "verb",
+      "img": "🛎️",
+      "connect": "Stay home — ở nhà.",
+      "ex": "We stayed at home all day.",
+      "exVi": "Chúng tôi ở nhà cả ngày."
+    },
+    {
+      "en": "leave",
+      "ipa": "/liːv/",
+      "vi": "rời đi",
+      "pos": "verb",
+      "img": "👋",
+      "connect": "Quá khứ: left.",
+      "ex": "The bus leaves at seven.",
+      "exVi": "Xe buýt rời bến lúc bảy giờ."
+    },
+    {
+      "en": "arrive",
+      "ipa": "/əˈraɪv/",
+      "vi": "đến nơi",
+      "pos": "verb",
+      "img": "🛬",
+      "connect": "\"Ơ-rai-vờ\" — arrival = sự đến.",
+      "ex": "We arrived home late.",
+      "exVi": "Chúng tôi về đến nhà muộn."
+    },
+    {
+      "en": "start",
+      "ipa": "/stɑːrt/",
+      "vi": "bắt đầu",
+      "pos": "verb",
+      "img": "▶️",
+      "connect": "Nút Start — bắt đầu.",
+      "ex": "The movie starts at eight.",
+      "exVi": "Phim bắt đầu lúc tám giờ."
+    },
+    {
+      "en": "finish",
+      "ipa": "/ˈfɪn.ɪʃ/",
+      "vi": "hoàn thành",
+      "pos": "verb",
+      "img": "🏁",
+      "connect": "\"Phi-nís\" — về đích (finish line).",
+      "ex": "I finished my homework.",
+      "exVi": "Tôi làm xong bài tập rồi."
+    },
+    {
+      "en": "stop",
+      "ipa": "/stɑːp/",
+      "vi": "dừng lại",
+      "pos": "verb",
+      "img": "🛑",
+      "connect": "Bus stop — trạm dừng xe buýt.",
+      "ex": "The rain stopped.",
+      "exVi": "Mưa tạnh rồi."
+    },
+    {
+      "en": "try",
+      "ipa": "/traɪ/",
+      "vi": "thử, cố gắng",
+      "pos": "verb",
+      "img": "💪",
+      "connect": "Try your best — cố hết sức.",
+      "ex": "Try this food, it is delicious.",
+      "exVi": "Thử món này đi, ngon lắm."
+    },
+    {
+      "en": "pay",
+      "ipa": "/peɪ/",
+      "vi": "trả tiền",
+      "pos": "verb",
+      "img": "💳",
+      "connect": "Quá khứ: paid.",
+      "ex": "I will pay for dinner.",
+      "exVi": "Để tôi trả tiền bữa tối."
+    },
+    {
+      "en": "sell",
+      "ipa": "/sel/",
+      "vi": "bán",
+      "pos": "verb",
+      "img": "🏷️",
+      "connect": "Trái nghĩa với buy. Quá khứ: sold.",
+      "ex": "They sell fresh fruit here.",
+      "exVi": "Ở đây bán trái cây tươi."
+    },
+    {
+      "en": "cook",
+      "ipa": "/kʊk/",
+      "vi": "nấu ăn",
+      "pos": "verb",
+      "img": "👨‍🍳",
+      "connect": "Cook cũng là \"đầu bếp\".",
+      "ex": "My father cooks very well.",
+      "exVi": "Bố tôi nấu ăn rất ngon."
+    },
+    {
+      "en": "clean",
+      "ipa": "/kliːn/",
+      "vi": "dọn dẹp",
+      "pos": "verb",
+      "img": "🧹",
+      "connect": "Vừa là động từ vừa là tính từ (sạch).",
+      "ex": "I clean my room on Sundays.",
+      "exVi": "Chủ nhật tôi dọn phòng."
+    },
+    {
+      "en": "wash",
+      "ipa": "/wɑːʃ/",
+      "vi": "rửa, giặt",
+      "pos": "verb",
+      "img": "🧼",
+      "connect": "Wash your hands — rửa tay.",
+      "ex": "Wash your hands before eating.",
+      "exVi": "Rửa tay trước khi ăn."
+    },
+    {
+      "en": "wear",
+      "ipa": "/wer/",
+      "vi": "mặc, đeo",
+      "pos": "verb",
+      "img": "👕",
+      "connect": "Quá khứ: wore.",
+      "ex": "She is wearing a red dress.",
+      "exVi": "Cô ấy đang mặc váy đỏ."
+    },
+    {
+      "en": "drive",
+      "ipa": "/draɪv/",
+      "vi": "lái xe",
+      "pos": "verb",
+      "img": "🚗",
+      "connect": "Driver = tài xế. Quá khứ: drove.",
+      "ex": "He drives to work.",
+      "exVi": "Anh ấy lái xe đi làm."
+    },
+    {
+      "en": "remember",
+      "ipa": "/rɪˈmem.bər/",
+      "vi": "nhớ",
+      "pos": "verb",
+      "img": "🧠",
+      "connect": "\"Ri-mem-bờ\" — nhớ lại.",
+      "ex": "I remember your name.",
+      "exVi": "Tôi nhớ tên bạn."
+    },
+    {
+      "en": "forget",
+      "ipa": "/fərˈɡet/",
+      "vi": "quên",
+      "pos": "verb",
+      "img": "🫥",
+      "connect": "Trái nghĩa với remember. Quá khứ: forgot.",
+      "ex": "Do not forget your keys.",
+      "exVi": "Đừng quên chìa khóa nhé."
+    },
+    {
+      "en": "understand",
+      "ipa": "/ˌʌn.dərˈstænd/",
+      "vi": "hiểu",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "Quá khứ: understood.",
+      "ex": "Do you understand me?",
+      "exVi": "Bạn có hiểu tôi không?"
+    }
+  ]
+}

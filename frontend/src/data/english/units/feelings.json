@@ -1,0 +1,310 @@
+{
+  "id": "feelings",
+  "name": "Cảm xúc & tính cách",
+  "sub": "Angry, excited, kind, confident…",
+  "pos": "adj",
+  "tone": "tone-b",
+  "emoji": "💛",
+  "words": [
+    {
+      "en": "angry",
+      "ipa": "/ˈæŋ.ɡri/",
+      "vi": "tức giận",
+      "pos": "adj",
+      "img": "😠",
+      "connect": "Angry Birds — bầy chim nổi giận.",
+      "ex": "Why are you angry with me?",
+      "exVi": "Sao bạn giận mình vậy?"
+    },
+    {
+      "en": "afraid",
+      "ipa": "/əˈfreɪd/",
+      "vi": "sợ",
+      "pos": "adj",
+      "img": "😨",
+      "connect": "\"Ơ-phrêy-d\".",
+      "ex": "I am afraid of dogs.",
+      "exVi": "Tôi sợ chó."
+    },
+    {
+      "en": "worried",
+      "ipa": "/ˈwɝː.id/",
+      "vi": "lo lắng",
+      "pos": "adj",
+      "img": "😟",
+      "connect": "Câu quen: Don't worry — đừng lo.",
+      "ex": "She is worried about the exam.",
+      "exVi": "Cô ấy lo cho kỳ thi."
+    },
+    {
+      "en": "nervous",
+      "ipa": "/ˈnɝː.vəs/",
+      "vi": "hồi hộp",
+      "pos": "adj",
+      "img": "😬",
+      "connect": "Căng dây thần kinh (nerve) → nervous.",
+      "ex": "I feel nervous before interviews.",
+      "exVi": "Trước phỏng vấn tôi hay hồi hộp."
+    },
+    {
+      "en": "excited",
+      "ipa": "/ɪkˈsaɪ.t̬ɪd/",
+      "vi": "háo hức",
+      "pos": "adj",
+      "img": "🤩",
+      "connect": "\"Íc-sai-tịt\".",
+      "ex": "The kids are excited about the trip.",
+      "exVi": "Bọn trẻ háo hức về chuyến đi."
+    },
+    {
+      "en": "surprised",
+      "ipa": "/sɚˈpraɪzd/",
+      "vi": "ngạc nhiên",
+      "pos": "adj",
+      "img": "😮",
+      "connect": "Surprise! — bất ngờ chưa!",
+      "ex": "I was surprised to see him.",
+      "exVi": "Tôi bất ngờ khi gặp anh ấy."
+    },
+    {
+      "en": "bored",
+      "ipa": "/bɔːrd/",
+      "vi": "chán",
+      "pos": "adj",
+      "img": "🥱",
+      "connect": "\"Bo-đ\" — chán muốn \"bò\" ra bàn.",
+      "ex": "I'm bored — let's go out.",
+      "exVi": "Chán quá — ra ngoài chơi đi."
+    },
+    {
+      "en": "lonely",
+      "ipa": "/ˈloʊn.li/",
+      "vi": "cô đơn",
+      "pos": "adj",
+      "img": "🌙",
+      "connect": "alone (một mình) → lonely (cô đơn).",
+      "ex": "He feels lonely in the new city.",
+      "exVi": "Anh ấy thấy cô đơn ở thành phố mới."
+    },
+    {
+      "en": "proud",
+      "ipa": "/praʊd/",
+      "vi": "tự hào",
+      "pos": "adj",
+      "img": "🦚",
+      "connect": "\"Pờ-rao-d\".",
+      "ex": "I am proud of you.",
+      "exVi": "Mình tự hào về bạn."
+    },
+    {
+      "en": "shy",
+      "ipa": "/ʃaɪ/",
+      "vi": "nhút nhát",
+      "pos": "adj",
+      "img": "😳",
+      "connect": "\"Shai\" — ngại ngùng đỏ mặt.",
+      "ex": "She is too shy to speak.",
+      "exVi": "Cô ấy nhát quá không dám nói."
+    },
+    {
+      "en": "funny",
+      "ipa": "/ˈfʌn.i/",
+      "vi": "buồn cười",
+      "pos": "adj",
+      "img": "🤣",
+      "connect": "fun (vui) + ny — vui nhộn.",
+      "ex": "That movie is really funny.",
+      "exVi": "Phim đó buồn cười thật."
+    },
+    {
+      "en": "kind",
+      "ipa": "/kaɪnd/",
+      "vi": "tốt bụng",
+      "pos": "adj",
+      "img": "😇",
+      "connect": "\"Kai-nd\" — người kind ai cũng quý.",
+      "ex": "Thank you, you are so kind.",
+      "exVi": "Cảm ơn, bạn tốt quá."
+    },
+    {
+      "en": "friendly",
+      "ipa": "/ˈfrend.li/",
+      "vi": "thân thiện",
+      "pos": "adj",
+      "img": "🤗",
+      "connect": "friend + ly — cư xử như bạn bè.",
+      "ex": "People here are very friendly.",
+      "exVi": "Người ở đây rất thân thiện."
+    },
+    {
+      "en": "smart",
+      "ipa": "/smɑːrt/",
+      "vi": "thông minh",
+      "pos": "adj",
+      "img": "🧠",
+      "connect": "smartphone = điện thoại thông minh.",
+      "ex": "She is the smartest in class.",
+      "exVi": "Cô ấy thông minh nhất lớp."
+    },
+    {
+      "en": "lazy",
+      "ipa": "/ˈleɪ.zi/",
+      "vi": "lười",
+      "pos": "adj",
+      "img": "🦥",
+      "connect": "\"Lêy-zi\" — lười chảy thây.",
+      "ex": "The cat is fat and lazy.",
+      "exVi": "Con mèo vừa mập vừa lười."
+    },
+    {
+      "en": "brave",
+      "ipa": "/breɪv/",
+      "vi": "dũng cảm",
+      "pos": "adj",
+      "img": "🦁",
+      "connect": "\"Bờ-rêy-v\".",
+      "ex": "Be brave and try again.",
+      "exVi": "Dũng cảm thử lại nào."
+    },
+    {
+      "en": "honest",
+      "ipa": "/ˈɑː.nɪst/",
+      "vi": "trung thực",
+      "pos": "adj",
+      "img": "🤲",
+      "connect": "Chữ h CÂM — đọc \"O-nịt-st\".",
+      "ex": "He is an honest man.",
+      "exVi": "Ông ấy là người trung thực."
+    },
+    {
+      "en": "polite",
+      "ipa": "/pəˈlaɪt/",
+      "vi": "lịch sự",
+      "pos": "adj",
+      "img": "🙇",
+      "connect": "\"Pơ-lai-t\".",
+      "ex": "Always be polite to customers.",
+      "exVi": "Luôn lịch sự với khách hàng."
+    },
+    {
+      "en": "rude",
+      "ipa": "/ruːd/",
+      "vi": "thô lỗ",
+      "pos": "adj",
+      "img": "😤",
+      "connect": "\"Rút\" — ngược với polite.",
+      "ex": "Don't be rude to your parents.",
+      "exVi": "Đừng hỗn với bố mẹ."
+    },
+    {
+      "en": "quiet",
+      "ipa": "/ˈkwaɪ.ət/",
+      "vi": "yên lặng",
+      "pos": "adj",
+      "img": "🤫",
+      "connect": "\"Quai-ợt\" — đừng nhầm quite (khá).",
+      "ex": "Please be quiet in the library.",
+      "exVi": "Trong thư viện xin giữ yên lặng."
+    },
+    {
+      "en": "patient",
+      "ipa": "/ˈpeɪ.ʃənt/",
+      "vi": "kiên nhẫn",
+      "pos": "adj",
+      "img": "🧘",
+      "connect": "Vừa là \"kiên nhẫn\" vừa là \"bệnh nhân\".",
+      "ex": "Be patient — good things take time.",
+      "exVi": "Kiên nhẫn nhé — điều tốt cần thời gian."
+    },
+    {
+      "en": "confident",
+      "ipa": "/ˈkɑːn.fə.dənt/",
+      "vi": "tự tin",
+      "pos": "adj",
+      "img": "😎",
+      "connect": "\"Con-phi-đừnt\".",
+      "ex": "Speak loudly and be confident.",
+      "exVi": "Nói to lên và tự tin vào."
+    },
+    {
+      "en": "serious",
+      "ipa": "/ˈsɪr.i.əs/",
+      "vi": "nghiêm túc",
+      "pos": "adj",
+      "img": "🧐",
+      "connect": "Câu quen: Are you serious?",
+      "ex": "Are you serious?",
+      "exVi": "Bạn nói thật đấy à?"
+    },
+    {
+      "en": "careful",
+      "ipa": "/ˈker.fəl/",
+      "vi": "cẩn thận",
+      "pos": "adj",
+      "img": "⚠️",
+      "connect": "care + ful — đầy sự cẩn trọng.",
+      "ex": "Be careful when you cross the street.",
+      "exVi": "Qua đường cẩn thận nhé."
+    },
+    {
+      "en": "cute",
+      "ipa": "/kjuːt/",
+      "vi": "dễ thương",
+      "pos": "adj",
+      "img": "🐰",
+      "connect": "\"Kiu-t\" — cute như cún con.",
+      "ex": "Your puppy is so cute!",
+      "exVi": "Cún của bạn dễ thương ghê!"
+    },
+    {
+      "en": "handsome",
+      "ipa": "/ˈhæn.səm/",
+      "vi": "đẹp trai",
+      "pos": "adj",
+      "img": "🤵",
+      "connect": "Đọc \"HAN-sừm\" — chữ d câm.",
+      "ex": "Her brother is very handsome.",
+      "exVi": "Anh trai cô ấy đẹp trai lắm."
+    },
+    {
+      "en": "smile",
+      "ipa": "/smaɪl/",
+      "vi": "mỉm cười",
+      "pos": "verb",
+      "img": "😊",
+      "connect": "\"Sờ-mai\" — cười lên nào.",
+      "ex": "She smiled at me.",
+      "exVi": "Cô ấy mỉm cười với tôi."
+    },
+    {
+      "en": "cry",
+      "ipa": "/kraɪ/",
+      "vi": "khóc",
+      "pos": "verb",
+      "img": "😢",
+      "connect": "\"Cờ-rai\".",
+      "ex": "The baby is crying.",
+      "exVi": "Em bé đang khóc."
+    },
+    {
+      "en": "laugh",
+      "ipa": "/læf/",
+      "vi": "cười to",
+      "pos": "verb",
+      "img": "😂",
+      "connect": "Đọc \"láp\" — đuôi -gh đọc là f.",
+      "ex": "They laughed at the joke.",
+      "exVi": "Cả đám cười ầm vì câu đùa."
+    },
+    {
+      "en": "feel",
+      "ipa": "/fiːl/",
+      "vi": "cảm thấy",
+      "pos": "verb",
+      "img": "💭",
+      "connect": "\"Phiu\" — hôm nay feel thế nào?",
+      "ex": "How do you feel today?",
+      "exVi": "Hôm nay bạn thấy trong người sao?"
+    }
+  ]
+}

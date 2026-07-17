@@ -1,0 +1,310 @@
+{
+  "id": "timenum",
+  "name": "Số đếm & thời gian",
+  "sub": "One–ten, thứ trong tuần, bốn mùa…",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🕐",
+  "words": [
+    {
+      "en": "one",
+      "ipa": "/wʌn/",
+      "vi": "một",
+      "pos": "noun",
+      "img": "1️⃣",
+      "connect": "Đọc \"oăn\", không phải \"on\".",
+      "ex": "I have one brother.",
+      "exVi": "Tôi có một anh trai."
+    },
+    {
+      "en": "two",
+      "ipa": "/tuː/",
+      "vi": "hai",
+      "pos": "noun",
+      "img": "2️⃣",
+      "connect": "Đồng âm với \"too\" (cũng).",
+      "ex": "Two coffees, please.",
+      "exVi": "Cho hai ly cà phê."
+    },
+    {
+      "en": "three",
+      "ipa": "/θriː/",
+      "vi": "ba",
+      "pos": "noun",
+      "img": "3️⃣",
+      "connect": "Âm \"th\" — đặt lưỡi giữa hai hàm răng.",
+      "ex": "The class starts at three.",
+      "exVi": "Lớp bắt đầu lúc 3 giờ."
+    },
+    {
+      "en": "four",
+      "ipa": "/fɔːr/",
+      "vi": "bốn",
+      "pos": "noun",
+      "img": "4️⃣",
+      "connect": "Đồng âm với \"for\" (cho).",
+      "ex": "A table for four, please.",
+      "exVi": "Cho bàn 4 người."
+    },
+    {
+      "en": "five",
+      "ipa": "/faɪv/",
+      "vi": "năm",
+      "pos": "noun",
+      "img": "5️⃣",
+      "connect": "High five — đập tay 5 ngón.",
+      "ex": "Give me five minutes.",
+      "exVi": "Cho tôi 5 phút."
+    },
+    {
+      "en": "six",
+      "ipa": "/sɪks/",
+      "vi": "sáu",
+      "pos": "noun",
+      "img": "6️⃣",
+      "connect": "\"Sích-s\".",
+      "ex": "I wake up at six.",
+      "exVi": "Tôi dậy lúc 6 giờ."
+    },
+    {
+      "en": "seven",
+      "ipa": "/ˈsev.ən/",
+      "vi": "bảy",
+      "pos": "noun",
+      "img": "7️⃣",
+      "connect": "\"Sé-vừn\" — cửa hàng 7-Eleven.",
+      "ex": "The store opens at seven.",
+      "exVi": "Cửa hàng mở lúc 7 giờ."
+    },
+    {
+      "en": "eight",
+      "ipa": "/eɪt/",
+      "vi": "tám",
+      "pos": "noun",
+      "img": "8️⃣",
+      "connect": "Đồng âm \"ate\" (đã ăn) — ăn tối lúc 8 giờ.",
+      "ex": "Dinner is at eight.",
+      "exVi": "Bữa tối lúc 8 giờ."
+    },
+    {
+      "en": "nine",
+      "ipa": "/naɪn/",
+      "vi": "chín",
+      "pos": "noun",
+      "img": "9️⃣",
+      "connect": "\"Nai-n\".",
+      "ex": "I work from nine to five.",
+      "exVi": "Tôi làm từ 9 giờ tới 5 giờ."
+    },
+    {
+      "en": "ten",
+      "ipa": "/ten/",
+      "vi": "mười",
+      "pos": "noun",
+      "img": "🔟",
+      "connect": "\"Ten\" — mười điểm!",
+      "ex": "Count from one to ten.",
+      "exVi": "Đếm từ 1 đến 10 nào."
+    },
+    {
+      "en": "hundred",
+      "ipa": "/ˈhʌn.drəd/",
+      "vi": "trăm",
+      "pos": "noun",
+      "img": "💯",
+      "connect": "\"Hăn-đờ-rợt\".",
+      "ex": "This shirt costs two hundred.",
+      "exVi": "Cái áo này giá hai trăm."
+    },
+    {
+      "en": "thousand",
+      "ipa": "/ˈθaʊ.zənd/",
+      "vi": "nghìn",
+      "pos": "noun",
+      "img": "🧮",
+      "connect": "\"Thao-zừnd\".",
+      "ex": "The phone costs a thousand dollars.",
+      "exVi": "Điện thoại giá một nghìn đô."
+    },
+    {
+      "en": "million",
+      "ipa": "/ˈmɪl.jən/",
+      "vi": "triệu",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "Triệu phú = millionaire.",
+      "ex": "This city has two million people.",
+      "exVi": "Thành phố này có 2 triệu dân."
+    },
+    {
+      "en": "first",
+      "ipa": "/fɜːrst/",
+      "vi": "thứ nhất, đầu tiên",
+      "pos": "adj",
+      "img": "🥇",
+      "connect": "Số 1 = first, viết tắt 1st.",
+      "ex": "This is my first time in Korea.",
+      "exVi": "Đây là lần đầu tôi tới Hàn Quốc."
+    },
+    {
+      "en": "last",
+      "ipa": "/læst/",
+      "vi": "cuối cùng; vừa qua",
+      "pos": "adj",
+      "img": "🏁",
+      "connect": "Ngược với first; last week = tuần trước.",
+      "ex": "I saw him last night.",
+      "exVi": "Tôi gặp anh ấy tối qua."
+    },
+    {
+      "en": "hour",
+      "ipa": "/ˈaʊ.ɚ/",
+      "vi": "giờ (60 phút)",
+      "pos": "noun",
+      "img": "⏳",
+      "connect": "Chữ h CÂM — đọc \"ao-ơ\".",
+      "ex": "The movie is two hours long.",
+      "exVi": "Bộ phim dài 2 tiếng."
+    },
+    {
+      "en": "minute",
+      "ipa": "/ˈmɪn.ɪt/",
+      "vi": "phút",
+      "pos": "noun",
+      "img": "⏱️",
+      "connect": "\"Mi-nít\".",
+      "ex": "Wait a minute, please.",
+      "exVi": "Chờ một phút nhé."
+    },
+    {
+      "en": "Monday",
+      "ipa": "/ˈmʌn.deɪ/",
+      "vi": "thứ Hai",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "Moon-day — ngày Mặt Trăng.",
+      "ex": "I go back to work on Monday.",
+      "exVi": "Thứ Hai tôi đi làm lại."
+    },
+    {
+      "en": "Tuesday",
+      "ipa": "/ˈtuːz.deɪ/",
+      "vi": "thứ Ba",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "\"Tiu-z-đây\".",
+      "ex": "We have class on Tuesday.",
+      "exVi": "Thứ Ba mình có lớp."
+    },
+    {
+      "en": "Wednesday",
+      "ipa": "/ˈwenz.deɪ/",
+      "vi": "thứ Tư",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "Đọc \"OEN-z-đây\" — chữ d đầu câm.",
+      "ex": "The meeting is on Wednesday.",
+      "exVi": "Cuộc họp vào thứ Tư."
+    },
+    {
+      "en": "Thursday",
+      "ipa": "/ˈθɜːrz.deɪ/",
+      "vi": "thứ Năm",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "\"Thớc-z-đây\".",
+      "ex": "I play soccer on Thursday.",
+      "exVi": "Thứ Năm tôi đá bóng."
+    },
+    {
+      "en": "Friday",
+      "ipa": "/ˈfraɪ.deɪ/",
+      "vi": "thứ Sáu",
+      "pos": "noun",
+      "img": "🎉",
+      "connect": "TGIF — Thank God It's Friday.",
+      "ex": "See you on Friday night!",
+      "exVi": "Hẹn gặp tối thứ Sáu nhé!"
+    },
+    {
+      "en": "Saturday",
+      "ipa": "/ˈsæt̬.ɚ.deɪ/",
+      "vi": "thứ Bảy",
+      "pos": "noun",
+      "img": "🛍️",
+      "connect": "\"Sát-tơ-đây\".",
+      "ex": "I go shopping on Saturday.",
+      "exVi": "Thứ Bảy tôi đi mua sắm."
+    },
+    {
+      "en": "Sunday",
+      "ipa": "/ˈsʌn.deɪ/",
+      "vi": "Chủ nhật",
+      "pos": "noun",
+      "img": "☀️",
+      "connect": "Sun-day — ngày Mặt Trời, ngày nghỉ.",
+      "ex": "We rest on Sunday.",
+      "exVi": "Chủ nhật cả nhà nghỉ ngơi."
+    },
+    {
+      "en": "date",
+      "ipa": "/deɪt/",
+      "vi": "ngày (lịch); buổi hẹn",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "Hỏi ngày: What's the date?",
+      "ex": "What's the date today?",
+      "exVi": "Hôm nay là ngày bao nhiêu?"
+    },
+    {
+      "en": "season",
+      "ipa": "/ˈsiː.zən/",
+      "vi": "mùa",
+      "pos": "noun",
+      "img": "🍂",
+      "connect": "\"Si-zừn\" — phim dài tập cũng chia season.",
+      "ex": "Which season do you like best?",
+      "exVi": "Bạn thích mùa nào nhất?"
+    },
+    {
+      "en": "spring",
+      "ipa": "/sprɪŋ/",
+      "vi": "mùa xuân",
+      "pos": "noun",
+      "img": "🌸",
+      "connect": "Spring còn là \"lò xo\" — cây cối bật dậy.",
+      "ex": "Flowers bloom in spring.",
+      "exVi": "Hoa nở vào mùa xuân."
+    },
+    {
+      "en": "summer",
+      "ipa": "/ˈsʌm.ɚ/",
+      "vi": "mùa hè",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "\"Săm-mơ\" — hè nóng sạm da.",
+      "ex": "We go to the beach in summer.",
+      "exVi": "Hè là cả nhà đi biển."
+    },
+    {
+      "en": "autumn",
+      "ipa": "/ˈɑː.t̬əm/",
+      "vi": "mùa thu",
+      "pos": "noun",
+      "img": "🍁",
+      "connect": "\"O-tựm\" — người Mỹ hay dùng fall.",
+      "ex": "The leaves turn red in autumn.",
+      "exVi": "Mùa thu lá chuyển đỏ."
+    },
+    {
+      "en": "winter",
+      "ipa": "/ˈwɪn.t̬ɚ/",
+      "vi": "mùa đông",
+      "pos": "noun",
+      "img": "❄️",
+      "connect": "\"Uyn-tơ\" — đông về có gió (wind).",
+      "ex": "It snows here in winter.",
+      "exVi": "Mùa đông ở đây có tuyết."
+    }
+  ]
+}

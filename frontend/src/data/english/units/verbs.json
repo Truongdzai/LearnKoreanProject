@@ -1,0 +1,310 @@
+{
+  "id": "verbs",
+  "name": "Động từ cốt lõi",
+  "sub": "Những hành động dùng mỗi ngày",
+  "pos": "verb",
+  "tone": "tone-c",
+  "emoji": "🏃",
+  "words": [
+    {
+      "en": "be",
+      "ipa": "/biː/",
+      "vi": "thì, là, ở",
+      "pos": "verb",
+      "img": "🐝",
+      "connect": "To be or not to be (đọc như con ong \"bee\").",
+      "ex": "I am a student.",
+      "exVi": "Tôi là học sinh."
+    },
+    {
+      "en": "have",
+      "ipa": "/hæv/",
+      "vi": "có",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "Have a nice day — \"có\" một ngày đẹp.",
+      "ex": "I have two brothers.",
+      "exVi": "Tôi có hai anh trai."
+    },
+    {
+      "en": "do",
+      "ipa": "/duː/",
+      "vi": "làm",
+      "pos": "verb",
+      "img": "🛠️",
+      "connect": "What do you do? — Bạn làm gì?",
+      "ex": "What do you do on weekends?",
+      "exVi": "Cuối tuần bạn làm gì?"
+    },
+    {
+      "en": "go",
+      "ipa": "/ɡoʊ/",
+      "vi": "đi",
+      "pos": "verb",
+      "img": "🚶",
+      "connect": "Quá khứ: went.",
+      "ex": "Let us go to the park.",
+      "exVi": "Chúng ta đi công viên nào."
+    },
+    {
+      "en": "come",
+      "ipa": "/kʌm/",
+      "vi": "đến",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "Come here — lại đây.",
+      "ex": "Please come to my house tonight.",
+      "exVi": "Tối nay hãy đến nhà tôi nhé."
+    },
+    {
+      "en": "eat",
+      "ipa": "/iːt/",
+      "vi": "ăn",
+      "pos": "verb",
+      "img": "🍽️",
+      "connect": "\"Ít\" — quá khứ: ate.",
+      "ex": "We eat dinner at seven.",
+      "exVi": "Chúng tôi ăn tối lúc bảy giờ."
+    },
+    {
+      "en": "drink",
+      "ipa": "/drɪŋk/",
+      "vi": "uống",
+      "pos": "verb",
+      "img": "🥤",
+      "connect": "Drink water — uống nước.",
+      "ex": "Do not drink cold water.",
+      "exVi": "Đừng uống nước lạnh."
+    },
+    {
+      "en": "see",
+      "ipa": "/siː/",
+      "vi": "nhìn, thấy",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "See you later — hẹn gặp lại.",
+      "ex": "I can see the mountain.",
+      "exVi": "Tôi có thể thấy ngọn núi."
+    },
+    {
+      "en": "know",
+      "ipa": "/noʊ/",
+      "vi": "biết",
+      "pos": "verb",
+      "img": "🧠",
+      "connect": "K câm — đọc như \"no\".",
+      "ex": "I know the answer.",
+      "exVi": "Tôi biết câu trả lời."
+    },
+    {
+      "en": "think",
+      "ipa": "/θɪŋk/",
+      "vi": "nghĩ",
+      "pos": "verb",
+      "img": "💭",
+      "connect": "I think so — tôi nghĩ vậy.",
+      "ex": "I think it will rain.",
+      "exVi": "Tôi nghĩ trời sẽ mưa."
+    },
+    {
+      "en": "want",
+      "ipa": "/wɑːnt/",
+      "vi": "muốn",
+      "pos": "verb",
+      "img": "🙏",
+      "connect": "I want you — anh muốn em.",
+      "ex": "I want a cup of tea.",
+      "exVi": "Tôi muốn một tách trà."
+    },
+    {
+      "en": "need",
+      "ipa": "/niːd/",
+      "vi": "cần",
+      "pos": "verb",
+      "img": "❗",
+      "connect": "\"Nít\" — I need help.",
+      "ex": "You need to sleep more.",
+      "exVi": "Bạn cần ngủ nhiều hơn."
+    },
+    {
+      "en": "like",
+      "ipa": "/laɪk/",
+      "vi": "thích",
+      "pos": "verb",
+      "img": "👍",
+      "connect": "Nút Like trên Facebook.",
+      "ex": "I like Vietnamese food.",
+      "exVi": "Tôi thích món ăn Việt Nam."
+    },
+    {
+      "en": "love",
+      "ipa": "/lʌv/",
+      "vi": "yêu",
+      "pos": "verb",
+      "img": "❤️",
+      "connect": "I love you.",
+      "ex": "She loves her family.",
+      "exVi": "Cô ấy yêu gia đình mình."
+    },
+    {
+      "en": "make",
+      "ipa": "/meɪk/",
+      "vi": "làm, tạo ra",
+      "pos": "verb",
+      "img": "🏗️",
+      "connect": "Make a cake — làm bánh.",
+      "ex": "Let us make a plan.",
+      "exVi": "Hãy lập một kế hoạch."
+    },
+    {
+      "en": "work",
+      "ipa": "/wɜːrk/",
+      "vi": "làm việc",
+      "pos": "verb",
+      "img": "🧑‍🔧",
+      "connect": "It works! — Nó chạy được!",
+      "ex": "I work from nine to five.",
+      "exVi": "Tôi làm việc từ chín giờ đến năm giờ."
+    },
+    {
+      "en": "speak",
+      "ipa": "/spiːk/",
+      "vi": "nói",
+      "pos": "verb",
+      "img": "🗣️",
+      "connect": "Speaker — loa, người nói.",
+      "ex": "Do you speak English?",
+      "exVi": "Bạn có nói tiếng Anh không?"
+    },
+    {
+      "en": "say",
+      "ipa": "/seɪ/",
+      "vi": "nói, bảo",
+      "pos": "verb",
+      "img": "💬",
+      "connect": "Quá khứ: said /sed/.",
+      "ex": "What did you say?",
+      "exVi": "Bạn vừa nói gì?"
+    },
+    {
+      "en": "read",
+      "ipa": "/riːd/",
+      "vi": "đọc",
+      "pos": "verb",
+      "img": "📚",
+      "connect": "Quá khứ viết giống nhưng đọc /red/.",
+      "ex": "I read the news every morning.",
+      "exVi": "Tôi đọc tin tức mỗi sáng."
+    },
+    {
+      "en": "write",
+      "ipa": "/raɪt/",
+      "vi": "viết",
+      "pos": "verb",
+      "img": "✍️",
+      "connect": "W câm — đọc giống \"right\".",
+      "ex": "Please write your name here.",
+      "exVi": "Vui lòng viết tên bạn vào đây."
+    },
+    {
+      "en": "listen",
+      "ipa": "/ˈlɪs.ən/",
+      "vi": "lắng nghe",
+      "pos": "verb",
+      "img": "👂",
+      "connect": "T câm — \"li-sừn\".",
+      "ex": "Listen to me carefully.",
+      "exVi": "Hãy lắng nghe tôi cẩn thận."
+    },
+    {
+      "en": "learn",
+      "ipa": "/lɜːrn/",
+      "vi": "học",
+      "pos": "verb",
+      "img": "🎓",
+      "connect": "Learn English — học tiếng Anh.",
+      "ex": "I want to learn how to swim.",
+      "exVi": "Tôi muốn học bơi."
+    },
+    {
+      "en": "help",
+      "ipa": "/help/",
+      "vi": "giúp đỡ",
+      "pos": "verb",
+      "img": "🆘",
+      "connect": "Help me! — Cứu tôi!",
+      "ex": "Can you help me, please?",
+      "exVi": "Bạn giúp tôi được không?"
+    },
+    {
+      "en": "give",
+      "ipa": "/ɡɪv/",
+      "vi": "cho, đưa",
+      "pos": "verb",
+      "img": "🎁",
+      "connect": "Give and take — cho và nhận.",
+      "ex": "Please give me the book.",
+      "exVi": "Làm ơn đưa tôi quyển sách."
+    },
+    {
+      "en": "take",
+      "ipa": "/teɪk/",
+      "vi": "lấy, cầm",
+      "pos": "verb",
+      "img": "🤏",
+      "connect": "Take a photo — chụp ảnh.",
+      "ex": "Take an umbrella with you.",
+      "exVi": "Hãy mang theo một chiếc ô."
+    },
+    {
+      "en": "buy",
+      "ipa": "/baɪ/",
+      "vi": "mua",
+      "pos": "verb",
+      "img": "🛒",
+      "connect": "Đọc giống \"bye\". Quá khứ: bought.",
+      "ex": "I want to buy a new shirt.",
+      "exVi": "Tôi muốn mua một chiếc áo mới."
+    },
+    {
+      "en": "use",
+      "ipa": "/juːz/",
+      "vi": "dùng, sử dụng",
+      "pos": "verb",
+      "img": "🧰",
+      "connect": "\"Diu-zờ\" — useful = hữu ích.",
+      "ex": "Can I use your pen?",
+      "exVi": "Tôi dùng bút của bạn được không?"
+    },
+    {
+      "en": "find",
+      "ipa": "/faɪnd/",
+      "vi": "tìm thấy",
+      "pos": "verb",
+      "img": "🔎",
+      "connect": "Quá khứ: found.",
+      "ex": "I cannot find my keys.",
+      "exVi": "Tôi không tìm thấy chìa khóa."
+    },
+    {
+      "en": "open",
+      "ipa": "/ˈoʊ.pən/",
+      "vi": "mở",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "Open the door — mở cửa.",
+      "ex": "Please open the window.",
+      "exVi": "Làm ơn mở cửa sổ."
+    },
+    {
+      "en": "sleep",
+      "ipa": "/sliːp/",
+      "vi": "ngủ",
+      "pos": "verb",
+      "img": "😴",
+      "connect": "\"Sờ-líp\" — ngủ ngon.",
+      "ex": "I sleep eight hours a night.",
+      "exVi": "Tôi ngủ tám tiếng mỗi đêm."
+    }
+  ]
+}

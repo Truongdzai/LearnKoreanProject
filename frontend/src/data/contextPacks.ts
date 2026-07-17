@@ -183,6 +183,82 @@ const EN_INTERVIEW: PackWord[] = [
   { term: 'achievement', sub: '/əˈtʃiːv.mənt/', vi: 'thành tích', ex: 'Tell me about your achievements.', exVi: 'Hãy kể về thành tích của bạn.' },
 ]
 
+const KO_EXAM: PackWord[] = [
+  { term: '시험', sub: 'si-heom', vi: 'kỳ thi', ex: '다음 달에 토픽 시험이 있어요.', exVi: 'Tháng sau có kỳ thi TOPIK.' },
+  { term: '접수', sub: 'jeop-su', vi: 'đăng ký (thi)', ex: '시험 접수는 온라인으로 해요.', exVi: 'Đăng ký thi qua mạng.' },
+  { term: '점수', sub: 'jeom-su', vi: 'điểm số', ex: '점수가 잘 나왔어요.', exVi: 'Điểm của tôi khá tốt.' },
+  { term: '합격', sub: 'hap-gyeok', vi: 'đậu, trúng tuyển', ex: '시험에 합격했어요!', exVi: 'Tôi đã đậu kỳ thi rồi!' },
+  { term: '불합격', sub: 'bul-hap-gyeok', vi: 'trượt, rớt', ex: '불합격해도 다시 도전해요.', exVi: 'Rớt thì thi lại thôi.' },
+  { term: '문제', sub: 'mun-je', vi: 'câu hỏi, đề bài', ex: '이 문제가 어려워요.', exVi: 'Câu này khó quá.' },
+  { term: '정답', sub: 'jeong-dap', vi: 'đáp án đúng', ex: '정답을 확인해 보세요.', exVi: 'Hãy kiểm tra đáp án.' },
+  { term: '단어', sub: 'dan-eo', vi: 'từ vựng', ex: '매일 단어를 외워요.', exVi: 'Mỗi ngày tôi học thuộc từ vựng.' },
+  { term: '문법', sub: 'mun-beop', vi: 'ngữ pháp', ex: '문법이 제일 어려워요.', exVi: 'Ngữ pháp là khó nhất.' },
+  { term: '듣기', sub: 'deut-gi', vi: 'phần nghe', ex: '듣기 연습을 많이 해요.', exVi: 'Tôi luyện nghe rất nhiều.' },
+  { term: '읽기', sub: 'il-kki', vi: 'phần đọc', ex: '읽기는 시간이 부족해요.', exVi: 'Phần đọc hay bị thiếu thời gian.' },
+  { term: '쓰기', sub: 'sseu-gi', vi: 'phần viết', ex: '쓰기 점수를 올리고 싶어요.', exVi: 'Tôi muốn tăng điểm viết.' },
+  { term: '급', sub: 'geup', vi: 'cấp (TOPIK 1–6)', ex: '토픽 3급을 목표로 해요.', exVi: 'Tôi đặt mục tiêu TOPIK cấp 3.' },
+  { term: '준비하다', sub: 'jun-bi-ha-da', vi: 'chuẩn bị', ex: '시험을 준비하고 있어요.', exVi: 'Tôi đang ôn thi.' },
+  { term: '복습', sub: 'bok-seup', vi: 'ôn tập', ex: '복습이 정말 중요해요.', exVi: 'Ôn tập thật sự quan trọng.' },
+  { term: '성적표', sub: 'seong-jeok-pyo', vi: 'bảng điểm', ex: '성적표가 나왔어요.', exVi: 'Có bảng điểm rồi.' },
+]
+
+const EN_EXAM: PackWord[] = [
+  { term: 'exam', sub: '/ɪɡˈzæm/', vi: 'kỳ thi', ex: 'The TOEIC exam is next month.', exVi: 'Kỳ thi TOEIC là tháng sau.' },
+  { term: 'register', sub: '/ˈredʒ.ə.stɚ/', vi: 'đăng ký', ex: 'I registered for the test online.', exVi: 'Tôi đăng ký thi qua mạng.' },
+  { term: 'score', sub: '/skɔːr/', vi: 'điểm số', ex: 'My goal is a score of 700.', exVi: 'Mục tiêu của tôi là 700 điểm.' },
+  { term: 'pass', sub: '/pæs/', vi: 'đậu, vượt qua', ex: 'I passed the exam on my first try.', exVi: 'Tôi đậu ngay lần thi đầu.' },
+  { term: 'fail', sub: '/feɪl/', vi: 'trượt, rớt', ex: "Don't be afraid to fail.", exVi: 'Đừng sợ thất bại.' },
+  { term: 'question', sub: '/ˈkwes.tʃən/', vi: 'câu hỏi', ex: 'Read each question carefully.', exVi: 'Đọc kỹ từng câu hỏi.' },
+  { term: 'answer sheet', sub: '/ˈæn.sɚ ʃiːt/', vi: 'phiếu trả lời', ex: 'Mark your answers on the answer sheet.', exVi: 'Tô đáp án vào phiếu trả lời.' },
+  { term: 'vocabulary', sub: '/voʊˈkæb.jə.ler.i/', vi: 'từ vựng', ex: 'Vocabulary is the key to reading fast.', exVi: 'Từ vựng là chìa khoá để đọc nhanh.' },
+  { term: 'grammar', sub: '/ˈɡræm.ɚ/', vi: 'ngữ pháp', ex: 'Part 5 tests your grammar.', exVi: 'Part 5 kiểm tra ngữ pháp của bạn.' },
+  { term: 'listening', sub: '/ˈlɪs.ən.ɪŋ/', vi: 'phần nghe', ex: 'The listening section has 100 questions.', exVi: 'Phần nghe có 100 câu.' },
+  { term: 'reading', sub: '/ˈriː.dɪŋ/', vi: 'phần đọc', ex: 'Manage your time in the reading section.', exVi: 'Phân bổ thời gian ở phần đọc.' },
+  { term: 'practice test', sub: '/ˈpræk.tɪs test/', vi: 'đề thi thử', ex: 'Take a practice test every week.', exVi: 'Mỗi tuần làm một đề thi thử.' },
+  { term: 'certificate', sub: '/sɚˈtɪf.ə.kət/', vi: 'chứng chỉ', ex: 'The certificate is valid for two years.', exVi: 'Chứng chỉ có giá trị hai năm.' },
+  { term: 'prepare', sub: '/prɪˈper/', vi: 'chuẩn bị, ôn', ex: 'I have three months to prepare.', exVi: 'Tôi có ba tháng để ôn.' },
+  { term: 'review', sub: '/rɪˈvjuː/', vi: 'ôn tập', ex: 'Review your mistakes after each test.', exVi: 'Ôn lại lỗi sai sau mỗi đề.' },
+  { term: 'result', sub: '/rɪˈzʌlt/', vi: 'kết quả', ex: 'The results come out in two weeks.', exVi: 'Hai tuần nữa có kết quả.' },
+]
+
+const KO_SMALLTALK: PackWord[] = [
+  { term: '주말', sub: 'ju-mal', vi: 'cuối tuần', ex: '주말에 뭐 했어요?', exVi: 'Cuối tuần bạn làm gì?' },
+  { term: '취미', sub: 'chwi-mi', vi: 'sở thích', ex: '취미가 뭐예요?', exVi: 'Sở thích của bạn là gì?' },
+  { term: '날씨', sub: 'nal-ssi', vi: 'thời tiết', ex: '오늘 날씨가 정말 좋네요.', exVi: 'Hôm nay trời đẹp thật.' },
+  { term: '영화', sub: 'yeong-hwa', vi: 'phim', ex: '요즘 무슨 영화 봤어요?', exVi: 'Dạo này bạn xem phim gì?' },
+  { term: '노래', sub: 'no-rae', vi: 'bài hát', ex: '이 노래 진짜 좋아요.', exVi: 'Bài này hay thật đấy.' },
+  { term: '맛집', sub: 'mat-jip', vi: 'quán ngon', ex: '이 근처 맛집 알아요?', exVi: 'Bạn biết quán nào ngon gần đây không?' },
+  { term: '요즘', sub: 'yo-jeum', vi: 'dạo này', ex: '요즘 어떻게 지내요?', exVi: 'Dạo này bạn sống thế nào?' },
+  { term: '운동', sub: 'un-dong', vi: 'thể thao, tập luyện', ex: '무슨 운동을 해요?', exVi: 'Bạn chơi môn thể thao gì?' },
+  { term: '여자친구/남자친구', sub: 'yeo-ja-chin-gu / nam-ja-chin-gu', vi: 'bạn gái / bạn trai', ex: '남자친구 있어요?', exVi: 'Bạn có bạn trai chưa?' },
+  { term: '재미있다', sub: 'jae-mi-it-da', vi: 'thú vị, vui', ex: '그 드라마 진짜 재미있어요.', exVi: 'Bộ phim đó hay thật sự.' },
+  { term: '피곤하다', sub: 'pi-gon-ha-da', vi: 'mệt', ex: '요즘 좀 피곤해요.', exVi: 'Dạo này tôi hơi mệt.' },
+  { term: '바쁘다', sub: 'ba-ppeu-da', vi: 'bận', ex: '이번 주는 너무 바빠요.', exVi: 'Tuần này tôi bận quá.' },
+  { term: '약속', sub: 'yak-sok', vi: 'cuộc hẹn', ex: '오늘 저녁에 약속이 있어요.', exVi: 'Tối nay tôi có hẹn.' },
+  { term: '연락하다', sub: 'yeol-la-ka-da', vi: 'liên lạc', ex: '자주 연락해요!', exVi: 'Nhớ liên lạc thường xuyên nha!' },
+  { term: '심심하다', sub: 'sim-sim-ha-da', vi: 'chán, buồn tẻ', ex: '심심할 때 뭐 해요?', exVi: 'Lúc rảnh rỗi bạn làm gì?' },
+  { term: '수고했어요', sub: 'su-go-hae-sseo-yo', vi: 'bạn vất vả rồi', ex: '오늘도 수고했어요!', exVi: 'Hôm nay bạn vất vả rồi!' },
+]
+
+const EN_SMALLTALK: PackWord[] = [
+  { term: 'weekend', sub: '/ˈwiːk.end/', vi: 'cuối tuần', ex: 'How was your weekend?', exVi: 'Cuối tuần của bạn thế nào?' },
+  { term: 'hobby', sub: '/ˈhɑː.bi/', vi: 'sở thích', ex: 'What are your hobbies?', exVi: 'Sở thích của bạn là gì?' },
+  { term: 'weather', sub: '/ˈweð.ɚ/', vi: 'thời tiết', ex: 'Nice weather today, right?', exVi: 'Hôm nay trời đẹp nhỉ?' },
+  { term: 'movie', sub: '/ˈmuː.vi/', vi: 'phim', ex: 'Have you seen any good movies lately?', exVi: 'Dạo này bạn xem phim nào hay không?' },
+  { term: 'music', sub: '/ˈmjuː.zɪk/', vi: 'âm nhạc', ex: 'What kind of music do you like?', exVi: 'Bạn thích thể loại nhạc gì?' },
+  { term: 'plan', sub: '/plæn/', vi: 'kế hoạch', ex: 'Any plans for the holiday?', exVi: 'Lễ này có kế hoạch gì chưa?' },
+  { term: 'lately', sub: '/ˈleɪt.li/', vi: 'dạo gần đây', ex: 'How have you been lately?', exVi: 'Dạo này bạn sao rồi?' },
+  { term: 'gym', sub: '/dʒɪm/', vi: 'phòng tập', ex: 'Do you go to the gym?', exVi: 'Bạn có đi tập gym không?' },
+  { term: 'pet', sub: '/pet/', vi: 'thú cưng', ex: 'Do you have any pets?', exVi: 'Bạn có nuôi thú cưng không?' },
+  { term: 'funny', sub: '/ˈfʌn.i/', vi: 'buồn cười, hài', ex: 'That show is so funny.', exVi: 'Chương trình đó hài ghê.' },
+  { term: 'tired', sub: '/taɪrd/', vi: 'mệt', ex: "I'm a bit tired these days.", exVi: 'Dạo này tôi hơi mệt.' },
+  { term: 'busy', sub: '/ˈbɪz.i/', vi: 'bận', ex: "I've been really busy this week.", exVi: 'Tuần này tôi bận kinh khủng.' },
+  { term: 'hang out', sub: '/hæŋ aʊt/', vi: 'đi chơi (với bạn)', ex: "Let's hang out this Saturday.", exVi: 'Thứ Bảy này đi chơi đi.' },
+  { term: 'catch up', sub: '/kætʃ ʌp/', vi: 'hàn huyên, cập nhật chuyện', ex: "Let's catch up over coffee.", exVi: 'Cà phê hàn huyên chút đi.' },
+  { term: 'bored', sub: '/bɔːrd/', vi: 'chán', ex: "I'm so bored at home.", exVi: 'Ở nhà chán quá trời.' },
+  { term: 'joke', sub: '/dʒoʊk/', vi: 'chuyện đùa', ex: 'He always tells funny jokes.', exVi: 'Anh ấy toàn kể chuyện đùa mắc cười.' },
+]
+
 export const CONTEXT_PACKS: ContextPack[] = [
   {
     id: 'work', name: 'Công việc & văn phòng', emoji: '💼', tone: 'tone-f', goal: 'work',
@@ -203,6 +279,16 @@ export const CONTEXT_PACKS: ContextPack[] = [
     id: 'interview', name: 'Phỏng vấn xin việc', emoji: '🤝', tone: 'tone-b', goal: 'work',
     desc: 'Giới thiệu bản thân, điểm mạnh yếu, deal lương — sẵn sàng trúng tuyển.',
     words: { ko: KO_INTERVIEW, en: EN_INTERVIEW },
+  },
+  {
+    id: 'exam', name: 'Luyện thi & phòng thi', emoji: '🎓', tone: 'tone-a', goal: 'exam',
+    desc: 'Đăng ký, đề thi, điểm số, chứng chỉ — bộ từ sống còn mùa ôn thi TOPIK/TOEIC.',
+    words: { ko: KO_EXAM, en: EN_EXAM },
+  },
+  {
+    id: 'smalltalk', name: 'Tán gẫu & kết bạn', emoji: '☕', tone: 'tone-e', goal: 'talk',
+    desc: 'Cuối tuần, sở thích, thời tiết — bắt chuyện tự nhiên với bất kỳ ai.',
+    words: { ko: KO_SMALLTALK, en: EN_SMALLTALK },
   },
 ]
 

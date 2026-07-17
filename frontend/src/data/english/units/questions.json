@@ -1,0 +1,110 @@
+{
+  "id": "questions",
+  "name": "Từ để hỏi",
+  "sub": "Who, What, Where, When, Why, How",
+  "pos": "question",
+  "tone": "tone-d",
+  "emoji": "❓",
+  "words": [
+    {
+      "en": "who",
+      "ipa": "/huː/",
+      "vi": "ai",
+      "pos": "question",
+      "img": "🙋",
+      "connect": "W câm — đọc \"hu\". Hỏi về người.",
+      "ex": "Who is that man?",
+      "exVi": "Người đàn ông đó là ai?"
+    },
+    {
+      "en": "what",
+      "ipa": "/wɑːt/",
+      "vi": "cái gì",
+      "pos": "question",
+      "img": "❓",
+      "connect": "What is this? — Đây là cái gì?",
+      "ex": "What is your name?",
+      "exVi": "Tên bạn là gì?"
+    },
+    {
+      "en": "where",
+      "ipa": "/wer/",
+      "vi": "ở đâu",
+      "pos": "question",
+      "img": "📍",
+      "connect": "Hỏi về nơi chốn (place).",
+      "ex": "Where do you live?",
+      "exVi": "Bạn sống ở đâu?"
+    },
+    {
+      "en": "when",
+      "ipa": "/wen/",
+      "vi": "khi nào",
+      "pos": "question",
+      "img": "🕐",
+      "connect": "Hỏi về thời gian (time).",
+      "ex": "When is your birthday?",
+      "exVi": "Sinh nhật bạn khi nào?"
+    },
+    {
+      "en": "why",
+      "ipa": "/waɪ/",
+      "vi": "tại sao",
+      "pos": "question",
+      "img": "🤔",
+      "connect": "Why? — Trả lời bằng \"because\".",
+      "ex": "Why are you late?",
+      "exVi": "Tại sao bạn đến muộn?"
+    },
+    {
+      "en": "how",
+      "ipa": "/haʊ/",
+      "vi": "như thế nào",
+      "pos": "question",
+      "img": "⚙️",
+      "connect": "How are you? — Bạn khỏe không?",
+      "ex": "How do you go to work?",
+      "exVi": "Bạn đi làm bằng cách nào?"
+    },
+    {
+      "en": "which",
+      "ipa": "/wɪtʃ/",
+      "vi": "cái nào",
+      "pos": "question",
+      "img": "🔀",
+      "connect": "Chọn lựa giữa các thứ.",
+      "ex": "Which color do you like?",
+      "exVi": "Bạn thích màu nào?"
+    },
+    {
+      "en": "whose",
+      "ipa": "/huːz/",
+      "vi": "của ai",
+      "pos": "question",
+      "img": "🧳",
+      "connect": "Hỏi về sở hữu.",
+      "ex": "Whose bag is this?",
+      "exVi": "Đây là túi của ai?"
+    },
+    {
+      "en": "how much",
+      "ipa": "/haʊ mʌtʃ/",
+      "vi": "bao nhiêu (tiền)",
+      "pos": "question",
+      "img": "💵",
+      "connect": "Hỏi giá / lượng không đếm được.",
+      "ex": "How much is this shirt?",
+      "exVi": "Chiếc áo này giá bao nhiêu?"
+    },
+    {
+      "en": "how many",
+      "ipa": "/haʊ ˈmen.i/",
+      "vi": "bao nhiêu (cái)",
+      "pos": "question",
+      "img": "🔢",
+      "connect": "Hỏi số lượng đếm được.",
+      "ex": "How many people are here?",
+      "exVi": "Có bao nhiêu người ở đây?"
+    }
+  ]
+}
