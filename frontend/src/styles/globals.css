@@ -1110,6 +1110,73 @@ button{font-family:inherit}
 .dict-pct{font-weight:800;color:var(--text);font-variant-numeric:tabular-nums}
 .dict-actions{display:flex;justify-content:center;gap:10px;margin-top:18px}
 
+/* ============ MINI-GAME ÔN TẬP + THỬ THÁCH NGÀY ============ */
+.mg-row{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 4px}
+.mg-launch{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:10px 16px;
+  font-weight:700;font-size:14px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .12s,border-color .12s}
+.mg-launch:hover:not(:disabled){transform:translateY(-2px);border-color:var(--accent)}
+.mg-launch.done{opacity:.6;cursor:default}
+.mg-wrap{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:16px;box-shadow:var(--shadow-sm)}
+.mg-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.mg-head b{font-family:"Quicksand";font-size:16px;flex:1;text-align:center}
+.mg-moves{font-size:12.5px;color:var(--text2);min-width:70px;text-align:right}
+.mg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.mg-tile{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;min-height:58px;padding:10px;
+  font-size:14.5px;font-weight:600;cursor:pointer;transition:transform .12s,border-color .12s,opacity .3s}
+.mg-tile:hover:not(:disabled){transform:translateY(-2px);border-color:var(--accent)}
+.mg-tile.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
+.mg-tile.ok{opacity:.35;border-color:#34d399;cursor:default}
+.mg-tile.bad{border-color:#fb7185;background:rgba(251,113,133,.12);animation:mgShake .3s}
+@keyframes mgShake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.mg-done{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px;
+  font-family:"Quicksand";font-weight:700;font-size:16px}
+.mg-question{text-align:center;font-size:24px;font-weight:800;margin:10px 0 18px;color:var(--text)}
+
+/* ============ HUY HIỆU THÀNH TÍCH ============ */
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:22px}
+.badge-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 12px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.72}
+.badge-card.earned{opacity:1;border-color:rgba(251,191,36,.5);background:linear-gradient(160deg,rgba(251,191,36,.10),var(--panel))}
+.badge-emoji{font-size:30px;filter:grayscale(1)}
+.badge-card.earned .badge-emoji{filter:none}
+.badge-card b{font-size:13px;font-family:"Quicksand"}
+.badge-ok{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#34d399;font-weight:700}
+.badge-bar{width:100%;height:5px;border-radius:99px;background:var(--panel2);overflow:hidden}
+.badge-bar span{display:block;height:100%;background:var(--accent);border-radius:99px}
+.badge-progress{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
+
+/* ============ NGỮ PHÁP THEO NGỮ CẢNH + CEFR ============ */
+.gx-row{margin-top:10px}
+.gx-btn{font-size:12.5px}
+.gx-panel{margin-top:10px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.gx-loading{display:flex;align-items:center;gap:8px;color:var(--text2);font-size:13px}
+.gx-err{display:flex;align-items:center;gap:6px;color:var(--bad);font-size:13px}
+.gx-structure{display:flex;align-items:center;gap:7px;font-weight:700;font-size:13.5px;color:var(--accent);margin-bottom:8px}
+.gx-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.gx-points li{font-size:13.5px;line-height:1.55}
+.gx-points b{color:var(--text);margin-right:6px}
+.gx-points span{color:var(--text2)}
+.gx-tip{margin-top:9px;font-size:13px;color:var(--text2);border-top:1px dashed var(--line);padding-top:8px}
+.cefr-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--panel2);color:var(--text2);
+  border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;cursor:pointer}
+.cefr-chip:hover:not(:disabled){border-color:var(--accent);color:var(--text)}
+.cefr-chip.on{cursor:default;background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4);color:var(--text)}
+.cefr-reason{margin-top:5px;font-size:12.5px;color:var(--text2);max-width:720px}
+
+/* ============ ĐIỀN KHUYẾT (CLOZE) ============ */
+.cz-sentence{font-size:20px;line-height:1.8;margin:6px 0 18px;color:var(--text)}
+.cz-blank{display:inline-block;min-width:64px;border-bottom:2px dashed var(--accent);font-weight:800;color:var(--accent);margin-right:5px;padding:0 4px}
+.cz-blank.ok{color:#34d399;border-color:#34d399;border-bottom-style:solid}
+.cz-blank.miss{color:#fb7185;border-color:#fb7185;border-bottom-style:solid}
+.cz-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;max-width:560px;margin:0 auto}
+.cz-opt{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;padding:12px 10px;font-size:16px;
+  font-weight:700;cursor:pointer;transition:transform .12s,border-color .12s}
+.cz-opt:hover:not(:disabled){transform:translateY(-2px);border-color:var(--accent)}
+.cz-opt:disabled{cursor:default;opacity:.75}
+.cz-opt.right{background:rgba(52,211,153,.15);border-color:#34d399;color:var(--text);opacity:1}
+.cz-opt.wrong{background:rgba(251,113,133,.12);border-color:#fb7185;opacity:1}
+.cz-final{font-family:"Quicksand";font-weight:700;color:var(--text)}
+
 /* ============ DUBBING STUDIO ============ */
 .dub-intro{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,rgba(168,85,247,.16),rgba(59,130,246,.12));
   border:1px solid rgba(168,85,247,.35);border-radius:16px;padding:15px 18px;margin-bottom:16px}

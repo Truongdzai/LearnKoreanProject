@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { fetchActivities, type Activities } from '@/core/api/me.api'
+import { computeBadges } from '@/data/badges'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
@@ -26,6 +27,15 @@ export default function ActivitiesPage() {
 
   const maxMin = Math.max(1, ...data.minutes)
   const maxWords = Math.max(1, ...data.words)
+
+  const badges = computeBadges({
+    xp: user.xp,
+    streak: user.streak,
+    cards: data.srsTotal,
+    videos: savedVideos.length,
+    plants: garden.length,
+  })
+  const earnedCount = badges.filter((b) => b.earned).length
 
   const stats = [
     { ic: 'flame', label: t('act.streak'), val: user.streak, unit: t('act.unitDays'), tone: 'fire' },
@@ -86,6 +96,24 @@ export default function ActivitiesPage() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="section-title"><span className="pin" /> {t('bd.title')} ({earnedCount}/{badges.length})</div>
+      <div className="badge-grid">
+        {badges.map((b) => (
+          <div key={b.id} className={'badge-card' + (b.earned ? ' earned' : '')} title={t(b.descKey)}>
+            <span className="badge-emoji">{b.emoji}</span>
+            <b>{t(b.nameKey)}</b>
+            {b.earned ? (
+              <span className="badge-ok"><Icon name="check-circle" size={13} /> {t('bd.earned')}</span>
+            ) : (
+              <>
+                <div className="badge-bar"><span style={{ width: b.pct + '%' }} /></div>
+                <span className="badge-progress">{b.value}/{b.target}</span>
+              </>
+            )}
+          </div>
+        ))}
       </div>
 
       <div className="section-title"><span className="pin" /> {t('act.overview')}</div>

@@ -138,6 +138,7 @@ const VI: Record<string, string> = {
   // Trang học video (Learn)
   'learn.tab.speak': 'Luyện nói AI',
   'learn.tab.dictation': 'Chép chính tả',
+  'learn.tab.cloze': 'Điền khuyết',
   'learn.tab.translate': 'Luyện dịch',
   'learn.tab.summary': 'Tóm tắt',
   'learn.preparing': 'Đang chuẩn bị bài học…',
@@ -457,6 +458,52 @@ const VI: Record<string, string> = {
   'rv.doneText': 'Bạn đã ôn {n} thẻ trong phiên này. Quay lại sau để ôn tiếp nhé.',
   'rv.left': 'Còn lại {n} thẻ',
   'rv.reveal': 'Hiện đáp án',
+
+
+  // Điền khuyết
+  'cz.label': 'Nghe câu rồi chọn từ còn thiếu',
+  'cz.empty': 'Video này chưa đủ câu dài để tạo bài điền khuyết — thử video khác nhé.',
+  'cz.right': 'Chính xác!',
+  'cz.wrong': 'Chưa đúng — đáp án: {w}',
+  'cz.done': 'Hoàn thành! Đúng {a}/{b} câu.',
+
+
+  // Ngữ pháp theo ngữ cảnh + CEFR
+  'gx.button': 'Giải thích ngữ pháp câu này',
+  'gx.close': 'Ẩn giải thích',
+  'gx.loading': 'AI đang phân tích câu…',
+  'gx.levelBtn': 'Ước lượng độ khó',
+  'gx.levelBusy': 'Đang ước lượng…',
+
+
+  // Mini-game ôn tập + thử thách ngày
+  'mg.back': 'Quay lại',
+  'mg.replay': 'Chơi lại',
+  'mg.seeResult': 'Xem kết quả',
+  'mg.matchTitle': 'Ghép cặp từ',
+  'mg.moves': '{n} lượt',
+  'mg.matchDone': 'Ghép xong sau {n} lượt!',
+  'mg.listenTitle': 'Nghe & chọn nghĩa',
+  'mg.listenDone': 'Bạn đúng {a}/{b} câu (đúng ≥4 mới có thưởng).',
+  'mg.dailyTitle': 'Thử thách hôm nay',
+  'mg.dailyClaimed': 'Thử thách hôm nay ✓',
+  'mg.dailyDone': 'Xong thử thách ngày! Đúng {a}/{b} câu.',
+
+  // Huy hiệu
+  'bd.title': 'Huy hiệu thành tích',
+  'bd.earned': 'Đã đạt',
+  'bd.xp100': 'Khởi động', 'bd.xp100d': 'Đạt 100 XP',
+  'bd.xp500': 'Bền bỉ', 'bd.xp500d': 'Đạt 500 XP',
+  'bd.xp2000': 'Cao thủ', 'bd.xp2000d': 'Đạt 2000 XP',
+  'bd.streak3': 'Nhóm lửa', 'bd.streak3d': 'Chuỗi 3 ngày học liên tiếp',
+  'bd.streak7': 'Giữ lửa', 'bd.streak7d': 'Chuỗi 7 ngày học liên tiếp',
+  'bd.streak30': 'Ngọn đuốc', 'bd.streak30d': 'Chuỗi 30 ngày học liên tiếp',
+  'bd.cards10': 'Người sưu tầm', 'bd.cards10d': 'Lưu 10 thẻ từ vựng',
+  'bd.cards50': 'Thủ thư', 'bd.cards50d': 'Lưu 50 thẻ từ vựng',
+  'bd.cards200': 'Kho tàng', 'bd.cards200d': 'Lưu 200 thẻ từ vựng',
+  'bd.videos1': 'Mở màn', 'bd.videos1d': 'Lưu video đầu tiên',
+  'bd.videos5': 'Mọt phim', 'bd.videos5d': 'Lưu 5 video',
+  'bd.plants3': 'Tay trồng cây', 'bd.plants3d': 'Trồng 3 cây trong vườn',
 
   // Nhiệm vụ
   'q.daily': 'Hằng ngày',
@@ -845,6 +892,7 @@ const EN: Record<string, string> = {
   // Learn page
   'learn.tab.speak': 'AI speaking',
   'learn.tab.dictation': 'Dictation',
+  'learn.tab.cloze': 'Fill the gap',
   'learn.tab.translate': 'Translation',
   'learn.tab.summary': 'Summary',
   'learn.preparing': 'Preparing your lesson…',
@@ -1164,6 +1212,52 @@ const EN: Record<string, string> = {
   'rv.doneText': 'You reviewed {n} cards this session. Come back later for more.',
   'rv.left': '{n} cards left',
   'rv.reveal': 'Show answer',
+
+
+  // Cloze
+  'cz.label': 'Listen, then pick the missing word',
+  'cz.empty': "This video doesn't have enough long lines for gap-fill practice — try another one.",
+  'cz.right': 'Correct!',
+  'cz.wrong': 'Not quite — answer: {w}',
+  'cz.done': 'Done! {a}/{b} correct.',
+
+
+  // Grammar in context + CEFR
+  'gx.button': 'Explain the grammar here',
+  'gx.close': 'Hide explanation',
+  'gx.loading': 'AI is analyzing the sentence…',
+  'gx.levelBtn': 'Estimate difficulty',
+  'gx.levelBusy': 'Estimating…',
+
+
+  // Review mini-games + daily challenge
+  'mg.back': 'Back',
+  'mg.replay': 'Play again',
+  'mg.seeResult': 'See result',
+  'mg.matchTitle': 'Match pairs',
+  'mg.moves': '{n} moves',
+  'mg.matchDone': 'All matched in {n} moves!',
+  'mg.listenTitle': 'Listen & choose',
+  'mg.listenDone': 'You got {a}/{b} (4+ correct earns XP).',
+  'mg.dailyTitle': "Today's challenge",
+  'mg.dailyClaimed': "Today's challenge ✓",
+  'mg.dailyDone': 'Daily challenge done! {a}/{b} correct.',
+
+  // Badges
+  'bd.title': 'Achievements',
+  'bd.earned': 'Earned',
+  'bd.xp100': 'Warm-up', 'bd.xp100d': 'Reach 100 XP',
+  'bd.xp500': 'Persistent', 'bd.xp500d': 'Reach 500 XP',
+  'bd.xp2000': 'Master', 'bd.xp2000d': 'Reach 2000 XP',
+  'bd.streak3': 'Spark', 'bd.streak3d': '3-day study streak',
+  'bd.streak7': 'Keeper of flame', 'bd.streak7d': '7-day study streak',
+  'bd.streak30': 'Torchbearer', 'bd.streak30d': '30-day study streak',
+  'bd.cards10': 'Collector', 'bd.cards10d': 'Save 10 flashcards',
+  'bd.cards50': 'Librarian', 'bd.cards50d': 'Save 50 flashcards',
+  'bd.cards200': 'Treasury', 'bd.cards200d': 'Save 200 flashcards',
+  'bd.videos1': 'First reel', 'bd.videos1d': 'Save your first video',
+  'bd.videos5': 'Binge learner', 'bd.videos5d': 'Save 5 videos',
+  'bd.plants3': 'Green thumb', 'bd.plants3d': 'Grow 3 plants in the garden',
 
   // Quests
   'q.daily': 'Daily',
