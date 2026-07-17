@@ -1,0 +1,310 @@
+{
+  "id": "nature",
+  "name": "Thiên nhiên & du lịch",
+  "sub": "Sky, sea, mountain, trip, passport…",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🏝️",
+  "words": [
+    {
+      "en": "sky",
+      "ipa": "/skaɪ/",
+      "vi": "bầu trời",
+      "pos": "noun",
+      "img": "🌌",
+      "connect": "\"Sờ-kai\".",
+      "ex": "The sky is clear today.",
+      "exVi": "Hôm nay trời quang."
+    },
+    {
+      "en": "sun",
+      "ipa": "/sʌn/",
+      "vi": "mặt trời",
+      "pos": "noun",
+      "img": "🌞",
+      "connect": "Đồng âm son (con trai).",
+      "ex": "The sun rises in the east.",
+      "exVi": "Mặt trời mọc đằng đông."
+    },
+    {
+      "en": "moon",
+      "ipa": "/muːn/",
+      "vi": "mặt trăng",
+      "pos": "noun",
+      "img": "🌕",
+      "connect": "\"Mun\" — trăng tròn mùng một... à rằm!",
+      "ex": "The moon is bright tonight.",
+      "exVi": "Tối nay trăng sáng."
+    },
+    {
+      "en": "star",
+      "ipa": "/stɑːr/",
+      "vi": "ngôi sao",
+      "pos": "noun",
+      "img": "⭐",
+      "connect": "\"Sờ-ta\" — ngôi sao, cũng là minh tinh.",
+      "ex": "I can see many stars tonight.",
+      "exVi": "Tối nay thấy đầy sao trên trời."
+    },
+    {
+      "en": "cloud",
+      "ipa": "/klaʊd/",
+      "vi": "mây",
+      "pos": "noun",
+      "img": "☁️",
+      "connect": "Lưu ảnh \"lên mây\" cũng là cloud.",
+      "ex": "There are dark clouds — it may rain.",
+      "exVi": "Mây đen kìa — chắc sắp mưa."
+    },
+    {
+      "en": "wind",
+      "ipa": "/wɪnd/",
+      "vi": "gió",
+      "pos": "noun",
+      "img": "🌬️",
+      "connect": "\"Uynh-d\".",
+      "ex": "The wind is strong today.",
+      "exVi": "Hôm nay gió mạnh."
+    },
+    {
+      "en": "snow",
+      "ipa": "/snoʊ/",
+      "vi": "tuyết",
+      "pos": "noun",
+      "img": "⛄",
+      "connect": "Bạch Tuyết = Snow White.",
+      "ex": "It snows a lot in Korea.",
+      "exVi": "Ở Hàn tuyết rơi nhiều."
+    },
+    {
+      "en": "storm",
+      "ipa": "/stɔːrm/",
+      "vi": "bão",
+      "pos": "noun",
+      "img": "🌩️",
+      "connect": "\"Sờ-tom\".",
+      "ex": "The storm is coming tonight.",
+      "exVi": "Tối nay bão về."
+    },
+    {
+      "en": "sea",
+      "ipa": "/siː/",
+      "vi": "biển",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "Đồng âm see (nhìn) — ra biển ngắm.",
+      "ex": "We swim in the sea.",
+      "exVi": "Bọn tôi tắm biển."
+    },
+    {
+      "en": "beach",
+      "ipa": "/biːtʃ/",
+      "vi": "bãi biển",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "\"Bít-ch\" — nhớ kéo dài âm i.",
+      "ex": "Let's go to the beach!",
+      "exVi": "Ra biển chơi đi!"
+    },
+    {
+      "en": "river",
+      "ipa": "/ˈrɪv.ɚ/",
+      "vi": "sông",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "\"Ri-vơ\".",
+      "ex": "The river runs through the city.",
+      "exVi": "Con sông chảy qua thành phố."
+    },
+    {
+      "en": "lake",
+      "ipa": "/leɪk/",
+      "vi": "hồ",
+      "pos": "noun",
+      "img": "🛶",
+      "connect": "\"Lêy-k\" — Hồ Gươm = Sword Lake.",
+      "ex": "We walked around the lake.",
+      "exVi": "Bọn tôi đi dạo quanh hồ."
+    },
+    {
+      "en": "mountain",
+      "ipa": "/ˈmaʊn.tən/",
+      "vi": "núi",
+      "pos": "noun",
+      "img": "⛰️",
+      "connect": "\"Mao-từn\".",
+      "ex": "They climbed the mountain.",
+      "exVi": "Họ leo núi."
+    },
+    {
+      "en": "forest",
+      "ipa": "/ˈfɔːr.ɪst/",
+      "vi": "rừng",
+      "pos": "noun",
+      "img": "🌲",
+      "connect": "\"Pho-rịt-st\".",
+      "ex": "Many animals live in the forest.",
+      "exVi": "Nhiều loài vật sống trong rừng."
+    },
+    {
+      "en": "tree",
+      "ipa": "/triː/",
+      "vi": "cây",
+      "pos": "noun",
+      "img": "🌳",
+      "connect": "\"Tờ-ri\".",
+      "ex": "The kids climb the tree.",
+      "exVi": "Bọn trẻ trèo cây."
+    },
+    {
+      "en": "flower",
+      "ipa": "/ˈflaʊ.ɚ/",
+      "vi": "hoa",
+      "pos": "noun",
+      "img": "🌺",
+      "connect": "\"Phờ-lao-ơ\".",
+      "ex": "These flowers smell nice.",
+      "exVi": "Hoa này thơm ghê."
+    },
+    {
+      "en": "grass",
+      "ipa": "/ɡræs/",
+      "vi": "cỏ",
+      "pos": "noun",
+      "img": "🌿",
+      "connect": "\"Gờ-rát-s\".",
+      "ex": "Don't walk on the grass.",
+      "exVi": "Đừng giẫm lên cỏ."
+    },
+    {
+      "en": "animal",
+      "ipa": "/ˈæn.ə.məl/",
+      "vi": "động vật",
+      "pos": "noun",
+      "img": "🐾",
+      "connect": "\"E-ni-mồ\".",
+      "ex": "What animal do you like?",
+      "exVi": "Bạn thích con vật nào?"
+    },
+    {
+      "en": "dog",
+      "ipa": "/dɑːɡ/",
+      "vi": "chó",
+      "pos": "noun",
+      "img": "🐶",
+      "connect": "\"Đoóc\".",
+      "ex": "My dog waits for me at the door.",
+      "exVi": "Con chó nhà tôi đợi tôi trước cửa."
+    },
+    {
+      "en": "cat",
+      "ipa": "/kæt/",
+      "vi": "mèo",
+      "pos": "noun",
+      "img": "🐱",
+      "connect": "\"Két\".",
+      "ex": "The cat sleeps all day.",
+      "exVi": "Con mèo ngủ cả ngày."
+    },
+    {
+      "en": "bird",
+      "ipa": "/bɝːd/",
+      "vi": "chim",
+      "pos": "noun",
+      "img": "🐦",
+      "connect": "\"Bơ-d\".",
+      "ex": "Birds sing in the morning.",
+      "exVi": "Chim hót buổi sáng."
+    },
+    {
+      "en": "island",
+      "ipa": "/ˈaɪ.lənd/",
+      "vi": "hòn đảo",
+      "pos": "noun",
+      "img": "🏝️",
+      "connect": "Đọc \"AI-lừnd\" — chữ s CÂM.",
+      "ex": "Phu Quoc is a beautiful island.",
+      "exVi": "Phú Quốc là một hòn đảo đẹp."
+    },
+    {
+      "en": "map",
+      "ipa": "/mæp/",
+      "vi": "bản đồ",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "\"Mép\" — mở map khỏi lạc.",
+      "ex": "Look at the map first.",
+      "exVi": "Xem bản đồ trước đã."
+    },
+    {
+      "en": "trip",
+      "ipa": "/trɪp/",
+      "vi": "chuyến đi",
+      "pos": "noun",
+      "img": "🧭",
+      "connect": "\"Tờ-ríp\" — đi trip cuối tuần.",
+      "ex": "How was your trip?",
+      "exVi": "Chuyến đi thế nào?"
+    },
+    {
+      "en": "ticket",
+      "ipa": "/ˈtɪk.ɪt/",
+      "vi": "vé",
+      "pos": "noun",
+      "img": "🎫",
+      "connect": "\"Tích-kịt\".",
+      "ex": "I bought two tickets.",
+      "exVi": "Tôi mua hai vé."
+    },
+    {
+      "en": "passport",
+      "ipa": "/ˈpæs.pɔːrt/",
+      "vi": "hộ chiếu",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "pass + port: giấy để qua cảng.",
+      "ex": "Don't forget your passport.",
+      "exVi": "Đừng quên hộ chiếu nhé."
+    },
+    {
+      "en": "luggage",
+      "ipa": "/ˈlʌɡ.ɪdʒ/",
+      "vi": "hành lý",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "\"Lắc-ghịt-djờ\" — kéo hành lý lắc lư.",
+      "ex": "My luggage is over 20 kilos.",
+      "exVi": "Hành lý của tôi quá 20 ký."
+    },
+    {
+      "en": "camera",
+      "ipa": "/ˈkæm.rə/",
+      "vi": "máy ảnh",
+      "pos": "noun",
+      "img": "📷",
+      "connect": "Như tiếng Việt vẫn gọi.",
+      "ex": "I take photos with my camera.",
+      "exVi": "Tôi chụp ảnh bằng máy ảnh."
+    },
+    {
+      "en": "road",
+      "ipa": "/roʊd/",
+      "vi": "con đường",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "\"Râu-d\".",
+      "ex": "This road goes to the airport.",
+      "exVi": "Đường này ra sân bay."
+    },
+    {
+      "en": "bridge",
+      "ipa": "/brɪdʒ/",
+      "vi": "cây cầu",
+      "pos": "noun",
+      "img": "🌉",
+      "connect": "\"Bờ-rít-djờ\".",
+      "ex": "We crossed the old bridge.",
+      "exVi": "Bọn tôi băng qua cây cầu cũ."
+    }
+  ]
+}

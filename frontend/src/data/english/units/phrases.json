@@ -1,0 +1,210 @@
+{
+  "id": "phrases",
+  "name": "Cụm giao tiếp hằng ngày",
+  "sub": "Thank you, excuse me, good luck…",
+  "pos": "phrase",
+  "tone": "tone-a",
+  "emoji": "💬",
+  "words": [
+    {
+      "en": "hello",
+      "ipa": "/həˈloʊ/",
+      "vi": "xin chào",
+      "pos": "phrase",
+      "img": "👋",
+      "connect": "Câu chào vạn năng, lúc nào cũng đúng.",
+      "ex": "Hello! How are you?",
+      "exVi": "Xin chào! Bạn khỏe không?"
+    },
+    {
+      "en": "goodbye",
+      "ipa": "/ˌɡʊdˈbaɪ/",
+      "vi": "tạm biệt",
+      "pos": "phrase",
+      "img": "🚪",
+      "connect": "Good + bye; nói ngắn: Bye!",
+      "ex": "Goodbye! See you tomorrow.",
+      "exVi": "Tạm biệt! Mai gặp lại."
+    },
+    {
+      "en": "thank you",
+      "ipa": "/ˈθæŋk juː/",
+      "vi": "cảm ơn",
+      "pos": "phrase",
+      "img": "🙏",
+      "connect": "Thanks = cách nói ngắn gọn.",
+      "ex": "Thank you for your help.",
+      "exVi": "Cảm ơn bạn đã giúp đỡ."
+    },
+    {
+      "en": "you're welcome",
+      "ipa": "/jʊr ˈwel.kəm/",
+      "vi": "không có gì",
+      "pos": "phrase",
+      "img": "😊",
+      "connect": "Câu đáp chuẩn khi ai đó cảm ơn.",
+      "ex": "'Thank you!' — 'You're welcome!'",
+      "exVi": "\"Cảm ơn!\" — \"Không có gì!\""
+    },
+    {
+      "en": "excuse me",
+      "ipa": "/ɪkˈskjuːz miː/",
+      "vi": "xin lỗi (gây chú ý)",
+      "pos": "phrase",
+      "img": "🙇",
+      "connect": "Dùng khi muốn hỏi đường, đi nhờ, gọi phục vụ.",
+      "ex": "Excuse me, where is the bank?",
+      "exVi": "Xin lỗi, ngân hàng ở đâu ạ?"
+    },
+    {
+      "en": "I'm sorry",
+      "ipa": "/aɪm ˈsɑːr.i/",
+      "vi": "tôi xin lỗi",
+      "pos": "phrase",
+      "img": "😔",
+      "connect": "Xin lỗi thật lòng (khác excuse me).",
+      "ex": "I'm sorry, I'm late.",
+      "exVi": "Xin lỗi, tôi đến muộn."
+    },
+    {
+      "en": "of course",
+      "ipa": "/əv kɔːrs/",
+      "vi": "tất nhiên",
+      "pos": "phrase",
+      "img": "👌",
+      "connect": "\"Ọp-cọt\" — đồng ý nhiệt tình.",
+      "ex": "'Can you help me?' — 'Of course!'",
+      "exVi": "\"Giúp tôi được không?\" — \"Tất nhiên!\""
+    },
+    {
+      "en": "no problem",
+      "ipa": "/noʊ ˈprɑː.bləm/",
+      "vi": "không vấn đề gì",
+      "pos": "phrase",
+      "img": "🆗",
+      "connect": "Đáp nhẹ nhàng khi ai đó nhờ/xin lỗi.",
+      "ex": "'Sorry I'm late.' — 'No problem.'",
+      "exVi": "\"Xin lỗi tôi muộn.\" — \"Không sao.\""
+    },
+    {
+      "en": "see you later",
+      "ipa": "/siː juː ˈleɪ.tər/",
+      "vi": "hẹn gặp lại",
+      "pos": "phrase",
+      "img": "🕐",
+      "connect": "Nói ngắn: See ya!",
+      "ex": "I have to go. See you later!",
+      "exVi": "Tôi phải đi đây. Gặp lại sau nhé!"
+    },
+    {
+      "en": "nice to meet you",
+      "ipa": "/naɪs tuː miːt juː/",
+      "vi": "rất vui được gặp bạn",
+      "pos": "phrase",
+      "img": "🤝",
+      "connect": "Câu bắt buộc khi gặp lần đầu.",
+      "ex": "Hi, I'm Nam. Nice to meet you!",
+      "exVi": "Chào, tôi là Nam. Rất vui được gặp bạn!"
+    },
+    {
+      "en": "how are you",
+      "ipa": "/haʊ ɑːr juː/",
+      "vi": "bạn khỏe không",
+      "pos": "phrase",
+      "img": "💬",
+      "connect": "Đáp: I'm fine / I'm good, thanks!",
+      "ex": "How are you today?",
+      "exVi": "Hôm nay bạn thế nào?"
+    },
+    {
+      "en": "I don't know",
+      "ipa": "/aɪ doʊnt noʊ/",
+      "vi": "tôi không biết",
+      "pos": "phrase",
+      "img": "🤷",
+      "connect": "Nói tự nhiên: \"Ai-đôn-nâu\".",
+      "ex": "'Where is he?' — 'I don't know.'",
+      "exVi": "\"Anh ấy đâu?\" — \"Tôi không biết.\""
+    },
+    {
+      "en": "wait a minute",
+      "ipa": "/weɪt ə ˈmɪn.ɪt/",
+      "vi": "chờ một chút",
+      "pos": "phrase",
+      "img": "⏳",
+      "connect": "Minute = phút — chờ \"một phút\".",
+      "ex": "Wait a minute, I'm coming!",
+      "exVi": "Chờ chút, tôi đến ngay!"
+    },
+    {
+      "en": "let's go",
+      "ipa": "/lets ɡoʊ/",
+      "vi": "đi thôi",
+      "pos": "phrase",
+      "img": "🚀",
+      "connect": "Let us = let's — rủ nhau làm gì đó.",
+      "ex": "We're ready. Let's go!",
+      "exVi": "Sẵn sàng rồi. Đi thôi!"
+    },
+    {
+      "en": "good luck",
+      "ipa": "/ɡʊd lʌk/",
+      "vi": "chúc may mắn",
+      "pos": "phrase",
+      "img": "🍀",
+      "connect": "Lucky = may mắn.",
+      "ex": "Good luck with your exam!",
+      "exVi": "Chúc bạn thi tốt!"
+    },
+    {
+      "en": "congratulations",
+      "ipa": "/kənˌɡrætʃ.əˈleɪ.ʃənz/",
+      "vi": "chúc mừng",
+      "pos": "phrase",
+      "img": "🎉",
+      "connect": "Nói ngắn: Congrats!",
+      "ex": "Congratulations on your new job!",
+      "exVi": "Chúc mừng công việc mới của bạn!"
+    },
+    {
+      "en": "happy birthday",
+      "ipa": "/ˈhæp.i ˈbɜːrθ.deɪ/",
+      "vi": "chúc mừng sinh nhật",
+      "pos": "phrase",
+      "img": "🎂",
+      "connect": "Bài hát ai cũng thuộc.",
+      "ex": "Happy birthday! This is for you.",
+      "exVi": "Chúc mừng sinh nhật! Quà cho bạn này."
+    },
+    {
+      "en": "take care",
+      "ipa": "/teɪk ker/",
+      "vi": "giữ gìn sức khỏe",
+      "pos": "phrase",
+      "img": "🤗",
+      "connect": "Lời chào tạm biệt ấm áp.",
+      "ex": "Goodbye, take care!",
+      "exVi": "Tạm biệt, giữ gìn sức khỏe nhé!"
+    },
+    {
+      "en": "long time no see",
+      "ipa": "/lɔːŋ taɪm noʊ siː/",
+      "vi": "lâu rồi không gặp",
+      "pos": "phrase",
+      "img": "👀",
+      "connect": "Nghe đồn gốc từ tiếng Trung \"好久不见\".",
+      "ex": "Hey! Long time no see!",
+      "exVi": "Ơ kìa! Lâu lắm không gặp!"
+    },
+    {
+      "en": "what's up",
+      "ipa": "/wɑːts ʌp/",
+      "vi": "dạo này sao rồi",
+      "pos": "phrase",
+      "img": "😎",
+      "connect": "Chào thân mật kiểu Mỹ — đáp: Not much!",
+      "ex": "Hey, what's up?",
+      "exVi": "Này, dạo này sao rồi?"
+    }
+  ]
+}

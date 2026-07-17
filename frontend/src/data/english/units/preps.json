@@ -1,0 +1,230 @@
+{
+  "id": "preps",
+  "name": "Giới từ & từ nối",
+  "sub": "In, on, at, because, but, if…",
+  "pos": "prep",
+  "tone": "tone-f",
+  "emoji": "🔗",
+  "words": [
+    {
+      "en": "in",
+      "ipa": "/ɪn/",
+      "vi": "trong",
+      "pos": "prep",
+      "img": "📦",
+      "connect": "In the box, in Hanoi, in May.",
+      "ex": "She lives in Da Nang.",
+      "exVi": "Cô ấy sống ở Đà Nẵng."
+    },
+    {
+      "en": "on",
+      "ipa": "/ɑːn/",
+      "vi": "trên",
+      "pos": "prep",
+      "img": "🔛",
+      "connect": "Trên bề mặt — on the table; on Monday.",
+      "ex": "The keys are on the table.",
+      "exVi": "Chìa khóa ở trên bàn."
+    },
+    {
+      "en": "at",
+      "ipa": "/æt/",
+      "vi": "tại, ở",
+      "pos": "prep",
+      "img": "🎯",
+      "connect": "Điểm cụ thể — at home, at 7 o’clock.",
+      "ex": "I am at the coffee shop.",
+      "exVi": "Tôi đang ở quán cà phê."
+    },
+    {
+      "en": "to",
+      "ipa": "/tuː/",
+      "vi": "đến, tới",
+      "pos": "prep",
+      "img": "➡️",
+      "connect": "Hướng đến — go to school.",
+      "ex": "We went to the beach.",
+      "exVi": "Chúng tôi đã đi biển."
+    },
+    {
+      "en": "from",
+      "ipa": "/frɑːm/",
+      "vi": "từ",
+      "pos": "prep",
+      "img": "🛫",
+      "connect": "Điểm xuất phát — from Vietnam.",
+      "ex": "I am from Vietnam.",
+      "exVi": "Tôi đến từ Việt Nam."
+    },
+    {
+      "en": "with",
+      "ipa": "/wɪð/",
+      "vi": "với, cùng",
+      "pos": "prep",
+      "img": "🤝",
+      "connect": "Cùng với — with friends.",
+      "ex": "I go to school with my friend.",
+      "exVi": "Tôi đi học cùng bạn."
+    },
+    {
+      "en": "without",
+      "ipa": "/wɪˈðaʊt/",
+      "vi": "không có",
+      "pos": "prep",
+      "img": "🚫",
+      "connect": "With + out = thiếu, không có.",
+      "ex": "I cannot live without music.",
+      "exVi": "Tôi không thể sống thiếu âm nhạc."
+    },
+    {
+      "en": "for",
+      "ipa": "/fɔːr/",
+      "vi": "cho, dành cho",
+      "pos": "prep",
+      "img": "🎁",
+      "connect": "This is for you — cái này cho bạn.",
+      "ex": "This gift is for you.",
+      "exVi": "Món quà này dành cho bạn."
+    },
+    {
+      "en": "of",
+      "ipa": "/ʌv/",
+      "vi": "của",
+      "pos": "prep",
+      "img": "🧩",
+      "connect": "A cup of tea — một tách trà.",
+      "ex": "This is a photo of my family.",
+      "exVi": "Đây là ảnh gia đình tôi."
+    },
+    {
+      "en": "about",
+      "ipa": "/əˈbaʊt/",
+      "vi": "về, khoảng",
+      "pos": "prep",
+      "img": "💭",
+      "connect": "Talk about — nói về.",
+      "ex": "We talked about the movie.",
+      "exVi": "Chúng tôi nói về bộ phim."
+    },
+    {
+      "en": "before",
+      "ipa": "/bɪˈfɔːr/",
+      "vi": "trước",
+      "pos": "prep",
+      "img": "⏮️",
+      "connect": "Before dinner — trước bữa tối.",
+      "ex": "Wash your hands before meals.",
+      "exVi": "Rửa tay trước bữa ăn."
+    },
+    {
+      "en": "after",
+      "ipa": "/ˈæf.tər/",
+      "vi": "sau",
+      "pos": "prep",
+      "img": "⏭️",
+      "connect": "After school — sau giờ học.",
+      "ex": "Let us meet after work.",
+      "exVi": "Gặp nhau sau giờ làm nhé."
+    },
+    {
+      "en": "under",
+      "ipa": "/ˈʌn.dər/",
+      "vi": "dưới",
+      "pos": "prep",
+      "img": "⬇️",
+      "connect": "Under the table — dưới gầm bàn.",
+      "ex": "The cat is under the chair.",
+      "exVi": "Con mèo ở dưới ghế."
+    },
+    {
+      "en": "over",
+      "ipa": "/ˈoʊ.vər/",
+      "vi": "phía trên, qua",
+      "pos": "prep",
+      "img": "🔝",
+      "connect": "Over there — đằng kia; over 100 — hơn 100.",
+      "ex": "The plane flew over the city.",
+      "exVi": "Máy bay bay qua thành phố."
+    },
+    {
+      "en": "near",
+      "ipa": "/nɪr/",
+      "vi": "gần",
+      "pos": "prep",
+      "img": "📍",
+      "connect": "Near my house — gần nhà tôi.",
+      "ex": "The market is near my house.",
+      "exVi": "Chợ ở gần nhà tôi."
+    },
+    {
+      "en": "between",
+      "ipa": "/bɪˈtwiːn/",
+      "vi": "giữa",
+      "pos": "prep",
+      "img": "↔️",
+      "connect": "Giữa hai thứ — between A and B.",
+      "ex": "The bank is between the two shops.",
+      "exVi": "Ngân hàng nằm giữa hai cửa hàng."
+    },
+    {
+      "en": "and",
+      "ipa": "/ænd/",
+      "vi": "và",
+      "pos": "prep",
+      "img": "➕",
+      "connect": "Nối hai thứ cùng loại.",
+      "ex": "I like tea and coffee.",
+      "exVi": "Tôi thích trà và cà phê."
+    },
+    {
+      "en": "but",
+      "ipa": "/bʌt/",
+      "vi": "nhưng",
+      "pos": "prep",
+      "img": "↩️",
+      "connect": "Chuyển ý ngược lại.",
+      "ex": "The food is cheap but delicious.",
+      "exVi": "Đồ ăn rẻ nhưng ngon."
+    },
+    {
+      "en": "or",
+      "ipa": "/ɔːr/",
+      "vi": "hoặc",
+      "pos": "prep",
+      "img": "🔀",
+      "connect": "Chọn một trong hai.",
+      "ex": "Tea or coffee?",
+      "exVi": "Trà hay cà phê?"
+    },
+    {
+      "en": "because",
+      "ipa": "/bɪˈkɔːz/",
+      "vi": "bởi vì",
+      "pos": "prep",
+      "img": "🧾",
+      "connect": "Trả lời cho câu hỏi Why.",
+      "ex": "I stayed home because it rained.",
+      "exVi": "Tôi ở nhà vì trời mưa."
+    },
+    {
+      "en": "so",
+      "ipa": "/soʊ/",
+      "vi": "nên, vì vậy",
+      "pos": "prep",
+      "img": "🎯",
+      "connect": "Chỉ kết quả — mệt nên ngủ sớm.",
+      "ex": "I was tired, so I slept early.",
+      "exVi": "Tôi mệt nên đi ngủ sớm."
+    },
+    {
+      "en": "if",
+      "ipa": "/ɪf/",
+      "vi": "nếu",
+      "pos": "prep",
+      "img": "🤔",
+      "connect": "Mở đầu câu điều kiện.",
+      "ex": "If it rains, we will stay home.",
+      "exVi": "Nếu trời mưa, chúng ta sẽ ở nhà."
+    }
+  ]
+}

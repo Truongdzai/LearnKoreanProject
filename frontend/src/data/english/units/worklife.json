@@ -1,0 +1,310 @@
+{
+  "id": "worklife",
+  "name": "Công việc & học hành",
+  "sub": "Office, meeting, salary, exam, skill…",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "💼",
+  "words": [
+    {
+      "en": "office",
+      "ipa": "/ˈɑː.fɪs/",
+      "vi": "văn phòng",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "\"O-phít-s\" — nơi cày 8 tiếng mỗi ngày.",
+      "ex": "I go to the office by bus.",
+      "exVi": "Tôi đến văn phòng bằng xe buýt."
+    },
+    {
+      "en": "company",
+      "ipa": "/ˈkʌm.pə.ni/",
+      "vi": "công ty",
+      "pos": "noun",
+      "img": "🏬",
+      "connect": "\"Căm-pơ-ni\" — com = cơm: nơi kiếm cơm.",
+      "ex": "She works for a big company.",
+      "exVi": "Cô ấy làm cho một công ty lớn."
+    },
+    {
+      "en": "boss",
+      "ipa": "/bɑːs/",
+      "vi": "sếp",
+      "pos": "noun",
+      "img": "🧑‍💼",
+      "connect": "\"Bót-s\" — sếp lớn gọi là boss.",
+      "ex": "My boss is very busy today.",
+      "exVi": "Hôm nay sếp tôi rất bận."
+    },
+    {
+      "en": "meeting",
+      "ipa": "/ˈmiː.t̬ɪŋ/",
+      "vi": "cuộc họp",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "meet (gặp) + ing = buổi gặp = họp.",
+      "ex": "The meeting starts at ten.",
+      "exVi": "Cuộc họp bắt đầu lúc 10 giờ."
+    },
+    {
+      "en": "email",
+      "ipa": "/ˈiː.meɪl/",
+      "vi": "thư điện tử",
+      "pos": "noun",
+      "img": "📧",
+      "connect": "Giữ nguyên như tiếng Việt vẫn dùng.",
+      "ex": "Please send me an email.",
+      "exVi": "Gửi email cho tôi nhé."
+    },
+    {
+      "en": "computer",
+      "ipa": "/kəmˈpjuː.t̬ɚ/",
+      "vi": "máy tính",
+      "pos": "noun",
+      "img": "💻",
+      "connect": "\"Cơm-piu-tơ\".",
+      "ex": "I use a computer at work.",
+      "exVi": "Tôi dùng máy tính ở chỗ làm."
+    },
+    {
+      "en": "internet",
+      "ipa": "/ˈɪn.t̬ɚ.net/",
+      "vi": "mạng internet",
+      "pos": "noun",
+      "img": "🌐",
+      "connect": "Chú ý trọng âm rơi vào ĐẦU từ.",
+      "ex": "The internet is slow today.",
+      "exVi": "Hôm nay mạng chậm quá."
+    },
+    {
+      "en": "report",
+      "ipa": "/rɪˈpɔːrt/",
+      "vi": "báo cáo",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "\"Ri-pót\" — nộp report cho sếp.",
+      "ex": "I need to finish this report.",
+      "exVi": "Tôi phải làm xong bản báo cáo này."
+    },
+    {
+      "en": "salary",
+      "ipa": "/ˈsæl.ɚ.i/",
+      "vi": "lương",
+      "pos": "noun",
+      "img": "💵",
+      "connect": "Thời xưa trả lương bằng muối (salt) → salary.",
+      "ex": "The salary is paid monthly.",
+      "exVi": "Lương trả theo tháng."
+    },
+    {
+      "en": "customer",
+      "ipa": "/ˈkʌs.tə.mɚ/",
+      "vi": "khách hàng",
+      "pos": "noun",
+      "img": "🛒",
+      "connect": "\"Cắt-s-tơ-mơ\" — khách hàng là thượng đế.",
+      "ex": "The customer is always right.",
+      "exVi": "Khách hàng luôn đúng."
+    },
+    {
+      "en": "teacher",
+      "ipa": "/ˈtiː.tʃɚ/",
+      "vi": "giáo viên",
+      "pos": "noun",
+      "img": "👩‍🏫",
+      "connect": "teach (dạy) + er (người) = người dạy.",
+      "ex": "Our teacher is very patient.",
+      "exVi": "Cô giáo của tụi mình rất kiên nhẫn."
+    },
+    {
+      "en": "student",
+      "ipa": "/ˈstuː.dənt/",
+      "vi": "học sinh, sinh viên",
+      "pos": "noun",
+      "img": "🎒",
+      "connect": "\"Sờ-tiu-đừnt\".",
+      "ex": "She is a university student.",
+      "exVi": "Cô ấy là sinh viên đại học."
+    },
+    {
+      "en": "class",
+      "ipa": "/klæs/",
+      "vi": "lớp học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "\"Cờ-lát-s\" — vào class điểm danh.",
+      "ex": "I have an English class tonight.",
+      "exVi": "Tối nay tôi có lớp tiếng Anh."
+    },
+    {
+      "en": "lesson",
+      "ipa": "/ˈles.ən/",
+      "vi": "bài học",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "\"Lét-sừn\" — mỗi ngày một lesson.",
+      "ex": "Today's lesson is about food.",
+      "exVi": "Bài học hôm nay về đồ ăn."
+    },
+    {
+      "en": "homework",
+      "ipa": "/ˈhoʊm.wɝːk/",
+      "vi": "bài tập về nhà",
+      "pos": "noun",
+      "img": "📝",
+      "connect": "home + work = việc làm ở nhà.",
+      "ex": "I do my homework after dinner.",
+      "exVi": "Ăn tối xong tôi làm bài tập."
+    },
+    {
+      "en": "exam",
+      "ipa": "/ɪɡˈzæm/",
+      "vi": "kỳ thi",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "\"Íc-zam\" — mùa thi là mùa exam.",
+      "ex": "Good luck on your exam!",
+      "exVi": "Chúc thi tốt nhé!"
+    },
+    {
+      "en": "pen",
+      "ipa": "/pen/",
+      "vi": "bút",
+      "pos": "noun",
+      "img": "🖊️",
+      "connect": "\"Pen\" — bút bi.",
+      "ex": "Can I borrow your pen?",
+      "exVi": "Cho tôi mượn cây bút nhé?"
+    },
+    {
+      "en": "paper",
+      "ipa": "/ˈpeɪ.pɚ/",
+      "vi": "giấy",
+      "pos": "noun",
+      "img": "📃",
+      "connect": "\"Pây-pơ\".",
+      "ex": "Write your name on the paper.",
+      "exVi": "Viết tên bạn lên tờ giấy."
+    },
+    {
+      "en": "letter",
+      "ipa": "/ˈlet̬.ɚ/",
+      "vi": "lá thư; chữ cái",
+      "pos": "noun",
+      "img": "✉️",
+      "connect": "Vừa là thư, vừa là chữ cái A B C.",
+      "ex": "I wrote a letter to my friend.",
+      "exVi": "Tôi viết thư cho bạn tôi."
+    },
+    {
+      "en": "news",
+      "ipa": "/nuːz/",
+      "vi": "tin tức",
+      "pos": "noun",
+      "img": "📰",
+      "connect": "Luôn có s nhưng là danh từ số ÍT.",
+      "ex": "Did you hear the news?",
+      "exVi": "Bạn nghe tin gì chưa?"
+    },
+    {
+      "en": "plan",
+      "ipa": "/plæn/",
+      "vi": "kế hoạch",
+      "pos": "noun",
+      "img": "🗂️",
+      "connect": "\"Pờ-lan\" — lên plan cho tuần mới.",
+      "ex": "What is your plan for the weekend?",
+      "exVi": "Cuối tuần bạn định làm gì?"
+    },
+    {
+      "en": "project",
+      "ipa": "/ˈprɑː.dʒekt/",
+      "vi": "dự án",
+      "pos": "noun",
+      "img": "🧱",
+      "connect": "\"Pờ-ro-djệct\" — chạy project cùng team.",
+      "ex": "We finished the project on time.",
+      "exVi": "Bọn tôi hoàn thành dự án đúng hạn."
+    },
+    {
+      "en": "break",
+      "ipa": "/breɪk/",
+      "vi": "giờ nghỉ",
+      "pos": "noun",
+      "img": "🍵",
+      "connect": "Take a break — nghỉ xả hơi một chút.",
+      "ex": "Let's take a ten-minute break.",
+      "exVi": "Nghỉ 10 phút nào."
+    },
+    {
+      "en": "holiday",
+      "ipa": "/ˈhɑː.lə.deɪ/",
+      "vi": "ngày nghỉ, kỳ nghỉ",
+      "pos": "noun",
+      "img": "🎊",
+      "connect": "holy + day — ngày lễ = ngày nghỉ.",
+      "ex": "Next week is a holiday.",
+      "exVi": "Tuần sau được nghỉ lễ."
+    },
+    {
+      "en": "schedule",
+      "ipa": "/ˈskedʒ.uːl/",
+      "vi": "lịch trình",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "\"Sờ-ke-djun\" — xếp lịch là lên schedule.",
+      "ex": "My schedule is full this week.",
+      "exVi": "Tuần này lịch tôi kín mít."
+    },
+    {
+      "en": "interview",
+      "ipa": "/ˈɪn.t̬ɚ.vjuː/",
+      "vi": "phỏng vấn",
+      "pos": "noun",
+      "img": "🎤",
+      "connect": "\"In-tơ-viu\".",
+      "ex": "I have a job interview tomorrow.",
+      "exVi": "Mai tôi có buổi phỏng vấn xin việc."
+    },
+    {
+      "en": "university",
+      "ipa": "/ˌjuː.nəˈvɝː.sə.t̬i/",
+      "vi": "đại học",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "\"Diu-ni-vơ-si-ti\".",
+      "ex": "My sister studies at a university.",
+      "exVi": "Chị tôi học đại học."
+    },
+    {
+      "en": "skill",
+      "ipa": "/skɪl/",
+      "vi": "kỹ năng",
+      "pos": "noun",
+      "img": "🛠️",
+      "connect": "\"Sờ-kiu\" — nâng skill mỗi ngày.",
+      "ex": "Speaking is an important skill.",
+      "exVi": "Nói là một kỹ năng quan trọng."
+    },
+    {
+      "en": "team",
+      "ipa": "/tiːm/",
+      "vi": "đội, nhóm",
+      "pos": "noun",
+      "img": "🤝",
+      "connect": "\"Tim\" — teamwork đồng đội một lòng.",
+      "ex": "Our team won the game.",
+      "exVi": "Đội của tụi tôi thắng trận đó."
+    },
+    {
+      "en": "success",
+      "ipa": "/səkˈses/",
+      "vi": "thành công",
+      "pos": "noun",
+      "img": "🏆",
+      "connect": "\"Sắc-xét-s\" — thành công nhờ nỗ lực.",
+      "ex": "Hard work brings success.",
+      "exVi": "Chăm chỉ đem lại thành công."
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "id": "adjectives",
+  "name": "Tính từ ứng dụng cao",
+  "sub": "Good, bad, big, small, happy…",
+  "pos": "adj",
+  "tone": "tone-e",
+  "emoji": "🎨",
+  "words": [
+    {
+      "en": "good",
+      "ipa": "/ɡʊd/",
+      "vi": "tốt, giỏi",
+      "pos": "adj",
+      "img": "👍",
+      "connect": "Good job! So sánh hơn: better.",
+      "ex": "This is a good idea.",
+      "exVi": "Đây là một ý hay."
+    },
+    {
+      "en": "bad",
+      "ipa": "/bæd/",
+      "vi": "xấu, tệ",
+      "pos": "adj",
+      "img": "👎",
+      "connect": "So sánh hơn: worse.",
+      "ex": "The weather is bad today.",
+      "exVi": "Hôm nay thời tiết xấu."
+    },
+    {
+      "en": "big",
+      "ipa": "/bɪɡ/",
+      "vi": "to, lớn",
+      "pos": "adj",
+      "img": "🐘",
+      "connect": "A big elephant — con voi to.",
+      "ex": "They live in a big house.",
+      "exVi": "Họ sống trong một ngôi nhà lớn."
+    },
+    {
+      "en": "small",
+      "ipa": "/smɔːl/",
+      "vi": "nhỏ",
+      "pos": "adj",
+      "img": "🐜",
+      "connect": "Trái nghĩa với big.",
+      "ex": "I have a small dog.",
+      "exVi": "Tôi có một con chó nhỏ."
+    },
+    {
+      "en": "happy",
+      "ipa": "/ˈhæp.i/",
+      "vi": "vui, hạnh phúc",
+      "pos": "adj",
+      "img": "😄",
+      "connect": "Happy birthday!",
+      "ex": "I am happy to see you.",
+      "exVi": "Tôi vui khi gặp bạn."
+    },
+    {
+      "en": "sad",
+      "ipa": "/sæd/",
+      "vi": "buồn",
+      "pos": "adj",
+      "img": "😢",
+      "connect": "Trái nghĩa với happy.",
+      "ex": "She looks sad today.",
+      "exVi": "Hôm nay cô ấy trông buồn."
+    },
+    {
+      "en": "tired",
+      "ipa": "/ˈtaɪərd/",
+      "vi": "mệt mỏi",
+      "pos": "adj",
+      "img": "🥱",
+      "connect": "\"Tai-ợd\" — sau khi làm việc.",
+      "ex": "I am tired after work.",
+      "exVi": "Tôi mệt sau khi làm việc."
+    },
+    {
+      "en": "hot",
+      "ipa": "/hɑːt/",
+      "vi": "nóng",
+      "pos": "adj",
+      "img": "🔥",
+      "connect": "Hot coffee — cà phê nóng.",
+      "ex": "It is very hot in summer.",
+      "exVi": "Mùa hè trời rất nóng."
+    },
+    {
+      "en": "cold",
+      "ipa": "/koʊld/",
+      "vi": "lạnh",
+      "pos": "adj",
+      "img": "❄️",
+      "connect": "Trái nghĩa với hot.",
+      "ex": "The water is too cold.",
+      "exVi": "Nước lạnh quá."
+    },
+    {
+      "en": "new",
+      "ipa": "/nuː/",
+      "vi": "mới",
+      "pos": "adj",
+      "img": "✨",
+      "connect": "New phone — điện thoại mới.",
+      "ex": "I bought a new car.",
+      "exVi": "Tôi mua một chiếc xe mới."
+    },
+    {
+      "en": "old",
+      "ipa": "/oʊld/",
+      "vi": "cũ, già",
+      "pos": "adj",
+      "img": "👴",
+      "connect": "How old are you?",
+      "ex": "This is an old book.",
+      "exVi": "Đây là một quyển sách cũ."
+    },
+    {
+      "en": "easy",
+      "ipa": "/ˈiː.zi/",
+      "vi": "dễ",
+      "pos": "adj",
+      "img": "🟢",
+      "connect": "Easy peasy — dễ ợt.",
+      "ex": "This test is easy.",
+      "exVi": "Bài kiểm tra này dễ."
+    },
+    {
+      "en": "hard",
+      "ipa": "/hɑːrd/",
+      "vi": "khó, cứng",
+      "pos": "adj",
+      "img": "🧱",
+      "connect": "Hard work — việc khó.",
+      "ex": "Korean is hard to learn.",
+      "exVi": "Tiếng Hàn khó học."
+    },
+    {
+      "en": "fast",
+      "ipa": "/fæst/",
+      "vi": "nhanh",
+      "pos": "adj",
+      "img": "⚡",
+      "connect": "Fast food — đồ ăn nhanh.",
+      "ex": "He is a fast runner.",
+      "exVi": "Anh ấy chạy nhanh."
+    },
+    {
+      "en": "slow",
+      "ipa": "/sloʊ/",
+      "vi": "chậm",
+      "pos": "adj",
+      "img": "🐢",
+      "connect": "Trái nghĩa với fast.",
+      "ex": "The internet is slow today.",
+      "exVi": "Hôm nay mạng chậm."
+    },
+    {
+      "en": "beautiful",
+      "ipa": "/ˈbjuː.tɪ.fəl/",
+      "vi": "đẹp",
+      "pos": "adj",
+      "img": "🌸",
+      "connect": "Beauty + ful = đầy vẻ đẹp.",
+      "ex": "What a beautiful sunset!",
+      "exVi": "Hoàng hôn đẹp quá!"
+    },
+    {
+      "en": "hungry",
+      "ipa": "/ˈhʌŋ.ɡri/",
+      "vi": "đói",
+      "pos": "adj",
+      "img": "🍽️",
+      "connect": "\"Hâng-gri\" — Are you hungry?",
+      "ex": "I am very hungry now.",
+      "exVi": "Bây giờ tôi rất đói."
+    },
+    {
+      "en": "expensive",
+      "ipa": "/ɪkˈspen.sɪv/",
+      "vi": "đắt",
+      "pos": "adj",
+      "img": "💎",
+      "connect": "Spend nhiều = expensive.",
+      "ex": "This phone is too expensive.",
+      "exVi": "Điện thoại này đắt quá."
+    },
+    {
+      "en": "cheap",
+      "ipa": "/tʃiːp/",
+      "vi": "rẻ",
+      "pos": "adj",
+      "img": "🏷️",
+      "connect": "Trái nghĩa với expensive.",
+      "ex": "The food here is cheap.",
+      "exVi": "Đồ ăn ở đây rẻ."
+    },
+    {
+      "en": "delicious",
+      "ipa": "/dɪˈlɪʃ.əs/",
+      "vi": "ngon",
+      "pos": "adj",
+      "img": "😋",
+      "connect": "Khen món ăn ngon.",
+      "ex": "This soup is delicious.",
+      "exVi": "Món súp này rất ngon."
+    },
+    {
+      "en": "important",
+      "ipa": "/ɪmˈpɔːr.tənt/",
+      "vi": "quan trọng",
+      "pos": "adj",
+      "img": "⭐",
+      "connect": "Im-por-tần.",
+      "ex": "Sleep is important for health.",
+      "exVi": "Giấc ngủ quan trọng cho sức khỏe."
+    },
+    {
+      "en": "busy",
+      "ipa": "/ˈbɪz.i/",
+      "vi": "bận",
+      "pos": "adj",
+      "img": "🏃",
+      "connect": "\"Bi-zi\" — I am busy.",
+      "ex": "I am busy this week.",
+      "exVi": "Tuần này tôi bận."
+    },
+    {
+      "en": "free",
+      "ipa": "/friː/",
+      "vi": "rảnh, miễn phí",
+      "pos": "adj",
+      "img": "🆓",
+      "connect": "Free wifi — wifi miễn phí.",
+      "ex": "Are you free tomorrow?",
+      "exVi": "Mai bạn rảnh không?"
+    },
+    {
+      "en": "right",
+      "ipa": "/raɪt/",
+      "vi": "đúng, bên phải",
+      "pos": "adj",
+      "img": "✅",
+      "connect": "You are right — bạn đúng.",
+      "ex": "Your answer is right.",
+      "exVi": "Câu trả lời của bạn đúng."
+    },
+    {
+      "en": "long",
+      "ipa": "/lɔːŋ/",
+      "vi": "dài, lâu",
+      "pos": "adj",
+      "img": "📏",
+      "connect": "A long time — một thời gian dài.",
+      "ex": "It was a long day.",
+      "exVi": "Đó là một ngày dài."
+    }
+  ]
+}

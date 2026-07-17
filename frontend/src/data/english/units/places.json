@@ -1,0 +1,330 @@
+{
+  "id": "places",
+  "name": "Nơi chốn & đời sống",
+  "sub": "Sân bay, nhà hàng, thời tiết, ý tưởng…",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "🏙️",
+  "words": [
+    {
+      "en": "airport",
+      "ipa": "/ˈer.pɔːrt/",
+      "vi": "sân bay",
+      "pos": "noun",
+      "img": "✈️",
+      "connect": "Air (không khí) + port (cảng) = cảng hàng không.",
+      "ex": "We arrived at the airport at six.",
+      "exVi": "Chúng tôi đến sân bay lúc sáu giờ."
+    },
+    {
+      "en": "hospital",
+      "ipa": "/ˈhɑː.spɪ.təl/",
+      "vi": "bệnh viện",
+      "pos": "noun",
+      "img": "🏥",
+      "connect": "\"Hót-xpi-tồ\" — nơi có bác sĩ.",
+      "ex": "My grandmother is in the hospital.",
+      "exVi": "Bà tôi đang nằm viện."
+    },
+    {
+      "en": "restaurant",
+      "ipa": "/ˈres.tə.rɑːnt/",
+      "vi": "nhà hàng",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "\"Rét-tơ-ràn\" — nơi ăn ngon.",
+      "ex": "This restaurant serves good pho.",
+      "exVi": "Nhà hàng này bán phở ngon."
+    },
+    {
+      "en": "hotel",
+      "ipa": "/hoʊˈtel/",
+      "vi": "khách sạn",
+      "pos": "noun",
+      "img": "🏨",
+      "connect": "\"Hâu-teo\" — nhấn âm sau.",
+      "ex": "We stayed at a small hotel.",
+      "exVi": "Chúng tôi ở một khách sạn nhỏ."
+    },
+    {
+      "en": "market",
+      "ipa": "/ˈmɑːr.kɪt/",
+      "vi": "chợ",
+      "pos": "noun",
+      "img": "🧺",
+      "connect": "Supermarket = siêu thị.",
+      "ex": "Mom goes to the market every morning.",
+      "exVi": "Mẹ đi chợ mỗi sáng."
+    },
+    {
+      "en": "store",
+      "ipa": "/stɔːr/",
+      "vi": "cửa hàng",
+      "pos": "noun",
+      "img": "🏪",
+      "connect": "App Store — \"cửa hàng\" ứng dụng.",
+      "ex": "The store opens at eight.",
+      "exVi": "Cửa hàng mở lúc tám giờ."
+    },
+    {
+      "en": "station",
+      "ipa": "/ˈsteɪ.ʃən/",
+      "vi": "nhà ga, trạm",
+      "pos": "noun",
+      "img": "🚉",
+      "connect": "Bus station, train station.",
+      "ex": "Meet me at the train station.",
+      "exVi": "Gặp tôi ở ga tàu nhé."
+    },
+    {
+      "en": "bus",
+      "ipa": "/bʌs/",
+      "vi": "xe buýt",
+      "pos": "noun",
+      "img": "🚌",
+      "connect": "Xe buýt — mượn từ \"bus\" luôn.",
+      "ex": "I take the bus to school.",
+      "exVi": "Tôi đi học bằng xe buýt."
+    },
+    {
+      "en": "train",
+      "ipa": "/treɪn/",
+      "vi": "tàu hỏa",
+      "pos": "noun",
+      "img": "🚆",
+      "connect": "Training — train còn là \"luyện tập\".",
+      "ex": "The train leaves at nine.",
+      "exVi": "Tàu rời ga lúc chín giờ."
+    },
+    {
+      "en": "plane",
+      "ipa": "/pleɪn/",
+      "vi": "máy bay",
+      "pos": "noun",
+      "img": "🛫",
+      "connect": "Viết tắt của airplane.",
+      "ex": "The plane lands in two hours.",
+      "exVi": "Máy bay hạ cánh sau hai giờ nữa."
+    },
+    {
+      "en": "room",
+      "ipa": "/ruːm/",
+      "vi": "căn phòng",
+      "pos": "noun",
+      "img": "🛏️",
+      "connect": "Living room, bedroom.",
+      "ex": "My room is small but clean.",
+      "exVi": "Phòng tôi nhỏ nhưng sạch."
+    },
+    {
+      "en": "door",
+      "ipa": "/dɔːr/",
+      "vi": "cửa",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"Đo\" — mở door ra.",
+      "ex": "Please close the door.",
+      "exVi": "Làm ơn đóng cửa."
+    },
+    {
+      "en": "window",
+      "ipa": "/ˈwɪn.doʊ/",
+      "vi": "cửa sổ",
+      "pos": "noun",
+      "img": "🪟",
+      "connect": "Windows máy tính = những \"cửa sổ\".",
+      "ex": "Open the window, it is hot.",
+      "exVi": "Mở cửa sổ đi, trời nóng."
+    },
+    {
+      "en": "table",
+      "ipa": "/ˈteɪ.bəl/",
+      "vi": "cái bàn",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "\"Thây-bồ\" — bàn ăn.",
+      "ex": "The food is on the table.",
+      "exVi": "Đồ ăn ở trên bàn."
+    },
+    {
+      "en": "chair",
+      "ipa": "/tʃer/",
+      "vi": "cái ghế",
+      "pos": "noun",
+      "img": "🪑",
+      "connect": "\"Che\" — ngồi ghế nghỉ chân.",
+      "ex": "This chair is comfortable.",
+      "exVi": "Cái ghế này ngồi thoải mái."
+    },
+    {
+      "en": "bed",
+      "ipa": "/bed/",
+      "vi": "cái giường",
+      "pos": "noun",
+      "img": "🛌",
+      "connect": "Go to bed — đi ngủ.",
+      "ex": "I go to bed at eleven.",
+      "exVi": "Tôi đi ngủ lúc mười một giờ."
+    },
+    {
+      "en": "kitchen",
+      "ipa": "/ˈkɪtʃ.ən/",
+      "vi": "nhà bếp",
+      "pos": "noun",
+      "img": "🍳",
+      "connect": "\"Kít-chừn\" — nơi nấu ăn.",
+      "ex": "She is cooking in the kitchen.",
+      "exVi": "Cô ấy đang nấu ăn trong bếp."
+    },
+    {
+      "en": "bathroom",
+      "ipa": "/ˈbæθ.ruːm/",
+      "vi": "nhà vệ sinh",
+      "pos": "noun",
+      "img": "🚿",
+      "connect": "Bath (tắm) + room (phòng).",
+      "ex": "Where is the bathroom?",
+      "exVi": "Nhà vệ sinh ở đâu?"
+    },
+    {
+      "en": "week",
+      "ipa": "/wiːk/",
+      "vi": "tuần",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "Weekend = cuối tuần.",
+      "ex": "See you next week.",
+      "exVi": "Hẹn gặp bạn tuần sau."
+    },
+    {
+      "en": "month",
+      "ipa": "/mʌnθ/",
+      "vi": "tháng",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "\"Măn-thờ\" — 12 months một năm.",
+      "ex": "I will travel next month.",
+      "exVi": "Tháng sau tôi sẽ đi du lịch."
+    },
+    {
+      "en": "weekend",
+      "ipa": "/ˈwiːk.end/",
+      "vi": "cuối tuần",
+      "pos": "noun",
+      "img": "🎉",
+      "connect": "Week + end = cuối tuần.",
+      "ex": "What do you do on weekends?",
+      "exVi": "Cuối tuần bạn làm gì?"
+    },
+    {
+      "en": "birthday",
+      "ipa": "/ˈbɜːrθ.deɪ/",
+      "vi": "sinh nhật",
+      "pos": "noun",
+      "img": "🎂",
+      "connect": "Birth (sinh) + day (ngày).",
+      "ex": "My birthday is in May.",
+      "exVi": "Sinh nhật tôi vào tháng Năm."
+    },
+    {
+      "en": "party",
+      "ipa": "/ˈpɑːr.ti/",
+      "vi": "bữa tiệc",
+      "pos": "noun",
+      "img": "🥳",
+      "connect": "\"Pa-ti\" — tiệc tùng.",
+      "ex": "We are having a party tonight.",
+      "exVi": "Tối nay chúng tôi mở tiệc."
+    },
+    {
+      "en": "music",
+      "ipa": "/ˈmjuː.zɪk/",
+      "vi": "âm nhạc",
+      "pos": "noun",
+      "img": "🎵",
+      "connect": "\"Miu-dík\" — nghe nhạc mỗi ngày.",
+      "ex": "I listen to music every day.",
+      "exVi": "Tôi nghe nhạc mỗi ngày."
+    },
+    {
+      "en": "movie",
+      "ipa": "/ˈmuː.vi/",
+      "vi": "bộ phim",
+      "pos": "noun",
+      "img": "🎬",
+      "connect": "\"Mu-vi\" — phim chiếu rạp.",
+      "ex": "Let us watch a movie tonight.",
+      "exVi": "Tối nay xem phim nhé."
+    },
+    {
+      "en": "game",
+      "ipa": "/ɡeɪm/",
+      "vi": "trò chơi",
+      "pos": "noun",
+      "img": "🎮",
+      "connect": "Chơi game — quen thuộc rồi!",
+      "ex": "Football is a fun game.",
+      "exVi": "Bóng đá là một trò chơi vui."
+    },
+    {
+      "en": "weather",
+      "ipa": "/ˈweð.ər/",
+      "vi": "thời tiết",
+      "pos": "noun",
+      "img": "⛅",
+      "connect": "\"Que-thờ\" — nói chuyện thời tiết để bắt chuyện.",
+      "ex": "The weather is nice today.",
+      "exVi": "Hôm nay thời tiết đẹp."
+    },
+    {
+      "en": "rain",
+      "ipa": "/reɪn/",
+      "vi": "mưa",
+      "pos": "noun",
+      "img": "🌧️",
+      "connect": "Rainbow = cầu vồng (sau mưa).",
+      "ex": "It will rain this afternoon.",
+      "exVi": "Chiều nay trời sẽ mưa."
+    },
+    {
+      "en": "question",
+      "ipa": "/ˈkwes.tʃən/",
+      "vi": "câu hỏi",
+      "pos": "noun",
+      "img": "❓",
+      "connect": "Question mark = dấu chấm hỏi.",
+      "ex": "Can I ask you a question?",
+      "exVi": "Tôi hỏi bạn một câu được không?"
+    },
+    {
+      "en": "answer",
+      "ipa": "/ˈæn.sər/",
+      "vi": "câu trả lời",
+      "pos": "noun",
+      "img": "✅",
+      "connect": "W câm — đọc \"en-xờ\".",
+      "ex": "I do not know the answer.",
+      "exVi": "Tôi không biết câu trả lời."
+    },
+    {
+      "en": "problem",
+      "ipa": "/ˈprɑː.bləm/",
+      "vi": "vấn đề",
+      "pos": "noun",
+      "img": "⚠️",
+      "connect": "No problem! — Không sao!",
+      "ex": "We have a small problem.",
+      "exVi": "Chúng ta có một vấn đề nhỏ."
+    },
+    {
+      "en": "idea",
+      "ipa": "/aɪˈdiː.ə/",
+      "vi": "ý tưởng",
+      "pos": "noun",
+      "img": "💡",
+      "connect": "\"Ai-đia\" — nảy ra ý tưởng.",
+      "ex": "That is a great idea!",
+      "exVi": "Đó là một ý tưởng tuyệt vời!"
+    }
+  ]
+}

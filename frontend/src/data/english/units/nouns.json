@@ -1,0 +1,330 @@
+{
+  "id": "nouns",
+  "name": "Danh từ cốt lõi",
+  "sub": "Người, đồ vật, đồ ăn quanh ta",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🧩",
+  "words": [
+    {
+      "en": "people",
+      "ipa": "/ˈpiː.pəl/",
+      "vi": "mọi người, người",
+      "pos": "noun",
+      "img": "👥",
+      "connect": "\"Pi-pồ\" — nhiều người đứng cạnh nhau.",
+      "ex": "Many people live in this city.",
+      "exVi": "Nhiều người sống ở thành phố này."
+    },
+    {
+      "en": "man",
+      "ipa": "/mæn/",
+      "vi": "đàn ông",
+      "pos": "noun",
+      "img": "👨",
+      "connect": "\"Men\" số nhiều của man.",
+      "ex": "The man is reading a book.",
+      "exVi": "Người đàn ông đang đọc sách."
+    },
+    {
+      "en": "woman",
+      "ipa": "/ˈwʊm.ən/",
+      "vi": "phụ nữ",
+      "pos": "noun",
+      "img": "👩",
+      "connect": "\"Wu-mừn\" — số nhiều là women /ˈwɪm.ɪn/.",
+      "ex": "That woman is my teacher.",
+      "exVi": "Người phụ nữ đó là cô giáo của tôi."
+    },
+    {
+      "en": "child",
+      "ipa": "/tʃaɪld/",
+      "vi": "đứa trẻ",
+      "pos": "noun",
+      "img": "🧒",
+      "connect": "Số nhiều bất quy tắc: children.",
+      "ex": "The child is playing outside.",
+      "exVi": "Đứa trẻ đang chơi ngoài sân."
+    },
+    {
+      "en": "friend",
+      "ipa": "/frend/",
+      "vi": "bạn bè",
+      "pos": "noun",
+      "img": "🧑‍🤝‍🧑",
+      "connect": "\"Phờ-renh\" — friend tới the end (bạn tới cuối).",
+      "ex": "She is my best friend.",
+      "exVi": "Cô ấy là bạn thân nhất của tôi."
+    },
+    {
+      "en": "family",
+      "ipa": "/ˈfæm.əl.i/",
+      "vi": "gia đình",
+      "pos": "noun",
+      "img": "👨‍👩‍👧",
+      "connect": "\"Phem-mì-li\" — Father And Mother I Love You.",
+      "ex": "My family has four people.",
+      "exVi": "Gia đình tôi có bốn người."
+    },
+    {
+      "en": "home",
+      "ipa": "/hoʊm/",
+      "vi": "nhà, tổ ấm",
+      "pos": "noun",
+      "img": "🏠",
+      "connect": "House là toà nhà, home là tổ ấm.",
+      "ex": "I want to go home now.",
+      "exVi": "Bây giờ tôi muốn về nhà."
+    },
+    {
+      "en": "house",
+      "ipa": "/haʊs/",
+      "vi": "ngôi nhà",
+      "pos": "noun",
+      "img": "🏡",
+      "connect": "\"Hau-sờ\" — chuột (mouse) sống trong house.",
+      "ex": "They bought a new house.",
+      "exVi": "Họ mua một ngôi nhà mới."
+    },
+    {
+      "en": "school",
+      "ipa": "/skuːl/",
+      "vi": "trường học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "\"Sờ-kun\" — cool nhưng học (school).",
+      "ex": "The children go to school by bus.",
+      "exVi": "Bọn trẻ đến trường bằng xe buýt."
+    },
+    {
+      "en": "work",
+      "ipa": "/wɜːrk/",
+      "vi": "công việc",
+      "pos": "noun",
+      "img": "💼",
+      "connect": "Work hard — làm việc chăm chỉ.",
+      "ex": "I have a lot of work today.",
+      "exVi": "Hôm nay tôi có nhiều việc."
+    },
+    {
+      "en": "time",
+      "ipa": "/taɪm/",
+      "vi": "thời gian",
+      "pos": "noun",
+      "img": "⏰",
+      "connect": "\"Tai-mờ\" — Time is money.",
+      "ex": "What time is it?",
+      "exVi": "Mấy giờ rồi?"
+    },
+    {
+      "en": "day",
+      "ipa": "/deɪ/",
+      "vi": "ngày",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "Have a nice day!",
+      "ex": "Today is a beautiful day.",
+      "exVi": "Hôm nay là một ngày đẹp trời."
+    },
+    {
+      "en": "year",
+      "ipa": "/jɪr/",
+      "vi": "năm",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "\"Diơ\" — Happy New Year.",
+      "ex": "I am twenty years old.",
+      "exVi": "Tôi hai mươi tuổi."
+    },
+    {
+      "en": "water",
+      "ipa": "/ˈwɔː.tər/",
+      "vi": "nước",
+      "pos": "noun",
+      "img": "💧",
+      "connect": "\"Quó-tờ\" — uống water mỗi ngày.",
+      "ex": "Can I have a glass of water?",
+      "exVi": "Cho tôi xin một cốc nước được không?"
+    },
+    {
+      "en": "food",
+      "ipa": "/fuːd/",
+      "vi": "thức ăn",
+      "pos": "noun",
+      "img": "🍱",
+      "connect": "\"Phút\" — food tốt cho good mood.",
+      "ex": "The food here is delicious.",
+      "exVi": "Đồ ăn ở đây rất ngon."
+    },
+    {
+      "en": "rice",
+      "ipa": "/raɪs/",
+      "vi": "cơm, gạo",
+      "pos": "noun",
+      "img": "🍚",
+      "connect": "\"Rai-sờ\" — người Việt ăn rice.",
+      "ex": "I eat rice every day.",
+      "exVi": "Tôi ăn cơm mỗi ngày."
+    },
+    {
+      "en": "coffee",
+      "ipa": "/ˈkɔː.fi/",
+      "vi": "cà phê",
+      "pos": "noun",
+      "img": "☕",
+      "connect": "Gần giống \"cà phê\".",
+      "ex": "She drinks coffee in the morning.",
+      "exVi": "Cô ấy uống cà phê vào buổi sáng."
+    },
+    {
+      "en": "money",
+      "ipa": "/ˈmʌn.i/",
+      "vi": "tiền",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "\"Mân-ni\" — ai cũng cần money.",
+      "ex": "I do not have enough money.",
+      "exVi": "Tôi không đủ tiền."
+    },
+    {
+      "en": "phone",
+      "ipa": "/foʊn/",
+      "vi": "điện thoại",
+      "pos": "noun",
+      "img": "📱",
+      "connect": "Smartphone — điện thoại thông minh.",
+      "ex": "My phone battery is low.",
+      "exVi": "Điện thoại tôi sắp hết pin."
+    },
+    {
+      "en": "car",
+      "ipa": "/kɑːr/",
+      "vi": "xe hơi",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "\"Ca\" — đi car cho nhanh.",
+      "ex": "He drives a red car.",
+      "exVi": "Anh ấy lái một chiếc xe màu đỏ."
+    },
+    {
+      "en": "book",
+      "ipa": "/bʊk/",
+      "vi": "quyển sách",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "\"Búc\" — Facebook có chữ book.",
+      "ex": "This book is very interesting.",
+      "exVi": "Quyển sách này rất thú vị."
+    },
+    {
+      "en": "city",
+      "ipa": "/ˈsɪt.i/",
+      "vi": "thành phố",
+      "pos": "noun",
+      "img": "🏙️",
+      "connect": "\"Si-ti\" — Hồ Chí Minh City.",
+      "ex": "New York is a big city.",
+      "exVi": "New York là một thành phố lớn."
+    },
+    {
+      "en": "country",
+      "ipa": "/ˈkʌn.tri/",
+      "vi": "đất nước",
+      "pos": "noun",
+      "img": "🌍",
+      "connect": "\"Kân-tri\" — country music nhạc đồng quê.",
+      "ex": "Vietnam is a beautiful country.",
+      "exVi": "Việt Nam là một đất nước xinh đẹp."
+    },
+    {
+      "en": "name",
+      "ipa": "/neɪm/",
+      "vi": "tên",
+      "pos": "noun",
+      "img": "🪪",
+      "connect": "What is your name?",
+      "ex": "My name is Lan.",
+      "exVi": "Tên tôi là Lan."
+    },
+    {
+      "en": "word",
+      "ipa": "/wɜːrd/",
+      "vi": "từ, chữ",
+      "pos": "noun",
+      "img": "🔤",
+      "connect": "Learn a new word every day.",
+      "ex": "I learned ten new words today.",
+      "exVi": "Hôm nay tôi học được mười từ mới."
+    },
+    {
+      "en": "place",
+      "ipa": "/pleɪs/",
+      "vi": "nơi chốn",
+      "pos": "noun",
+      "img": "📍",
+      "connect": "\"Plây-sờ\" — a nice place to eat.",
+      "ex": "This is a quiet place to study.",
+      "exVi": "Đây là nơi yên tĩnh để học."
+    },
+    {
+      "en": "job",
+      "ipa": "/dʒɑːb/",
+      "vi": "việc làm",
+      "pos": "noun",
+      "img": "🧑‍💻",
+      "connect": "\"Giốp\" — Good job!",
+      "ex": "She has a new job at a bank.",
+      "exVi": "Cô ấy có công việc mới ở ngân hàng."
+    },
+    {
+      "en": "hand",
+      "ipa": "/hænd/",
+      "vi": "bàn tay",
+      "pos": "noun",
+      "img": "✋",
+      "connect": "Handmade — làm bằng tay.",
+      "ex": "Raise your hand if you know.",
+      "exVi": "Giơ tay lên nếu bạn biết."
+    },
+    {
+      "en": "eye",
+      "ipa": "/aɪ/",
+      "vi": "mắt",
+      "pos": "noun",
+      "img": "👁️",
+      "connect": "Đọc giống \"I\" (tôi).",
+      "ex": "Close your eyes and relax.",
+      "exVi": "Nhắm mắt lại và thư giãn."
+    },
+    {
+      "en": "morning",
+      "ipa": "/ˈmɔːr.nɪŋ/",
+      "vi": "buổi sáng",
+      "pos": "noun",
+      "img": "🌅",
+      "connect": "Good morning!",
+      "ex": "I run every morning.",
+      "exVi": "Tôi chạy bộ mỗi buổi sáng."
+    },
+    {
+      "en": "night",
+      "ipa": "/naɪt/",
+      "vi": "ban đêm",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "Good night — chúc ngủ ngon.",
+      "ex": "I read a book at night.",
+      "exVi": "Tôi đọc sách vào ban đêm."
+    },
+    {
+      "en": "street",
+      "ipa": "/striːt/",
+      "vi": "đường phố",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "\"Sờ-trít\" — đi trên street.",
+      "ex": "Be careful when you cross the street.",
+      "exVi": "Cẩn thận khi bạn băng qua đường."
+    }
+  ]
+}

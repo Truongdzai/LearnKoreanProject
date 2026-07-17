@@ -41,6 +41,23 @@ DEFAULT_EN_VIDEOS = [
     ("G2xWg2ckKHI", "Easy English 8 — What are you doing today? (phỏng vấn đường phố)", "Easy English", "A2", "3:33", "Đường phố", "tone-e", "en"),
     ("OlyYE6USuO0", "Easy English 29 — Talking about the future", "Easy English", "A2", "5:33", "Tương lai", "tone-f", "en"),
     ("kf0yY5ZBz6A", "Easy English 26 — If you won the lottery", "Easy English", "A2", "5:07", "Giả định", "tone-a", "en"),
+    ("7_qg_KVByS0", "Mr Duncan — Lesson 1: Introduction (vỡ lòng)", "English Addict with Mr Duncan", "A1", "6:08", "Vỡ lòng", "tone-b", "en"),
+    ("FWI9GEwJNzc", "Mr Duncan — How do I learn English?", "English Addict with Mr Duncan", "A1", "3:25", "Cách học", "tone-c", "en"),
+    ("Uh_-j8BS-NM", "Mr Duncan — Lesson 2: Saying Hello", "English Addict with Mr Duncan", "A1", "3:37", "Chào hỏi", "tone-d", "en"),
+    ("erjMgola4fQ", "A1 Listening Practice — Language Learning (nghe chậm)", "Listening Time", "A1", "3:43", "Nghe chậm", "tone-e", "en"),
+    ("aQ0w2I0Eb9I", "A1 Listening Practice — Daily Routine", "Listening Time", "A1", "4:46", "Thói quen ngày", "tone-f", "en"),
+    ("sMkzwmMs0jM", "A1 Podcast — Talk About Your Day", "Mr. English Channel", "A1", "11:04", "Kể chuyện ngày", "tone-a", "en"),
+    ("s2EYIDY8wSM", "Podcast cho người mới bắt đầu — A1 Listening", "English Easy Practice", "A1", "8:54", "Podcast", "tone-b", "en"),
+    ("QyJqFPI1Ww0", "The Treehouse Story — truyện ngắn nghe dễ (A2)", "Emma Daily English", "A2", "18:20", "Truyện ngắn", "tone-c", "en"),
+    ("yUdhPFXRFmM", "Easy English 205 — What are your plans today?", "Easy British English", "A2", "11:32", "Đường phố", "tone-d", "en"),
+    ("6xl8PD9gbF8", "Easy English 40 — Have you ever lived abroad?", "Easy Languages", "A2", "4:42", "Đường phố", "tone-e", "en"),
+    ("HXTFwnAgWmM", "Podcast A2–B1 — Let's Talk About Money", "Mr. English Channel", "A2", "20:04", "Tiền bạc", "tone-f", "en"),
+    ("oUD2gUmdzeI", "Spoken English Class 1 — luyện nói từ cơ bản", "English with Lucy", "B1", "16:29", "Luyện nói", "tone-a", "en"),
+    ("0Okxsszt624", "English Leap Podcast — This Video Will Change Your Life", "Speak English With Class", "B1", "16:45", "Podcast", "tone-b", "en"),
+    ("_5siHrpPnmw", "6 Minute English — The health benefits of apples", "BBC Learning English", "B1", "6:23", "Sức khoẻ", "tone-c", "en"),
+    ("9hus12iCyL8", "6 Minute English — Can we boost the immune system?", "BBC Learning English", "B1", "6:14", "Miễn dịch", "tone-d", "en"),
+    ("H5BVbrZ64bQ", "6 Minute English — Are we getting more allergic?", "BBC Learning English", "B1", "6:13", "Dị ứng", "tone-e", "en"),
+    ("hUFj6sbOiPA", "English with Lucy — Daily Routine at C1 Level", "English with Lucy", "B2", "14:18", "Thói quen ngày", "tone-f", "en"),
 ]
 
 DEFAULT_JA_VIDEOS = [
