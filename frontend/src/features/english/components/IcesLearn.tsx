@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { UNITS, type IcesWord } from '@/data/englishCore'
+import { UNITS as EN_UNITS, wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/englishCore'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, useLearnedWords } from '../progress'
@@ -12,14 +12,27 @@ const ICES = [
   { k: 'S', label: 'Sound', desc: 'Nghe & nhại' },
 ]
 
-export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
+interface Props {
+  initialUnit?: string
+  units?: VocabUnit[]
+  speak?: (text: string) => void
+  sourceLabel?: string
+  lang?: string
+}
+
+export default function IcesLearn({
+  initialUnit,
+  units = EN_UNITS,
+  speak = speakEN,
+  sourceLabel = 'English Core',
+  lang = 'en',
+}: Props) {
   const { isAuthed, recordEvent } = useAppStore()
-  const { has, mark, learned } = useLearnedWords()
-  const [unitId, setUnitId] = useState(initialUnit || 'nouns')
+  const { has, mark, learned } = useLearnedWords(lang)
+  const [unitId, setUnitId] = useState(initialUnit || units[0].id)
   const [i, setI] = useState(0)
   const [flipped, setFlipped] = useState(false)
 
-  // Lộ trình gửi sang unit cụ thể (nút "Học ngay" của tuần) → nhảy thẳng tới unit đó.
   useEffect(() => {
     if (initialUnit) {
       setUnitId(initialUnit)
@@ -28,12 +41,12 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
     }
   }, [initialUnit])
 
-  const unit = UNITS.find((u) => u.id === unitId) ?? UNITS[0]
+  const unit = units.find((u) => u.id === unitId) ?? units[0]
   const words = unit.words
   const word: IcesWord = words[i]
 
   const progress = useMemo(
-    () => words.filter((w) => learned.has(w.en)).length,
+    () => words.filter((w) => learned.has(wTerm(w))).length,
     [words, learned],
   )
 
@@ -49,15 +62,16 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
   }
 
   const learnIt = () => {
-    if (!has(word.en)) {
-      mark(word.en, true)
+    const term = wTerm(word)
+    if (!has(term)) {
+      mark(term, true)
       recordEvent('word', 1, 0, 1)
       if (isAuthed) {
         addCard({
-          front: word.en,
-          back: `${word.vi}\n${word.ipa}\n“${word.ex}” — ${word.exVi}`,
-          source: `English Core · ${unit.name}`,
-        }).catch(() => { /* không chặn */ })
+          front: term,
+          back: `${word.vi}\n${wRead(word)}\n“${word.ex}” — ${word.exVi}`,
+          source: `${sourceLabel} · ${unit.name}`,
+        }).catch(() => {  })
       }
     }
     setTimeout(() => go(1), 250)
@@ -66,7 +80,7 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
   return (
     <div className="ices">
       <div className="ices-units">
-        {UNITS.map((u) => (
+        {units.map((u) => (
           <button
             key={u.id}
             className={'ices-unit' + (u.id === unitId ? ' on' : '')}
@@ -75,7 +89,7 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
             <span className={'iu-emoji ' + u.tone}>{u.emoji}</span>
             <span className="iu-body">
               <b>{u.name}</b>
-              <small>{u.words.filter((w) => learned.has(w.en)).length}/{u.words.length} từ</small>
+              <small>{u.words.filter((w) => learned.has(wTerm(w))).length}/{u.words.length} từ</small>
             </span>
           </button>
         ))}
@@ -90,13 +104,13 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
       </div>
 
       <div className={'ices-card' + (flipped ? ' flip' : '')}>
-        <button className="ices-sound" onClick={() => speakEN(word.en)} title="Nghe phát âm">
+        <button className="ices-sound" onClick={() => speak(wTerm(word))} title="Nghe phát âm">
           <Icon name="volume" size={20} />
         </button>
 
         <div className={'ices-img ' + unit.tone}>{word.img}</div>
-        <h2 className="ices-word" lang="en">{word.en}</h2>
-        <div className="ices-ipa">{word.ipa} · <b>{word.vi}</b></div>
+        <h2 className="ices-word" lang={lang}>{wTerm(word)}</h2>
+        <div className="ices-ipa">{wRead(word)} · <b>{word.vi}</b></div>
 
         {flipped ? (
           <div className="ices-detail">
@@ -106,9 +120,9 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
             </div>
             <div className="ices-row">
               <span className="ices-tag e">E · Experience</span>
-              <p lang="en" className="ices-ex">“{word.ex}”</p>
+              <p lang={lang} className="ices-ex">“{word.ex}”</p>
               <p className="ices-ex-vi">{word.exVi}</p>
-              <button className="btn-ghost sm" onClick={() => speakEN(word.ex)}>
+              <button className="btn-ghost sm" onClick={() => speak(word.ex)}>
                 <Icon name="volume" size={14} /> Nghe câu
               </button>
             </div>
@@ -123,10 +137,10 @@ export default function IcesLearn({ initialUnit }: { initialUnit?: string }) {
       <div className="ices-actions">
         <button className="btn-ghost" onClick={() => go(-1)}><Icon name="arrow-left" size={16} /> Trước</button>
         <button
-          className={'btn-primary' + (has(word.en) ? ' done' : '')}
+          className={'btn-primary' + (has(wTerm(word)) ? ' done' : '')}
           onClick={learnIt}
         >
-          {has(word.en) ? <><Icon name="check" size={16} /> Đã thuộc</> : <><Icon name="check-circle" size={16} /> Tôi đã thuộc từ này</>}
+          {has(wTerm(word)) ? <><Icon name="check" size={16} /> Đã thuộc</> : <><Icon name="check-circle" size={16} /> Tôi đã thuộc từ này</>}
         </button>
         <button className="btn-ghost" onClick={() => go(1)}>Sau <Icon name="arrow-right" size={16} /></button>
       </div>

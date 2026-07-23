@@ -9,12 +9,11 @@ export function setToken(token: string | null) {
   try {
     if (token) localStorage.setItem(TOKEN_KEY, token)
     else localStorage.removeItem(TOKEN_KEY)
-  } catch { /* ignore */ }
+  } catch {  }
 }
 
 export class ApiError extends Error {
   status: number
-  /** Mã lỗi máy đọc được từ backend (API.md §2); thiếu thì là 'UNKNOWN'. */
   code: string
   constructor(message: string, status: number, code = 'UNKNOWN') {
     super(message)
@@ -47,6 +46,12 @@ export const apiClient = {
   post: <T>(path: string, body?: unknown) =>
     request<T>(path, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body ?? {}),
+    }),
+  put: <T>(path: string, body?: unknown) =>
+    request<T>(path, {
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body ?? {}),
     }),

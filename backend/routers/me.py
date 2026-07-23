@@ -82,6 +82,10 @@ class GoalBonusIn(BaseModel):
     goal: int
 
 
+class PlanDataIn(BaseModel):
+    data: dict
+
+
 @router.get("/state", response_model=MeState)
 def api_state(user: dict = Auth):
     return gameplay.state(user)
@@ -187,3 +191,18 @@ def api_goal(body: GoalIn, user: dict = Auth):
 @router.post("/goal-bonus")
 def api_goal_bonus(body: GoalBonusIn, user: dict = Auth):
     return gameplay.goal_bonus(user, body.goal)
+
+
+@router.get("/plans/{plan_id}")
+def api_get_plan(plan_id: str, user: dict = Auth):
+    return gameplay.get_plan(user["id"], plan_id)
+
+
+@router.put("/plans/{plan_id}")
+def api_set_plan(plan_id: str, body: PlanDataIn, user: dict = Auth):
+    return gameplay.set_plan(user["id"], plan_id, body.data)
+
+
+@router.get("/activity-days")
+def api_activity_days(since: str, user: dict = Auth):
+    return gameplay.activity_days(user["id"], since)

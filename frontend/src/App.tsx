@@ -10,7 +10,6 @@ import FeedbackWidget from '@/features/feedback/FeedbackWidget'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
-// Mỗi trang tách thành chunk riêng, chỉ tải khi người dùng mở tới -> khởi động nhẹ hơn nhiều.
 const HomePage = lazy(() => import('@/features/home/HomePage'))
 const LearnPage = lazy(() => import('@/features/learn/LearnPage'))
 const LibraryPage = lazy(() => import('@/features/library/LibraryPage'))
@@ -22,6 +21,8 @@ const PathPage = lazy(() => import('@/features/path/PathPage'))
 const SpeakingPage = lazy(() => import('@/features/speaking/SpeakingPage'))
 const VocabHomePage = lazy(() => import('@/features/vocab/VocabHomePage'))
 const EnglishPage = lazy(() => import('@/features/english/EnglishPage'))
+const ToeicPage = lazy(() => import('@/features/toeic/ToeicPage'))
+const KoreanPage = lazy(() => import('@/features/korean/KoreanPage'))
 const ActivitiesPage = lazy(() => import('@/features/activities/ActivitiesPage'))
 const LeaderboardPage = lazy(() => import('@/features/leaderboard/LeaderboardPage'))
 const QuestsPage = lazy(() => import('@/features/quests/QuestsPage'))
@@ -29,7 +30,6 @@ const ShopPage = lazy(() => import('@/features/shop/ShopPage'))
 const GardenPage = lazy(() => import('@/features/garden/GardenPage'))
 const LingoRadarPage = lazy(() => import('@/features/lingo/LingoRadarPage'))
 const AdminPage = lazy(() => import('@/features/admin/AdminPage'))
-// Thú cưng là trang trí (không then chốt) + kéo theo bộ ảnh nặng -> hoãn sau lần render đầu.
 const PetWidget = lazy(() => import('@/features/pet/PetWidget'))
 
 export default function App() {
@@ -50,6 +50,8 @@ export default function App() {
             {view === 'myvideos' && <MyVideosPage />}
             {view === 'speaking' && <SpeakingPage />}
             {view === 'english' && <EnglishPage />}
+            {view === 'toeic' && <ToeicPage />}
+            {view === 'korean' && <KoreanPage />}
             {view === 'vocab' && <VocabHomePage />}
             {view === 'flashcards' && <ReviewPage />}
             {view === 'activities' && <ActivitiesPage />}

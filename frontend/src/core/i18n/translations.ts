@@ -1,9 +1,3 @@
-/**
- * Từ điển giao diện đa ngôn ngữ (i18n) — đợt 1: vỏ ứng dụng
- * (Sidebar, Topbar, Trang chủ, Mục tiêu ngày, Từ của ngày, Onboarding, Góp ý).
- * `vi` là ngôn ngữ gốc; key thiếu ở ngôn ngữ khác sẽ tự rơi về tiếng Việt.
- * Chuỗi có tham số dùng dạng {name} — thay bằng t(key, { name: value }).
- */
 
 export type UiLang = 'vi' | 'en'
 
@@ -13,7 +7,6 @@ export const UI_LANGS: { code: UiLang; label: string }[] = [
 ]
 
 const VI: Record<string, string> = {
-  // Sidebar
   'brand.tagline': 'Học ngoại ngữ qua video',
   'side.streak': 'Chuỗi {n} ngày',
   'side.langs': 'Ngôn ngữ',
@@ -24,6 +17,8 @@ const VI: Record<string, string> = {
   'nav.path': 'Lộ trình',
   'nav.speaking': 'Luyện nói',
   'nav.english': 'Tiếng Anh 3 tháng',
+  'nav.toeic': 'Luyện thi TOEIC',
+  'nav.korean': 'Từ vựng lõi Hàn',
   'nav.lingo': 'Hot Lingo',
   'nav.vocab': 'Từ vựng',
   'nav.flashcards': 'Ôn tập',
@@ -33,7 +28,6 @@ const VI: Record<string, string> = {
   'nav.shop': 'Cửa hàng',
   'nav.garden': 'Vườn của tôi',
 
-  // Topbar
   'top.lookup': 'Tra cứu từ vựng với AI',
   'top.search': 'Tra cứu từ vựng {lang}…',
   'top.coins': 'Xu của bạn',
@@ -48,7 +42,6 @@ const VI: Record<string, string> = {
   'top.menu.logout': 'Đăng xuất',
   'top.uiLang': 'Ngôn ngữ giao diện',
 
-  // Hero (trang chủ)
   'hero.title': 'Luyện Shadowing qua bất kỳ video nào bạn thích',
   'hero.sub': 'Dán link YouTube {lang} có ngay phụ đề song ngữ, học theo từng câu và lưu vào flashcard.',
   'hero.upload': 'Tải lên (sắp có)',
@@ -58,7 +51,6 @@ const VI: Record<string, string> = {
   'hero.tip': 'Mẹo: chọn video có phụ đề {lang} để chất lượng tốt nhất. Lần đầu tải mất ~10-60 giây.',
   'hero.sample': 'Thử ngay bài học mẫu (không cần dán link)',
 
-  // Trang chủ
   'home.goalChip.set': '🎯 Mục tiêu:',
   'home.goalChip.none': '🎯 Chọn mục tiêu học',
   'home.goalChip.hint': 'Đổi mục tiêu học',
@@ -80,7 +72,6 @@ const VI: Record<string, string> = {
   'home.viewAll': 'Xem tất cả',
   'home.empty': 'Kho video {lang} đang được cập nhật. Bạn có thể dán link YouTube {lang} ở trên để tạo bài học ngay.',
 
-  // Mục tiêu hôm nay
   'dgoal.title': 'Mục tiêu hôm nay',
   'dgoal.levelHint': '{label} — {xp} XP/ngày · thưởng {coins} xu',
   'dgoal.lv30': 'Nhẹ nhàng',
@@ -102,12 +93,10 @@ const VI: Record<string, string> = {
   'dgoal.level': 'Cấp {n}',
   'dgoal.levelNext': 'còn {xp} XP lên cấp {n}',
 
-  // Từ của ngày
   'wod.title': 'Từ của ngày',
   'wod.listen': 'Nghe phát âm',
   'wod.deep': 'Tra sâu hơn với AI',
 
-  // Onboarding mục tiêu
   'ob.title': 'Bạn học {lang} để làm gì?',
   'ob.sub': 'Chọn mục tiêu để VyLing gợi ý đúng nội dung bạn cần — "dùng gì học nấy".',
   'ob.skip': 'Để sau, tôi muốn khám phá trước',
@@ -120,7 +109,6 @@ const VI: Record<string, string> = {
   'goal.exam.label': 'Luyện thi',
   'goal.exam.desc': 'Chinh phục TOPIK, TOEIC, JLPT… điểm cao',
 
-  // Góp ý
   'fb.fab': 'Góp ý',
   'fb.fabHint': 'Báo lỗi hoặc góp ý cho VyLing',
   'fb.title': 'Góp ý cho VyLing',
@@ -135,7 +123,6 @@ const VI: Record<string, string> = {
   'fb.thanksSub': 'Phản hồi của bạn đã được gửi — mỗi góp ý đều giúp VyLing tốt hơn.',
   'fb.close': 'Đóng',
 
-  // Trang học video (Learn)
   'learn.tab.speak': 'Luyện nói AI',
   'learn.tab.dictation': 'Chép chính tả',
   'learn.tab.cloze': 'Điền khuyết',
@@ -146,7 +133,6 @@ const VI: Record<string, string> = {
   'learn.source': 'Nguồn: {src} · {n} câu',
   'learn.clickLine': 'Bấm một câu bên phải để bắt đầu.',
 
-  // Danh sách phụ đề
   'subs.title': 'Phụ đề',
   'subs.romaja': 'Phiên âm',
   'subs.romajaHint': 'Bật/tắt phiên âm cách đọc',
@@ -156,7 +142,6 @@ const VI: Record<string, string> = {
   'subs.saved': 'Đã lưu',
   'subs.save': 'Lưu',
 
-  // Popup tra từ
   'wp.close': 'Đóng',
   'wp.loading': 'Đang tra…',
   'wp.notFoundPre': 'Không tìm thấy',
@@ -166,13 +151,11 @@ const VI: Record<string, string> = {
   'wp.saved': 'Đã lưu vào bộ thẻ',
   'wp.save': 'Lưu từ này',
 
-  // Nhãn điểm chung
   'band.excellent': 'Xuất sắc!',
   'band.great': 'Tốt lắm',
   'band.ok': 'Khá ổn',
   'band.more': 'Cần luyện thêm',
 
-  // Luyện nói theo câu (shadowing AI)
   'sh.prev': 'Trước',
   'sh.next': 'Tiếp',
   'sh.line': 'Câu {a}/{b}',
@@ -191,7 +174,6 @@ const VI: Record<string, string> = {
   'sh.aiFail': 'Không lấy được nhận xét AI: {msg}',
   'sh.aiFailTip': 'Mẹo: cần chạy start.bat (backend) và đã cấu hình khoá Gemini.',
 
-  // Chép chính tả
   'dict.correct': '{n} đúng',
   'dict.label': 'Nghe và gõ lại bằng {lang}',
   'dict.listen': 'Nghe',
@@ -203,7 +185,6 @@ const VI: Record<string, string> = {
   'dict.retype': 'Gõ lại',
   'dict.nextLine': 'Câu tiếp',
 
-  // Luyện dịch
   'tp.b80': 'Tuyệt vời!',
   'tp.b50': 'Khá tốt',
   'tp.b20': 'Cần cố gắng',
@@ -217,7 +198,6 @@ const VI: Record<string, string> = {
   'tp.ref': 'Đáp án tham khảo:',
   'tp.result': 'Xem kết quả',
 
-  // Tóm tắt
   'sm.aiTag': 'Tóm tắt do AI tạo từ nội dung video',
   'sm.overview': 'Tổng quan',
   'sm.overviewText': 'Video “{title}” gồm {n} câu, phù hợp luyện nghe – nói ở trình độ sơ cấp. Nội dung xoay quanh giao tiếp đời sống hằng ngày với câu ngắn, dễ lặp lại theo phương pháp shadowing.',
@@ -248,7 +228,6 @@ const VI: Record<string, string> = {
   'sm.p3': 'Thử dịch lại các câu ở tab Luyện dịch mà không nhìn đáp án.',
   'sm.p4': 'Ghi âm và so sánh phát âm ở tab Luyện nói AI.',
 
-  // Dubbing Studio
   'dub.char': 'Nhân vật {c}',
   'dub.introTitle': 'Dubbing Studio — Lồng tiếng nhập vai',
   'dub.introText': 'Tắt tiếng gốc và tự lồng tiếng cho từng câu. AI chấm phát âm, nhịp điệu và độ trễ, rồi ghép thành bản lồng tiếng của bạn.',
@@ -293,7 +272,6 @@ const VI: Record<string, string> = {
   'dub.rec': 'Thu âm',
   'dub.replay': 'Nghe lại',
 
-  // Luyện nói
   'sp.title': 'Luyện nói với AI',
   'sp.sub': 'Chọn một tình huống và trò chuyện bằng {lang} — nhân vật AI trả lời, đọc to, gợi ý câu và nhận xét cách bạn nói.',
   'sp.randomTitle': '🎲 Hội thoại ngẫu nhiên',
@@ -326,7 +304,6 @@ const VI: Record<string, string> = {
   'sp.aiNeeded': 'Cần kết nối AI để luyện nói tình huống này. Hãy thử lại sau giây lát.',
   'sp.fallbackEnd': 'Tuyệt lắm! Bạn nói rất tự nhiên. Mình luyện lại nhé?',
 
-  // Lộ trình
   'path.kicker': 'KHOÁ HỌC',
   'path.heroTitle': 'Bắt đầu lộ trình học của bạn',
   'path.heroSub': 'Tạo lộ trình học cá nhân hoá hoặc tham gia khoá học từ cộng đồng.',
@@ -363,7 +340,6 @@ const VI: Record<string, string> = {
   'path.next': 'Tiếp',
   'path.confirm': 'Xác nhận',
 
-  // Từ vựng
   'vc.title': 'Từ vựng',
   'vc.sub': 'Học, ôn tập và quản lý kho từ vựng của bạn.',
   'vc.subKo': 'Học, ôn tập và quản lý kho từ vựng của bạn theo cấp độ TOPIK.',
@@ -398,7 +374,6 @@ const VI: Record<string, string> = {
   'vc.importFlash': 'Đã import {n} từ vào kho của bạn!',
   'vc.packFlash': 'Đã thêm {n} từ “{name}” vào ôn tập — vào Ôn tập để học ngay!',
 
-  // Modal từ vựng
   'vm.cancel': 'Huỷ',
   'vam.title': 'Thêm từ vựng mới',
   'vam.word': 'Từ ({lang})',
@@ -436,7 +411,6 @@ const VI: Record<string, string> = {
   'cpm.adding': 'Đang thêm…',
   'cpm.addAll': 'Thêm cả gói ({n} từ) vào ôn tập',
 
-  // Ôn tập (SRS)
   'rv.again': 'Lại',
   'rv.hard': 'Khó',
   'rv.good': 'Tốt',
@@ -460,7 +434,6 @@ const VI: Record<string, string> = {
   'rv.reveal': 'Hiện đáp án',
 
 
-  // Điền khuyết
   'cz.label': 'Nghe câu rồi chọn từ còn thiếu',
   'cz.empty': 'Video này chưa đủ câu dài để tạo bài điền khuyết — thử video khác nhé.',
   'cz.right': 'Chính xác!',
@@ -468,7 +441,6 @@ const VI: Record<string, string> = {
   'cz.done': 'Hoàn thành! Đúng {a}/{b} câu.',
 
 
-  // Ngữ pháp theo ngữ cảnh + CEFR
   'gx.button': 'Giải thích ngữ pháp câu này',
   'gx.close': 'Ẩn giải thích',
   'gx.loading': 'AI đang phân tích câu…',
@@ -476,7 +448,6 @@ const VI: Record<string, string> = {
   'gx.levelBusy': 'Đang ước lượng…',
 
 
-  // Mini-game ôn tập + thử thách ngày
   'mg.back': 'Quay lại',
   'mg.replay': 'Chơi lại',
   'mg.seeResult': 'Xem kết quả',
@@ -489,7 +460,6 @@ const VI: Record<string, string> = {
   'mg.dailyClaimed': 'Thử thách hôm nay ✓',
   'mg.dailyDone': 'Xong thử thách ngày! Đúng {a}/{b} câu.',
 
-  // Huy hiệu
   'bd.title': 'Huy hiệu thành tích',
   'bd.earned': 'Đã đạt',
   'bd.xp100': 'Khởi động', 'bd.xp100d': 'Đạt 100 XP',
@@ -505,7 +475,6 @@ const VI: Record<string, string> = {
   'bd.videos5': 'Mọt phim', 'bd.videos5d': 'Lưu 5 video',
   'bd.plants3': 'Tay trồng cây', 'bd.plants3d': 'Trồng 3 cây trong vườn',
 
-  // Nhiệm vụ
   'q.daily': 'Hằng ngày',
   'q.weekly': 'Hằng tuần',
   'q.monthly': 'Hằng tháng',
@@ -520,7 +489,6 @@ const VI: Record<string, string> = {
   'q.claimed': 'Đã nhận thưởng! 🎉',
   'q.bonusGot': 'Đã nhận +{n} xu thưởng đăng nhập! 🎁',
 
-  // Cửa hàng
   'shp.catAll': 'Tất cả vật phẩm',
   'shp.catPet': 'Thú cưng',
   'shp.catSeed': 'Hạt giống',
@@ -545,7 +513,6 @@ const VI: Record<string, string> = {
   'shp.bought': 'Đã mua "{name}"!',
   'shp.petWith': '{name} đang đồng hành cùng bạn!',
 
-  // Bảng giá / Plus
   'pr.promo': 'Ưu đãi ra mắt — chỉ áp dụng lần đầu tiên',
   'pr.title': 'Nâng cấp Premium',
   'pr.sub': 'Mở khoá toàn bộ kho video, luyện phát âm với AI và học mọi ngôn ngữ — trên mọi thiết bị.',
@@ -560,7 +527,6 @@ const VI: Record<string, string> = {
   'pr.renewed': 'Đã gia hạn gói Plus của bạn 🎉',
   'pr.upgraded': 'Chúc mừng! Tài khoản của bạn đã được nâng cấp Plus 🎉',
 
-  // Tra cứu từ vựng
   'lk.title': 'Tra cứu từ vựng',
   'lk.placeholder': 'Nhập từ {lang} cần tra…',
   'lk.go': 'Tra cứu',
@@ -586,7 +552,6 @@ const VI: Record<string, string> = {
   'lk.saved': 'Đã lưu vào flashcard',
   'lk.save': 'Lưu vào flashcard của tôi',
 
-  // Vườn cây
   'gd.title': 'Vườn của tôi',
   'gd.sub': 'Trồng hạt giống đã mua và tưới cây mỗi khi học xong — cây lớn dần theo tiến độ của bạn.',
   'gd.planting': 'Cây đang trồng',
@@ -607,7 +572,6 @@ const VI: Record<string, string> = {
   'gd.stSprout': 'Nảy mầm',
   'gd.stSeed': 'Hạt giống',
 
-  // Bảng xếp hạng
   'lb.title': 'Bảng xếp hạng',
   'lb.sub': 'Học mỗi ngày để leo hạng và toả sáng cùng cộng đồng VyLing.',
   'lb.weekly': 'Tuần này',
@@ -623,7 +587,6 @@ const VI: Record<string, string> = {
   'lb.upsellTitle': 'Toả sáng trên bảng xếp hạng ✨',
   'lb.upsellText': 'Thành viên Plus có khung viền animation lộng lẫy & danh hiệu rực rỡ. Nâng cấp để được chú ý!',
 
-  // Hoạt động của tôi
   'act.title': 'Hoạt động của tôi',
   'act.sub': 'Theo dõi tiến độ học để giữ động lực — bạn đang làm rất tốt!',
   'act.loginNote': 'Đăng nhập để xem thống kê học tập thật của bạn.',
@@ -646,7 +609,6 @@ const VI: Record<string, string> = {
   'act.paths': 'Lộ trình đang học',
   'act.plants': 'Cây trong vườn',
 
-  // Hot Lingo
   'lg.title': 'Hot Lingo — Trạm quét từ lóng',
   'lg.sub': 'Những từ lóng & cụm "bắt trend" người Hàn đang dùng trên mạng xã hội.',
   'lg.refresh': 'Làm mới',
@@ -657,7 +619,6 @@ const VI: Record<string, string> = {
   'lg.lookup': 'Tra cứu chi tiết',
   'lg.tip': 'Từ lóng giúp bạn nói chuyện tự nhiên như người bản xứ — nhưng nhớ dùng đúng ngữ cảnh thân mật nhé!',
 
-  // Đăng nhập / đăng ký
   'auth.welcome': 'Chào mừng đến VyLing',
   'auth.sub': 'Đăng nhập để lưu tiến độ, xu, lộ trình và bảng xếp hạng của bạn.',
   'auth.google': 'Tiếp tục với Google',
@@ -672,7 +633,6 @@ const VI: Record<string, string> = {
   'auth.signupNow': 'Đăng ký ngay',
   'auth.guest': 'Tiếp tục với tư cách khách',
 
-  // Trạng thái hệ thống
   'dash.checking': 'Đang kiểm tra…',
   'dash.title': 'Trạng thái hệ thống',
   'dash.sub': 'Kiểm tra các thành phần chạy nền của VyLing.',
@@ -682,7 +642,6 @@ const VI: Record<string, string> = {
   'dash.fixBelow': 'Hãy xử lý các mục còn lỗi bên dưới.',
   'dash.detail': 'Chi tiết',
 
-  // Trang giữ chỗ
   'ph.myvideos': 'Video của tôi',
   'ph.myvideosText': 'Danh sách các video bạn đã học và tiến độ từng video. Sẽ hiện ở đây sau khi mình thêm phần lưu lịch sử học.',
   'ph.courses': 'Khoá học',
@@ -694,28 +653,23 @@ const VI: Record<string, string> = {
   'ph.building': 'Đang xây dựng',
   'ph.backHome': 'Về trang chủ',
 
-  // Video của tôi
   'mv.sub': 'Mọi video bạn đã dán link để dịch được lưu lại đây — không cần dán lại lần sau.',
   'mv.empty': 'Chưa có video nào được lưu.',
   'mv.first': 'Dịch video đầu tiên',
   'mv.remove': 'Xoá khỏi danh sách',
 
-  // Kho video
   'lib.title': 'Kho video {lang}',
   'lib.sub': '{n} video {lang} đã chọn lọc, đều có phụ đề — bấm vào để tạo bài học song ngữ.',
   'lib.all': 'Tất cả',
   'lib.empty': 'Kho video {lang} đang được cập nhật. Bạn có thể dán link YouTube {lang} ở Trang chủ để tạo bài học ngay.',
 
-  // Quà tặng admin
   'gift.title': 'Quà tặng từ Quản trị viên',
   'gift.amount': '+{n} xu',
   'gift.defaultMsg': 'Cảm ơn sự cố gắng của bạn, vì vậy admin tặng bạn {n} xu — hãy tiếp tục giữ lửa nhé, fighting! 🔥',
   'gift.thanks': 'Cảm ơn admin',
 
-  // Tài khoản
   'top.account': 'Tài khoản VyLing',
 
-  // Pet Shiba
   'pet.show': 'Hiện Shiba',
   'pet.hide': 'Ẩn Shiba',
   'pet.tap': 'Shiba — chạm để cổ vũ',
@@ -767,7 +721,6 @@ const VI: Record<string, string> = {
 }
 
 const EN: Record<string, string> = {
-  // Sidebar
   'brand.tagline': 'Learn languages through video',
   'side.streak': '{n}-day streak',
   'side.langs': 'Languages',
@@ -778,6 +731,8 @@ const EN: Record<string, string> = {
   'nav.path': 'Learning path',
   'nav.speaking': 'Speaking',
   'nav.english': 'English in 3 months',
+  'nav.toeic': 'TOEIC Prep',
+  'nav.korean': 'Korean Core Vocab',
   'nav.lingo': 'Hot Lingo',
   'nav.vocab': 'Vocabulary',
   'nav.flashcards': 'Review',
@@ -787,7 +742,6 @@ const EN: Record<string, string> = {
   'nav.shop': 'Shop',
   'nav.garden': 'My garden',
 
-  // Topbar
   'top.lookup': 'Look up words with AI',
   'top.search': 'Look up {lang} words…',
   'top.coins': 'Your coins',
@@ -802,7 +756,6 @@ const EN: Record<string, string> = {
   'top.menu.logout': 'Sign out',
   'top.uiLang': 'Interface language',
 
-  // Hero
   'hero.title': 'Shadow any video you love',
   'hero.sub': 'Paste a {lang} YouTube link to get bilingual subtitles instantly — learn line by line and save flashcards.',
   'hero.upload': 'Upload (coming soon)',
@@ -812,7 +765,6 @@ const EN: Record<string, string> = {
   'hero.tip': 'Tip: pick videos with {lang} subtitles for best quality. First load takes ~10-60 seconds.',
   'hero.sample': 'Try a sample lesson (no link needed)',
 
-  // Home
   'home.goalChip.set': '🎯 Goal:',
   'home.goalChip.none': '🎯 Pick a learning goal',
   'home.goalChip.hint': 'Change learning goal',
@@ -834,7 +786,6 @@ const EN: Record<string, string> = {
   'home.viewAll': 'View all',
   'home.empty': 'The {lang} library is being updated. Paste a {lang} YouTube link above to create a lesson right away.',
 
-  // Daily goal
   'dgoal.title': "Today's goal",
   'dgoal.levelHint': '{label} — {xp} XP/day · {coins} coin reward',
   'dgoal.lv30': 'Casual',
@@ -856,12 +807,10 @@ const EN: Record<string, string> = {
   'dgoal.level': 'Level {n}',
   'dgoal.levelNext': '{xp} XP to level {n}',
 
-  // Word of the day
   'wod.title': 'Word of the day',
   'wod.listen': 'Listen',
   'wod.deep': 'Explore with AI',
 
-  // Onboarding
   'ob.title': 'Why are you learning {lang}?',
   'ob.sub': "Pick a goal so VyLing suggests exactly what you need — learn what you'll use.",
   'ob.skip': "Later, I'd like to explore first",
@@ -874,7 +823,6 @@ const EN: Record<string, string> = {
   'goal.exam.label': 'Exam prep',
   'goal.exam.desc': 'Ace TOPIK, TOEIC, JLPT… with high scores',
 
-  // Feedback
   'fb.fab': 'Feedback',
   'fb.fabHint': 'Report a bug or share an idea',
   'fb.title': 'Feedback for VyLing',
@@ -889,7 +837,6 @@ const EN: Record<string, string> = {
   'fb.thanksSub': 'Your feedback has been sent — every note makes VyLing better.',
   'fb.close': 'Close',
 
-  // Learn page
   'learn.tab.speak': 'AI speaking',
   'learn.tab.dictation': 'Dictation',
   'learn.tab.cloze': 'Fill the gap',
@@ -900,7 +847,6 @@ const EN: Record<string, string> = {
   'learn.source': 'Source: {src} · {n} lines',
   'learn.clickLine': 'Click a line on the right to begin.',
 
-  // Subtitle list
   'subs.title': 'Subtitles',
   'subs.romaja': 'Reading aid',
   'subs.romajaHint': 'Toggle pronunciation guide',
@@ -910,7 +856,6 @@ const EN: Record<string, string> = {
   'subs.saved': 'Saved',
   'subs.save': 'Save',
 
-  // Word popup
   'wp.close': 'Close',
   'wp.loading': 'Looking up…',
   'wp.notFoundPre': 'No entry for',
@@ -920,13 +865,11 @@ const EN: Record<string, string> = {
   'wp.saved': 'Saved to your deck',
   'wp.save': 'Save this word',
 
-  // Score bands
   'band.excellent': 'Excellent!',
   'band.great': 'Great job',
   'band.ok': 'Not bad',
   'band.more': 'Keep practicing',
 
-  // Sentence speaking practice
   'sh.prev': 'Back',
   'sh.next': 'Next',
   'sh.line': 'Line {a}/{b}',
@@ -945,7 +888,6 @@ const EN: Record<string, string> = {
   'sh.aiFail': "Couldn't get AI feedback: {msg}",
   'sh.aiFailTip': 'Tip: the backend (start.bat) must be running with a Gemini key configured.',
 
-  // Dictation
   'dict.correct': '{n} correct',
   'dict.label': 'Listen and type it in {lang}',
   'dict.listen': 'Play',
@@ -957,7 +899,6 @@ const EN: Record<string, string> = {
   'dict.retype': 'Type again',
   'dict.nextLine': 'Next line',
 
-  // Translation practice
   'tp.b80': 'Excellent!',
   'tp.b50': 'Pretty good',
   'tp.b20': 'Keep going',
@@ -971,7 +912,6 @@ const EN: Record<string, string> = {
   'tp.ref': 'Reference answer:',
   'tp.result': 'See results',
 
-  // Summary
   'sm.aiTag': 'AI-generated summary of this video',
   'sm.overview': 'Overview',
   'sm.overviewText': 'The video “{title}” has {n} lines — great for beginner listening & speaking. It covers everyday conversation in short lines that are easy to shadow.',
@@ -1002,7 +942,6 @@ const EN: Record<string, string> = {
   'sm.p3': 'Re-translate the lines in the Translation tab without peeking.',
   'sm.p4': 'Record yourself and compare in the AI speaking tab.',
 
-  // Dubbing Studio
   'dub.char': 'Character {c}',
   'dub.introTitle': 'Dubbing Studio — role-play dubbing',
   'dub.introText': 'Mute the original and dub each line yourself. AI scores your pronunciation, rhythm and timing, then stitches your dub together.',
@@ -1047,7 +986,6 @@ const EN: Record<string, string> = {
   'dub.rec': 'Record',
   'dub.replay': 'Play back',
 
-  // Speaking
   'sp.title': 'Speak with AI',
   'sp.sub': 'Pick a scenario and chat in {lang} — an AI character replies, reads aloud, suggests lines and gives feedback on how you speak.',
   'sp.randomTitle': '🎲 Random conversation',
@@ -1080,7 +1018,6 @@ const EN: Record<string, string> = {
   'sp.aiNeeded': 'This scenario needs the AI connection. Please try again in a moment.',
   'sp.fallbackEnd': 'Awesome! You sounded very natural. Shall we practice again?',
 
-  // Learning path
   'path.kicker': 'COURSES',
   'path.heroTitle': 'Start your learning path',
   'path.heroSub': 'Create a personalized path or join a course from the community.',
@@ -1117,7 +1054,6 @@ const EN: Record<string, string> = {
   'path.next': 'Next',
   'path.confirm': 'Confirm',
 
-  // Vocabulary
   'vc.title': 'Vocabulary',
   'vc.sub': 'Learn, review and manage your word collection.',
   'vc.subKo': 'Learn, review and manage your word collection by TOPIK level.',
@@ -1152,7 +1088,6 @@ const EN: Record<string, string> = {
   'vc.importFlash': 'Imported {n} words into your collection!',
   'vc.packFlash': 'Added {n} “{name}” words — head to Review to study them!',
 
-  // Vocab modals
   'vm.cancel': 'Cancel',
   'vam.title': 'Add a new word',
   'vam.word': 'Word ({lang})',
@@ -1190,7 +1125,6 @@ const EN: Record<string, string> = {
   'cpm.adding': 'Adding…',
   'cpm.addAll': 'Add the whole pack ({n} words) to review',
 
-  // Review (SRS)
   'rv.again': 'Again',
   'rv.hard': 'Hard',
   'rv.good': 'Good',
@@ -1214,7 +1148,6 @@ const EN: Record<string, string> = {
   'rv.reveal': 'Show answer',
 
 
-  // Cloze
   'cz.label': 'Listen, then pick the missing word',
   'cz.empty': "This video doesn't have enough long lines for gap-fill practice — try another one.",
   'cz.right': 'Correct!',
@@ -1222,7 +1155,6 @@ const EN: Record<string, string> = {
   'cz.done': 'Done! {a}/{b} correct.',
 
 
-  // Grammar in context + CEFR
   'gx.button': 'Explain the grammar here',
   'gx.close': 'Hide explanation',
   'gx.loading': 'AI is analyzing the sentence…',
@@ -1230,7 +1162,6 @@ const EN: Record<string, string> = {
   'gx.levelBusy': 'Estimating…',
 
 
-  // Review mini-games + daily challenge
   'mg.back': 'Back',
   'mg.replay': 'Play again',
   'mg.seeResult': 'See result',
@@ -1243,7 +1174,6 @@ const EN: Record<string, string> = {
   'mg.dailyClaimed': "Today's challenge ✓",
   'mg.dailyDone': 'Daily challenge done! {a}/{b} correct.',
 
-  // Badges
   'bd.title': 'Achievements',
   'bd.earned': 'Earned',
   'bd.xp100': 'Warm-up', 'bd.xp100d': 'Reach 100 XP',
@@ -1259,7 +1189,6 @@ const EN: Record<string, string> = {
   'bd.videos5': 'Binge learner', 'bd.videos5d': 'Save 5 videos',
   'bd.plants3': 'Green thumb', 'bd.plants3d': 'Grow 3 plants in the garden',
 
-  // Quests
   'q.daily': 'Daily',
   'q.weekly': 'Weekly',
   'q.monthly': 'Monthly',
@@ -1274,7 +1203,6 @@ const EN: Record<string, string> = {
   'q.claimed': 'Reward claimed! 🎉',
   'q.bonusGot': 'Got +{n} coins for signing in! 🎁',
 
-  // Shop
   'shp.catAll': 'All items',
   'shp.catPet': 'Pets',
   'shp.catSeed': 'Seeds',
@@ -1299,7 +1227,6 @@ const EN: Record<string, string> = {
   'shp.bought': 'Bought "{name}"!',
   'shp.petWith': '{name} is now by your side!',
 
-  // Pricing / Plus
   'pr.promo': 'Launch offer — first purchase only',
   'pr.title': 'Upgrade to Premium',
   'pr.sub': 'Unlock the full video library, AI pronunciation coaching and every language — on all your devices.',
@@ -1314,7 +1241,6 @@ const EN: Record<string, string> = {
   'pr.renewed': 'Your Plus plan has been renewed 🎉',
   'pr.upgraded': 'Congrats! Your account is now Plus 🎉',
 
-  // Word lookup
   'lk.title': 'Word lookup',
   'lk.placeholder': 'Type a {lang} word…',
   'lk.go': 'Look up',
@@ -1340,7 +1266,6 @@ const EN: Record<string, string> = {
   'lk.saved': 'Saved to flashcards',
   'lk.save': 'Save to my flashcards',
 
-  // Garden
   'gd.title': 'My garden',
   'gd.sub': 'Plant the seeds you bought and water them after studying — your plants grow with your progress.',
   'gd.planting': 'Growing',
@@ -1361,7 +1286,6 @@ const EN: Record<string, string> = {
   'gd.stSprout': 'Sprouting',
   'gd.stSeed': 'Seed',
 
-  // Leaderboard
   'lb.title': 'Leaderboard',
   'lb.sub': 'Study every day to climb the ranks and shine with the VyLing community.',
   'lb.weekly': 'This week',
@@ -1377,7 +1301,6 @@ const EN: Record<string, string> = {
   'lb.upsellTitle': 'Shine on the leaderboard ✨',
   'lb.upsellText': 'Plus members get dazzling animated frames & badges. Upgrade to stand out!',
 
-  // My activities
   'act.title': 'My activities',
   'act.sub': "Track your progress to stay motivated — you're doing great!",
   'act.loginNote': 'Sign in to see your real study stats.',
@@ -1400,7 +1323,6 @@ const EN: Record<string, string> = {
   'act.paths': 'Active paths',
   'act.plants': 'Plants in garden',
 
-  // Hot Lingo
   'lg.title': 'Hot Lingo — slang radar',
   'lg.sub': 'Trending slang & phrases Koreans are using on social media right now.',
   'lg.refresh': 'Refresh',
@@ -1411,7 +1333,6 @@ const EN: Record<string, string> = {
   'lg.lookup': 'Full lookup',
   'lg.tip': 'Slang makes you sound like a native — just remember to keep it for casual settings!',
 
-  // Sign in / sign up
   'auth.welcome': 'Welcome to VyLing',
   'auth.sub': 'Sign in to keep your progress, coins, paths and leaderboard spot.',
   'auth.google': 'Continue with Google',
@@ -1426,7 +1347,6 @@ const EN: Record<string, string> = {
   'auth.signupNow': 'Sign up now',
   'auth.guest': 'Continue as guest',
 
-  // System status
   'dash.checking': 'Checking…',
   'dash.title': 'System status',
   'dash.sub': "Health checks for VyLing's background components.",
@@ -1436,7 +1356,6 @@ const EN: Record<string, string> = {
   'dash.fixBelow': 'Please fix the failing items below.',
   'dash.detail': 'Details',
 
-  // Placeholder pages
   'ph.myvideos': 'My videos',
   'ph.myvideosText': "Videos you've studied and your progress on each. They'll show up here once study history lands.",
   'ph.courses': 'Courses',
@@ -1448,28 +1367,23 @@ const EN: Record<string, string> = {
   'ph.building': 'Under construction',
   'ph.backHome': 'Back to home',
 
-  // My videos
   'mv.sub': 'Every video you pasted for translation is saved here — no need to paste it again.',
   'mv.empty': 'No saved videos yet.',
   'mv.first': 'Translate your first video',
   'mv.remove': 'Remove from list',
 
-  // Video library
   'lib.title': '{lang} video library',
   'lib.sub': '{n} hand-picked {lang} videos, all with subtitles — click one to build a bilingual lesson.',
   'lib.all': 'All',
   'lib.empty': 'The {lang} library is being stocked. Paste a {lang} YouTube link on the Home page to build a lesson right away.',
 
-  // Admin gift
   'gift.title': 'A gift from the Admin',
   'gift.amount': '+{n} coins',
   'gift.defaultMsg': 'Thanks for your hard work — the admin sends you {n} coins. Keep the fire burning, fighting! 🔥',
   'gift.thanks': 'Thanks, admin',
 
-  // Account
   'top.account': 'VyLing account',
 
-  // Shiba pet
   'pet.show': 'Show Shiba',
   'pet.hide': 'Hide Shiba',
   'pet.tap': 'Shiba — tap for a cheer',
@@ -1522,7 +1436,6 @@ const EN: Record<string, string> = {
 
 export const MESSAGES: Record<UiLang, Record<string, string>> = { vi: VI, en: EN }
 
-/** Tên hiển thị của ngôn ngữ HỌC theo ngôn ngữ giao diện (dùng trong {lang}). */
 const STUDY_NAMES: Record<UiLang, Record<string, string>> = {
   vi: { ko: 'Tiếng Hàn', en: 'Tiếng Anh', ja: 'Tiếng Nhật', zh: 'Tiếng Trung', de: 'Tiếng Đức', vi: 'Tiếng Việt' },
   en: { ko: 'Korean', en: 'English', ja: 'Japanese', zh: 'Chinese', de: 'German', vi: 'Vietnamese' },
@@ -1532,7 +1445,6 @@ export function studyLangName(uiLang: UiLang, code: string): string {
   return STUDY_NAMES[uiLang][code] || STUDY_NAMES.vi[code] || code
 }
 
-/** Tên NGÔN NGỮ MẸ ĐẺ theo ngôn ngữ giao diện (vd. "tiếng Việt" / "Vietnamese"). */
 const NATIVE_NAMES_EN: Record<string, string> = {
   vi: 'Vietnamese', en: 'English', ja: 'Japanese', zh: 'Chinese', ko: 'Korean', id: 'Indonesian',
   es: 'Spanish', fr: 'French', de: 'German', ru: 'Russian', it: 'Italian', pt: 'Portuguese', th: 'Thai',

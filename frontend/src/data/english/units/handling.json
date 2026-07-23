@@ -1,0 +1,32 @@
+{
+  "id": "handling",
+  "name": "Thao tác với đồ vật",
+  "sub": "Wipe, fold, wrap, pack, stick, knock…",
+  "pos": "verb",
+  "tone": "tone-c",
+  "emoji": "🤲",
+  "words": [
+    { "en": "wipe", "ipa": "/waɪp/", "vi": "lau", "pos": "verb", "img": "🧻", "connect": "\"Wai-p\" — lau sạch bề mặt.", "ex": "Wipe the table after eating.", "exVi": "Ăn xong lau bàn nhé." },
+    { "en": "rub", "ipa": "/rʌb/", "vi": "chà xát, xoa", "pos": "verb", "img": "🙌", "connect": "\"Răp\" — xoa hai tay vào nhau.", "ex": "Rub your hands to keep warm.", "exVi": "Xoa tay cho ấm." },
+    { "en": "scratch", "ipa": "/skrætʃ/", "vi": "gãi, cào xước", "pos": "verb", "img": "🐾", "connect": "\"Sờ-krét-ch\" — mèo cào, gãi ngứa.", "ex": "The cat scratched the sofa.", "exVi": "Con mèo cào rách ghế sofa." },
+    { "en": "polish", "ipa": "/ˈpɑː.lɪʃ/", "vi": "đánh bóng", "pos": "verb", "img": "✨", "connect": "\"Pó-lịsh\" — chà tới khi sáng bóng.", "ex": "He polished his shoes.", "exVi": "Anh ấy đánh bóng đôi giày." },
+    { "en": "fold", "ipa": "/foʊld/", "vi": "gấp, gập", "pos": "verb", "img": "🧺", "connect": "\"Phâu-ld\" — gấp quần áo, gấp giấy.", "ex": "Fold the clothes neatly.", "exVi": "Gấp quần áo cho gọn." },
+    { "en": "wrap", "ipa": "/ræp/", "vi": "gói, bọc", "pos": "verb", "img": "🎁", "connect": "\"Rép\" — chữ \"w\" câm; gói quà.", "ex": "Wrap the gift with red paper.", "exVi": "Gói món quà bằng giấy đỏ." },
+    { "en": "pack", "ipa": "/pæk/", "vi": "đóng gói, xếp đồ", "pos": "verb", "img": "🧳", "connect": "\"Pék\" — xếp đồ vào vali.", "ex": "Pack your bags tonight.", "exVi": "Tối nay xếp hành lý đi." },
+    { "en": "unpack", "ipa": "/ʌnˈpæk/", "vi": "dỡ đồ ra", "pos": "verb", "img": "📤", "connect": "un (ngược) + pack — mở đồ ra.", "ex": "We unpacked after the trip.", "exVi": "Chúng tôi dỡ đồ sau chuyến đi." },
+    { "en": "remove", "ipa": "/rɪˈmuːv/", "vi": "tháo, gỡ bỏ", "pos": "verb", "img": "🚫", "connect": "\"Ri-mu-v\" — lấy ra khỏi chỗ cũ.", "ex": "Remove your shoes at the door.", "exVi": "Bỏ giày ở cửa nhé." },
+    { "en": "repair", "ipa": "/rɪˈper/", "vi": "sửa chữa", "pos": "verb", "img": "🔧", "connect": "\"Ri-pe\" — sửa lại như mới (như fix).", "ex": "They repaired the old roof.", "exVi": "Họ sửa lại mái nhà cũ." },
+    { "en": "press", "ipa": "/pres/", "vi": "ấn, nhấn", "pos": "verb", "img": "🔘", "connect": "\"Prét-s\" — ấn nút.", "ex": "Press the red button.", "exVi": "Nhấn nút màu đỏ." },
+    { "en": "stick", "ipa": "/stɪk/", "vi": "dán, dính; que", "pos": "verb", "img": "📌", "connect": "\"Sờ-tíc\" — dán sticker.", "ex": "Stick the note on the fridge.", "exVi": "Dán mẩu giấy lên tủ lạnh." },
+    { "en": "attach", "ipa": "/əˈtætʃ/", "vi": "đính kèm, gắn vào", "pos": "verb", "img": "📎", "connect": "\"Ờ-tét-ch\" — đính file vào email.", "ex": "Attach the file to the email.", "exVi": "Đính kèm tệp vào email." },
+    { "en": "knock", "ipa": "/nɑːk/", "vi": "gõ (cửa)", "pos": "verb", "img": "🚪", "connect": "\"Nóc\" — chữ \"k\" đầu câm; cốc cốc.", "ex": "Knock before entering.", "exVi": "Gõ cửa trước khi vào." },
+    { "en": "dip", "ipa": "/dɪp/", "vi": "nhúng, chấm", "pos": "verb", "img": "🍟", "connect": "\"Đíp\" — chấm khoai vào sốt.", "ex": "Dip the spring roll in the sauce.", "exVi": "Chấm chả giò vào nước chấm." },
+    { "en": "soak", "ipa": "/soʊk/", "vi": "ngâm", "pos": "verb", "img": "🫧", "connect": "\"Sâu-k\" — ngâm trong nước lâu.", "ex": "Soak the beans overnight.", "exVi": "Ngâm đậu qua đêm." },
+    { "en": "pinch", "ipa": "/pɪntʃ/", "vi": "véo, nhúm", "pos": "verb", "img": "🤏", "connect": "\"Pin-ch\" — véo má; một nhúm muối.", "ex": "Add a pinch of salt.", "exVi": "Thêm một nhúm muối." },
+    { "en": "spray", "ipa": "/spreɪ/", "vi": "xịt, phun", "pos": "verb", "img": "💨", "connect": "\"Sờ-prê\" — xịt nước hoa.", "ex": "Spray water on the plants.", "exVi": "Phun nước lên cây." },
+    { "en": "spill", "ipa": "/spɪl/", "vi": "làm đổ (chất lỏng)", "pos": "verb", "img": "🥛", "connect": "\"Sờ-pil\" — đổ tràn ra ngoài.", "ex": "I spilled coffee on my shirt.", "exVi": "Tôi làm đổ cà phê ra áo." },
+    { "en": "scrub", "ipa": "/skrʌb/", "vi": "cọ rửa mạnh", "pos": "verb", "img": "🧽", "connect": "\"Sờ-krăp\" — cọ thật mạnh cho sạch.", "ex": "Scrub the pot until it shines.", "exVi": "Cọ cái nồi tới khi sáng bóng." },
+    { "en": "drag", "ipa": "/dræɡ/", "vi": "kéo lê", "pos": "verb", "img": "🛷", "connect": "\"Đrég\" — kéo lết trên sàn (drag chuột).", "ex": "Don't drag the chair on the floor.", "exVi": "Đừng kéo lê cái ghế trên sàn." },
+    { "en": "toss", "ipa": "/tɑːs/", "vi": "quăng nhẹ, tung", "pos": "verb", "img": "🪙", "connect": "\"Tót-s\" — tung đồng xu.", "ex": "Toss me the keys, please.", "exVi": "Quăng chùm chìa khoá cho tôi với." }
+  ]
+}

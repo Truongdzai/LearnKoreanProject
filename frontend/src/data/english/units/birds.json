@@ -1,0 +1,29 @@
+{
+  "id": "birds",
+  "name": "Chim & côn trùng nhỏ",
+  "sub": "Eagle, owl, parrot, mosquito, nest…",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🦉",
+  "words": [
+    { "en": "eagle", "ipa": "/ˈiː.ɡəl/", "vi": "đại bàng", "pos": "noun", "img": "🦅", "connect": "\"I-gồ\" — vua bầu trời.", "ex": "The eagle flies very high.", "exVi": "Đại bàng bay rất cao." },
+    { "en": "owl", "ipa": "/aʊl/", "vi": "con cú", "pos": "noun", "img": "🦉", "connect": "\"Ao-l\" — cú thức đêm.", "ex": "Owls hunt at night.", "exVi": "Cú săn mồi vào ban đêm." },
+    { "en": "parrot", "ipa": "/ˈper.ət/", "vi": "con vẹt", "pos": "noun", "img": "🦜", "connect": "\"Pe-rợt\" — vẹt bắt chước tiếng người.", "ex": "The parrot can say hello.", "exVi": "Con vẹt biết nói xin chào." },
+    { "en": "pigeon", "ipa": "/ˈpɪdʒ.ən/", "vi": "bồ câu", "pos": "noun", "img": "🕊️", "connect": "\"Pi-jừn\" — bồ câu thành phố.", "ex": "Pigeons gather in the square.", "exVi": "Bồ câu tụ tập ở quảng trường." },
+    { "en": "sparrow", "ipa": "/ˈsper.oʊ/", "vi": "chim sẻ", "pos": "noun", "img": "🐦", "connect": "\"Sờ-pe-râu\" — sẻ nhỏ ríu rít.", "ex": "A sparrow sat on the wire.", "exVi": "Một chú sẻ đậu trên dây điện." },
+    { "en": "crow", "ipa": "/kroʊ/", "vi": "con quạ", "pos": "noun", "img": "🐦‍⬛", "connect": "\"Krâu\" — quạ đen thông minh.", "ex": "Crows are very clever birds.", "exVi": "Quạ là loài chim rất thông minh." },
+    { "en": "swan", "ipa": "/swɑːn/", "vi": "thiên nga", "pos": "noun", "img": "🦢", "connect": "\"Su-oan\" — thiên nga trắng muốt.", "ex": "Swans swim on the lake.", "exVi": "Thiên nga bơi trên hồ." },
+    { "en": "peacock", "ipa": "/ˈpiː.kɑːk/", "vi": "con công", "pos": "noun", "img": "🦚", "connect": "\"Pi-cóc\" — công xoè đuôi rực rỡ.", "ex": "The peacock spread its tail.", "exVi": "Con công xoè bộ đuôi." },
+    { "en": "hawk", "ipa": "/hɑːk/", "vi": "chim ưng", "pos": "noun", "img": "🦅", "connect": "\"Hóc\" — mắt tinh như chim ưng.", "ex": "The hawk caught a mouse.", "exVi": "Con chim ưng bắt được một con chuột." },
+    { "en": "bat", "ipa": "/bæt/", "vi": "con dơi", "pos": "noun", "img": "🦇", "connect": "\"Bét\" — dơi treo ngược (cũng là gậy bóng chày).", "ex": "Bats sleep during the day.", "exVi": "Dơi ngủ vào ban ngày." },
+    { "en": "snail", "ipa": "/sneɪl/", "vi": "ốc sên", "pos": "noun", "img": "🐌", "connect": "\"Sờ-nê-l\" — chậm như sên.", "ex": "The snail moves slowly.", "exVi": "Con ốc sên bò chầm chậm." },
+    { "en": "worm", "ipa": "/wɜːrm/", "vi": "con giun, sâu", "pos": "noun", "img": "🪱", "connect": "\"Wơm\" — giun đất.", "ex": "Birds eat worms.", "exVi": "Chim ăn giun." },
+    { "en": "mosquito", "ipa": "/məˈskiː.t̬oʊ/", "vi": "con muỗi", "pos": "noun", "img": "🦟", "connect": "\"Mờ-ski-tâu\" — muỗi vo ve.", "ex": "A mosquito bit my arm.", "exVi": "Một con muỗi đốt tay tôi." },
+    { "en": "cockroach", "ipa": "/ˈkɑːk.roʊtʃ/", "vi": "con gián", "pos": "noun", "img": "🪳", "connect": "\"Cóc-râu-ch\" — gián chạy trong bếp.", "ex": "She screamed at the cockroach.", "exVi": "Cô ấy hét lên vì con gián." },
+    { "en": "lizard", "ipa": "/ˈlɪz.ɚd/", "vi": "thằn lằn", "pos": "noun", "img": "🦎", "connect": "\"Li-zợd\" — thằn lằn trên tường.", "ex": "A lizard ran up the wall.", "exVi": "Một con thằn lằn chạy lên tường." },
+    { "en": "moth", "ipa": "/mɑːθ/", "vi": "bướm đêm", "pos": "noun", "img": "🦋", "connect": "\"Móth\" — bướm lao vào ánh đèn.", "ex": "Moths fly around the lamp.", "exVi": "Bướm đêm bay quanh ngọn đèn." },
+    { "en": "dragonfly", "ipa": "/ˈdræɡ.ən.flaɪ/", "vi": "chuồn chuồn", "pos": "noun", "img": "🪰", "connect": "dragon (rồng) + fly — rồng bay tí hon.", "ex": "Dragonflies fly over the pond.", "exVi": "Chuồn chuồn bay trên mặt ao." },
+    { "en": "beetle", "ipa": "/ˈbiː.t̬əl/", "vi": "bọ cánh cứng", "pos": "noun", "img": "🪲", "connect": "\"Bi-tồ\" — bọ giáp cứng.", "ex": "The beetle has a hard shell.", "exVi": "Con bọ có lớp vỏ cứng." },
+    { "en": "nest", "ipa": "/nest/", "vi": "cái tổ", "pos": "noun", "img": "🪺", "connect": "\"Nét-st\" — tổ chim trên cây.", "ex": "The bird built a nest.", "exVi": "Con chim xây một cái tổ." }
+  ]
+}

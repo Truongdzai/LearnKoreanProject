@@ -307,7 +307,6 @@ def bonus_available(user_id: str) -> bool:
     return not (row and row["claimed"])
 
 
-# Rương thưởng khi đạt mục tiêu XP hằng ngày — phần thưởng tỉ lệ với mức đã chọn.
 GOAL_BONUS_ID = "sys-goal-bonus"
 GOAL_LEVELS = {30, 50, 100, 200}
 
@@ -348,7 +347,7 @@ def goal_bonus(user: dict, goal: int) -> dict:
     return {"ok": True, "reward": reward, "user": accounts.public_user(user2)}
 
 
-_EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0}
+_EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0, "toeic": 10, "grammar": 10}
 
 
 def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, words: int = 0) -> dict:
@@ -358,14 +357,18 @@ def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, word
     xp_gain = _EVENT_XP.get(etype, 0) * amount
     lessons = amount if etype == "lesson" else 0
     word_gain = words or (amount if etype == "word" else 0)
+    videos = amount if etype == "video" else 0
+    reviews = amount if etype == "review" else 0
 
     conn = db.get_conn()
     try:
         conn.execute(
-            "INSERT INTO activity_log (user_id, day, minutes, words, xp, lessons) VALUES (?,?,?,?,?,?) "
+            "INSERT INTO activity_log (user_id, day, minutes, words, xp, lessons, videos, reviews) "
+            "VALUES (?,?,?,?,?,?,?,?) "
             "ON CONFLICT(user_id, day) DO UPDATE SET minutes = minutes + ?, words = words + ?, "
-            "xp = xp + ?, lessons = lessons + ?",
-            (user["id"], today, minutes, word_gain, xp_gain, lessons, minutes, word_gain, xp_gain, lessons),
+            "xp = xp + ?, lessons = lessons + ?, videos = videos + ?, reviews = reviews + ?",
+            (user["id"], today, minutes, word_gain, xp_gain, lessons, videos, reviews,
+             minutes, word_gain, xp_gain, lessons, videos, reviews),
         )
         for q in catalog.quests():
             if q["metric"] == etype and q["metric"] not in {"streak", "login"}:
@@ -414,4 +417,69 @@ def activities(user_id: str) -> dict:
         "totalMinutes": sum(minutes),
         "totalWords": sum(words),
         "srsTotal": srs_total,
+    }
+
+
+PLAN_DATA_MAX = 128 * 1024
+
+
+def get_plan(user_id: str, plan_id: str) -> dict:
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT data, updated_at FROM user_plans WHERE user_id = ? AND plan_id = ?",
+            (user_id, plan_id),
+        ).fetchone()
+    finally:
+        conn.close()
+    if not row:
+        return {"ok": True, "data": None, "updatedAt": None}
+    try:
+        data = json.loads(row["data"])
+    except Exception:
+        data = None
+    return {"ok": True, "data": data, "updatedAt": row["updated_at"]}
+
+
+def set_plan(user_id: str, plan_id: str, data: dict) -> dict:
+    raw = json.dumps(data, ensure_ascii=False)
+    if len(raw.encode("utf-8")) > PLAN_DATA_MAX:
+        raise AppError("VALIDATION", "Dữ liệu lộ trình quá lớn.", 422)
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "INSERT INTO user_plans (user_id, plan_id, data) VALUES (?,?,?) "
+            "ON CONFLICT(user_id, plan_id) DO UPDATE SET data = ?, "
+            "updated_at = datetime('now','localtime')",
+            (user_id, plan_id, raw, raw),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return {"ok": True}
+
+
+def activity_days(user_id: str, since: str) -> dict:
+    try:
+        start = date.fromisoformat(since)
+    except ValueError:
+        raise AppError("VALIDATION", "Tham số since phải là ngày YYYY-MM-DD.", 422)
+    floor = date.today() - timedelta(days=400)
+    if start < floor:
+        start = floor
+    conn = db.get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT day, minutes, words, lessons, videos, reviews FROM activity_log "
+            "WHERE user_id = ? AND day >= ? ORDER BY day",
+            (user_id, start.isoformat()),
+        ).fetchall()
+    finally:
+        conn.close()
+    return {
+        "days": [
+            {"day": r["day"], "minutes": r["minutes"], "words": r["words"],
+             "lessons": r["lessons"], "videos": r["videos"], "reviews": r["reviews"]}
+            for r in rows
+        ]
     }

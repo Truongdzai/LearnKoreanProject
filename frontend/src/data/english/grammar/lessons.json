@@ -1,0 +1,344 @@
+[
+  {
+    "id": "e01", "title": "Động từ \"to be\": am / is / are", "tag": "Nền móng",
+    "points": [
+      "I → am · you/we/they → are · he/she/it → is. Rút gọn: I'm, you're, he's, she's, it's.",
+      "To be + nghề nghiệp / tính từ / nơi chốn: I am a student · She is happy · They are at home.",
+      "Phủ định thêm not: I am not · he isn't · we aren't.",
+      "Câu hỏi: đảo to be lên trước chủ ngữ — Are you tired? → Yes, I am / No, I'm not."
+    ],
+    "examples": [
+      { "en": "I'm from Vietnam and I'm a nurse.", "vi": "Tôi đến từ Việt Nam và tôi là y tá." },
+      { "en": "She isn't at home right now.", "vi": "Cô ấy không có ở nhà lúc này." }
+    ],
+    "drill": [
+      { "text": "My parents ___ very kind to everyone.", "options": ["is", "am", "are", "be"], "answer": 2, "explain": "\"parents\" số nhiều → are." },
+      { "text": "___ you free this evening?", "options": ["Is", "Are", "Am", "Do"], "answer": 1, "explain": "Câu hỏi với \"you\" → Are you...?" },
+      { "text": "He ___ a teacher — he's a student.", "options": ["isn't", "aren't", "am not", "not"], "answer": 0, "explain": "he → is; phủ định là isn't." },
+      { "text": "I ___ so tired after a long day.", "options": ["is", "are", "am", "be"], "answer": 2, "explain": "I luôn đi với am." }
+    ]
+  },
+  {
+    "id": "e02", "title": "Đại từ & sở hữu", "tag": "Nền móng",
+    "points": [
+      "Chủ ngữ: I, you, he, she, it, we, they. Tân ngữ (sau động từ / giới từ): me, you, him, her, it, us, them.",
+      "Tính từ sở hữu đứng TRƯỚC danh từ: my, your, his, her, its, our, their — my phone, their house.",
+      "Đại từ sở hữu đứng MỘT MÌNH (không có danh từ theo sau): mine, yours, his, hers, ours, theirs.",
+      "Mẹo: \"This is my book\" ↔ \"This book is mine\" — cùng nghĩa, khác vị trí."
+    ],
+    "examples": [
+      { "en": "Can you help me? My phone is broken.", "vi": "Bạn giúp tôi được không? Điện thoại của tôi hỏng rồi." },
+      { "en": "That car is theirs, not ours.", "vi": "Chiếc xe đó là của họ, không phải của chúng ta." }
+    ],
+    "drill": [
+      { "text": "Can you call ___ tonight?", "options": ["I", "me", "my", "mine"], "answer": 1, "explain": "Sau động từ \"call\" cần tân ngữ → me." },
+      { "text": "This umbrella is ___.", "options": ["my", "me", "mine", "I"], "answer": 2, "explain": "Đứng một mình, không có danh từ theo sau → đại từ sở hữu \"mine\"." },
+      { "text": "___ house is next to the school.", "options": ["Them", "They", "Their", "Theirs"], "answer": 2, "explain": "Trước danh từ \"house\" cần tính từ sở hữu → their." },
+      { "text": "I really like ___ new haircut.", "options": ["you", "your", "yours", "yourself"], "answer": 1, "explain": "Trước danh từ \"haircut\" → your." }
+    ]
+  },
+  {
+    "id": "e03", "title": "Hiện tại đơn: thói quen & sự thật", "tag": "Thì cơ bản",
+    "points": [
+      "Diễn tả thói quen, lịch trình, sự thật: I work every day · The sun rises in the east.",
+      "Ngôi thứ 3 số ít (he / she / it) thêm -s / -es: works, goes, watches, studies.",
+      "Phủ định & câu hỏi dùng do / does + động từ nguyên thể: She doesn't eat meat · Do you like coffee?",
+      "Trạng từ tần suất đứng trước động từ thường: always, usually, often, sometimes, never."
+    ],
+    "examples": [
+      { "en": "He works in a hospital near the river.", "vi": "Anh ấy làm việc ở một bệnh viện gần sông." },
+      { "en": "I usually get up at six o'clock.", "vi": "Tôi thường thức dậy lúc 6 giờ." }
+    ],
+    "drill": [
+      { "text": "She ___ to work by bike every day.", "options": ["go", "goes", "going", "went"], "answer": 1, "explain": "Ngôi thứ 3 số ít (she) thêm s → goes." },
+      { "text": "___ you like spicy food?", "options": ["Does", "Do", "Are", "Is"], "answer": 1, "explain": "Chủ ngữ \"you\" → dùng Do trong câu hỏi." },
+      { "text": "My dad ___ drink coffee.", "options": ["don't", "doesn't", "isn't", "not"], "answer": 1, "explain": "Ngôi thứ 3 số ít, phủ định → doesn't + nguyên thể." },
+      { "text": "We ___ dinner at seven every night.", "options": ["has", "have", "having", "haves"], "answer": 1, "explain": "we → have (không thêm s)." }
+    ]
+  },
+  {
+    "id": "e04", "title": "Hiện tại tiếp diễn: đang xảy ra", "tag": "Thì cơ bản",
+    "points": [
+      "am / is / are + V-ing: hành động đang diễn ra ngay lúc nói — Listen! The baby is crying.",
+      "Cũng dùng cho kế hoạch gần chắc chắn: We're meeting Anna tomorrow.",
+      "Quy tắc thêm -ing: make → making · run → running · study → studying.",
+      "Dấu hiệu: now, right now, at the moment, Look!, Listen! (khác \"every day / usually\" của hiện tại đơn)."
+    ],
+    "examples": [
+      { "en": "Be quiet — the baby is sleeping.", "vi": "Khẽ thôi — em bé đang ngủ." },
+      { "en": "What are you doing this weekend?", "vi": "Cuối tuần này bạn định làm gì?" }
+    ],
+    "drill": [
+      { "text": "Be quiet! The baby ___.", "options": ["sleep", "sleeps", "is sleeping", "slept"], "answer": 2, "explain": "Đang xảy ra ngay lúc này → is + V-ing." },
+      { "text": "What ___ you ___ right now?", "options": ["do / do", "are / doing", "is / doing", "are / do"], "answer": 1, "explain": "Câu hỏi hiện tại tiếp diễn → are you doing." },
+      { "text": "They ___ TV at the moment.", "options": ["watch", "watches", "are watching", "watched"], "answer": 2, "explain": "\"at the moment\" → hiện tại tiếp diễn." },
+      { "text": "Look! It ___ outside.", "options": ["rain", "rains", "is raining", "rained"], "answer": 2, "explain": "\"Look!\" báo hiệu điều đang diễn ra → is raining." }
+    ]
+  },
+  {
+    "id": "e05", "title": "There is / There are", "tag": "Câu mô tả",
+    "points": [
+      "There is + danh từ số ít hoặc không đếm được: There is a park near my house.",
+      "There are + danh từ số nhiều: There are two cafés on this street.",
+      "Phủ định: There isn't / There aren't. Câu hỏi: Is there...? / Are there...?",
+      "Đừng nhầm với \"It is\" (nói về một vật cụ thể đã xác định)."
+    ],
+    "examples": [
+      { "en": "There's a lot of traffic today.", "vi": "Hôm nay có rất nhiều xe cộ (kẹt xe)." },
+      { "en": "Are there any tickets left?", "vi": "Còn vé nào không?" }
+    ],
+    "drill": [
+      { "text": "___ a nice café near my house.", "options": ["There is", "There are", "It is", "Have"], "answer": 0, "explain": "\"café\" số ít → There is." },
+      { "text": "___ many people at the market today.", "options": ["There is", "There are", "It is", "Has"], "answer": 1, "explain": "\"people\" số nhiều → There are." },
+      { "text": "___ any milk in the fridge?", "options": ["There is", "Is there", "Are there", "There are"], "answer": 1, "explain": "Câu hỏi + \"milk\" (không đếm được) → Is there...?" },
+      { "text": "There ___ two banks on this street.", "options": ["is", "are", "has", "have"], "answer": 1, "explain": "\"two banks\" số nhiều → are." }
+    ]
+  },
+  {
+    "id": "e06", "title": "Mạo từ: a / an / the", "tag": "Danh từ",
+    "points": [
+      "a + phụ âm, an + âm nguyên âm (nghe âm, không phải chữ): a book · an apple · an hour · a university.",
+      "a / an: nói tới lần đầu, chung chung. the: cả người nói và người nghe đều biết đang nói cái nào.",
+      "Không mạo từ với danh từ số nhiều / không đếm được nói chung: I like music · Cats are cute.",
+      "the với vật duy nhất & nhạc cụ: the sun, the internet, play the guitar."
+    ],
+    "examples": [
+      { "en": "I saw a dog. The dog was huge!", "vi": "Tôi thấy một con chó. Con chó đó to khủng khiếp!" },
+      { "en": "She plays the piano every evening.", "vi": "Cô ấy chơi piano mỗi tối." }
+    ],
+    "drill": [
+      { "text": "I need ___ umbrella; it's raining.", "options": ["a", "an", "the", "—"], "answer": 1, "explain": "\"umbrella\" bắt đầu bằng âm nguyên âm → an." },
+      { "text": "She plays ___ guitar beautifully.", "options": ["a", "an", "the", "—"], "answer": 2, "explain": "Nhạc cụ dùng the: play the guitar." },
+      { "text": "We saw a cat. ___ cat was black.", "options": ["A", "An", "The", "—"], "answer": 2, "explain": "Nhắc lại con mèo đã nói tới → the." },
+      { "text": "I really love ___ music.", "options": ["a", "an", "the", "—"], "answer": 3, "explain": "Danh từ không đếm được nói chung → không mạo từ." }
+    ]
+  },
+  {
+    "id": "e07", "title": "Số nhiều & some / any / much / many", "tag": "Danh từ",
+    "points": [
+      "Số nhiều thêm -s / -es; bất quy tắc: man → men · child → children · foot → feet · person → people.",
+      "Danh từ không đếm được (water, money, rice, information) KHÔNG thêm s.",
+      "some trong câu khẳng định, any trong phủ định / câu hỏi: I have some money · I don't have any money.",
+      "many + đếm được số nhiều; much + không đếm được: many friends · much time."
+    ],
+    "examples": [
+      { "en": "There aren't any eggs in the fridge.", "vi": "Trong tủ lạnh không còn quả trứng nào." },
+      { "en": "How many people came to the party?", "vi": "Có bao nhiêu người đến bữa tiệc?" }
+    ],
+    "drill": [
+      { "text": "There are three ___ in the yard.", "options": ["child", "childs", "children", "childrens"], "answer": 2, "explain": "child → children (số nhiều bất quy tắc)." },
+      { "text": "I don't have ___ money right now.", "options": ["some", "any", "many", "a"], "answer": 1, "explain": "Câu phủ định → any." },
+      { "text": "How ___ sugar do you want in your tea?", "options": ["many", "much", "some", "a"], "answer": 1, "explain": "\"sugar\" không đếm được → much." },
+      { "text": "She has ___ friends in Korea.", "options": ["much", "a", "many", "any"], "answer": 2, "explain": "\"friends\" đếm được số nhiều → many." }
+    ]
+  },
+  {
+    "id": "e08", "title": "Quá khứ đơn: chuyện đã qua", "tag": "Thì cơ bản",
+    "points": [
+      "Động từ có quy tắc thêm -ed: worked, played, watched, cooked.",
+      "Bất quy tắc phải học thuộc: go → went · have → had · see → saw · buy → bought · eat → ate.",
+      "Phủ định & câu hỏi dùng did + động từ nguyên thể: I didn't go · Did you see it?",
+      "Mốc thời gian: yesterday, last week, in 2020, two days ago."
+    ],
+    "examples": [
+      { "en": "We watched a movie last night.", "vi": "Tối qua chúng tôi xem một bộ phim." },
+      { "en": "Did she call you yesterday?", "vi": "Hôm qua cô ấy có gọi cho bạn không?" }
+    ],
+    "drill": [
+      { "text": "We ___ a great movie last night.", "options": ["watch", "watched", "watches", "watching"], "answer": 1, "explain": "\"last night\" → quá khứ; watch có quy tắc → watched." },
+      { "text": "She ___ to Paris in 2019.", "options": ["go", "goes", "went", "gone"], "answer": 2, "explain": "go bất quy tắc → went." },
+      { "text": "___ you finish your homework?", "options": ["Do", "Did", "Are", "Was"], "answer": 1, "explain": "Câu hỏi quá khứ → Did + nguyên thể." },
+      { "text": "I ___ see him yesterday.", "options": ["don't", "didn't", "wasn't", "not"], "answer": 1, "explain": "Phủ định quá khứ → didn't + nguyên thể." }
+    ]
+  },
+  {
+    "id": "e09", "title": "Tương lai: will & be going to", "tag": "Thì cơ bản",
+    "points": [
+      "will: quyết định ngay lúc nói, dự đoán, lời hứa — The phone's ringing, I'll get it.",
+      "be going to: kế hoạch / dự định đã có, hoặc dấu hiệu rõ ràng — I'm going to study tonight.",
+      "Phủ định: won't (= will not) · am / is / are not going to.",
+      "Câu hỏi: Will you come? · What are you going to do?"
+    ],
+    "examples": [
+      { "en": "Look at those clouds — it's going to rain.", "vi": "Nhìn mấy đám mây kìa — trời sắp mưa." },
+      { "en": "Don't worry, I'll call you later.", "vi": "Đừng lo, lát nữa tôi sẽ gọi cho bạn." }
+    ],
+    "drill": [
+      { "text": "Look at the sky — it ___ rain.", "options": ["is going to", "will to", "goes to", "going"], "answer": 0, "explain": "Có dấu hiệu rõ (mây đen) → be going to." },
+      { "text": "The phone is ringing. I ___ answer it.", "options": ["am going to", "will", "going to", "would"], "answer": 1, "explain": "Quyết định ngay lúc nói → will." },
+      { "text": "We ___ visit grandma this weekend.", "options": ["will to", "are going to", "going to", "goes"], "answer": 1, "explain": "Kế hoạch đã định → be going to." },
+      { "text": "Don't worry, I ___ forget your birthday.", "options": ["won't", "willn't", "don't", "am not"], "answer": 0, "explain": "will not viết tắt là won't." }
+    ]
+  },
+  {
+    "id": "e10", "title": "Câu hỏi Wh- (What / Where / When...)", "tag": "Đặt câu hỏi",
+    "points": [
+      "What (cái gì) · Where (ở đâu) · When (khi nào) · Who (ai) · Why (tại sao) · How (thế nào).",
+      "Cấu trúc: Wh- + trợ động từ (do/does/did/are...) + chủ ngữ + động từ — Where do you live?",
+      "Với to be: Where are you? · Who is she? (không cần do).",
+      "How đi với tính từ / trạng từ: how much, how many, how old, how often."
+    ],
+    "examples": [
+      { "en": "How often do you exercise?", "vi": "Bạn tập thể dục thường xuyên đến mức nào?" },
+      { "en": "Why are you late today?", "vi": "Sao hôm nay bạn đến muộn thế?" }
+    ],
+    "drill": [
+      { "text": "___ do you live?", "options": ["What", "Where", "When", "Who"], "answer": 1, "explain": "Hỏi nơi chốn → Where." },
+      { "text": "___ is your birthday?", "options": ["Where", "Who", "When", "How"], "answer": 2, "explain": "Hỏi thời gian → When." },
+      { "text": "___ are you learning English?", "options": ["What", "Where", "Why", "Who"], "answer": 2, "explain": "Hỏi lý do → Why." },
+      { "text": "___ much is this shirt?", "options": ["What", "How", "Where", "Who"], "answer": 1, "explain": "Hỏi giá tiền → How much." }
+    ]
+  },
+  {
+    "id": "e11", "title": "So sánh hơn & so sánh nhất", "tag": "Tính từ",
+    "points": [
+      "Tính từ ngắn: thêm -er (so sánh hơn) / -est (so sánh nhất) — cheap → cheaper → the cheapest.",
+      "Tính từ dài: dùng more / the most — expensive → more expensive → the most expensive.",
+      "Bất quy tắc: good → better → best · bad → worse → worst · far → farther.",
+      "So sánh hơn thường đi với than: Hà Nội is cheaper than Tokyo."
+    ],
+    "examples": [
+      { "en": "This is the best coffee in town.", "vi": "Đây là cà phê ngon nhất thành phố." },
+      { "en": "My phone is more expensive than yours.", "vi": "Điện thoại của tôi đắt hơn của bạn." }
+    ],
+    "drill": [
+      { "text": "This bag is ___ than that one.", "options": ["cheap", "cheaper", "cheapest", "more cheap"], "answer": 1, "explain": "So sánh hơn tính từ ngắn: cheap → cheaper (+ than)." },
+      { "text": "Today is the ___ day of the year.", "options": ["hot", "hotter", "hottest", "most hot"], "answer": 2, "explain": "So sánh nhất tính từ ngắn: the hottest." },
+      { "text": "Gold is ___ expensive than silver.", "options": ["more", "most", "much", "the most"], "answer": 0, "explain": "Tính từ dài → more expensive." },
+      { "text": "This is the ___ restaurant in the city.", "options": ["good", "better", "best", "goodest"], "answer": 2, "explain": "good → best (bất quy tắc, so sánh nhất)." }
+    ]
+  },
+  {
+    "id": "e12", "title": "Động từ khuyết thiếu: can / should / must", "tag": "Diễn đạt ý",
+    "points": [
+      "can: khả năng & xin phép — I can swim · Can I sit here?",
+      "should: lời khuyên — You should see a doctor.",
+      "must / have to: sự bắt buộc — You must wear a seatbelt · I have to work tomorrow.",
+      "Sau modal luôn là động từ NGUYÊN THỂ, không to và không chia: She can drive (không phải \"can drives\")."
+    ],
+    "examples": [
+      { "en": "You should drink more water.", "vi": "Bạn nên uống nhiều nước hơn." },
+      { "en": "Can you speak more slowly, please?", "vi": "Bạn nói chậm lại một chút được không?" }
+    ],
+    "drill": [
+      { "text": "___ I open the window?", "options": ["Can", "Do", "Am", "Will"], "answer": 0, "explain": "Xin phép → Can I...?" },
+      { "text": "You ___ see a doctor about that cough.", "options": ["should", "must to", "can to", "are"], "answer": 0, "explain": "Lời khuyên → should + nguyên thể." },
+      { "text": "I ___ wear a uniform at my job.", "options": ["have to", "must to", "should to", "can to"], "answer": 0, "explain": "Bắt buộc (quy định) → have to + nguyên thể." },
+      { "text": "She can ___ three languages.", "options": ["speaks", "speak", "speaking", "to speak"], "answer": 1, "explain": "Sau modal \"can\" là động từ nguyên thể: speak." }
+    ]
+  },
+  {
+    "id": "e13", "title": "Giới từ: in / on / at (thời gian & nơi chốn)", "tag": "Giới từ",
+    "points": [
+      "Thời gian: at + giờ (at 7, at noon) · on + thứ / ngày (on Monday, on May 5) · in + tháng / năm / buổi (in July, in 2025, in the morning).",
+      "Nơi chốn: at + điểm cụ thể (at the bus stop, at home) · on + bề mặt (on the table, on the wall) · in + không gian bao quanh (in the room, in Hanoi).",
+      "Cụm quen: at night (nhưng in the morning / afternoon / evening), on time (đúng giờ), in time (kịp giờ).",
+      "Mẹo: từ nhỏ tới lớn dùng at → on → in (điểm → bề mặt / ngày → không gian / khoảng)."
+    ],
+    "examples": [
+      { "en": "The meeting is at nine on Monday.", "vi": "Cuộc họp lúc 9 giờ vào thứ Hai." },
+      { "en": "She lives in a small town in Vietnam.", "vi": "Cô ấy sống ở một thị trấn nhỏ ở Việt Nam." }
+    ],
+    "drill": [
+      { "text": "The class starts ___ eight o'clock.", "options": ["in", "on", "at", "to"], "answer": 2, "explain": "Giờ cụ thể → at." },
+      { "text": "We have a day off ___ Monday.", "options": ["in", "on", "at", "of"], "answer": 1, "explain": "Thứ trong tuần → on." },
+      { "text": "My birthday is ___ July.", "options": ["in", "on", "at", "by"], "answer": 0, "explain": "Tháng → in." },
+      { "text": "There's a beautiful picture ___ the wall.", "options": ["in", "on", "at", "to"], "answer": 1, "explain": "Trên bề mặt (tường) → on." }
+    ]
+  },
+  {
+    "id": "e14", "title": "Liên từ: and / but / so / because", "tag": "Nối câu",
+    "points": [
+      "and: thêm ý cùng chiều — I like tea and coffee.",
+      "but: ý tương phản — It's small but comfortable.",
+      "so: nêu kết quả — It was late, so we went home.",
+      "because: nêu lý do — I'm tired because I worked all day."
+    ],
+    "examples": [
+      { "en": "I wanted to go, but I was too busy.", "vi": "Tôi muốn đi, nhưng bận quá." },
+      { "en": "She stayed home because it was raining.", "vi": "Cô ấy ở nhà vì trời mưa." }
+    ],
+    "drill": [
+      { "text": "I was hungry, ___ I made a sandwich.", "options": ["but", "so", "because", "or"], "answer": 1, "explain": "Nêu kết quả → so." },
+      { "text": "He's rich ___ he isn't happy.", "options": ["so", "and", "but", "because"], "answer": 2, "explain": "Tương phản (giàu nhưng không hạnh phúc) → but." },
+      { "text": "We can't go out ___ it's snowing.", "options": ["so", "because", "but", "and"], "answer": 1, "explain": "Nêu lý do → because." },
+      { "text": "She can sing ___ dance very well.", "options": ["but", "so", "and", "because"], "answer": 2, "explain": "Thêm ý cùng chiều → and." }
+    ]
+  },
+  {
+    "id": "e15", "title": "Hiện tại hoàn thành: have / has + V3", "tag": "Thì cơ bản",
+    "points": [
+      "Cấu trúc: have / has + quá khứ phân từ (V3): I have finished · She has gone.",
+      "Diễn tả: kinh nghiệm (ever / never), việc vừa xong (just / already), việc bắt đầu trong quá khứ còn kéo dài (for / since).",
+      "V3 bất quy tắc hay gặp: go → gone · see → seen · do → done · eat → eaten · be → been.",
+      "Khác quá khứ đơn: KHÔNG nói rõ thời điểm (không dùng yesterday) — dùng already, yet, ever, never, just, for, since."
+    ],
+    "examples": [
+      { "en": "I have never eaten sushi.", "vi": "Tôi chưa bao giờ ăn sushi." },
+      { "en": "She has lived here for ten years.", "vi": "Cô ấy đã sống ở đây được mười năm." }
+    ],
+    "drill": [
+      { "text": "I ___ finished my homework.", "options": ["have", "has", "am", "did"], "answer": 0, "explain": "I → have + V3 (finished)." },
+      { "text": "She ___ never been to Japan.", "options": ["have", "has", "is", "was"], "answer": 1, "explain": "She → has; \"never\" đi với hiện tại hoàn thành." },
+      { "text": "Have you ___ this movie before?", "options": ["see", "saw", "seen", "seeing"], "answer": 2, "explain": "Sau \"have\" cần V3: seen." },
+      { "text": "We have lived here ___ 2020.", "options": ["for", "since", "in", "at"], "answer": 1, "explain": "since + mốc thời gian (năm 2020)." }
+    ]
+  },
+  {
+    "id": "e16", "title": "Câu điều kiện: If (loại 1 & 2)", "tag": "Diễn đạt ý",
+    "points": [
+      "Loại 1 (có thật, tương lai): If + hiện tại đơn, will + nguyên thể — If it rains, I will stay home.",
+      "Loại 2 (giả định, không có thật ở hiện tại): If + quá khứ đơn, would + nguyên thể — If I were rich, I would travel.",
+      "Với to be ở loại 2, dùng were cho mọi ngôi: If I were you...",
+      "Mệnh đề If đứng trước hay sau đều được; đứng trước thì có dấu phẩy ngăn cách."
+    ],
+    "examples": [
+      { "en": "If you study hard, you will pass the exam.", "vi": "Nếu bạn học chăm, bạn sẽ đỗ kỳ thi." },
+      { "en": "If I were you, I would say sorry.", "vi": "Nếu tôi là bạn, tôi sẽ xin lỗi." }
+    ],
+    "drill": [
+      { "text": "If it ___ tomorrow, we will stay inside.", "options": ["rain", "rains", "will rain", "rained"], "answer": 1, "explain": "Loại 1: If + hiện tại đơn → rains." },
+      { "text": "If she calls, I ___ answer immediately.", "options": ["will", "would", "am", "was"], "answer": 0, "explain": "Loại 1: mệnh đề chính dùng will + nguyên thể." },
+      { "text": "If I ___ you, I would apologize.", "options": ["am", "was", "were", "be"], "answer": 2, "explain": "Loại 2 với to be: dùng were cho mọi ngôi." },
+      { "text": "If I had more money, I ___ buy a car.", "options": ["will", "would", "did", "am"], "answer": 1, "explain": "Loại 2 (giả định): mệnh đề chính dùng would." }
+    ]
+  },
+  {
+    "id": "e17", "title": "Lời đề nghị & câu mệnh lệnh", "tag": "Giao tiếp",
+    "points": [
+      "Mệnh lệnh: dùng động từ nguyên thể ở đầu câu — Open the door · Don't be late.",
+      "Rủ rê: Let's + nguyên thể — Let's have lunch.",
+      "Đề nghị lịch sự: Would you like + danh từ / to + V — Would you like some tea?",
+      "Nhờ vả lịch sự: Could you / Can you + nguyên thể — Could you help me, please?"
+    ],
+    "examples": [
+      { "en": "Let's take a break for ten minutes.", "vi": "Mình nghỉ giải lao mười phút nhé." },
+      { "en": "Would you like something to drink?", "vi": "Bạn có muốn uống gì không?" }
+    ],
+    "drill": [
+      { "text": "___ have dinner together tonight.", "options": ["Let's", "Let us to", "Let", "We let"], "answer": 0, "explain": "Rủ rê → Let's + nguyên thể." },
+      { "text": "___ you like a cup of coffee?", "options": ["Do", "Would", "Are", "Will"], "answer": 1, "explain": "Đề nghị lịch sự → Would you like...?" },
+      { "text": "___ late for the meeting, please.", "options": ["Not be", "Don't be", "No be", "Be not"], "answer": 1, "explain": "Mệnh lệnh phủ định → Don't + nguyên thể." },
+      { "text": "___ you help me carry this box?", "options": ["Could", "Would like", "Do like", "Should to"], "answer": 0, "explain": "Nhờ lịch sự → Could you + nguyên thể." }
+    ]
+  },
+  {
+    "id": "e18", "title": "Danh động từ & động từ nguyên thể (V-ing / to V)", "tag": "Kết hợp động từ",
+    "points": [
+      "Một số động từ theo sau là V-ing: enjoy, finish, keep, avoid, practice — I enjoy reading.",
+      "Một số động từ theo sau là to + V: want, need, decide, hope, plan, would like — I want to go.",
+      "Sau giới từ LUÔN dùng V-ing: good at cooking · interested in learning · before leaving.",
+      "like / love / hate đi được cả hai (like doing / like to do), nghĩa gần như nhau."
+    ],
+    "examples": [
+      { "en": "She wants to learn Korean.", "vi": "Cô ấy muốn học tiếng Hàn." },
+      { "en": "I'm interested in playing the guitar.", "vi": "Tôi thích chơi ghi-ta." }
+    ],
+    "drill": [
+      { "text": "I enjoy ___ to music in the evening.", "options": ["listen", "to listen", "listening", "listened"], "answer": 2, "explain": "Sau \"enjoy\" → V-ing (listening)." },
+      { "text": "They decided ___ a new house.", "options": ["buy", "to buy", "buying", "bought"], "answer": 1, "explain": "Sau \"decide\" → to + nguyên thể." },
+      { "text": "He is good at ___ football.", "options": ["play", "to play", "playing", "played"], "answer": 2, "explain": "Sau giới từ \"at\" → V-ing." },
+      { "text": "We want ___ early tomorrow morning.", "options": ["leave", "to leave", "leaving", "left"], "answer": 1, "explain": "Sau \"want\" → to + nguyên thể." }
+    ]
+  }
+]

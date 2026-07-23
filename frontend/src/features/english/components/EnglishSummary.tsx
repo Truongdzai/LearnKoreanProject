@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { UNITS, ALL_WORDS, PLAN_12_WEEKS, TARGET_WORDS } from '@/data/englishCore'
+import { UNITS, ALL_WORDS, PLAN_12_WEEKS, TARGET_WORDS, wTerm, wRead } from '@/data/englishCore'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
 import { useLearnedWords, useWordBank, readPlan, planDay, planWeek, weekDone } from '../progress'
 
@@ -16,12 +16,12 @@ export default function EnglishSummary() {
   const week = planWeek(plan.start)
   const doneWeeks = PLAN_12_WEEKS.filter((w) => weekDone(w, learned, plan, bank)).length
 
-  const learnedList = useMemo(() => ALL_WORDS.filter((w) => learned.has(w.en)), [learned])
+  const learnedList = useMemo(() => ALL_WORDS.filter((w) => learned.has(wTerm(w))), [learned])
   const source = scope === 'learned' ? learnedList : ALL_WORDS
 
   const rows: ExportRow[] = source.map((w) => {
     const unit = UNITS.find((u) => u.words.includes(w))
-    return { term: w.en, reading: w.ipa, meaning: w.vi, example: `${w.ex} — ${w.exVi}`, group: unit?.name }
+    return { term: wTerm(w), reading: wRead(w), meaning: w.vi, example: `${w.ex} — ${w.exVi}`, group: unit?.name }
   })
 
   const title = scope === 'learned' ? 'Từ vựng tiếng Anh đã thuộc' : 'Từ vựng tiếng Anh — toàn bộ kho lõi'
@@ -60,7 +60,7 @@ export default function EnglishSummary() {
       <div className="section-title"><span className="pin" /> Tiến độ theo nhóm từ</div>
       <div className="sum-units">
         {UNITS.map((u) => {
-          const n = u.words.filter((w) => learned.has(w.en)).length
+          const n = u.words.filter((w) => learned.has(wTerm(w))).length
           const pct = Math.round((n / u.words.length) * 100)
           return (
             <div key={u.id} className="sum-unit">

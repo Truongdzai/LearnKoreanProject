@@ -1,0 +1,32 @@
+{
+  "id": "media",
+  "name": "Truyền thông & giải trí",
+  "sub": "Newspaper, headline, episode, celebrity…",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "📺",
+  "words": [
+    { "en": "media", "ipa": "/ˈmiː.di.ə/", "vi": "truyền thông", "pos": "noun", "img": "📡", "connect": "\"Mi-đi-ờ\" — báo đài mạng xã hội.", "ex": "The media reported the story.", "exVi": "Truyền thông đưa tin về câu chuyện." },
+    { "en": "newspaper", "ipa": "/ˈnuːz.peɪ.pɚ/", "vi": "tờ báo", "pos": "noun", "img": "📰", "connect": "news (tin) + paper (giấy).", "ex": "Grandpa reads the newspaper daily.", "exVi": "Ông đọc báo mỗi ngày." },
+    { "en": "magazine", "ipa": "/ˌmæɡ.əˈziːn/", "vi": "tạp chí", "pos": "noun", "img": "📖", "connect": "\"Me-gờ-zin\" — tạp chí ảnh đẹp.", "ex": "She buys a fashion magazine monthly.", "exVi": "Tháng nào cô ấy cũng mua tạp chí thời trang." },
+    { "en": "journalist", "ipa": "/ˈdʒɜːr.nə.lɪst/", "vi": "nhà báo", "pos": "noun", "img": "🎤", "connect": "journal (nhật báo) + ist (người).", "ex": "The journalist wrote about the flood.", "exVi": "Nhà báo viết về trận lũ." },
+    { "en": "reporter", "ipa": "/rɪˈpɔːr.t̬ɚ/", "vi": "phóng viên", "pos": "noun", "img": "🎙️", "connect": "report (đưa tin) + er (người).", "ex": "The reporter is live at the scene.", "exVi": "Phóng viên đang đưa tin trực tiếp tại hiện trường." },
+    { "en": "headline", "ipa": "/ˈhed.laɪn/", "vi": "tít báo, tiêu đề", "pos": "noun", "img": "🔠", "connect": "head (đầu) + line (dòng) — dòng đầu trang.", "ex": "The story made the headlines.", "exVi": "Câu chuyện lên trang nhất các báo." },
+    { "en": "article", "ipa": "/ˈɑːr.t̬ɪ.kəl/", "vi": "bài báo", "pos": "noun", "img": "📄", "connect": "\"Ác-ti-cồ\" — một bài viết.", "ex": "I read an article about AI.", "exVi": "Tôi đọc một bài báo về AI." },
+    { "en": "program", "ipa": "/ˈproʊ.ɡræm/", "vi": "chương trình", "pos": "noun", "img": "📺", "connect": "\"Prâu-grem\" — chương trình TV.", "ex": "What's your favorite TV program?", "exVi": "Chương trình TV bạn thích nhất là gì?" },
+    { "en": "series", "ipa": "/ˈsɪr.iːz/", "vi": "loạt phim, xê-ri", "pos": "noun", "img": "🎬", "connect": "\"Si-ri-z\" — phim bộ nhiều tập.", "ex": "We watched the whole series.", "exVi": "Chúng tôi cày hết cả bộ phim." },
+    { "en": "episode", "ipa": "/ˈep.ə.soʊd/", "vi": "tập (phim)", "pos": "noun", "img": "▶️", "connect": "\"E-pờ-sâu-d\" — mỗi tập một episode.", "ex": "The last episode was amazing.", "exVi": "Tập cuối hay tuyệt." },
+    { "en": "cartoon", "ipa": "/kɑːrˈtuːn/", "vi": "hoạt hình", "pos": "noun", "img": "🐭", "connect": "\"Ka-tun\" — phim hoạt hình.", "ex": "Kids love watching cartoons.", "exVi": "Trẻ con thích xem hoạt hình." },
+    { "en": "documentary", "ipa": "/ˌdɑː.kjəˈmen.t̬ɚ.i/", "vi": "phim tài liệu", "pos": "noun", "img": "🎥", "connect": "document (tài liệu) → documentary.", "ex": "We watched a documentary about whales.", "exVi": "Chúng tôi xem phim tài liệu về cá voi." },
+    { "en": "advertisement", "ipa": "/ˌæd.vɚˈtaɪz.mənt/", "vi": "quảng cáo", "pos": "noun", "img": "📣", "connect": "\"Ét-vờ-tai-z-mừnt\" — gọi tắt là ad.", "ex": "There are too many advertisements.", "exVi": "Quảng cáo nhiều quá." },
+    { "en": "celebrity", "ipa": "/səˈleb.rə.t̬i/", "vi": "người nổi tiếng", "pos": "noun", "img": "🌟", "connect": "\"Sờ-le-brờ-ti\" — sao showbiz (celeb).", "ex": "The celebrity has millions of fans.", "exVi": "Ngôi sao ấy có hàng triệu người hâm mộ." },
+    { "en": "famous", "ipa": "/ˈfeɪ.məs/", "vi": "nổi tiếng", "pos": "adj", "img": "🏆", "connect": "\"Phê-mợs\" — ai cũng biết tên.", "ex": "This restaurant is famous for pho.", "exVi": "Quán này nổi tiếng món phở." },
+    { "en": "fame", "ipa": "/feɪm/", "vi": "danh tiếng", "pos": "noun", "img": "✨", "connect": "\"Phê-m\" — famous là tính từ của fame.", "ex": "Fame changed his life.", "exVi": "Danh tiếng thay đổi cuộc đời anh ấy." },
+    { "en": "broadcast", "ipa": "/ˈbrɑːd.kæst/", "vi": "phát sóng", "pos": "verb", "img": "📡", "connect": "broad (rộng) + cast (phát) — phát đi khắp nơi.", "ex": "The match is broadcast live.", "exVi": "Trận đấu được phát sóng trực tiếp." },
+    { "en": "subtitle", "ipa": "/ˈsʌb.taɪ.t̬əl/", "vi": "phụ đề", "pos": "noun", "img": "💬", "connect": "sub (dưới) + title — chữ chạy dưới màn hình.", "ex": "I watch films with English subtitles.", "exVi": "Tôi xem phim với phụ đề tiếng Anh." },
+    { "en": "trailer", "ipa": "/ˈtreɪ.lɚ/", "vi": "đoạn phim giới thiệu", "pos": "noun", "img": "🎞️", "connect": "\"Trê-lờ\" — xem trailer trước khi phim ra.", "ex": "The trailer looks exciting.", "exVi": "Đoạn trailer trông hấp dẫn đấy." },
+    { "en": "drama", "ipa": "/ˈdrɑː.mə/", "vi": "phim chính kịch, kịch tính", "pos": "noun", "img": "🎭", "connect": "\"Đra-mờ\" — phim drama Hàn.", "ex": "She loves Korean dramas.", "exVi": "Cô ấy mê phim Hàn." },
+    { "en": "comedy", "ipa": "/ˈkɑː.mə.di/", "vi": "phim hài", "pos": "noun", "img": "😂", "connect": "\"Kó-mờ-đi\" — xem cười đau bụng.", "ex": "We watched a comedy last night.", "exVi": "Tối qua chúng tôi xem một phim hài." },
+    { "en": "horror", "ipa": "/ˈhɔːr.ɚ/", "vi": "phim kinh dị", "pos": "noun", "img": "👻", "connect": "\"Ho-rờ\" — phim ma rùng rợn.", "ex": "I can't watch horror films alone.", "exVi": "Tôi không dám xem phim kinh dị một mình." }
+  ]
+}

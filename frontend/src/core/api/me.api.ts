@@ -24,7 +24,16 @@ export interface Activities {
   srsTotal: number
 }
 
-export type EventType = 'lesson' | 'pronounce' | 'review' | 'video' | 'word' | 'login'
+export type EventType = 'lesson' | 'pronounce' | 'review' | 'video' | 'word' | 'login' | 'toeic' | 'grammar'
+
+export interface ActivityDay {
+  day: string
+  minutes: number
+  words: number
+  lessons: number
+  videos: number
+  reviews: number
+}
 
 export const fetchState = () => apiClient.get<MeState>('/api/me/state')
 
@@ -86,3 +95,12 @@ export const setGoalApi = (goal: string | null) =>
 
 export const goalBonusApi = (goal: number) =>
   apiClient.post<{ ok: boolean; reward: number; user: Account }>('/api/me/goal-bonus', { goal })
+
+export const fetchPlanApi = <T,>(planId: string) =>
+  apiClient.get<{ ok: boolean; data: T | null; updatedAt: string | null }>(`/api/me/plans/${planId}`)
+
+export const savePlanApi = (planId: string, data: unknown) =>
+  apiClient.put<{ ok: boolean }>(`/api/me/plans/${planId}`, { data })
+
+export const fetchActivityDaysApi = (since: string) =>
+  apiClient.get<{ days: ActivityDay[] }>(`/api/me/activity-days?since=${encodeURIComponent(since)}`)

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { ALL_WORDS, UNITS, type IcesWord } from '@/data/englishCore'
+import { ALL_WORDS as EN_ALL_WORDS, UNITS as EN_UNITS, wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/englishCore'
 import { useAppStore } from '@/store/app.store'
 import { speakEN } from '../progress'
 
@@ -11,15 +11,14 @@ interface Q {
 }
 
 interface Props {
-  /** Giới hạn đề trong các unit này (bài kiểm tra tuần); bỏ trống = toàn kho. */
   units?: string[]
-  /** Nhãn hiển thị, vd "Bài kiểm tra Tuần 3". */
+  allUnits?: VocabUnit[]
+  allWords?: IcesWord[]
+  speak?: (text: string) => void
+  lang?: string
   heading?: string
-  /** Điểm % cần đạt (bài kiểm tra tuần). */
   passPct?: number
-  /** Gọi khi nộp bài, nhận điểm %. */
   onFinish?: (pct: number) => void
-  /** Quay về lộ trình. */
   onBack?: () => void
 }
 
@@ -34,23 +33,33 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-function buildQuiz(pool: IcesWord[]): Q[] {
+function buildQuiz(pool: IcesWord[], allWords: IcesWord[]): Q[] {
   const picked = shuffle(pool).slice(0, Math.min(QUIZ_LEN, pool.length))
   return picked.map((word) => {
-    const distractors = shuffle(ALL_WORDS.filter((w) => w.vi !== word.vi))
+    const distractors = shuffle(allWords.filter((w) => w.vi !== word.vi))
       .slice(0, 3)
       .map((w) => w.vi)
     return { word, options: shuffle([word.vi, ...distractors]), answer: word.vi }
   })
 }
 
-export default function VocabQuiz({ units, heading, passPct, onFinish, onBack }: Props) {
+export default function VocabQuiz({
+  units,
+  allUnits = EN_UNITS,
+  allWords = EN_ALL_WORDS,
+  speak = speakEN,
+  lang = 'en',
+  heading,
+  passPct,
+  onFinish,
+  onBack,
+}: Props) {
   const { recordEvent } = useAppStore()
   const pool = useMemo(
-    () => (units?.length ? UNITS.filter((u) => units.includes(u.id)).flatMap((u) => u.words) : ALL_WORDS),
-    [units],
+    () => (units?.length ? allUnits.filter((u) => units.includes(u.id)).flatMap((u) => u.words) : allWords),
+    [units, allUnits, allWords],
   )
-  const [quiz, setQuiz] = useState<Q[]>(() => buildQuiz(pool))
+  const [quiz, setQuiz] = useState<Q[]>(() => buildQuiz(pool, allWords))
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [score, setScore] = useState(0)
@@ -60,16 +69,15 @@ export default function VocabQuiz({ units, heading, passPct, onFinish, onBack }:
   const finished = done || i >= quiz.length
 
   const restart = useCallback(() => {
-    setQuiz(buildQuiz(pool))
+    setQuiz(buildQuiz(pool, allWords))
     setI(0)
     setPicked(null)
     setScore(0)
     setDone(false)
-  }, [pool])
+  }, [pool, allWords])
 
   useEffect(() => {
-    if (q) speakEN(q.word.en)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (q) speak(wTerm(q.word))
   }, [i])
 
   const choose = (opt: string) => {
@@ -130,7 +138,7 @@ export default function VocabQuiz({ units, heading, passPct, onFinish, onBack }:
 
       <div className="quiz-card">
         <div className="quiz-img">{q.word.img}</div>
-        <h2 lang="en">{q.word.en} <button className="ices-sound inline" onClick={() => speakEN(q.word.en)}><Icon name="volume" size={16} /></button></h2>
+        <h2 lang={lang}>{wTerm(q.word)} <button className="ices-sound inline" onClick={() => speak(wTerm(q.word))}><Icon name="volume" size={16} /></button></h2>
         <p className="quiz-ask">Từ này nghĩa là gì?</p>
       </div>
 
@@ -154,7 +162,7 @@ export default function VocabQuiz({ units, heading, passPct, onFinish, onBack }:
       {picked && (
         <div className="quiz-foot">
           <div className="quiz-ex">
-            <b lang="en">{q.word.en}</b> {q.word.ipa} — “{q.word.ex}” <span>({q.word.exVi})</span>
+            <b lang={lang}>{wTerm(q.word)}</b> {wRead(q.word)} — “{q.word.ex}” <span>({q.word.exVi})</span>
           </div>
           <button className="btn-primary" onClick={next}>
             {i + 1 >= quiz.length ? 'Xem kết quả' : 'Câu tiếp'} <Icon name="arrow-right" size={16} />

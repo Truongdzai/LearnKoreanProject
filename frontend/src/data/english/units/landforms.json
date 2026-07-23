@@ -1,0 +1,32 @@
+{
+  "id": "landforms",
+  "name": "Địa lý & địa hình",
+  "sub": "Continent, valley, hill, coast, horizon…",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🗻",
+  "words": [
+    { "en": "continent", "ipa": "/ˈkɑːn.tən.ənt/", "vi": "châu lục", "pos": "noun", "img": "🌍", "connect": "\"Con-tờ-nừnt\" — Á, Âu, Phi…", "ex": "Asia is the largest continent.", "exVi": "Châu Á là châu lục lớn nhất." },
+    { "en": "border", "ipa": "/ˈbɔːr.dɚ/", "vi": "biên giới", "pos": "noun", "img": "🛂", "connect": "\"Bo-đờ\" — ranh giới hai nước.", "ex": "We crossed the border into Laos.", "exVi": "Chúng tôi vượt biên giới sang Lào." },
+    { "en": "capital", "ipa": "/ˈkæp.ə.t̬əl/", "vi": "thủ đô", "pos": "noun", "img": "🏛️", "connect": "\"Ke-pờ-tồ\" — Hà Nội là capital của VN.", "ex": "Hanoi is the capital of Vietnam.", "exVi": "Hà Nội là thủ đô của Việt Nam." },
+    { "en": "population", "ipa": "/ˌpɑː.pjəˈleɪ.ʃən/", "vi": "dân số", "pos": "noun", "img": "👥", "connect": "\"Po-piu-lê-sừn\" — số dân.", "ex": "Vietnam's population is about 100 million.", "exVi": "Dân số Việt Nam khoảng 100 triệu." },
+    { "en": "region", "ipa": "/ˈriː.dʒən/", "vi": "vùng, miền", "pos": "noun", "img": "🗺️", "connect": "\"Ri-jừn\" — vùng miền.", "ex": "This region is famous for coffee.", "exVi": "Vùng này nổi tiếng về cà phê." },
+    { "en": "area", "ipa": "/ˈer.i.ə/", "vi": "khu vực, diện tích", "pos": "noun", "img": "📐", "connect": "\"E-ri-ờ\" — một khu vực.", "ex": "This is a quiet area.", "exVi": "Đây là một khu vực yên tĩnh." },
+    { "en": "location", "ipa": "/loʊˈkeɪ.ʃən/", "vi": "vị trí", "pos": "noun", "img": "📍", "connect": "\"Lâu-kê-sừn\" — chia sẻ location.", "ex": "Send me your location.", "exVi": "Gửi cho tôi vị trí của bạn." },
+    { "en": "coast", "ipa": "/koʊst/", "vi": "bờ biển", "pos": "noun", "img": "🏖️", "connect": "\"Kâu-st\" — dải đất ven biển.", "ex": "We drove along the coast.", "exVi": "Chúng tôi lái xe dọc bờ biển." },
+    { "en": "valley", "ipa": "/ˈvæl.i/", "vi": "thung lũng", "pos": "noun", "img": "🏞️", "connect": "\"Ve-li\" — vùng trũng giữa núi.", "ex": "The valley is green in spring.", "exVi": "Thung lũng xanh mướt vào mùa xuân." },
+    { "en": "hill", "ipa": "/hɪl/", "vi": "ngọn đồi", "pos": "noun", "img": "⛰️", "connect": "\"Hil\" — thấp hơn núi.", "ex": "The house stands on a hill.", "exVi": "Ngôi nhà nằm trên một ngọn đồi." },
+    { "en": "cliff", "ipa": "/klɪf/", "vi": "vách đá", "pos": "noun", "img": "🧗", "connect": "\"Klíp\" — vách dựng đứng.", "ex": "Don't stand near the cliff!", "exVi": "Đừng đứng gần vách đá!" },
+    { "en": "waterfall", "ipa": "/ˈwɑː.t̬ɚ.fɑːl/", "vi": "thác nước", "pos": "noun", "img": "💦", "connect": "water (nước) + fall (rơi).", "ex": "The waterfall is amazing.", "exVi": "Thác nước đẹp kinh ngạc." },
+    { "en": "stream", "ipa": "/striːm/", "vi": "dòng suối", "pos": "noun", "img": "🏞️", "connect": "\"Sờ-tri-m\" — suối nhỏ (cũng nghĩa phát trực tiếp).", "ex": "We washed our feet in the stream.", "exVi": "Chúng tôi rửa chân dưới suối." },
+    { "en": "pond", "ipa": "/pɑːnd/", "vi": "cái ao", "pos": "noun", "img": "🪷", "connect": "\"Pon-d\" — ao nhỏ hơn hồ.", "ex": "Fish swim in the pond.", "exVi": "Cá bơi trong ao." },
+    { "en": "horizon", "ipa": "/həˈraɪ.zən/", "vi": "đường chân trời", "pos": "noun", "img": "🌅", "connect": "\"Hờ-rai-zừn\" — nơi trời gặp biển.", "ex": "The sun sank below the horizon.", "exVi": "Mặt trời lặn xuống đường chân trời." },
+    { "en": "peak", "ipa": "/piːk/", "vi": "đỉnh núi", "pos": "noun", "img": "🏔️", "connect": "\"Pi-k\" — chóp cao nhất.", "ex": "Snow covers the peak all year.", "exVi": "Tuyết phủ đỉnh núi quanh năm." },
+    { "en": "slope", "ipa": "/sloʊp/", "vi": "con dốc, sườn núi", "pos": "noun", "img": "⛷️", "connect": "\"Sờ-lâu-p\" — mặt nghiêng.", "ex": "The slope is steep here.", "exVi": "Đoạn dốc này khá đứng." },
+    { "en": "soil", "ipa": "/sɔɪl/", "vi": "đất trồng", "pos": "noun", "img": "🪴", "connect": "\"Soi-l\" — đất màu mỡ để trồng.", "ex": "Plants grow well in rich soil.", "exVi": "Cây phát triển tốt trên đất màu mỡ." },
+    { "en": "landscape", "ipa": "/ˈlænd.skeɪp/", "vi": "phong cảnh", "pos": "noun", "img": "🖼️", "connect": "land (đất) + scape — cảnh quan.", "ex": "The landscape here is stunning.", "exVi": "Phong cảnh ở đây đẹp mê hồn." },
+    { "en": "bay", "ipa": "/beɪ/", "vi": "vịnh", "pos": "noun", "img": "⛵", "connect": "\"Bê\" — vịnh Hạ Long = Ha Long Bay.", "ex": "Ha Long Bay is world-famous.", "exVi": "Vịnh Hạ Long nổi tiếng thế giới." },
+    { "en": "plain", "ipa": "/pleɪn/", "vi": "đồng bằng; đơn giản", "pos": "noun", "img": "🌾", "connect": "\"Plê-n\" — đất bằng phẳng (cũng nghĩa \"trơn, mộc\").", "ex": "Rice grows on the plains.", "exVi": "Lúa mọc trên các đồng bằng." },
+    { "en": "glacier", "ipa": "/ˈɡleɪ.ʃɚ/", "vi": "sông băng", "pos": "noun", "img": "🧊", "connect": "\"Glê-sờ\" — khối băng khổng lồ di chuyển.", "ex": "Glaciers are melting fast.", "exVi": "Các sông băng đang tan nhanh." }
+  ]
+}

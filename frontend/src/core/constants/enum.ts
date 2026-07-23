@@ -7,6 +7,8 @@ export type AppView =
   | 'path'
   | 'speaking'
   | 'english'
+  | 'toeic'
+  | 'korean'
   | 'vocab'
   | 'flashcards'
   | 'activities'
