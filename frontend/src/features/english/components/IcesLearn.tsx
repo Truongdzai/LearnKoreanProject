@@ -12,6 +12,8 @@ const ICES = [
   { k: 'S', label: 'Sound', desc: 'Nghe & nhại' },
 ]
 
+const UNITS_PREVIEW = 20
+
 interface Props {
   initialUnit?: string
   units?: VocabUnit[]
@@ -27,11 +29,12 @@ export default function IcesLearn({
   sourceLabel = 'English Core',
   lang = 'en',
 }: Props) {
-  const { isAuthed, recordEvent } = useAppStore()
+  const { isAuthed, recordEvent, t } = useAppStore()
   const { has, mark, learned } = useLearnedWords(lang)
   const [unitId, setUnitId] = useState(initialUnit || units[0].id)
   const [i, setI] = useState(0)
   const [flipped, setFlipped] = useState(false)
+  const [showAllUnits, setShowAllUnits] = useState(false)
 
   useEffect(() => {
     if (initialUnit) {
@@ -44,6 +47,14 @@ export default function IcesLearn({
   const unit = units.find((u) => u.id === unitId) ?? units[0]
   const words = unit.words
   const word: IcesWord = words[i]
+
+  const activeIdx = units.findIndex((u) => u.id === unit.id)
+  const expanded = showAllUnits || units.length <= UNITS_PREVIEW
+  const visibleUnits = expanded
+    ? units
+    : activeIdx < UNITS_PREVIEW
+      ? units.slice(0, UNITS_PREVIEW)
+      : [...units.slice(0, UNITS_PREVIEW), unit]
 
   const progress = useMemo(
     () => words.filter((w) => learned.has(wTerm(w))).length,
@@ -80,7 +91,7 @@ export default function IcesLearn({
   return (
     <div className="ices">
       <div className="ices-units">
-        {units.map((u) => (
+        {visibleUnits.map((u) => (
           <button
             key={u.id}
             className={'ices-unit' + (u.id === unitId ? ' on' : '')}
@@ -94,6 +105,13 @@ export default function IcesLearn({
           </button>
         ))}
       </div>
+      {units.length > UNITS_PREVIEW && (
+        <button className="ices-units-more" onClick={() => setShowAllUnits((v) => !v)}>
+          {expanded
+            ? <>{t('ices.lessUnits')} <Icon name="chevron-up" size={15} /></>
+            : <>{t('ices.moreUnits', { n: units.length - UNITS_PREVIEW })} <Icon name="chevron-down" size={15} /></>}
+        </button>
+      )}
 
       <div className="ices-bar">
         <div className="ices-bar-fill" style={{ width: `${(progress / words.length) * 100}%` }} />

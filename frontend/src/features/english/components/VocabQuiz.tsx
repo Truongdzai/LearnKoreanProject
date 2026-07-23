@@ -77,8 +77,10 @@ export default function VocabQuiz({
   }, [pool, allWords])
 
   useEffect(() => {
-    if (q) speak(wTerm(q.word))
-  }, [i])
+    if (!q || finished) return
+    const timer = window.setTimeout(() => speak(wTerm(q.word)), 300)
+    return () => window.clearTimeout(timer)
+  }, [q, finished])
 
   const choose = (opt: string) => {
     if (picked) return

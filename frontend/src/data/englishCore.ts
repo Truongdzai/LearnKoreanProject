@@ -97,6 +97,25 @@ import jobs2 from './english/units/jobs2.json'
 import people from './english/units/people.json'
 import hygiene from './english/units/hygiene.json'
 import sweets from './english/units/sweets.json'
+import christmas from './english/units/christmas.json'
+import computing from './english/units/computing.json'
+import business2 from './english/units/business2.json'
+import idioms2 from './english/units/idioms2.json'
+import phrasal3 from './english/units/phrasal3.json'
+import nouns4 from './english/units/nouns4.json'
+import verbs9 from './english/units/verbs9.json'
+import adjectives8 from './english/units/adjectives8.json'
+import health3 from './english/units/health3.json'
+import airport from './english/units/airport.json'
+import farm from './english/units/farm.json'
+import law from './english/units/law.json'
+import fitness from './english/units/fitness.json'
+import phrases3 from './english/units/phrases3.json'
+import adverbs3 from './english/units/adverbs3.json'
+import driving from './english/units/driving.json'
+import worldfood from './english/units/worldfood.json'
+import world from './english/units/world.json'
+import repair from './english/units/repair.json'
 
 
 import { type IcesWord, type VocabUnit } from './vocabCore'
@@ -121,6 +140,9 @@ export const UNITS: VocabUnit[] = [
   verbs6, verbs7, adjectives5, adjectives6, nouns2, nouns3,
   birds, containers, toys, sleep, war, spirit, verbs8, organs, food2,
   adjectives7, jobs2, people, hygiene, sweets,
+  christmas, computing, business2, idioms2, phrasal3, nouns4,
+  verbs9, adjectives8, health3, airport, farm, law,
+  fitness, phrases3, adverbs3, driving, worldfood, world, repair,
 ] as unknown as VocabUnit[]
 
 export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
@@ -165,12 +187,14 @@ export interface WeekPlan {
 
 export const PLAN_12_WEEKS: WeekPlan[] = [
   {
-    week: 1, month: 1, phase: 'Compress', title: 'Danh từ quanh ta',
+    week: 1, month: 1, phase: 'Compress', title: 'Danh từ & người quanh ta',
     focus: 'Người, gia đình, đồ vật quen thuộc — nền móng của mọi câu nói, cộng thói quen gom từ mỗi ngày.',
-    rhythm: 'Ngày 1–6: ~5 từ lõi/ngày + gom thêm từ qua video · Ngày 6: kiểm tra tuần · Ngày 7: ôn SRS.',
-    quizUnits: ['nouns'],
+    rhythm: 'Ngày 1–6: ~12 từ lõi/ngày (3 nhóm) + gom thêm từ qua video · Ngày 6: kiểm tra tuần · Ngày 7: ôn SRS.',
+    quizUnits: ['nouns', 'family', 'people'],
     tasks: [
       { id: 'w1-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Danh từ cốt lõi" (32 từ)', unitId: 'nouns', pct: 100 },
+      { id: 'w1-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Gia đình & họ hàng" (26 từ)', unitId: 'family', pct: 100 },
+      { id: 'w1-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Người quanh ta" (24 từ)', unitId: 'people', pct: 100 },
       { id: 'w1-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w1-bank', kind: 'total', label: 'Kho từ đạt 100 — lưu thêm từ khi xem video, gói từ, thẻ tự thêm', targetTotal: 100 },
       { id: 'w1-video', kind: 'video', n: 2, label: 'Xem 2 video tiếng Anh dễ + bấm từ mới trong phụ đề để lưu' },
@@ -179,12 +203,13 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   },
   {
     week: 2, month: 1, phase: 'Compress', title: 'Nơi chốn, ăn uống & mua sắm',
-    focus: 'Sân bay, nhà hàng, chợ búa + gọi món, hỏi giá — bộ từ "sống sót" khi ra ngoài.',
-    rhythm: 'Ngày 1–6: ~10 từ lõi/ngày (2 nhóm) · Ngày 6: kiểm tra tuần · Ngày 7: ôn SRS + nghe lại từ khó.',
-    quizUnits: ['places', 'foodshop'],
+    focus: 'Sân bay, nhà hàng, chợ búa + gọi món, hỏi giá, tiền nong — bộ từ "sống sót" khi ra ngoài.',
+    rhythm: 'Ngày 1–6: ~15 từ lõi/ngày (3 nhóm) · Ngày 6: kiểm tra tuần · Ngày 7: ôn SRS + nghe lại từ khó.',
+    quizUnits: ['places', 'foodshop', 'shopping'],
     tasks: [
       { id: 'w2-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Nơi chốn & đời sống" (32 từ)', unitId: 'places', pct: 100 },
       { id: 'w2-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Ăn uống & mua sắm" (30 từ)', unitId: 'foodshop', pct: 100 },
+      { id: 'w2-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Mua sắm & tiền bạc" (28 từ)', unitId: 'shopping', pct: 100 },
       { id: 'w2-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w2-bank', kind: 'total', label: 'Kho từ đạt 250', targetTotal: 250 },
       { id: 'w2-review', kind: 'review', n: 3, label: 'Ôn tập SRS ít nhất 3 ngày trong tuần' },
@@ -194,11 +219,12 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     week: 3, month: 1, phase: 'Compress', title: 'Từ để hỏi, con số & thời gian',
     focus: '5W1H + số đếm, thứ trong tuần, bốn mùa — đủ để hỏi giá, hỏi giờ, hẹn lịch.',
     rhythm: 'Ngày 1–2: từ để hỏi + cụm chào · Ngày 3–5: số đếm & thời gian · Ngày 6: kiểm tra · Ngày 7: luyện nói.',
-    quizUnits: ['questions', 'phrases', 'timenum'],
+    quizUnits: ['questions', 'phrases', 'timenum', 'numbers2'],
     tasks: [
       { id: 'w3-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Từ để hỏi" (5W1H)', unitId: 'questions', pct: 100 },
       { id: 'w3-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Cụm giao tiếp hằng ngày" (20 cụm)', unitId: 'phrases', pct: 100 },
       { id: 'w3-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Số đếm & thời gian" (30 từ)', unitId: 'timenum', pct: 100 },
+      { id: 'w3-vocab4', kind: 'vocab', label: 'Thuộc toàn bộ "Số đếm & thứ tự (mở rộng)" (28 từ)', unitId: 'numbers2', pct: 100 },
       { id: 'w3-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w3-bank', kind: 'total', label: 'Kho từ đạt 450', targetTotal: 450 },
       { id: 'w3-speak', kind: 'speak', label: 'Luyện nói 1 buổi chào hỏi/tán gẫu với AI' },
@@ -207,11 +233,12 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 4, month: 1, phase: 'Compress', title: 'Tính từ & cảm xúc',
     focus: 'good/bad, big/small + vui buồn giận sợ — nói được cảm nhận của mình, chốt tháng nền móng.',
-    rhythm: 'Ngày 1–5: ~11 từ/ngày (2 nhóm) · Ngày 6: kiểm tra tổng tháng 1 · Ngày 7: ôn toàn bộ SRS.',
-    quizUnits: ['adjectives', 'feelings'],
+    rhythm: 'Ngày 1–5: ~17 từ/ngày (3 nhóm) · Ngày 6: kiểm tra tổng tháng 1 · Ngày 7: ôn toàn bộ SRS.',
+    quizUnits: ['adjectives', 'feelings', 'feelings2'],
     tasks: [
       { id: 'w4-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Tính từ ứng dụng cao" (25 từ)', unitId: 'adjectives', pct: 100 },
       { id: 'w4-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Cảm xúc & tính cách" (30 từ)', unitId: 'feelings', pct: 100 },
+      { id: 'w4-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Cảm xúc & tính cách (mở rộng)" (28 từ)', unitId: 'feelings2', pct: 100 },
       { id: 'w4-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w4-bank', kind: 'total', label: 'Kho từ đạt 700 — chốt tháng 1', targetTotal: 700 },
       { id: 'w4-video', kind: 'video', n: 2, label: 'Xem 2 video + bấm từ mới trong phụ đề để lưu thẻ' },
@@ -220,8 +247,8 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 5, month: 2, phase: 'Compile', title: 'Động từ & câu đơn đầu tiên',
     focus: 'go, eat, see, do, have… và bắt đầu GHÉP CÂU: chủ ngữ + động từ + tân ngữ.',
-    rhythm: 'Ngày 1–4: 7–8 động từ/ngày · Ngày 5–6: tập mẫu câu + kiểm tra · Ngày 7: tự đặt câu.',
-    quizUnits: ['verbs'],
+    rhythm: 'Ngày 1–4: ~15 động từ/ngày (2 nhóm) · Ngày 5–6: tập mẫu câu + kiểm tra · Ngày 7: tự đặt câu.',
+    quizUnits: ['verbs', 'verbs3'],
     patterns: [
       { pattern: 'I + động từ + …', vi: 'Nói điều mình làm', ex: 'I eat breakfast at seven.', exVi: 'Tôi ăn sáng lúc 7 giờ.' },
       { pattern: 'I want to + động từ', vi: 'Nói điều mình muốn', ex: 'I want to learn English.', exVi: 'Tôi muốn học tiếng Anh.' },
@@ -230,6 +257,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     ],
     tasks: [
       { id: 'w5-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Động từ cốt lõi" (30 từ)', unitId: 'verbs', pct: 100 },
+      { id: 'w5-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Động từ hằng ngày (mở rộng)" (28 từ)', unitId: 'verbs3', pct: 100 },
       { id: 'w5-pattern', kind: 'custom', label: 'Tự đặt 5 câu theo 4 mẫu câu của tuần (nói to lên!)', go: null },
       { id: 'w5-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w5-bank', kind: 'total', label: 'Kho từ đạt 1000', targetTotal: 1000 },
@@ -239,8 +267,8 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 6, month: 2, phase: 'Compile', title: 'Phủ định, Yes/No & cơ thể',
     focus: 'Động từ giao tiếp (ask, meet, pay…) + từ về cơ thể, sức khoẻ; nói "không", hỏi Yes/No, nhờ vả bằng can.',
-    rhythm: 'Ngày 1–5: ~12 từ/ngày (2 nhóm) · Ngày 5: mẫu câu · Ngày 6: kiểm tra · Ngày 7: luyện nói.',
-    quizUnits: ['verbs2', 'body'],
+    rhythm: 'Ngày 1–5: ~18 từ/ngày (3 nhóm) · Ngày 5: mẫu câu · Ngày 6: kiểm tra · Ngày 7: luyện nói.',
+    quizUnits: ['verbs2', 'body', 'health2'],
     patterns: [
       { pattern: 'S + be + tính từ', vi: 'Mô tả bằng "be"', ex: 'She is very kind.', exVi: 'Cô ấy rất tốt bụng.' },
       { pattern: "I don't + động từ", vi: 'Nói điều mình KHÔNG làm', ex: "I don't like coffee.", exVi: 'Tôi không thích cà phê.' },
@@ -250,6 +278,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     tasks: [
       { id: 'w6-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Động từ giao tiếp & sinh hoạt" (31 từ)', unitId: 'verbs2', pct: 100 },
       { id: 'w6-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Cơ thể & sức khoẻ" (30 từ)', unitId: 'body', pct: 100 },
+      { id: 'w6-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Cơ thể & sức khoẻ (mở rộng)" (28 từ)', unitId: 'health2', pct: 100 },
       { id: 'w6-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w6-bank', kind: 'total', label: 'Kho từ đạt 1300', targetTotal: 1300 },
       { id: 'w6-speak', kind: 'speak', label: 'Luyện nói 1 buổi — tập hỏi Yes/No với nhân vật AI' },
@@ -258,8 +287,8 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 7, month: 2, phase: 'Compile', title: 'Hỏi đáp đời sống & công việc',
     focus: 'Giới từ & từ nối (in/on/at, because…) + từ công sở, trường lớp; hỏi thật: giá cả, đường đi, giờ giấc.',
-    rhythm: 'Ngày 1–3: giới từ · Ngày 4–5: từ công việc + mẫu câu hỏi · Ngày 6: kiểm tra · Ngày 7: luyện nói.',
-    quizUnits: ['preps', 'worklife'],
+    rhythm: 'Ngày 1–3: giới từ + từ giao tiếp · Ngày 4–5: từ công việc + mẫu câu hỏi · Ngày 6: kiểm tra · Ngày 7: luyện nói.',
+    quizUnits: ['preps', 'worklife', 'communication'],
     patterns: [
       { pattern: 'What is …?', vi: 'Hỏi "cái gì"', ex: 'What is this called in English?', exVi: 'Cái này tiếng Anh gọi là gì?' },
       { pattern: 'Where is …?', vi: 'Hỏi đường, hỏi chỗ', ex: 'Where is the bathroom?', exVi: 'Nhà vệ sinh ở đâu?' },
@@ -269,6 +298,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     tasks: [
       { id: 'w7-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Giới từ & từ nối" (22 từ)', unitId: 'preps', pct: 100 },
       { id: 'w7-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Công việc & học hành" (30 từ)', unitId: 'worklife', pct: 100 },
+      { id: 'w7-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Giao tiếp & trò chuyện" (27 từ)', unitId: 'communication', pct: 100 },
       { id: 'w7-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w7-bank', kind: 'total', label: 'Kho từ đạt 1650', targetTotal: 1650 },
       { id: 'w7-speak', kind: 'speak', label: 'Luyện nói: hỏi đường / gọi món / hỏi giá với AI' },
@@ -277,8 +307,8 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 8, month: 2, phase: 'Compile', title: 'Mô tả, so sánh & thế giới quanh ta',
     focus: 'Trạng từ (very, too, always…) + thiên nhiên, du lịch; mô tả và so sánh — chốt tháng ghép câu.',
-    rhythm: 'Ngày 1–3: trạng từ · Ngày 4–5: từ du lịch + mẫu câu mô tả · Ngày 6: kiểm tra tổng tháng 2 · Ngày 7: xem video.',
-    quizUnits: ['adverbs', 'nature'],
+    rhythm: 'Ngày 1–3: trạng từ · Ngày 4–5: từ thiên nhiên + du lịch & khách sạn · Ngày 6: kiểm tra tổng tháng 2 · Ngày 7: xem video.',
+    quizUnits: ['adverbs', 'nature', 'travel2'],
     patterns: [
       { pattern: "It's too + tính từ", vi: 'Chê "quá …"', ex: "It's too expensive.", exVi: 'Đắt quá.' },
       { pattern: 'tính từ + -er than', vi: 'So sánh hơn', ex: 'This one is cheaper than that one.', exVi: 'Cái này rẻ hơn cái kia.' },
@@ -288,17 +318,19 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     tasks: [
       { id: 'w8-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Trạng từ & tần suất" (22 từ)', unitId: 'adverbs', pct: 100 },
       { id: 'w8-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Thiên nhiên & du lịch" (30 từ)', unitId: 'nature', pct: 100 },
+      { id: 'w8-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Du lịch & khách sạn" (27 từ)', unitId: 'travel2', pct: 100 },
       { id: 'w8-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w8-bank', kind: 'total', label: 'Kho từ đạt 2000 — chốt tháng 2, đã đi 2/3 chặng', targetTotal: 2000 },
       { id: 'w8-video', kind: 'video', n: 2, label: 'Xem 2 video, để ý cách người bản xứ mô tả đồ vật' },
     ],
   },
   {
-    week: 9, month: 3, phase: 'Consolidate', title: 'Tổng ôn ngắt quãng',
-    focus: 'Đã thuộc hết ~400 từ lõi — dồn sức ôn SRS, lấp lỗ hổng và tiếp tục gom từ từ video.',
-    rhythm: 'Mỗi ngày 10–15 phút SRS + 1 video gom từ · Ngày 6: tổng kiểm tra · Ngày 7: xem video thư giãn.',
-    quizUnits: ['nouns', 'verbs', 'questions', 'adjectives', 'places', 'verbs2', 'adverbs', 'preps', 'phrases', 'body', 'timenum', 'worklife', 'foodshop', 'feelings', 'nature'],
+    week: 9, month: 3, phase: 'Consolidate', title: 'Tổng ôn + cụm động từ',
+    focus: 'Đã thuộc ~650 từ lõi — dồn sức ôn SRS, học cụm động từ (get up, look for…) và tiếp tục gom từ từ video.',
+    rhythm: 'Mỗi ngày 10–15 phút SRS + ~5 cụm động từ + 1 video gom từ · Ngày 6: tổng kiểm tra · Ngày 7: xem video thư giãn.',
+    quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'verbs2', 'adverbs', 'preps', 'phrases', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2'],
     tasks: [
+      { id: 'w9-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Cụm động từ thông dụng" (28 cụm)', unitId: 'phrasal', pct: 100 },
       { id: 'w9-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'w9-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w9-bank', kind: 'total', label: 'Kho từ đạt 2300', targetTotal: 2300 },
@@ -308,10 +340,11 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   },
   {
     week: 10, month: 3, phase: 'Consolidate', title: 'Nghe & nhại (shadowing)',
-    focus: 'Luyện tai và miệng: nhại theo người bản xứ từng câu bằng tab Shadowing trong Học video.',
+    focus: 'Luyện tai và miệng: nhại theo người bản xứ từng câu bằng tab Shadowing, kèm bộ cụm phản xạ nhanh.',
     rhythm: 'Mỗi ngày 1 video ngắn: nghe → nhại từng câu → chấm phát âm · Ngày 6: kiểm tra · Ngày 7: nghỉ tai.',
-    quizUnits: ['nouns', 'verbs', 'questions', 'adjectives', 'places', 'verbs2', 'adverbs', 'preps', 'phrases', 'body', 'timenum', 'worklife', 'foodshop', 'feelings', 'nature'],
+    quizUnits: ['phrasal', 'phrases', 'phrases2', 'verbs', 'verbs2', 'verbs3', 'body', 'communication', 'feelings', 'feelings2'],
     tasks: [
+      { id: 'w10-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Cụm phản xạ nhanh" (30 cụm)', unitId: 'phrases2', pct: 100 },
       { id: 'w10-video', kind: 'video', n: 3, label: 'Shadowing 3 video (mở video → tab Shadowing/Phát âm)' },
       { id: 'w10-speak', kind: 'speak', label: 'Luyện nói 2 buổi với AI, cố nói cả câu dài' },
       { id: 'w10-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
@@ -321,10 +354,11 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
   },
   {
     week: 11, month: 3, phase: 'Consolidate', title: 'Hội thoại theo chủ đề',
-    focus: 'Áp dụng tất cả vào tình huống thật: du lịch, mua sắm, công việc, phỏng vấn.',
+    focus: 'Áp dụng tất cả vào tình huống thật: du lịch, mua sắm, công việc, phỏng vấn — kèm bộ cụm từ đi cùng nhau (make a decision, take a break…).',
     rhythm: 'Cách ngày 1 buổi luyện nói chủ đề khác nhau · xen kẽ video · Ngày 7: kiểm tra.',
-    quizUnits: ['nouns', 'verbs', 'questions', 'adjectives', 'places', 'verbs2', 'adverbs', 'preps', 'phrases', 'body', 'timenum', 'worklife', 'foodshop', 'feelings', 'nature'],
+    quizUnits: ['collocations', 'travel2', 'shopping', 'worklife', 'communication', 'places', 'foodshop', 'preps', 'adverbs', 'nature'],
     tasks: [
+      { id: 'w11-vocab', kind: 'vocab', label: 'Thuộc toàn bộ "Cụm từ đi cùng nhau" (26 cụm)', unitId: 'collocations', pct: 100 },
       { id: 'w11-speak', kind: 'speak', label: 'Hoàn thành 3 tình huống Luyện nói (du lịch / mua sắm / công việc)' },
       { id: 'w11-video', kind: 'video', n: 2, label: 'Xem 2 video đúng chủ đề bạn vừa luyện nói' },
       { id: 'w11-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
@@ -336,7 +370,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     week: 12, month: 3, phase: 'Consolidate', title: 'Tổng kết & tốt nghiệp',
     focus: 'Chạm mốc 3000 từ, bài tổng kết cuối lộ trình, xuất bộ từ ra Word/PDF và tự tin nói chuyện với AI.',
     rhythm: 'Ngày 1–3: ôn điểm yếu + gom nốt từ · Ngày 4: bài tổng kết · Ngày 5–6: hội thoại tự do · Ngày 7: 🎓.',
-    quizUnits: ['nouns', 'verbs', 'questions', 'adjectives', 'places', 'verbs2', 'adverbs', 'preps', 'phrases', 'body', 'timenum', 'worklife', 'foodshop', 'feelings', 'nature'],
+    quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs2', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'adverbs', 'preps', 'phrases', 'phrases2', 'phrasal', 'collocations', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2'],
     tasks: [
       { id: 'w12-bank', kind: 'total', label: '🎯 KHO TỪ ĐẠT 3000 — mục tiêu lớn của cả lộ trình', targetTotal: 3000 },
       { id: 'w12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 80%', passPct: 80 },
