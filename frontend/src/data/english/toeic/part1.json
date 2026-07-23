@@ -1,0 +1,86 @@
+[
+  {
+    "id": "p1-01",
+    "img": "/img/toeic/p1-01.jpg",
+    "statements": [
+      "She is typing on a laptop.",
+      "She is drinking from a cup.",
+      "She is putting on her glasses.",
+      "She is arranging some flowers."
+    ],
+    "answer": 0,
+    "skill": "l-photo",
+    "vi": "Ảnh: người phụ nữ ngồi gõ laptop cạnh cửa sổ; trên bàn có cốc cà phê, cặp kính và lọ hoa.",
+    "trap": "Cốc, kính, lọ hoa đều CÓ trong ảnh — nhưng cô ấy không làm gì với chúng. Part 1 hay đọc tên đồ vật có thật để dụ chọn sai hành động; nghe kỹ ĐỘNG TỪ."
+  },
+  {
+    "id": "p1-02",
+    "img": "/img/toeic/p1-02.jpg",
+    "statements": [
+      "A man is carrying a box.",
+      "Some boxes are stacked on top of each other.",
+      "The oven door has been left open.",
+      "A plant is being moved outside."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: mấy thùng đồ xếp chồng lên nhau trong căn bếp, cạnh cửa sổ có chậu cây; không có người.",
+    "trap": "Ảnh KHÔNG có người → loại ngay mọi câu tả người đang làm gì; 'is being moved' (đang được chuyển) cũng cần có người thực hiện trong ảnh."
+  },
+  {
+    "id": "p1-03",
+    "img": "/img/toeic/p1-03.jpg",
+    "statements": [
+      "The women are seated across from each other.",
+      "They are shaking hands.",
+      "One of the women is opening a window.",
+      "They are leaving the room."
+    ],
+    "answer": 0,
+    "skill": "l-photo",
+    "vi": "Ảnh: hai người phụ nữ ngồi đối diện nhau trò chuyện bên bàn tròn nhỏ, cạnh cửa sổ lớn nhìn ra thành phố.",
+    "trap": "'seated across from each other' = ngồi đối diện nhau — cụm vị trí rất hay gặp. Cửa sổ CÓ trong ảnh nhưng không ai đang mở."
+  },
+  {
+    "id": "p1-04",
+    "img": "/img/toeic/p1-04.jpg",
+    "statements": [
+      "A man is riding a bicycle.",
+      "A basket is being filled with fruit.",
+      "A bicycle is propped against a wall.",
+      "The sidewalk is crowded with people."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: chiếc xe đạp có giỏ mây dựng tựa vào bức tường đá cũ; vỉa hè vắng người, dãy xe đậu phía xa.",
+    "trap": "'propped against' = dựng tựa vào — từ vựng vị trí đề 2026 rất chuộng. Giỏ xe CÓ nhưng đang trống — 'is being filled' sai."
+  },
+  {
+    "id": "p1-05",
+    "img": "/img/toeic/p1-05.jpg",
+    "statements": [
+      "The cooks are washing some dishes.",
+      "Some plates have been stacked on the counter.",
+      "Lamps are being installed above the counter.",
+      "The kitchen has been left empty."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: bếp nhà hàng — các đầu bếp áo trắng đang làm việc, chồng đĩa xếp sẵn trên quầy, dãy đèn treo phía trên.",
+    "trap": "Đèn ĐÃ treo sẵn — 'are being installed' chỉ đúng khi có người đang lắp. 'Have been stacked' tả TRẠNG THÁI (đã được xếp chồng) — đúng với chồng đĩa."
+  },
+  {
+    "id": "p1-06",
+    "img": "/img/toeic/p1-06.jpg",
+    "statements": [
+      "She is weighing some fruit.",
+      "She is paying at the checkout counter.",
+      "She is pushing a shopping cart.",
+      "The produce shelves are empty."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: người phụ nữ đẩy xe hàng trong siêu thị, quầy trái cây (dứa, măng cụt) bày đầy bên cạnh.",
+    "trap": "Trái cây bày đầy trong ảnh nhưng cô ấy không cân, không thanh toán — chỉ đang đẩy xe. Đừng chọn theo đồ vật, chọn theo HÀNH ĐỘNG."
+  }
+]

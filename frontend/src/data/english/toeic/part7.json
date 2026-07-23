@@ -1,0 +1,217 @@
+[
+  {
+    "id": "p7-01",
+    "title": "Email: Thay đổi giờ làm việc",
+    "kind": "email",
+    "text": "To: All Staff\nFrom: Marcus Webb, Operations Director\nSubject: Summer hours\nDate: June 2\n\nDear colleagues,\n\nI am pleased to announce that from July 1 to August 31, the company will adopt summer working hours. The office will open at 8:00 A.M. instead of 9:00 A.M., and close at 4:00 P.M. instead of 5:00 P.M. on weekdays.\n\nIn addition, the office will close at 1:00 P.M. on Fridays. Employees who prefer to keep the regular schedule may do so by informing their team leader before June 20.\n\nPlease note that customer support staff will follow a separate rotation schedule, which will be shared by the support manager next week.\n\nBest regards,\nMarcus Webb",
+    "questions": [
+      { "q": "What is the main purpose of the email?", "options": ["To announce a new schedule", "To introduce a new director", "To request vacation plans", "To explain a pay increase"], "answer": 0, "skill": "r-main" },
+      { "q": "What time will the office close on summer Fridays?", "options": ["4:00 P.M.", "5:00 P.M.", "1:00 P.M.", "12:00 P.M."], "answer": 2, "skill": "r-detail" },
+      { "q": "What should employees do if they want to keep their regular hours?", "options": ["Email Mr. Webb directly", "Tell their team leader by June 20", "Contact the support manager", "Fill out an online form"], "answer": 1, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-02",
+    "title": "Tin nhắn nhóm làm việc",
+    "kind": "chat",
+    "text": "Linh Vo [10:12] Hi both — the client just called. They want to move the product demo from Thursday to tomorrow at 2 P.M. Can we make it?\n\nJake Miller [10:13] Tomorrow?! The demo video isn't finished. I still need to record the last section.\n\nLinh Vo [10:14] How long would that take?\n\nJake Miller [10:15] If I skip lunch, I can have it done by 5 today. But someone else needs to check the sound quality.\n\nPriya Nair [10:16] I can do that tonight. Jake, just upload it to the shared drive when you're done.\n\nLinh Vo [10:17] Perfect. I'll confirm with the client now. You two are lifesavers.",
+    "questions": [
+      { "q": "Why did Linh write to the group?", "options": ["A client wants an earlier demo.", "A video file was lost.", "A meeting room was changed.", "A deadline was extended."], "answer": 0, "skill": "r-main" },
+      { "q": "At 10:17, what does Linh mean when she writes, \"You two are lifesavers\"?", "options": ["Her colleagues work as doctors.", "She is grateful for their help.", "She wants them to work overtime.", "They saved the client's account."], "answer": 1, "skill": "r-infer" },
+      { "q": "What will Priya most likely do tonight?", "options": ["Record a new section", "Call the client", "Check the audio quality", "Upload the video"], "answer": 2, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-03",
+    "title": "Thông báo sự kiện",
+    "kind": "notice",
+    "text": "RIVERTON PUBLIC LIBRARY\nAuthor Talk & Book Signing\n\nJoin us on Saturday, October 14, at 3:00 P.M. as travel writer Elena Brooks presents her new book, \"Slow Roads: A Year Without Airports.\" Ms. Brooks spent twelve months crossing four continents using only trains, buses, and boats.\n\nThe talk will last about one hour, followed by a Q&A session and book signing. Copies will be available for purchase at a 15% discount, courtesy of Hartley's Bookshop.\n\nAdmission is free, but seating is limited to 80 guests. Reserve your seat online at rivertonlibrary.org/events or call 555-0177. Doors open at 2:30 P.M.\n\nPlease note: the library's parking lot will be closed for repaving; street parking is available on Mill Avenue.",
+    "questions": [
+      { "q": "What is Ms. Brooks's book mainly about?", "options": ["Learning to fly a plane", "Traveling without using airplanes", "Working at an airport", "Opening a bookshop"], "answer": 1, "skill": "r-detail" },
+      { "q": "What is indicated about the event?", "options": ["Tickets cost 15 dollars.", "It starts at 2:30 P.M.", "Seats must be reserved for a fee.", "Attendance is free of charge."], "answer": 3, "skill": "r-detail" },
+      { "q": "What is suggested about parking?", "options": ["The library lot is unavailable.", "Parking is free in the library lot.", "A parking pass is required.", "Guests should carpool."], "answer": 0, "skill": "r-infer" }
+    ]
+  },
+  {
+    "id": "p7-04",
+    "title": "Quảng cáo tuyển dụng",
+    "kind": "ad",
+    "text": "JOB OPENING — CUSTOMER EXPERIENCE COORDINATOR\nNorthgate Hotels, Da Nang Branch\n\nNorthgate Hotels is seeking a full-time Customer Experience Coordinator to join our front-office team.\n\nResponsibilities:\n- Welcome guests and handle special requests\n- Respond to online reviews and guest surveys\n- Coordinate with housekeeping and restaurant teams\n- Prepare monthly guest-satisfaction reports\n\nRequirements:\n- At least two years of experience in hospitality or customer service\n- Fluent English; a third language is a plus\n- Strong writing skills and attention to detail\n- Availability to work some weekend shifts\n\nWe offer competitive pay, health insurance, free staff meals, and discounted room rates at all Northgate properties worldwide.\n\nTo apply, send your resume and a short cover letter to careers@northgatehotels.com by August 15. Only shortlisted candidates will be contacted for interviews, which will be held during the last week of August.",
+    "questions": [
+      { "q": "What is one responsibility of the position?", "options": ["Cooking staff meals", "Responding to online reviews", "Cleaning guest rooms", "Managing hotel finances"], "answer": 1, "skill": "r-detail" },
+      { "q": "What is NOT listed as a requirement?", "options": ["Customer service experience", "Fluency in English", "A university degree", "Weekend availability"], "answer": 2, "skill": "r-nots" },
+      { "q": "When will interviews take place?", "options": ["By August 15", "In early August", "In late August", "In September"], "answer": 2, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-05",
+    "title": "Email + phiếu xác nhận (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Email ---\nTo: t.nguyen@vylmail.com\nFrom: reservations@harborview.com\nSubject: Booking confirmation #HV-3392\nDate: March 3\n\nDear Mr. Nguyen,\n\nThank you for choosing Harborview Hotel. We confirm your reservation for a Deluxe Double Room from Friday, April 11 to Monday, April 14 (3 nights) at $120 per night, breakfast included.\n\nAs a loyalty member, you are entitled to one free airport pickup. To arrange it, simply reply to this email with your flight number at least 48 hours before arrival.\n\nWe look forward to welcoming you.\n\n--- Văn bản 2: Nội dung trả lời ---\nTo: reservations@harborview.com\nFrom: t.nguyen@vylmail.com\nSubject: RE: Booking confirmation #HV-3392\nDate: April 8\n\nHello,\n\nPlease arrange the airport pickup — my flight is VN1826, landing at 9:40 P.M. on April 11.\n\nAlso, could I extend my stay by one extra night, checking out on Tuesday morning instead? Please let me know if the same rate applies.\n\nThank you,\nTuan Nguyen",
+    "questions": [
+      { "q": "How much will three nights cost, excluding any extras?", "options": ["$120", "$240", "$360", "$480"], "answer": 2, "skill": "r-detail" },
+      { "q": "Why does Mr. Nguyen mention his flight number?", "options": ["To request a refund", "To arrange a free pickup", "To change his flight", "To claim lost luggage"], "answer": 1, "skill": "r-infer" },
+      { "q": "What does Mr. Nguyen ask about in his reply?", "options": ["A room upgrade", "A late breakfast", "An extra night", "A city tour"], "answer": 2, "skill": "r-detail" },
+      { "q": "By when did Mr. Nguyen need to send his flight details to qualify for the pickup?", "options": ["48 hours before landing", "One week before arrival", "By March 3", "On the day of arrival"], "answer": 0, "skill": "r-detail" },
+      { "q": "If his request is approved, when will Mr. Nguyen most likely check out?", "options": ["On April 11", "On April 14", "On April 15", "On April 16"], "answer": 2, "skill": "r-infer" }
+    ]
+  },
+  {
+    "id": "p7-06",
+    "title": "Bài báo ngắn",
+    "kind": "article",
+    "text": "LOCAL BAKERY RISES TO NATIONAL FAME\n\nGreenhill (May 22) — Just five years ago, Rosa Delgado was selling bread from a single stall at the Greenhill farmers' market. Today, her company, Rosa's Oven, supplies more than 300 supermarkets across the country.\n\nThe turning point came in 2023, when a food blogger's video about her sourdough loaf attracted two million views in a week. \"Overnight, we had more orders than we could bake,\" Ms. Delgado recalled. \"I had to decide: stay small or grow fast.\"\n\nShe chose growth — but carefully. Rather than opening her own factories, she partnered with three family-run bakeries in nearby towns, training their bakers in her methods. This allowed production to triple while keeping the handmade quality that made her famous.\n\nRosa's Oven will open its first overseas location in Singapore this fall. Asked for her advice to small business owners, Ms. Delgado laughed: \"Make something worth talking about. The talking, these days, takes care of itself.\"",
+    "questions": [
+      { "q": "What is the article mainly about?", "options": ["A bakery's rapid growth", "A new supermarket chain", "A food blogging course", "A farmers' market schedule"], "answer": 0, "skill": "r-main" },
+      { "q": "What happened in 2023?", "options": ["The company opened in Singapore.", "A video made the bakery famous.", "Ms. Delgado sold her company.", "Three bakeries closed down."], "answer": 1, "skill": "r-detail" },
+      { "q": "How did Ms. Delgado increase production?", "options": ["By building new factories", "By importing bread", "By partnering with other bakeries", "By reducing quality"], "answer": 2, "skill": "r-detail" },
+      { "q": "The word \"handmade\" in paragraph 3 is closest in meaning to:", "options": ["expensive", "artisanal", "imported", "convenient"], "answer": 1, "skill": "r-vocab" }
+    ]
+  },
+  {
+    "id": "p7-07",
+    "title": "Chuỗi tin nhắn công việc",
+    "kind": "chat",
+    "text": "Hana Sato [2:04 P.M.] Quick question — do we still have the portable projector? The one we use for client visits?\n\nLeo Fontaine [2:05 P.M.] It should be in the equipment cabinet on the third floor. Why?\n\nHana Sato [2:06 P.M.] I'm at Meridian Corp. Their meeting room screen just died, and I present in twenty-five minutes.\n\nLeo Fontaine [2:07 P.M.] Checked — the projector is here, but the HDMI cable is missing. Sofia borrowed it for the town hall yesterday.\n\nHana Sato [2:08 P.M.] Of course she did. Any other options?\n\nLeo Fontaine [2:09 P.M.] Honestly? Your slides are already on the shared drive. Ask their IT to open the file on a laptop and present from that — faster than me taxiing across town.\n\nHana Sato [2:10 P.M.] Good thinking. Their assistant is setting one up now. Crisis averted — I owe you a coffee.",
+    "questions": [
+      { "q": "Why did Ms. Sato contact Mr. Fontaine?", "options": ["To borrow a laptop", "To ask about a projector", "To reschedule a meeting", "To find a missing cable"], "answer": 1, "skill": "r-detail" },
+      { "q": "At 2:08 P.M., what does Ms. Sato mean when she writes, \"Of course she did\"?", "options": ["She is not surprised by the news.", "She approved Sofia's request.", "She remembers lending the cable.", "She thinks the town hall went well."], "answer": 0, "skill": "r-infer" },
+      { "q": "How will Ms. Sato most likely give her presentation?", "options": ["Using the portable projector", "From a laptop at the client's office", "By rescheduling to another day", "By printing her slides"], "answer": 1, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-08",
+    "title": "Trang web: các gói dịch vụ",
+    "kind": "web",
+    "text": "www.cloudnest.com/plans\n\nCLOUDNEST — SECURE FILE STORAGE FOR SMALL TEAMS\n\nBASIC — Free\n• 10 GB storage · 2 team members\n• File sharing with password protection\n\nSTANDARD — $12 per month\n• 500 GB storage · up to 10 team members\n• Everything in Basic, plus automatic nightly backup and file version history (30 days)\n\nPREMIUM — $29 per month\n• 2 TB storage · unlimited team members\n• Everything in Standard, plus e-signature tools and priority phone support\n\nAll paid plans include a 14-day free trial. Annual billing saves 20%. Nonprofit organizations receive an additional 10% discount with valid documentation — contact sales@cloudnest.com.\n\nNote: Version history on the Premium plan extends to 180 days.",
+    "questions": [
+      { "q": "What is included in every paid plan?", "options": ["Unlimited team members", "A 14-day free trial", "Priority phone support", "E-signature tools"], "answer": 1, "skill": "r-detail" },
+      { "q": "What is indicated about the Standard plan?", "options": ["It includes 2 TB of storage.", "It backs up files automatically.", "It offers phone support.", "It is free for nonprofits."], "answer": 1, "skill": "r-detail" },
+      { "q": "How can an organization receive the 10% additional discount?", "options": ["By paying annually", "By adding ten members", "By providing nonprofit documentation", "By signing up during a trial"], "answer": 2, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-09",
+    "title": "Thư nội bộ: chương trình tái chế",
+    "kind": "memo",
+    "text": "MEMO\nTo: All Building Tenants\nFrom: Facilities Management\nDate: September 8\nRe: New recycling stations\n\nBeginning September 15, the waste room on each floor will be replaced by a recycling station near the elevators. Each station has four clearly labeled bins: paper, plastic and metal, glass, and general waste.\n\nPlease note the following changes:\n• Cardboard boxes must be flattened before disposal.\n• Electronic waste (batteries, cables, small devices) should NOT be placed in any bin. Instead, bring it to the collection cart in the lobby on the first Monday of each month.\n• Confidential documents should still go into the locked shredding console in your office suite, not the paper bin.\n\nCleaning staff will empty the stations nightly. Questions may be directed to facilities@parktower.com. Thank you for helping us reach our goal of cutting landfill waste by 40% this year.",
+    "questions": [
+      { "q": "What is the main purpose of the memo?", "options": ["To announce new recycling procedures", "To introduce new cleaning staff", "To report a broken elevator", "To schedule a building inspection"], "answer": 0, "skill": "r-main" },
+      { "q": "According to the memo, what should tenants do with old batteries?", "options": ["Place them in the metal bin", "Flatten them first", "Take them to the lobby cart on designated days", "Put them in the shredding console"], "answer": 2, "skill": "r-detail" },
+      { "q": "What is NOT mentioned as a bin category at the new stations?", "options": ["Paper", "Glass", "Food waste", "General waste"], "answer": 2, "skill": "r-nots" }
+    ]
+  },
+  {
+    "id": "p7-10",
+    "title": "Bài báo: xu hướng văn phòng",
+    "kind": "article",
+    "text": "THE QUIET RETURN OF THE OFFICE LIBRARY\n\nBusiness Trends Weekly (October issue) — Five years ago, office designers could not knock down walls fast enough. Open floor plans promised collaboration, spontaneity, and — not least — lower costs per desk. Today, a growing number of companies are quietly rebuilding what they tore down, one bookshelf at a time.\n\nThe newest feature in workplace design is the \"library zone\": a carpeted, phone-free room where conversation is limited to a whisper. At software firm Datawheel, the library seats thirty and is booked solid by ten each morning. \"Our engineers asked for it by name,\" says workplace director Irene Kovacs. \"They didn't want more meeting rooms. They wanted somewhere to think.\"\n\nResearch supports the shift. A 2025 university study tracking 1,200 office workers found that those with access to designated quiet areas reported 23% fewer errors in detail-heavy tasks and, perhaps surprisingly, rated their teams as MORE collaborative — not less. The authors suggest that when deep-focus work has a protected home, meetings become shorter and more purposeful.\n\nThe trend has its skeptics. Retrofitting quiet rooms is expensive, and some managers worry the spaces simply hide employees from oversight. But with several major insurers and two government ministries announcing library zones this quarter, the whisper, it seems, is getting louder.",
+    "questions": [
+      { "q": "What is the article mainly about?", "options": ["The rising cost of office furniture", "A trend toward quiet spaces in offices", "A shortage of meeting rooms", "The history of public libraries"], "answer": 1, "skill": "r-main" },
+      { "q": "What is suggested about the library zone at Datawheel?", "options": ["It is rarely used.", "It is in high demand.", "It doubles as a meeting room.", "It was required by regulators."], "answer": 1, "skill": "r-infer" },
+      { "q": "According to the study, workers with quiet areas reported:", "options": ["Fewer errors in detailed work", "Longer meetings", "Less collaboration", "Higher salaries"], "answer": 0, "skill": "r-detail" },
+      { "q": "The word \"protected\" in paragraph 3 is closest in meaning to:", "options": ["insured", "dedicated", "hidden", "locked"], "answer": 1, "skill": "r-vocab" }
+    ]
+  },
+  {
+    "id": "p7-11",
+    "title": "Tin tuyển dụng + email ứng tuyển (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Tin tuyển dụng ---\nGREENROOT FOODS — PART-TIME SOCIAL MEDIA ASSISTANT\n\nGreenroot Foods, a plant-based snack company, seeks a creative assistant to manage our social media channels 20 hours per week. Fully remote within the country.\n\nResponsibilities: plan three posts per week, reply to customer comments, prepare a short monthly engagement report.\n\nRequirements:\n• Portfolio of social media content (links accepted)\n• Basic photo and video editing skills\n• Available for a weekly online team meeting, Mondays at 9 A.M.\n• Experience with food or lifestyle brands is a plus, but not required.\n\nTo apply, email your resume, portfolio link, and expected hourly rate to jobs@greenrootfoods.com by July 31. Interviews will be held online during the first week of August.\n\n--- Văn bản 2: Email ứng tuyển ---\nTo: jobs@greenrootfoods.com\nFrom: minh.chau@vylmail.com\nSubject: Application — Social Media Assistant\nDate: July 29\n\nDear Hiring Team,\n\nPlease find attached my resume for the Social Media Assistant position. My portfolio is at chauminh.design/work — it includes a six-month campaign I ran for a local bubble tea chain, which grew their follower count by 80%.\n\nI am comfortable with Photoshop and CapCut, and my expected rate is $18 per hour. One note: I attend a design class on Monday mornings until the end of August, so I would need to join the team meeting thirty minutes late during that period. From September, my schedule is fully open.\n\nThank you for your consideration.\n\nMinh Chau",
+    "questions": [
+      { "q": "What is stated about the position in the job posting?", "options": ["It requires working in the office.", "It is a full-time role.", "It involves preparing a monthly report.", "It requires a university degree."], "answer": 2, "skill": "r-detail" },
+      { "q": "In the posting, the phrase \"a plus\" is closest in meaning to:", "options": ["a requirement", "an advantage", "an addition to salary", "a positive review"], "answer": 1, "skill": "r-vocab" },
+      { "q": "What does Ms. Chau include in her email?", "options": ["A link to her portfolio", "A reference letter", "A monthly report sample", "A photo of her workspace"], "answer": 0, "skill": "r-detail" },
+      { "q": "What requirement might Ms. Chau have difficulty meeting until September?", "options": ["The posting schedule", "The Monday meeting time", "The editing skills", "The application deadline"], "answer": 1, "skill": "r-infer" },
+      { "q": "What experience makes Ms. Chau's application match the \"plus\" in the posting?", "options": ["Her design class", "Her hourly rate", "Her campaign for a bubble tea chain", "Her video editing course"], "answer": 2, "skill": "r-infer" }
+    ]
+  },
+  {
+    "id": "p7-12",
+    "title": "Tờ rơi sự kiện + email xác nhận + tin nhắn (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Tờ rơi ---\nRIVERSIDE SMALL BUSINESS FAIR\nSaturday, November 9 · 10 A.M. – 5 P.M. · Riverside Community Hall\n\nBooth packages:\n• Standard (table + 2 chairs): $60\n• Corner booth (extra visibility): $95\n• Food vendor booth (includes power outlet): $120\n\nEarly-bird: register by October 15 and pay 50% of any package price. Setup begins at 8 A.M. on the day of the fair. Parking behind the hall is reserved for vendors with a printed permit.\n\n--- Văn bản 2: Email xác nhận ---\nTo: tara@knitandnature.com\nFrom: events@riversidefair.org\nSubject: Registration confirmed — Booth 14\nDate: October 12\n\nDear Ms. Boyle,\n\nYour registration for a corner booth is confirmed, and your early-bird payment has been received. You are assigned Booth 14, near the main entrance.\n\nYour vendor parking permit is attached — please print it and place it on your dashboard. Doors open for setup at 8 A.M.; we recommend arriving before 9 A.M., as the loading area gets crowded.\n\n--- Văn bản 3: Tin nhắn ---\nFrom: Tara Boyle\nTo: Sam Boyle\nNov 9, 7:42 A.M.\n\nSam, small change of plan — my car won't start, so I'm loading everything into yours. Can you drive me? Setup opened at 8 and I want to beat the loading-area rush like the email said. The parking permit is printed and in my tote bag. Booth is by the main entrance, so we can unload quickly.",
+    "questions": [
+      { "q": "How much did Ms. Boyle most likely pay for her booth?", "options": ["$30", "$47.50", "$60", "$95"], "answer": 1, "skill": "r-infer" },
+      { "q": "What is indicated about Booth 14?", "options": ["It includes a power outlet.", "It is located near the main entrance.", "It comes with four chairs.", "It is a food vendor booth."], "answer": 1, "skill": "r-detail" },
+      { "q": "In the flyer, what benefit is offered to vendors who register by October 15?", "options": ["A free corner upgrade", "Half-price registration", "Reserved parking", "An extra table"], "answer": 1, "skill": "r-detail" },
+      { "q": "Why does Ms. Boyle text her brother?", "options": ["To ask for a ride", "To borrow a parking permit", "To change her booth", "To cancel her registration"], "answer": 0, "skill": "r-main" },
+      { "q": "What advice from the email does Ms. Boyle plan to follow?", "options": ["Printing extra flyers", "Arriving before the loading area gets busy", "Bringing her own chairs", "Paying the remaining balance"], "answer": 1, "skill": "r-infer" }
+    ]
+  },
+  {
+    "id": "p7-13",
+    "title": "Trang sản phẩm + đánh giá + phản hồi hãng (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Trang sản phẩm ---\nNIMBUS X2 WIRELESS HEADPHONES — $149\nwww.soundwarehouse.com\n\n• Battery: up to 30 hours per charge\n• Active noise canceling with Transparency mode\n• Foldable design with hard travel case included\n• Colors: black, sand, sage green\nFree shipping. 30-day returns. A 2-year extended warranty is available at checkout for $19.\n\n--- Văn bản 2: Đánh giá của khách ---\n★★★☆☆ Great sound, but check the fit — by R. Okafor, June 3\n\nThe sound and battery live up to the promises — I get four workdays out of one charge. However, the ear cushions press hard on glasses, and after two hours I need a break. Also, my sand-colored pair showed marks within a week. If you wear glasses, think twice, or hope they redesign the cushions. Customer service did respond quickly when I asked about cleaning tips.\n\n--- Văn bản 3: Phản hồi của hãng ---\nSoundWarehouse Support replied, June 5\n\nThank you for the balanced review, Mr. Okafor! Comfort feedback from glasses wearers has reached our design team, and a softer cushion — sold separately at first — will be released this fall. It will be a free upgrade for any customer who purchased the extended warranty. Marks on light colors can be removed with the cleaning kit described on our care page; we have sent one to you at no charge.",
+    "questions": [
+      { "q": "What is included with the Nimbus X2 at no extra cost?", "options": ["An extended warranty", "A travel case", "A cleaning kit", "Replacement cushions"], "answer": 1, "skill": "r-detail" },
+      { "q": "What problem does Mr. Okafor mention?", "options": ["Short battery life", "Weak noise canceling", "Discomfort when wearing glasses", "Slow customer service"], "answer": 2, "skill": "r-detail" },
+      { "q": "In the review, the phrase \"live up to\" is closest in meaning to:", "options": ["exceed", "match", "question", "advertise"], "answer": 1, "skill": "r-vocab" },
+      { "q": "Who will receive the new cushions for free?", "options": ["All Nimbus X2 owners", "Customers who bought the extended warranty", "Customers who wrote reviews", "Glasses wearers who register online"], "answer": 1, "skill": "r-infer" },
+      { "q": "What did the company send to Mr. Okafor?", "options": ["A refund", "A new pair of headphones", "A cleaning kit", "A discount code"], "answer": 2, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-14",
+    "title": "Lịch công tác + email thay đổi + trích quy định (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Lịch công tác ---\nTRIP ITINERARY — DANIELA VEGA, SALES\nPrepared by: Corporate Travel Desk, March 2\n\nMar 18  Flight AV 402, Hometown → Lisbon, dep. 10:20 A.M.\nMar 18–20  Hotel Miradouro (3 nights, breakfast included)\nMar 19  Client meetings, Braga Textiles — 9 A.M. & 2 P.M.\nMar 20  Trade show, Lisbon Expo Center, all day\nMar 21  Flight AV 407, Lisbon → Hometown, dep. 6:45 P.M.\n\n--- Văn bản 2: Email ---\nTo: travel@corvustrade.com\nFrom: d.vega@corvustrade.com\nSubject: Extra day in Lisbon\nDate: March 10\n\nHi Travel Desk,\n\nBraga Textiles just asked to add a factory tour on the morning of March 21, and I'd like to accept — it could double the size of their order. Could you move my return flight to March 22? Any departure time works.\n\nAlso, since the extra night is my own suggestion, let me know if I need a signed approval under the travel policy.\n\nDaniela\n\n--- Văn bản 3: Trích quy định công tác ---\nCORVUS TRADE — TRAVEL POLICY (excerpt)\n4.2 Changes to booked itineraries that increase total trip cost by less than $150 may be approved directly by the Travel Desk.\n4.3 Changes exceeding $150, or any extension of more than two nights, require written approval from the traveler's department head before rebooking.\n4.4 Meals on approved extension days are reimbursed up to $40 per day.",
+    "questions": [
+      { "q": "Why is Ms. Vega traveling to Lisbon?", "options": ["To attend a training course", "To meet a client and attend a trade show", "To open a new office", "To interview job candidates"], "answer": 1, "skill": "r-main" },
+      { "q": "Why does Ms. Vega want to change her return flight?", "options": ["Her first flight was canceled.", "The trade show was extended.", "A client proposed a factory tour.", "She wants a vacation day."], "answer": 2, "skill": "r-detail" },
+      { "q": "What determines whether Ms. Vega needs her department head's approval?", "options": ["The cost of the change", "The airline she flies", "The hotel category", "The number of client meetings"], "answer": 0, "skill": "r-infer" },
+      { "q": "If the extension is approved, how much can Ms. Vega claim for meals on March 21?", "options": ["Nothing", "Up to $40", "Up to $150", "The full cost"], "answer": 1, "skill": "r-infer" },
+      { "q": "In the email, the phrase \"double the size\" refers to:", "options": ["The factory building", "The client's order", "The trade show booth", "Her hotel room"], "answer": 1, "skill": "r-vocab" }
+    ]
+  },
+  {
+    "id": "p7-15",
+    "title": "Thông báo ứng dụng giao hàng",
+    "kind": "notice",
+    "text": "SWIFTBASKET APP — SERVICE UPDATE\n\nDear SwiftBasket users,\n\nBeginning August 1, we are making two changes to our grocery delivery service.\n\n1. Delivery windows. In addition to our standard two-hour windows, you can now choose a 30-minute express window for a $3.99 fee. Express windows are available from 8 A.M. to 8 P.M. in most service areas — check availability at checkout.\n\n2. Substitution policy. When an item is out of stock, our shoppers currently replace it with a similar product automatically. From August 1, you will receive a notification and have ten minutes to approve or decline each substitution before your order is packed. If you do not respond, the item will simply be refunded rather than substituted.\n\nThese changes come directly from your feedback in our spring user survey — thank you for helping us improve. No action is needed; both features will appear in your app automatically after the update.\n\nThe SwiftBasket Team",
+    "questions": [
+      { "q": "What is the purpose of the notice?", "options": ["To announce service changes", "To apologize for late deliveries", "To advertise a new store", "To recruit delivery drivers"], "answer": 0, "skill": "r-main" },
+      { "q": "What will happen if a user ignores a substitution notification?", "options": ["The order will be canceled.", "The item will be refunded.", "A similar item will be sent.", "Delivery will be delayed."], "answer": 1, "skill": "r-detail" },
+      { "q": "What is indicated about the changes?", "options": ["They were based on user feedback.", "They require reinstalling the app.", "They apply only to express orders.", "They begin immediately."], "answer": 0, "skill": "r-detail" }
+    ]
+  },
+  {
+    "id": "p7-16",
+    "title": "Bài báo: giờ làm 4 ngày/tuần",
+    "kind": "article",
+    "text": "FOUR DAYS, FULL PAY: LOCAL FIRMS JOIN THE SHORTER-WEEK EXPERIMENT\n\nHarbor City Business Journal — When Meridian Insurance announced last spring that its 300 employees would work four days a week for the same salary, competitors predicted chaos. Eighteen months later, the company reports its strongest customer-satisfaction scores in a decade — and its lowest staff turnover ever.\n\nMeridian is not alone. According to a survey by the Harbor City Chamber of Commerce, one in five local employers now offers some form of compressed schedule, up from one in twenty just three years ago. The catch? Success appears to depend less on the calendar than on the meeting room. \"Companies that simply squeezed five days of meetings into four failed quickly,\" says labor researcher Dr. Elsa Moreau. \"The ones that thrived cut internal meetings by half or more before touching the schedule.\"\n\nNot every industry finds the shift easy. Restaurants, hospitals, and logistics firms — where customers expect seven-day service — must hire additional staff to cover the gaps, an expense small businesses cannot always absorb. Meridian's chief executive, Priya Raman, acknowledges the model has limits, but she is blunt about the results in her own office: \"We measure output, not hours. Output went up.\"",
+    "questions": [
+      { "q": "What is the article mainly about?", "options": ["A four-day workweek trend", "A new insurance product", "A local hiring boom", "A meeting software launch"], "answer": 0, "skill": "r-main" },
+      { "q": "According to Dr. Moreau, what did successful companies do first?", "options": ["Hired additional staff", "Reduced internal meetings", "Cut salaries slightly", "Extended daily hours"], "answer": 1, "skill": "r-detail" },
+      { "q": "What is suggested about restaurants and hospitals?", "options": ["They adopted the model fastest.", "The model is harder for them to afford.", "They reported higher satisfaction.", "They oppose the Chamber survey."], "answer": 1, "skill": "r-infer" },
+      { "q": "The word \"absorb\" in paragraph 3 is closest in meaning to:", "options": ["understand", "afford", "soak up", "ignore"], "answer": 1, "skill": "r-vocab" }
+    ]
+  },
+  {
+    "id": "p7-17",
+    "title": "Hoá đơn + email khiếu nại (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Hoá đơn ---\nBRIGHTCLEAN OFFICE SERVICES — INVOICE #2214\nBilled to: Lotus Dental Clinic\nService month: June\n\nWeekly cleaning (4 visits @ $180) ........ $720\nWindow washing, exterior (June 12) ....... $150\nCarpet deep-clean, waiting room (June 19)  $240\nSupplies surcharge ........................ $35\nTOTAL ..................................... $1,145\nPayment due: July 15. A 2% late fee applies after the due date.\n\n--- Văn bản 2: Email ---\nTo: billing@brightclean.com\nFrom: office@lotusdental.com\nSubject: Invoice #2214 — two questions\nDate: July 8\n\nHello,\n\nWe received invoice #2214 and have two questions before we pay.\n\nFirst, our contract dated March 1 states that supplies are included in the weekly rate, so we do not understand the $35 surcharge. Could you check this against the contract?\n\nSecond, the carpet deep-clean was scheduled for June 19 but was actually performed on June 26, after our staff reported the crew did not arrive on the original date. The work itself was fine — we simply want the records to match before our auditor reviews them.\n\nWe are happy to pay the corrected invoice as soon as we receive it.\n\nBest regards,\nHelen Vo, Office Manager",
+    "questions": [
+      { "q": "What service cost the most in June?", "options": ["Window washing", "Weekly cleaning", "Carpet deep-clean", "The supplies surcharge"], "answer": 1, "skill": "r-detail" },
+      { "q": "Why does Ms. Vo question the $35 charge?", "options": ["The contract includes supplies.", "The amount was calculated twice.", "Supplies were never delivered.", "The rate increased without notice."], "answer": 0, "skill": "r-infer" },
+      { "q": "According to the email, what is wrong with the carpet-cleaning entry?", "options": ["The service date is incorrect.", "The price is too high.", "The wrong room is listed.", "The work was unsatisfactory."], "answer": 0, "skill": "r-detail" },
+      { "q": "What will Lotus Dental Clinic most likely do next?", "options": ["Pay the original invoice", "Wait for a corrected invoice", "Cancel the cleaning contract", "Contact a different cleaner"], "answer": 1, "skill": "r-infer" },
+      { "q": "In the email, the word \"performed\" is closest in meaning to:", "options": ["carried out", "acted on stage", "improved", "scheduled"], "answer": 0, "skill": "r-vocab" }
+    ]
+  },
+  {
+    "id": "p7-18",
+    "title": "Quảng cáo + đơn đăng ký + email xác nhận (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Quảng cáo ---\nHARBORVIEW COWORKING — AUTUMN MEMBERSHIP DRIVE\n\nFlex Desk — $99/month: any open desk, business hours access\nDedicated Desk — $189/month: your own desk, 24/7 access, locker\nPrivate Office — from $450/month: lockable room for teams of 2–6\n\nAutumn special: sign up in September and get your FIRST MONTH HALF PRICE on any plan. All members enjoy free meeting-room credits (2 hours/month), high-speed Wi-Fi, and unlimited coffee.\nNote: the half-price offer applies to monthly plans only, not day passes.\n\n--- Văn bản 2: Đơn đăng ký trực tuyến ---\nHARBORVIEW COWORKING — MEMBERSHIP APPLICATION\nDate: September 21\nName: Danh Le\nCompany: Fernleaf Design (freelance)\nPlan selected: Dedicated Desk\nStart date: October 1\nAdd-ons: Extra meeting-room credits (+4 hours, $40/month)\nReferral code: PODCAST15\nPayment method: Credit card on file\n\n--- Văn bản 3: Email xác nhận ---\nTo: danh@fernleafdesign.com\nFrom: hello@harborviewcowork.com\nSubject: Welcome to Harborview!\nDate: September 22\n\nHi Danh,\n\nYour Dedicated Desk membership is confirmed, starting October 1. Your first invoice reflects the autumn special: $94.50 for October, plus $40 for the meeting-room add-on.\n\nOne note: the referral code PODCAST15 you entered has expired, so it was not applied — the autumn discount gave you the better deal anyway, as the two offers cannot be combined.\n\nYour locker key and access card will be ready at the front desk on your first day. See you soon!\n\nThe Harborview Team",
+    "questions": [
+      { "q": "What does every Harborview membership include?", "options": ["A private locker", "24/7 building access", "Free meeting-room credits", "A parking space"], "answer": 2, "skill": "r-detail" },
+      { "q": "How much will Mr. Le pay for his desk in October, before add-ons?", "options": ["$99", "$94.50", "$189", "$450"], "answer": 1, "skill": "r-infer" },
+      { "q": "Why did Mr. Le most likely choose the Dedicated Desk plan?", "options": ["He needs access outside business hours.", "He manages a team of six.", "He only visits occasionally.", "He wants free day passes."], "answer": 0, "skill": "r-infer" },
+      { "q": "What happened to the referral code?", "options": ["It was applied to the add-on.", "It had expired and was not used.", "It doubled the autumn discount.", "It was entered incorrectly."], "answer": 1, "skill": "r-detail" },
+      { "q": "What will Mr. Le receive on his first day?", "options": ["A free month of coffee", "A locker key and access card", "A new referral code", "A meeting-room schedule"], "answer": 1, "skill": "r-detail" }
+    ]
+  }
+]

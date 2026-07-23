@@ -1,0 +1,32 @@
+{
+  "id": "appearance",
+  "name": "Ngoại hình & dáng vẻ",
+  "sub": "Slim, bald, curly, neat, attractive…",
+  "pos": "adj",
+  "tone": "tone-c",
+  "emoji": "🪞",
+  "words": [
+    { "en": "appearance", "ipa": "/əˈpɪr.əns/", "vi": "ngoại hình, vẻ ngoài", "pos": "noun", "img": "🪞", "connect": "appear (hiện ra) + ance — vẻ bề ngoài.", "ex": "Don't judge by appearance.", "exVi": "Đừng đánh giá qua vẻ bề ngoài." },
+    { "en": "slim", "ipa": "/slɪm/", "vi": "thon gọn", "pos": "adj", "img": "🕴️", "connect": "\"Sờ-lim\" — dáng mảnh mai (khen).", "ex": "She stays slim by swimming.", "exVi": "Cô ấy giữ dáng thon nhờ bơi lội." },
+    { "en": "skinny", "ipa": "/ˈskɪn.i/", "vi": "gầy nhẳng", "pos": "adj", "img": "🦴", "connect": "skin (da) + ny — gầy trơ da (hơi chê).", "ex": "The cat is too skinny.", "exVi": "Con mèo gầy nhẳng quá." },
+    { "en": "plump", "ipa": "/plʌmp/", "vi": "đầy đặn, mũm mĩm", "pos": "adj", "img": "🍑", "connect": "\"Plăm-p\" — tròn trịa dễ thương.", "ex": "The baby has plump cheeks.", "exVi": "Em bé có đôi má mũm mĩm." },
+    { "en": "chubby", "ipa": "/ˈtʃʌb.i/", "vi": "bụ bẫm, mập mạp", "pos": "adj", "img": "🧸", "connect": "\"Chă-bi\" — mập đáng yêu.", "ex": "He was a chubby child.", "exVi": "Hồi bé cậu ấy bụ bẫm lắm." },
+    { "en": "overweight", "ipa": "/ˌoʊ.vɚˈweɪt/", "vi": "thừa cân", "pos": "adj", "img": "⚖️", "connect": "over (quá) + weight (cân nặng).", "ex": "The doctor said he's overweight.", "exVi": "Bác sĩ bảo anh ấy bị thừa cân." },
+    { "en": "muscular", "ipa": "/ˈmʌs.kjə.lɚ/", "vi": "cơ bắp, vạm vỡ", "pos": "adj", "img": "💪", "connect": "muscle (cơ bắp) → muscular.", "ex": "The boxer is very muscular.", "exVi": "Võ sĩ ấy rất vạm vỡ." },
+    { "en": "bald", "ipa": "/bɑːld/", "vi": "hói đầu", "pos": "adj", "img": "👨‍🦲", "connect": "\"Bôl-d\" — đầu không tóc.", "ex": "My uncle went bald early.", "exVi": "Chú tôi bị hói sớm." },
+    { "en": "curly", "ipa": "/ˈkɜːr.li/", "vi": "xoăn (tóc)", "pos": "adj", "img": "👩‍🦱", "connect": "curl (lọn xoăn) + y.", "ex": "She has curly brown hair.", "exVi": "Cô ấy có mái tóc nâu xoăn." },
+    { "en": "blond", "ipa": "/blɑːnd/", "vi": "vàng hoe (tóc)", "pos": "adj", "img": "👱", "connect": "\"Blon-d\" — tóc vàng.", "ex": "The blond boy is my cousin.", "exVi": "Cậu bé tóc vàng là em họ tôi." },
+    { "en": "attractive", "ipa": "/əˈtræk.tɪv/", "vi": "cuốn hút", "pos": "adj", "img": "😍", "connect": "attract (thu hút) + ive.", "ex": "She has an attractive smile.", "exVi": "Cô ấy có nụ cười cuốn hút." },
+    { "en": "good-looking", "ipa": "/ˌɡʊdˈlʊk.ɪŋ/", "vi": "ưa nhìn", "pos": "adj", "img": "😎", "connect": "good (đẹp) + looking (vẻ ngoài).", "ex": "Her brother is very good-looking.", "exVi": "Anh trai cô ấy rất ưa nhìn." },
+    { "en": "ordinary", "ipa": "/ˈɔːr.dən.er.i/", "vi": "bình thường", "pos": "adj", "img": "😐", "connect": "\"O-đờn-ne-ri\" — không có gì nổi bật.", "ex": "It was just an ordinary day.", "exVi": "Đó chỉ là một ngày bình thường." },
+    { "en": "pale", "ipa": "/peɪl/", "vi": "tái nhợt, nhợt nhạt", "pos": "adj", "img": "😶", "connect": "\"Pê-l\" — mặt tái vì ốm/sợ.", "ex": "You look pale — are you okay?", "exVi": "Trông bạn tái quá — ổn không đấy?" },
+    { "en": "scar", "ipa": "/skɑːr/", "vi": "vết sẹo", "pos": "noun", "img": "🩹", "connect": "\"Sờ-ka\" — dấu vết thương cũ.", "ex": "He has a scar on his chin.", "exVi": "Anh ấy có vết sẹo ở cằm." },
+    { "en": "wrinkle", "ipa": "/ˈrɪŋ.kəl/", "vi": "nếp nhăn", "pos": "noun", "img": "🧓", "connect": "\"Rin-cồ\" — chữ \"w\" câm; nhăn theo tuổi.", "ex": "Grandma has wrinkles around her eyes.", "exVi": "Bà có nếp nhăn quanh mắt." },
+    { "en": "dimple", "ipa": "/ˈdɪm.pəl/", "vi": "má lúm đồng tiền", "pos": "noun", "img": "😊", "connect": "\"Đim-pồ\" — lúm khi cười.", "ex": "She has cute dimples.", "exVi": "Cô ấy có má lúm dễ thương." },
+    { "en": "freckle", "ipa": "/ˈfrek.əl/", "vi": "tàn nhang", "pos": "noun", "img": "😊", "connect": "\"Fre-cồ\" — chấm nâu trên má.", "ex": "The girl has freckles on her nose.", "exVi": "Cô bé có tàn nhang trên mũi." },
+    { "en": "ponytail", "ipa": "/ˈpoʊ.ni.teɪl/", "vi": "tóc đuôi ngựa", "pos": "noun", "img": "🐴", "connect": "pony (ngựa con) + tail (đuôi).", "ex": "She ties her hair in a ponytail.", "exVi": "Cô ấy buộc tóc đuôi ngựa." },
+    { "en": "neat", "ipa": "/niːt/", "vi": "gọn gàng, chỉn chu", "pos": "adj", "img": "🪮", "connect": "\"Ni-t\" — sạch đẹp ngăn nắp.", "ex": "His clothes are always neat.", "exVi": "Quần áo anh ấy lúc nào cũng chỉn chu." },
+    { "en": "messy", "ipa": "/ˈmes.i/", "vi": "bừa bộn, rối bù", "pos": "adj", "img": "🌪️", "connect": "mess (mớ lộn xộn) + y.", "ex": "His hair is always messy.", "exVi": "Tóc cậu ấy lúc nào cũng rối bù." },
+    { "en": "tidy", "ipa": "/ˈtaɪ.di/", "vi": "ngăn nắp; dọn gọn", "pos": "adj", "img": "🧹", "connect": "\"Tai-đi\" — gọn gàng (tidy up = dọn dẹp).", "ex": "Keep your room tidy.", "exVi": "Giữ phòng ngăn nắp nhé." }
+  ]
+}

@@ -5,6 +5,7 @@ import { useAppStore } from '@/store/app.store'
 import {
   speakEN, usePlan, useLearnedWords, useWordBank, readPlan,
   planDay, planWeek, taskDone, weekDone, vocabTarget, learnedInUnit,
+  useActivityDays, weekActivity,
 } from '../progress'
 
 interface Props {
@@ -15,12 +16,10 @@ interface Props {
 
 const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
-/** Icon đại diện cho từng loại nhiệm vụ. */
 const KIND_ICON: Record<WeekTask['kind'], IconName> = {
   vocab: 'cards', total: 'chart', quiz: 'target', video: 'film', speak: 'mic', review: 'letters', custom: 'note',
 }
 
-/** Nhiệm vụ tick tay (không tự tính được từ dữ liệu). */
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
 
 export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
@@ -28,7 +27,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
   const { plan, startPlan, toggleTask, grantReward } = usePlan()
   const { learned } = useLearnedWords()
   const bank = useWordBank(learned)
-  // Đang giữa hành trình thì mở sẵn tuần theo lịch cho đỡ phải tìm.
+  const actDays = useActivityDays(plan.start)
   const [open, setOpen] = useState<number | null>(() => {
     const p = readPlan()
     return p.start ? planWeek(p.start) : null
@@ -38,14 +37,15 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
   const day = Math.min(planDay(plan.start), 90)
   const curWeek = planWeek(plan.start)
 
-  const isDone = (t: WeekTask, week: number) => taskDone(t, week, learned, plan, bank)
-  const wkDone = (w: WeekPlan) => weekDone(w, learned, plan, bank)
+  const isDone = (t: WeekTask, week: number) =>
+    taskDone(t, week, learned, plan, bank, weekActivity(actDays, plan.start, week))
+  const wkDone = (w: WeekPlan) =>
+    weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week))
 
   const doneWeeks = PLAN_12_WEEKS.filter(wkDone).length
   const tasksDone = PLAN_12_WEEKS.reduce((s, w) => s + w.tasks.filter((t) => isDone(t, w.week)).length, 0)
   const allDone = doneWeeks === 12
 
-  // Tuần nào vừa đủ nhiệm vụ thì chốt sổ + thưởng XP đúng 1 lần.
   useEffect(() => {
     if (!started) return
     PLAN_12_WEEKS.forEach((w) => {
@@ -54,8 +54,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
         recordEvent('lesson', 1)
       }
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [started, plan.manual, plan.quiz, learned, bank])
+  }, [started, plan.manual, plan.quiz, learned, bank, actDays])
 
   const taskMeta = (t: WeekTask, week: number): string => {
     if (t.kind === 'vocab') {

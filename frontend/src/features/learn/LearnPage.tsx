@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAppStore } from '@/store/app.store'
+import { estimateLevel, type LevelResult } from '@/core/api/learn.api'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import Spinner from '@/core/components/Spinner'
 import Icon, { type IconName } from '@/core/components/Icon'
@@ -9,6 +10,7 @@ import SummaryView from './components/SummaryView'
 import TranslatePractice from './components/TranslatePractice'
 import ShadowingPractice from './components/ShadowingPractice'
 import DictationPractice from './components/DictationPractice'
+import ClozePractice from './components/ClozePractice'
 import DubbingStudio from './components/DubbingStudio'
 import type { LearnTab } from '@/core/constants/enum'
 
@@ -16,23 +18,38 @@ const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'Shadowing' },
   { id: 'phatam', ic: 'mic', label: 'learn.tab.speak' },
   { id: 'chepchinhta', ic: 'headphones', label: 'learn.tab.dictation' },
+  { id: 'dienkhuyet', ic: 'target', label: 'learn.tab.cloze' },
   { id: 'dubbing', ic: 'mic', label: 'Dubbing Studio' },
   { id: 'luyendich', ic: 'globe', label: 'learn.tab.translate' },
   { id: 'tomtat', ic: 'note', label: 'learn.tab.summary' },
 ]
 
 export default function LearnPage() {
-  const { lesson, status, statusError, setView, t } = useAppStore()
+  const { lesson, status, statusError, setView, t, learnLang } = useAppStore()
   const [tab, setTab] = useState<LearnTab>('shadowing')
   const [active, setActive] = useState(-1)
+  const [level, setLevel] = useState<LevelResult | null>(null)
+  const [levelBusy, setLevelBusy] = useState(false)
   const yt = useYouTubePlayer()
 
   useEffect(() => {
     if (lesson) {
       setActive(-1)
+      setLevel(null)
       yt.load(lesson.id)
     }
   }, [lesson])
+
+  const askLevel = async () => {
+    if (!lesson || levelBusy || level) return
+    setLevelBusy(true)
+    try {
+      const text = lesson.segments.map((s) => s.ko).join(' ')
+      setLevel(await estimateLevel(lesson.id, learnLang, text))
+    } catch { /* im lặng — chip giữ nguyên để bấm lại */ } finally {
+      setLevelBusy(false)
+    }
+  }
 
   useEffect(() => {
     if (!lesson) return
@@ -78,7 +95,18 @@ export default function LearnPage() {
     <>
       <div className="lesson-head">
         <h2>{lesson.title}</h2>
-        <div className="meta">{t('learn.source', { src: lesson.source, n: lesson.segments.length })}</div>
+        <div className="meta">
+          {t('learn.source', { src: lesson.source, n: lesson.segments.length })}
+          {' · '}
+          {level ? (
+            <span className="cefr-chip on" title={level.reason}>📊 CEFR {level.level}</span>
+          ) : (
+            <button className="cefr-chip" disabled={levelBusy} onClick={askLevel}>
+              📊 {levelBusy ? t('gx.levelBusy') : t('gx.levelBtn')}
+            </button>
+          )}
+        </div>
+        {level?.reason && <div className="cefr-reason">{level.reason}</div>}
       </div>
 
       <div className="learn-tabs">
@@ -106,6 +134,8 @@ export default function LearnPage() {
         <ShadowingPractice lesson={lesson} />
       ) : tab === 'chepchinhta' ? (
         <DictationPractice lesson={lesson} />
+      ) : tab === 'dienkhuyet' ? (
+        <ClozePractice lesson={lesson} />
       ) : tab === 'dubbing' ? (
         <DubbingStudio lesson={lesson} />
       ) : tab === 'tomtat' ? (

@@ -1,0 +1,24 @@
+{
+  "id": "toys",
+  "name": "Đồ chơi & trò chơi",
+  "sub": "Doll, puzzle, chess, kite, pretend…",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🧸",
+  "words": [
+    { "en": "toy", "ipa": "/tɔɪ/", "vi": "đồ chơi", "pos": "noun", "img": "🧸", "connect": "\"Toi\" — món đồ chơi.", "ex": "The kids share their toys.", "exVi": "Bọn trẻ chia sẻ đồ chơi với nhau." },
+    { "en": "doll", "ipa": "/dɑːl/", "vi": "búp bê", "pos": "noun", "img": "🪆", "connect": "\"Đol\" — búp bê xinh xắn.", "ex": "She sleeps with her doll.", "exVi": "Cô bé ngủ cùng búp bê." },
+    { "en": "puzzle", "ipa": "/ˈpʌz.əl/", "vi": "trò xếp hình, câu đố", "pos": "noun", "img": "🧩", "connect": "\"Păz-zồ\" — ghép hình, đố vui.", "ex": "We finished a 500-piece puzzle.", "exVi": "Chúng tôi ghép xong bộ hình 500 mảnh." },
+    { "en": "dice", "ipa": "/daɪs/", "vi": "xúc xắc", "pos": "noun", "img": "🎲", "connect": "\"Đai-s\" — gieo xúc xắc.", "ex": "Roll the dice to start.", "exVi": "Gieo xúc xắc để bắt đầu." },
+    { "en": "chess", "ipa": "/tʃes/", "vi": "cờ vua", "pos": "noun", "img": "♟️", "connect": "\"Chét-s\" — đánh cờ vua.", "ex": "My grandpa taught me chess.", "exVi": "Ông dạy tôi chơi cờ vua." },
+    { "en": "kite", "ipa": "/kaɪt/", "vi": "con diều", "pos": "noun", "img": "🪁", "connect": "\"Kai-t\" — thả diều chiều gió.", "ex": "We fly kites in summer.", "exVi": "Mùa hè chúng tôi thả diều." },
+    { "en": "seesaw", "ipa": "/ˈsiː.sɑː/", "vi": "bập bênh", "pos": "noun", "img": "🎠", "connect": "\"Si-so\" — lên xuống bập bênh.", "ex": "The kids play on the seesaw.", "exVi": "Bọn trẻ chơi bập bênh." },
+    { "en": "playground", "ipa": "/ˈpleɪ.ɡraʊnd/", "vi": "sân chơi", "pos": "noun", "img": "🛝", "connect": "play (chơi) + ground (sân).", "ex": "The playground is full of children.", "exVi": "Sân chơi đầy trẻ con." },
+    { "en": "riddle", "ipa": "/ˈrɪd.əl/", "vi": "câu đố mẹo", "pos": "noun", "img": "❓", "connect": "\"Rí-đồ\" — đố vui hại não.", "ex": "Can you solve this riddle?", "exVi": "Bạn giải được câu đố này không?" },
+    { "en": "magic", "ipa": "/ˈmædʒ.ɪk/", "vi": "ảo thuật, phép màu", "pos": "noun", "img": "🎩", "connect": "\"Me-jịc\" — trò ảo thuật.", "ex": "The magic show amazed us.", "exVi": "Màn ảo thuật làm chúng tôi kinh ngạc." },
+    { "en": "clown", "ipa": "/klaʊn/", "vi": "chú hề", "pos": "noun", "img": "🤡", "connect": "\"Klao-n\" — hề mũi đỏ.", "ex": "The clown made everyone laugh.", "exVi": "Chú hề làm mọi người cười vang." },
+    { "en": "circus", "ipa": "/ˈsɜːr.kəs/", "vi": "rạp xiếc", "pos": "noun", "img": "🎪", "connect": "\"Sơ-cợs\" — đi xem xiếc.", "ex": "We went to the circus last week.", "exVi": "Tuần trước chúng tôi đi xem xiếc." },
+    { "en": "cheat", "ipa": "/tʃiːt/", "vi": "gian lận, ăn gian", "pos": "verb", "img": "🙅", "connect": "\"Chi-t\" — chơi ăn gian.", "ex": "Don't cheat in the game!", "exVi": "Chơi không được ăn gian nhé!" },
+    { "en": "pretend", "ipa": "/prɪˈtend/", "vi": "giả vờ", "pos": "verb", "img": "🎭", "connect": "\"Pri-ten-d\" — đóng vai giả bộ.", "ex": "The kids pretend to be pirates.", "exVi": "Bọn trẻ giả vờ làm cướp biển." }
+  ]
+}

@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS study_log (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     created_at  TEXT DEFAULT (datetime('now', 'localtime')),
     activity    TEXT,
+    
     detail      TEXT
 );
 
@@ -140,7 +141,17 @@ CREATE TABLE IF NOT EXISTS activity_log (
     words    INTEGER NOT NULL DEFAULT 0,
     xp       INTEGER NOT NULL DEFAULT 0,
     lessons  INTEGER NOT NULL DEFAULT 0,
+    videos   INTEGER NOT NULL DEFAULT 0,
+    reviews  INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (user_id, day)
+);
+
+CREATE TABLE IF NOT EXISTS user_plans (
+    user_id    TEXT NOT NULL,
+    plan_id    TEXT NOT NULL,
+    data       TEXT NOT NULL DEFAULT '{}',
+    updated_at TEXT DEFAULT (datetime('now','localtime')),
+    PRIMARY KEY (user_id, plan_id)
 );
 
 CREATE TABLE IF NOT EXISTS catalog_videos (
@@ -249,7 +260,6 @@ def ensure_dirs() -> None:
 def get_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH, timeout=10.0)
     conn.row_factory = sqlite3.Row
-    # Wait (don't error) if another connection is mid-write — key under concurrency.
     conn.execute("PRAGMA busy_timeout=10000")
     return conn
 
@@ -298,13 +308,17 @@ def _migrate(conn: sqlite3.Connection) -> None:
     uvcols = {r["name"] for r in conn.execute("PRAGMA table_info(user_videos)").fetchall()}
     if "lang" not in uvcols:
         conn.execute("ALTER TABLE user_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
+    acols = {r["name"] for r in conn.execute("PRAGMA table_info(activity_log)").fetchall()}
+    if "videos" not in acols:
+        conn.execute("ALTER TABLE activity_log ADD COLUMN videos INTEGER NOT NULL DEFAULT 0")
+    if "reviews" not in acols:
+        conn.execute("ALTER TABLE activity_log ADD COLUMN reviews INTEGER NOT NULL DEFAULT 0")
 
 
 def init_db() -> None:
     ensure_dirs()
     conn = get_conn()
     try:
-        # WAL = concurrent reads + one writer (many users at once without locking up).
         conn.execute("PRAGMA journal_mode=WAL")
         conn.execute("PRAGMA synchronous=NORMAL")
         conn.executescript(SCHEMA)

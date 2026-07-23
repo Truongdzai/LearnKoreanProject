@@ -1,0 +1,344 @@
+[
+  {
+    "id": "g01", "title": "To be, đại từ & mạo từ", "tag": "Nền móng câu",
+    "points": [
+      "Am/is/are theo chủ ngữ: I am · he/she/it is · you/we/they are.",
+      "To be + danh từ (nghề nghiệp), + tính từ (đặc điểm), + cụm nơi chốn.",
+      "a/an trước danh từ số ít (an + âm nguyên âm: an hour, an email); the khi cả hai bên đều biết đang nói về cái nào.",
+      "Tính từ sở hữu (my/your/his/her/our/their) luôn đứng TRƯỚC danh từ."
+    ],
+    "examples": [
+      { "en": "Ms. Chen is our new accountant.", "vi": "Cô Chen là kế toán mới của chúng tôi." },
+      { "en": "The files are on your desk.", "vi": "Đống tài liệu ở trên bàn của anh." }
+    ],
+    "drill": [
+      { "text": "The manager and his assistant ___ in a meeting right now.", "options": ["is", "are", "am", "be"], "answer": 1, "explain": "Hai người (A and B) → are." },
+      { "text": "Mr. Diaz is ___ engineer at a construction firm.", "options": ["a", "an", "the", "—"], "answer": 1, "explain": "\"engineer\" bắt đầu bằng nguyên âm → an engineer." },
+      { "text": "Please put the packages in ___ car, not mine.", "options": ["she", "hers", "her", "he"], "answer": 2, "explain": "Trước danh từ \"car\" cần tính từ sở hữu: her car." },
+      { "text": "The new offices ___ very spacious.", "options": ["is", "be", "am", "are"], "answer": 3, "explain": "\"offices\" số nhiều → are." }
+    ]
+  },
+  {
+    "id": "g02", "title": "Danh từ số nhiều & sở hữu", "tag": "Nền móng câu",
+    "points": [
+      "Số nhiều: +s/+es (boxes, companies); bất quy tắc: man→men, child→children, person→people.",
+      "Danh từ không đếm được (information, equipment, furniture, advice) KHÔNG thêm s.",
+      "Sở hữu: 's cho người (the manager's office); of cho vật (the door of the building).",
+      "TOEIC hay bẫy: much + không đếm được, many + đếm được số nhiều."
+    ],
+    "examples": [
+      { "en": "We need more information about the new equipment.", "vi": "Chúng tôi cần thêm thông tin về thiết bị mới (cả hai từ đều không thêm s)." },
+      { "en": "The children's play area is next to the food court.", "vi": "Khu vui chơi trẻ em cạnh khu ẩm thực." }
+    ],
+    "drill": [
+      { "text": "How ___ chairs do we need for the seminar?", "options": ["much", "many", "little", "any"], "answer": 1, "explain": "\"chairs\" đếm được số nhiều → many." },
+      { "text": "All the ___ in this room was imported from Italy.", "options": ["furnitures", "furniture", "furnitures'", "a furniture"], "answer": 1, "explain": "furniture không đếm được — không có dạng số nhiều." },
+      { "text": "___ office is on the top floor.", "options": ["The director's", "The directors", "Directors", "The director"], "answer": 0, "explain": "Sở hữu của người: the director's office." },
+      { "text": "Several ___ attended the job fair.", "options": ["person", "people", "peoples", "person's"], "answer": 1, "explain": "person → people (số nhiều bất quy tắc)." }
+    ]
+  },
+  {
+    "id": "g03", "title": "Thì hiện tại đơn", "tag": "Thì động từ",
+    "points": [
+      "Diễn tả thói quen, sự thật, lịch trình cố định (tàu xe, giờ mở cửa).",
+      "Ngôi he/she/it: động từ +s/es (goes, watches, studies).",
+      "Phủ định: don't/doesn't + V nguyên thể. Nghi vấn: Do/Does + S + V?",
+      "Dấu hiệu: always, usually, often, every day, on Mondays."
+    ],
+    "examples": [
+      { "en": "The store opens at nine and closes at ten.", "vi": "Cửa hàng mở lúc 9 giờ, đóng lúc 22 giờ (lịch cố định)." },
+      { "en": "She doesn't work on weekends.", "vi": "Cô ấy không làm việc cuối tuần." }
+    ],
+    "drill": [
+      { "text": "Mr. Roy usually ___ the office at 6 P.M.", "options": ["leave", "leaves", "leaving", "left"], "answer": 1, "explain": "Thói quen (usually) + he → leaves." },
+      { "text": "The shuttle bus ___ every thirty minutes.", "options": ["run", "runs", "running", "ran"], "answer": 1, "explain": "Lịch trình cố định → hiện tại đơn, chủ ngữ số ít → runs." },
+      { "text": "___ your team meet on Fridays?", "options": ["Do", "Does", "Is", "Are"], "answer": 1, "explain": "\"your team\" (số ít) → Does + V nguyên thể." },
+      { "text": "We ___ accept credit cards at this counter.", "options": ["doesn't", "don't", "isn't", "aren't"], "answer": 1, "explain": "Chủ ngữ We + động từ thường → don't accept." }
+    ]
+  },
+  {
+    "id": "g04", "title": "Hiện tại tiếp diễn & phân biệt với hiện tại đơn", "tag": "Thì động từ",
+    "points": [
+      "am/is/are + V-ing: việc ĐANG diễn ra lúc nói, hoặc kế hoạch gần chắc chắn.",
+      "Dấu hiệu: now, right now, at the moment, currently, this week.",
+      "Hiện tại đơn = lặp lại thường xuyên; tiếp diễn = đang xảy ra tạm thời.",
+      "Động từ trạng thái (know, want, need, believe) KHÔNG dùng tiếp diễn."
+    ],
+    "examples": [
+      { "en": "The technicians are installing the new software this week.", "vi": "Tuần này kỹ thuật viên đang cài phần mềm mới (tạm thời)." },
+      { "en": "I need your answer now — not I am needing.", "vi": "\"need\" là động từ trạng thái, không chia tiếp diễn." }
+    ],
+    "drill": [
+      { "text": "Please be quiet — the director ___ a phone interview.", "options": ["conducts", "is conducting", "conduct", "conducted"], "answer": 1, "explain": "Đang diễn ra ngay lúc nói → is conducting." },
+      { "text": "Ms. Lam ___ to work by bus every day, but today she ___ a taxi.", "options": ["goes / is taking", "is going / takes", "go / took", "goes / take"], "answer": 0, "explain": "Thói quen → goes; hôm nay khác thường lệ → is taking." },
+      { "text": "We ___ more staff for the holiday season at the moment.", "options": ["hire", "are hiring", "hires", "hired"], "answer": 1, "explain": "\"at the moment\" → hiện tại tiếp diễn." },
+      { "text": "The clients ___ the terms of the contract right now.", "options": ["review", "reviews", "are reviewing", "reviewing"], "answer": 2, "explain": "\"right now\" → are reviewing." }
+    ]
+  },
+  {
+    "id": "g05", "title": "Từ loại & hậu tố — chìa khoá Part 5", "tag": "Từ loại",
+    "points": [
+      "Nhận diện qua hậu tố: -tion/-ment/-ness/-ity → danh từ; -ful/-ive/-able/-al → tính từ; -ly → trạng từ; -ize/-ify → động từ.",
+      "Vị trí quyết định từ loại: sau mạo từ/sở hữu → danh từ; trước danh từ → tính từ; bổ nghĩa động từ/tính từ → trạng từ.",
+      "Chuỗi kinh điển: decide → decision · decisive · decisively.",
+      "1/3 số câu Part 5 là dạng này — nhìn VỊ TRÍ chỗ trống trước, nghĩa sau."
+    ],
+    "examples": [
+      { "en": "The company made a quick decision. / They acted decisively.", "vi": "Sau \"a quick\" cần danh từ; bổ nghĩa \"acted\" cần trạng từ." },
+      { "en": "Her performance was impressive. She performed impressively.", "vi": "Cùng gốc perform — đổi hậu tố theo vị trí." }
+    ],
+    "drill": [
+      { "text": "The ___ of the new policy surprised everyone.", "options": ["announce", "announcement", "announced", "announcer"], "answer": 1, "explain": "Sau \"The\" + trước \"of\" → danh từ chỉ sự việc: announcement." },
+      { "text": "This device is extremely ___ for business travelers.", "options": ["use", "usefully", "useful", "usefulness"], "answer": 2, "explain": "Sau \"is extremely\" cần tính từ: useful." },
+      { "text": "The report was written ___ and contained no errors.", "options": ["care", "careful", "carefully", "carefulness"], "answer": 2, "explain": "Bổ nghĩa \"was written\" → trạng từ carefully." },
+      { "text": "We plan to ___ our filing system next quarter.", "options": ["modern", "modernly", "modernize", "modernization"], "answer": 2, "explain": "Sau \"to\" trong \"plan to\" cần động từ: modernize." }
+    ]
+  },
+  {
+    "id": "g06", "title": "Thì quá khứ đơn", "tag": "Thì động từ",
+    "points": [
+      "Việc đã xảy ra và KẾT THÚC tại thời điểm xác định trong quá khứ.",
+      "V-ed với động từ có quy tắc; bất quy tắc phải thuộc: go→went, take→took, send→sent, meet→met.",
+      "Phủ định/nghi vấn: didn't + V, Did + S + V? (V trở về nguyên thể).",
+      "Dấu hiệu: yesterday, last week, ago, in 2020."
+    ],
+    "examples": [
+      { "en": "The board approved the budget two days ago.", "vi": "Hội đồng đã duyệt ngân sách 2 ngày trước." },
+      { "en": "Did you attend the conference last year?", "vi": "Năm ngoái bạn có dự hội nghị không?" }
+    ],
+    "drill": [
+      { "text": "Ms. Kim ___ the contract to the client yesterday.", "options": ["send", "sent", "sends", "has sent"], "answer": 1, "explain": "\"yesterday\" → quá khứ đơn: sent (bất quy tắc)." },
+      { "text": "The shipment ___ on time despite the storm.", "options": ["arrive", "arrives", "arrived", "arriving"], "answer": 2, "explain": "Sự việc đã xong trong quá khứ → arrived." },
+      { "text": "We ___ receive the invoice until this morning.", "options": ["don't", "didn't", "aren't", "haven't"], "answer": 1, "explain": "not…until + mốc quá khứ → didn't receive." },
+      { "text": "___ the clients visit the factory last month?", "options": ["Do", "Does", "Did", "Have"], "answer": 2, "explain": "\"last month\" → Did + V nguyên thể." }
+    ]
+  },
+  {
+    "id": "g07", "title": "Tương lai: will & be going to", "tag": "Thì động từ",
+    "points": [
+      "will + V: quyết định ngay lúc nói, dự đoán, lời hứa.",
+      "be going to + V: kế hoạch đã định trước, dự đoán có dấu hiệu rõ.",
+      "Lịch trình cố định có thể dùng hiện tại đơn (The train leaves at 9).",
+      "Trong mệnh đề thời gian (when/before/after/as soon as) KHÔNG dùng will."
+    ],
+    "examples": [
+      { "en": "We are going to renovate the lobby next spring.", "vi": "Kế hoạch đã định → be going to." },
+      { "en": "I'll call you as soon as the meeting ends.", "vi": "Sau \"as soon as\" dùng hiện tại đơn (ends), không dùng will." }
+    ],
+    "drill": [
+      { "text": "The company ___ a new branch in Hue next year.", "options": ["opens", "is going to open", "opened", "has opened"], "answer": 1, "explain": "Kế hoạch tương lai đã định → is going to open." },
+      { "text": "Don't worry — I ___ you with the boxes.", "options": ["help", "will help", "helped", "am help"], "answer": 1, "explain": "Quyết định ngay lúc nói → will help." },
+      { "text": "Please turn off the lights before you ___ the office.", "options": ["will leave", "leave", "left", "leaving"], "answer": 1, "explain": "Mệnh đề thời gian \"before\" → hiện tại đơn thay cho will." },
+      { "text": "According to the schedule, the ferry ___ at 7:15 tomorrow morning.", "options": ["departs", "will departing", "departing", "depart"], "answer": 0, "explain": "Lịch trình cố định → hiện tại đơn: departs." }
+    ]
+  },
+  {
+    "id": "g08", "title": "Hiện tại hoàn thành", "tag": "Thì động từ",
+    "points": [
+      "have/has + V3: việc bắt đầu trong quá khứ còn liên quan hiện tại, hoặc kinh nghiệm không rõ thời điểm.",
+      "for + khoảng thời gian · since + mốc thời gian · already/just/yet/recently.",
+      "KHÔNG dùng với thời điểm xác định đã qua (ago, yesterday, last year → quá khứ đơn).",
+      "TOEIC rất hay ra: \"since 2019\" hoặc \"for ten years\" → has/have + V3."
+    ],
+    "examples": [
+      { "en": "Mr. Osei has worked here since 2019.", "vi": "Bắt đầu 2019, giờ vẫn làm → hiện tại hoàn thành." },
+      { "en": "The package hasn't arrived yet.", "vi": "\"yet\" trong câu phủ định — vẫn chưa đến." }
+    ],
+    "drill": [
+      { "text": "Our firm ___ three awards since it opened.", "options": ["wins", "won", "has won", "is winning"], "answer": 2, "explain": "\"since it opened\" → has won." },
+      { "text": "Ms. Vo has been the branch manager ___ five years.", "options": ["since", "for", "during", "ago"], "answer": 1, "explain": "Khoảng thời gian (five years) → for." },
+      { "text": "The committee has ___ made its final decision.", "options": ["yet", "already", "ago", "still"], "answer": 1, "explain": "Câu khẳng định → already (đã… rồi). \"yet\" dùng cho phủ định/nghi vấn." },
+      { "text": "I ___ Mr. Tanaka at the trade fair two years ago.", "options": ["have met", "met", "meet", "has met"], "answer": 1, "explain": "\"two years ago\" — thời điểm xác định → quá khứ đơn, không dùng hoàn thành." }
+    ]
+  },
+  {
+    "id": "g09", "title": "Động từ khuyết thiếu", "tag": "Cấu trúc",
+    "points": [
+      "can/could (khả năng, xin phép) · may/might (có thể, trang trọng) · must (bắt buộc) · should (nên) · will/would (tương lai, lịch sự).",
+      "Sau modal LUÔN là V nguyên thể không to: must wear, should submit.",
+      "must not = cấm; don't have to = không cần (khác nghĩa hoàn toàn!).",
+      "Lời đề nghị lịch sự: Could/Would you…? · Xin phép: May I…?"
+    ],
+    "examples": [
+      { "en": "Visitors must sign in at the security desk.", "vi": "Khách bắt buộc đăng ký ở quầy an ninh." },
+      { "en": "You don't have to print the form — email it instead.", "vi": "Không cần in — gửi email cũng được (không phải lệnh cấm)." }
+    ],
+    "drill": [
+      { "text": "Employees ___ wear safety goggles in the laboratory at all times.", "options": ["must", "would rather", "had better to", "may be"], "answer": 0, "explain": "Quy định bắt buộc → must + V." },
+      { "text": "___ I borrow your calculator for a moment?", "options": ["Must", "May", "Should", "Would"], "answer": 1, "explain": "Xin phép lịch sự → May I…?" },
+      { "text": "You ___ submit the form today; the deadline is next Friday.", "options": ["must not", "don't have to", "cannot", "should not"], "answer": 1, "explain": "Không cần thiết (vẫn còn hạn) → don't have to. \"must not\" nghĩa là CẤM." },
+      { "text": "All staff ___ back up their files before the system upgrade.", "options": ["should", "should to", "ought", "had better to"], "answer": 0, "explain": "Lời khuyên → should + V nguyên thể." }
+    ]
+  },
+  {
+    "id": "g10", "title": "Giới từ thời gian & nơi chốn", "tag": "Cấu trúc",
+    "points": [
+      "Thời gian: at + giờ · on + thứ/ngày · in + tháng/năm/buổi (in the morning).",
+      "by = trước hạn chót (1 lần) · until = kéo dài liên tục đến · for + khoảng · since + mốc · during + sự kiện.",
+      "Nơi chốn: at + điểm (at the desk) · in + không gian kín (in the room) · on + bề mặt/tầng (on the third floor).",
+      "between A and B · next to · across from · in front of."
+    ],
+    "examples": [
+      { "en": "The report is due by Friday; the office stays open until 8.", "vi": "by = hạn nộp; until = mở cửa liên tục đến 8 giờ." },
+      { "en": "Your meeting is at 2 P.M. on Tuesday in Room 5.", "vi": "at giờ, on thứ, in phòng." }
+    ],
+    "drill": [
+      { "text": "The seminar will be held ___ March 15.", "options": ["in", "at", "on", "by"], "answer": 2, "explain": "Ngày cụ thể → on March 15." },
+      { "text": "Please return the signed contract ___ the end of this week.", "options": ["until", "by", "since", "at"], "answer": 1, "explain": "Nộp 1 lần trước hạn chót → by." },
+      { "text": "The copy machine is ___ the second floor, next to the break room.", "options": ["in", "at", "on", "over"], "answer": 2, "explain": "Tầng lầu → on the second floor." },
+      { "text": "Mr. Silva has been with us ___ the merger in 2022.", "options": ["for", "during", "since", "from"], "answer": 2, "explain": "Mốc thời gian (the merger) → since." }
+    ]
+  },
+  {
+    "id": "g11", "title": "Liên từ & từ nối", "tag": "Cấu trúc",
+    "points": [
+      "and (và) · but (nhưng) · or (hoặc) · so (nên) · because (vì) — nối hai mệnh đề.",
+      "although/though + mệnh đề = mặc dù; despite/in spite of + DANH TỪ.",
+      "because + mệnh đề; because of + danh từ — TOEIC bẫy liên tục cặp này.",
+      "Trạng từ nối giữa 2 câu: however (tuy nhiên), therefore (do đó), moreover (hơn nữa), otherwise (nếu không)."
+    ],
+    "examples": [
+      { "en": "Although sales fell, profits rose. / Despite the fall in sales, profits rose.", "vi": "although + mệnh đề; despite + danh từ." },
+      { "en": "The flight was delayed because of the fog.", "vi": "because of + danh từ (the fog)." }
+    ],
+    "drill": [
+      { "text": "___ the high price, the new phone sold out in one day.", "options": ["Although", "Despite", "Because", "However"], "answer": 1, "explain": "Sau chỗ trống là danh từ \"the high price\" → Despite." },
+      { "text": "The road was closed ___ it was being repaved.", "options": ["because of", "despite", "because", "during"], "answer": 2, "explain": "Sau chỗ trống là mệnh đề → because." },
+      { "text": "Submit your timesheet by Friday; ___, your payment may be delayed.", "options": ["moreover", "otherwise", "therefore", "similarly"], "answer": 1, "explain": "Nếu không (làm vậy) thì lương trễ → otherwise." },
+      { "text": "The venue is small ___ conveniently located.", "options": ["or", "so", "but", "because"], "answer": 2, "explain": "Hai ý tương phản (nhỏ >< tiện) → but." }
+    ]
+  },
+  {
+    "id": "g12", "title": "So sánh hơn & so sánh nhất", "tag": "Cấu trúc",
+    "points": [
+      "Tính từ ngắn: -er than / the -est (cheaper, the cheapest).",
+      "Tính từ dài: more … than / the most … (more reliable, the most reliable).",
+      "Bất quy tắc: good→better→best · bad→worse→worst · little→less→least.",
+      "as + tính từ + as = bằng nhau; so sánh nhất cho nhóm ≥3, kèm \"of the three\", \"in the company\"."
+    ],
+    "examples": [
+      { "en": "This model is more energy-efficient than the previous one.", "vi": "So sánh 2 model → more … than." },
+      { "en": "She is the most experienced member of the team.", "vi": "Trong cả nhóm → the most experienced." }
+    ],
+    "drill": [
+      { "text": "The express service is ___ than standard shipping.", "options": ["fast", "faster", "fastest", "the fastest"], "answer": 1, "explain": "So sánh 2 dịch vụ + \"than\" → faster." },
+      { "text": "Of all our branches, the downtown store has the ___ revenue.", "options": ["high", "higher", "highest", "more high"], "answer": 2, "explain": "\"Of all…\" → so sánh nhất: the highest." },
+      { "text": "The new interface is much ___ to use than the old one.", "options": ["easy", "easier", "easiest", "more easy"], "answer": 1, "explain": "easy → easier (tính từ ngắn, y→i)." },
+      { "text": "This quarter's results were ___ than expected.", "options": ["good", "well", "better", "best"], "answer": 2, "explain": "good → better (bất quy tắc) + than." }
+    ]
+  },
+  {
+    "id": "g13", "title": "Câu hỏi WH & câu hỏi đuôi", "tag": "Nghe hiểu",
+    "points": [
+      "Who (ai) · What (gì) · Where (đâu) · When (khi nào) · Why (vì sao) · How (thế nào) · How much/many/long/often.",
+      "Từ để hỏi quyết định dạng câu trả lời — Phần 2 TOEIC sống chết ở việc NGHE RÕ từ đầu tiên.",
+      "Why don't we…? / How about…? là LỜI RỦ, không phải câu hỏi thật.",
+      "Câu hỏi đuôi (…, isn't it?) và câu hỏi phủ định (Isn't…?) → trả lời theo SỰ THẬT."
+    ],
+    "examples": [
+      { "en": "How often does the shuttle run? — Every fifteen minutes.", "vi": "How often → tần suất." },
+      { "en": "Why don't we take a break? — Good idea.", "vi": "Lời rủ → nhận lời, không trả lời \"because…\"." }
+    ],
+    "drill": [
+      { "text": "\"___ is responsible for booking the venue?\" — \"Ms. Patel is.\"", "options": ["What", "Who", "Where", "When"], "answer": 1, "explain": "Câu trả lời là một NGƯỜI → Who." },
+      { "text": "\"___ does the express train take to the city?\" — \"About forty minutes.\"", "options": ["How often", "How long", "How much", "How many"], "answer": 1, "explain": "Trả lời bằng khoảng thời gian → How long." },
+      { "text": "\"Why don't we invite the whole team to lunch?\" — Câu này thực chất là:", "options": ["Câu hỏi lý do", "Lời phàn nàn", "Lời rủ / đề nghị", "Lời xin lỗi"], "answer": 2, "explain": "Why don't we…? = lời rủ → đáp \"Good idea\", không đáp \"Because…\"." },
+      { "text": "\"The invoice was sent yesterday, ___?\" ", "options": ["didn't it", "wasn't it", "isn't it", "hasn't it"], "answer": 1, "explain": "Câu gốc \"was sent\" → đuôi wasn't it." }
+    ]
+  },
+  {
+    "id": "g14", "title": "Câu bị động", "tag": "Cấu trúc nâng cao",
+    "points": [
+      "be + V3: The report was written (by Ms. Lee).",
+      "Dùng khi người thực hiện không quan trọng hoặc không rõ — rất phổ biến trong thông báo, email công việc.",
+      "Nhận diện nhanh Part 5: chủ ngữ KHÔNG TỰ làm hành động → bị động (The package was delivered).",
+      "Bị động với modal: must be + V3, will be + V3, has been + V3."
+    ],
+    "examples": [
+      { "en": "All applications must be submitted online.", "vi": "Đơn PHẢI ĐƯỢC NỘP online — modal + be + V3." },
+      { "en": "The winners will be announced on Friday.", "vi": "Người thắng SẼ ĐƯỢC CÔNG BỐ thứ Sáu." }
+    ],
+    "drill": [
+      { "text": "The conference room ___ for the workshop tomorrow.", "options": ["reserves", "has reserved", "is reserving", "has been reserved"], "answer": 3, "explain": "Phòng ĐƯỢC ĐẶT (không tự đặt) → has been reserved." },
+      { "text": "Employee badges must ___ visible at all times.", "options": ["keep", "be kept", "kept", "keeping"], "answer": 1, "explain": "must + be + V3: phải ĐƯỢC GIỮ cho dễ thấy." },
+      { "text": "The new policy ___ to all staff by email last week.", "options": ["explained", "was explained", "explains", "is explaining"], "answer": 1, "explain": "Chính sách ĐƯỢC GIẢI THÍCH → was explained (quá khứ + bị động)." },
+      { "text": "Lunch ___ in the banquet hall at noon.", "options": ["will serve", "will be served", "serves", "is serving"], "answer": 1, "explain": "Bữa trưa ĐƯỢC PHỤC VỤ → will be served." }
+    ]
+  },
+  {
+    "id": "g15", "title": "Mệnh đề quan hệ", "tag": "Cấu trúc nâng cao",
+    "points": [
+      "who (người - chủ ngữ) · whom (người - tân ngữ) · which (vật) · that (người/vật) · whose (sở hữu) · where (nơi chốn).",
+      "whose + danh từ: employees whose contracts expire… (hợp đồng CỦA HỌ).",
+      "Rút gọn: the man (who is) standing there → the man standing there; the report (which was) written by… → the report written by…",
+      "Part 5/6 chủ yếu kiểm tra chọn đúng đại từ quan hệ theo vai trò."
+    ],
+    "examples": [
+      { "en": "Candidates who pass the test will be invited to interview.", "vi": "who thay cho \"candidates\" làm chủ ngữ." },
+      { "en": "The hotel where we stayed offers free breakfast.", "vi": "where = tại nơi đó." }
+    ],
+    "drill": [
+      { "text": "Applicants ___ resumes arrive late will not be considered.", "options": ["who", "whose", "which", "whom"], "answer": 1, "explain": "Hồ sơ CỦA ứng viên → whose." },
+      { "text": "The projector ___ was installed last month already needs repairs.", "options": ["who", "whose", "which", "where"], "answer": 2, "explain": "Đồ vật làm chủ ngữ → which." },
+      { "text": "The consultant ___ we hired last year now works for a competitor.", "options": ["whom", "whose", "which", "what"], "answer": 0, "explain": "Người + làm TÂN NGỮ (we hired HIM) → whom." },
+      { "text": "This is the factory ___ our products are assembled.", "options": ["which", "who", "where", "whose"], "answer": 2, "explain": "Nơi chốn + mệnh đề đủ thành phần → where." }
+    ]
+  },
+  {
+    "id": "g16", "title": "V-ing hay to V?", "tag": "Cấu trúc nâng cao",
+    "points": [
+      "V-ing sau: enjoy, finish, suggest, consider, avoid, mind, keep + sau MỌI giới từ (before leaving, by using).",
+      "to V sau: want, need, plan, decide, agree, offer, promise, would like.",
+      "to V chỉ mục đích: We hired more staff to handle the orders.",
+      "Cụm hay ra đề: look forward to + V-ing · be used to + V-ing · stop by to + V."
+    ],
+    "examples": [
+      { "en": "We look forward to working with you.", "vi": "look forward to + V-ing (to ở đây là giới từ!)." },
+      { "en": "She stopped by to sign the papers.", "vi": "to sign = mục đích của việc ghé qua." }
+    ],
+    "drill": [
+      { "text": "The committee is considering ___ the deadline by one week.", "options": ["extend", "to extend", "extending", "extended"], "answer": 2, "explain": "consider + V-ing → considering extending." },
+      { "text": "Mr. Ali agreed ___ the night shift this weekend.", "options": ["covering", "to cover", "cover", "covered"], "answer": 1, "explain": "agree + to V → agreed to cover." },
+      { "text": "You can reduce costs ___ recycling used paper.", "options": ["by", "to", "for", "with"], "answer": 0, "explain": "by + V-ing = bằng cách — recycling đứng sau giới từ by." },
+      { "text": "We are looking forward to ___ from you soon.", "options": ["hear", "hearing", "heard", "be heard"], "answer": 1, "explain": "look forward to + V-ing: hearing." }
+    ]
+  },
+  {
+    "id": "g17", "title": "Hoà hợp chủ - vị & đại từ quy chiếu", "tag": "Cấu trúc nâng cao",
+    "points": [
+      "Chủ ngữ số ít + V số ít: Each/Every/Either + danh từ số ít → V số ít.",
+      "Cụm giữa chủ ngữ và động từ không đổi ngôi: The BOX of supplies IS here.",
+      "neither A nor B / either A or B: chia theo danh từ GẦN động từ nhất.",
+      "Đại từ phải khớp: the company → its (không phải their, trong TOEIC chuẩn)."
+    ],
+    "examples": [
+      { "en": "Each of the rooms has its own thermostat.", "vi": "Each → has (số ít) + its." },
+      { "en": "The list of attendees was updated this morning.", "vi": "Chủ ngữ thật là \"list\" (số ít), không phải attendees." }
+    ],
+    "drill": [
+      { "text": "The price of the tickets ___ airport transfers.", "options": ["include", "includes", "including", "are including"], "answer": 1, "explain": "Chủ ngữ thật: \"The price\" (số ít) → includes." },
+      { "text": "Each employee ___ entitled to fifteen vacation days.", "options": ["are", "is", "were", "have been"], "answer": 1, "explain": "Each + danh từ số ít → is." },
+      { "text": "Either the manager or the supervisors ___ the store keys.", "options": ["keeps", "keep", "is keeping", "was kept"], "answer": 1, "explain": "either…or: chia theo \"the supervisors\" (gần nhất, số nhiều) → keep." },
+      { "text": "The company will relocate ___ headquarters next year.", "options": ["their", "its", "his", "theirs"], "answer": 1, "explain": "the company (số ít, tổ chức) → its headquarters." }
+    ]
+  },
+  {
+    "id": "g18", "title": "Câu điều kiện 1 & 2", "tag": "Cấu trúc nâng cao",
+    "points": [
+      "Loại 1 (có thể xảy ra): If + hiện tại đơn, will + V — If it rains, we will move indoors.",
+      "Loại 2 (giả định): If + quá khứ đơn, would + V — If I were you, I would accept.",
+      "KHÔNG dùng will/would trong vế If.",
+      "unless = if not: Unless you register, you cannot attend."
+    ],
+    "examples": [
+      { "en": "If the flight is delayed, passengers will receive meal vouchers.", "vi": "Điều kiện thực tế → loại 1." },
+      { "en": "If we had more staff, we would finish sooner.", "vi": "Giả định trái hiện tại → loại 2." }
+    ],
+    "drill": [
+      { "text": "If the client ___ the terms, we will sign the contract tomorrow.", "options": ["accepts", "will accept", "accepted", "would accept"], "answer": 0, "explain": "Loại 1: vế If dùng hiện tại đơn → accepts." },
+      { "text": "If I ___ you, I would ask for a written confirmation.", "options": ["am", "was", "were", "be"], "answer": 2, "explain": "Loại 2 giả định: If I were you (were cho mọi ngôi)." },
+      { "text": "___ the invoice is paid by Friday, a late fee will be added.", "options": ["If", "Unless", "Because", "Although"], "answer": 1, "explain": "TRỪ KHI thanh toán đúng hạn → Unless." },
+      { "text": "If the elevator breaks down again, we ___ the service company.", "options": ["call", "would call", "will call", "called"], "answer": 2, "explain": "Loại 1: mệnh đề chính → will call." }
+    ]
+  }
+]

@@ -2,15 +2,17 @@ import { useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import ProgramOverview from './components/ProgramOverview'
 import IcesLearn from './components/IcesLearn'
+import GrammarLessons from './components/GrammarLessons'
 import VocabQuiz from './components/VocabQuiz'
 import EnglishSummary from './components/EnglishSummary'
 import { recordWeekQuiz } from './progress'
 
-type Tab = 'program' | 'learn' | 'quiz' | 'summary'
+type Tab = 'program' | 'learn' | 'grammar' | 'quiz' | 'summary'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
+  { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
   { id: 'summary', label: 'Tóm tắt & xuất', icon: 'note' },
 ]
@@ -23,7 +25,6 @@ interface WeekQuiz {
 
 export default function EnglishPage() {
   const [tab, setTab] = useState<Tab>('program')
-  // Lộ trình điều phối: unit cần mở ở tab Học, hoặc bài kiểm tra tuần ở tab Kiểm tra.
   const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)
 
@@ -37,7 +38,6 @@ export default function EnglishPage() {
     setTab('quiz')
   }
 
-  // Bấm tab bằng tay thì trả về chế độ mặc định (đề toàn kho, unit tự chọn).
   const pickTab = (t: Tab) => {
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
@@ -68,6 +68,7 @@ export default function EnglishPage() {
         />
       )}
       {tab === 'learn' && <IcesLearn initialUnit={learnUnit} />}
+      {tab === 'grammar' && <GrammarLessons />}
       {tab === 'quiz' && (weekQuiz ? (
         <VocabQuiz
           key={`w${weekQuiz.week}`}

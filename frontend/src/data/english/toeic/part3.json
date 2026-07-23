@@ -1,0 +1,245 @@
+[
+  {
+    "id": "p3-01",
+    "title": "Đặt lại lịch hẹn",
+    "script": [
+      { "s": "W", "text": "Good morning, this is Dr. Miller's dental office. How can I help you?" },
+      { "s": "M", "text": "Hi, this is Kevin Barnes. I have an appointment at three o'clock today, but my flight back from Chicago was delayed. Could I come in tomorrow instead?" },
+      { "s": "W", "text": "Let me check. We have an opening at ten thirty tomorrow morning, or another at four in the afternoon." },
+      { "s": "M", "text": "Ten thirty works better for me. Thanks so much — and sorry for the short notice." }
+    ],
+    "questions": [
+      { "q": "Where does the woman work?", "options": ["At an airline", "At a dental office", "At a travel agency", "At a hotel"], "answer": 1, "skill": "l-detail" },
+      { "q": "Why does the man want to change his appointment?", "options": ["He is feeling sick.", "His flight was delayed.", "He lost his car keys.", "He has another meeting."], "answer": 1, "skill": "l-detail" },
+      { "q": "When will the man most likely arrive tomorrow?", "options": ["At 3:00 P.M.", "At 4:00 P.M.", "At 10:30 A.M.", "At 9:00 A.M."], "answer": 2, "skill": "l-detail" }
+    ]
+  },
+  {
+    "id": "p3-02",
+    "title": "Máy chiếu trục trặc trước giờ họp",
+    "script": [
+      { "s": "M", "text": "Sandra, the projector in room B isn't turning on, and the client presentation starts in twenty minutes." },
+      { "s": "W", "text": "Oh no. Did you try the spare cable in the supply closet? Sometimes it's just the connection." },
+      { "s": "M", "text": "I did, but no luck. Could we move the presentation to room D? I saw it was empty this morning." },
+      { "s": "W", "text": "Good idea. I'll book it in the system right now and put a sign on room B so the clients know where to go." }
+    ],
+    "questions": [
+      { "q": "What problem does the man report?", "options": ["A room is double-booked.", "A projector is not working.", "A client canceled a meeting.", "A cable is missing."], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the man suggest?", "options": ["Calling a technician", "Postponing the presentation", "Moving to another room", "Buying a new projector"], "answer": 2, "skill": "l-detail" },
+      { "q": "What will the woman most likely do next?", "options": ["Reserve room D", "Repair the cable", "Greet the clients", "Print the slides"], "answer": 0, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-03",
+    "title": "Đổi hàng tại cửa hàng",
+    "script": [
+      { "s": "W", "text": "Excuse me, I bought this coffee maker here last week, but it stopped working after two days. I'd like a refund, please." },
+      { "s": "M", "text": "I'm sorry about that. Do you have your receipt with you?" },
+      { "s": "W", "text": "I'm afraid I left it at home, but I paid with my store membership card, if that helps." },
+      { "s": "M", "text": "That works — I can look up the purchase in our system. Would you prefer a refund to your card, or an exchange for a new unit? The newer model is actually on sale this week." }
+    ],
+    "questions": [
+      { "q": "Why is the woman at the store?", "options": ["To buy a gift", "To return a faulty product", "To apply for a membership", "To pick up an order"], "answer": 1, "skill": "l-detail" },
+      { "q": "What problem does the woman mention?", "options": ["She lost her membership card.", "The store is out of stock.", "She did not bring her receipt.", "The price was incorrect."], "answer": 2, "skill": "l-detail" },
+      { "q": "What does the man offer to do?", "options": ["Call the manufacturer", "Extend her warranty", "Give her a discount coupon", "Look up the purchase record"], "answer": 3, "skill": "l-detail" }
+    ]
+  },
+  {
+    "id": "p3-04",
+    "title": "Chuẩn bị tuyển nhân viên mới",
+    "script": [
+      { "s": "M", "text": "Amira, have you posted the job opening for the graphic designer position yet?" },
+      { "s": "W", "text": "Not yet. I'm still waiting for the final job description from the creative director. He said he'd send it by Wednesday." },
+      { "s": "M", "text": "Hmm, that's cutting it close. We really need someone to start before the trade show in September." },
+      { "s": "W", "text": "I know. To save time, I'll set up the online posting today so that everything is ready to publish the moment his description arrives." }
+    ],
+    "questions": [
+      { "q": "What are the speakers mainly discussing?", "options": ["A trade show booth", "Hiring a new employee", "A website redesign", "A department budget"], "answer": 1, "skill": "l-main" },
+      { "q": "What is the woman waiting for?", "options": ["A job description", "A budget approval", "A client contract", "A software update"], "answer": 0, "skill": "l-detail" },
+      { "q": "Why is the man concerned about timing?", "options": ["The office is closing early.", "A new employee is needed before an event.", "The posting fee will increase.", "The director is on vacation."], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-05",
+    "title": "Hỏi đường trong toà nhà",
+    "script": [
+      { "s": "W", "text": "Excuse me, I'm here for the software training session, but I can't find the seminar room. This building is like a maze." },
+      { "s": "M", "text": "No problem — it's on the fourth floor. Take the elevator behind the reception desk, turn right when you get off, and it's the second door on your left." },
+      { "s": "W", "text": "The second door on the left, got it. Do I need to sign in somewhere first?" },
+      { "s": "M", "text": "Yes, there's a check-in table right outside the room. They'll give you a name badge and the training materials." }
+    ],
+    "questions": [
+      { "q": "Why is the woman in the building?", "options": ["To attend a training session", "To repair the elevator", "To deliver a package", "To interview for a job"], "answer": 0, "skill": "l-detail" },
+      { "q": "Where is the seminar room?", "options": ["Behind the reception desk", "On the fourth floor", "Next to the cafeteria", "On the second floor"], "answer": 1, "skill": "l-detail" },
+      { "q": "What will the woman receive at the check-in table?", "options": ["A parking pass", "A meal voucher", "A name badge and materials", "A software license"], "answer": 2, "skill": "l-detail" }
+    ]
+  },
+  {
+    "id": "p3-06",
+    "title": "Kết quả khảo sát khách hàng",
+    "script": [
+      { "s": "M", "text": "The results of the customer survey are in. Overall satisfaction is up, but many customers said our delivery times are too long." },
+      { "s": "W", "text": "Interesting. How many mentioned delivery, exactly?" },
+      { "s": "M", "text": "Nearly forty percent. Most of them are in rural areas, where we only ship twice a week." },
+      { "s": "W", "text": "Then let's raise this at Friday's operations meeting. If we partner with a local courier, we might be able to offer daily delivery in those regions without a big cost increase." }
+    ],
+    "questions": [
+      { "q": "What did many customers complain about?", "options": ["Product quality", "Website errors", "Long delivery times", "High prices"], "answer": 2, "skill": "l-detail" },
+      { "q": "What does the man say about the affected customers?", "options": ["They are mostly new customers.", "They live mainly in rural areas.", "They shop only online.", "They canceled their orders."], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the woman suggest?", "options": ["Hiring more drivers", "Working with a local courier", "Closing rural branches", "Offering discount codes"], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-07",
+    "title": "Sự cố họp trực tuyến",
+    "script": [
+      { "s": "W", "text": "Marcus, are you joining the video call with the Osaka team? It started five minutes ago and everyone can see your name, but your camera and microphone are off." },
+      { "s": "M", "text": "I'm trying! Every time I click the join button, the app freezes and kicks me out. I've already restarted my computer twice." },
+      { "s": "W", "text": "That happened to me last month. Don't use the desktop app — join through the web browser instead. The link in the calendar invitation works for both." },
+      { "s": "M", "text": "Through the browser... okay, it's loading now. You're a lifesaver. Could you tell them I'll be on in a minute?" }
+    ],
+    "questions": [
+      { "q": "What problem does the man have?", "options": ["He lost the meeting link.", "A meeting app keeps freezing.", "His camera is broken.", "He joined the wrong call."], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the woman suggest doing?", "options": ["Restarting the computer", "Calling the IT department", "Joining through a web browser", "Rescheduling the meeting"], "answer": 2, "skill": "l-detail" },
+      { "q": "What does the man ask the woman to do?", "options": ["Send him the calendar invitation", "Let the others know he will be late", "Take notes during the call", "Turn off her microphone"], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-08",
+    "title": "Đơn hàng in ấn gấp",
+    "script": [
+      { "s": "M", "text": "Thanks for calling Rapid Print. What can I do for you?" },
+      { "s": "W", "text": "Hi, I ordered two hundred brochures yesterday — order number six-two-nine. I know the pickup date is Friday, but our client moved the sales event up to Wednesday. Is there any chance you could finish them earlier?" },
+      { "s": "M", "text": "Let me look. We can do it, but the express service adds twenty percent to the total, and you'd need to approve the final design by five o'clock today." },
+      { "s": "W", "text": "The extra charge is fine. I'm looking at the design file right now — I'll send my approval within the hour." }
+    ],
+    "questions": [
+      { "q": "Why is the woman calling?", "options": ["To cancel an order", "To ask for an earlier pickup", "To complain about a design", "To change a delivery address"], "answer": 1, "skill": "l-main" },
+      { "q": "What does the man say about the express service?", "options": ["It is not available this week.", "It costs twenty percent extra.", "It requires a new order number.", "It only applies to small orders."], "answer": 1, "skill": "l-detail" },
+      { "q": "What will the woman most likely do next?", "options": ["Visit the print shop", "Contact her client", "Approve a design file", "Compare other printers"], "answer": 2, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-09",
+    "title": "Đánh giá trực tuyến của nhà hàng",
+    "script": [
+      { "s": "W", "text": "Have you seen our restaurant's page this morning? Someone left a one-star review saying the food was cold and the waiter was rude on Saturday night." },
+      { "s": "M", "text": "Saturday night... that was when the kitchen was short-staffed because two cooks called in sick. Still, we should reply to the review, and quickly." },
+      { "s": "W", "text": "Agreed. I'll write a polite response, apologize, and offer them a complimentary dinner. Better than pretending it never happened, right?" },
+      { "s": "M", "text": "Absolutely. And let's bring this up at the staff meeting — if we're ever that short-handed again, we should close some tables instead of keeping every seat open." }
+    ],
+    "questions": [
+      { "q": "What are the speakers mainly discussing?", "options": ["A negative online review", "A new menu item", "A staff promotion", "A kitchen renovation"], "answer": 0, "skill": "l-main" },
+      { "q": "According to the man, what caused the problem on Saturday?", "options": ["A broken oven", "Too many reservations", "A shortage of kitchen staff", "A late food delivery"], "answer": 2, "skill": "l-detail" },
+      { "q": "What does the man mean when he says some tables should be closed?", "options": ["The restaurant should serve fewer customers when understaffed.", "The dining room needs new furniture.", "The restaurant should close earlier.", "Some tables are reserved for staff."], "answer": 0, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-10",
+    "title": "Chuyển sang làm việc từ xa",
+    "script": [
+      { "s": "M", "text": "Priya, did you read the announcement? Starting next quarter, we can work from home up to three days a week." },
+      { "s": "W", "text": "I did. Honestly, I have mixed feelings. I love skipping the commute, but my apartment is tiny and my internet keeps dropping during video calls." },
+      { "s": "M", "text": "Did you see the second page, though? The company will pay up to forty dollars a month toward home internet, and there's a one-time budget for a desk and chair." },
+      { "s": "W", "text": "Really? I only read the first page. That changes things — I'll go through the whole policy this afternoon and talk to my manager tomorrow." }
+    ],
+    "questions": [
+      { "q": "What is the announcement about?", "options": ["A new office building", "A remote work policy", "A quarterly bonus", "A company anniversary"], "answer": 1, "skill": "l-main" },
+      { "q": "What concern does the woman mention?", "options": ["Her internet connection is unstable.", "Her commute is too long.", "Her manager disagrees with the policy.", "Her team meets every day."], "answer": 0, "skill": "l-detail" },
+      { "q": "Why does the woman say, \"That changes things\"?", "options": ["She will look for a new apartment.", "The benefits address her concerns.", "The policy starts earlier than expected.", "She wants to work five days at home."], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-11",
+    "title": "Tìm phòng cho hội thảo khách hàng",
+    "script": [
+      { "s": "W", "text": "Dev, the client workshop on the twenty-fourth just grew from fifteen to forty people. Our training room only holds twenty-five." },
+      { "s": "M", "text": "Hmm. What about the conference center across the street? They rent rooms by the half day." },
+      { "s": "W", "text": "I called them first — they're fully booked all week because of the trade fair. The hotel next door has a ballroom, but it costs almost double our budget." },
+      { "s": "M", "text": "Then let's split the workshop into two sessions, morning and afternoon, and keep it in our own training room. No extra cost, and each group gets more attention." },
+      { "s": "W", "text": "You know what? That might actually work better for the hands-on exercises. I'll email the client to propose it." }
+    ],
+    "questions": [
+      { "q": "What problem are the speakers discussing?", "options": ["A workshop has too many attendees for the room.", "A client canceled a workshop.", "A trade fair was postponed.", "A training room is being renovated."], "answer": 0, "skill": "l-main" },
+      { "q": "Why is the conference center unavailable?", "options": ["It is too expensive.", "It is closed for repairs.", "It is fully booked during a trade fair.", "It does not rent by the half day."], "answer": 2, "skill": "l-detail" },
+      { "q": "What solution do the speakers agree on?", "options": ["Renting a hotel ballroom", "Holding two smaller sessions", "Moving the date of the workshop", "Limiting the number of attendees"], "answer": 1, "skill": "l-detail" }
+    ]
+  },
+  {
+    "id": "p3-12",
+    "title": "Hỏi về hoá đơn điện nước",
+    "script": [
+      { "s": "M", "text": "City Power customer service, this is Ravi speaking." },
+      { "s": "W", "text": "Hi, I just opened my electricity bill and it's nearly twice what I usually pay. I was traveling for most of last month, so that can't be right." },
+      { "s": "M", "text": "Let me pull up your account. Ah — I see the issue. Our technician couldn't access your meter last month, so the amount was estimated based on your winter usage. When was the last time the actual reading was taken?" },
+      { "s": "W", "text": "Winter usage? No wonder. There's a new keypad at the building entrance — maybe that's why he couldn't get in. Can I just send you a photo of the meter myself?" },
+      { "s": "M", "text": "Exactly what I was going to suggest. Upload it through our app, and we'll send a corrected bill within three business days." }
+    ],
+    "questions": [
+      { "q": "Why is the woman calling?", "options": ["To report a power outage", "To question a high bill", "To close her account", "To change her address"], "answer": 1, "skill": "l-main" },
+      { "q": "What caused the problem?", "options": ["The bill was based on an estimate.", "The woman forgot a payment.", "A meter was broken.", "Prices increased in winter."], "answer": 0, "skill": "l-detail" },
+      { "q": "What will the woman most likely do next?", "options": ["Pay the original bill", "Wait for a technician's visit", "Upload a photo of her meter", "Install a new keypad"], "answer": 2, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-13",
+    "title": "Chuẩn bị gian hàng triển lãm",
+    "script": [
+      { "s": "W", "text": "Two weeks until the electronics expo. How are we doing on the booth?" },
+      { "s": "M", "text": "The banner and the demo tablets arrived yesterday. But I'm worried about the giveaway bags — the supplier said the printed logo came out blurry and they need to reprint everything." },
+      { "s": "W", "text": "How long will the reprint take?" },
+      { "s": "M", "text": "Ten days, door to door. That's cutting it close, but they promised to ship directly to the expo hall instead of our office, which saves two days." },
+      { "s": "W", "text": "Fine, but ask them for the tracking number the moment it ships. If it slips even one day, we hand out digital vouchers instead and nobody will miss the bags." }
+    ],
+    "questions": [
+      { "q": "What event are the speakers preparing for?", "options": ["A store opening", "A company picnic", "An electronics expo", "A press conference"], "answer": 2, "skill": "l-main" },
+      { "q": "What problem does the man mention?", "options": ["The tablets have not arrived.", "A logo was printed incorrectly.", "The booth is too small.", "The banner was damaged."], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the woman imply about the giveaway bags?", "options": ["They are essential to the booth.", "The event can succeed without them.", "They should be redesigned.", "They cost too much to reprint."], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-14",
+    "title": "Đặt đồ ăn cho buổi họp",
+    "script": [
+      { "s": "M", "text": "Rina, the caterer just called. They can't do the Mediterranean menu for Thursday's board lunch — their supplier ran out of a few ingredients." },
+      { "s": "W", "text": "That's the third time this year. What are our options?" },
+      { "s": "M", "text": "They offered their Italian menu at the same price, or we could try the new bistro on Fifth Street. I picked up a menu from them last week — it's on my desk." },
+      { "s": "W", "text": "Honestly? Let's give the bistro a shot. If they do well, we'll finally have a backup caterer for situations exactly like this." }
+    ],
+    "questions": [
+      { "q": "Why did the caterer call the man?", "options": ["To confirm a delivery time", "To say a menu is unavailable", "To raise their prices", "To cancel the contract"], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the woman mean when she says, \"Let's give the bistro a shot\"?", "options": ["She wants to try the new restaurant.", "She wants to photograph the bistro.", "She prefers the Italian menu.", "She will cancel the board lunch."], "answer": 0, "skill": "l-infer" },
+      { "q": "What does the woman hope to gain from her decision?", "options": ["A lower catering price", "A backup food supplier", "A larger meeting room", "A longer lunch break"], "answer": 1, "skill": "l-infer" }
+    ]
+  },
+  {
+    "id": "p3-15",
+    "title": "Hệ thống chấm công mới",
+    "script": [
+      { "s": "W", "text": "Omar, have you tried clocking in with the new app? It says my face doesn't match my profile photo — for the second day in a row." },
+      { "s": "M", "text": "Same thing happened to half our shift. Apparently the photos from the old badge system were too low-resolution to transfer properly." },
+      { "s": "W", "text": "So what are we supposed to do — keep emailing HR every morning?" },
+      { "s": "M", "text": "No, there's a self-service fix. Open the app, go to Settings, then Identity, and retake your photo there. It updated mine instantly, and I've had no problems since." }
+    ],
+    "questions": [
+      { "q": "What problem is the woman having?", "options": ["An app will not recognize her face.", "She forgot her badge at home.", "Her shift was changed.", "Her profile was deleted."], "answer": 0, "skill": "l-detail" },
+      { "q": "According to the man, what caused the problem?", "options": ["A server outage", "Low-quality photos from the old system", "An expired password", "A missing software update"], "answer": 1, "skill": "l-detail" },
+      { "q": "What does the man suggest the woman do?", "options": ["Email HR every morning", "Get a new badge printed", "Retake her photo in the app", "Clock in on paper"], "answer": 2, "skill": "l-detail" }
+    ]
+  },
+  {
+    "id": "p3-16",
+    "title": "Thuê xe khi đi công tác",
+    "script": [
+      { "s": "M", "text": "Hi, I have a reservation under Tran, for a compact car, three days." },
+      { "s": "W", "text": "Welcome, Mr. Tran. Let me pull that up... ah, small issue — our last compact just went out with another customer. But I can offer you a midsize at the compact rate, no extra charge." },
+      { "s": "M", "text": "That works. Oh — and my flight back got changed. Could I return the car Sunday morning instead of Saturday night?" },
+      { "s": "W", "text": "Sure. The extra half day adds twenty dollars, but return it before nine A.M. and drop the keys in the express box — you'll skip the counter line entirely." }
+    ],
+    "questions": [
+      { "q": "Where does this conversation most likely take place?", "options": ["At an airport gate", "At a car rental counter", "At a hotel reception", "At a repair shop"], "answer": 1, "skill": "l-purpose" },
+      { "q": "What does the woman offer the man?", "options": ["A free GPS unit", "A larger car at no extra cost", "A discount coupon", "A later flight"], "answer": 1, "skill": "l-detail" },
+      { "q": "What should the man do to avoid waiting in line on Sunday?", "options": ["Return the car Saturday night", "Pay in cash", "Use the express key box", "Call the counter in advance"], "answer": 2, "skill": "l-detail" }
+    ]
+  }
+]

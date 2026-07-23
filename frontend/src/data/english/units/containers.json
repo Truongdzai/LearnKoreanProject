@@ -1,0 +1,27 @@
+{
+  "id": "containers",
+  "name": "Hộp & vật chứa",
+  "sub": "Box, basket, envelope, lid, tank…",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "📦",
+  "words": [
+    { "en": "box", "ipa": "/bɑːks/", "vi": "cái hộp", "pos": "noun", "img": "📦", "connect": "\"Bóc-s\" — hộp vuông đựng đồ.", "ex": "Put the toys in the box.", "exVi": "Bỏ đồ chơi vào hộp." },
+    { "en": "basket", "ipa": "/ˈbæs.kət/", "vi": "cái giỏ, rổ", "pos": "noun", "img": "🧺", "connect": "\"Bát-kịt\" — giỏ đan (basketball = bóng rổ).", "ex": "The basket is full of fruit.", "exVi": "Cái giỏ đầy trái cây." },
+    { "en": "can", "ipa": "/kæn/", "vi": "lon, hộp thiếc", "pos": "noun", "img": "🥫", "connect": "\"Ken\" — lon nước (cũng là \"có thể\").", "ex": "He opened a can of soda.", "exVi": "Anh ấy mở một lon nước ngọt." },
+    { "en": "sack", "ipa": "/sæk/", "vi": "bao tải", "pos": "noun", "img": "🎒", "connect": "\"Sék\" — bao gạo, bao tải.", "ex": "A sack of rice is heavy.", "exVi": "Một bao gạo rất nặng." },
+    { "en": "crate", "ipa": "/kreɪt/", "vi": "thùng gỗ/nhựa", "pos": "noun", "img": "🪵", "connect": "\"Krê-t\" — thùng chở hàng.", "ex": "The crate holds twelve bottles.", "exVi": "Cái thùng chứa mười hai chai." },
+    { "en": "barrel", "ipa": "/ˈber.əl/", "vi": "thùng tròn, thùng phuy", "pos": "noun", "img": "🛢️", "connect": "\"Be-rồ\" — thùng rượu, thùng dầu.", "ex": "The barrel is full of water.", "exVi": "Thùng phuy đầy nước." },
+    { "en": "tube", "ipa": "/tuːb/", "vi": "tuýp, ống", "pos": "noun", "img": "🧴", "connect": "\"Tu-b\" — tuýp kem đánh răng.", "ex": "A tube of toothpaste, please.", "exVi": "Cho một tuýp kem đánh răng." },
+    { "en": "packet", "ipa": "/ˈpæk.ɪt/", "vi": "gói nhỏ", "pos": "noun", "img": "🍬", "connect": "pack + et (nhỏ) — gói bánh kẹo.", "ex": "He bought a packet of biscuits.", "exVi": "Anh ấy mua một gói bánh quy." },
+    { "en": "carton", "ipa": "/ˈkɑːr.tən/", "vi": "hộp giấy (sữa, trứng)", "pos": "noun", "img": "🥛", "connect": "\"Ka-từn\" — hộp sữa giấy.", "ex": "A carton of milk, please.", "exVi": "Cho một hộp sữa." },
+    { "en": "lid", "ipa": "/lɪd/", "vi": "cái nắp", "pos": "noun", "img": "🫙", "connect": "\"Líd\" — nắp đậy hộp/nồi.", "ex": "Put the lid back on the jar.", "exVi": "Đậy nắp lọ lại nhé." },
+    { "en": "container", "ipa": "/kənˈteɪ.nɚ/", "vi": "đồ đựng, công-ten-nơ", "pos": "noun", "img": "🚢", "connect": "contain (chứa) + er — vật để chứa.", "ex": "Store the rice in a container.", "exVi": "Cất gạo vào đồ đựng kín." },
+    { "en": "envelope", "ipa": "/ˈen.və.loʊp/", "vi": "phong bì", "pos": "noun", "img": "✉️", "connect": "\"En-vờ-lâu-p\" — bỏ thư vào phong bì.", "ex": "Seal the envelope, please.", "exVi": "Dán kín phong bì lại nhé." },
+    { "en": "parcel", "ipa": "/ˈpɑːr.səl/", "vi": "bưu kiện", "pos": "noun", "img": "📦", "connect": "\"Pa-sồ\" — gói hàng gửi bưu điện.", "ex": "A parcel arrived for you.", "exVi": "Có một bưu kiện gửi cho bạn." },
+    { "en": "string", "ipa": "/strɪŋ/", "vi": "sợi dây (mảnh)", "pos": "noun", "img": "🧵", "connect": "\"Sờ-tring\" — dây buộc gói hàng.", "ex": "Tie the box with string.", "exVi": "Buộc cái hộp bằng dây." },
+    { "en": "sponge", "ipa": "/spʌndʒ/", "vi": "miếng bọt biển", "pos": "noun", "img": "🧽", "connect": "\"Sờ-pănj\" — miếng rửa bát xốp.", "ex": "Clean the sink with a sponge.", "exVi": "Cọ bồn rửa bằng miếng bọt biển." },
+    { "en": "tank", "ipa": "/tæŋk/", "vi": "bể, bồn chứa", "pos": "noun", "img": "🐠", "connect": "\"Teng-k\" — bể cá, bồn nước (cũng là xe tăng).", "ex": "The fish tank needs cleaning.", "exVi": "Bể cá cần được dọn rồi." },
+    { "en": "pouch", "ipa": "/paʊtʃ/", "vi": "túi nhỏ", "pos": "noun", "img": "👛", "connect": "\"Pao-ch\" — túi con đựng đồ lặt vặt.", "ex": "She keeps coins in a pouch.", "exVi": "Cô ấy đựng tiền xu trong một cái túi nhỏ." }
+  ]
+}

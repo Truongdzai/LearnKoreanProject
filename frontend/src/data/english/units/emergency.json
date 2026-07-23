@@ -1,0 +1,32 @@
+{
+  "id": "emergency",
+  "name": "Khẩn cấp & an toàn",
+  "sub": "Emergency, ambulance, danger, warn…",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "🚨",
+  "words": [
+    { "en": "emergency", "ipa": "/ɪˈmɜːr.dʒən.si/", "vi": "trường hợp khẩn cấp", "pos": "noun", "img": "🚨", "connect": "\"I-mơ-jừn-si\" — gọi số khẩn cấp.", "ex": "Call 115 in an emergency.", "exVi": "Gọi 115 khi có trường hợp khẩn cấp." },
+    { "en": "ambulance", "ipa": "/ˈæm.bjə.ləns/", "vi": "xe cứu thương", "pos": "noun", "img": "🚑", "connect": "\"Em-biu-lừn-s\" — xe chở bệnh nhân.", "ex": "The ambulance arrived quickly.", "exVi": "Xe cứu thương đến rất nhanh." },
+    { "en": "accident", "ipa": "/ˈæk.sə.dənt/", "vi": "tai nạn", "pos": "noun", "img": "💥", "connect": "\"Ác-sờ-đừnt\" — va chạm ngoài ý muốn.", "ex": "There was an accident on the highway.", "exVi": "Có một vụ tai nạn trên cao tốc." },
+    { "en": "fire", "ipa": "/faɪr/", "vi": "lửa, đám cháy", "pos": "noun", "img": "🔥", "connect": "\"Phai-ơ\" — cháy nhà gọi cứu hoả.", "ex": "Fire! Get out quickly!", "exVi": "Cháy! Chạy ra ngoài mau!" },
+    { "en": "rob", "ipa": "/rɑːb/", "vi": "cướp", "pos": "verb", "img": "🦹", "connect": "\"Róp\" — cướp của.", "ex": "Two men robbed the bank.", "exVi": "Hai gã đàn ông cướp ngân hàng." },
+    { "en": "robbery", "ipa": "/ˈrɑː.bɚ.i/", "vi": "vụ cướp", "pos": "noun", "img": "🏦", "connect": "rob (cướp) + bery.", "ex": "The robbery happened at noon.", "exVi": "Vụ cướp xảy ra giữa trưa." },
+    { "en": "burglar", "ipa": "/ˈbɜːr.ɡlɚ/", "vi": "kẻ trộm (đột nhập nhà)", "pos": "noun", "img": "🥷", "connect": "\"Bơ-glờ\" — trộm lẻn vào nhà.", "ex": "A burglar broke into the house.", "exVi": "Một tên trộm đột nhập vào nhà." },
+    { "en": "escape", "ipa": "/ɪˈskeɪp/", "vi": "trốn thoát", "pos": "verb", "img": "🏃", "connect": "\"I-sờ-kê-p\" — thoát khỏi.", "ex": "The bird escaped from the cage.", "exVi": "Con chim trốn thoát khỏi lồng." },
+    { "en": "victim", "ipa": "/ˈvɪk.təm/", "vi": "nạn nhân", "pos": "noun", "img": "🤕", "connect": "\"Vích-tờm\" — người bị hại.", "ex": "The victims received help.", "exVi": "Các nạn nhân đã được giúp đỡ." },
+    { "en": "witness", "ipa": "/ˈwɪt.nəs/", "vi": "nhân chứng", "pos": "noun", "img": "👁️", "connect": "\"Wít-nợs\" — người chứng kiến.", "ex": "The witness told the police everything.", "exVi": "Nhân chứng kể hết cho cảnh sát." },
+    { "en": "arrest", "ipa": "/əˈrest/", "vi": "bắt giữ", "pos": "verb", "img": "🚔", "connect": "\"Ờ-rét-st\" — còng tay bắt giữ.", "ex": "The police arrested the thief.", "exVi": "Cảnh sát đã bắt tên trộm." },
+    { "en": "punish", "ipa": "/ˈpʌn.ɪʃ/", "vi": "trừng phạt", "pos": "verb", "img": "⚖️", "connect": "\"Pă-nịsh\" — phạt kẻ có lỗi.", "ex": "The law punishes drunk driving.", "exVi": "Pháp luật trừng phạt lái xe khi say." },
+    { "en": "fine", "ipa": "/faɪn/", "vi": "tiền phạt; phạt tiền", "pos": "noun", "img": "🧾", "connect": "\"Phai-n\" — nộp phạt (cũng nghĩa \"ổn\").", "ex": "He paid a fine for speeding.", "exVi": "Anh ấy nộp phạt vì chạy quá tốc độ." },
+    { "en": "safety", "ipa": "/ˈseɪf.ti/", "vi": "sự an toàn", "pos": "noun", "img": "🦺", "connect": "safe (an toàn) + ty.", "ex": "Safety comes first.", "exVi": "An toàn là trên hết." },
+    { "en": "danger", "ipa": "/ˈdeɪn.dʒɚ/", "vi": "mối nguy hiểm", "pos": "noun", "img": "⚠️", "connect": "\"Đên-giơ\" — dangerous là tính từ.", "ex": "The sign says: Danger!", "exVi": "Biển báo ghi: Nguy hiểm!" },
+    { "en": "risk", "ipa": "/rɪsk/", "vi": "rủi ro", "pos": "noun", "img": "🎲", "connect": "\"Rít-sk\" — liều thì có risk.", "ex": "Don't take unnecessary risks.", "exVi": "Đừng liều lĩnh không cần thiết." },
+    { "en": "warn", "ipa": "/wɔːrn/", "vi": "cảnh báo", "pos": "verb", "img": "📢", "connect": "\"Wo-n\" — báo trước nguy hiểm.", "ex": "They warned us about the storm.", "exVi": "Họ cảnh báo chúng tôi về cơn bão." },
+    { "en": "warning", "ipa": "/ˈwɔːr.nɪŋ/", "vi": "lời cảnh báo", "pos": "noun", "img": "⚠️", "connect": "warn + ing — biển cảnh báo.", "ex": "Ignore the warning at your own risk.", "exVi": "Phớt lờ cảnh báo thì tự chịu rủi ro." },
+    { "en": "threat", "ipa": "/θret/", "vi": "mối đe doạ", "pos": "noun", "img": "🌩️", "connect": "\"Th-rét\" — hiểm hoạ rình rập.", "ex": "Pollution is a threat to health.", "exVi": "Ô nhiễm là mối đe doạ cho sức khoẻ." },
+    { "en": "injure", "ipa": "/ˈɪn.dʒɚ/", "vi": "làm bị thương", "pos": "verb", "img": "🩹", "connect": "\"In-giơ\" — injury là vết thương.", "ex": "He injured his leg in the fall.", "exVi": "Anh ấy bị thương ở chân khi ngã." },
+    { "en": "siren", "ipa": "/ˈsaɪ.rən/", "vi": "còi hụ", "pos": "noun", "img": "🚨", "connect": "\"Sai-rừn\" — tiếng còi xe cấp cứu.", "ex": "We heard a siren in the night.", "exVi": "Chúng tôi nghe tiếng còi hụ trong đêm." },
+    { "en": "helpline", "ipa": "/ˈhelp.laɪn/", "vi": "đường dây nóng", "pos": "noun", "img": "📞", "connect": "help (giúp) + line (đường dây).", "ex": "Call the helpline for support.", "exVi": "Gọi đường dây nóng để được hỗ trợ." }
+  ]
+}

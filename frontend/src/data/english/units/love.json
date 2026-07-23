@@ -1,0 +1,32 @@
+{
+  "id": "love",
+  "name": "Tình yêu & hẹn hò",
+  "sub": "Crush, propose, honeymoon, loyal…",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "💕",
+  "words": [
+    { "en": "crush", "ipa": "/krʌʃ/", "vi": "người mình thầm thích", "pos": "noun", "img": "😳", "connect": "\"Krắt-sh\" — have a crush on = cảm nắng ai.", "ex": "She has a crush on her classmate.", "exVi": "Cô ấy cảm nắng bạn cùng lớp." },
+    { "en": "boyfriend", "ipa": "/ˈbɔɪ.frend/", "vi": "bạn trai", "pos": "noun", "img": "👦", "connect": "boy + friend — người yêu nam.", "ex": "Her boyfriend is very caring.", "exVi": "Bạn trai cô ấy rất chu đáo." },
+    { "en": "girlfriend", "ipa": "/ˈɡɜːrl.frend/", "vi": "bạn gái", "pos": "noun", "img": "👧", "connect": "girl + friend — người yêu nữ.", "ex": "He bought flowers for his girlfriend.", "exVi": "Anh ấy mua hoa tặng bạn gái." },
+    { "en": "partner", "ipa": "/ˈpɑːrt.nɚ/", "vi": "người yêu / bạn đời; cộng sự", "pos": "noun", "img": "👫", "connect": "\"Pác-nờ\" — nửa kia hoặc đối tác.", "ex": "She introduced her partner to us.", "exVi": "Cô ấy giới thiệu nửa kia với chúng tôi." },
+    { "en": "relationship", "ipa": "/rɪˈleɪ.ʃən.ʃɪp/", "vi": "mối quan hệ", "pos": "noun", "img": "💞", "connect": "relation (quan hệ) + ship.", "ex": "They have a strong relationship.", "exVi": "Họ có một mối quan hệ bền chặt." },
+    { "en": "romantic", "ipa": "/roʊˈmæn.tɪk/", "vi": "lãng mạn", "pos": "adj", "img": "🌹", "connect": "\"Râu-men-tịc\" — ngọt ngào bay bổng.", "ex": "It was a romantic dinner.", "exVi": "Đó là một bữa tối lãng mạn." },
+    { "en": "romance", "ipa": "/ˈroʊ.mæns/", "vi": "chuyện tình", "pos": "noun", "img": "💘", "connect": "\"Râu-men-s\" — mối tình lãng mạn.", "ex": "Their romance began in college.", "exVi": "Chuyện tình của họ bắt đầu thời đại học." },
+    { "en": "propose", "ipa": "/prəˈpoʊz/", "vi": "cầu hôn; đề xuất", "pos": "verb", "img": "💍", "connect": "\"Prờ-pâu-z\" — quỳ gối cầu hôn.", "ex": "He proposed to her on the beach.", "exVi": "Anh ấy cầu hôn cô ấy trên bãi biển." },
+    { "en": "engaged", "ipa": "/ɪnˈɡeɪdʒd/", "vi": "đã đính hôn", "pos": "adj", "img": "💍", "connect": "\"In-ghê-jd\" — sau cầu hôn, trước đám cưới.", "ex": "They got engaged last month.", "exVi": "Họ đính hôn tháng trước." },
+    { "en": "honeymoon", "ipa": "/ˈhʌn.i.muːn/", "vi": "tuần trăng mật", "pos": "noun", "img": "🌙", "connect": "honey (mật) + moon (trăng).", "ex": "They went to Bali for their honeymoon.", "exVi": "Họ đi Bali hưởng tuần trăng mật." },
+    { "en": "affection", "ipa": "/əˈfek.ʃən/", "vi": "tình cảm trìu mến", "pos": "noun", "img": "🥰", "connect": "\"Ờ-phéc-sừn\" — sự yêu thương.", "ex": "She shows affection to her kids.", "exVi": "Cô ấy dành tình cảm trìu mến cho các con." },
+    { "en": "valentine", "ipa": "/ˈvæl.ən.taɪn/", "vi": "người thương (ngày lễ tình nhân)", "pos": "noun", "img": "💌", "connect": "\"Ve-lừn-tai-n\" — thiệp Valentine 14/2.", "ex": "Will you be my valentine?", "exVi": "Làm người thương của tớ ngày Valentine nhé?" },
+    { "en": "sweetheart", "ipa": "/ˈswiːt.hɑːrt/", "vi": "người yêu dấu", "pos": "noun", "img": "🍬", "connect": "sweet (ngọt) + heart (tim).", "ex": "Good night, sweetheart.", "exVi": "Ngủ ngon nhé, người yêu dấu." },
+    { "en": "darling", "ipa": "/ˈdɑːr.lɪŋ/", "vi": "cưng, mình ơi", "pos": "noun", "img": "😘", "connect": "\"Đác-ling\" — cách gọi âu yếm.", "ex": "Darling, dinner is ready!", "exVi": "Mình ơi, cơm xong rồi!" },
+    { "en": "flirt", "ipa": "/flɜːrt/", "vi": "tán tỉnh", "pos": "verb", "img": "😉", "connect": "\"Flơt\" — thả thính.", "ex": "He flirts with everyone.", "exVi": "Anh ta tán tỉnh khắp nơi." },
+    { "en": "breakup", "ipa": "/ˈbreɪk.ʌp/", "vi": "cuộc chia tay", "pos": "noun", "img": "💔", "connect": "break (vỡ) + up — đường ai nấy đi.", "ex": "She was sad after the breakup.", "exVi": "Cô ấy buồn sau cuộc chia tay." },
+    { "en": "soulmate", "ipa": "/ˈsoʊl.meɪt/", "vi": "tri kỷ", "pos": "noun", "img": "🫂", "connect": "soul (tâm hồn) + mate (bạn).", "ex": "I believe she is my soulmate.", "exVi": "Tôi tin cô ấy là tri kỷ của mình." },
+    { "en": "faithful", "ipa": "/ˈfeɪθ.fəl/", "vi": "chung thuỷ", "pos": "adj", "img": "🤞", "connect": "faith (niềm tin) + ful.", "ex": "He is faithful to his wife.", "exVi": "Anh ấy chung thuỷ với vợ." },
+    { "en": "loyal", "ipa": "/ˈlɔɪ.əl/", "vi": "trung thành", "pos": "adj", "img": "🐶", "connect": "\"Loi-ồ\" — một lòng một dạ.", "ex": "Dogs are loyal animals.", "exVi": "Chó là loài vật trung thành." },
+    { "en": "apart", "ipa": "/əˈpɑːrt/", "vi": "xa cách, rời nhau", "pos": "adverb", "img": "↔️", "connect": "\"Ờ-pác-t\" — mỗi người một nơi.", "ex": "They live apart but stay in touch.", "exVi": "Họ sống xa nhau nhưng vẫn giữ liên lạc." },
+    { "en": "lover", "ipa": "/ˈlʌv.ɚ/", "vi": "người yêu; người mê (gì đó)", "pos": "noun", "img": "💑", "connect": "love + r — a music lover: người mê nhạc.", "ex": "The lovers walked hand in hand.", "exVi": "Đôi tình nhân tay trong tay dạo bước." },
+    { "en": "cuddle", "ipa": "/ˈkʌd.əl/", "vi": "ôm ấp, rúc", "pos": "verb", "img": "🤗", "connect": "\"Kắ-đồ\" — ôm rúc vào nhau.", "ex": "The kitten cuddled up to me.", "exVi": "Chú mèo con rúc vào người tôi." }
+  ]
+}

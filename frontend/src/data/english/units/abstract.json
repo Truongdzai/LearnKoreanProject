@@ -1,0 +1,32 @@
+{
+  "id": "abstract",
+  "name": "Danh từ trừu tượng",
+  "sub": "Choice, chance, habit, reason, truth…",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "💭",
+  "words": [
+    { "en": "choice", "ipa": "/tʃɔɪs/", "vi": "sự lựa chọn", "pos": "noun", "img": "🔀", "connect": "choose (chọn) → choice.", "ex": "You made a good choice.", "exVi": "Bạn đã có một lựa chọn đúng." },
+    { "en": "chance", "ipa": "/tʃæns/", "vi": "cơ hội, cơ may", "pos": "noun", "img": "🎰", "connect": "\"Chen-s\" — cho một cơ hội.", "ex": "Give me one more chance.", "exVi": "Cho tôi thêm một cơ hội nữa." },
+    { "en": "purpose", "ipa": "/ˈpɜːr.pəs/", "vi": "mục đích", "pos": "noun", "img": "🎯", "connect": "\"Pơ-pợs\" — lý do để làm.", "ex": "What's the purpose of this trip?", "exVi": "Mục đích của chuyến đi này là gì?" },
+    { "en": "habit", "ipa": "/ˈhæb.ɪt/", "vi": "thói quen", "pos": "noun", "img": "🔁", "connect": "\"He-bịt\" — việc làm đều mỗi ngày.", "ex": "Reading is a good habit.", "exVi": "Đọc sách là một thói quen tốt." },
+    { "en": "reason", "ipa": "/ˈriː.zən/", "vi": "lý do", "pos": "noun", "img": "❓", "connect": "\"Ri-zừn\" — vì sao lại thế.", "ex": "What's the reason for the delay?", "exVi": "Lý do chậm trễ là gì?" },
+    { "en": "result", "ipa": "/rɪˈzʌlt/", "vi": "kết quả", "pos": "noun", "img": "🏁", "connect": "\"Ri-zăl-t\" — thành quả cuối cùng.", "ex": "The test results come out Friday.", "exVi": "Kết quả bài thi có vào thứ Sáu." },
+    { "en": "effect", "ipa": "/ɪˈfekt/", "vi": "tác động, hiệu ứng", "pos": "noun", "img": "💥", "connect": "\"I-phéct\" — hệ quả gây ra.", "ex": "Music has a calming effect.", "exVi": "Âm nhạc có tác dụng xoa dịu." },
+    { "en": "cause", "ipa": "/kɑːz/", "vi": "nguyên nhân", "pos": "noun", "img": "🧨", "connect": "\"Có-z\" — nguồn gây ra (ngược với effect).", "ex": "What was the cause of the fire?", "exVi": "Nguyên nhân vụ cháy là gì?" },
+    { "en": "situation", "ipa": "/ˌsɪtʃ.uˈeɪ.ʃən/", "vi": "tình huống", "pos": "noun", "img": "🎬", "connect": "\"Sít-chu-ê-sừn\" — hoàn cảnh hiện tại.", "ex": "The situation is under control.", "exVi": "Tình hình đã được kiểm soát." },
+    { "en": "condition", "ipa": "/kənˈdɪʃ.ən/", "vi": "điều kiện, tình trạng", "pos": "noun", "img": "📋", "connect": "\"Cợn-đi-sừn\" — trạng thái / điều kiện kèm theo.", "ex": "The car is in good condition.", "exVi": "Chiếc xe trong tình trạng tốt." },
+    { "en": "opportunity", "ipa": "/ˌɑː.pɚˈtuː.nə.t̬i/", "vi": "cơ hội (lớn)", "pos": "noun", "img": "🚪", "connect": "\"O-pờ-tu-nờ-ti\" — cánh cửa cơ hội.", "ex": "Study abroad is a great opportunity.", "exVi": "Du học là một cơ hội tuyệt vời." },
+    { "en": "experience", "ipa": "/ɪkˈspɪr.i.əns/", "vi": "kinh nghiệm, trải nghiệm", "pos": "noun", "img": "🎒", "connect": "\"Ịc-spia-ri-ừns\" — từng trải qua.", "ex": "Travel gives you experience.", "exVi": "Du lịch cho bạn nhiều trải nghiệm." },
+    { "en": "advantage", "ipa": "/ədˈvæn.t̬ɪdʒ/", "vi": "lợi thế", "pos": "noun", "img": "➕", "connect": "\"Ợd-ven-tịj\" — điểm mạnh hơn người.", "ex": "Speaking English is an advantage.", "exVi": "Biết tiếng Anh là một lợi thế." },
+    { "en": "difference", "ipa": "/ˈdɪf.ɚ.əns/", "vi": "sự khác biệt", "pos": "noun", "img": "🔍", "connect": "different (khác) → difference.", "ex": "Can you see the difference?", "exVi": "Bạn thấy điểm khác biệt không?" },
+    { "en": "solution", "ipa": "/səˈluː.ʃən/", "vi": "giải pháp", "pos": "noun", "img": "🧩", "connect": "solve (giải quyết) → solution.", "ex": "We found a simple solution.", "exVi": "Chúng tôi tìm ra một giải pháp đơn giản." },
+    { "en": "method", "ipa": "/ˈmeθ.əd/", "vi": "phương pháp", "pos": "noun", "img": "🛤️", "connect": "\"Me-thợd\" — cách làm bài bản.", "ex": "This method works well.", "exVi": "Phương pháp này hiệu quả đấy." },
+    { "en": "decision", "ipa": "/dɪˈsɪʒ.ən/", "vi": "quyết định", "pos": "noun", "img": "⚖️", "connect": "decide (quyết) → decision.", "ex": "It was a hard decision.", "exVi": "Đó là một quyết định khó khăn." },
+    { "en": "opinion", "ipa": "/əˈpɪn.jən/", "vi": "ý kiến", "pos": "noun", "img": "💬", "connect": "\"Ờ-pin-dừn\" — in my opinion: theo tôi.", "ex": "What's your opinion on this?", "exVi": "Ý kiến của bạn về việc này thế nào?" },
+    { "en": "fact", "ipa": "/fækt/", "vi": "sự thật, dữ kiện", "pos": "noun", "img": "📊", "connect": "\"Phéc-t\" — điều có thật.", "ex": "It's a fact, not a guess.", "exVi": "Đó là sự thật, không phải phỏng đoán." },
+    { "en": "truth", "ipa": "/truːθ/", "vi": "sự thật, chân lý", "pos": "noun", "img": "🕊️", "connect": "true (đúng) → truth.", "ex": "The truth always comes out.", "exVi": "Sự thật rồi cũng sẽ lộ ra." },
+    { "en": "secret", "ipa": "/ˈsiː.krət/", "vi": "bí mật", "pos": "noun", "img": "🤐", "connect": "\"Si-crợt\" — chuyện giấu kín.", "ex": "I'll tell you a secret.", "exVi": "Tôi kể cho bạn một bí mật nhé." },
+    { "en": "luck", "ipa": "/lʌk/", "vi": "vận may", "pos": "noun", "img": "🍀", "connect": "\"Lăc\" — lucky là tính từ.", "ex": "Wish me luck!", "exVi": "Chúc tôi may mắn nhé!" }
+  ]
+}

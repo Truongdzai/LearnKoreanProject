@@ -7,6 +7,8 @@ export type AppView =
   | 'path'
   | 'speaking'
   | 'english'
+  | 'toeic'
+  | 'korean'
   | 'vocab'
   | 'flashcards'
   | 'activities'
@@ -19,7 +21,7 @@ export type AppView =
   | 'pricing'
   | 'admin'
 
-export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'luyendich' | 'tomtat' | 'dubbing'
+export type LearnTab = 'shadowing' | 'phatam' | 'chepchinhta' | 'dienkhuyet' | 'luyendich' | 'tomtat' | 'dubbing'
 
 export type ThemeMode = 'light' | 'dark'
 

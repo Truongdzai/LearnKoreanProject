@@ -1,0 +1,29 @@
+{
+  "id": "jobs2",
+  "name": "Nghề nghiệp (mở rộng)",
+  "sub": "Barber, carpenter, vet, architect…",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🧰",
+  "words": [
+    { "en": "barber", "ipa": "/ˈbɑːr.bɚ/", "vi": "thợ cắt tóc nam", "pos": "noun", "img": "💈", "connect": "\"Ba-bờ\" — tiệm barber shop.", "ex": "The barber gave him a short cut.", "exVi": "Thợ cắt cho anh ấy kiểu tóc ngắn." },
+    { "en": "butcher", "ipa": "/ˈbʊtʃ.ɚ/", "vi": "người bán thịt", "pos": "noun", "img": "🥩", "connect": "\"Bút-chờ\" — hàng thịt ở chợ.", "ex": "Buy pork from the butcher.", "exVi": "Mua thịt heo ở hàng thịt." },
+    { "en": "tailor", "ipa": "/ˈteɪ.lɚ/", "vi": "thợ may", "pos": "noun", "img": "🧵", "connect": "\"Tê-lờ\" — may đo quần áo.", "ex": "The tailor made me a suit.", "exVi": "Thợ may may cho tôi một bộ vest." },
+    { "en": "carpenter", "ipa": "/ˈkɑːr.pən.tɚ/", "vi": "thợ mộc", "pos": "noun", "img": "🪚", "connect": "\"Ka-pừn-tờ\" — đóng bàn ghế gỗ.", "ex": "The carpenter built a bookshelf.", "exVi": "Bác thợ mộc đóng một kệ sách." },
+    { "en": "plumber", "ipa": "/ˈplʌm.ɚ/", "vi": "thợ sửa ống nước", "pos": "noun", "img": "🔧", "connect": "\"Plăm-mờ\" — chữ \"b\" câm.", "ex": "Call a plumber for the leak.", "exVi": "Gọi thợ ống nước sửa chỗ rò đi." },
+    { "en": "electrician", "ipa": "/ˌel.ekˈtrɪʃ.ən/", "vi": "thợ điện", "pos": "noun", "img": "⚡", "connect": "electric → electrician.", "ex": "The electrician fixed the wiring.", "exVi": "Thợ điện sửa lại đường dây." },
+    { "en": "librarian", "ipa": "/laɪˈbrer.i.ən/", "vi": "thủ thư", "pos": "noun", "img": "📚", "connect": "library → librarian.", "ex": "Ask the librarian for help.", "exVi": "Nhờ cô thủ thư giúp nhé." },
+    { "en": "vet", "ipa": "/vet/", "vi": "bác sĩ thú y", "pos": "noun", "img": "🐕", "connect": "\"Vét\" — rút gọn của veterinarian.", "ex": "Take the puppy to the vet.", "exVi": "Đưa cún con đi khám thú y." },
+    { "en": "babysitter", "ipa": "/ˈbeɪ.biˌsɪt̬.ɚ/", "vi": "người trông trẻ", "pos": "noun", "img": "👶", "connect": "baby + sitter — ngồi trông em bé.", "ex": "We hired a babysitter tonight.", "exVi": "Tối nay chúng tôi thuê người trông trẻ." },
+    { "en": "gardener", "ipa": "/ˈɡɑːrd.nɚ/", "vi": "người làm vườn", "pos": "noun", "img": "🌷", "connect": "garden + er.", "ex": "The gardener waters the roses.", "exVi": "Bác làm vườn tưới hoa hồng." },
+    { "en": "fisherman", "ipa": "/ˈfɪʃ.ɚ.mən/", "vi": "ngư dân", "pos": "noun", "img": "🎣", "connect": "fisher + man — người đánh cá.", "ex": "The fisherman sails at dawn.", "exVi": "Ngư dân ra khơi lúc rạng sáng." },
+    { "en": "hunter", "ipa": "/ˈhʌn.t̬ɚ/", "vi": "thợ săn", "pos": "noun", "img": "🏹", "connect": "hunt (săn) + er.", "ex": "The hunter walked into the forest.", "exVi": "Người thợ săn đi vào rừng." },
+    { "en": "translator", "ipa": "/trænzˈleɪ.t̬ɚ/", "vi": "biên dịch viên", "pos": "noun", "img": "🔤", "connect": "translate (dịch) + or.", "ex": "She works as a translator.", "exVi": "Cô ấy làm biên dịch viên." },
+    { "en": "secretary", "ipa": "/ˈsek.rə.ter.i/", "vi": "thư ký", "pos": "noun", "img": "🗂️", "connect": "\"Se-crờ-te-ri\" — giữ giấy tờ lịch hẹn.", "ex": "The secretary arranged the meeting.", "exVi": "Thư ký sắp xếp cuộc họp." },
+    { "en": "accountant", "ipa": "/əˈkaʊn.t̬ənt/", "vi": "kế toán", "pos": "noun", "img": "🧮", "connect": "account (tài khoản) + ant.", "ex": "The accountant checks the numbers.", "exVi": "Kế toán kiểm tra sổ sách." },
+    { "en": "architect", "ipa": "/ˈɑːr.kə.tekt/", "vi": "kiến trúc sư", "pos": "noun", "img": "📐", "connect": "\"A-kờ-tếct\" — vẽ thiết kế nhà.", "ex": "The architect designed this tower.", "exVi": "Kiến trúc sư thiết kế toà tháp này." },
+    { "en": "businessman", "ipa": "/ˈbɪz.nɪs.mæn/", "vi": "doanh nhân", "pos": "noun", "img": "💼", "connect": "business + man.", "ex": "The businessman travels a lot.", "exVi": "Doanh nhân ấy đi công tác suốt." },
+    { "en": "salesperson", "ipa": "/ˈseɪlz.pɝː.sən/", "vi": "nhân viên bán hàng", "pos": "noun", "img": "🛍️", "connect": "sales + person.", "ex": "The salesperson was very helpful.", "exVi": "Bạn nhân viên bán hàng rất nhiệt tình." },
+    { "en": "clerk", "ipa": "/klɝːk/", "vi": "nhân viên quầy/văn phòng", "pos": "noun", "img": "🧾", "connect": "\"Klơk\" — nhân viên ngồi quầy giấy tờ.", "ex": "The clerk stamped my papers.", "exVi": "Nhân viên quầy đóng dấu giấy tờ cho tôi." }
+  ]
+}

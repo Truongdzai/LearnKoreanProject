@@ -3,6 +3,7 @@ import { fetchDue, reviewCard } from '@/core/api/srs.api'
 import type { SrsCard, SrsStats, SrsRating } from '@/models/srs.model'
 import Spinner from '@/core/components/Spinner'
 import Icon from '@/core/components/Icon'
+import { MatchGame, ListenGame, DailyChallenge, useGameCards, dailyDone } from './MiniGames'
 import { useAppStore } from '@/store/app.store'
 
 const RATES: { r: SrsRating; label: string; cls: string; key: string }[] = [
@@ -27,6 +28,8 @@ function hint(card: SrsCard, rating: SrsRating, t: T): string {
   return t('rv.months', { n: Math.round(d / 30) })
 }
 
+type ReviewMode = 'cards' | 'match' | 'listen' | 'daily'
+
 export default function ReviewPage() {
   const { t, learnLang } = useAppStore()
   const [loading, setLoading] = useState(true)
@@ -34,6 +37,8 @@ export default function ReviewPage() {
   const [i, setI] = useState(0)
   const [revealed, setRevealed] = useState(false)
   const [stats, setStats] = useState<SrsStats | null>(null)
+  const [mode, setMode] = useState<ReviewMode>('cards')
+  const { cards: gameCards } = useGameCards()
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -108,7 +113,25 @@ export default function ReviewPage() {
         </div>
       )}
 
-      {done ? (
+      {mode === 'cards' && gameCards.length >= 4 && (
+        <div className="mg-row">
+          <button className={'mg-launch' + (dailyDone() ? ' done' : '')} onClick={() => setMode('daily')} disabled={dailyDone()}>
+            ⚡ {dailyDone() ? t('mg.dailyClaimed') : t('mg.dailyTitle')}
+          </button>
+          {gameCards.length >= 6 && (
+            <button className="mg-launch" onClick={() => setMode('match')}>🧩 {t('mg.matchTitle')}</button>
+          )}
+          <button className="mg-launch" onClick={() => setMode('listen')}>🎧 {t('mg.listenTitle')}</button>
+        </div>
+      )}
+
+      {mode === 'match' ? (
+        <MatchGame cards={gameCards} onExit={() => setMode('cards')} />
+      ) : mode === 'listen' ? (
+        <ListenGame cards={gameCards} onExit={() => setMode('cards')} />
+      ) : mode === 'daily' ? (
+        <DailyChallenge cards={gameCards} onExit={() => setMode('cards')} />
+      ) : done ? (
         <div className="soon" style={{ marginTop: 18 }}>
           <div className="big"><Icon name={stats && stats.total === 0 ? 'cards' : 'party'} /></div>
           {stats && stats.total === 0 ? (

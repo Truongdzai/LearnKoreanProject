@@ -1,0 +1,22 @@
+{
+  "id": "timenum",
+  "name": "Thời gian & số đếm",
+  "sub": "Nói giờ giấc, hôm nay–ngày mai, đếm 1–2–3.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "⏰",
+  "words": [
+    { "ko": "오늘", "romaja": "oneul", "vi": "Hôm nay", "pos": "noun", "img": "📅", "connect": "\"Ô-nưl\" — \"ồ, nay\" là hôm nay.", "ex": "오늘 날씨가 좋아요.", "exVi": "Hôm nay trời đẹp." },
+    { "ko": "내일", "romaja": "naeil", "vi": "Ngày mai", "pos": "noun", "img": "📆", "connect": "\"Nê-il\" — hôm nay cộng một, là mai.", "ex": "내일 만나요.", "exVi": "Hẹn gặp ngày mai." },
+    { "ko": "어제", "romaja": "eoje", "vi": "Hôm qua", "pos": "noun", "img": "🕘", "connect": "\"Ơ-jê\" — \"ơ, đã\" trôi qua.", "ex": "어제 영화를 봤어요.", "exVi": "Hôm qua tôi xem phim." },
+    { "ko": "지금", "romaja": "jigeum", "vi": "Bây giờ", "pos": "noun", "img": "⏰", "connect": "\"Chi-gưm\" — \"giờ\" ngay lúc này.", "ex": "지금 몇 시예요?", "exVi": "Bây giờ mấy giờ?" },
+    { "ko": "아침", "romaja": "achim", "vi": "Buổi sáng / Bữa sáng", "pos": "noun", "img": "🌅", "connect": "\"A-chim\" — sáng ra \"chim\" hót.", "ex": "아침에 운동해요.", "exVi": "Buổi sáng tôi tập thể dục." },
+    { "ko": "점심", "romaja": "jeomsim", "vi": "Buổi trưa / Bữa trưa", "pos": "noun", "img": "🌞", "connect": "\"Chơm-sim\" — \"chấm\" giữa ngày là trưa.", "ex": "점심을 먹었어요?", "exVi": "Bạn ăn trưa chưa?" },
+    { "ko": "저녁", "romaja": "jeonyeok", "vi": "Buổi tối / Bữa tối", "pos": "noun", "img": "🌆", "connect": "\"Chơ-nyơk\" — chiều buông là tối.", "ex": "저녁에 집에 가요.", "exVi": "Buổi tối tôi về nhà." },
+    { "ko": "시간", "romaja": "sigan", "vi": "Thời gian / Giờ", "pos": "noun", "img": "⌛", "connect": "\"Si-gan\" — gần đúng \"thời gian\".", "ex": "시간이 없어요.", "exVi": "Tôi không có thời gian." },
+    { "ko": "하나", "romaja": "hana", "vi": "Một (số thuần Hàn)", "pos": "noun", "img": "1️⃣", "connect": "\"Ha-na\" — đếm \"một\" đầu tiên.", "ex": "사과 하나 주세요.", "exVi": "Cho tôi một quả táo." },
+    { "ko": "둘", "romaja": "dul", "vi": "Hai (số thuần Hàn)", "pos": "noun", "img": "2️⃣", "connect": "\"Đul\" — \"đủ\" một đôi là hai.", "ex": "둘이 함께 가요.", "exVi": "Hai người cùng đi." },
+    { "ko": "셋", "romaja": "set", "vi": "Ba (số thuần Hàn)", "pos": "noun", "img": "3️⃣", "connect": "\"Sết\" — đếm tiếp tới ba.", "ex": "하나, 둘, 셋!", "exVi": "Một, hai, ba!" },
+    { "ko": "요일", "romaja": "yoil", "vi": "Thứ (trong tuần)", "pos": "noun", "img": "📅", "connect": "\"Yô-il\" — hỏi \"thứ mấy\".", "ex": "오늘은 무슨 요일이에요?", "exVi": "Hôm nay là thứ mấy?" }
+  ]
+}
