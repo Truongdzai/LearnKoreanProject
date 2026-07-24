@@ -3,51 +3,22 @@ import Icon from '@/core/components/Icon'
 import { GRAMMAR_LESSONS, GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, stopSpeak } from '@/core/tts'
+import { useGrammarProgress } from '../progress'
 
-const STORE_KEY = 'vyling.en.grammar'
-
-interface GrammarProgress {
-  best: Record<string, number>
-  rewarded: string[]
+interface Props {
+  initialLesson?: string
 }
 
-function readProgress(): GrammarProgress {
-  try {
-    const raw = localStorage.getItem(STORE_KEY)
-    const p = raw ? (JSON.parse(raw) as Partial<GrammarProgress>) : {}
-    return { best: p.best ?? {}, rewarded: p.rewarded ?? [] }
-  } catch {
-    return { best: {}, rewarded: [] }
-  }
-}
-
-function writeProgress(p: GrammarProgress): void {
-  try {
-    localStorage.setItem(STORE_KEY, JSON.stringify(p))
-  } catch {
-  }
-}
-
-export default function GrammarLessons() {
+export default function GrammarLessons({ initialLesson }: Props) {
   const { recordEvent } = useAppStore()
-  const [progress, setProgress] = useState<GrammarProgress>(readProgress)
-  const [openId, setOpenId] = useState<string | null>(null)
+  const { grammar, record } = useGrammarProgress()
+  const [openId, setOpenId] = useState<string | null>(initialLesson ?? null)
 
-  const passedCount = GRAMMAR_LESSONS.filter((l) => (progress.best[l.id] ?? 0) >= GRAMMAR_PASS).length
+  const passedCount = GRAMMAR_LESSONS.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
 
   const onDrillDone = useCallback((lesson: GrammarLesson, pct: number) => {
-    setProgress((prev) => {
-      const best = { ...prev.best, [lesson.id]: Math.max(prev.best[lesson.id] ?? 0, pct) }
-      let rewarded = prev.rewarded
-      if (pct >= GRAMMAR_PASS && !prev.rewarded.includes(lesson.id)) {
-        rewarded = [...prev.rewarded, lesson.id]
-        recordEvent('grammar', 1)
-      }
-      const next = { best, rewarded }
-      writeProgress(next)
-      return next
-    })
-  }, [recordEvent])
+    if (record(lesson.id, pct)) recordEvent('grammar', 1)
+  }, [record, recordEvent])
 
   const lesson = openId ? GRAMMAR_LESSONS.find((l) => l.id === openId) ?? null : null
 
@@ -55,7 +26,7 @@ export default function GrammarLessons() {
     return (
       <LessonView
         lesson={lesson}
-        best={progress.best[lesson.id]}
+        best={grammar.best[lesson.id]}
         onDrillDone={(pct) => onDrillDone(lesson, pct)}
         onBack={() => setOpenId(null)}
       />
@@ -74,7 +45,7 @@ export default function GrammarLessons() {
 
       <div className="capsule-grid">
         {GRAMMAR_LESSONS.map((l, i) => {
-          const best = progress.best[l.id]
+          const best = grammar.best[l.id]
           const passed = (best ?? 0) >= GRAMMAR_PASS
           return (
             <button key={l.id} className={'capsule-card' + (passed ? ' done' : '')} onClick={() => setOpenId(l.id)}>

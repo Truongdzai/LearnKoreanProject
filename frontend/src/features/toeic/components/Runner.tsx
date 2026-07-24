@@ -3,26 +3,36 @@ import Icon from '@/core/components/Icon'
 import { scoreRun, type RunGroup, type RunResult } from '../engine'
 import { SKILLS } from '@/data/toeicCore'
 import { englishVoiceStatus, onVoicesChanged, playAudioFiles, speakScript, stopSpeak, VOICE_HELP } from '../tts'
+import type { RunProgress } from '../testSave'
 
 interface Props {
   groups: RunGroup[]
   mode: 'practice' | 'test'
   title: string
   timerSec?: number
+  sectionSec?: { listening: number; reading: number }
   playOnce?: boolean
+  initial?: RunProgress
+  onPersist?: (p: RunProgress) => void
   onFinish: (result: RunResult) => void
   onExit: () => void
 }
 
 const LETTERS = ['A', 'B', 'C', 'D']
 
-export default function Runner({ groups, mode, title, timerSec, playOnce, onFinish, onExit }: Props) {
-  const [gi, setGi] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, number>>({})
+const SPEAKER_ICON: Record<string, string> = { M: '👨', W: '👩', M2: '🧔', W2: '👩‍🦰' }
+
+export default function Runner({
+  groups, mode, title, timerSec, sectionSec, playOnce, initial, onPersist, onFinish, onExit,
+}: Props) {
+  const [gi, setGi] = useState(initial?.gi ?? 0)
+  const [answers, setAnswers] = useState<Record<string, number>>(initial?.answers ?? {})
   const [checkedGroups, setCheckedGroups] = useState<Set<string>>(new Set())
-  const [played, setPlayed] = useState<Set<string>>(new Set())
-  const [remaining, setRemaining] = useState(timerSec ?? 0)
+  const [played, setPlayed] = useState<Set<string>>(new Set(initial?.played ?? []))
+  const [remL, setRemL] = useState(initial?.remL ?? sectionSec?.listening ?? timerSec ?? 0)
+  const [remR, setRemR] = useState(initial?.remR ?? sectionSec?.reading ?? 0)
   const [voiceStatus, setVoiceStatus] = useState(englishVoiceStatus)
+  const [autoJumped, setAutoJumped] = useState(false)
   const finishedRef = useRef(false)
 
   useEffect(() => onVoicesChanged(() => setVoiceStatus(englishVoiceStatus())), [])
@@ -30,6 +40,9 @@ export default function Runner({ groups, mode, title, timerSec, playOnce, onFini
   const g = groups[gi]
   const totalQ = useMemo(() => groups.reduce((s, x) => s + x.questions.length, 0), [groups])
   const answeredQ = Object.keys(answers).length
+  const firstReading = useMemo(() => groups.findIndex((x) => x.part >= 5), [groups])
+  const inReading = !!sectionSec && !!g && g.part >= 5
+  const remaining = sectionSec ? (inReading ? remR : remL) : remL
 
   const finish = useCallback(() => {
     if (finishedRef.current) return
@@ -38,16 +51,48 @@ export default function Runner({ groups, mode, title, timerSec, playOnce, onFini
     onFinish(scoreRun(groups, answers))
   }, [groups, answers, onFinish])
 
+  const finishRef = useRef(finish)
+  finishRef.current = finish
+
   useEffect(() => {
-    if (!timerSec) return
+    if (!timerSec && !sectionSec) return
+    let last = Date.now()
     const id = window.setInterval(() => {
-      setRemaining((r) => {
-        if (r <= 1) { window.clearInterval(id); finish(); return 0 }
-        return r - 1
-      })
+      const now = Date.now()
+      const elapsed = Math.max(1, Math.round((now - last) / 1000))
+      last = now
+      const tick = (r: number, onZero: () => void) => {
+        if (r <= elapsed) { onZero(); return 0 }
+        return r - elapsed
+      }
+      if (inReading || !sectionSec) {
+        const setter = inReading ? setRemR : setRemL
+        setter((r) => tick(r, () => { window.clearInterval(id); finishRef.current() }))
+      } else {
+        setRemL((r) => tick(r, () => {
+          window.clearInterval(id)
+          stopSpeak()
+          if (firstReading >= 0) { setAutoJumped(true); setGi(firstReading) }
+          else finishRef.current()
+        }))
+      }
     }, 1000)
     return () => window.clearInterval(id)
-  }, [timerSec, finish])
+  }, [timerSec, sectionSec, inReading, firstReading])
+
+  const progressRef = useRef<RunProgress>({ gi, answers, played: [], remL, remR })
+  progressRef.current = { gi, answers, played: [...played], remL, remR }
+
+  useEffect(() => {
+    if (!onPersist) return
+    onPersist(progressRef.current)
+  }, [gi, answers, played, onPersist])
+
+  useEffect(() => {
+    if (!onPersist) return
+    const id = window.setInterval(() => onPersist(progressRef.current), 10000)
+    return () => window.clearInterval(id)
+  }, [onPersist])
 
   useEffect(() => () => stopSpeak(), [gi])
 
@@ -92,6 +137,11 @@ export default function Runner({ groups, mode, title, timerSec, playOnce, onFini
   const noAudio = !hasMp3 && voiceStatus === 'none'
   const audioSpent = playOnce && played.has(g.id)
 
+  const readingLeft = sectionSec
+    ? groups.filter((x) => x.part >= 5).reduce((s, x) => s + x.questions.filter((q) => answers[q.key] == null).length, 0)
+    : 0
+  const secPerQ = inReading && readingLeft > 0 ? Math.floor(remR / readingLeft) : null
+
   const playAudio = () => {
     if (audioSpent || noAudio) return
     if (hasMp3) {
@@ -106,14 +156,32 @@ export default function Runner({ groups, mode, title, timerSec, playOnce, onFini
     <div className="toeic-runner">
       <div className="tr-top">
         <button className="btn-ghost sm" onClick={() => { stopSpeak(); onExit() }}>
-          <Icon name="arrow-left" size={14} /> Thoát
+          <Icon name="arrow-left" size={14} /> {onPersist ? 'Tạm dừng' : 'Thoát'}
         </button>
         <div className="tr-title">{title}</div>
         <div className="tr-meta">
-          {timerSec ? <span className={'tr-clock' + (remaining < 120 ? ' low' : '')}><Icon name="clock" size={14} /> {fmtTime(remaining)}</span> : null}
+          {sectionSec && <span className="tr-section">{inReading ? '📖 Đọc' : '🎧 Nghe'}</span>}
+          {(timerSec || sectionSec) ? (
+            <span className={'tr-clock' + (remaining < 120 ? ' low' : '')}>
+              <Icon name="clock" size={14} /> {fmtTime(remaining)}
+            </span>
+          ) : null}
           <span>{answeredQ}/{totalQ} câu</span>
         </div>
       </div>
+      {autoJumped && (
+        <div className="tr-pace low">
+          ⏱️ Hết giờ phần Nghe — như đề thật, băng ghi âm dừng và bài chuyển sang phần Đọc.
+          Các câu Nghe chưa trả lời sẽ tính là bỏ trống.
+          <button className="btn-ghost sm" onClick={() => setAutoJumped(false)}>Đã hiểu</button>
+        </div>
+      )}
+      {secPerQ != null && (
+        <div className={'tr-pace' + (secPerQ < 30 ? ' low' : '')}>
+          Còn {readingLeft} câu Đọc · nhịp cho phép ~{secPerQ} giây/câu
+          {secPerQ < 30 ? ' — nhanh lên, ưu tiên văn bản đơn trước!' : ''}
+        </div>
+      )}
       <div className="quiz-bar"><div style={{ width: `${(answeredQ / totalQ) * 100}%` }} /></div>
 
       <div className="tr-body">
@@ -161,10 +229,27 @@ export default function Runner({ groups, mode, title, timerSec, playOnce, onFini
         {((checked || noAudio) && isListening && g.audio) ? (
           <div className="tr-script">
             {g.audio.map((l, i) => (
-              <p key={i}><b>{l.s === 'W' ? '👩' : '👨'}</b> <span lang="en">{l.text}</span></p>
+              <p key={i}><b>{SPEAKER_ICON[l.s] ?? '👨'}</b> <span lang="en">{l.text}</span></p>
             ))}
           </div>
         ) : null}
+
+        {g.graphic && (
+          <div className="tr-graphic" lang="en">
+            <b>{g.graphic.title}</b>
+            <table>
+              <thead>
+                <tr>{g.graphic.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+              </thead>
+              <tbody>
+                {g.graphic.rows.map((row, ri) => (
+                  <tr key={ri}>{row.map((cell, ci) => <td key={ci}>{cell}</td>)}</tr>
+                ))}
+              </tbody>
+            </table>
+            {g.graphic.note && <small>{g.graphic.note}</small>}
+          </div>
+        )}
 
         {g.passage && (
           <pre className="tr-passage" lang="en">{g.passage}</pre>

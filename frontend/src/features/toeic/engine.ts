@@ -1,6 +1,6 @@
 import {
   TOEIC_P1, TOEIC_P2, TOEIC_P3, TOEIC_P4, TOEIC_P5, TOEIC_P6, TOEIC_P7,
-  SKILLS, type ScriptLine, type ToeicConvItem, type ToeicP1Item, type ToeicP7Item,
+  SKILLS, type ScriptLine, type ToeicConvItem, type ToeicGraphic, type ToeicP1Item, type ToeicP7Item,
 } from '@/data/toeicCore'
 import audioManifest from '@/data/english/toeic/audioManifest.json'
 
@@ -31,6 +31,7 @@ export interface RunGroup {
   audio?: ScriptLine[]
   mp3?: string[]
   img?: string
+  graphic?: ToeicGraphic
   passage?: string
   passageTitle?: string
   intro?: string
@@ -47,9 +48,13 @@ export interface RunResult {
   totalR: number
   skills: Record<string, [number, number]>
   wrong: WrongItem[]
+  rightKeys: string[]
+  partStats: Record<number, [number, number]>
+  review: ReviewGroup[]
 }
 
 export interface WrongItem {
+  key: string
   part: number
   q: string
   picked: string
@@ -57,6 +62,39 @@ export interface WrongItem {
   explain?: string
   skill?: string
 }
+
+export interface ReviewQuestion {
+  key: string
+  num: number | null
+  text?: string
+  options: string[]
+  answer: number
+  picked: number | null
+  skill: string
+  explain?: string
+  vi?: string
+  trap?: string
+}
+
+export interface ReviewGroup {
+  id: string
+  part: number
+  intro?: string
+  passage?: string
+  passageTitle?: string
+  audio?: ScriptLine[]
+  graphic?: ToeicGraphic
+  questions: ReviewQuestion[]
+}
+
+export const BANK_SIZE =
+  TOEIC_P1.length
+  + TOEIC_P2.length
+  + TOEIC_P3.reduce((s, c) => s + c.questions.length, 0)
+  + TOEIC_P4.reduce((s, c) => s + c.questions.length, 0)
+  + TOEIC_P5.length
+  + TOEIC_P6.reduce((s, p) => s + p.blanks.length, 0)
+  + TOEIC_P7.reduce((s, p) => s + p.questions.length, 0)
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -119,6 +157,7 @@ function convGroup(item: ToeicConvItem, part: 3 | 4): RunGroup {
     intro: item.title,
     mp3: mp3For(item.id),
     audio: item.script,
+    graphic: item.graphic,
     questions: item.questions.map((q, i) => ({
       key: `${item.id}-${i}`,
       text: q.q,
@@ -203,6 +242,7 @@ const KIND_EN: Record<string, string> = {
   article: 'article', memo: 'memo', web: 'web page', form: 'form',
   double: 'two documents', triple: 'three documents',
   announcement: 'announcement', voicemail: 'telephone message', talk: 'talk', broadcast: 'broadcast',
+  tour: 'tour information', letter: 'letter', schedule: 'schedule', review: 'online review',
 }
 
 function numberGroups(groups: RunGroup[], kinds?: Record<string, string>): RunGroup[] {
@@ -258,18 +298,39 @@ function pickSingles29(): ToeicP7Item[] {
   return shuffle([...threes.slice(0, 7), ...fours.slice(0, 2)])
 }
 
+function pickConv(pool: ToeicConvItem[], total: number, withGraphic: number): ToeicConvItem[] {
+  const graphics = shuffle(pool.filter((c) => c.graphic))
+  const plain = shuffle(pool.filter((c) => !c.graphic))
+  const picked = [...graphics.slice(0, Math.min(withGraphic, graphics.length))]
+  for (const c of [...plain, ...graphics.slice(picked.length)]) {
+    if (picked.length >= total) break
+    picked.push(c)
+  }
+  return shuffle(picked.slice(0, total))
+}
+
 export function buildFullTest(): RunGroup[] {
   const doubles = shuffle(TOEIC_P7.filter((p) => p.kind === 'double')).slice(0, 2)
   const triples = shuffle(TOEIC_P7.filter((p) => p.kind === 'triple')).slice(0, 3)
   const groups = [
     ...shuffle(TOEIC_P1).slice(0, 6).map(p1Group),
     ...shuffle(TOEIC_P2).slice(0, 25).map(p2Group),
-    ...shuffle(TOEIC_P3).slice(0, 13).map((c) => convGroup(c, 3)),
-    ...shuffle(TOEIC_P4).slice(0, 10).map((c) => convGroup(c, 4)),
+    ...pickConv(TOEIC_P3, 13, 2).map((c) => convGroup(c, 3)),
+    ...pickConv(TOEIC_P4, 10, 2).map((c) => convGroup(c, 4)),
     ...buildPartRun(5, 30),
     ...buildPartRun(6, 16),
     ...[...pickSingles29(), ...doubles, ...triples].map(p7Group),
   ]
+  return numberGroups(groups, kindMap())
+}
+
+export function rebuildTest(ids: string[]): RunGroup[] {
+  const groups: RunGroup[] = []
+  for (const id of ids) {
+    const g = groupFor(id)
+    if (!g) return []
+    groups.push(g)
+  }
   return numberGroups(groups, kindMap())
 }
 
@@ -299,6 +360,102 @@ export function buildWeakRun(weakSkills: string[], n: number): RunGroup[] {
   return groups
 }
 
+export interface QuestionRef {
+  key: string
+  part: number
+  label: string
+  skill: string
+}
+
+function splitKey(key: string): { id: string; sub: number | null } | null {
+  const m = /^(p([1-7])-\d+)(?:-(\d+))?$/.exec(key)
+  if (!m) return null
+  return { id: m[1], sub: m[3] != null ? Number(m[3]) : null }
+}
+
+function groupFor(id: string): RunGroup | null {
+  const part = Number(id[1])
+  switch (part) {
+    case 1: {
+      const it = TOEIC_P1.find((x) => x.id === id)
+      return it ? p1Group(it) : null
+    }
+    case 2: {
+      const it = TOEIC_P2.find((x) => x.id === id)
+      return it ? p2Group(it) : null
+    }
+    case 3: {
+      const it = TOEIC_P3.find((x) => x.id === id)
+      return it ? convGroup(it, 3) : null
+    }
+    case 4: {
+      const it = TOEIC_P4.find((x) => x.id === id)
+      return it ? convGroup(it, 4) : null
+    }
+    case 5:
+      return TOEIC_P5.some((x) => x.id === id) ? buildFromP5(id) : null
+    case 6: {
+      const it = TOEIC_P6.find((x) => x.id === id)
+      if (!it) return null
+      return {
+        id: it.id,
+        part: 6,
+        passage: it.text,
+        passageTitle: it.title,
+        questions: it.blanks.map((b, i) => ({
+          key: `${it.id}-${i}`,
+          text: `Chỗ trống (${i + 1})`,
+          options: b.options,
+          answer: b.answer,
+          skill: b.skill,
+          explain: b.explain,
+        })),
+      }
+    }
+    case 7: {
+      const it = TOEIC_P7.find((x) => x.id === id)
+      return it ? p7Group(it) : null
+    }
+    default:
+      return null
+  }
+}
+
+export function lookupQuestion(key: string): QuestionRef | null {
+  const parsed = splitKey(key)
+  if (!parsed) return null
+  const g = groupFor(parsed.id)
+  if (!g) return null
+  const q = g.questions.find((x) => x.key === key)
+  if (!q) return null
+  const label = q.text ?? q.vi ?? '(câu nghe)'
+  return { key, part: g.part, label, skill: q.skill }
+}
+
+export function buildReviewRun(keys: string[], max: number): RunGroup[] {
+  const wanted = new Map<string, Set<string>>()
+  for (const key of keys) {
+    const parsed = splitKey(key)
+    if (!parsed) continue
+    const set = wanted.get(parsed.id) ?? new Set<string>()
+    set.add(key)
+    wanted.set(parsed.id, set)
+  }
+
+  const groups: RunGroup[] = []
+  let count = 0
+  for (const id of shuffle([...wanted.keys()])) {
+    if (count >= max) break
+    const g = groupFor(id)
+    if (!g) continue
+    const keep = g.questions.filter((q) => wanted.get(id)!.has(q.key))
+    if (!keep.length) continue
+    groups.push({ ...g, questions: keep })
+    count += keep.length
+  }
+  return groups
+}
+
 function buildFromP5(id: string): RunGroup {
   const item = TOEIC_P5.find((x) => x.id === id)!
   return {
@@ -318,25 +475,33 @@ function buildFromP5(id: string): RunGroup {
 
 export function scoreRun(groups: RunGroup[], answers: Record<string, number>): RunResult {
   const skills: Record<string, [number, number]> = {}
+  const partStats: Record<number, [number, number]> = {}
   const wrong: WrongItem[] = []
+  const rightKeys: string[] = []
+  const review: ReviewGroup[] = []
   let correct = 0, total = 0, rawL = 0, totalL = 0, rawR = 0, totalR = 0
 
   for (const g of groups) {
     const listening = g.part <= 4
-    for (const q of g.questions) {
+    const reviewQs: ReviewQuestion[] = []
+    for (let qi = 0; qi < g.questions.length; qi++) {
+      const q = g.questions[qi]
       total += 1
       if (listening) totalL += 1
       else totalR += 1
-      const ok = answers[q.key] === q.answer
+      const picked = answers[q.key] != null ? answers[q.key] : null
+      const ok = picked === q.answer
       if (ok) {
         correct += 1
+        rightKeys.push(q.key)
         if (listening) rawL += 1
         else rawR += 1
       } else {
         wrong.push({
+          key: q.key,
           part: g.part,
           q: q.text ?? q.vi ?? '(câu nghe)',
-          picked: answers[q.key] != null ? q.options[answers[q.key]] : '(bỏ trống)',
+          picked: picked != null ? q.options[picked] : '(bỏ trống)',
           right: q.options[q.answer],
           explain: q.explain ?? q.trap,
           skill: q.skill,
@@ -346,9 +511,35 @@ export function scoreRun(groups: RunGroup[], answers: Record<string, number>): R
       s[1] += 1
       if (ok) s[0] += 1
       skills[q.skill] = s
+      const p = partStats[g.part] ?? [0, 0]
+      p[1] += 1
+      if (ok) p[0] += 1
+      partStats[g.part] = p
+      reviewQs.push({
+        key: q.key,
+        num: g.qStart != null ? g.qStart + qi : null,
+        text: q.text,
+        options: q.options,
+        answer: q.answer,
+        picked,
+        skill: q.skill,
+        explain: q.explain,
+        vi: q.vi,
+        trap: q.trap,
+      })
     }
+    review.push({
+      id: g.id,
+      part: g.part,
+      intro: g.intro,
+      passage: g.passage,
+      passageTitle: g.passageTitle,
+      audio: g.audio,
+      graphic: g.graphic,
+      questions: reviewQs,
+    })
   }
-  return { total, correct, rawL, totalL, rawR, totalR, skills, wrong }
+  return { total, correct, rawL, totalL, rawR, totalR, skills, wrong, rightKeys, partStats, review }
 }
 
 

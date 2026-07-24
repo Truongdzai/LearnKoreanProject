@@ -48,3 +48,6 @@ export interface LevelResult {
 
 export const estimateLevel = (video_id: string, lang: string, text: string) =>
   apiClient.post<LevelResult>('/api/transcript/level', { video_id, lang, text })
+
+export const translateLines = (lines: string[], lang: string, native: string) =>
+  apiClient.post<{ lines: string[] }>('/api/transcript/translate', { lines, lang, native })

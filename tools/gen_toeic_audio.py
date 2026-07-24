@@ -24,10 +24,21 @@ MANIFEST = DATA / "audioManifest.json"
 
 RATE = "-4%"
 VOICES = {
-    "us": {"W": "en-US-JennyNeural", "M": "en-US-GuyNeural"},
-    "gb": {"W": "en-GB-SoniaNeural", "M": "en-GB-RyanNeural"},
-    "au": {"W": "en-AU-NatashaNeural", "M": "en-AU-WilliamNeural"},
+    "us": {
+        "W": "en-US-JennyNeural", "M": "en-US-GuyNeural",
+        "W2": "en-US-AriaNeural", "M2": "en-US-EricNeural",
+    },
+    "gb": {
+        "W": "en-GB-SoniaNeural", "M": "en-GB-RyanNeural",
+        "W2": "en-GB-LibbyNeural", "M2": "en-GB-ThomasNeural",
+    },
+    "au": {
+        "W": "en-AU-NatashaNeural", "M": "en-AU-WilliamMultilingualNeural",
+        "W2": "en-AU-NatashaNeural", "M2": "en-AU-WilliamMultilingualNeural",
+    },
 }
+
+THREE_SPEAKER_FALLBACK = {"au": "us"}
 
 
 def load(name: str):
@@ -60,6 +71,9 @@ def build_lines() -> dict[str, list[tuple[str, str, str]]]:
     for name in ("part3", "part4"):
         for idx, it in enumerate(load(name)):
             acc = accent_for(idx)
+            speakers = {ln["s"] for ln in it["script"]}
+            if len(speakers) > 2:
+                acc = THREE_SPEAKER_FALLBACK.get(acc, acc)
             items[it["id"]] = [(ln["s"], ln["text"], acc) for ln in it["script"]]
 
     return items

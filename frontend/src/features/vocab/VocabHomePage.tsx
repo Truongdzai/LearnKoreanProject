@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
 import { fetchAllCards, fetchStats } from '@/core/api/srs.api'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
 import { getTopics } from '@/core/utils/topics'
 import { packsFor, type ContextPack } from '@/data/contextPacks'
+import type { SrsStats } from '@/models/srs.model'
 import AddVocabModal from './AddVocabModal'
 import CreateTopicModal from './CreateTopicModal'
 import ImportVocabModal from './ImportVocabModal'
@@ -16,15 +17,17 @@ interface MyTopic { name: string; count: number }
 
 type Modal = null | 'add' | 'topic' | 'import'
 
+const EMPTY_STATS: SrsStats = { total: 0, due: 0, new: 0, learned: 0, reviewed_today: 0 }
+
 export default function VocabHomePage() {
   const { user, setView, learnLang, goal, t } = useAppStore()
   const [exporting, setExporting] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
   const [openPack, setOpenPack] = useState<ContextPack | null>(null)
-  const [total, setTotal] = useState<number | null>(null)
-  const [due, setDue] = useState<number | null>(null)
+  const [stats, setStats] = useState<SrsStats | null>(null)
   const [myTopics, setMyTopics] = useState<MyTopic[]>([])
   const [flash, setFlash] = useState('')
+  const [query, setQuery] = useState('')
 
   const showFlash = (msg: string) => {
     setFlash(msg)
@@ -33,9 +36,8 @@ export default function VocabHomePage() {
 
   const reload = useCallback(async () => {
     try {
-      const [stats, all] = await Promise.all([fetchStats(), fetchAllCards()])
-      setTotal(stats.total)
-      setDue(stats.due)
+      const [st, all] = await Promise.all([fetchStats(), fetchAllCards()])
+      setStats(st)
       const counts = new Map<string, number>()
       for (const c of all.cards) {
         const src = (c.source || '').trim()
@@ -46,7 +48,7 @@ export default function VocabHomePage() {
       }
       setMyTopics([...counts.entries()].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count))
     } catch {
-      setTotal(null); setDue(null)
+      setStats(null)
     }
   }, [user.id])
 
@@ -75,7 +77,29 @@ export default function VocabHomePage() {
     }
   }
 
-  const packs = packsFor(learnLang)
+  const s = stats ?? EMPTY_STATS
+  const hasStats = stats !== null
+  const q = query.trim().toLowerCase()
+
+  const allPacks = packsFor(learnLang)
+  const packs = useMemo(() => {
+    const filtered = q
+      ? allPacks.filter((p) => `${p.name} ${p.desc}`.toLowerCase().includes(q))
+      : allPacks
+    return [...filtered].sort((a, b) => Number(b.goal === goal) - Number(a.goal === goal))
+  }, [allPacks, q, goal])
+
+  const topics = useMemo(
+    () => (q ? myTopics.filter((tp) => tp.name.toLowerCase().includes(q)) : myTopics),
+    [myTopics, q],
+  )
+
+  const STAT_CARDS = [
+    { key: 'total', ic: 'cards', tone: 'violet', val: s.total, label: t('vc.statTotal') },
+    { key: 'due', ic: 'clock', tone: 'amber', val: s.due, label: t('vc.statDue') },
+    { key: 'learned', ic: 'check-circle', tone: 'green', val: s.learned, label: t('vc.statLearned') },
+    { key: 'today', ic: 'star', tone: 'blue', val: s.reviewed_today, label: t('vc.statToday') },
+  ] as const
 
   return (
     <div className="vocab-home">
@@ -84,33 +108,28 @@ export default function VocabHomePage() {
 
       {flash && <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>{flash}</div>}
 
-      <div className="vh-stats">
-        <div className="vh-stat">
-          <div className="vh-stat-top">{t('vc.statTotal')}</div>
-          <b>{total ?? '—'}</b>
-          <p>{t('vc.statTotalSub')}</p>
-          <button className="btn-ghost sm" onClick={() => setView('flashcards')}>{t('vc.review')}</button>
-        </div>
-        <div className="vh-stat warn">
-          <div className="vh-stat-top">{t('vc.statDue')}</div>
-          <b>{due ?? '—'}</b>
-          <p>{t('vc.statDueSub')}</p>
-          <button className="btn-primary sm" onClick={() => setView('flashcards')}>{t('vc.reviewNow')}</button>
-        </div>
+      <div className="vc-stats">
+        {STAT_CARDS.map((c) => (
+          <div key={c.key} className={'vc-stat ' + c.tone}>
+            <span className="vc-stat-ic"><Icon name={c.ic} size={18} /></span>
+            <div>
+              <b>{hasStats ? c.val : '—'}</b>
+              <span>{c.label}</span>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="vh-actions">
-        <button className="vh-big play" onClick={() => setView('flashcards')}>
-          <span className="vh-big-ic"><Icon name="play" size={26} /></span>
-          <b>{t('vc.learn')}</b>
-          <span className="vh-big-go">{t('vc.start')}</span>
+      <div className="vc-cta">
+        <button className="vc-cta-main" onClick={() => setView('flashcards')}>
+          <span className="vc-cta-ic"><Icon name="play" size={24} /></span>
+          <span className="vc-cta-txt">
+            <b>{s.due > 0 ? t('vc.reviewNow') : t('vc.learn')}</b>
+            <small>{s.due > 0 ? t('vc.dueHint', { n: s.due }) : t('vc.learnHint')}</small>
+          </span>
+          <Icon name="arrow-right" size={18} />
         </button>
-        <button className="vh-big quiz" onClick={() => setView('flashcards')}>
-          <span className="vh-big-ic"><Icon name="target" size={26} /></span>
-          <b>{t('vc.quiz')}</b>
-          <span className="vh-big-go">{t('vc.start')}</span>
-        </button>
-        <div className="vh-side">
+        <div className="vc-tools">
           <button onClick={() => setModal('add')}><Icon name="plus" size={16} /> {t('vc.add')}</button>
           <button onClick={() => setModal('topic')}><Icon name="cards" size={16} /> {t('vc.topic')}</button>
           <button onClick={() => setModal('import')}><Icon name="upload" size={16} /> {t('vc.import')}</button>
@@ -119,11 +138,19 @@ export default function VocabHomePage() {
         </div>
       </div>
 
+      {(myTopics.length > 0 || allPacks.length > 0) && (
+        <div className="vc-search">
+          <Icon name="search" size={16} />
+          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t('vc.searchPh')} />
+          {query && <button className="lib-search-x" onClick={() => setQuery('')} aria-label={t('lib.clear')}><Icon name="x" size={14} /></button>}
+        </div>
+      )}
+
       {myTopics.length > 0 && (
         <>
           <div className="section-title"><span className="pin" /> {t('vc.myTopics')}</div>
           <div className="deck-grid">
-            {myTopics.map((tp, i) => (
+            {topics.map((tp, i) => (
               <button key={tp.name} className="deck-card" onClick={() => setView('flashcards')}>
                 <span className={'deck-thumb ' + TONES[i % TONES.length]}><Icon name="cards" size={22} /></span>
                 <span className="deck-body">
@@ -132,27 +159,33 @@ export default function VocabHomePage() {
                 </span>
               </button>
             ))}
-            <button className="deck-card deck-add" onClick={() => setModal('topic')}>
-              <span className="deck-thumb tone-a"><Icon name="plus" size={22} /></span>
-              <span className="deck-body"><b>{t('vc.newTopic')}</b><span className="deck-meta">{t('vc.newTopicSub')}</span></span>
-            </button>
+            {!q && (
+              <button className="deck-card deck-add" onClick={() => setModal('topic')}>
+                <span className="deck-thumb tone-a"><Icon name="plus" size={22} /></span>
+                <span className="deck-body"><b>{t('vc.newTopic')}</b><span className="deck-meta">{t('vc.newTopicSub')}</span></span>
+              </button>
+            )}
           </div>
         </>
       )}
 
       <div className="section-title"><span className="pin" /> {t('vc.packs')}</div>
-      {packs.length > 0 ? (
-        <div className="deck-grid">
-          {packs.map((p) => (
-            <button key={p.id} className="deck-card" onClick={() => setOpenPack(p)}>
-              <span className={'deck-thumb ' + p.tone}><span className="deck-emoji">{p.emoji}</span></span>
-              <span className="deck-body">
-                <b>{p.name}{goal && p.goal === goal && <span className="deck-goal">{t('sp.goalBadge')}</span>}</b>
-                <span className="deck-meta">{t('vc.packMeta', { n: (p.words[learnLang] || []).length })}</span>
-              </span>
-            </button>
-          ))}
-        </div>
+      {allPacks.length > 0 ? (
+        packs.length > 0 ? (
+          <div className="deck-grid">
+            {packs.map((p) => (
+              <button key={p.id} className={'deck-card' + (goal && p.goal === goal ? ' deck-hot' : '')} onClick={() => setOpenPack(p)}>
+                <span className={'deck-thumb ' + p.tone}><span className="deck-emoji">{p.emoji}</span></span>
+                <span className="deck-body">
+                  <b>{p.name}{goal && p.goal === goal && <span className="deck-goal">{t('sp.goalBadge')}</span>}</b>
+                  <span className="deck-meta">{t('vc.packMeta', { n: (p.words[learnLang] || []).length })}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="empty" style={{ marginTop: 8 }}><div className="big">🔍</div>{t('vc.noMatch')}</div>
+        )
       ) : (
         <div className="empty"><div className="big">📦</div>{t('vc.packEmpty')}</div>
       )}

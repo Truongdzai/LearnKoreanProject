@@ -58,6 +58,22 @@ DEFAULT_EN_VIDEOS = [
     ("9hus12iCyL8", "6 Minute English — Can we boost the immune system?", "BBC Learning English", "B1", "6:14", "Miễn dịch", "tone-d", "en"),
     ("H5BVbrZ64bQ", "6 Minute English — Are we getting more allergic?", "BBC Learning English", "B1", "6:13", "Dị ứng", "tone-e", "en"),
     ("hUFj6sbOiPA", "English with Lucy — Daily Routine at C1 Level", "English with Lucy", "B2", "14:18", "Thói quen ngày", "tone-f", "en"),
+    ("Ty3J0XGNpHg", "6 Minute English — Kiếm & ăn thức ăn hoang dã", "BBC Learning English", "B1", "6:19", "Đồ ăn", "tone-a", "en"),
+    ("5kr5ADrMeYU", "6 Minute English — Làm quen văn hoá ẩm thực mới", "BBC Learning English", "B1", "6:22", "Ẩm thực", "tone-b", "en"),
+    ("j2PdEQpu5js", "6 Minute English — Vì sao cần ngủ đủ giấc", "BBC Learning English", "B1", "6:19", "Giấc ngủ", "tone-c", "en"),
+    ("NwPkZgd6L-o", "6 Minute English — Người sống ẩn dật (Hermits)", "BBC Learning English", "B1", "6:15", "Lối sống", "tone-d", "en"),
+    ("tyvMjvvrq74", "6 Minute English — AI làm được và không làm được gì?", "BBC Learning English", "B2", "6:13", "Trí tuệ nhân tạo", "tone-e", "en"),
+    ("KB4Mn5XHdMc", "6 Minute English — Tổng đài: bạn đang nói với AI?", "BBC Learning English", "B2", "6:14", "Công nghệ", "tone-f", "en"),
+    ("0R9NLQM4ZKA", "6 Minute English — Huấn luyện trí tuệ nhân tạo", "BBC Learning English", "B2", "6:34", "Trí tuệ nhân tạo", "tone-a", "en"),
+    ("tHZRXN_pVi8", "6 Minute English — AI có thể có suy nghĩ riêng?", "BBC Learning English", "B2", "6:20", "Trí tuệ nhân tạo", "tone-b", "en"),
+    ("2FrA6kHzVQ4", "BOX SET 6 Minute English — Nghệ thuật & Văn hoá (30′)", "BBC Learning English", "B2", "30:31", "Nghệ thuật", "tone-c", "en"),
+    ("CYcYeTaBRvE", "BOX SET 6 Minute English — Tương lai (30′)", "BBC Learning English", "B2", "30:33", "Tương lai", "tone-d", "en"),
+    ("m9LyXOBmQvo", "BOX SET 6 Minute English — Kinh doanh & Công việc (30′)", "BBC Learning English", "B2", "30:28", "Công việc", "tone-e", "en"),
+    ("xnnTR_T7SQ4", "BOX SET 6 Minute English — Tâm lý học (30′)", "BBC Learning English", "B2", "30:30", "Tâm lý", "tone-f", "en"),
+    ("0EPYNMJv-oQ", "BOX SET 6 Minute English — Trí tuệ nhân tạo (30′)", "BBC Learning English", "B2", "30:32", "Trí tuệ nhân tạo", "tone-a", "en"),
+    ("idrbwnWLJ7w", "TED-Ed — Thức trắng đêm ảnh hưởng não bộ thế nào", "TED-Ed", "B2", "5:37", "Não bộ", "tone-b", "en"),
+    ("QEzlsjAqADA", "TED-Ed — Vì sao ong mật yêu hình lục giác?", "TED-Ed", "B1", "3:58", "Khoa học", "tone-c", "en"),
+    ("2W85Dwxx218", "TED-Ed — Vì sao chúng ta lại nằm mơ?", "TED-Ed", "B1", "5:38", "Giấc mơ", "tone-d", "en"),
 ]
 
 DEFAULT_JA_VIDEOS = [

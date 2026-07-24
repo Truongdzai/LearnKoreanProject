@@ -23,14 +23,32 @@ interface WeekQuiz {
   pass: number
 }
 
+function readJump(): { tab?: string; unit?: string } | null {
+  try {
+    const raw = sessionStorage.getItem('vyling.en.jump')
+    if (!raw) return null
+    sessionStorage.removeItem('vyling.en.jump')
+    return JSON.parse(raw) as { tab?: string; unit?: string }
+  } catch {
+    return null
+  }
+}
+
 export default function EnglishPage() {
-  const [tab, setTab] = useState<Tab>('program')
-  const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
+  const [jump] = useState(readJump)
+  const [tab, setTab] = useState<Tab>(jump?.tab === 'learn' ? 'learn' : 'program')
+  const [learnUnit, setLearnUnit] = useState<string | undefined>(jump?.unit)
+  const [grammarLesson, setGrammarLesson] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)
 
   const openLearn = (unitId?: string) => {
     setLearnUnit(unitId)
     setTab('learn')
+  }
+
+  const openGrammar = (lessonId?: string) => {
+    setGrammarLesson(lessonId)
+    setTab('grammar')
   }
 
   const openQuiz = (week: number, units: string[], pass: number) => {
@@ -41,6 +59,7 @@ export default function EnglishPage() {
   const pickTab = (t: Tab) => {
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
+    if (t === 'grammar') setGrammarLesson(undefined)
     setTab(t)
   }
 
@@ -65,10 +84,11 @@ export default function EnglishPage() {
           onLearn={openLearn}
           onQuiz={openQuiz}
           onSummary={() => setTab('summary')}
+          onGrammar={openGrammar}
         />
       )}
       {tab === 'learn' && <IcesLearn initialUnit={learnUnit} />}
-      {tab === 'grammar' && <GrammarLessons />}
+      {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
       {tab === 'quiz' && (weekQuiz ? (
         <VocabQuiz
           key={`w${weekQuiz.week}`}

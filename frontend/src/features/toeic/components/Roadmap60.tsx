@@ -6,7 +6,7 @@ import {
   type ToeicDay, type ToeicTask,
 } from '@/data/toeicCore'
 import {
-  dayDone, taskDone, toeicDay, vocabDone,
+  dayDone, dueWrong, taskDone, toeicDay, vocabDone,
   type TaskCtx, type ToeicState,
 } from '../state'
 
@@ -21,18 +21,19 @@ interface Props {
   onPractice: (part: number, n: number) => void
   onWeak: (n: number) => void
   onMiniTest: () => void
+  onWrongbook: () => void
 }
 
 const KIND_ICON: Record<ToeicTask['kind'], IconName> = {
   grammar: 'book', vocab: 'cards', practice: 'target', minitest: 'trophy',
-  review: 'letters', video: 'film', custom: 'note', weak: 'tool',
+  review: 'letters', video: 'film', custom: 'note', weak: 'tool', wrongbook: 'note',
 }
 
-const MANUAL = new Set(['custom', 'video', 'review'])
+const MANUAL = new Set(['custom', 'video', 'review', 'wrongbook'])
 
 export default function Roadmap60({
   state, ctx, latestEstimate, onStart, onToggleTask, onGrantReward,
-  onOpenCapsule, onPractice, onWeak, onMiniTest,
+  onOpenCapsule, onPractice, onWeak, onMiniTest, onWrongbook,
 }: Props) {
   const { setView, recordEvent } = useAppStore()
   const started = !!state.start
@@ -64,18 +65,32 @@ export default function Roadmap60({
       const best = state.capsules[t.capsuleId ?? '']
       return best != null ? `tốt nhất ${best}%` : ''
     }
+    if (t.kind === 'wrongbook') {
+      if (!state.wrong.length) return 'sổ đang trống'
+      const due = dueWrong(state.wrong).length
+      return `${state.wrong.length} câu trong sổ` + (due ? ` · ${due} đến hạn` : '')
+    }
     return ''
+  }
+
+  const jumpToUnit = (unitId?: string) => {
+    try {
+      sessionStorage.setItem('vyling.en.jump', JSON.stringify({ tab: 'learn', unit: unitId }))
+    } catch {
+    }
+    setView('english')
   }
 
   const taskAction = (t: ToeicTask): { label: string; run: () => void } | null => {
     switch (t.kind) {
       case 'grammar': return { label: 'Học ngay', run: () => onOpenCapsule(t.capsuleId ?? 'g01') }
-      case 'vocab': return { label: 'Học từ', run: () => setView('english') }
+      case 'vocab': return { label: 'Học từ', run: () => jumpToUnit(t.unitId) }
       case 'practice': return { label: 'Luyện ngay', run: () => onPractice(t.part ?? 5, t.n ?? 8) }
       case 'weak': return { label: 'Luyện ngay', run: () => onWeak(t.n ?? 10) }
       case 'minitest': return { label: 'Vào thi', run: onMiniTest }
       case 'video': return { label: 'Kho video', run: () => setView('library') }
       case 'review': return { label: 'Ôn tập', run: () => setView('flashcards') }
+      case 'wrongbook': return { label: 'Mở sổ tay', run: onWrongbook }
       default: return null
     }
   }

@@ -9,12 +9,19 @@ import { useAuth } from '@/store/auth.store'
 
 export interface ToeicAttempt {
   t: string
-  mode: 'practice' | 'test' | 'weak'
+  mode: 'practice' | 'test' | 'weak' | 'review'
   part?: number
   n: number
   correct: number
   skills: Record<string, [number, number]>
   est?: { listening: number; reading: number; total: number }
+}
+
+export interface WrongNote {
+  key: string
+  part: number
+  n: number
+  t: string
 }
 
 export interface ToeicState {
@@ -23,11 +30,13 @@ export interface ToeicState {
   capsules: Record<string, number>
   attempts: ToeicAttempt[]
   rewarded: number[]
+  wrong: WrongNote[]
 }
 
 const LOCAL_KEY = 'vyling.toeic60'
 const PLAN_ID = 'toeic60'
 const MAX_ATTEMPTS = 200
+const MAX_WRONG = 300
 
 function normalize(raw: unknown): ToeicState {
   const p = (raw ?? {}) as Partial<ToeicState>
@@ -37,6 +46,7 @@ function normalize(raw: unknown): ToeicState {
     capsules: p.capsules && typeof p.capsules === 'object' ? p.capsules : {},
     attempts: Array.isArray(p.attempts) ? p.attempts : [],
     rewarded: Array.isArray(p.rewarded) ? p.rewarded : [],
+    wrong: Array.isArray(p.wrong) ? p.wrong.filter((w) => w && typeof w.key === 'string') : [],
   }
 }
 
@@ -47,6 +57,16 @@ function isEmpty(s: ToeicState): boolean {
 function todayISO(): string {
   const d = new Date()
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+const DUE_DAYS_REPEAT = 2
+const DUE_DAYS_ONCE = 4
+
+export function dueWrong(wrong: WrongNote[], now = Date.now()): WrongNote[] {
+  return wrong.filter((w) => {
+    const age = (now - new Date(w.t).getTime()) / 86400000
+    return age >= (w.n >= 2 ? DUE_DAYS_REPEAT : DUE_DAYS_ONCE)
+  })
 }
 
 export function toeicDay(start: string | null): number {
@@ -86,9 +106,9 @@ export function useActivitySince(start: string | null): { activity: ActivitySumm
 }
 
 
-function answeredCount(attempts: ToeicAttempt[], mode: 'practice' | 'weak', part?: number): number {
+function answeredCount(attempts: ToeicAttempt[], mode: 'practice' | 'weak' | 'review', part?: number): number {
   return attempts
-    .filter((a) => a.mode === mode && (mode === 'weak' || a.part === part))
+    .filter((a) => a.mode === mode && (mode !== 'practice' || a.part === part))
     .reduce((s, a) => s + a.n, 0)
 }
 
@@ -137,6 +157,10 @@ export function taskDone(task: ToeicTask, ctx: TaskCtx): boolean {
       const { req } = cumulativeBefore(task, (t) => t.kind === 'weak')
       return answeredCount(state.attempts, 'weak') >= req
     }
+    case 'wrongbook': {
+      const { req } = cumulativeBefore(task, (t) => t.kind === 'wrongbook')
+      return answeredCount(state.attempts, 'review') >= req || state.done.includes(task.id)
+    }
     case 'minitest': {
       const { index } = cumulativeBefore(task, (t) => t.kind === 'minitest')
       return state.attempts.filter((a) => a.mode === 'test').length >= index
@@ -184,6 +208,28 @@ export function useToeicState() {
     mutate((p) => ({ ...p, attempts: [...p.attempts, a].slice(-MAX_ATTEMPTS) }))
   }, [mutate])
 
+  const recordWrong = useCallback((items: { key: string; part: number }[], solved: string[]) => {
+    if (!items.length && !solved.length) return
+    const now = new Date().toISOString()
+    mutate((p) => {
+      const done = new Set(solved)
+      const byKey = new Map(p.wrong.filter((w) => !done.has(w.key)).map((w) => [w.key, w]))
+      for (const it of items) {
+        const prev = byKey.get(it.key)
+        byKey.set(it.key, { key: it.key, part: it.part, n: (prev?.n ?? 0) + 1, t: now })
+      }
+      return { ...p, wrong: [...byKey.values()].slice(-MAX_WRONG) }
+    })
+  }, [mutate])
+
+  const clearWrong = useCallback((keys?: string[]) => {
+    mutate((p) => {
+      if (!keys) return { ...p, wrong: [] }
+      const drop = new Set(keys)
+      return { ...p, wrong: p.wrong.filter((w) => !drop.has(w.key)) }
+    })
+  }, [mutate])
+
   const grantDayReward = useCallback((d: number) => {
     mutate((p) => (p.rewarded.includes(d) ? p : { ...p, rewarded: [...p.rewarded, d] }))
   }, [mutate])
@@ -196,5 +242,5 @@ export function useToeicState() {
     return null
   }, [state.attempts])
 
-  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, grantDayReward, latestEstimate }
+  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, grantDayReward, latestEstimate }
 }

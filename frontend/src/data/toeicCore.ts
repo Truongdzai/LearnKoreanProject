@@ -29,8 +29,10 @@ export interface ToeicP2Item {
   trap?: string
 }
 
+export type Speaker = 'M' | 'W' | 'M2' | 'W2'
+
 export interface ScriptLine {
-  s: 'M' | 'W'
+  s: Speaker
   text: string
 }
 
@@ -41,11 +43,19 @@ export interface ToeicSubQuestion {
   skill: string
 }
 
+export interface ToeicGraphic {
+  title: string
+  headers: string[]
+  rows: string[][]
+  note?: string
+}
+
 export interface ToeicConvItem {
   id: string
   title: string
   kind?: string
   script: ScriptLine[]
+  graphic?: ToeicGraphic
   questions: ToeicSubQuestion[]
 }
 
@@ -124,6 +134,7 @@ export const SKILLS: Record<string, SkillInfo> = {
   'l-infer': { vi: 'Suy luận khi nghe', group: 'listening', advice: 'Chú ý câu cuối hội thoại — hành động tiếp theo thường nằm ở đó.' },
   'l-main': { vi: 'Nắm ý chính bài nghe', group: 'listening', advice: 'Đừng dịch từng từ; tự hỏi "họ đang nói về chuyện gì?" sau 2 câu đầu.' },
   'l-purpose': { vi: 'Ngữ cảnh & mục đích bài nói', group: 'listening', advice: 'Đoán bối cảnh (sân bay? cửa hàng?) ngay từ câu chào đầu tiên của bài nói.' },
+  'l-graphic': { vi: 'Nhìn bảng/biểu đồ khi nghe', group: 'listening', advice: 'ĐỌC BẢNG TRƯỚC khi audio chạy và khoanh cột chứa đáp án. Audio KHÔNG BAO GIỜ đọc thẳng ô đó — nó nói dữ kiện ở cột kia (số người, giờ, giá) để bạn tự dóng sang. Nghe con số/điều kiện rồi mới nhìn lại bảng.' },
   'word-form': { vi: 'Từ loại (word form)', group: 'grammar', advice: 'Học các hậu tố (-tion, -ive, -ly…) và vị trí trong câu — dạng câu nhiều điểm nhất Part 5. Ôn viên nang "Từ loại & hậu tố".' },
   'tense': { vi: 'Thì động từ', group: 'grammar', advice: 'Tìm dấu hiệu thời gian trong câu (ago, since, by the time, next year) trước khi chọn.' },
   'prep': { vi: 'Giới từ', group: 'grammar', advice: 'Học theo cụm (by Friday, until 8, access to, in advance) thay vì học lẻ từng giới từ.' },
@@ -137,11 +148,13 @@ export const SKILLS: Record<string, SkillInfo> = {
   'passive': { vi: 'Câu bị động', group: 'grammar', advice: 'Chủ ngữ không tự làm hành động được → be + V3 (the report was written).' },
   'gerund': { vi: 'V-ing / to V', group: 'grammar', advice: 'Thuộc nhóm động từ: enjoy/consider/suggest + V-ing; want/plan/agree + to V; sau giới từ luôn V-ing.' },
   'article': { vi: 'Mạo từ & lượng từ', group: 'grammar', advice: 'an + âm nguyên âm; much + không đếm được; many + đếm được số nhiều.' },
+  'sentence': { vi: 'Chèn câu vào đoạn (Part 6)', group: 'reading', advice: 'Đọc câu NGAY TRƯỚC và NGAY SAU chỗ trống: câu đúng phải nối mạch ý và không mâu thuẫn thông tin đã nêu. Loại nhanh phương án nói ngược với đoạn (đang miễn phí lại bảo có phí) hoặc lạc chủ đề.' },
   'r-detail': { vi: 'Đọc tìm chi tiết', group: 'reading', advice: 'Đọc câu hỏi trước, xác định từ khoá rồi quét (scan) văn bản — đừng đọc tuần tự từ đầu.' },
   'r-main': { vi: 'Ý chính văn bản', group: 'reading', advice: 'Đọc lướt (skim) tiêu đề, dòng chủ đề email và đoạn đầu — ý chính thường nằm ở đó, chưa cần đọc chi tiết.' },
   'r-infer': { vi: 'Suy luận khi đọc', group: 'reading', advice: 'Đáp án suy luận phải CÓ CƠ SỞ trong bài — loại các phương án "nghe hợp lý" nhưng bài không nhắc.' },
   'r-vocab': { vi: 'Từ đồng nghĩa trong bài', group: 'reading', advice: 'Thay từng phương án vào câu gốc, chọn từ giữ nguyên nghĩa của câu.' },
   'r-nots': { vi: 'Câu hỏi NOT/EXCEPT', group: 'reading', advice: 'Đánh dấu 3 phương án tìm THẤY trong bài — cái còn lại là đáp án.' },
+  'r-insert': { vi: 'Chèn câu vào vị trí [1]–[4]', group: 'reading', advice: 'Bắt từ nối và đại từ trong câu cần chèn (However, This, They, instead…) rồi tìm chỗ mà câu TRƯỚC nó cung cấp đúng đối tượng được nhắc lại. Thử đọc liền mạch 3 câu quanh mỗi vị trí thay vì đoán.' },
 }
 
 
@@ -182,6 +195,7 @@ export const PART_META: PartMeta[] = [
       'ĐỌC TRƯỚC 3 câu hỏi trong lúc chờ audio — biết cần nghe gì.',
       'Câu 1 thường hỏi ngữ cảnh/mục đích, câu 3 thường hỏi hành động tiếp theo.',
       'Đáp án hay dùng TỪ ĐỒNG NGHĨA với từ trong bài (buy → purchase).',
+      'Câu có bảng ("Look at the graphic"): đọc bảng TRƯỚC, audio chỉ nói dữ kiện ở cột kia để bạn tự dóng sang.',
     ],
   },
   {
@@ -191,6 +205,7 @@ export const PART_META: PartMeta[] = [
       'Câu chào đầu tiên tiết lộ bối cảnh: "This is your captain" → máy bay.',
       'Số liệu (giờ, giá, số phòng) gần như chắc chắn sẽ được hỏi — ghi nhớ khi nghe.',
       'Chú ý câu mệnh lệnh "Please…" — thường thành câu hỏi "người nghe được yêu cầu làm gì?".',
+      'Câu có bảng: đáp án đúng KHÔNG được đọc thành lời, phải ghép điều kiện nghe được với bảng in sẵn.',
     ],
   },
   {
@@ -217,6 +232,7 @@ export const PART_META: PartMeta[] = [
       'Đọc câu hỏi trước → quét văn bản tìm từ khoá, không đọc tuần tự.',
       'Câu hỏi NOT: tìm 3 cái CÓ trong bài, cái còn lại là đáp án.',
       'Văn bản kép: câu khó thường phải GHÉP thông tin từ cả hai văn bản.',
+      'Dạng chèn câu vào vị trí [1]–[4]: bám từ nối và đại từ (However, This, She…) để tìm chỗ mạch ý khớp nhau.',
       'Quản trị thời gian: mục tiêu ~1 phút/câu, làm văn bản đơn trước.',
     ],
   },
@@ -267,7 +283,7 @@ export function estimateScoreFull(rawL: number, rawR: number): {
 export const TOEIC_TARGET = 750
 
 
-export type ToeicTaskKind = 'grammar' | 'vocab' | 'practice' | 'minitest' | 'review' | 'video' | 'custom' | 'weak'
+export type ToeicTaskKind = 'grammar' | 'vocab' | 'practice' | 'minitest' | 'review' | 'video' | 'custom' | 'weak' | 'wrongbook'
 
 export interface ToeicTask {
   id: string
@@ -315,6 +331,8 @@ const vd = (d: number): ToeicTask => ({ id: `d${d}-vd`, kind: 'video', label: 'X
 const cu = (d: number, label: string): ToeicTask => ({ id: `d${d}-cu`, kind: 'custom', label })
 const wk = (d: number, n: number): ToeicTask =>
   ({ id: `d${d}-wk`, kind: 'weak', n, label: `Luyện điểm yếu: ${n} câu kỹ năng yếu nhất của bạn` })
+const wb = (d: number, n: number): ToeicTask =>
+  ({ id: `d${d}-wb`, kind: 'wrongbook', n, label: `Sổ tay câu sai: ôn lại ${n} câu bạn từng làm sai` })
 
 export const TOEIC_60_DAYS: ToeicDay[] = [
   { d: 1, phase: 1, title: 'Đo điểm xuất phát', tasks: [mt(1, 'Thi thử ĐẦU VÀO — cứ làm hết sức, điểm thấp là bình thường!'), g(1, 'g01'), v(1, 'nouns', 50, 'Danh từ cốt lõi')] },
@@ -338,7 +356,7 @@ export const TOEIC_60_DAYS: ToeicDay[] = [
   { d: 18, phase: 2, title: 'Ngày Part 5 chuyên sâu', tasks: [p(18, 5, 12), v(18, 'verbs2', 100, 'Động từ giao tiếp & sinh hoạt'), vd(18)] },
   { d: 19, phase: 2, title: 'V-ing hay to V?', tasks: [g(19, 'g16'), p(19, 3, 6), rv(19)] },
   { d: 20, phase: 2, title: 'Nghe hội thoại thật', tasks: [p(20, 3, 6), v(20, 'adjectives', 50, 'Tính từ ứng dụng cao'), vd(20)] },
-  { d: 21, phase: 2, title: 'Nghỉ có chủ đích', tasks: [rv(21), vd(21), cu(21, 'Nghe thụ động 15 phút tiếng Anh (podcast/video) khi rảnh tay')] },
+  { d: 21, phase: 2, title: 'Nghỉ có chủ đích', tasks: [rv(21), wb(21, 10), cu(21, 'Nghe thụ động 15 phút tiếng Anh (podcast/video) khi rảnh tay')] },
   { d: 22, phase: 2, title: 'Hoà hợp chủ - vị', tasks: [g(22, 'g17'), p(22, 6, 4), rv(22)] },
   { d: 23, phase: 2, title: 'Điền đoạn văn Part 6', tasks: [p(23, 6, 8), v(23, 'adjectives', 100, 'Tính từ ứng dụng cao'), vd(23)] },
   { d: 24, phase: 2, title: 'Câu điều kiện', tasks: [g(24, 'g18'), p(24, 4, 6), rv(24)] },
@@ -355,28 +373,28 @@ export const TOEIC_60_DAYS: ToeicDay[] = [
   { d: 34, phase: 3, title: 'Vá điểm yếu #2', tasks: [wk(34, 10), v(34, 'tech', 100, 'Công nghệ & mạng số'), rv(34)] },
   { d: 35, phase: 3, title: 'Hội thoại + bài nói', tasks: [p(35, 3, 6), p(35, 4, 6), vd(35)] },
   { d: 36, phase: 3, title: 'Part 6 + 7 liền mạch', tasks: [p(36, 6, 8), p(36, 7, 7), rv(36)] },
-  { d: 37, phase: 3, title: 'Ôn ngữ pháp còn hổng', tasks: [cu(37, 'Làm lại 2 viên nang ngữ pháp có điểm luyện thấp nhất'), wk(37, 10), vd(37)] },
+  { d: 37, phase: 3, title: 'Ôn ngữ pháp còn hổng', tasks: [cu(37, 'Làm lại 2 viên nang ngữ pháp có điểm luyện thấp nhất'), wk(37, 10), wb(37, 10)] },
   { d: 38, phase: 3, title: 'Nước rút tuần 6', tasks: [p(38, 5, 15), v(38, 'home', 50, 'Nhà cửa & đồ dùng'), rv(38)] },
   { d: 39, phase: 3, title: 'Nghe không nhìn chữ', tasks: [p(39, 2, 10), p(39, 4, 6), vd(39)] },
   { d: 40, phase: 3, title: 'Vá điểm yếu #3', tasks: [wk(40, 10), v(40, 'home', 100, 'Nhà cửa & đồ dùng'), rv(40)] },
   { d: 41, phase: 3, title: 'Đọc dài hơi', tasks: [p(41, 7, 8), rv(41), cu(41, 'Bấm giờ: mỗi câu Part 7 tối đa 1 phút')] },
   { d: 42, phase: 3, title: 'Phối hợp toàn diện', tasks: [p(42, 3, 6), p(42, 5, 12), vd(42)] },
   { d: 43, phase: 3, title: 'Từ phản xạ nhanh', tasks: [v(43, 'phrases2', 100, 'Cụm phản xạ nhanh'), wk(43, 10), rv(43)] },
-  { d: 44, phase: 3, title: 'Tổng duyệt chặng 3', tasks: [p(44, 6, 8), p(44, 2, 8), vd(44)] },
+  { d: 44, phase: 3, title: 'Tổng duyệt chặng 3', tasks: [p(44, 6, 8), p(44, 2, 8), wb(44, 10)] },
   { d: 45, phase: 3, title: '🎯 Thi thử lần 3', tasks: [mt(45, 'Thi thử lần 3 — mục tiêu vượt điểm lần 2 ít nhất 50 điểm'), rv(45)] },
 
   { d: 46, phase: 4, title: 'Phân tích & lên dây cót', tasks: [cu(46, 'So sánh 3 lần thi thử trong tab Phân tích — kỹ năng nào cải thiện chậm nhất?'), wk(46, 10), rv(46)] },
   { d: 47, phase: 4, title: 'Nhịp thi thật: nghe', tasks: [p(47, 2, 10), p(47, 3, 9), vd(47)] },
   { d: 48, phase: 4, title: 'Nhịp thi thật: đọc', tasks: [p(48, 5, 15), p(48, 7, 7), rv(48)] },
   { d: 49, phase: 4, title: 'Đổi tai đổi mắt', tasks: [p(49, 4, 9), p(49, 6, 8), vd(49)] },
-  { d: 50, phase: 4, title: 'Vá điểm yếu lần cuối', tasks: [wk(50, 15), rv(50), cu(50, 'Xem lại toàn bộ câu sai tuần này, đọc kỹ giải thích')] },
+  { d: 50, phase: 4, title: 'Vá điểm yếu lần cuối', tasks: [wk(50, 15), rv(50), wb(50, 15)] },
   { d: 51, phase: 4, title: 'Tổng ôn ngữ pháp', tasks: [cu(51, 'Lướt lại 18 viên nang ngữ pháp — chỉ đọc phần quy tắc, 30 phút'), p(51, 5, 15), vd(51)] },
   { d: 52, phase: 4, title: '🎯 Thi thử lần 4', tasks: [mt(52, 'Thi thử lần 4 — tập quản trị thời gian như thi thật'), rv(52)] },
-  { d: 53, phase: 4, title: 'Sửa sai lần 4', tasks: [cu(53, 'Xem lại từng câu sai của bài thi thử hôm qua'), wk(53, 10), vd(53)] },
+  { d: 53, phase: 4, title: 'Sửa sai lần 4', tasks: [wb(53, 15), wk(53, 10), vd(53)] },
   { d: 54, phase: 4, title: 'Nghe nước rút', tasks: [p(54, 2, 10), p(54, 4, 9), rv(54)] },
   { d: 55, phase: 4, title: 'Đọc nước rút', tasks: [p(55, 7, 8), p(55, 6, 8), vd(55)] },
   { d: 56, phase: 4, title: 'Giữ phong độ', tasks: [p(56, 3, 9), p(56, 5, 12), rv(56)] },
-  { d: 57, phase: 4, title: 'Ngày nhẹ trước chung kết', tasks: [rv(57), vd(57), cu(57, 'Ngủ đủ — não cần nghỉ để ghi nhớ. Chỉ ôn nhẹ SRS hôm nay')] },
+  { d: 57, phase: 4, title: 'Ngày nhẹ trước chung kết', tasks: [rv(57), wb(57, 10), cu(57, 'Ngủ đủ — não cần nghỉ để ghi nhớ. Hôm nay chỉ ôn nhẹ')] },
   { d: 58, phase: 4, title: 'Khởi động chung kết', tasks: [wk(58, 10), p(58, 2, 5), rv(58)] },
   { d: 59, phase: 4, title: '🏁 Thi thử CHUNG KẾT', tasks: [mt(59, 'Thi thử chung kết — làm trong yên tĩnh, bấm giờ nghiêm túc'), cu(59, 'Ghi lại điểm ước lượng cuối cùng của bạn')] },
   { d: 60, phase: 4, title: '🎓 Tổng kết hành trình', tasks: [cu(60, 'So điểm ngày 1 và ngày 59 — bạn đã đi một chặng rất dài!'), rv(60), cu(60, 'Đăng ký lịch thi TOEIC thật trong 2 tuần tới khi phong độ đang cao')] },

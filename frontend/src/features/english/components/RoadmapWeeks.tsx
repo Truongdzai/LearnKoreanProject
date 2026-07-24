@@ -1,33 +1,39 @@
 import { useEffect, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { PLAN_12_WEEKS, PLAN_TASK_TOTAL, type WeekTask, type WeekPlan } from '@/data/englishCore'
+import { GRAMMAR_LESSONS, GRAMMAR_PASS } from '@/data/englishGrammar'
 import { useAppStore } from '@/store/app.store'
 import {
   speakEN, usePlan, useLearnedWords, useWordBank, readPlan,
   planDay, planWeek, taskDone, weekDone, vocabTarget, learnedInUnit,
-  useActivityDays, weekActivity,
+  useActivityDays, weekActivity, useGrammarProgress, useToeicBridge, type TaskExtra,
 } from '../progress'
 
 interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onSummary: () => void
+  onGrammar: (lessonId?: string) => void
 }
 
 const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
 const KIND_ICON: Record<WeekTask['kind'], IconName> = {
   vocab: 'cards', total: 'chart', quiz: 'target', video: 'film', speak: 'mic', review: 'letters', custom: 'note',
+  grammar: 'book', toeic: 'trophy',
 }
 
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
 
-export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
+export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar }: Props) {
   const { setView, recordEvent } = useAppStore()
   const { plan, startPlan, toggleTask, grantReward } = usePlan()
   const { learned } = useLearnedWords()
   const bank = useWordBank(learned)
   const actDays = useActivityDays(plan.start)
+  const { grammar } = useGrammarProgress()
+  const toeic = useToeicBridge()
+  const ext: TaskExtra = { grammar: grammar.best, toeic }
   const [open, setOpen] = useState<number | null>(() => {
     const p = readPlan()
     return p.start ? planWeek(p.start) : null
@@ -38,9 +44,9 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
   const curWeek = planWeek(plan.start)
 
   const isDone = (t: WeekTask, week: number) =>
-    taskDone(t, week, learned, plan, bank, weekActivity(actDays, plan.start, week))
+    taskDone(t, week, learned, plan, bank, weekActivity(actDays, plan.start, week), ext)
   const wkDone = (w: WeekPlan) =>
-    weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week))
+    weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week), ext)
 
   const doneWeeks = PLAN_12_WEEKS.filter(wkDone).length
   const tasksDone = PLAN_12_WEEKS.reduce((s, w) => s + w.tasks.filter((t) => isDone(t, w.week)).length, 0)
@@ -54,7 +60,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
         recordEvent('lesson', 1)
       }
     })
-  }, [started, plan.manual, plan.quiz, learned, bank, actDays])
+  }, [started, plan.manual, plan.quiz, learned, bank, actDays, grammar.best, toeic])
 
   const taskMeta = (t: WeekTask, week: number): string => {
     if (t.kind === 'vocab') {
@@ -69,10 +75,24 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary }: Props) {
       const target = t.targetTotal ?? 0
       return `${Math.min(bank, target)}/${target} từ`
     }
+    if (t.kind === 'grammar') {
+      if (!t.lessonId) {
+        const passed = GRAMMAR_LESSONS.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
+        return `${passed}/${GRAMMAR_LESSONS.length} bài đạt`
+      }
+      const best = grammar.best[t.lessonId]
+      return best != null ? `tốt nhất: ${best}%` : ''
+    }
+    if (t.kind === 'toeic') {
+      if (!toeic.started) return 'chưa bắt đầu'
+      return t.n ? `${Math.min(toeic.days, t.n)}/${t.n} ngày hoàn thành` : 'đã bắt đầu'
+    }
     return ''
   }
 
   const taskAction = (t: WeekTask, w: WeekPlan): { label: string; run: () => void } | null => {
+    if (t.kind === 'grammar') return { label: 'Học ngay', run: () => onGrammar(t.lessonId) }
+    if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     const go = t.go !== undefined ? t.go : (
       t.kind === 'vocab' ? 'learn'
       : t.kind === 'total' ? 'vocab'

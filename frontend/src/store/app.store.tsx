@@ -5,7 +5,7 @@ import type { Video } from '@/models/video.model'
 import type { Account } from '@/models/account.model'
 import type { PlantedSeed } from '@/models/gamification.model'
 import type { LearningPath } from '@/models/path.model'
-import { fetchTranscript } from '@/core/api/learn.api'
+import { fetchTranscript, translateLines } from '@/core/api/learn.api'
 import { fetchVideos } from '@/core/api/content.api'
 import {
   fetchState, buyItemApi, equipFrameApi, equipPetApi, equipBgApi, setAvatarApi, upgradePlusApi, plantSeedApi, waterPlantApi,
@@ -72,6 +72,22 @@ function loadLang(): string {
 
 function loadNative(): string {
   try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
+}
+
+// Dịch phần "bản dịch" của bài học sang tiếng mẹ đẻ đã chọn (khác tiếng Việt & khác tiếng đang học).
+// Giữ nguyên bản Việt sẵn có làm dự phòng khi AI không trả về dòng tương ứng.
+async function applyNativeTranslation(d: Lesson, lang: string, native: string): Promise<Lesson> {
+  if (!native || native === 'vi' || native === lang) return d
+  const lines = d.segments.map((s) => s.ko)
+  if (!lines.length) return d
+  try {
+    const r = await translateLines(lines, lang, native)
+    const tr = r.lines || []
+    const segments = d.segments.map((s, i) => (tr[i] ? { ...s, vi: tr[i] } : s))
+    return { ...d, segments }
+  } catch {
+    return d
+  }
 }
 
 function loadGoal(): string {
@@ -417,18 +433,27 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       setStatus('')
       recordEvent('video', 1, 0, 0)
       if (opts?.video) saveVideo(opts.video)
+      if (nativeLang !== 'vi' && nativeLang !== lang) {
+        const nd = await applyNativeTranslation(d, lang, nativeLang)
+        setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
+      }
     } catch (e) {
       setStatusError(true)
       setStatus((e as Error).message)
     }
-  }, [recordEvent, learnLang, saveVideo])
+  }, [recordEvent, learnLang, nativeLang, saveVideo])
 
   const loadSample = useCallback(() => {
     setStatusError(false)
     setStatus('')
     setLesson(SAMPLE_LESSON)
     setView('learn')
-  }, [])
+    if (nativeLang !== 'vi') {
+      applyNativeTranslation(SAMPLE_LESSON, learnLang, nativeLang).then((nd) => {
+        setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
+      })
+    }
+  }, [nativeLang, learnLang])
 
   const value: AppStore = {
     view, setView,

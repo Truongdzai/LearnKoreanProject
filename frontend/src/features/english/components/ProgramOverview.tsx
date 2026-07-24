@@ -21,9 +21,10 @@ interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onSummary: () => void
+  onGrammar: (lessonId?: string) => void
 }
 
-export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }: Props) {
+export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary, onGrammar }: Props) {
   const { learned } = useLearnedWords()
   const day = Math.min(planDay(readPlan().start), 90)
 
@@ -43,7 +44,7 @@ export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }:
       </div>
 
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
-      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} />
+      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>
       <div className="threec-grid">
