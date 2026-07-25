@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import { romanizeLine } from '@/core/utils/romanize'
 import { useAppStore } from '@/store/app.store'
@@ -427,7 +428,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                 {cfg.romanizeChat && <div className="dub-romaja">{romanizeLine(s.ko)}</div>}
                 {s.vi && <div className="dub-vi">{s.vi}</div>}
                 <div className="dub-line-actions">
-                  <button className="btn-ghost sm" onClick={() => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(s.ko); u.lang = cfg.locale; u.rate = 0.9; speechSynthesis.speak(u) } catch { /* */ } }}>
+                  <button className="btn-ghost sm" onClick={() => speakLang(s.ko, cfg.locale, 0.9)}>
                     <Icon name="volume" size={14} /> {t('sh.listen')}
                   </button>
                   {isRec ? (

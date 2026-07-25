@@ -34,3 +34,13 @@ class LevelIn(BaseModel):
 class LevelOut(BaseModel):
     level: str
     reason: str
+
+
+class TranslateIn(BaseModel):
+    lines: list[str]
+    lang: str = "en"
+    native: str = "vi"
+
+
+class TranslateOut(BaseModel):
+    lines: list[str]

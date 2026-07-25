@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { fetchAllCards } from '@/core/api/srs.api'
 import type { SrsCard } from '@/models/srs.model'
 import { useAppStore } from '@/store/app.store'
@@ -172,15 +173,7 @@ export function ListenGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finished])
 
-  const speak = () => {
-    try {
-      speechSynthesis.cancel()
-      const u = new SpeechSynthesisUtterance(cur.card.front)
-      u.lang = cfg.locale
-      u.rate = 0.85
-      speechSynthesis.speak(u)
-    } catch { /* unsupported */ }
-  }
+  const speak = () => speakLang(cur.card.front, cfg.locale, 0.85)
 
   useEffect(() => {
     if (!finished) speak()

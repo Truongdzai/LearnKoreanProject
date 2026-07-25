@@ -3,72 +3,520 @@
     "id": "p6-01",
     "title": "Email: Xác nhận đơn hàng",
     "kind": "email",
-    "text": "To: lien.pham@vylmail.com\nFrom: orders@brightoffice.com\nSubject: Your order #58214\n\nDear Ms. Pham,\n\nThank you for your recent order. We are pleased to (1)___ that all items are in stock and will be shipped within two business days. You will receive a tracking number as soon as the package (2)___ our warehouse.\n\nPlease note that our return policy allows exchanges within thirty days of delivery. (3)___, all returned items must be unused and in their original packaging.\n\nWe appreciate your business and look forward to (4)___ you again soon.\n\nSincerely,\nBright Office Supplies",
+    "text": "To: lien.pham@vylmail.com\nFrom: orders@brightoffice.com\nSubject: Your order #58214\n\nDear Ms. Pham,\n\nThank you for your recent order. We are pleased to (1)___ that all items are in stock and will be shipped within two business days. You will receive a tracking number as soon as the package (2)___ our warehouse.\n\nPlease note that our return policy allows exchanges within thirty days of delivery. (3)___, all returned items must be unused and in their original packaging.\n\nWe appreciate your business and look forward to serving you again soon.\n\n(4)___\n\nSincerely,\nBright Office Supplies",
     "blanks": [
-      { "options": ["confirm", "confirming", "confirmation", "confirmed"], "answer": 0, "skill": "word-form", "explain": "\"pleased to + V nguyên thể\": vui mừng XÁC NHẬN → to confirm." },
-      { "options": ["leave", "leaves", "left", "leaving"], "answer": 1, "skill": "tense", "explain": "Mệnh đề thời gian \"as soon as\" nói việc tương lai nhưng chia HIỆN TẠI ĐƠN; chủ ngữ \"the package\" số ít → leaves." },
-      { "options": ["However", "Therefore", "Similarly", "For instance"], "answer": 0, "skill": "conj", "explain": "Câu sau đặt ĐIỀU KIỆN giới hạn cho chính sách đổi hàng → \"However\" (tuy nhiên)." },
-      { "options": ["serve", "serves", "serving", "served"], "answer": 2, "skill": "gerund", "explain": "\"look forward to + V-ing\" — cụm cố định: look forward to serving you." }
+      {
+        "options": [
+          "confirm",
+          "confirming",
+          "confirmation",
+          "confirmed"
+        ],
+        "answer": 0,
+        "skill": "word-form",
+        "explain": "\"pleased to + V nguyên thể\": vui mừng XÁC NHẬN → to confirm."
+      },
+      {
+        "options": [
+          "leave",
+          "leaves",
+          "left",
+          "leaving"
+        ],
+        "answer": 1,
+        "skill": "tense",
+        "explain": "Mệnh đề thời gian \"as soon as\" nói việc tương lai nhưng chia HIỆN TẠI ĐƠN; chủ ngữ \"the package\" số ít → leaves."
+      },
+      {
+        "options": [
+          "However",
+          "Therefore",
+          "Similarly",
+          "For instance"
+        ],
+        "answer": 0,
+        "skill": "conj",
+        "explain": "Câu sau đặt ĐIỀU KIỆN giới hạn cho chính sách đổi hàng → \"However\" (tuy nhiên)."
+      },
+      {
+        "options": [
+          "We regret that one item you selected is no longer available.",
+          "A copy of your invoice is attached for your records.",
+          "Please submit your application before the closing date.",
+          "Our newest branch will open in the Westfield district."
+        ],
+        "answer": 1,
+        "skill": "sentence",
+        "explain": "Câu đứng trước là lời cảm ơn kết email đơn hàng → câu chèn phải là thông tin đi kèm đơn hàng: hoá đơn đính kèm. A mâu thuẫn (đầu thư nói ĐỦ hàng), C và D lạc chủ đề."
+      }
     ]
   },
   {
     "id": "p6-02",
     "title": "Thông báo: Bảo trì thang máy",
     "kind": "notice",
-    "text": "NOTICE TO ALL TENANTS\n\nPlease be advised that the elevators in Tower A will undergo scheduled maintenance (1)___ Monday, August 3, and Wednesday, August 5.\n\nDuring this period, at least one elevator will remain (2)___ at all times. We recommend allowing a few extra minutes when traveling between floors, especially during the morning rush.\n\nThis maintenance is part of our annual safety program and is (3)___ by city regulations.\n\nWe apologize for any inconvenience and thank you for your (4)___.\n\nBuilding Management",
+    "text": "NOTICE TO ALL TENANTS\n\nPlease be advised that the elevators in Tower A will undergo scheduled maintenance (1)___ Monday, August 3, and Wednesday, August 5.\n\nDuring this period, at least one elevator will remain (2)___ at all times. We recommend allowing a few extra minutes when traveling between floors, especially during the morning rush.\n\nThis maintenance is part of our annual safety program and is (3)___ by city regulations. (4)___\n\nWe apologize for any inconvenience and thank you for your patience.\n\nBuilding Management",
     "blanks": [
-      { "options": ["among", "between", "during", "within"], "answer": 1, "skill": "prep", "explain": "\"between A and B\" — từ thứ Hai ĐẾN thứ Tư: between Monday … and Wednesday." },
-      { "options": ["operate", "operation", "operational", "operationally"], "answer": 2, "skill": "word-form", "explain": "Sau \"remain\" cần TÍNH TỪ: remain operational — vẫn hoạt động." },
-      { "options": ["required", "requiring", "requires", "requirement"], "answer": 0, "skill": "passive", "explain": "\"is required by…\" — bị động: ĐƯỢC YÊU CẦU bởi quy định thành phố." },
-      { "options": ["patient", "patients", "patience", "patiently"], "answer": 2, "skill": "word-form", "explain": "Sau \"your\" cần DANH TỪ trừu tượng: patience (sự kiên nhẫn). \"patients\" là bệnh nhân — bẫy kinh điển." }
+      {
+        "options": [
+          "among",
+          "between",
+          "during",
+          "within"
+        ],
+        "answer": 1,
+        "skill": "prep",
+        "explain": "\"between A and B\" — từ thứ Hai ĐẾN thứ Tư: between Monday … and Wednesday."
+      },
+      {
+        "options": [
+          "operate",
+          "operation",
+          "operational",
+          "operationally"
+        ],
+        "answer": 2,
+        "skill": "word-form",
+        "explain": "Sau \"remain\" cần TÍNH TỪ: remain operational — vẫn hoạt động."
+      },
+      {
+        "options": [
+          "required",
+          "requiring",
+          "requires",
+          "requirement"
+        ],
+        "answer": 0,
+        "skill": "passive",
+        "explain": "\"is required by…\" — bị động: ĐƯỢC YÊU CẦU bởi quy định thành phố."
+      },
+      {
+        "options": [
+          "Elevator service will be suspended for the entire week.",
+          "The building's parking garage will also be repainted.",
+          "Inspectors from the city will be on site during the work.",
+          "Please contact the leasing office to renew your agreement."
+        ],
+        "answer": 2,
+        "skill": "sentence",
+        "explain": "Câu trước nói việc bảo trì là YÊU CẦU CỦA THÀNH PHỐ → câu chèn nói thanh tra thành phố có mặt là nối mạch. A mâu thuẫn (đoạn trên hứa luôn còn 1 thang máy chạy); B, D lạc chủ đề."
+      }
     ]
   },
   {
     "id": "p6-03",
     "title": "Thư nội bộ: Chương trình đào tạo",
     "kind": "memo",
-    "text": "MEMO\nTo: All Sales Staff\nFrom: Training Department\nRe: Negotiation Skills Workshop\n\nWe are happy to announce a two-day negotiation skills workshop on September 12–13. The workshop will be (1)___ by Ms. Dana Whitfield, author of the best-selling book \"Deal Done Right.\"\n\nSpace is limited to twenty participants, so please register (2)___ possible. The deadline for registration is September 1.\n\nParticipants (3)___ the full program will receive an official certificate. Lunch and materials are included, and there is no fee (4)___ employees of the company.\n\nWe hope to see you there!",
+    "text": "MEMO\nTo: All Sales Staff\nFrom: Training Department\nRe: Negotiation Skills Workshop\n\nWe are happy to announce a two-day negotiation skills workshop on September 12–13. The workshop will be (1)___ by Ms. Dana Whitfield, author of the best-selling book \"Deal Done Right.\"\n\nSpace is limited to twenty participants, so please register (2)___ possible. The deadline for registration is September 1.\n\nParticipants (3)___ the full program will receive an official certificate. Lunch and materials are included, and there is no fee for employees of the company. (4)___\n\nWe hope to see you there!",
     "blanks": [
-      { "options": ["leading", "led", "lead", "leads"], "answer": 1, "skill": "passive", "explain": "\"will be led by…\" — bị động: workshop ĐƯỢC DẪN DẮT bởi bà Whitfield → led (V3)." },
-      { "options": ["as soon as", "so far as", "as long as", "as well as"], "answer": 0, "skill": "vocab", "explain": "\"as soon as possible\" — càng sớm càng tốt, cụm cố định quen thuộc." },
-      { "options": ["complete", "completes", "who complete", "completing they"], "answer": 2, "skill": "relative", "explain": "Cần mệnh đề quan hệ rút gọn chủ ngữ: Participants WHO COMPLETE the program… (những ai hoàn thành)." },
-      { "options": ["for", "to", "with", "by"], "answer": 0, "skill": "prep", "explain": "\"no fee for + đối tượng\": miễn phí CHO nhân viên công ty." }
+      {
+        "options": [
+          "leading",
+          "led",
+          "lead",
+          "leads"
+        ],
+        "answer": 1,
+        "skill": "passive",
+        "explain": "\"will be led by…\" — bị động: workshop ĐƯỢC DẪN DẮT bởi bà Whitfield → led (V3)."
+      },
+      {
+        "options": [
+          "as soon as",
+          "so far as",
+          "as long as",
+          "as well as"
+        ],
+        "answer": 0,
+        "skill": "vocab",
+        "explain": "\"as soon as possible\" — càng sớm càng tốt, cụm cố định quen thuộc."
+      },
+      {
+        "options": [
+          "complete",
+          "completes",
+          "who complete",
+          "completing they"
+        ],
+        "answer": 2,
+        "skill": "relative",
+        "explain": "Cần mệnh đề quan hệ rút gọn chủ ngữ: Participants WHO COMPLETE the program… (những ai hoàn thành)."
+      },
+      {
+        "options": [
+          "Sign-up links have been sent to each sales team leader.",
+          "Lunch will not be provided, so please plan accordingly.",
+          "Applicants must have at least ten years of experience.",
+          "Copies of the book are on sale in the lobby all week."
+        ],
+        "answer": 0,
+        "skill": "sentence",
+        "explain": "Đoạn đang nói về ĐĂNG KÝ và chi phí → câu chèn hướng dẫn nơi lấy link đăng ký là hợp mạch. B mâu thuẫn trực tiếp (\"Lunch … are included\"), C lạc đề, D chỉ mượn lại từ \"book\" để bẫy."
+      }
     ]
   },
   {
     "id": "p6-04",
     "title": "Quảng cáo: Phòng gym mở chi nhánh mới",
     "kind": "ad",
-    "text": "FLEXFIT GYM — NOW OPEN IN WESTFIELD!\n\nFlexFit Gym is proud to open its (1)___ location in the heart of Westfield. Our brand-new facility features modern equipment, group classes, and a heated swimming pool.\n\nJoin before October 31 and pay no registration fee — a (2)___ of fifty dollars!\n\nAll memberships include unlimited access to (3)___ FlexFit location nationwide, so you can work out wherever your day takes you.\n\nVisit our website or drop by for a free one-day pass. Our friendly staff will be happy to show you (4)___ the facility.",
+    "text": "FLEXFIT GYM — NOW OPEN IN WESTFIELD!\n\nFlexFit Gym is proud to open its (1)___ location in the heart of Westfield. Our brand-new facility features modern equipment, group classes, and a heated swimming pool.\n\nJoin before October 31 and pay no registration fee — a (2)___ of fifty dollars!\n\nAll memberships include unlimited access to (3)___ FlexFit location nationwide, so you can work out wherever your day takes you.\n\nVisit our website or drop by for a free one-day pass. Our friendly staff will be happy to show you around the facility.\n\n(4)___",
     "blanks": [
-      { "options": ["nine", "ninth", "nineteen", "ninety"], "answer": 1, "skill": "word-form", "explain": "\"its ninth location\" — chi nhánh THỨ CHÍN → số thứ tự ninth." },
-      { "options": ["save", "saved", "savings", "saving"], "answer": 3, "skill": "word-form", "explain": "\"a saving of fifty dollars\" — khoản tiết kiệm 50 đô. Sau mạo từ \"a\" cần danh từ số ít." },
-      { "options": ["any", "much", "few", "little"], "answer": 0, "skill": "vocab", "explain": "\"any + danh từ số ít\" = BẤT KỲ chi nhánh nào trên toàn quốc." },
-      { "options": ["around", "into", "at", "between"], "answer": 0, "skill": "prep", "explain": "\"show you around…\" = dẫn bạn tham quan một vòng — cụm động từ cố định." }
+      {
+        "options": [
+          "nine",
+          "ninth",
+          "nineteen",
+          "ninety"
+        ],
+        "answer": 1,
+        "skill": "word-form",
+        "explain": "\"its ninth location\" — chi nhánh THỨ CHÍN → số thứ tự ninth."
+      },
+      {
+        "options": [
+          "save",
+          "saved",
+          "savings",
+          "saving"
+        ],
+        "answer": 3,
+        "skill": "word-form",
+        "explain": "\"a saving of fifty dollars\" — khoản tiết kiệm 50 đô. Sau mạo từ \"a\" cần danh từ số ít."
+      },
+      {
+        "options": [
+          "any",
+          "much",
+          "few",
+          "little"
+        ],
+        "answer": 0,
+        "skill": "vocab",
+        "explain": "\"any + danh từ số ít\" = BẤT KỲ chi nhánh nào trên toàn quốc."
+      },
+      {
+        "options": [
+          "Our Westfield branch will close for renovations in October.",
+          "Group classes are open only to members over sixty.",
+          "We look forward to welcoming you to the FlexFit family.",
+          "Please return all rented equipment to the front desk."
+        ],
+        "answer": 2,
+        "skill": "sentence",
+        "explain": "Kết một mẩu quảng cáo mời khách ghé thăm → câu chèn phải là lời mời chào. A mâu thuẫn (chi nhánh vừa KHAI TRƯƠNG, ưu đãi tới 31/10), B thu hẹp vô lý, D nói với người đã là khách."
+      }
     ]
   },
   {
     "id": "p6-05",
     "title": "Email: Nhắc gia hạn hợp đồng phần mềm",
     "kind": "email",
-    "text": "To: office@tranvu-architects.com\nFrom: renewals@drafterpro.com\nSubject: Your DrafterPro license expires soon\n\nDear Customer,\n\nOur records show that your team license for DrafterPro will expire (1)___ October 31.\n\nTo avoid any interruption to your projects, we recommend renewing before the expiration date. Customers who renew early will (2)___ a 15% loyalty discount and two free training webinars.\n\nPlease note that our pricing structure will change in November. (3)___, renewing now guarantees your current rate for another full year.\n\nIf you have already renewed, please (4)___ this message.\n\nThe DrafterPro Team",
+    "text": "To: office@tranvu-architects.com\nFrom: renewals@drafterpro.com\nSubject: Your DrafterPro license expires soon\n\nDear Customer,\n\nOur records show that your team license for DrafterPro will expire (1)___ October 31.\n\nTo avoid any interruption to your projects, we recommend renewing before the expiration date. Customers who renew early will (2)___ a 15% loyalty discount and two free training webinars.\n\nPlease note that our pricing structure will change in November. (3)___, renewing now guarantees your current rate for another full year.\n\nIf you have already renewed, please disregard this message. (4)___\n\nThe DrafterPro Team",
     "blanks": [
-      { "options": ["on", "in", "at", "until"], "answer": 0, "skill": "prep", "explain": "Ngày cụ thể (October 31) → on. \"until\" sai vì hết hạn là sự việc 1 thời điểm." },
-      { "options": ["receive", "received", "receiving", "receipt"], "answer": 0, "skill": "word-form", "explain": "Sau trợ động từ \"will\" cần động từ nguyên thể: will receive." },
-      { "options": ["Therefore", "However", "Otherwise", "Similarly"], "answer": 0, "skill": "conj", "explain": "Giá sắp tăng → VÌ VẬY gia hạn ngay để giữ giá cũ: Therefore." },
-      { "options": ["disregard", "respond", "forward", "print"], "answer": 0, "skill": "vocab", "explain": "\"please disregard this message\" = vui lòng bỏ qua thư này (nếu đã gia hạn) — câu mẫu email kinh điển." }
+      {
+        "options": [
+          "on",
+          "in",
+          "at",
+          "until"
+        ],
+        "answer": 0,
+        "skill": "prep",
+        "explain": "Ngày cụ thể (October 31) → on. \"until\" sai vì hết hạn là sự việc 1 thời điểm."
+      },
+      {
+        "options": [
+          "receive",
+          "received",
+          "receiving",
+          "receipt"
+        ],
+        "answer": 0,
+        "skill": "word-form",
+        "explain": "Sau trợ động từ \"will\" cần động từ nguyên thể: will receive."
+      },
+      {
+        "options": [
+          "Therefore",
+          "However",
+          "Otherwise",
+          "Similarly"
+        ],
+        "answer": 0,
+        "skill": "conj",
+        "explain": "Giá sắp tăng → VÌ VẬY gia hạn ngay để giữ giá cũ: Therefore."
+      },
+      {
+        "options": [
+          "Your license was canceled at your request.",
+          "Otherwise, you can renew in minutes from your account dashboard.",
+          "Training webinars are limited to new customers only.",
+          "We are sorry that our software did not meet your needs."
+        ],
+        "answer": 1,
+        "skill": "sentence",
+        "explain": "Câu trước xử lý trường hợp \"đã gia hạn\" → câu chèn phải xử lý trường hợp CÒN LẠI (Otherwise…). A và D mâu thuẫn với mục đích thư mời gia hạn; C ngược với ưu đãi 2 webinar cho khách gia hạn sớm."
+      }
     ]
   },
   {
     "id": "p6-06",
     "title": "Thông báo: Chương trình xe đưa đón nhân viên",
     "kind": "notice",
-    "text": "NOTICE — EMPLOYEE SHUTTLE PILOT PROGRAM\n\nStarting May 6, Halden Manufacturing will run a free shuttle (1)___ Central Station and the factory gate.\n\nThe shuttle will operate every twenty minutes during peak hours. Seats are available on a first-come, first-served (2)___.\n\nThis three-month pilot is part of our green commuting plan. If ridership stays above 60%, the program (3)___ permanent in September.\n\nWe encourage everyone to give it a try — each trip you take (4)___ your parking-lot congestion and your fuel costs.\n\nFacilities Department",
+    "text": "NOTICE — EMPLOYEE SHUTTLE PILOT PROGRAM\n\nStarting May 6, Halden Manufacturing will run a free shuttle (1)___ Central Station and the factory gate.\n\nThe shuttle will operate every twenty minutes during peak hours. Seats are available on a first-come, first-served (2)___.\n\nThis three-month pilot is part of our green commuting plan. If ridership stays above 60%, the program (3)___ permanent in September.\n\nWe encourage everyone to give it a try — each trip you take reduces both parking-lot congestion and your fuel costs. (4)___\n\nFacilities Department",
     "blanks": [
-      { "options": ["between", "among", "across", "through"], "answer": 0, "skill": "prep", "explain": "between A and B — giữa HAI điểm (nhà ga và cổng nhà máy)." },
-      { "options": ["basis", "base", "basic", "basing"], "answer": 0, "skill": "vocab", "explain": "\"on a first-come, first-served basis\" = ai đến trước được trước — collocation cố định với basis." },
-      { "options": ["will become", "became", "becoming", "would have become"], "answer": 0, "skill": "tense", "explain": "Câu điều kiện loại 1 (If ridership stays…) → mệnh đề chính dùng will become." },
-      { "options": ["reduces", "reduce", "reducing", "reduction"], "answer": 0, "skill": "agreement", "explain": "Chủ ngữ \"each trip\" số ít → reduces (each luôn chia số ít)." }
+      {
+        "options": [
+          "between",
+          "among",
+          "across",
+          "through"
+        ],
+        "answer": 0,
+        "skill": "prep",
+        "explain": "between A and B — giữa HAI điểm (nhà ga và cổng nhà máy)."
+      },
+      {
+        "options": [
+          "basis",
+          "base",
+          "basic",
+          "basing"
+        ],
+        "answer": 0,
+        "skill": "vocab",
+        "explain": "\"on a first-come, first-served basis\" = ai đến trước được trước — collocation cố định với basis."
+      },
+      {
+        "options": [
+          "will become",
+          "became",
+          "becoming",
+          "would have become"
+        ],
+        "answer": 0,
+        "skill": "tense",
+        "explain": "Câu điều kiện loại 1 (If ridership stays…) → mệnh đề chính dùng will become."
+      },
+      {
+        "options": [
+          "The shuttle will charge a small fee after the first month.",
+          "Parking permits will no longer be issued to any employee.",
+          "Applications for the driver position close on May 6.",
+          "The full timetable is posted on the staff portal."
+        ],
+        "answer": 3,
+        "skill": "sentence",
+        "explain": "Câu chèn cuối thông báo thường chỉ chỗ tra thêm thông tin. A mâu thuẫn (\"free shuttle\"), B quá tuyệt đối so với một chương trình THÍ ĐIỂM, C chỉ mượn lại ngày 6/5 để bẫy."
+      }
+    ]
+  },
+  {
+    "id": "p6-07",
+    "title": "Thư mời tham dự lễ khai trương",
+    "kind": "letter",
+    "text": "Marlowe & Finch Architects\n88 Riverbank Road\n\nDear Ms. Okonkwo,\n\nOn behalf of everyone at Marlowe & Finch, I am delighted to invite you to the official opening of our new studio on Thursday, 14 March, at six o'clock in the evening.\n\nOver the past year, our team has (1)___ from twelve people to more than forty. The new studio gives us the space to keep growing while staying in the neighbourhood our clients know.\n\nThe evening will begin with a short tour, (2)___ by refreshments and a presentation of the projects we completed last season. (3)___\n\nParking behind the building is limited, so we recommend arriving by tram. Please confirm your attendance by 7 March so that we can (4)___ the caterers with a final number.\n\nWarm regards,\nDaniel Finch, Partner",
+    "blanks": [
+      {
+        "options": [
+          "grown",
+          "grow",
+          "growing",
+          "growth"
+        ],
+        "answer": 0,
+        "skill": "tense",
+        "explain": "has + V3 (hiện tại hoàn thành) — dấu hiệu \"Over the past year\" chỉ khoảng thời gian kéo dài tới hiện tại."
+      },
+      {
+        "options": [
+          "followed",
+          "following",
+          "follows",
+          "to follow"
+        ],
+        "answer": 0,
+        "skill": "passive",
+        "explain": "Rút gọn mệnh đề bị động: \"…a short tour, (which will be) followed by refreshments\" — chuyến tham quan ĐƯỢC tiếp nối bởi tiệc nhẹ."
+      },
+      {
+        "options": [
+          "Unfortunately, the studio will remain closed to visitors.",
+          "Guests are welcome to bring one colleague or partner.",
+          "The tram service will be suspended that evening.",
+          "Applications for the internship close on 14 March."
+        ],
+        "answer": 1,
+        "skill": "sentence",
+        "explain": "Đoạn đang mô tả chương trình buổi tối → câu chèn nói thêm về KHÁCH MỜI là hợp mạch. A mâu thuẫn với cả bức thư mời; C mâu thuẫn câu sau (khuyên đi tram); D lạc chủ đề."
+      },
+      {
+        "options": [
+          "provide",
+          "provided",
+          "providing",
+          "provision"
+        ],
+        "answer": 0,
+        "skill": "word-form",
+        "explain": "Sau \"can\" phải là động từ NGUYÊN THỂ → provide. provide + người + with + số liệu."
+      }
+    ]
+  },
+  {
+    "id": "p6-08",
+    "title": "Quảng cáo dịch vụ giao đồ ăn cho văn phòng",
+    "kind": "ad",
+    "text": "LUNCHLINE — OFFICE CATERING MADE SIMPLE\n\nStill sending an intern out for sandwiches? LunchLine delivers hot, freshly prepared meals to your office door, (1)___ orders of six or more.\n\nEvery Monday we publish the week's menu online, and your team orders individually — no more collecting cash or guessing what a colleague eats. Meals arrive labelled with each person's name, so distribution takes (2)___ than two minutes.\n\nWe work with fourteen local kitchens, which means genuine variety: Thai on Tuesday, pasta on Wednesday, whatever your office votes for. (3)___\n\nSign up this quarter and your first delivery is free. Visit lunchline dot com to (4)___ a demo for your team.",
+    "blanks": [
+      {
+        "options": [
+          "on",
+          "at",
+          "in",
+          "with"
+        ],
+        "answer": 0,
+        "skill": "prep",
+        "explain": "\"on orders of six or more\" — giới từ on dùng khi nói điều kiện áp dụng cho ĐƠN HÀNG (free delivery on orders over…)."
+      },
+      {
+        "options": [
+          "few",
+          "less",
+          "little",
+          "fewer"
+        ],
+        "answer": 1,
+        "skill": "comparative",
+        "explain": "\"than\" → so sánh hơn. Với thời lượng (two minutes) coi là không đếm được → less than two minutes."
+      },
+      {
+        "options": [
+          "Dietary requests are handled at the ordering stage.",
+          "All meals are prepared in a single central kitchen.",
+          "Deliveries are available only to home addresses.",
+          "Menus are posted at the end of each month."
+        ],
+        "answer": 0,
+        "skill": "sentence",
+        "explain": "Đoạn đang khoe SỰ ĐA DẠNG món ăn → câu chèn về yêu cầu ăn kiêng nối đúng mạch. B mâu thuẫn (14 bếp), C mâu thuẫn (giao tới văn phòng), D mâu thuẫn (thực đơn đăng mỗi thứ Hai)."
+      },
+      {
+        "options": [
+          "schedule",
+          "scheduling",
+          "scheduled",
+          "schedules"
+        ],
+        "answer": 0,
+        "skill": "gerund",
+        "explain": "to + V nguyên thể (to schedule a demo). \"to\" ở đây là dấu hiệu động từ nguyên thể chỉ mục đích, không phải giới từ."
+      }
+    ]
+  },
+  {
+    "id": "p6-09",
+    "title": "Bản tin nội bộ: kết quả khảo sát nhân viên",
+    "kind": "article",
+    "text": "STAFF SURVEY: WHAT YOU TOLD US\n\nLast month, 612 employees — nearly eighty percent of the company — completed the annual workplace survey. That is the (1)___ response rate we have ever recorded, and the leadership team is grateful for it.\n\nThe results were encouraging in most areas. Satisfaction with training rose nine points, and ninety-one percent of respondents said they would recommend the company to a friend. (2)___\n\nOne area clearly needs attention. Only forty-four percent agreed that meeting schedules leave them enough time for focused work, a figure that has fallen (3)___ two consecutive years.\n\nIn response, we are trialling meeting-free Wednesday mornings across three departments beginning in July. Detailed results, broken down by team, (4)___ on the intranet next week.",
+    "blanks": [
+      {
+        "options": [
+          "highest",
+          "higher",
+          "high",
+          "highly"
+        ],
+        "answer": 0,
+        "skill": "comparative",
+        "explain": "\"we have ever recorded\" là dấu hiệu SO SÁNH NHẤT → the highest response rate."
+      },
+      {
+        "options": [
+          "Fewer than half of the staff took part this year.",
+          "The survey will be discontinued next year.",
+          "Scores for workplace safety were also among the strongest.",
+          "Training budgets will be reduced accordingly."
+        ],
+        "answer": 2,
+        "skill": "sentence",
+        "explain": "Đoạn đang liệt kê các mảng KẾT QUẢ TỐT → câu chèn thêm một điểm tốt nữa. A mâu thuẫn (80% tham gia), B và D không có cơ sở, còn trái mạch \"encouraging\"."
+      },
+      {
+        "options": [
+          "for",
+          "since",
+          "during",
+          "by"
+        ],
+        "answer": 0,
+        "skill": "prep",
+        "explain": "for + KHOẢNG thời gian (for two consecutive years). since + mốc bắt đầu; during + danh từ chỉ giai đoạn cụ thể."
+      },
+      {
+        "options": [
+          "will be published",
+          "publishing",
+          "have published",
+          "publishes"
+        ],
+        "answer": 0,
+        "skill": "passive",
+        "explain": "Kết quả được ĐĂNG (không tự đăng) + mốc tương lai \"next week\" → bị động tương lai will be published."
+      }
+    ]
+  },
+  {
+    "id": "p6-10",
+    "title": "Email: đổi nhà cung cấp đồng phục",
+    "kind": "email",
+    "text": "To: all-branches@sunridgegrocers.com\nFrom: p.nkemelu@sunridgegrocers.com\nSubject: New uniform supplier from 1 September\n\nDear colleagues,\n\nAfter reviewing bids from five companies, we have selected Trellis Workwear as our uniform supplier (1)___ 1 September. Trellis offers a wider range of sizes and delivers in five working days instead of the three weeks we are used to.\n\nStaff do not need to do anything immediately. Your current uniforms remain (2)___ until they wear out, and replacements will simply come from the new supplier.\n\nBranch managers, however, should place orders through the Trellis portal rather than the old order form. (3)___\n\nIf an item arrives damaged, photograph it and forward the photo to your branch manager, (4)___ will arrange a replacement directly with Trellis.\n\nThank you,\nPatience Nkemelu, Operations",
+    "blanks": [
+      {
+        "options": [
+          "effective",
+          "effect",
+          "effectively",
+          "effectiveness"
+        ],
+        "answer": 0,
+        "skill": "word-form",
+        "explain": "\"effective + mốc thời gian\" = có hiệu lực từ (effective 1 September) — cụm cố định trong văn bản công sở."
+      },
+      {
+        "options": [
+          "acceptable",
+          "acceptance",
+          "accepting",
+          "accept"
+        ],
+        "answer": 0,
+        "skill": "word-form",
+        "explain": "Sau động từ nối remain cần TÍNH TỪ bổ ngữ → remain acceptable (vẫn được chấp nhận)."
+      },
+      {
+        "options": [
+          "Login details were e-mailed to managers on Friday.",
+          "The old order form should be used for all purchases.",
+          "Uniforms must be returned to head office by 1 September.",
+          "Trellis will open a retail shop in each branch."
+        ],
+        "answer": 0,
+        "skill": "sentence",
+        "explain": "Câu trước yêu cầu quản lý đặt hàng qua cổng Trellis → câu chèn cấp thông tin đăng nhập là bước tiếp theo hợp lý. B mâu thuẫn ngay câu trước, C mâu thuẫn đoạn 2 (giữ đồng phục cũ), D bịa thêm."
+      },
+      {
+        "options": [
+          "who",
+          "which",
+          "whose",
+          "whom"
+        ],
+        "answer": 0,
+        "skill": "relative",
+        "explain": "Đại từ quan hệ thay cho NGƯỜI (your branch manager) và làm CHỦ NGỮ của \"will arrange\" → who. whom làm tân ngữ; which thay vật."
+      }
     ]
   }
 ]

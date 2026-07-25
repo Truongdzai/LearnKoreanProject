@@ -1,4 +1,5 @@
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import { wordOfDay } from '@/data/wordOfDay'
@@ -8,15 +9,7 @@ export default function WordOfDay() {
   const cfg = studyLang(learnLang)
   const w = wordOfDay(learnLang)
 
-  const speak = () => {
-    try {
-      const u = new SpeechSynthesisUtterance(w.term)
-      u.lang = cfg.locale
-      u.rate = 0.9
-      window.speechSynthesis.cancel()
-      window.speechSynthesis.speak(u)
-    } catch { /* trình duyệt không hỗ trợ TTS */ }
-  }
+  const speak = () => speakLang(w.term, cfg.locale, 0.9)
 
   return (
     <div className="wod">

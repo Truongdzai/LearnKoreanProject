@@ -37,9 +37,9 @@ export default function PathPage() {
     clearWizard()
   }, [wizardRequested, learnLang, nativeLang, clearWizard, learnGoal])
 
-  // Selecting the study language inside the wizard applies it live across the app.
-  const pickStudy = (code: string) => { setLang(code); setLearnLang(code) }
-  const pickNative = (code: string) => { setNative(code); setNativeLang(code) }
+  // Chọn ngôn ngữ trong wizard chỉ đổi lựa chọn cục bộ — chỉ áp dụng cho cả app khi bấm Xác nhận.
+  const pickStudy = (code: string) => setLang(code)
+  const pickNative = (code: string) => setNative(code)
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string, max = 5) => {
     if (arr.includes(v)) set(arr.filter((x) => x !== v))
@@ -150,10 +150,16 @@ export default function PathPage() {
             <li key={i} className={i === 0 ? 'active' : ''}>
               <span className="rm-dot">{i + 1}</span>
               <div className="rm-body">
-                <b>{s.title}</b>
+                <div className="rm-head">
+                  <b>{s.title}</b>
+                  <span className="rm-meta">
+                    {i === 0 && <span className="rm-chip now">{t('path.startHere')}</span>}
+                    {s.cefr && <span className="rm-chip cefr">{s.cefr}</span>}
+                    {s.duration && <span className="rm-chip"><Icon name="clock" size={12} /> {s.duration}</span>}
+                  </span>
+                </div>
                 <p>{s.detail}</p>
               </div>
-              {i === 0 && <span className="rm-now">{t('path.startHere')}</span>}
             </li>
           ))}
         </ol>

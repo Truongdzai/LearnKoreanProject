@@ -3,12 +3,13 @@ import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
 import Flag from '@/core/components/Flag'
 import { navForLang } from '@/core/constants/nav'
+import { pathForView } from '@/core/constants/routes'
 import { STUDY_LANGS } from '@/core/constants/languages'
 import { studyLangName } from '@/core/i18n/translations'
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 
-export default function Sidebar() {
+export default function Sidebar({ open = false, onClose }: { open?: boolean; onClose?: () => void }) {
   const { view, setView, user, learnLang, setLearnLang, requestWizard, t, uiLang } = useAppStore()
   const todayIdx = (new Date().getDay() + 6) % 7
   const nav = navForLang(learnLang)
@@ -19,11 +20,14 @@ export default function Sidebar() {
     setLearnLang(code)
     requestWizard()
     setView('path')
+    onClose?.()
   }
 
   return (
-    <aside className="sidebar">
-      <div className="brand" onClick={() => setView('home')} role="button">
+    <>
+    {open && <div className="sidebar-backdrop" onClick={onClose} />}
+    <aside className={'sidebar' + (open ? ' open' : '')}>
+      <div className="brand" onClick={() => { setView('home'); onClose?.() }} role="button">
         <div className="brand-logo"><Logo size={42} /></div>
         <div className="name">
           <b>VyLing</b>
@@ -58,19 +62,30 @@ export default function Sidebar() {
 
       <nav className="nav">
         {nav.map((n) => (
-          <button key={n.id} className={view === n.id ? 'active' : ''} onClick={() => setView(n.id)}>
+          <a
+            key={n.id}
+            href={pathForView(n.id)}
+            className={view === n.id ? 'active' : ''}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+              e.preventDefault()
+              setView(n.id)
+              onClose?.()
+            }}
+          >
             <span className="ic"><Icon name={n.icon} size={19} /></span> {t('nav.' + n.id)}
-          </button>
+          </a>
         ))}
       </nav>
 
       <div className="sidebar-spacer" />
 
       {!user.isPlus && (
-        <button className="upgrade-btn" onClick={() => setView('pricing')}>
+        <button className="upgrade-btn" onClick={() => { setView('pricing'); onClose?.() }}>
           <Icon name="sparkles" size={16} /> {t('side.upgrade')}
         </button>
       )}
     </aside>
+    </>
   )
 }

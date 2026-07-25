@@ -4,6 +4,8 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
+import { speakLang } from '@/core/tts'
+import { LEARN_GOALS } from '@/features/onboarding/goals'
 import { scenariosFor, randomScenario, type Scenario } from './scenarios'
 import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
@@ -11,27 +13,24 @@ interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string
 
 function speak(text: string, locale: string, rate = 0.95) {
   if (!text) return
-  try {
-    speechSynthesis.cancel()
-    const u = new SpeechSynthesisUtterance(text)
-    u.lang = locale
-    u.rate = rate
-    const base = locale.split('-')[0]
-    const voice = speechSynthesis.getVoices().find((v) => v.lang === locale || v.lang.startsWith(base))
-    if (voice) u.voice = voice
-    speechSynthesis.speak(u)
-  } catch { /* unsupported */ }
+  speakLang(text, locale, rate)
 }
 
 export default function SpeakingPage() {
   const { recordEvent, learnLang, nativeLang, goal, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
+  const all = scenariosFor(learnLang)
+  const [filter, setFilter] = useState<string>('')
+  // Chỉ hiện những mục tiêu thật sự có tình huống cho ngôn ngữ đang học.
+  const filters = LEARN_GOALS.filter((g) => all.some((s) => s.tags?.includes(g.id)))
   // Tình huống hợp mục tiêu onboarding được xếp lên đầu danh sách.
-  const scenarios = [...scenariosFor(learnLang)].sort((a, b) => {
-    const am = goal && a.tags?.includes(goal) ? 0 : 1
-    const bm = goal && b.tags?.includes(goal) ? 0 : 1
-    return am - bm
-  })
+  const scenarios = all
+    .filter((s) => !filter || s.tags?.includes(filter))
+    .sort((a, b) => {
+      const am = goal && a.tags?.includes(goal) ? 0 : 1
+      const bm = goal && b.tags?.includes(goal) ? 0 : 1
+      return am - bm
+    })
   const [scenario, setScenario] = useState<Scenario | null>(null)
   const [msgs, setMsgs] = useState<ChatMsg[]>([])
   const [suggestions, setSuggestions] = useState<SpeakLine[]>([])
@@ -40,6 +39,7 @@ export default function SpeakingPage() {
   const [finished, setFinished] = useState(false)
   const [aiOff, setAiOff] = useState(false)
   const [showSuggest, setShowSuggest] = useState(true)
+  const [showPhrases, setShowPhrases] = useState(true)
   const [viShown, setViShown] = useState<Set<number>>(new Set())
   const [romaShown, setRomaShown] = useState<Set<number>>(new Set())
   const fallbackStep = useRef(0)
@@ -73,7 +73,7 @@ export default function SpeakingPage() {
 
   const start = (s: Scenario) => {
     setScenario(s)
-    setDraft(''); setFinished(false); setAiOff(false); setShowSuggest(true)
+    setDraft(''); setFinished(false); setAiOff(false); setShowSuggest(true); setShowPhrases(true)
     setViShown(new Set()); setRomaShown(new Set())
     fallbackStep.current = 0; turns.current = 0
     sr.reset()
@@ -127,6 +127,7 @@ export default function SpeakingPage() {
     const history = [...msgs, userMsg].map((m) => ({ role: m.who, ko: m.ko }))
     setMsgs((prev) => [...prev, userMsg])
     setSuggestions([])
+    setShowPhrases(false)
     turns.current += 1
     recordEvent('pronounce', 1)
 
@@ -183,6 +184,25 @@ export default function SpeakingPage() {
       <div className="speaking">
         <h1 className="page-title"><Icon name="mic" /> {t('sp.title')}</h1>
         <p className="page-sub">{t('sp.sub', { lang: learnLangName })}</p>
+
+        {filters.length > 1 && (
+          <div className="sp-filters">
+            <button className={'sp-filter' + (filter ? '' : ' on')} onClick={() => setFilter('')}>
+              {t('sp.filterAll')}
+            </button>
+            {filters.map((g) => (
+              <button
+                key={g.id}
+                className={'sp-filter' + (filter === g.id ? ' on' : '')}
+                onClick={() => setFilter(filter === g.id ? '' : g.id)}
+              >
+                {g.emoji} {g.label}
+              </button>
+            ))}
+            <span className="sp-count">{t('sp.count', { n: scenarios.length })}</span>
+          </div>
+        )}
+
         <div className="scenario-grid">
           <button className="scenario-card sp-pick sp-random" onClick={() => start(randomScenario(learnLang))}>
             <span className="sp-pick-ava">🎲</span>
@@ -277,6 +297,30 @@ export default function SpeakingPage() {
         </div>
       ) : (
         <>
+          {!!scenario.keyPhrases?.length && (
+            <div className="sp-phrases">
+              <button className="sp-phrases-head" onClick={() => setShowPhrases((v) => !v)}>
+                <Icon name="bulb" size={14} /> {t('sp.phrases', { n: scenario.keyPhrases.length })}
+                <Icon name="chevron-down" size={14} style={{ transform: showPhrases ? 'none' : 'rotate(-90deg)' }} />
+              </button>
+              {showPhrases && (
+                <div className="sp-phrase-list">
+                  {scenario.keyPhrases.map((p, i) => (
+                    <div key={i} className="sp-phrase">
+                      <button className="sp-phrase-speak" onClick={() => speak(p.ko, cfg.locale)} title={t('sp.hear')}>
+                        <Icon name="volume" size={13} />
+                      </button>
+                      <div>
+                        <b lang={learnLang}>{p.ko}</b>
+                        <small>{p.vi}</small>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {suggestions.length > 0 && (
             <div className="sp-suggest">
               <button className="sp-suggest-head" onClick={() => setShowSuggest((v) => !v)}>

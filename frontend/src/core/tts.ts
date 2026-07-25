@@ -55,12 +55,13 @@ export function speakScript(lines: ScriptLine[], opts?: { rate?: number; onEnd?:
       const u = new SpeechSynthesisUtterance(line.text)
       u.lang = 'en-US'
       u.rate = rate
-      if (line.s === 'W') {
+      const second = line.s === 'M2' || line.s === 'W2'
+      if (line.s === 'W' || line.s === 'W2') {
         if (voiceW) u.voice = voiceW
-        if (!voiceW || voiceW === voiceM) u.pitch = 1.2
+        u.pitch = second ? 1.45 : (!voiceW || voiceW === voiceM ? 1.2 : 1)
       } else {
         if (voiceM) u.voice = voiceM
-        if (!voiceM || voiceW === voiceM) u.pitch = 0.8
+        u.pitch = second ? 0.65 : (!voiceM || voiceW === voiceM ? 0.8 : 1)
       }
       if (idx === lines.length - 1 && opts?.onEnd) u.onend = opts.onEnd
       speechSynthesis.speak(u)

@@ -23,7 +23,7 @@ function fileToAvatar(file: File, size = 144): Promise<string> {
   })
 }
 
-export default function Topbar() {
+export default function Topbar({ onMenu }: { onMenu?: () => void }) {
   const { setView, openLookup, theme, toggleTheme, user, setAvatar, t, learnLangName, uiLang, setUiLang } = useAppStore()
   const { account, isAuthed, isAdmin, openAuth, signOut } = useAuth()
   const [q, setQ] = useState('')
@@ -41,6 +41,10 @@ export default function Topbar() {
 
   return (
     <header className="topbar">
+      <button className="icon-btn menu-btn" onClick={onMenu} title={t('top.navMenu')}>
+        <Icon name="menu" size={20} />
+      </button>
+
       <button className="lookup-trigger" onClick={() => openLookup()} title={t('top.lookup')}>
         <Icon name="vyling" size={20} />
       </button>

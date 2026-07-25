@@ -5,7 +5,9 @@ import hashlib
 from fastapi import APIRouter, HTTPException
 
 from ..errors import AppError
-from ..schemas.learn import TranscriptIn, ExplainIn, ExplainOut, LevelIn, LevelOut
+from ..schemas.learn import (
+    TranscriptIn, ExplainIn, ExplainOut, LevelIn, LevelOut, TranslateIn, TranslateOut,
+)
 from ..services import youtube, translate, cache, jobs, llm
 from ..services.langs import study_name, native_name
 
@@ -142,3 +144,17 @@ def api_level(body: LevelIn):
     out = {"level": level if level in _CEFR else "B1", "reason": data.get("reason", "")}
     cache.save_dict(key, out)
     return out
+
+
+@router.post("/translate", response_model=TranslateOut)
+def api_translate(body: TranslateIn):
+    lines = [str(x) for x in (body.lines or [])]
+    if not lines:
+        return {"lines": []}
+    if body.native == body.lang:
+        return {"lines": lines}
+    try:
+        out = translate.translate_lines_native(lines, body.lang, body.native)
+    except Exception as exc:
+        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
+    return {"lines": out}

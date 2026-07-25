@@ -5,7 +5,7 @@ import type { Video } from '@/models/video.model'
 import type { Account } from '@/models/account.model'
 import type { PlantedSeed } from '@/models/gamification.model'
 import type { LearningPath } from '@/models/path.model'
-import { fetchTranscript } from '@/core/api/learn.api'
+import { fetchTranscript, translateLines } from '@/core/api/learn.api'
 import { fetchVideos } from '@/core/api/content.api'
 import {
   fetchState, buyItemApi, equipFrameApi, equipPetApi, equipBgApi, setAvatarApi, upgradePlusApi, plantSeedApi, waterPlantApi,
@@ -13,7 +13,8 @@ import {
   recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
-import { viewAllowedForLang } from '@/core/constants/nav'
+import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
+import { pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
 import { studyLang } from '@/core/constants/languages'
 import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { useAuth } from '@/store/auth.store'
@@ -72,6 +73,22 @@ function loadLang(): string {
 
 function loadNative(): string {
   try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
+}
+
+// Dịch phần "bản dịch" của bài học sang tiếng mẹ đẻ đã chọn (khác tiếng Việt & khác tiếng đang học).
+// Giữ nguyên bản Việt sẵn có làm dự phòng khi AI không trả về dòng tương ứng.
+async function applyNativeTranslation(d: Lesson, lang: string, native: string): Promise<Lesson> {
+  if (!native || native === 'vi' || native === lang) return d
+  const lines = d.segments.map((s) => s.ko)
+  if (!lines.length) return d
+  try {
+    const r = await translateLines(lines, lang, native)
+    const tr = r.lines || []
+    const segments = d.segments.map((s, i) => (tr[i] ? { ...s, vi: tr[i] } : s))
+    return { ...d, segments }
+  } catch {
+    return d
+  }
 }
 
 function loadGoal(): string {
@@ -159,7 +176,7 @@ const AppContext = createContext<AppStore | null>(null)
 export function AppStoreProvider({ children }: { children: ReactNode }) {
   const { account, isAuthed, setAccount, openAuth, setBonusAvailable } = useAuth()
 
-  const [view, setView] = useState<AppView>('home')
+  const [view, setViewState] = useState<AppView>(() => viewForPath(window.location.pathname) || 'home')
   const [theme, setTheme] = useState<ThemeMode>(loadTheme)
   const [learnLang, setLearnLangState] = useState<string>(loadLang)
   const [nativeLang, setNativeLangState] = useState<string>(loadNative)
@@ -185,6 +202,36 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [statusError, setStatusError] = useState(false)
 
   const user = account ?? GUEST
+
+  const setView = useCallback((v: AppView) => {
+    setViewState(v)
+    const path = pathForView(v)
+    if (window.location.pathname !== path) window.history.pushState({ view: v }, '', path)
+  }, [])
+
+  const applyPath = useCallback((pathname: string) => {
+    const v = viewForPath(pathname)
+    if (!v) {
+      window.history.replaceState({ view: 'home' }, '', pathForView('home'))
+      setViewState('home')
+      return
+    }
+    if (!viewAllowedForLang(v, loadLang())) {
+      const langs = langsForView(v)
+      if (langs && langs.length) {
+        setLearnLangState(langs[0])
+        try { localStorage.setItem(LANG_KEY, langs[0]) } catch {  }
+      }
+    }
+    setViewState(v)
+  }, [])
+
+  useEffect(() => {
+    applyPath(window.location.pathname)
+    const onPop = () => applyPath(window.location.pathname)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [applyPath])
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -242,6 +289,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   )
 
   const learnLangName = studyLangName(uiLang, learnLang)
+
+  useEffect(() => {
+    const label = translate(uiLang, titleKeyForView(view))
+    document.title = view === 'home'
+      ? `VyLing — ${translate(uiLang, 'brand.tagline')}`
+      : `${label} · VyLing`
+    document.documentElement.lang = uiLang
+  }, [view, uiLang])
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
   const clearWizard = useCallback(() => setWizardRequested(false), [])
@@ -417,18 +472,27 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       setStatus('')
       recordEvent('video', 1, 0, 0)
       if (opts?.video) saveVideo(opts.video)
+      if (nativeLang !== 'vi' && nativeLang !== lang) {
+        const nd = await applyNativeTranslation(d, lang, nativeLang)
+        setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
+      }
     } catch (e) {
       setStatusError(true)
       setStatus((e as Error).message)
     }
-  }, [recordEvent, learnLang, saveVideo])
+  }, [recordEvent, learnLang, nativeLang, saveVideo])
 
   const loadSample = useCallback(() => {
     setStatusError(false)
     setStatus('')
     setLesson(SAMPLE_LESSON)
     setView('learn')
-  }, [])
+    if (nativeLang !== 'vi') {
+      applyNativeTranslation(SAMPLE_LESSON, learnLang, nativeLang).then((nd) => {
+        setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
+      })
+    }
+  }, [nativeLang, learnLang])
 
   const value: AppStore = {
     view, setView,

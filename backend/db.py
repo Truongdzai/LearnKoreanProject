@@ -26,6 +26,15 @@ CREATE TABLE IF NOT EXISTS translation_cache (
     created_at  TEXT DEFAULT (datetime('now', 'localtime'))
 );
 
+CREATE TABLE IF NOT EXISTS translation_cache_native (
+    lang        TEXT NOT NULL,
+    native      TEXT NOT NULL,
+    ko          TEXT NOT NULL,
+    txt         TEXT NOT NULL,
+    created_at  TEXT DEFAULT (datetime('now', 'localtime')),
+    PRIMARY KEY (lang, native, ko)
+);
+
 CREATE TABLE IF NOT EXISTS srs_cards (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id       TEXT NOT NULL DEFAULT 'local',

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { fetchActivities, type Activities } from '@/core/api/me.api'
+import { fetchActivities, fetchActivityDaysApi, type Activities, type ActivityDay } from '@/core/api/me.api'
 import { computeBadges } from '@/data/badges'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
@@ -15,18 +15,66 @@ const EMPTY: Activities = {
   srsTotal: 0,
 }
 
+const HEAT_WEEKS = 12
+
+function heatLevel(mins: number): number {
+  if (mins <= 0) return 0
+  if (mins < 10) return 1
+  if (mins < 25) return 2
+  if (mins < 50) return 3
+  return 4
+}
+
+function toISO(d: Date): string {
+  return d.toISOString().slice(0, 10)
+}
+
 export default function ActivitiesPage() {
   const { user, savedVideos, garden, paths, t } = useAppStore()
   const { isAuthed, openAuth } = useAuth()
   const [data, setData] = useState<Activities>(EMPTY)
+  const [days, setDays] = useState<ActivityDay[]>([])
+
+  const start = useMemo(() => {
+    const d = new Date()
+    d.setHours(0, 0, 0, 0)
+    const todayW = (d.getDay() + 6) % 7
+    d.setDate(d.getDate() - todayW - (HEAT_WEEKS - 1) * 7)
+    return d
+  }, [])
 
   useEffect(() => {
-    if (!isAuthed) { setData(EMPTY); return }
+    if (!isAuthed) { setData(EMPTY); setDays([]); return }
     fetchActivities().then(setData).catch(() => setData(EMPTY))
-  }, [isAuthed])
+    fetchActivityDaysApi(toISO(start)).then((r) => setDays(r.days)).catch(() => setDays([]))
+  }, [isAuthed, start])
 
   const maxMin = Math.max(1, ...data.minutes)
   const maxWords = Math.max(1, ...data.words)
+
+  const minutesByDay = useMemo(() => {
+    const m = new Map<string, number>()
+    for (const d of days) m.set(d.day, d.minutes)
+    return m
+  }, [days])
+
+  const heat = useMemo(() => {
+    const todayISO = toISO(new Date())
+    const cols: { iso: string; mins: number; future: boolean }[][] = []
+    const cursor = new Date(start)
+    for (let w = 0; w < HEAT_WEEKS; w++) {
+      const col: { iso: string; mins: number; future: boolean }[] = []
+      for (let dow = 0; dow < 7; dow++) {
+        const iso = toISO(cursor)
+        col.push({ iso, mins: minutesByDay.get(iso) || 0, future: iso > todayISO })
+        cursor.setDate(cursor.getDate() + 1)
+      }
+      cols.push(col)
+    }
+    return cols
+  }, [start, minutesByDay])
+
+  const activeDays = useMemo(() => days.filter((d) => d.minutes > 0 || d.words > 0 || d.lessons > 0).length, [days])
 
   const badges = computeBadges({
     xp: user.xp,
@@ -43,6 +91,8 @@ export default function ActivitiesPage() {
     { ic: 'cards', label: t('act.weekWords'), val: data.totalWords, unit: t('act.unitWords'), tone: 'violet' },
     { ic: 'star', label: t('act.totalXp'), val: user.xp.toLocaleString('vi'), unit: 'XP', tone: 'gold' },
   ] as const
+
+  const DOW = ['act.d.mon', 'act.d.tue', 'act.d.wed', 'act.d.thu', 'act.d.fri', 'act.d.sat', 'act.d.sun']
 
   return (
     <div className="activities">
@@ -95,6 +145,38 @@ export default function ActivitiesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="act-card act-heat">
+        <div className="act-card-head">
+          <b>{t('act.heatTitle')}</b>
+          <span>{t('act.heatActive', { n: activeDays })}</span>
+        </div>
+        <div className="act-heat-body">
+          <div className="heat-dow">
+            {DOW.map((d, i) => (
+              <span key={d}>{i % 2 === 1 ? t(d) : ''}</span>
+            ))}
+          </div>
+          <div className="heat-grid">
+            {heat.map((col, ci) => (
+              <div key={ci} className="heat-col">
+                {col.map((cell) => (
+                  <span
+                    key={cell.iso}
+                    className={'heat-cell' + (cell.future ? ' future' : ' lvl' + heatLevel(cell.mins))}
+                    title={cell.future ? '' : t('act.heatCell', { date: cell.iso, n: cell.mins })}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="act-heat-legend">
+          <span>{t('act.heatLess')}</span>
+          {[0, 1, 2, 3, 4].map((l) => <span key={l} className={'heat-cell lvl' + l} />)}
+          <span>{t('act.heatMore')}</span>
         </div>
       </div>
 

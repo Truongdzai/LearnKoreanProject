@@ -3,16 +3,18 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import ProgramOverview from './components/ProgramOverview'
 import IcesLearn from './components/IcesLearn'
 import GrammarLessons from './components/GrammarLessons'
+import PronunciationLab from './components/PronunciationLab'
 import VocabQuiz from './components/VocabQuiz'
 import EnglishSummary from './components/EnglishSummary'
 import { recordWeekQuiz } from './progress'
 
-type Tab = 'program' | 'learn' | 'grammar' | 'quiz' | 'summary'
+type Tab = 'program' | 'learn' | 'grammar' | 'pron' | 'quiz' | 'summary'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
+  { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
   { id: 'summary', label: 'Tóm tắt & xuất', icon: 'note' },
 ]
@@ -23,9 +25,23 @@ interface WeekQuiz {
   pass: number
 }
 
+function readJump(): { tab?: string; unit?: string } | null {
+  try {
+    const raw = sessionStorage.getItem('vyling.en.jump')
+    if (!raw) return null
+    sessionStorage.removeItem('vyling.en.jump')
+    return JSON.parse(raw) as { tab?: string; unit?: string }
+  } catch {
+    return null
+  }
+}
+
 export default function EnglishPage() {
-  const [tab, setTab] = useState<Tab>('program')
-  const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
+  const [jump] = useState(readJump)
+  const [tab, setTab] = useState<Tab>(jump?.tab === 'learn' ? 'learn' : 'program')
+  const [learnUnit, setLearnUnit] = useState<string | undefined>(jump?.unit)
+  const [grammarLesson, setGrammarLesson] = useState<string | undefined>(undefined)
+  const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)
 
   const openLearn = (unitId?: string) => {
@@ -33,14 +49,26 @@ export default function EnglishPage() {
     setTab('learn')
   }
 
+  const openGrammar = (lessonId?: string) => {
+    setGrammarLesson(lessonId)
+    setTab('grammar')
+  }
+
   const openQuiz = (week: number, units: string[], pass: number) => {
     setWeekQuiz({ week, units, pass })
     setTab('quiz')
   }
 
+  const openPron = (groupId?: string) => {
+    setPronGroup(groupId)
+    setTab('pron')
+  }
+
   const pickTab = (t: Tab) => {
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
+    if (t === 'grammar') setGrammarLesson(undefined)
+    if (t === 'pron') setPronGroup(undefined)
     setTab(t)
   }
 
@@ -65,10 +93,13 @@ export default function EnglishPage() {
           onLearn={openLearn}
           onQuiz={openQuiz}
           onSummary={() => setTab('summary')}
+          onGrammar={openGrammar}
+          onPron={openPron}
         />
       )}
       {tab === 'learn' && <IcesLearn initialUnit={learnUnit} />}
-      {tab === 'grammar' && <GrammarLessons />}
+      {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
+      {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
       {tab === 'quiz' && (weekQuiz ? (
         <VocabQuiz
           key={`w${weekQuiz.week}`}

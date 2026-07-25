@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Spinner from '@/core/components/Spinner'
+import { speakLang } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { defineWordRich } from '@/core/api/dict.api'
 import { addCard } from '@/core/api/srs.api'
@@ -92,15 +93,7 @@ export default function LookupModal() {
 
   if (!lookupOpen) return null
 
-  const speak = (text: string) => {
-    try {
-      const u = new SpeechSynthesisUtterance(text)
-      u.lang = cfg.locale
-      speechSynthesis.speak(u)
-    } catch {
-      /* not supported */
-    }
-  }
+  const speak = (text: string) => speakLang(text, cfg.locale)
 
   const save = async () => {
     if (!view || saved) return

@@ -81,19 +81,75 @@ const LEARN_GOAL_FOCUS: Record<string, PathStep> = {
   },
 }
 
-/** Build a simple personalised study plan from the wizard choices. */
+const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+
+/** Lấy mã CEFR (A1, B2…) từ chuỗi trình độ như "A1 Beginner" hoặc "A1 · Beginner". */
+function cefrCode(level: string): string {
+  const m = level.toUpperCase().match(/[ABC][12]/)
+  return m ? m[0] : 'A1'
+}
+
+/** Mốc CEFR kế tiếp — dùng làm đích cho lộ trình. */
+function nextCefr(code: string): string {
+  const i = CEFR_ORDER.indexOf(code)
+  return i >= 0 && i < CEFR_ORDER.length - 1 ? CEFR_ORDER[i + 1] : code
+}
+
+/** Build a personalised study plan from the wizard choices, có mốc CEFR & thời lượng ước lượng. */
 export function buildSteps(goals: string[], interests: string[], level: string, learnGoal = ''): PathStep[] {
+  const cur = cefrCode(level)
+  const target = nextCefr(cur)
+  const picked = goals.slice(0, 5)
   const steps: PathStep[] = []
-  steps.push({ title: 'Khởi động & kiểm tra đầu vào', detail: `Đánh giá nhanh trình độ ${level} để chọn điểm xuất phát phù hợp.` })
-  const focus = LEARN_GOAL_FOCUS[learnGoal]
-  if (focus) steps.push(focus)
-  goals.slice(0, 5).forEach((g, i) => {
-    steps.push({ title: `Giai đoạn ${i + 1}: ${g}`, detail: `Học theo các bài & video phù hợp mục tiêu “${g}”.` })
+
+  steps.push({
+    title: 'Khởi động & kiểm tra đầu vào',
+    detail: `Làm bài đánh giá nhanh để xác nhận trình độ ${cur}, chốt điểm xuất phát và đặt mục tiêu học mỗi ngày.`,
+    duration: '≈2 ngày',
+    cefr: cur,
   })
+
+  const focus = LEARN_GOAL_FOCUS[learnGoal]
+  if (focus) steps.push({ ...focus, duration: 'Xuyên suốt' })
+
+  picked.forEach((g, i) => {
+    steps.push({
+      title: `Giai đoạn ${i + 1}: ${g}`,
+      detail: `Học theo các bài & video được chọn lọc cho mục tiêu “${g}”, kèm bài tập vận dụng và mẫu câu thực tế.`,
+      duration: '≈1–2 tuần',
+      cefr: i === picked.length - 1 ? `${cur} → ${target}` : cur,
+    })
+  })
+
   if (interests.length) {
-    steps.push({ title: 'Học qua chủ đề bạn thích', detail: `Luyện nghe – nói với nội dung về ${interests.slice(0, 3).join(', ')}.` })
+    steps.push({
+      title: 'Học qua chủ đề bạn thích',
+      detail: `Luyện nghe – nói với nội dung thật về ${interests.slice(0, 3).join(', ')} để duy trì hứng thú và phản xạ.`,
+      duration: '≈1 tuần',
+    })
   }
-  steps.push({ title: 'Ôn tập định kỳ (SRS)', detail: 'Hệ thống tự nhắc ôn từ vựng & câu đúng thời điểm để nhớ lâu.' })
-  steps.push({ title: 'Tổng kết & nâng cấp lộ trình', detail: 'Đánh giá tiến độ và mở khoá giai đoạn tiếp theo.' })
+
+  steps.push({
+    title: 'Ôn tập định kỳ (SRS)',
+    detail: 'Hệ thống tự nhắc ôn từ vựng & mẫu câu đúng thời điểm quên để ghi nhớ lâu dài.',
+    duration: 'Hằng ngày',
+  })
+
+  if (learnGoal === 'exam') {
+    steps.push({
+      title: 'Luyện đề & chiến thuật phòng thi',
+      detail: 'Giải đề theo cấu trúc thật, bấm giờ từng phần và rút kinh nghiệm để đạt mục tiêu chứng chỉ.',
+      duration: '≈2–3 tuần',
+      cefr: target,
+    })
+  }
+
+  steps.push({
+    title: 'Tổng kết & nâng cấp lộ trình',
+    detail: `Đánh giá tiến độ, củng cố điểm yếu và mở khoá giai đoạn kế tiếp hướng tới trình độ ${target}.`,
+    duration: '≈3 ngày',
+    cefr: `${cur} → ${target}`,
+  })
+
   return steps
 }

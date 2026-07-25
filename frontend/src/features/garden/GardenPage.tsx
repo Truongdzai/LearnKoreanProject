@@ -63,8 +63,8 @@ export default function GardenPage() {
           {garden.map((p) => (
             <div key={p.id} className={'plant-card' + (p.growth >= 100 ? ' bloomed' : '')}>
               <button className="plant-del" title={t('gd.remove')} onClick={() => removePlant(p.id)}><Icon name="trash" size={14} /></button>
-              <div className="plant-art" style={{ transform: `scale(${0.55 + (p.growth / 100) * 0.45})` }}>
-                <Flower art={p.art} size={110} />
+              <div className="plant-art" style={{ transform: `scale(${0.7 + (p.growth / 100) * 0.3})` }}>
+                <Flower art={p.art} size={110} growth={p.growth} />
               </div>
               <div className="plant-name">{p.name}</div>
               <div className="plant-stage">{t(stageKey(p.growth))}</div>

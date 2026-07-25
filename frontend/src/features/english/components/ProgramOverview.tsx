@@ -1,5 +1,6 @@
 import Icon, { type IconName } from '@/core/components/Icon'
 import { TARGET_WORDS, ALL_WORDS } from '@/data/englishCore'
+import { PRON_GROUPS } from '@/data/englishPronunciation'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
 
@@ -21,9 +22,11 @@ interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onSummary: () => void
+  onGrammar: (lessonId?: string) => void
+  onPron: (groupId?: string) => void
 }
 
-export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }: Props) {
+export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary, onGrammar, onPron }: Props) {
   const { learned } = useLearnedWords()
   const day = Math.min(planDay(readPlan().start), 90)
 
@@ -43,7 +46,7 @@ export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }:
       </div>
 
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
-      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} />
+      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>
       <div className="threec-grid">
@@ -72,6 +75,16 @@ export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary }:
             <div><h4>{x.label}</h4><p>{x.desc}</p></div>
           </div>
         ))}
+      </div>
+
+      <div className="en-principle pron-cta">
+        <Icon name="mic" size={20} />
+        <div>
+          <b>Chữ S trong ICES — Sound.</b> Thuộc từ mà đọc sai thì người nghe vẫn không hiểu.
+          {' '}{PRON_GROUPS.length} nhóm âm người Việt hay sai (âm cuối, /θ/, ship–sheep, trọng âm, nối âm) đã có sẵn:
+          nghe mẫu, phân biệt bằng tai rồi đọc cho máy chấm.
+        </div>
+        <button className="btn-primary sm" onClick={() => onPron()}><Icon name="volume" size={15} /> Luyện phát âm</button>
       </div>
     </div>
   )

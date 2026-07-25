@@ -2,11 +2,13 @@ import type { NavItem } from '@/types'
 
 export const VIDEO_LANGS = ['ko', 'en', 'ja', 'zh', 'de', 'vi']
 
+const PATH_LANGS = VIDEO_LANGS.filter((l) => l !== 'en')
+
 export const NAV: NavItem[] = [
   { id: 'home', icon: 'home', label: 'Trang chủ' },
   { id: 'library', icon: 'film', label: 'Kho video', langs: VIDEO_LANGS },
   { id: 'myvideos', icon: 'tv', label: 'Video của tôi', langs: VIDEO_LANGS },
-  { id: 'path', icon: 'map', label: 'Lộ trình', langs: VIDEO_LANGS },
+  { id: 'path', icon: 'map', label: 'Lộ trình', langs: PATH_LANGS },
   { id: 'speaking', icon: 'mic', label: 'Luyện nói', langs: VIDEO_LANGS },
   { id: 'english', icon: 'globe', label: 'Tiếng Anh 3 tháng', langs: ['en'] },
   { id: 'toeic', icon: 'book', label: 'Luyện thi TOEIC', langs: ['en'] },
@@ -29,4 +31,9 @@ export function viewAllowedForLang(view: string, lang: string): boolean {
   const item = NAV.find((n) => n.id === view)
   if (!item) return true
   return !item.langs || item.langs.includes(lang)
+}
+
+export function langsForView(view: string): string[] | null {
+  const item = NAV.find((n) => n.id === view)
+  return item?.langs ?? null
 }

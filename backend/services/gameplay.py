@@ -138,14 +138,35 @@ def plant(user: dict, item_id: str, art: str, name: str) -> dict:
     return {"ok": True, "garden": garden(user["id"])}
 
 
+_GROWTH_STAGE_LANDING = {1: 30, 2: 55, 3: 80, 4: 100}
+
+
+def _growth_stage(g: int) -> int:
+    if g >= 100:
+        return 4
+    if g >= 70:
+        return 3
+    if g >= 40:
+        return 2
+    if g >= 20:
+        return 1
+    return 0
+
+
 def water(user: dict, plant_id: str) -> dict:
     conn = db.get_conn()
     try:
-        conn.execute(
-            "UPDATE user_garden SET growth = MIN(100, growth + 14) WHERE id = ? AND user_id = ?",
+        row = conn.execute(
+            "SELECT growth FROM user_garden WHERE id = ? AND user_id = ?",
             (plant_id, user["id"]),
-        )
-        conn.commit()
+        ).fetchone()
+        if row is not None:
+            nxt = _GROWTH_STAGE_LANDING[min(4, _growth_stage(row["growth"]) + 1)]
+            conn.execute(
+                "UPDATE user_garden SET growth = ? WHERE id = ? AND user_id = ?",
+                (nxt, plant_id, user["id"]),
+            )
+            conn.commit()
     finally:
         conn.close()
     return {"ok": True, "garden": garden(user["id"])}
