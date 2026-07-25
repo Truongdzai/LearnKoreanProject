@@ -1,4 +1,5 @@
 import type { SpeakLine } from '@/core/api/speaking.api'
+import enLines from '@/data/english/speaking/lines.json'
 
 /**
  * A speaking scenario. `opener` / `fallback` are optional: when a language ships
@@ -19,6 +20,8 @@ export interface Scenario {
   persona: string
   /** Mục tiêu onboarding liên quan — tình huống hợp mục tiêu được xếp lên đầu. */
   tags?: string[]
+  /** Cụm từ nên thuộc trước khi vào hội thoại — hiện trong bảng gấp được. */
+  keyPhrases?: SpeakLine[]
   opener?: SpeakLine
   fallback?: { bot: SpeakLine[]; suggestions: SpeakLine[][] }
 }
@@ -52,6 +55,66 @@ function extraScenarios(character: (name: string) => string): Scenario[] {
       character: character('airport'), role: 'Nhân viên sân bay / tài xế', avatar: '🧳', tags: ['travel'],
       situation: 'Bạn làm thủ tục ở sân bay rồi bắt taxi về khách sạn.',
       persona: 'Bạn lần lượt đóng vai nhân viên check-in (hỏi hộ chiếu, hành lý, chỗ ngồi) rồi tài xế taxi (hỏi điểm đến, trò chuyện ngắn, báo giá).',
+    },
+    {
+      id: 'meeting', title: 'Họp nhóm & báo cáo tiến độ', emoji: '📊',
+      character: character('meeting'), role: 'Trưởng nhóm', avatar: '📊', tags: ['work'],
+      situation: 'Cuộc họp đầu tuần: bạn báo cáo tiến độ công việc và nêu vướng mắc.',
+      persona: 'Bạn là trưởng nhóm điều hành cuộc họp đầu tuần, nói ngắn gọn và chuyên nghiệp. Hãy hỏi tiến độ tuần qua, hỏi có gì đang cản trở, chốt trọng tâm tuần này rồi cảm ơn cả nhóm.',
+    },
+    {
+      id: 'phonecall', title: 'Gọi điện công việc', emoji: '📞',
+      character: character('phonecall'), role: 'Đối tác qua điện thoại', avatar: '📞', tags: ['work'],
+      situation: 'Bạn gọi điện cho đối tác để xác nhận lịch hẹn — nghe không nhìn được khẩu hình nên khó hơn nói trực tiếp.',
+      persona: 'Bạn nghe điện thoại công việc. Hãy chào theo kiểu điện thoại công sở, xác nhận người gọi là ai, có lúc xin nhắc lại vì đường dây không rõ, thống nhất lịch hẹn rồi chốt lại và chào tạm biệt.',
+    },
+    {
+      id: 'presentation', title: 'Thuyết trình & hỏi đáp', emoji: '🎤',
+      character: character('presentation'), role: 'Người nghe thuyết trình', avatar: '🎤', tags: ['work'],
+      situation: 'Bạn trình bày ngắn về kế hoạch của mình rồi trả lời câu hỏi của người nghe.',
+      persona: 'Bạn là khán giả trong buổi thuyết trình. Hãy mời người học bắt đầu, lắng nghe rồi đặt 2–3 câu hỏi làm rõ (con số, thời gian, chi phí), cuối cùng khen phần trình bày.',
+    },
+    {
+      id: 'customer', title: 'Xử lý khiếu nại khách hàng', emoji: '🛟',
+      character: character('customer'), role: 'Khách hàng đang bực', avatar: '🛟', tags: ['work'],
+      situation: 'Một khách hàng phàn nàn vì đơn hàng giao muộn — bạn xin lỗi và đưa ra hướng xử lý.',
+      persona: 'Bạn là khách hàng đang khó chịu vì đơn hàng giao muộn. Hãy nêu vấn đề, hỏi bao giờ nhận được, đòi giải pháp; khi người học xin lỗi và đưa hướng xử lý hợp lý thì nguôi giận và cảm ơn.',
+    },
+    {
+      id: 'boss', title: 'Trao đổi với sếp', emoji: '🧑‍💼',
+      character: character('boss'), role: 'Quản lý trực tiếp', avatar: '🧑‍💼', tags: ['work'],
+      situation: 'Bạn gặp riêng quản lý để xin nghỉ phép hoặc xin thêm thời gian cho dự án.',
+      persona: 'Bạn là quản lý trực tiếp, nghiêm túc nhưng thấu hiểu. Hãy hỏi người học cần gì, hỏi lý do và ảnh hưởng tới tiến độ, đề nghị phương án rồi chốt lại.',
+    },
+    {
+      id: 'networking', title: 'Làm quen ở sự kiện nghề nghiệp', emoji: '🥂',
+      character: character('networking'), role: 'Người dự hội thảo', avatar: '🥂', tags: ['work', 'talk'],
+      situation: 'Giờ giải lao một hội thảo, bạn bắt chuyện với người tham dự khác.',
+      persona: 'Bạn là một người dự hội thảo cởi mở. Hãy bắt chuyện tự nhiên, hỏi họ làm nghề gì và ở công ty nào, hỏi cảm nhận về hội thảo, rồi đề nghị giữ liên lạc.',
+    },
+    {
+      id: 'bank', title: 'Ngân hàng & giấy tờ', emoji: '🏦',
+      character: character('bank'), role: 'Giao dịch viên ngân hàng', avatar: '🏦', tags: ['talk', 'travel'],
+      situation: 'Bạn đến ngân hàng để mở tài khoản hoặc đổi tiền.',
+      persona: 'Bạn là giao dịch viên ngân hàng. Hãy hỏi khách cần gì, yêu cầu giấy tờ tuỳ thân, giải thích phí và thời gian chờ, rồi hướng dẫn khách ký giấy tờ.',
+    },
+    {
+      id: 'rent', title: 'Thuê nhà & gọi thợ sửa', emoji: '🔧',
+      character: character('rent'), role: 'Chủ nhà', avatar: '🏠', tags: ['talk'],
+      situation: 'Đồ trong phòng trọ bị hỏng, bạn gọi chủ nhà để báo và hẹn thợ đến sửa.',
+      persona: 'Bạn là chủ nhà thân thiện. Hãy hỏi hỏng cái gì, hỏng từ khi nào, xin lỗi vì bất tiện, hẹn ngày giờ thợ tới rồi xác nhận lại.',
+    },
+    {
+      id: 'pharmacy', title: 'Ở hiệu thuốc', emoji: '💊',
+      character: character('pharmacy'), role: 'Dược sĩ', avatar: '💊', tags: ['travel', 'talk'],
+      situation: 'Bạn bị ốm khi đang ở nước ngoài và vào hiệu thuốc mua thuốc.',
+      persona: 'Bạn là dược sĩ. Hãy hỏi triệu chứng, hỏi có sốt không, hỏi có dị ứng thuốc nào không, giới thiệu thuốc phù hợp kèm liều dùng rồi chúc mau khỏe.',
+    },
+    {
+      id: 'emergency', title: 'Tình huống khẩn cấp', emoji: '🚨',
+      character: character('emergency'), role: 'Tổng đài khẩn cấp', avatar: '🚨', tags: ['travel', 'talk'],
+      situation: 'Bạn gặp sự cố khi ở nước ngoài và gọi tổng đài khẩn cấp nhờ trợ giúp.',
+      persona: 'Bạn là nhân viên tổng đài khẩn cấp, bình tĩnh và rõ ràng. Hãy hỏi chuyện gì xảy ra, hỏi vị trí chính xác, hỏi có ai bị thương không, trấn an và báo đã cử người tới.',
     },
   ]
 }
@@ -345,13 +408,43 @@ const GENERIC_SCENARIOS: Scenario[] = [
   },
 ]
 
-const KO_EXTRA_NAMES: Record<string, string> = { interview: '김 부장', hotel: '수민', coworker: '민재', airport: '하늘' }
-const EN_EXTRA_NAMES: Record<string, string> = { interview: 'Mr. Carter', hotel: 'Grace', coworker: 'Tom', airport: 'Ryan' }
-const GENERIC_EXTRA_NAMES: Record<string, string> = { interview: 'Morgan', hotel: 'Noa', coworker: 'Kim', airport: 'Ari' }
+const KO_EXTRA_NAMES: Record<string, string> = {
+  interview: '김 부장', hotel: '수민', coworker: '민재', airport: '하늘',
+  meeting: '박 팀장', phonecall: '정 대리', presentation: '강 과장', customer: '최 손님', boss: '한 부장',
+  networking: '윤서', bank: '은행 직원', rent: '집주인 아주머니', pharmacy: '약사 선생님', emergency: '119 상황실',
+}
+const EN_EXTRA_NAMES: Record<string, string> = {
+  interview: 'Mr. Carter', hotel: 'Grace', coworker: 'Tom', airport: 'Ryan',
+  meeting: 'Sarah', phonecall: 'Daniel', presentation: 'Peter', customer: 'Mr. Hall', boss: 'Ms. Reed',
+  networking: 'Chris', bank: 'Anna', rent: 'Mrs. Brown', pharmacy: 'David', emergency: 'Operator',
+}
+const GENERIC_EXTRA_NAMES: Record<string, string> = {
+  interview: 'Morgan', hotel: 'Noa', coworker: 'Kim', airport: 'Ari',
+  meeting: 'Robin', phonecall: 'Jordan', presentation: 'Casey', customer: 'Riley', boss: 'Taylor',
+  networking: 'Avery', bank: 'Quinn', rent: 'Rowan', pharmacy: 'Sky', emergency: 'Operator',
+}
+
+// Lời thoại viết tay tiếng Anh: gắn vào tình huống theo id để phần Luyện nói EN
+// vẫn chạy trọn vẹn khi AI lỗi hoặc hết hạn mức.
+type EnLines = { keyPhrases?: SpeakLine[]; opener?: SpeakLine; bot?: SpeakLine[]; suggestions?: SpeakLine[][] }
+const EN_LINES = enLines as Record<string, EnLines>
+
+function withEnLines(list: Scenario[]): Scenario[] {
+  return list.map((s) => {
+    const l = EN_LINES[s.id]
+    if (!l) return s
+    return {
+      ...s,
+      keyPhrases: s.keyPhrases ?? l.keyPhrases,
+      opener: s.opener ?? l.opener,
+      fallback: s.fallback ?? (l.bot && l.suggestions ? { bot: l.bot, suggestions: l.suggestions } : undefined),
+    }
+  })
+}
 
 const BY_LANG: Record<string, Scenario[]> = {
   ko: [...KO_SCENARIOS, ...extraScenarios((id) => KO_EXTRA_NAMES[id] || '지우')],
-  en: [...EN_SCENARIOS, ...extraScenarios((id) => EN_EXTRA_NAMES[id] || 'Alex')],
+  en: withEnLines([...EN_SCENARIOS, ...extraScenarios((id) => EN_EXTRA_NAMES[id] || 'Alex')]),
 }
 
 const GENERIC_ALL = [...GENERIC_SCENARIOS, ...extraScenarios((id) => GENERIC_EXTRA_NAMES[id] || 'Alex')]

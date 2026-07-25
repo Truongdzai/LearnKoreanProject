@@ -7,6 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import settings, ROOT
 from .errors import AppError
@@ -67,6 +68,18 @@ app.include_router(feedback_router.router)
 def api_health():
     return JSONResponse(health.run_checks())
 
+class SpaStaticFiles(StaticFiles):
+    async def get_response(self, path: str, scope):
+        try:
+            return await super().get_response(path, scope)
+        except StarletteHTTPException as exc:
+            if exc.status_code != 404:
+                raise
+            rel = path.replace("\\", "/").lstrip("/")
+            if rel.startswith("api/") or "." in rel.rsplit("/", 1)[-1]:
+                raise
+            return await super().get_response("index.html", scope)
+
 _DIST = ROOT / "frontend" / "dist"
 if _DIST.exists():
-    app.mount("/", StaticFiles(directory=str(_DIST), html=True), name="spa")
+    app.mount("/", SpaStaticFiles(directory=str(_DIST), html=True), name="spa")

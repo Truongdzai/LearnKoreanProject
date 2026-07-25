@@ -1,5 +1,6 @@
 
 import { GRAMMAR_LESSONS } from './englishGrammar'
+import { PRON_GROUPS, PRON_PASS } from './englishPronunciation'
 import nouns from './english/units/nouns.json'
 import verbs from './english/units/verbs.json'
 import questions from './english/units/questions.json'
@@ -151,7 +152,7 @@ export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
 export const TARGET_WORDS = 3000
 
 
-export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic'
+export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron'
 
 export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | null
 
@@ -166,6 +167,7 @@ export interface WeekTask {
   n?: number
   go?: WeekTaskGo
   lessonId?: string
+  groupId?: string
 }
 
 export interface SentencePattern {
@@ -195,6 +197,11 @@ const gl = (week: number, seq: number, lessonId: string): WeekTask => {
 const tk = (week: number, n: number): WeekTask =>
   ({ id: `w${week}-toeic`, kind: 'toeic', n, label: `TOEIC: hoàn thành ≥ ${n}/60 ngày lộ trình` })
 
+const pn = (week: number, groupId: string): WeekTask => {
+  const g = PRON_GROUPS.find((x) => x.id === groupId)
+  return { id: `w${week}-pron`, kind: 'pron', groupId, label: `Phát âm: ${g?.title ?? groupId} (kiểm tra đạt ≥ ${PRON_PASS}%)` }
+}
+
 export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 1, month: 1, phase: 'Compress', title: 'Danh từ & người quanh ta',
@@ -207,6 +214,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w1-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Người quanh ta" (24 từ)', unitId: 'people', pct: 100 },
       gl(1, 1, 'e01'),
       gl(1, 2, 'e02'),
+      pn(1, 'end-stop'),
       { id: 'w1-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w1-bank', kind: 'total', label: 'Kho từ đạt 100 — lưu thêm từ khi xem video, gói từ, thẻ tự thêm', targetTotal: 100 },
       { id: 'w1-video', kind: 'video', n: 2, label: 'Xem 2 video tiếng Anh dễ + bấm từ mới trong phụ đề để lưu' },
@@ -224,6 +232,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w2-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Mua sắm & tiền bạc" (28 từ)', unitId: 'shopping', pct: 100 },
       gl(2, 1, 'e05'),
       gl(2, 2, 'e06'),
+      pn(2, 'end-s'),
       { id: 'w2-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w2-bank', kind: 'total', label: 'Kho từ đạt 250', targetTotal: 250 },
       { id: 'w2-review', kind: 'review', n: 3, label: 'Ôn tập SRS ít nhất 3 ngày trong tuần' },
@@ -241,6 +250,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w3-vocab4', kind: 'vocab', label: 'Thuộc toàn bộ "Số đếm & thứ tự (mở rộng)" (28 từ)', unitId: 'numbers2', pct: 100 },
       gl(3, 1, 'e10'),
       gl(3, 2, 'e13'),
+      pn(3, 'vowel-i'),
       { id: 'w3-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w3-bank', kind: 'total', label: 'Kho từ đạt 450', targetTotal: 450 },
       { id: 'w3-speak', kind: 'speak', label: 'Luyện nói 1 buổi chào hỏi/tán gẫu với AI' },
@@ -256,6 +266,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w4-vocab2', kind: 'vocab', label: 'Thuộc toàn bộ "Cảm xúc & tính cách" (30 từ)', unitId: 'feelings', pct: 100 },
       { id: 'w4-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Cảm xúc & tính cách (mở rộng)" (28 từ)', unitId: 'feelings2', pct: 100 },
       gl(4, 1, 'e07'),
+      pn(4, 'vowel-ae'),
       { id: 'w4-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w4-bank', kind: 'total', label: 'Kho từ đạt 700 — chốt tháng 1', targetTotal: 700 },
       { id: 'w4-video', kind: 'video', n: 2, label: 'Xem 2 video + bấm từ mới trong phụ đề để lưu thẻ' },
@@ -279,6 +290,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(5, 2, 'e04'),
       { id: 'w5-toeic', kind: 'toeic', n: 0, label: '🎯 Bắt đầu lộ trình TOEIC 60 ngày — ngày 1 thi thử đo điểm xuất phát' },
       { id: 'w5-pattern', kind: 'custom', label: 'Tự đặt 5 câu theo 4 mẫu câu của tuần (nói to lên!)', go: null },
+      pn(5, 'th'),
       { id: 'w5-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w5-bank', kind: 'total', label: 'Kho từ đạt 1000', targetTotal: 1000 },
       { id: 'w5-review', kind: 'review', n: 3, label: 'Ôn tập SRS ít nhất 3 ngày trong tuần' },
@@ -302,6 +314,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(6, 1, 'e08'),
       gl(6, 2, 'e12'),
       tk(6, 5),
+      pn(6, 'end-ed'),
       { id: 'w6-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w6-bank', kind: 'total', label: 'Kho từ đạt 1300', targetTotal: 1300 },
       { id: 'w6-speak', kind: 'speak', label: 'Luyện nói 1 buổi — tập hỏi Yes/No với nhân vật AI' },
@@ -325,6 +338,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(7, 1, 'e09'),
       gl(7, 2, 'e14'),
       tk(7, 10),
+      pn(7, 's-sh-ch'),
       { id: 'w7-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w7-bank', kind: 'total', label: 'Kho từ đạt 1650', targetTotal: 1650 },
       { id: 'w7-speak', kind: 'speak', label: 'Luyện nói: hỏi đường / gọi món / hỏi giá với AI' },
@@ -347,6 +361,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w8-vocab3', kind: 'vocab', label: 'Thuộc toàn bộ "Du lịch & khách sạn" (27 từ)', unitId: 'travel2', pct: 100 },
       gl(8, 1, 'e11'),
       tk(8, 16),
+      pn(8, 'v-f-b-p'),
       { id: 'w8-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w8-bank', kind: 'total', label: 'Kho từ đạt 2000 — chốt tháng 2, đã đi 2/3 chặng', targetTotal: 2000 },
       { id: 'w8-video', kind: 'video', n: 2, label: 'Xem 2 video, để ý cách người bản xứ mô tả đồ vật' },
@@ -363,6 +378,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(9, 2, 'e18'),
       tk(9, 22),
       { id: 'w9-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
+      pn(9, 'l-n-r'),
       { id: 'w9-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w9-bank', kind: 'total', label: 'Kho từ đạt 2300', targetTotal: 2300 },
       { id: 'w9-custom', kind: 'custom', label: 'Viết 10 câu với những từ bạn hay quên nhất', go: null },
@@ -380,6 +396,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       tk(10, 28),
       { id: 'w10-video', kind: 'video', n: 3, label: 'Shadowing 3 video (mở video → tab Shadowing/Phát âm)' },
       { id: 'w10-speak', kind: 'speak', label: 'Luyện nói 2 buổi với AI, cố nói cả câu dài' },
+      pn(10, 'vowel-o'),
       { id: 'w10-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w10-bank', kind: 'total', label: 'Kho từ đạt 2550', targetTotal: 2550 },
       { id: 'w10-review', kind: 'review', n: 3, label: 'Duy trì SRS ít nhất 3 ngày' },
@@ -396,6 +413,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       tk(11, 34),
       { id: 'w11-speak', kind: 'speak', label: 'Hoàn thành 3 tình huống Luyện nói (du lịch / mua sắm / công việc)' },
       { id: 'w11-video', kind: 'video', n: 2, label: 'Xem 2 video đúng chủ đề bạn vừa luyện nói' },
+      pn(11, 'stress'),
       { id: 'w11-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w11-bank', kind: 'total', label: 'Kho từ đạt 2800', targetTotal: 2800 },
       { id: 'w11-review', kind: 'review', n: 3, label: 'Duy trì SRS ít nhất 3 ngày' },
@@ -410,6 +428,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w12-bank', kind: 'total', label: '🎯 KHO TỪ ĐẠT 3000 — mục tiêu lớn của cả lộ trình', targetTotal: 3000 },
       { id: 'w12-grammar', kind: 'grammar', label: 'Hoàn thành cả 18 bài Ngữ pháp giao tiếp' },
       tk(12, 40),
+      pn(12, 'linking'),
       { id: 'w12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 80%', passPct: 80 },
       { id: 'w12-speak', kind: 'speak', label: 'Trò chuyện tự do 10 phút với AI, không nhìn gợi ý' },
       { id: 'w12-export', kind: 'custom', label: 'Xuất bộ từ đã thuộc ra Word/PDF làm "bằng chứng" 3 tháng', go: 'summary' },

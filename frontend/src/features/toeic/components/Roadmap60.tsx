@@ -124,84 +124,112 @@ export default function Roadmap60({
         </div>
       )}
 
-      {TOEIC_PHASES.map((ph) => (
-        <div key={ph.phase} className="toeic-phase">
-          <div className="toeic-phase-head">
-            <b>Chặng {ph.phase} — {ph.name}</b>
-            <span>{ph.range}</span>
-          </div>
-          <p className="toeic-phase-goal">{ph.goal}</p>
-          <div className="toeic-days">
-            {TOEIC_60_DAYS.filter((d) => d.phase === ph.phase).map((d) => {
-              const done = dDone(d)
-              const cls = [
-                'toeic-day-chip',
-                done ? 'done' : '',
-                started && d.d === curDay ? 'now' : '',
-                open === d.d ? 'open' : '',
-              ].filter(Boolean).join(' ')
-              return (
-                <button key={d.d} className={cls} onClick={() => setOpen(open === d.d ? null : d.d)} title={d.title}>
-                  {done ? <Icon name="check" size={12} /> : d.d}
-                </button>
-              )
-            })}
-          </div>
-        </div>
-      ))}
-
-      {sel && (
-        <div className="wk-detail">
-          <div className="wk-detail-head">
-            <div>
-              <div className="wk-detail-kicker">Ngày {sel.d}/60 · Chặng {sel.phase} — {TOEIC_PHASES[sel.phase - 1].name}</div>
-              <h3>{sel.title}</h3>
+      <div className="toeic-road-cols">
+        <div className="toeic-road-main">
+          {TOEIC_PHASES.map((ph) => (
+            <div key={ph.phase} className="toeic-phase">
+              <div className="toeic-phase-head">
+                <b>Chặng {ph.phase} — {ph.name}</b>
+                <span>{ph.range}</span>
+              </div>
+              <p className="toeic-phase-goal">{ph.goal}</p>
+              <div className="toeic-days">
+                {TOEIC_60_DAYS.filter((d) => d.phase === ph.phase).map((d) => {
+                  const done = dDone(d)
+                  const cls = [
+                    'toeic-day-chip',
+                    done ? 'done' : '',
+                    started && d.d === curDay ? 'now' : '',
+                    open === d.d ? 'open' : '',
+                  ].filter(Boolean).join(' ')
+                  return (
+                    <button key={d.d} className={cls} onClick={() => setOpen(open === d.d ? null : d.d)} title={d.title}>
+                      {done ? <Icon name="check" size={12} /> : d.d}
+                    </button>
+                  )
+                })}
+              </div>
             </div>
-            <button className="btn-ghost sm" onClick={() => setOpen(null)}>Đóng</button>
-          </div>
+          ))}
+        </div>
 
-          <div className="wk-tasks">
-            {sel.tasks.map((t) => {
-              const done = isDone(t)
-              const meta = taskMeta(t)
-              const action = taskAction(t)
-              const manual = MANUAL.has(t.kind)
-              return (
-                <div key={t.id} className={'wk-task' + (done ? ' done' : '')}>
-                  {manual ? (
-                    <button
-                      className={'wk-check' + (done ? ' on' : '')}
-                      onClick={() => onToggleTask(t.id)}
-                      title={done ? 'Bỏ đánh dấu' : 'Đánh dấu đã xong'}
-                    >
-                      {done && <Icon name="check" size={13} />}
-                    </button>
-                  ) : (
-                    <span className={'wk-check auto' + (done ? ' on' : '')}>
-                      <Icon name={done ? 'check' : KIND_ICON[t.kind]} size={12} />
-                    </span>
-                  )}
-                  <div className="wk-task-body">
-                    <span className="wk-task-label">{t.label}</span>
-                    {meta && <span className="wk-task-meta">{meta}</span>}
-                  </div>
-                  {action && (
-                    <button className="btn-ghost sm wk-go" onClick={action.run}>
-                      {action.label} <Icon name="arrow-right" size={13} />
-                    </button>
-                  )}
+        <aside className="toeic-road-side">
+          {sel ? (
+            <div className="wk-detail">
+              <div className="wk-detail-head">
+                <div>
+                  <div className="wk-detail-kicker">Ngày {sel.d}/60 · Chặng {sel.phase} — {TOEIC_PHASES[sel.phase - 1].name}</div>
+                  <h3>{sel.title}</h3>
                 </div>
-              )
-            })}
-          </div>
+                <button className="btn-ghost sm" onClick={() => setOpen(null)}>Đóng</button>
+              </div>
 
-          {dDone(sel) && (
-            <div className="wk-congrats">
-              🎉 Ngày {sel.d} hoàn thành! {sel.d < 60 ? 'Hẹn mai tiếp tục giữ nhịp nhé.' : 'BẠN ĐÃ ĐI HẾT 60 NGÀY — giờ là lúc đi thi thật!'}
+              <div className="wk-tasks">
+                {sel.tasks.map((t) => {
+                  const done = isDone(t)
+                  const meta = taskMeta(t)
+                  const action = taskAction(t)
+                  const manual = MANUAL.has(t.kind)
+                  return (
+                    <div key={t.id} className={'wk-task' + (done ? ' done' : '')}>
+                      {manual ? (
+                        <button
+                          className={'wk-check' + (done ? ' on' : '')}
+                          onClick={() => onToggleTask(t.id)}
+                          title={done ? 'Bỏ đánh dấu' : 'Đánh dấu đã xong'}
+                        >
+                          {done && <Icon name="check" size={13} />}
+                        </button>
+                      ) : (
+                        <span className={'wk-check auto' + (done ? ' on' : '')}>
+                          <Icon name={done ? 'check' : KIND_ICON[t.kind]} size={12} />
+                        </span>
+                      )}
+                      <div className="wk-task-body">
+                        <span className="wk-task-label">{t.label}</span>
+                        {meta && <span className="wk-task-meta">{meta}</span>}
+                      </div>
+                      {action && (
+                        <button className="btn-ghost sm wk-go" onClick={action.run}>
+                          {action.label} <Icon name="arrow-right" size={13} />
+                        </button>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+
+              {dDone(sel) && (
+                <div className="wk-congrats">
+                  🎉 Ngày {sel.d} hoàn thành! {sel.d < 60 ? 'Hẹn mai tiếp tục giữ nhịp nhé.' : 'BẠN ĐÃ ĐI HẾT 60 NGÀY — giờ là lúc đi thi thật!'}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="toeic-side-hint">
+              <div className="tsh-kicker">Bảng nhiệm vụ</div>
+              <b>Bấm một ô ngày để mở nhiệm vụ</b>
+              <p>
+                {started
+                  ? 'Nhiệm vụ của ngày đó hiện ngay tại đây — không phải cuộn xuống cuối trang.'
+                  : 'Bấm “Bắt đầu 60 ngày” để mở Ngày 1, hoặc bấm thử một ô ngày bất kỳ để xem trước nhiệm vụ.'}
+              </p>
+              <div className="tsh-quick">
+                <button className="btn-ghost sm" onClick={onMiniTest}>
+                  <Icon name="trophy" size={14} /> Thi thử đo trình độ
+                </button>
+                <button className="btn-ghost sm" onClick={() => onWeak(10)}>
+                  <Icon name="tool" size={14} /> Luyện 10 câu điểm yếu
+                </button>
+                <button className="btn-ghost sm" onClick={onWrongbook}>
+                  <Icon name="note" size={14} /> Sổ tay câu sai
+                  {state.wrong.length > 0 && <span className="tsh-badge">{state.wrong.length}</span>}
+                </button>
+              </div>
             </div>
           )}
-        </div>
-      )}
+        </aside>
+      </div>
     </div>
   )
 }

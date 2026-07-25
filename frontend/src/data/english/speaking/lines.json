@@ -1,0 +1,309 @@
+{
+  "interview": {
+    "keyPhrases": [
+      { "ko": "Thanks for having me.", "vi": "Cảm ơn anh/chị đã cho tôi cơ hội này." },
+      { "ko": "I have three years of experience in marketing.", "vi": "Tôi có ba năm kinh nghiệm trong lĩnh vực marketing." },
+      { "ko": "My biggest strength is that I learn fast.", "vi": "Điểm mạnh lớn nhất của tôi là học rất nhanh." },
+      { "ko": "Could you tell me more about the role?", "vi": "Anh/chị nói rõ hơn về vị trí này được không ạ?" },
+      { "ko": "When can I expect to hear from you?", "vi": "Khi nào tôi sẽ nhận được phản hồi ạ?" }
+    ],
+    "opener": { "ko": "Good morning! Thanks for coming in. Could you tell me a little about yourself?", "vi": "Chào buổi sáng! Cảm ơn bạn đã đến. Bạn giới thiệu đôi chút về bản thân được không?" },
+    "bot": [
+      { "ko": "Thank you. What experience do you have that fits this role?", "vi": "Cảm ơn bạn. Bạn có kinh nghiệm gì phù hợp với vị trí này?" },
+      { "ko": "Good. And why do you want to work with us?", "vi": "Tốt. Vậy vì sao bạn muốn làm việc cùng chúng tôi?" },
+      { "ko": "That's a solid answer. We'll get back to you this week. Have a great day!", "vi": "Câu trả lời rất chắc chắn. Chúng tôi sẽ phản hồi trong tuần này. Chúc bạn một ngày tốt lành!" }
+    ],
+    "suggestions": [
+      [{ "ko": "My name is Minh. I've worked in marketing for three years.", "vi": "Tôi tên Minh. Tôi đã làm marketing được ba năm." }, { "ko": "I'm a recent graduate and I'm eager to learn.", "vi": "Tôi mới tốt nghiệp và rất muốn học hỏi." }],
+      [{ "ko": "I managed a small team on two projects.", "vi": "Tôi từng quản lý một nhóm nhỏ trong hai dự án." }, { "ko": "I'm good with data and reporting.", "vi": "Tôi khá giỏi về dữ liệu và báo cáo." }],
+      [{ "ko": "I like your products and the way your team works.", "vi": "Tôi thích sản phẩm và cách làm việc của đội ngũ công ty." }, { "ko": "I want to grow in a bigger team.", "vi": "Tôi muốn phát triển trong một đội ngũ lớn hơn." }],
+      [{ "ko": "Thank you for your time.", "vi": "Cảm ơn anh đã dành thời gian." }]
+    ]
+  },
+
+  "hotel": {
+    "keyPhrases": [
+      { "ko": "I have a reservation under Minh.", "vi": "Tôi có đặt phòng dưới tên Minh." },
+      { "ko": "Could I have a room with a view?", "vi": "Cho tôi phòng có cửa sổ nhìn ra ngoài được không ạ?" },
+      { "ko": "What time is check-out?", "vi": "Mấy giờ phải trả phòng ạ?" },
+      { "ko": "Is breakfast included?", "vi": "Có bao gồm bữa sáng không ạ?" },
+      { "ko": "Could you call a taxi for me?", "vi": "Anh/chị gọi giúp tôi một chiếc taxi được không?" }
+    ],
+    "opener": { "ko": "Good evening, and welcome! Do you have a reservation?", "vi": "Chào buổi tối, mời quý khách! Anh/chị đã đặt phòng chưa ạ?" },
+    "bot": [
+      { "ko": "Thank you. May I see your passport, please?", "vi": "Cảm ơn ạ. Cho tôi xin hộ chiếu được không ạ?" },
+      { "ko": "Here's your key card. Breakfast is from 6:30 to 10 on the second floor.", "vi": "Đây là thẻ phòng ạ. Bữa sáng từ 6:30 đến 10 giờ ở tầng hai." },
+      { "ko": "The wifi password is on the card. Enjoy your stay!", "vi": "Mật khẩu wifi có trên thẻ ạ. Chúc quý khách nghỉ ngơi vui vẻ!" }
+    ],
+    "suggestions": [
+      [{ "ko": "Yes, under the name Minh.", "vi": "Vâng, đặt dưới tên Minh." }, { "ko": "I booked online last week.", "vi": "Tôi đặt online tuần trước." }],
+      [{ "ko": "Here you are.", "vi": "Của anh/chị đây ạ." }, { "ko": "Sure, just a moment.", "vi": "Vâng, chờ tôi một chút." }],
+      [{ "ko": "What time is check-out?", "vi": "Mấy giờ phải trả phòng ạ?" }, { "ko": "Is breakfast included?", "vi": "Có bao gồm bữa sáng không ạ?" }],
+      [{ "ko": "Thank you very much!", "vi": "Cảm ơn nhiều ạ!" }]
+    ]
+  },
+
+  "coworker": {
+    "keyPhrases": [
+      { "ko": "How's it going?", "vi": "Dạo này thế nào?" },
+      { "ko": "I'm a bit behind on this one.", "vi": "Vụ này tôi hơi chậm tiến độ." },
+      { "ko": "Do you need a hand?", "vi": "Cậu cần giúp một tay không?" },
+      { "ko": "Let's grab lunch.", "vi": "Đi ăn trưa đi." },
+      { "ko": "Any plans for the weekend?", "vi": "Cuối tuần có kế hoạch gì chưa?" }
+    ],
+    "opener": { "ko": "Hey! Busy morning? Want to grab lunch?", "vi": "Ê! Sáng nay bận không? Đi ăn trưa không?" },
+    "bot": [
+      { "ko": "Same here. How's your project going?", "vi": "Tôi cũng vậy. Dự án của cậu sao rồi?" },
+      { "ko": "Tell me about it. This deadline is killing me.", "vi": "Nói mới nhớ. Cái deadline này làm tôi mệt lử." },
+      { "ko": "Anyway, any plans for the weekend?", "vi": "Mà thôi, cuối tuần cậu có kế hoạch gì chưa?" }
+    ],
+    "suggestions": [
+      [{ "ko": "Sure, I'm starving.", "vi": "Được chứ, tôi đói lắm rồi." }, { "ko": "Give me ten minutes.", "vi": "Cho tôi mười phút nhé." }],
+      [{ "ko": "It's going well, almost done.", "vi": "Cũng ổn, sắp xong rồi." }, { "ko": "Honestly, I'm a bit behind.", "vi": "Thật ra tôi hơi chậm tiến độ." }],
+      [{ "ko": "Let me know if you need help.", "vi": "Cần giúp gì thì nói tôi nhé." }, { "ko": "We can split the work.", "vi": "Mình chia việc ra làm cũng được." }],
+      [{ "ko": "I'm just going to rest at home.", "vi": "Tôi định ở nhà nghỉ ngơi thôi." }, { "ko": "I might visit my family.", "vi": "Chắc tôi về thăm gia đình." }]
+    ]
+  },
+
+  "airport": {
+    "keyPhrases": [
+      { "ko": "I'd like to check in for flight VN310.", "vi": "Tôi muốn làm thủ tục cho chuyến VN310." },
+      { "ko": "Only hand luggage, please.", "vi": "Tôi chỉ có hành lý xách tay thôi ạ." },
+      { "ko": "Where is gate 12?", "vi": "Cửa số 12 ở đâu ạ?" },
+      { "ko": "Could you take me to this address?", "vi": "Anh chở tôi đến địa chỉ này được không?" },
+      { "ko": "How much will it be?", "vi": "Hết bao nhiêu tiền ạ?" }
+    ],
+    "opener": { "ko": "Good morning. May I have your passport and ticket, please?", "vi": "Chào buổi sáng. Cho tôi xin hộ chiếu và vé ạ." },
+    "bot": [
+      { "ko": "Any bags to check in today?", "vi": "Hôm nay anh/chị có gửi hành lý không ạ?" },
+      { "ko": "Window or aisle seat?", "vi": "Anh/chị muốn ghế cạnh cửa sổ hay ghế lối đi ạ?" },
+      { "ko": "All set. Boarding starts at gate 12 at 9:40. Have a nice flight!", "vi": "Xong rồi ạ. Lên máy bay ở cửa số 12 lúc 9:40. Chúc chuyến bay vui vẻ!" }
+    ],
+    "suggestions": [
+      [{ "ko": "Here you are.", "vi": "Của anh đây ạ." }, { "ko": "Sure, just a second.", "vi": "Vâng, chờ tôi chút." }],
+      [{ "ko": "Just one suitcase.", "vi": "Chỉ một va li thôi ạ." }, { "ko": "No, only hand luggage.", "vi": "Không, chỉ có hành lý xách tay ạ." }],
+      [{ "ko": "Window, please.", "vi": "Cho tôi ghế cạnh cửa sổ ạ." }, { "ko": "Aisle, if possible.", "vi": "Ghế lối đi nếu được ạ." }],
+      [{ "ko": "Where is the gate?", "vi": "Cửa lên máy bay ở đâu ạ?" }, { "ko": "Thank you!", "vi": "Cảm ơn ạ!" }]
+    ]
+  },
+
+  "meeting": {
+    "keyPhrases": [
+      { "ko": "Let me give you a quick update.", "vi": "Tôi xin cập nhật nhanh ạ." },
+      { "ko": "We're on track. / We're a bit behind.", "vi": "Chúng tôi đúng tiến độ. / Chúng tôi hơi chậm một chút." },
+      { "ko": "I'm blocked by the sales data.", "vi": "Tôi đang bị vướng vì chưa có dữ liệu kinh doanh." },
+      { "ko": "Can we push the deadline to Friday?", "vi": "Mình dời hạn chót sang thứ Sáu được không ạ?" },
+      { "ko": "I'll follow up on that.", "vi": "Tôi sẽ theo dõi tiếp việc đó." }
+    ],
+    "opener": { "ko": "Morning, everyone. Let's start. Could you update us on your progress?", "vi": "Chào cả nhà. Bắt đầu nhé. Bạn cập nhật tiến độ giúp mình được không?" },
+    "bot": [
+      { "ko": "Thanks. Is anything blocking you right now?", "vi": "Cảm ơn bạn. Hiện có gì đang cản trở bạn không?" },
+      { "ko": "Understood. What will you focus on this week?", "vi": "Hiểu rồi. Tuần này bạn sẽ tập trung vào việc gì?" },
+      { "ko": "Sounds good. Let's sync again on Friday. Thanks, everyone!", "vi": "Nghe hợp lý. Thứ Sáu mình họp lại nhé. Cảm ơn cả nhà!" }
+    ],
+    "suggestions": [
+      [{ "ko": "I finished the report last week.", "vi": "Tuần trước tôi đã xong bản báo cáo." }, { "ko": "I'm about halfway through the design.", "vi": "Tôi làm được khoảng một nửa phần thiết kế." }],
+      [{ "ko": "I'm waiting for data from the sales team.", "vi": "Tôi đang chờ dữ liệu từ nhóm kinh doanh." }, { "ko": "No, everything is on track.", "vi": "Không, mọi thứ vẫn đúng tiến độ." }],
+      [{ "ko": "I'll finish the draft and send it to you.", "vi": "Tôi sẽ hoàn thành bản nháp rồi gửi cho chị." }, { "ko": "I'll focus on testing this week.", "vi": "Tuần này tôi sẽ tập trung kiểm thử." }],
+      [{ "ko": "Sounds good to me.", "vi": "Với tôi thì ổn ạ." }, { "ko": "See you on Friday.", "vi": "Hẹn gặp thứ Sáu." }]
+    ]
+  },
+
+  "phonecall": {
+    "keyPhrases": [
+      { "ko": "Hi, this is Minh from ABC Company.", "vi": "Chào anh/chị, tôi là Minh từ công ty ABC." },
+      { "ko": "I'm calling about our meeting.", "vi": "Tôi gọi về buổi họp của chúng ta." },
+      { "ko": "Could you repeat that, please?", "vi": "Anh/chị nhắc lại giúp tôi được không ạ?" },
+      { "ko": "Could you speak a little slower?", "vi": "Anh/chị nói chậm hơn một chút được không ạ?" },
+      { "ko": "Let me confirm: Tuesday at ten.", "vi": "Tôi xác nhận lại nhé: thứ Ba lúc mười giờ." }
+    ],
+    "opener": { "ko": "Hello, this is Daniel speaking. How can I help you?", "vi": "A lô, Daniel nghe đây. Tôi có thể giúp gì cho anh/chị?" },
+    "bot": [
+      { "ko": "Sorry, could you say that again? The line isn't very clear.", "vi": "Xin lỗi, anh/chị nhắc lại được không? Đường dây hơi rè." },
+      { "ko": "I see. Would Tuesday at 10 a.m. work for you?", "vi": "Tôi hiểu rồi. Thứ Ba lúc 10 giờ sáng có tiện cho anh/chị không?" },
+      { "ko": "Perfect. I'll send you a confirmation email. Thanks for calling!", "vi": "Tuyệt. Tôi sẽ gửi email xác nhận. Cảm ơn anh/chị đã gọi!" }
+    ],
+    "suggestions": [
+      [{ "ko": "Hi, this is Minh from ABC Company.", "vi": "Chào anh, tôi là Minh từ công ty ABC." }, { "ko": "I'm calling about our meeting.", "vi": "Tôi gọi về buổi họp của chúng ta." }],
+      [{ "ko": "Sure. I'd like to confirm our meeting.", "vi": "Vâng. Tôi muốn xác nhận lại buổi họp." }, { "ko": "Can you hear me now?", "vi": "Giờ anh nghe rõ chưa ạ?" }],
+      [{ "ko": "Tuesday works for me.", "vi": "Thứ Ba tôi rảnh." }, { "ko": "Could we make it Wednesday instead?", "vi": "Đổi sang thứ Tư được không ạ?" }],
+      [{ "ko": "Thank you. Talk to you soon.", "vi": "Cảm ơn anh. Hẹn nói chuyện sau." }]
+    ]
+  },
+
+  "presentation": {
+    "keyPhrases": [
+      { "ko": "Today I'll talk about our new plan.", "vi": "Hôm nay tôi sẽ trình bày về kế hoạch mới của chúng tôi." },
+      { "ko": "As you can see in this chart…", "vi": "Như quý vị thấy trong biểu đồ này…" },
+      { "ko": "That's a good question.", "vi": "Đó là một câu hỏi hay." },
+      { "ko": "Let me get back to you on that.", "vi": "Việc đó tôi xin phép trả lời sau ạ." },
+      { "ko": "Any questions so far?", "vi": "Đến đây có câu hỏi nào không ạ?" }
+    ],
+    "opener": { "ko": "Whenever you're ready, please go ahead with your presentation.", "vi": "Khi nào bạn sẵn sàng thì bắt đầu phần trình bày nhé." },
+    "bot": [
+      { "ko": "Thanks. Could you explain that number in more detail?", "vi": "Cảm ơn bạn. Bạn giải thích rõ hơn con số đó được không?" },
+      { "ko": "I see. And how long will the whole plan take?", "vi": "Tôi hiểu rồi. Vậy toàn bộ kế hoạch mất bao lâu?" },
+      { "ko": "Great, that's clear now. Thank you for the presentation!", "vi": "Tuyệt, giờ thì rõ rồi. Cảm ơn phần trình bày của bạn!" }
+    ],
+    "suggestions": [
+      [{ "ko": "Good morning. Today I'll talk about our new plan.", "vi": "Chào buổi sáng. Hôm nay tôi sẽ nói về kế hoạch mới của chúng tôi." }, { "ko": "Thank you all for coming.", "vi": "Cảm ơn mọi người đã đến." }],
+      [{ "ko": "Sure. That number is our sales last quarter.", "vi": "Vâng. Con số đó là doanh số quý trước." }, { "ko": "Let me show you the chart again.", "vi": "Để tôi mở lại biểu đồ ạ." }],
+      [{ "ko": "About three months in total.", "vi": "Tổng cộng khoảng ba tháng ạ." }, { "ko": "We plan to finish by June.", "vi": "Chúng tôi dự kiến xong trước tháng Sáu." }],
+      [{ "ko": "Thank you. Any other questions?", "vi": "Cảm ơn ạ. Còn câu hỏi nào nữa không ạ?" }]
+    ]
+  },
+
+  "customer": {
+    "keyPhrases": [
+      { "ko": "I'm very sorry about that.", "vi": "Tôi rất xin lỗi về việc đó ạ." },
+      { "ko": "Let me check that for you.", "vi": "Để tôi kiểm tra giúp anh/chị ạ." },
+      { "ko": "I completely understand.", "vi": "Tôi hoàn toàn hiểu ạ." },
+      { "ko": "Here's what I can do for you.", "vi": "Đây là cách tôi có thể hỗ trợ anh/chị." },
+      { "ko": "Thank you for your patience.", "vi": "Cảm ơn anh/chị đã kiên nhẫn ạ." }
+    ],
+    "opener": { "ko": "Hello? I ordered this two weeks ago and it still hasn't arrived. This is not acceptable.", "vi": "A lô? Tôi đặt hàng hai tuần trước mà đến giờ vẫn chưa nhận được. Như vậy là không được." },
+    "bot": [
+      { "ko": "Fine, but when exactly will I get it?", "vi": "Được, nhưng chính xác khi nào tôi nhận được?" },
+      { "ko": "And what if it's late again?", "vi": "Thế nếu lại trễ nữa thì sao?" },
+      { "ko": "All right, that sounds fair. Thank you for sorting it out.", "vi": "Thôi được, nghe cũng hợp lý. Cảm ơn vì đã xử lý." }
+    ],
+    "suggestions": [
+      [{ "ko": "I'm very sorry about the delay, sir.", "vi": "Tôi rất xin lỗi về sự chậm trễ, thưa anh." }, { "ko": "Let me check your order right away.", "vi": "Để tôi kiểm tra đơn hàng của anh ngay ạ." }],
+      [{ "ko": "It will arrive by Friday at the latest.", "vi": "Chậm nhất thứ Sáu hàng sẽ đến ạ." }, { "ko": "I'll send you the tracking number now.", "vi": "Tôi gửi mã vận đơn cho anh ngay bây giờ ạ." }],
+      [{ "ko": "Then we'll refund your shipping fee.", "vi": "Khi đó chúng tôi sẽ hoàn phí vận chuyển cho anh." }, { "ko": "I'll follow it personally and call you.", "vi": "Tôi sẽ tự theo dõi và gọi lại cho anh." }],
+      [{ "ko": "Thank you for your patience.", "vi": "Cảm ơn anh đã kiên nhẫn ạ." }]
+    ]
+  },
+
+  "boss": {
+    "keyPhrases": [
+      { "ko": "Do you have a minute?", "vi": "Anh/chị có rảnh một phút không ạ?" },
+      { "ko": "I'd like to request some time off.", "vi": "Em muốn xin nghỉ phép ạ." },
+      { "ko": "Could we push the deadline?", "vi": "Mình dời hạn chót được không ạ?" },
+      { "ko": "I'll make sure it doesn't affect the team.", "vi": "Em sẽ đảm bảo việc này không ảnh hưởng tới cả nhóm." },
+      { "ko": "Thanks for understanding.", "vi": "Cảm ơn anh/chị đã thông cảm ạ." }
+    ],
+    "opener": { "ko": "Come in, take a seat. You wanted to talk to me?", "vi": "Vào đi, ngồi đi em. Em muốn trao đổi gì với chị?" },
+    "bot": [
+      { "ko": "I see. Can I ask why?", "vi": "Chị hiểu rồi. Chị hỏi lý do được không?" },
+      { "ko": "And how will that affect the project deadline?", "vi": "Vậy việc đó ảnh hưởng thế nào tới hạn chót của dự án?" },
+      { "ko": "All right, that works. Send me an email so I have it in writing. Thanks.", "vi": "Được, vậy ổn. Em gửi chị một email để có văn bản nhé. Cảm ơn em." }
+    ],
+    "suggestions": [
+      [{ "ko": "Yes. I'd like to take three days off next week.", "vi": "Vâng ạ. Tuần sau em muốn xin nghỉ ba ngày." }, { "ko": "I need a bit more time for this project.", "vi": "Em cần thêm chút thời gian cho dự án này ạ." }],
+      [{ "ko": "I have a family event out of town.", "vi": "Em có việc gia đình ở xa ạ." }, { "ko": "The client changed the requirements.", "vi": "Khách hàng đã đổi yêu cầu ạ." }],
+      [{ "ko": "I'll finish the main part before I leave.", "vi": "Em sẽ xong phần chính trước khi nghỉ ạ." }, { "ko": "We would need two extra days.", "vi": "Chúng ta cần thêm hai ngày ạ." }],
+      [{ "ko": "Thank you. I'll send it today.", "vi": "Em cảm ơn chị. Hôm nay em gửi ngay ạ." }]
+    ]
+  },
+
+  "networking": {
+    "keyPhrases": [
+      { "ko": "What do you do?", "vi": "Bạn làm nghề gì?" },
+      { "ko": "I work in marketing at a small company.", "vi": "Mình làm marketing ở một công ty nhỏ." },
+      { "ko": "How are you finding the event?", "vi": "Bạn thấy sự kiện thế nào?" },
+      { "ko": "Let's keep in touch.", "vi": "Giữ liên lạc nhé." },
+      { "ko": "Here's my card.", "vi": "Danh thiếp của mình đây." }
+    ],
+    "opener": { "ko": "Hi! Is this seat taken? I'm Chris, by the way.", "vi": "Chào bạn! Ghế này có ai ngồi chưa? Mà mình là Chris." },
+    "bot": [
+      { "ko": "Nice to meet you. What do you do?", "vi": "Rất vui được gặp bạn. Bạn làm nghề gì?" },
+      { "ko": "Interesting! How are you finding the conference so far?", "vi": "Thú vị đấy! Bạn thấy hội thảo đến giờ thế nào?" },
+      { "ko": "Same here. Let's keep in touch — here's my card.", "vi": "Mình cũng vậy. Giữ liên lạc nhé — danh thiếp của mình đây." }
+    ],
+    "suggestions": [
+      [{ "ko": "No, please go ahead. I'm Minh.", "vi": "Chưa, bạn cứ ngồi. Mình là Minh." }, { "ko": "Nice to meet you, Chris.", "vi": "Rất vui được gặp bạn, Chris." }],
+      [{ "ko": "I work in marketing at a small company.", "vi": "Mình làm marketing ở một công ty nhỏ." }, { "ko": "I'm a software developer.", "vi": "Mình là lập trình viên." }],
+      [{ "ko": "The first talk was really useful.", "vi": "Bài nói đầu tiên rất hữu ích." }, { "ko": "It's a bit crowded, but I like it.", "vi": "Hơi đông nhưng mình thấy thích." }],
+      [{ "ko": "Thanks! Let's connect online too.", "vi": "Cảm ơn! Mình kết nối trên mạng nữa nhé." }]
+    ]
+  },
+
+  "bank": {
+    "keyPhrases": [
+      { "ko": "I'd like to open an account.", "vi": "Tôi muốn mở tài khoản ạ." },
+      { "ko": "I want to exchange some money.", "vi": "Tôi muốn đổi tiền ạ." },
+      { "ko": "What's the exchange rate today?", "vi": "Hôm nay tỷ giá thế nào ạ?" },
+      { "ko": "Is there any fee?", "vi": "Có mất phí gì không ạ?" },
+      { "ko": "Where do I sign?", "vi": "Tôi ký vào chỗ nào ạ?" }
+    ],
+    "opener": { "ko": "Good morning! How can I help you today?", "vi": "Chào buổi sáng! Hôm nay tôi có thể giúp gì cho anh/chị ạ?" },
+    "bot": [
+      { "ko": "Of course. Do you have an ID or passport with you?", "vi": "Vâng ạ. Anh/chị có mang theo giấy tờ tuỳ thân hoặc hộ chiếu không ạ?" },
+      { "ko": "Thank you. There's a small fee of two dollars, and it takes about ten minutes.", "vi": "Cảm ơn ạ. Có một khoản phí nhỏ hai đô, và mất khoảng mười phút ạ." },
+      { "ko": "All done. Please sign here. Have a good day!", "vi": "Xong rồi ạ. Anh/chị ký vào đây giúp em. Chúc một ngày tốt lành!" }
+    ],
+    "suggestions": [
+      [{ "ko": "I'd like to open an account.", "vi": "Tôi muốn mở tài khoản ạ." }, { "ko": "I want to exchange some money.", "vi": "Tôi muốn đổi tiền ạ." }],
+      [{ "ko": "Yes, here's my passport.", "vi": "Vâng, hộ chiếu của tôi đây ạ." }, { "ko": "I only have my ID card.", "vi": "Tôi chỉ có chứng minh thư thôi ạ." }],
+      [{ "ko": "That's fine. Can I pay by card?", "vi": "Vậy cũng được. Tôi trả bằng thẻ được không ạ?" }, { "ko": "Is there a monthly fee too?", "vi": "Có phí hằng tháng nữa không ạ?" }],
+      [{ "ko": "Thank you for your help.", "vi": "Cảm ơn bạn đã giúp đỡ." }]
+    ]
+  },
+
+  "rent": {
+    "keyPhrases": [
+      { "ko": "The water heater isn't working.", "vi": "Máy nước nóng không hoạt động ạ." },
+      { "ko": "There's a leak in the bathroom.", "vi": "Nhà tắm bị rò nước ạ." },
+      { "ko": "Could you send someone to fix it?", "vi": "Bác cho người đến sửa giúp được không ạ?" },
+      { "ko": "When can they come?", "vi": "Khi nào họ đến được ạ?" },
+      { "ko": "Who pays for the repair?", "vi": "Ai trả tiền sửa ạ?" }
+    ],
+    "opener": { "ko": "Hello? This is Mrs. Brown. Is everything okay at the flat?", "vi": "A lô? Bà Brown đây. Mọi thứ ở căn hộ ổn chứ cháu?" },
+    "bot": [
+      { "ko": "Oh no. Since when has it been like that?", "vi": "Ôi trời. Nó bị như vậy từ khi nào?" },
+      { "ko": "I'm sorry about that. I'll send a plumber. Are you home tomorrow morning?", "vi": "Bác xin lỗi nhé. Bác sẽ gọi thợ nước. Sáng mai cháu có ở nhà không?" },
+      { "ko": "Great, he'll come around nine. Thanks for letting me know.", "vi": "Tốt, khoảng chín giờ chú ấy sẽ tới. Cảm ơn cháu đã báo." }
+    ],
+    "suggestions": [
+      [{ "ko": "Not really. The water heater isn't working.", "vi": "Không ạ. Máy nước nóng bị hỏng rồi ạ." }, { "ko": "There's a leak under the sink.", "vi": "Có chỗ rò nước dưới bồn rửa ạ." }],
+      [{ "ko": "Since yesterday evening.", "vi": "Từ tối hôm qua ạ." }, { "ko": "It started about three days ago.", "vi": "Nó bắt đầu khoảng ba ngày trước ạ." }],
+      [{ "ko": "Yes, I'm free until noon.", "vi": "Vâng, cháu rảnh đến trưa ạ." }, { "ko": "Could he come in the afternoon instead?", "vi": "Chú ấy đến buổi chiều được không ạ?" }],
+      [{ "ko": "Thank you so much!", "vi": "Cháu cảm ơn bác nhiều ạ!" }]
+    ]
+  },
+
+  "pharmacy": {
+    "keyPhrases": [
+      { "ko": "I have a sore throat and a cough.", "vi": "Tôi bị đau họng và ho ạ." },
+      { "ko": "Do I need a prescription?", "vi": "Có cần đơn thuốc không ạ?" },
+      { "ko": "How often should I take it?", "vi": "Tôi nên uống bao lâu một lần ạ?" },
+      { "ko": "Are there any side effects?", "vi": "Thuốc có tác dụng phụ gì không ạ?" },
+      { "ko": "I'm allergic to penicillin.", "vi": "Tôi bị dị ứng penicillin." }
+    ],
+    "opener": { "ko": "Hi there. How can I help you?", "vi": "Chào bạn. Tôi có thể giúp gì cho bạn?" },
+    "bot": [
+      { "ko": "I'm sorry to hear that. Do you have a fever?", "vi": "Tiếc quá. Bạn có sốt không?" },
+      { "ko": "Are you allergic to any medicine?", "vi": "Bạn có dị ứng thuốc nào không?" },
+      { "ko": "Take one tablet after meals, twice a day. Get well soon!", "vi": "Uống một viên sau bữa ăn, ngày hai lần nhé. Chúc bạn mau khỏe!" }
+    ],
+    "suggestions": [
+      [{ "ko": "I have a bad cough and a sore throat.", "vi": "Tôi bị ho nặng và đau họng ạ." }, { "ko": "I've had a headache since yesterday.", "vi": "Tôi đau đầu từ hôm qua ạ." }],
+      [{ "ko": "A little, about 38 degrees.", "vi": "Hơi sốt, khoảng 38 độ ạ." }, { "ko": "No, I don't think so.", "vi": "Không, tôi nghĩ là không ạ." }],
+      [{ "ko": "No, I'm not allergic to anything.", "vi": "Không, tôi không dị ứng gì cả ạ." }, { "ko": "Yes, I'm allergic to penicillin.", "vi": "Có, tôi bị dị ứng penicillin ạ." }],
+      [{ "ko": "How much is it?", "vi": "Hết bao nhiêu tiền ạ?" }, { "ko": "Thank you very much.", "vi": "Cảm ơn nhiều ạ." }]
+    ]
+  },
+
+  "emergency": {
+    "keyPhrases": [
+      { "ko": "I need help, please.", "vi": "Làm ơn giúp tôi với." },
+      { "ko": "There's been an accident.", "vi": "Có một vụ tai nạn." },
+      { "ko": "Please send an ambulance.", "vi": "Làm ơn cử xe cứu thương đến." },
+      { "ko": "I'm on Main Street, near the bus stop.", "vi": "Tôi đang ở đường Main, gần trạm xe buýt." },
+      { "ko": "I don't speak much English — please speak slowly.", "vi": "Tôi không giỏi tiếng Anh — xin nói chậm giúp tôi." }
+    ],
+    "opener": { "ko": "Emergency services. What's your emergency?", "vi": "Trung tâm cấp cứu xin nghe. Anh/chị gặp chuyện gì ạ?" },
+    "bot": [
+      { "ko": "Stay calm. What is your exact location?", "vi": "Anh/chị bình tĩnh. Vị trí chính xác của anh/chị ở đâu?" },
+      { "ko": "Is anyone injured?", "vi": "Có ai bị thương không ạ?" },
+      { "ko": "Help is on the way. Please stay on the line.", "vi": "Đội cứu hộ đang trên đường tới. Anh/chị giữ máy nhé." }
+    ],
+    "suggestions": [
+      [{ "ko": "There's been a car accident.", "vi": "Có một vụ tai nạn ô tô." }, { "ko": "My friend has fainted.", "vi": "Bạn tôi bị ngất." }],
+      [{ "ko": "I'm on Main Street, near the bus stop.", "vi": "Tôi đang ở đường Main, gần trạm xe buýt." }, { "ko": "I'm not sure — I'm a tourist here.", "vi": "Tôi không chắc — tôi là khách du lịch ở đây." }],
+      [{ "ko": "Yes, one person is bleeding.", "vi": "Có, một người đang chảy máu." }, { "ko": "No, but he can't stand up.", "vi": "Không, nhưng anh ấy không đứng dậy được." }],
+      [{ "ko": "Please hurry. Thank you.", "vi": "Xin hãy nhanh lên. Cảm ơn." }]
+    ]
+  }
+}

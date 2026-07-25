@@ -13,7 +13,8 @@ import {
   recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
-import { viewAllowedForLang } from '@/core/constants/nav'
+import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
+import { pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
 import { studyLang } from '@/core/constants/languages'
 import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { useAuth } from '@/store/auth.store'
@@ -175,7 +176,7 @@ const AppContext = createContext<AppStore | null>(null)
 export function AppStoreProvider({ children }: { children: ReactNode }) {
   const { account, isAuthed, setAccount, openAuth, setBonusAvailable } = useAuth()
 
-  const [view, setView] = useState<AppView>('home')
+  const [view, setViewState] = useState<AppView>(() => viewForPath(window.location.pathname) || 'home')
   const [theme, setTheme] = useState<ThemeMode>(loadTheme)
   const [learnLang, setLearnLangState] = useState<string>(loadLang)
   const [nativeLang, setNativeLangState] = useState<string>(loadNative)
@@ -201,6 +202,36 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [statusError, setStatusError] = useState(false)
 
   const user = account ?? GUEST
+
+  const setView = useCallback((v: AppView) => {
+    setViewState(v)
+    const path = pathForView(v)
+    if (window.location.pathname !== path) window.history.pushState({ view: v }, '', path)
+  }, [])
+
+  const applyPath = useCallback((pathname: string) => {
+    const v = viewForPath(pathname)
+    if (!v) {
+      window.history.replaceState({ view: 'home' }, '', pathForView('home'))
+      setViewState('home')
+      return
+    }
+    if (!viewAllowedForLang(v, loadLang())) {
+      const langs = langsForView(v)
+      if (langs && langs.length) {
+        setLearnLangState(langs[0])
+        try { localStorage.setItem(LANG_KEY, langs[0]) } catch {  }
+      }
+    }
+    setViewState(v)
+  }, [])
+
+  useEffect(() => {
+    applyPath(window.location.pathname)
+    const onPop = () => applyPath(window.location.pathname)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [applyPath])
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -258,6 +289,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   )
 
   const learnLangName = studyLangName(uiLang, learnLang)
+
+  useEffect(() => {
+    const label = translate(uiLang, titleKeyForView(view))
+    document.title = view === 'home'
+      ? `VyLing — ${translate(uiLang, 'brand.tagline')}`
+      : `${label} · VyLing`
+    document.documentElement.lang = uiLang
+  }, [view, uiLang])
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
   const clearWizard = useCallback(() => setWizardRequested(false), [])

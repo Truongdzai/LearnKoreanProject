@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import Sidebar from '@/layout/Sidebar'
 import Topbar from '@/layout/Topbar'
 import Spinner from '@/core/components/Spinner'
@@ -35,12 +35,13 @@ const PetWidget = lazy(() => import('@/features/pet/PetWidget'))
 export default function App() {
   const { view } = useAppStore()
   const { isAdmin } = useAuth()
+  const [navOpen, setNavOpen] = useState(false)
 
   return (
     <div className="app">
-      <Sidebar />
+      <Sidebar open={navOpen} onClose={() => setNavOpen(false)} />
       <div className="main">
-        <Topbar />
+        <Topbar onMenu={() => setNavOpen(true)} />
         <div className="content">
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>
             {view === 'home' && <HomePage />}

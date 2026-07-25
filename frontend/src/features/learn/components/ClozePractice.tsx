@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import type { Lesson } from '@/models/lesson.model'
@@ -88,15 +89,7 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
   const done = picked !== null
   const isRight = done && picked === cur.answer.toLowerCase()
 
-  const speak = (rate = 0.9) => {
-    try {
-      speechSynthesis.cancel()
-      const u = new SpeechSynthesisUtterance(cur.text)
-      u.lang = cfg.locale
-      u.rate = rate
-      speechSynthesis.speak(u)
-    } catch { /* unsupported */ }
-  }
+  const speak = (rate = 0.9) => speakLang(cur.text, cfg.locale, rate)
 
   const pick = (opt: string) => {
     if (done) return

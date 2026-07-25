@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Spinner from '@/core/components/Spinner'
+import { speakKO } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { fetchLingo, type Slang } from '@/core/api/lingo.api'
 
@@ -31,7 +32,7 @@ export default function LingoRadarPage() {
   useEffect(() => { load(false) }, [])
 
   const list = items.filter((s) => f === 'all' || s.platform === f)
-  const speak = (text: string) => { try { const u = new SpeechSynthesisUtterance(text); u.lang = 'ko-KR'; speechSynthesis.speak(u) } catch { /* */ } }
+  const speak = (text: string) => speakKO(text)
 
   return (
     <div className="lingo">

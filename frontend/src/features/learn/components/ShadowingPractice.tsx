@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { romanizeLine } from '@/core/utils/romanize'
 import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
@@ -26,17 +27,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const cur = segs[i]
   const romaja = useMemo(() => (cfg.romanizeChat ? romanizeLine(cur.ko) : ''), [cur.ko, cfg.romanizeChat])
 
-  const speak = (text: string, rate = 0.9) => {
-    try {
-      speechSynthesis.cancel()
-      const u = new SpeechSynthesisUtterance(text)
-      u.lang = cfg.locale
-      u.rate = rate
-      speechSynthesis.speak(u)
-    } catch {
-      /* unsupported */
-    }
-  }
+  const speak = (text: string, rate = 0.9) => speakLang(text, cfg.locale, rate)
 
   const resetAttempt = () => {
     setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()

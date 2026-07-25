@@ -32,3 +32,8 @@ export function viewAllowedForLang(view: string, lang: string): boolean {
   if (!item) return true
   return !item.langs || item.langs.includes(lang)
 }
+
+export function langsForView(view: string): string[] | null {
+  const item = NAV.find((n) => n.id === view)
+  return item?.langs ?? null
+}

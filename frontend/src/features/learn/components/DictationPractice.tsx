@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { speakLang } from '@/core/tts'
 import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
@@ -18,17 +19,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
 
   const cur = segs[i]
 
-  const speak = (rate = 0.85) => {
-    try {
-      speechSynthesis.cancel()
-      const u = new SpeechSynthesisUtterance(cur.ko)
-      u.lang = cfg.locale
-      u.rate = rate
-      speechSynthesis.speak(u)
-    } catch {
-      /* unsupported */
-    }
-  }
+  const speak = (rate = 0.85) => speakLang(cur.ko, cfg.locale, rate)
 
   const score = checked ? pronunciationScore(cur.ko, val) : 0
   const band = scoreBand(score)
