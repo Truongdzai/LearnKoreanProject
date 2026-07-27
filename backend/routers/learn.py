@@ -24,17 +24,21 @@ def _attach_speakers(lesson: dict) -> dict:
 def api_transcript(body: TranscriptIn):
     vid = youtube.extract_id(body.url)
 
-    # Serve from cache → cheap, instant, no YouTube/AI hit (handles many users).
-    if vid:
-        cached = cache.get_lesson(vid)
-        if cached and cached["segments"]:
-            return _attach_speakers(cached)
+    # Chỉ nhận link/ID YouTube hợp lệ Nếu không, URL tuỳ ý sẽ bị yt_dlp truy cập
+    # (SSRF: gọi tới localhost/mạng nội bộ/metadata cloud) Chặn ngay từ cổng
+    if not vid:
+        raise AppError("INVALID_URL", "Hãy dán một link video YouTube hợp lệ.", 400)
 
-    # Cache miss: fetch+translate is heavy → limit concurrency so a burst can't crash us.
+    # Serve from cache → cheap, instant, no YouTube/AI hit (handles many users).
+    cached = cache.get_lesson(vid)
+    if cached and cached["segments"]:
+        return _attach_speakers(cached)
+
+    # Cache miss: fetch+translate is heavy  limit concurrency so a burst can't crash us.
     try:
         with jobs.heavy_slot(timeout=45.0):
             try:
-                data = youtube.get_segments(body.url, body.lang)
+                data = youtube.get_segments(f"https://www.youtube.com/watch?v={vid}", body.lang)
             except Exception as exc:
                 raise AppError("SUBTITLE_NOT_FOUND", str(exc), 404)
             if not data["segments"]:

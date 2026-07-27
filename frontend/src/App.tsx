@@ -7,6 +7,7 @@ import AuthModal from '@/features/auth/AuthModal'
 import GiftModal from '@/features/gift/GiftModal'
 import OnboardingModal from '@/features/onboarding/OnboardingModal'
 import FeedbackWidget from '@/features/feedback/FeedbackWidget'
+import NoAccess from '@/features/shared/NoAccess'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
@@ -63,7 +64,7 @@ export default function App() {
             {view === 'lingo' && <LingoRadarPage />}
             {view === 'dashboard' && <DashboardPage />}
             {view === 'pricing' && <PricingPage />}
-            {view === 'admin' && isAdmin && <AdminPage />}
+            {view === 'admin' && (isAdmin ? <AdminPage /> : <NoAccess />)}
           </Suspense>
         </div>
       </div>

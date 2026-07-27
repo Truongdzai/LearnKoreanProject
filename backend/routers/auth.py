@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from urllib.parse import urlsplit
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
@@ -29,8 +31,9 @@ def _session(row: dict) -> dict:
 
 
 @router.post("/register", response_model=SessionOut)
-def api_register(body: RegisterIn):
-    row = accounts.register(body.name, body.email, body.password)
+def api_register(body: RegisterIn, request: Request):
+    ip = request.client.host if request.client else ""
+    row = accounts.register(body.name, body.email, body.password, ip)
     return _session(row)
 
 
@@ -61,13 +64,29 @@ def _redirect_uri(request: Request, provider: str) -> str:
     return f"{base}/api/auth/{provider}/callback"
 
 
+def _safe_origin(request: Request, return_to: str) -> str:
+    # Token được đính vào URL đích ở callback chỉ cho phép quay về CHÍNH origin
+    # của server này Nếu không sẽ thành open-redirect + rò rỉ token cho web lạ
+    self_origin = str(request.base_url).rstrip("/")
+    want = (return_to or "").strip()
+    if not want:
+        return self_origin
+    try:
+        a, b = urlsplit(want), urlsplit(self_origin)
+    except ValueError:
+        return self_origin
+    if a.scheme in ("http", "https") and (a.hostname, a.port) == (b.hostname, b.port):
+        return f"{a.scheme}://{a.netloc}"
+    return self_origin
+
+
 @router.get("/{provider}/start")
 def api_oauth_start(provider: str, request: Request, return_to: str = ""):
     if provider not in ("google", "facebook"):
         raise HTTPException(status_code=404, detail="Nhà cung cấp không hỗ trợ.")
     if not oauth.enabled(provider):
         raise HTTPException(status_code=400, detail=f"Đăng nhập {provider} chưa được cấu hình.")
-    origin = return_to or str(request.base_url).rstrip("/")
+    origin = _safe_origin(request, return_to)
     state = oauth.make_state(origin)
     url = oauth.authorize_url(provider, _redirect_uri(request, provider), state)
     return RedirectResponse(url)
