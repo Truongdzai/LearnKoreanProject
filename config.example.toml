@@ -21,6 +21,17 @@ model = "small"
 [network]
 proxy = ""
 
+# Bảo mật khi chạy thật (production).
+#   expose_docs : bật/tắt trang tài liệu API tự sinh (/docs, /redoc, /openapi.json).
+#                 Để true khi phát triển ở máy nhà; ĐẶT false khi lên máy chủ công khai
+#                 để không lộ toàn bộ bản đồ API cho người lạ.
+#   cors_origins: danh sách domain được phép gọi API từ trình duyệt. "*" = mọi nơi
+#                 (tiện lúc dev). Khi ra mắt hãy đổi thành domain thật, ví dụ:
+#                 cors_origins = ["https://vyling.vn"]
+[security]
+expose_docs  = true
+cors_origins = ["*"]
+
 # Tài khoản quản trị (đăng nhập trang Admin để quản lý nội dung & người dùng).
 # Để password TRỐNG: lần khởi động đầu hệ thống tự sinh mật khẩu ngẫu nhiên
 # và in ra console đúng 1 lần — hãy lưu lại rồi đổi trong trang Admin.

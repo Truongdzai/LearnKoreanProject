@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
@@ -38,15 +38,52 @@ async def lifespan(app: FastAPI):
     yield
     backup_task.cancel()
 
-app = FastAPI(title=settings["app"]["name"], lifespan=lifespan)
+_SEC = settings.get("security", {}) or {}
+_EXPOSE_DOCS = bool(_SEC.get("expose_docs", True))
+_CORS_ORIGINS = _SEC.get("cors_origins") or ["*"]
+
+app = FastAPI(
+    title=settings["app"]["name"],
+    lifespan=lifespan,
+    docs_url="/docs" if _EXPOSE_DOCS else None,
+    redoc_url="/redoc" if _EXPOSE_DOCS else None,
+    openapi_url="/openapi.json" if _EXPOSE_DOCS else None,
+)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_CORS_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Trang web tự phục vụ, cùng origin nên CSP có thể siết chặt; cho phép YouTube nhúng
+# (iframe player) và ảnh/thumbnail của YouTube. TTS/API đều same-origin.
+_CSP = (
+    "default-src 'self'; "
+    "img-src 'self' data: https:; "
+    "media-src 'self' blob: data:; "
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+    "font-src 'self' https://fonts.gstatic.com data:; "
+    "script-src 'self' https://www.youtube.com https://s.ytimg.com; "
+    "frame-src https://www.youtube.com https://www.youtube-nocookie.com; "
+    "connect-src 'self'; "
+    "object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
+)
+
+
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    resp: Response = await call_next(request)
+    resp.headers.setdefault("X-Content-Type-Options", "nosniff")
+    resp.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
+    resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    resp.headers.setdefault("Permissions-Policy", "geolocation=(), payment=()")
+    if not request.url.path.startswith("/api/"):
+        resp.headers.setdefault("Content-Security-Policy", _CSP)
+    return resp
 
 @app.exception_handler(AppError)
 async def app_error_handler(_request: Request, exc: AppError):

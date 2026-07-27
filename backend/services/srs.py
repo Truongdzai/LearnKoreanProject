@@ -72,15 +72,18 @@ def schedule(reps: int, ivl: int, ease: float, rating: int) -> tuple[int, int, f
 def review(card_id: int, rating: int, user_id: str = USER) -> dict:
     conn = db.get_conn()
     try:
-        card = _row(conn, card_id)
+        card = conn.execute(
+            "SELECT * FROM srs_cards WHERE id = ? AND user_id = ?", (card_id, user_id)
+        ).fetchone()
         if not card:
             raise ValueError("Không tìm thấy thẻ")
+        card = dict(card)
         reps, ivl, ease = schedule(card["reps"], card["ivl"], card["ease"], rating)
         due = (date.today() + timedelta(days=ivl)).isoformat()
         conn.execute(
             "UPDATE srs_cards SET reps=?, ivl=?, ease=?, due=?, "
-            "last_reviewed=datetime('now','localtime') WHERE id=?",
-            (reps, ivl, round(ease, 2), due, card_id),
+            "last_reviewed=datetime('now','localtime') WHERE id=? AND user_id=?",
+            (reps, ivl, round(ease, 2), due, card_id, user_id),
         )
         conn.execute(
             "INSERT INTO srs_reviews (card_id, user_id, rating) VALUES (?,?,?)",

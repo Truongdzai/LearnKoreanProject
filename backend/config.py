@@ -12,6 +12,7 @@ DEFAULTS: dict = {
     "llm": {"provider": "none", "api_key": "", "model": "", "models": []},
     "whisper": {"model": "small"},
     "network": {"proxy": ""},
+    "security": {"expose_docs": True, "cors_origins": ["*"]},
     "admin": {"email": "admin@vyling.vn", "password": "", "name": "Quản trị viên"},
     "oauth": {
         "google_client_id": "",

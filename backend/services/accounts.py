@@ -109,7 +109,30 @@ def _by_email(conn, email: str):
     return conn.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchone()
 
 
-def register(name: str, email: str, password: str) -> dict:
+REGISTER_MAX = 8
+REGISTER_WINDOW_MIN = 60
+
+
+def _register_rl(conn, ip: str) -> None:
+    if not ip:
+        return
+    key = f"register|{ip}"
+    now = datetime.now()
+    row = conn.execute("SELECT fails, updated_at FROM login_attempts WHERE key = ?", (key,)).fetchone()
+    n = 0
+    if row and row["updated_at"] and now - datetime.fromisoformat(row["updated_at"]) < timedelta(minutes=REGISTER_WINDOW_MIN):
+        n = row["fails"]
+    if n >= REGISTER_MAX:
+        raise AppError("RATE_LIMITED", "Bạn đã tạo quá nhiều tài khoản từ thiết bị này. Hãy thử lại sau.", 429)
+    conn.execute(
+        "INSERT INTO login_attempts (key, fails, locked_until, updated_at) VALUES (?,?,NULL,?) "
+        "ON CONFLICT(key) DO UPDATE SET fails = ?, updated_at = ?",
+        (key, n + 1, now.isoformat(), n + 1, now.isoformat()),
+    )
+    conn.commit()
+
+
+def register(name: str, email: str, password: str, ip: str = "") -> dict:
     email = (email or "").strip().lower()
     if not EMAIL_RE.match(email):
         raise HTTPException(status_code=400, detail="Email không hợp lệ.")
@@ -117,6 +140,7 @@ def register(name: str, email: str, password: str) -> dict:
         raise HTTPException(status_code=400, detail="Mật khẩu cần ít nhất 6 ký tự.")
     conn = db.get_conn()
     try:
+        _register_rl(conn, ip)
         if _by_email(conn, email):
             raise HTTPException(status_code=409, detail="Email này đã được đăng ký. Hãy đăng nhập.")
         pass_hash, salt = auth.hash_password(password)
