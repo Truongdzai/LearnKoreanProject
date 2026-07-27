@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 import { env } from '@/config/env'
 import { getToken, setToken } from '@/core/api/client'
+import { syncUserScope, forgetUserScope } from '@/core/utils/userScope'
 import { loginApi, meApi, registerApi, providersApi, type PendingGift } from '@/core/api/auth.api'
 import type { Account } from '@/models/account.model'
 
@@ -66,7 +67,10 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
 
     if (!getToken()) { setReady(true); if (error) setModalOpen(true); return }
     meApi()
-      .then((res) => { setAccountState(res.user); setBonusAvailable(res.bonusAvailable); setPendingGift(res.pendingGift) })
+      .then((res) => {
+        syncUserScope(res.user.id)
+        setAccountState(res.user); setBonusAvailable(res.bonusAvailable); setPendingGift(res.pendingGift)
+      })
       .catch(() => setToken(null))
       .finally(() => setReady(true))
   }, [])
@@ -82,6 +86,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
   const signUpEmail = useCallback(async (name: string, email: string, password: string) => {
     const res = await registerApi(name, email, password)
     setToken(res.token)
+    syncUserScope(res.user.id)
     setAccountState(res.user)
     setBonusAvailable(true)
     setModalOpen(false)
@@ -90,6 +95,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
   const signInEmail = useCallback(async (email: string, password: string) => {
     const res = await loginApi(email, password)
     setToken(res.token)
+    syncUserScope(res.user.id)
     setAccountState(res.user)
     const me = await meApi().catch(() => null)
     if (me) { setBonusAvailable(me.bonusAvailable); setPendingGift(me.pendingGift); setAccountState(me.user) }
@@ -105,7 +111,9 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
 
   const signOut = useCallback(() => {
     setToken(null)
+    forgetUserScope()
     setAccountState(null)
+    window.location.reload()
   }, [])
 
   const value: AuthStore = {

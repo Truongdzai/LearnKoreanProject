@@ -249,6 +249,76 @@ export function grammarTaskDone(t: WeekTask, best: Record<string, number>): bool
   return GRAMMAR_LESSONS.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
 }
 
+// ---- Lịch từng ngày (Ngày 1–7) sinh từ nhiệm vụ thật của tuần ----
+
+export interface DayPlan {
+  day: number
+  theme: string
+  taskIds: string[]
+  note?: string
+}
+
+export interface WeekSchedule {
+  days: DayPlan[]
+  weekLong: string[]
+}
+
+const LEARN_KINDS: WeekTask['kind'][] = ['vocab', 'grammar', 'pron', 'video', 'speak', 'custom']
+const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic']
+
+const DAY_THEME: Partial<Record<WeekTask['kind'], string>> = {
+  vocab: 'Học từ vựng',
+  grammar: 'Ngữ pháp',
+  pron: 'Luyện phát âm',
+  video: 'Nghe qua video',
+  speak: 'Luyện nói',
+  custom: 'Thực hành',
+}
+
+// Phân bổ các nhiệm vụ HỌC vào Ngày 1–5 (đều tay, ưu tiên ngày đầu), Ngày 6 kiểm tra,
+// Ngày 7 ôn tập; nhiệm vụ "cả tuần" (SRS/kho từ/TOEIC) tách riêng.
+export function weekSchedule(w: WeekPlan): WeekSchedule {
+  const learn = w.tasks.filter((t) => LEARN_KINDS.includes(t.kind))
+  const quiz = w.tasks.filter((t) => t.kind === 'quiz')
+  const weekLong = w.tasks.filter((t) => WEEKLONG_KINDS.includes(t.kind)).map((t) => t.id)
+
+  const LEARN_DAYS = 5
+  const buckets: WeekTask[][] = Array.from({ length: LEARN_DAYS }, () => [])
+  const base = Math.floor(learn.length / LEARN_DAYS)
+  const extra = learn.length % LEARN_DAYS
+  let idx = 0
+  for (let d = 0; d < LEARN_DAYS; d++) {
+    const take = base + (d < extra ? 1 : 0)
+    for (let k = 0; k < take; k++) buckets[d].push(learn[idx++])
+  }
+
+  const days: DayPlan[] = buckets.map((items, d) => {
+    if (!items.length) {
+      return { day: d + 1, theme: 'Ôn lại', taskIds: [], note: 'Ôn lại từ đã học tuần này + xem 1 video ngắn tuỳ thích để gom từ.' }
+    }
+    return {
+      day: d + 1,
+      theme: DAY_THEME[items[0].kind] ?? 'Học tập',
+      taskIds: items.map((t) => t.id),
+    }
+  })
+
+  days.push({
+    day: 6,
+    theme: 'Kiểm tra tuần',
+    taskIds: quiz.map((t) => t.id),
+    note: quiz.length ? undefined : 'Tự kiểm tra lại vốn từ trong tuần bằng tab Kiểm tra.',
+  })
+  days.push({
+    day: 7,
+    theme: 'Ôn tập & củng cố',
+    taskIds: [],
+    note: 'Vào Ôn tập (SRS) ôn hết thẻ đến hạn, nghe lại các từ khó. Xong sớm thì nghỉ ngơi để giữ nhịp.',
+  })
+
+  return { days, weekLong }
+}
+
 export interface ToeicBridge {
   started: boolean
   days: number

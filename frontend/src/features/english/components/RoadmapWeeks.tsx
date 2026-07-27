@@ -7,7 +7,8 @@ import { useAppStore } from '@/store/app.store'
 import {
   speakEN, usePlan, useLearnedWords, useWordBank, readPlan,
   planDay, planWeek, taskDone, weekDone, vocabTarget, learnedInUnit,
-  useActivityDays, weekActivity, useGrammarProgress, usePronProgress, useToeicBridge, type TaskExtra,
+  useActivityDays, weekActivity, useGrammarProgress, usePronProgress, useToeicBridge,
+  weekSchedule, type TaskExtra,
 } from '../progress'
 
 interface Props {
@@ -126,6 +127,38 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
     }
   }
 
+  const renderTask = (t: WeekTask, week: number) => {
+    const done = isDone(t, week)
+    const meta = taskMeta(t, week)
+    const action = taskAction(t, PLAN_12_WEEKS[week - 1])
+    return (
+      <div key={t.id} className={'wk-task' + (done ? ' done' : '')}>
+        {MANUAL.has(t.kind) ? (
+          <button
+            className={'wk-check' + (done ? ' on' : '')}
+            onClick={() => toggleTask(t.id)}
+            title={done ? 'Bỏ đánh dấu' : 'Đánh dấu đã xong'}
+          >
+            {done && <Icon name="check" size={13} />}
+          </button>
+        ) : (
+          <span className={'wk-check auto' + (done ? ' on' : '')}>
+            <Icon name={done ? 'check' : KIND_ICON[t.kind]} size={12} />
+          </span>
+        )}
+        <div className="wk-task-body">
+          <span className="wk-task-label">{t.label}</span>
+          {meta && <span className="wk-task-meta">{meta}</span>}
+        </div>
+        {action && (
+          <button className="btn-ghost sm wk-go" onClick={action.run}>
+            {action.label} <Icon name="arrow-right" size={13} />
+          </button>
+        )}
+      </div>
+    )
+  }
+
   const sel = open != null ? PLAN_12_WEEKS.find((w) => w.week === open) : undefined
 
   return (
@@ -201,39 +234,39 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
 
           <div className="wk-rhythm"><Icon name="calendar" size={14} /> {sel.rhythm}</div>
 
-          <div className="wk-tasks">
-            {sel.tasks.map((t) => {
-              const done = isDone(t, sel.week)
-              const meta = taskMeta(t, sel.week)
-              const action = taskAction(t, sel)
-              return (
-                <div key={t.id} className={'wk-task' + (done ? ' done' : '')}>
-                  {MANUAL.has(t.kind) ? (
-                    <button
-                      className={'wk-check' + (done ? ' on' : '')}
-                      onClick={() => toggleTask(t.id)}
-                      title={done ? 'Bỏ đánh dấu' : 'Đánh dấu đã xong'}
-                    >
-                      {done && <Icon name="check" size={13} />}
-                    </button>
-                  ) : (
-                    <span className={'wk-check auto' + (done ? ' on' : '')}>
-                      <Icon name={done ? 'check' : KIND_ICON[t.kind]} size={12} />
-                    </span>
-                  )}
-                  <div className="wk-task-body">
-                    <span className="wk-task-label">{t.label}</span>
-                    {meta && <span className="wk-task-meta">{meta}</span>}
+          {(() => {
+            const sch = weekSchedule(sel)
+            const byId = new Map(sel.tasks.map((t) => [t.id, t]))
+            const weekLongTasks = sch.weekLong.map((id) => byId.get(id)).filter(Boolean) as WeekTask[]
+            return (
+              <>
+                {weekLongTasks.length > 0 && (
+                  <div className="wk-weeklong">
+                    <div className="wk-weeklong-head"><Icon name="target" size={13} /> Mục tiêu xuyên suốt tuần</div>
+                    <div className="wk-tasks">{weekLongTasks.map((t) => renderTask(t, sel.week))}</div>
                   </div>
-                  {action && (
-                    <button className="btn-ghost sm wk-go" onClick={action.run}>
-                      {action.label} <Icon name="arrow-right" size={13} />
-                    </button>
-                  )}
+                )}
+
+                <div className="wk-days">
+                  {sch.days.map((d) => {
+                    const items = d.taskIds.map((id) => byId.get(id)).filter(Boolean) as WeekTask[]
+                    const allDone = items.length > 0 && items.every((t) => isDone(t, sel.week))
+                    return (
+                      <div key={d.day} className={'wk-day' + (allDone ? ' done' : '')}>
+                        <div className="wk-day-head">
+                          <span className="wk-day-num">Ngày {d.day}</span>
+                          <span className="wk-day-theme">{d.theme}</span>
+                          {allDone && <Icon name="check-circle" size={14} />}
+                        </div>
+                        {items.length > 0 && <div className="wk-tasks">{items.map((t) => renderTask(t, sel.week))}</div>}
+                        {d.note && <div className="wk-day-note">{d.note}</div>}
+                      </div>
+                    )
+                  })}
                 </div>
-              )
-            })}
-          </div>
+              </>
+            )
+          })()}
 
           {sel.patterns && (
             <>
