@@ -6,8 +6,8 @@ export const COUNTS = {
   koUnits: 67,
   topikCapsules: 20,
   videos: 113,
-  zhWords: 144,
-  zhUnits: 12,
+  zhWords: 324,
+  zhUnits: 27,
   koVideos: 34,
   enVideos: 46,
 }

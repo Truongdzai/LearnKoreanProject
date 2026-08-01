@@ -1,0 +1,22 @@
+{
+  "id": "zh-hobby",
+  "name": "Sở thích & giải trí",
+  "sub": "Kể xem cuối tuần bạn làm gì — chất liệu để bắt chuyện.",
+  "pos": "verb",
+  "tone": "tone-f",
+  "emoji": "🎬",
+  "words": [
+    { "zh": "爱好", "pinyin": "ài hào", "vi": "Sở thích", "pos": "noun", "img": "❤️", "connect": "爱好 = ái hảo, yêu và thích. Chữ ái trong tình ái, ái mộ.", "ex": "我的爱好是看书。", "exVi": "Sở thích của tôi là đọc sách." },
+    { "zh": "兴趣", "pinyin": "xìng qù", "vi": "Hứng thú, sự quan tâm", "pos": "noun", "img": "🌟", "connect": "兴趣 = hứng thú, đúng chữ trong tiếng Việt. Khung câu: 对…感兴趣 là thấy hứng thú với...", "ex": "我对中国历史很有兴趣。", "exVi": "Tôi rất hứng thú với lịch sử Trung Quốc." },
+    { "zh": "音乐", "pinyin": "yīn yuè", "vi": "Âm nhạc", "pos": "noun", "img": "🎵", "connect": "音乐 = âm nhạc, đúng chữ trong tiếng Việt.", "ex": "我一边工作一边听音乐。", "exVi": "Tôi vừa làm việc vừa nghe nhạc." },
+    { "zh": "唱歌", "pinyin": "chàng gē", "vi": "Hát", "pos": "verb", "img": "🎤", "connect": "唱歌 = xướng ca, chữ trong ca hát, xướng danh.", "ex": "她唱歌唱得很好。", "exVi": "Cô ấy hát rất hay." },
+    { "zh": "跳舞", "pinyin": "tiào wǔ", "vi": "Nhảy múa", "pos": "verb", "img": "💃", "connect": "跳舞 = khiêu vũ, đúng chữ khiêu vũ trong tiếng Việt.", "ex": "周末我们去跳舞吧。", "exVi": "Cuối tuần chúng ta đi nhảy nhé." },
+    { "zh": "电影", "pinyin": "diàn yǐng", "vi": "Phim, điện ảnh", "pos": "noun", "img": "🎬", "connect": "电影 = điện ảnh, đúng chữ trong tiếng Việt.", "ex": "这部电影很有意思。", "exVi": "Bộ phim này rất thú vị." },
+    { "zh": "运动", "pinyin": "yùn dòng", "vi": "Thể thao, vận động", "pos": "noun", "img": "⚽", "connect": "运动 = vận động, đúng chữ trong tiếng Việt.", "ex": "我每天都做运动。", "exVi": "Ngày nào tôi cũng tập thể thao." },
+    { "zh": "游泳", "pinyin": "yóu yǒng", "vi": "Bơi lội", "pos": "verb", "img": "🏊", "connect": "游泳 = du vịnh, chữ du trong du lịch (đi lại), vịnh nghĩa là bơi.", "ex": "夏天我常常去游泳。", "exVi": "Mùa hè tôi thường đi bơi." },
+    { "zh": "旅游", "pinyin": "lǚ yóu", "vi": "Du lịch", "pos": "verb", "img": "🧳", "connect": "旅游 = lữ du, chữ lữ trong lữ hành, lữ khách.", "ex": "我想去中国旅游。", "exVi": "Tôi muốn đi du lịch Trung Quốc." },
+    { "zh": "拍照", "pinyin": "pāi zhào", "vi": "Chụp ảnh", "pos": "verb", "img": "📷", "connect": "拍照 = phách chiếu, chữ chiếu trong chiếu sáng, ảnh chụp gọi là chiếu phiến.", "ex": "可以帮我拍照吗？", "exVi": "Bạn chụp ảnh giúp tôi được không?" },
+    { "zh": "玩", "pinyin": "wán", "vi": "Chơi", "pos": "verb", "img": "🎮", "connect": "玩 = ngoạn, chữ trong ngoạn mục, du ngoạn — đi chơi ngắm cảnh.", "ex": "周末你想去哪儿玩？", "exVi": "Cuối tuần bạn muốn đi chơi đâu?" },
+    { "zh": "有意思", "pinyin": "yǒu yì si", "vi": "Thú vị, hay", "pos": "adj", "img": "✨", "connect": "有意思 = hữu ý tứ, có ý có tứ — tức là có cái để ngẫm, thú vị.", "ex": "这个游戏很有意思。", "exVi": "Trò chơi này rất thú vị." }
+  ]
+}

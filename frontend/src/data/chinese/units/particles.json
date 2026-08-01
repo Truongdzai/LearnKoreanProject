@@ -1,0 +1,22 @@
+{
+  "id": "zh-particles",
+  "name": "Từ nối & động từ tình thái",
+  "sub": "Mười hai chữ để nối ý và nói được điều mình muốn — có chúng thì câu mới dài ra.",
+  "pos": "adverb",
+  "tone": "tone-d",
+  "emoji": "🧱",
+  "words": [
+    { "zh": "要", "pinyin": "yào", "vi": "Muốn, cần; sắp", "pos": "verb", "img": "🙌", "connect": "要 = yếu, chữ trong cần yếu, thiết yếu — thứ mình cần.", "ex": "我要一杯咖啡。", "exVi": "Tôi muốn một ly cà phê." },
+    { "zh": "可以", "pinyin": "kě yǐ", "vi": "Có thể, được phép", "pos": "verb", "img": "👌", "connect": "可以 = khả dĩ, đúng chữ trong tiếng Việt.", "ex": "我可以坐这儿吗？", "exVi": "Tôi ngồi đây được không?" },
+    { "zh": "应该", "pinyin": "yīng gāi", "vi": "Nên, phải", "pos": "verb", "img": "☝️", "connect": "应该 = ứng cai, chữ ứng trong ứng xử, đáp ứng — điều đáng phải làm.", "ex": "你应该多休息。", "exVi": "Bạn nên nghỉ ngơi nhiều hơn." },
+    { "zh": "因为", "pinyin": "yīn wèi", "vi": "Bởi vì", "pos": "adverb", "img": "❓", "connect": "因为 = nhân vị, chữ nhân trong nguyên nhân.", "ex": "因为下雨，所以我没去。", "exVi": "Vì trời mưa nên tôi đã không đi." },
+    { "zh": "所以", "pinyin": "suǒ yǐ", "vi": "Cho nên, vì vậy", "pos": "adverb", "img": "➡️", "connect": "所以 = sở dĩ, đúng chữ trong sở dĩ của tiếng Việt. Luôn đi cặp với 因为.", "ex": "他很忙，所以没来。", "exVi": "Anh ấy rất bận nên đã không đến." },
+    { "zh": "但是", "pinyin": "dàn shì", "vi": "Nhưng", "pos": "adverb", "img": "↔️", "connect": "但是 = đãn thị, chữ đãn trong đãn thị của văn cổ, nghĩa là chỉ có điều.", "ex": "这件衣服很好看，但是太贵了。", "exVi": "Chiếc áo này rất đẹp, nhưng đắt quá." },
+    { "zh": "如果", "pinyin": "rú guǒ", "vi": "Nếu", "pos": "adverb", "img": "🔀", "connect": "如果 = như quả, chữ như trong ví như, giả như.", "ex": "如果明天不下雨，我们就去。", "exVi": "Nếu mai không mưa thì chúng ta đi." },
+    { "zh": "已经", "pinyin": "yǐ jīng", "vi": "Đã, đã rồi", "pos": "adverb", "img": "✅", "connect": "已经 = dĩ kinh, chữ dĩ trong dĩ vãng — chuyện đã qua.", "ex": "我已经吃过了。", "exVi": "Tôi đã ăn rồi." },
+    { "zh": "正在", "pinyin": "zhèng zài", "vi": "Đang (làm gì)", "pos": "adverb", "img": "⏳", "connect": "正在 = chính tại, đúng ngay lúc này. Đặt trước động từ để chỉ việc đang diễn ra.", "ex": "他正在打电话。", "exVi": "Anh ấy đang gọi điện thoại." },
+    { "zh": "就", "pinyin": "jiù", "vi": "Thì, liền, ngay", "pos": "adverb", "img": "⚡", "connect": "就 = tựu, chữ trong thành tựu — việc tới ngay, không chần chừ.", "ex": "我马上就来。", "exVi": "Tôi tới ngay đây." },
+    { "zh": "才", "pinyin": "cái", "vi": "Mới, mãi mới", "pos": "adverb", "img": "🐢", "connect": "才 = tài. Ngược với 就: 就 là sớm hơn mong đợi, 才 là muộn hơn mong đợi.", "ex": "他十点才起床。", "exVi": "Mãi mười giờ cậu ấy mới dậy." },
+    { "zh": "比", "pinyin": "bǐ", "vi": "Hơn, so với", "pos": "prep", "img": "⚖️", "connect": "比 = tỉ, chữ trong tỉ lệ, so sánh. Khung câu: A 比 B + tính từ.", "ex": "今天比昨天热。", "exVi": "Hôm nay nóng hơn hôm qua." }
+  ]
+}

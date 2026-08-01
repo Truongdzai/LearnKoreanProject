@@ -10,9 +10,11 @@ export interface ExpectationSpec {
   next: string
 }
 
-export default function Expectations({ spec, lang }: { spec: ExpectationSpec; lang: 'ko' | 'en' }) {
+const LANG_NAME: Record<string, string> = { ko: 'tiếng Hàn', zh: 'tiếng Trung', en: 'tiếng Anh' }
+
+export default function Expectations({ spec, lang }: { spec: ExpectationSpec; lang: string }) {
   const [open, setOpen] = useState(false)
-  const name = lang === 'ko' ? 'tiếng Hàn' : 'tiếng Anh'
+  const name = LANG_NAME[lang] ?? LANG_NAME.en
 
   return (
     <div className={'expect' + (open ? ' open' : '')}>

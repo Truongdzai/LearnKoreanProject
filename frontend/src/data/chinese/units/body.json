@@ -1,0 +1,22 @@
+{
+  "id": "zh-body",
+  "name": "Cơ thể & đi khám",
+  "sub": "Tả chỗ đau, gọi tên bộ phận, đi bệnh viện mua thuốc.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🩺",
+  "words": [
+    { "zh": "身体", "pinyin": "shēn tǐ", "vi": "Cơ thể, sức khoẻ", "pos": "noun", "img": "🧍", "connect": "身体 = thân thể, đúng chữ trong tiếng Việt.", "ex": "他身体很好。", "exVi": "Sức khoẻ anh ấy rất tốt." },
+    { "zh": "头", "pinyin": "tóu", "vi": "Đầu", "pos": "noun", "img": "🗣️", "connect": "头 = đầu, đúng chữ trong đầu não, khai đầu.", "ex": "我头很疼。", "exVi": "Tôi đau đầu lắm." },
+    { "zh": "眼睛", "pinyin": "yǎn jing", "vi": "Mắt", "pos": "noun", "img": "👁️", "connect": "眼睛 = nhãn tinh, chữ nhãn trong nhãn khoa, nhãn cầu.", "ex": "她的眼睛很大。", "exVi": "Mắt cô ấy rất to." },
+    { "zh": "嘴", "pinyin": "zuǐ", "vi": "Miệng", "pos": "noun", "img": "👄", "connect": "嘴 = chuỷ, có bộ 口 (khẩu = miệng) bên trái để nhận mặt.", "ex": "请张开嘴。", "exVi": "Xin hãy há miệng ra." },
+    { "zh": "手", "pinyin": "shǒu", "vi": "Tay", "pos": "noun", "img": "✋", "connect": "手 = thủ, đúng chữ trong thủ công, ca sĩ là ca thủ.", "ex": "吃饭前要洗手。", "exVi": "Trước khi ăn phải rửa tay." },
+    { "zh": "脚", "pinyin": "jiǎo", "vi": "Chân, bàn chân", "pos": "noun", "img": "🦶", "connect": "脚 = cước, đúng chữ trong cước phí (tiền chân đi lại), hạ cước.", "ex": "我的脚有点疼。", "exVi": "Chân tôi hơi đau." },
+    { "zh": "疼", "pinyin": "téng", "vi": "Đau", "pos": "adj", "img": "😖", "connect": "Chữ có bộ 疒 (bệnh) ôm lấy 冬 (đông) — ốm vào mùa đông thì đau nhức.", "ex": "你哪儿疼？", "exVi": "Bạn đau ở chỗ nào?" },
+    { "zh": "生病", "pinyin": "shēng bìng", "vi": "Bị ốm, đổ bệnh", "pos": "verb", "img": "🤒", "connect": "生病 = sinh bệnh, tức là sinh ra bệnh trong người.", "ex": "他昨天生病了。", "exVi": "Hôm qua anh ấy bị ốm." },
+    { "zh": "医生", "pinyin": "yī shēng", "vi": "Bác sĩ", "pos": "noun", "img": "👨‍⚕️", "connect": "医生 = y sinh, chữ y trong y tế, y khoa.", "ex": "医生说我要多休息。", "exVi": "Bác sĩ nói tôi cần nghỉ nhiều hơn." },
+    { "zh": "感冒", "pinyin": "gǎn mào", "vi": "Cảm, cảm cúm", "pos": "verb", "img": "🤧", "connect": "感冒 = cảm mạo, đúng chữ trong bị cảm mạo của tiếng Việt.", "ex": "我感冒了，有点发烧。", "exVi": "Tôi bị cảm rồi, hơi sốt." },
+    { "zh": "药", "pinyin": "yào", "vi": "Thuốc", "pos": "noun", "img": "💊", "connect": "药 = dược, đúng chữ trong dược sĩ, dược phẩm.", "ex": "这个药一天吃两次。", "exVi": "Thuốc này ngày uống hai lần." },
+    { "zh": "休息", "pinyin": "xiū xi", "vi": "Nghỉ ngơi", "pos": "verb", "img": "😴", "connect": "休息 = hưu tức, chữ hưu trong về hưu. Chữ 休 vẽ người 亻dựa vào cây 木 để nghỉ.", "ex": "你应该好好休息。", "exVi": "Bạn nên nghỉ ngơi cho tử tế." }
+  ]
+}

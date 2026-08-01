@@ -1,0 +1,230 @@
+[
+  {
+    "id": "zh-four-tones",
+    "emoji": "🎼",
+    "title": "mā · má · mǎ · mà",
+    "sub": "Bốn thanh điệu cơ bản",
+    "why": "Tiếng Việt có sáu thanh nên bạn có sẵn tai nghe thanh điệu, nhưng bốn thanh tiếng Trung KHÔNG trùng với sáu thanh Việt. Thanh 1 phải cao và phẳng đều (người Việt hay hạ giọng cuối), thanh 4 phải rơi dứt khoát từ cao xuống thấp chứ không phải dấu nặng.",
+    "tip": "Vẽ tay theo giọng: thanh 1 kéo ngang trên cao, thanh 2 hất lên như dấu sắc, thanh 3 võng xuống rồi hơi lên, thanh 4 chém thẳng xuống. Sai thanh là sai từ: 妈 (mẹ) thành 马 (ngựa).",
+    "words": [
+      { "w": "妈", "ipa": "mā (thanh 1)", "vi": "mẹ" },
+      { "w": "麻", "ipa": "má (thanh 2)", "vi": "cây gai; tê" },
+      { "w": "马", "ipa": "mǎ (thanh 3)", "vi": "con ngựa" },
+      { "w": "骂", "ipa": "mà (thanh 4)", "vi": "mắng" },
+      { "w": "汤", "ipa": "tāng (thanh 1)", "vi": "canh" },
+      { "w": "糖", "ipa": "táng (thanh 2)", "vi": "đường, kẹo" },
+      { "w": "躺", "ipa": "tǎng (thanh 3)", "vi": "nằm" },
+      { "w": "烫", "ipa": "tàng (thanh 4)", "vi": "nóng bỏng" }
+    ],
+    "sentences": [
+      { "en": "妈妈骑马，马慢，妈妈骂马。", "vi": "Mẹ cưỡi ngựa, ngựa chậm, mẹ mắng ngựa." },
+      { "en": "这个汤太烫了。", "vi": "Bát canh này nóng quá." },
+      { "en": "我要买一匹马。", "vi": "Tôi muốn mua một con ngựa." }
+    ]
+  },
+  {
+    "id": "zh-tone-2-3",
+    "emoji": "📈",
+    "title": "Thanh 2 ↗ và thanh 3 ↘↗",
+    "sub": "Cặp thanh dễ lẫn nhất",
+    "why": "Đây là lỗi số một của người Việt. Thanh 2 giống dấu sắc, đi lên một mạch. Thanh 3 phải võng xuống đáy rồi mới hơi ngóc lên — người Việt hay đọc thành dấu hỏi nửa vời nên 买 (mua) nghe ra 埋 (chôn).",
+    "tip": "Đọc thanh 3 hãy hạ giọng thật thấp và kéo dài, đừng vội lên. Trong câu, thanh 3 đứng trước từ khác thường chỉ còn nửa đầu (võng xuống, không lên).",
+    "pairs": [
+      { "a": "白", "aIpa": "bái", "aVi": "trắng", "b": "百", "bIpa": "bǎi", "bVi": "một trăm" },
+      { "a": "鱼", "aIpa": "yú", "aVi": "con cá", "b": "雨", "bIpa": "yǔ", "bVi": "mưa" },
+      { "a": "学", "aIpa": "xué", "aVi": "học", "b": "雪", "bIpa": "xuě", "bVi": "tuyết" },
+      { "a": "完", "aIpa": "wán", "aVi": "xong, hết", "b": "晚", "bIpa": "wǎn", "bVi": "muộn, tối" },
+      { "a": "图", "aIpa": "tú", "aVi": "hình vẽ", "b": "土", "bIpa": "tǔ", "bVi": "đất" },
+      { "a": "题", "aIpa": "tí", "aVi": "đề bài", "b": "体", "bIpa": "tǐ", "bVi": "thân thể" },
+      { "a": "房", "aIpa": "fáng", "aVi": "phòng, nhà", "b": "访", "bIpa": "fǎng", "bVi": "thăm hỏi" },
+      { "a": "词", "aIpa": "cí", "aVi": "từ ngữ", "b": "此", "bIpa": "cǐ", "bVi": "này, đây" }
+    ],
+    "sentences": [
+      { "en": "今天下雨，我不去买鱼。", "vi": "Hôm nay trời mưa, tôi không đi mua cá." },
+      { "en": "我学完了，已经很晚了。", "vi": "Tôi học xong rồi, đã muộn lắm rồi." },
+      { "en": "这个词的意思我明白了。", "vi": "Nghĩa của từ này tôi hiểu rồi." }
+    ]
+  },
+  {
+    "id": "zh-retroflex",
+    "emoji": "👅",
+    "title": "zh · ch · sh ⟷ z · c · s",
+    "sub": "Âm cuốn lưỡi và âm đầu lưỡi",
+    "why": "Tiếng Việt không có âm cuốn lưỡi, nên người Việt đọc 是 (shì, là) thành 四 (sì, bốn) — hai từ dùng suốt ngày. Nghe nhầm ở đây làm hỏng cả câu.",
+    "tip": "zh ch sh: cuốn đầu lưỡi lên chạm vòm trên, giống lúc bạn nói tr trong tiếng Việt miền Bắc nhưng cuốn sâu hơn. z c s: lưỡi phẳng, đầu lưỡi chạm chân răng như x trong tiếng Việt.",
+    "pairs": [
+      { "a": "是", "aIpa": "shì", "aVi": "là, đúng", "b": "四", "bIpa": "sì", "bVi": "số bốn" },
+      { "a": "山", "aIpa": "shān", "aVi": "núi", "b": "三", "bIpa": "sān", "bVi": "số ba" },
+      { "a": "中", "aIpa": "zhōng", "aVi": "ở giữa, Trung", "b": "宗", "bIpa": "zōng", "bVi": "tông, dòng họ" },
+      { "a": "茶", "aIpa": "chá", "aVi": "trà", "b": "擦", "bIpa": "cā", "bVi": "lau chùi" },
+      { "a": "出", "aIpa": "chū", "aVi": "đi ra", "b": "粗", "bIpa": "cū", "bVi": "thô, to bản" },
+      { "a": "主", "aIpa": "zhǔ", "aVi": "chủ", "b": "祖", "bIpa": "zǔ", "bVi": "tổ tiên" },
+      { "a": "长", "aIpa": "cháng", "aVi": "dài", "b": "藏", "bIpa": "cáng", "bVi": "giấu, cất" },
+      { "a": "商", "aIpa": "shāng", "aVi": "buôn bán", "b": "桑", "bIpa": "sāng", "bVi": "cây dâu" }
+    ],
+    "sentences": [
+      { "en": "四是四，十是十。", "vi": "Bốn là bốn, mười là mười." },
+      { "en": "他是中国人，喜欢喝茶。", "vi": "Anh ấy là người Trung Quốc, thích uống trà." },
+      { "en": "这条路很长。", "vi": "Con đường này rất dài." }
+    ]
+  },
+  {
+    "id": "zh-jqx",
+    "emoji": "😁",
+    "title": "j · q · x",
+    "sub": "Bộ âm miệng dẹt",
+    "why": "Người Việt hay đọc j thành ch, q thành kh, x thành s. Ba âm này luôn đi với i hoặc ü, khẩu hình dẹt hẳn sang hai bên — khác hoàn toàn zh ch sh cuốn lưỡi.",
+    "tip": "Cười dẹt miệng như đang nói i, đặt phần giữa lưỡi sát vòm trên rồi mới bật âm. q là bản bật hơi của j; x là âm xì kéo dài, nhẹ như gió lùa qua kẽ răng.",
+    "words": [
+      { "w": "鸡", "ipa": "jī", "vi": "con gà" },
+      { "w": "七", "ipa": "qī", "vi": "số bảy" },
+      { "w": "西", "ipa": "xī", "vi": "phía tây" },
+      { "w": "就", "ipa": "jiù", "vi": "thì, liền" },
+      { "w": "请", "ipa": "qǐng", "vi": "mời" },
+      { "w": "谢谢", "ipa": "xiè xie", "vi": "cảm ơn" },
+      { "w": "钱", "ipa": "qián", "vi": "tiền" },
+      { "w": "现在", "ipa": "xiàn zài", "vi": "bây giờ" }
+    ],
+    "sentences": [
+      { "en": "请问，现在几点？", "vi": "Xin hỏi, bây giờ mấy giờ?" },
+      { "en": "这个鸡蛋七块钱。", "vi": "Quả trứng gà này bảy đồng." },
+      { "en": "谢谢你，我就走。", "vi": "Cảm ơn bạn, tôi đi ngay đây." }
+    ]
+  },
+  {
+    "id": "zh-u-umlaut",
+    "emoji": "😙",
+    "title": "ü ⟷ u",
+    "sub": "Nguyên âm tròn môi lưỡi trước",
+    "why": "Tiếng Việt không có ü, nên 女 (nǚ, nữ) dễ thành 努 (nǔ, nỗ lực) và 绿 (lǜ, xanh lục) thành 路 (lù, đường).",
+    "tip": "Đọc chữ i rồi giữ nguyên vị trí lưỡi, chỉ chúm môi tròn lại như huýt sáo — ra đúng ü. Sau j q x y thì ü viết trơn thành u nhưng vẫn đọc là ü: 去 đọc qü chứ không phải qu.",
+    "pairs": [
+      { "a": "女", "aIpa": "nǚ", "aVi": "nữ, con gái", "b": "努", "bIpa": "nǔ", "bVi": "nỗ lực" },
+      { "a": "绿", "aIpa": "lǜ", "aVi": "màu xanh lục", "b": "路", "bIpa": "lù", "bVi": "con đường" },
+      { "a": "需", "aIpa": "xū", "aVi": "cần", "b": "书", "bIpa": "shū", "bVi": "sách" },
+      { "a": "局", "aIpa": "jú", "aVi": "cục, ván cờ", "b": "猪", "bIpa": "zhū", "bVi": "con lợn" },
+      { "a": "语", "aIpa": "yǔ", "aVi": "ngôn ngữ", "b": "五", "bIpa": "wǔ", "bVi": "số năm" },
+      { "a": "去", "aIpa": "qù", "aVi": "đi", "b": "处", "bIpa": "chù", "bVi": "nơi chốn" }
+    ],
+    "sentences": [
+      { "en": "她是女的，她很努力。", "vi": "Cô ấy là nữ, cô ấy rất nỗ lực." },
+      { "en": "绿色的路牌在那儿。", "vi": "Biển đường màu xanh lục ở đằng kia." },
+      { "en": "我要去学汉语。", "vi": "Tôi muốn đi học tiếng Trung." }
+    ]
+  },
+  {
+    "id": "zh-r",
+    "emoji": "🌀",
+    "title": "Âm r (rén · rì · ròu)",
+    "sub": "Âm cuốn lưỡi không rung",
+    "why": "r tiếng Việt là âm rung đầu lưỡi, còn r tiếng Trung gần với âm rzh của tiếng Anh trong pleasure — không rung chút nào. Đọc 人 (rén, người) bằng r Việt thì người Trung Quốc nghe rất lạ tai.",
+    "tip": "Đặt lưỡi đúng như khi đọc sh rồi rung dây thanh (bật tiếng). Lưỡi giữ nguyên, tuyệt đối không đập đầu lưỡi.",
+    "words": [
+      { "w": "人", "ipa": "rén", "vi": "người" },
+      { "w": "日", "ipa": "rì", "vi": "ngày, mặt trời" },
+      { "w": "热", "ipa": "rè", "vi": "nóng" },
+      { "w": "认识", "ipa": "rèn shi", "vi": "quen biết" },
+      { "w": "容易", "ipa": "róng yì", "vi": "dễ dàng" },
+      { "w": "肉", "ipa": "ròu", "vi": "thịt" },
+      { "w": "让", "ipa": "ràng", "vi": "nhường, để cho" },
+      { "w": "然后", "ipa": "rán hòu", "vi": "sau đó" }
+    ],
+    "sentences": [
+      { "en": "今天天气很热。", "vi": "Hôm nay thời tiết rất nóng." },
+      { "en": "认识你很高兴。", "vi": "Rất vui được quen bạn." },
+      { "en": "这个菜有肉，很容易做。", "vi": "Món này có thịt, rất dễ làm." }
+    ]
+  },
+  {
+    "id": "zh-n-ng",
+    "emoji": "👃",
+    "title": "Đuôi -n ⟷ -ng",
+    "sub": "Hai âm mũi cuối",
+    "why": "Người Việt phát âm được cả hai nhưng hay lẫn khi ghép nhanh, mà tiếng Trung phân biệt rất rõ: 新 (xīn, mới) khác 星 (xīng, ngôi sao), 分 (fēn, phút) khác 风 (fēng, gió).",
+    "tip": "Đuôi -n: đầu lưỡi chạm lợi trên, miệng khép nhỏ. Đuôi -ng: đầu lưỡi hạ hẳn xuống, gốc lưỡi nâng lên chạm vòm mềm, miệng mở hơn và âm vang ra sau.",
+    "pairs": [
+      { "a": "新", "aIpa": "xīn", "aVi": "mới", "b": "星", "bIpa": "xīng", "bVi": "ngôi sao" },
+      { "a": "分", "aIpa": "fēn", "aVi": "phút; chia", "b": "风", "bIpa": "fēng", "bVi": "gió" },
+      { "a": "真", "aIpa": "zhēn", "aVi": "thật", "b": "争", "bIpa": "zhēng", "bVi": "tranh giành" },
+      { "a": "心", "aIpa": "xīn", "aVi": "tim, lòng", "b": "行", "bIpa": "xíng", "bVi": "được, đi" },
+      { "a": "班", "aIpa": "bān", "aVi": "lớp, ca làm", "b": "帮", "bIpa": "bāng", "bVi": "giúp" },
+      { "a": "半", "aIpa": "bàn", "aVi": "một nửa", "b": "棒", "bIpa": "bàng", "bVi": "giỏi, cừ" },
+      { "a": "亲", "aIpa": "qīn", "aVi": "thân thiết", "b": "轻", "bIpa": "qīng", "bVi": "nhẹ" },
+      { "a": "人", "aIpa": "rén", "aVi": "người", "b": "仍", "bIpa": "réng", "bVi": "vẫn còn" }
+    ],
+    "sentences": [
+      { "en": "今天风很大，星星很少。", "vi": "Hôm nay gió rất to, sao rất ít." },
+      { "en": "我们班有新同学。", "vi": "Lớp chúng tôi có bạn học mới." },
+      { "en": "现在六点半，行吗？", "vi": "Bây giờ sáu giờ rưỡi, được không?" }
+    ]
+  },
+  {
+    "id": "zh-aspirate",
+    "emoji": "💨",
+    "title": "b–p · d–t · g–k",
+    "sub": "Âm thường và âm bật hơi",
+    "why": "Trong tiếng Trung, b d g đọc gần như p t k của tiếng Việt (không bật hơi), còn p t k phải bật một luồng hơi mạnh. Không bật hơi thì 怕 (pà, sợ) nghe thành 爸 (bà, bố).",
+    "tip": "Kẹp tờ giấy mỏng trước miệng: đọc p t k phải làm tờ giấy bay rõ, đọc b d g thì giấy gần như đứng yên.",
+    "pairs": [
+      { "a": "爸", "aIpa": "bà", "aVi": "bố", "b": "怕", "bIpa": "pà", "bVi": "sợ" },
+      { "a": "白", "aIpa": "bái", "aVi": "trắng", "b": "排", "bIpa": "pái", "bVi": "xếp hàng" },
+      { "a": "大", "aIpa": "dà", "aVi": "to, lớn", "b": "他", "bIpa": "tā", "bVi": "anh ấy" },
+      { "a": "都", "aIpa": "dōu", "aVi": "đều", "b": "偷", "bIpa": "tōu", "bVi": "ăn trộm" },
+      { "a": "该", "aIpa": "gāi", "aVi": "nên, đáng", "b": "开", "bIpa": "kāi", "bVi": "mở" },
+      { "a": "到", "aIpa": "dào", "aVi": "đến nơi", "b": "套", "bIpa": "tào", "bVi": "bộ (lượng từ)" },
+      { "a": "电", "aIpa": "diàn", "aVi": "điện", "b": "天", "bIpa": "tiān", "bVi": "trời, ngày" },
+      { "a": "干", "aIpa": "gān", "aVi": "khô", "b": "看", "bIpa": "kàn", "bVi": "xem, nhìn" }
+    ],
+    "sentences": [
+      { "en": "他不怕，他爸爸很大方。", "vi": "Anh ấy không sợ, bố anh ấy rất rộng rãi." },
+      { "en": "请开门，我们都到了。", "vi": "Xin mở cửa, chúng tôi đều tới rồi." },
+      { "en": "今天天气很干，我要看医生。", "vi": "Hôm nay thời tiết rất khô, tôi phải đi khám." }
+    ]
+  },
+  {
+    "id": "zh-neutral",
+    "emoji": "🪶",
+    "title": "Thanh nhẹ (轻声)",
+    "sub": "Âm tiết đọc nhẹ và ngắn",
+    "why": "Rất nhiều từ thông dụng có âm tiết thứ hai đọc nhẹ, không thanh điệu: 妈妈, 谢谢, 朋友. Người Việt quen đọc đủ thanh cho mọi chữ nên nói ra nghe cứng và chậm hơn người bản xứ.",
+    "tip": "Âm tiết nhẹ đọc ngắn bằng một nửa, hạ giọng và buông lỏng — như tiếng đệm trong tiếng Việt khi nói nhanh: bố ơi, mẹ à.",
+    "words": [
+      { "w": "妈妈", "ipa": "mā ma", "vi": "mẹ" },
+      { "w": "爸爸", "ipa": "bà ba", "vi": "bố" },
+      { "w": "东西", "ipa": "dōng xi", "vi": "đồ đạc" },
+      { "w": "朋友", "ipa": "péng you", "vi": "bạn bè" },
+      { "w": "我们", "ipa": "wǒ men", "vi": "chúng tôi" },
+      { "w": "谢谢", "ipa": "xiè xie", "vi": "cảm ơn" },
+      { "w": "舒服", "ipa": "shū fu", "vi": "dễ chịu" },
+      { "w": "名字", "ipa": "míng zi", "vi": "tên" }
+    ],
+    "sentences": [
+      { "en": "谢谢你，我们是朋友。", "vi": "Cảm ơn bạn, chúng ta là bạn bè." },
+      { "en": "我要去买东西。", "vi": "Tôi muốn đi mua đồ." },
+      { "en": "今天我很舒服。", "vi": "Hôm nay tôi thấy rất dễ chịu." }
+    ]
+  },
+  {
+    "id": "zh-sandhi",
+    "emoji": "🔄",
+    "title": "Biến điệu 3+3 · 不 · 一",
+    "sub": "Thanh đổi khi ghép câu",
+    "why": "Viết một đằng đọc một nẻo: 你好 viết nǐ hǎo nhưng đọc ní hǎo; 不 và 一 đổi thanh tuỳ chữ đứng sau. Đọc đúng mặt chữ mà không biến điệu là nghe ra ngay người mới học.",
+    "tip": "Ba quy tắc: (1) hai thanh 3 liền nhau thì chữ đầu đọc thành thanh 2; (2) 不 đứng trước thanh 4 đọc bú; (3) 一 trước thanh 4 đọc yí, trước thanh 1-2-3 đọc yì.",
+    "words": [
+      { "w": "你好", "ipa": "viết nǐ hǎo, đọc ní hǎo", "vi": "xin chào" },
+      { "w": "很好", "ipa": "viết hěn hǎo, đọc hén hǎo", "vi": "rất tốt" },
+      { "w": "可以", "ipa": "viết kě yǐ, đọc ké yǐ", "vi": "có thể" },
+      { "w": "不是", "ipa": "bú shì (không phải bù)", "vi": "không phải" },
+      { "w": "不客气", "ipa": "bú kè qi", "vi": "không có gì" },
+      { "w": "不好", "ipa": "bù hǎo (giữ nguyên bù)", "vi": "không tốt" },
+      { "w": "一个", "ipa": "yí gè", "vi": "một cái" },
+      { "w": "一起", "ipa": "yì qǐ", "vi": "cùng nhau" }
+    ],
+    "sentences": [
+      { "en": "你好！我很好，谢谢。", "vi": "Xin chào! Tôi rất khoẻ, cảm ơn." },
+      { "en": "不客气，这不是问题。", "vi": "Không có gì, đây không phải vấn đề." },
+      { "en": "我们一起吃一个饭吧。", "vi": "Chúng ta cùng ăn một bữa nhé." }
+    ]
+  }
+]

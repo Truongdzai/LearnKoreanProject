@@ -48,16 +48,23 @@ export function pronWords(g: PronGroup): PronWord[] {
 
 const STRIP = /[^a-z' ]/g
 const STRIP_KO = /[^가-힣 ]/g
+const STRIP_ZH = /[^一-鿿 ]/g
+
+const CHAR_LANGS = ['ko', 'zh']
+
+const isCharLang = (lang: string): boolean => CHAR_LANGS.includes(lang)
 
 export function normalizeSpoken(s: string, lang = 'en'): string {
-  if (lang === 'ko') return s.replace(STRIP_KO, ' ').replace(/\s+/g, ' ').trim()
+  if (isCharLang(lang)) {
+    return s.replace(lang === 'zh' ? STRIP_ZH : STRIP_KO, ' ').replace(/\s+/g, ' ').trim()
+  }
   return s.toLowerCase().replace(/[’]/g, "'").replace(STRIP, ' ').replace(/\s+/g, ' ').trim()
 }
 
 export function scoreSpoken(target: string, heard: string, lang = 'en'): number {
-  if (lang === 'ko') {
-    const w = normalizeSpoken(target, 'ko').replace(/ /g, '')
-    const g = normalizeSpoken(heard, 'ko').replace(/ /g, '')
+  if (isCharLang(lang)) {
+    const w = normalizeSpoken(target, lang).replace(/ /g, '')
+    const g = normalizeSpoken(heard, lang).replace(/ /g, '')
     if (!w || !g) return 0
     if (w === g) return 100
     let hit = 0

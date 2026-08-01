@@ -52,6 +52,10 @@ export function koreanVoiceStatus(): 'ready' | 'none' | 'unknown' {
   return voiceStatus('ko')
 }
 
+export function chineseVoiceStatus(): 'ready' | 'none' | 'unknown' {
+  return voiceStatus('zh')
+}
+
 export function onVoicesChanged(cb: () => void): () => void {
   listeners.add(cb)
   return () => { listeners.delete(cb) }
@@ -110,6 +114,10 @@ export function speakKO(text: string, rate = 0.92): void {
   speakLang(text, 'ko-KR', rate)
 }
 
+export function speakZH(text: string, rate = 0.9): void {
+  speakLang(text, 'zh-CN', rate)
+}
+
 
 let currentAudio: HTMLAudioElement | null = null
 let queueToken = 0
@@ -142,6 +150,12 @@ export const VOICE_HELP_KO: { os: string; how: string }[] = [
   { os: 'Windows', how: 'Cài đặt (Settings) → Time & Language → Speech → Manage voices → Add voices → chọn Korean (Korea).' },
   { os: 'Android', how: 'Mở "Speech Recognition & Synthesis" (Google TTS) → Cài đặt giọng nói → tải dữ liệu giọng 한국어.' },
   { os: 'iPhone / iPad / Mac', how: 'Cài đặt → Trợ năng → Nội dung được đọc → Giọng nói → thêm Korean (한국어).' },
+]
+
+export const VOICE_HELP_ZH: { os: string; how: string }[] = [
+  { os: 'Windows', how: 'Cài đặt (Settings) → Time & Language → Speech → Manage voices → Add voices → chọn Chinese (Simplified, China).' },
+  { os: 'Android', how: 'Mở "Speech Recognition & Synthesis" (Google TTS) → Cài đặt giọng nói → tải dữ liệu giọng 中文 (普通话).' },
+  { os: 'iPhone / iPad / Mac', how: 'Cài đặt → Trợ năng → Nội dung được đọc → Giọng nói → thêm Chinese (Mandarin, 普通话).' },
 ]
 
 export const VOICE_HELP: { os: string; how: string }[] = [

@@ -246,36 +246,126 @@ const EN_SMALLTALK: PackWord[] = [
   { term: 'joke', sub: '/dʒoʊk/', vi: 'chuyện đùa', ex: 'He always tells funny jokes.', exVi: 'Anh ấy toàn kể chuyện đùa mắc cười.' },
 ]
 
+const ZH_WORK: PackWord[] = [
+  { term: '项目', sub: 'xiàng mù', vi: 'dự án', ex: '这个项目下个月开始。', exVi: 'Dự án này tháng sau bắt đầu.' },
+  { term: '报告', sub: 'bào gào', vi: 'báo cáo', ex: '请把报告发给我。', exVi: 'Xin gửi báo cáo cho tôi.' },
+  { term: '会议室', sub: 'huì yì shì', vi: 'phòng họp', ex: '会议室在三楼。', exVi: 'Phòng họp ở tầng ba.' },
+  { term: '出差', sub: 'chū chāi', vi: 'đi công tác', ex: '我下周去北京出差。', exVi: 'Tuần sau tôi đi công tác Bắc Kinh.' },
+  { term: '客户', sub: 'kè hù', vi: 'khách hàng', ex: '客户对价格不满意。', exVi: 'Khách hàng không hài lòng về giá.' },
+  { term: '合同', sub: 'hé tong', vi: 'hợp đồng', ex: '我们明天签合同。', exVi: 'Ngày mai chúng ta ký hợp đồng.' },
+  { term: '计划', sub: 'jì huà', vi: 'kế hoạch', ex: '这是今年的计划。', exVi: 'Đây là kế hoạch của năm nay.' },
+  { term: '截止日期', sub: 'jié zhǐ rì qī', vi: 'hạn chót', ex: '截止日期是星期五。', exVi: 'Hạn chót là thứ Sáu.' },
+  { term: '负责', sub: 'fù zé', vi: 'phụ trách', ex: '这件事我负责。', exVi: 'Việc này tôi phụ trách.' },
+  { term: '同意', sub: 'tóng yì', vi: 'đồng ý', ex: '老板同意了我的想法。', exVi: 'Sếp đã đồng ý với ý tưởng của tôi.' },
+  { term: '邮件', sub: 'yóu jiàn', vi: 'thư điện tử', ex: '我给你发一封邮件。', exVi: 'Tôi gửi cho bạn một email.' },
+  { term: '完成', sub: 'wán chéng', vi: 'hoàn thành', ex: '任务已经完成了。', exVi: 'Nhiệm vụ đã hoàn thành rồi.' },
+]
+
+const ZH_TRAVEL: PackWord[] = [
+  { term: '航班', sub: 'háng bān', vi: 'chuyến bay', ex: '我的航班晚点了。', exVi: 'Chuyến bay của tôi bị trễ.' },
+  { term: '登机', sub: 'dēng jī', vi: 'lên máy bay', ex: '几点开始登机？', exVi: 'Mấy giờ bắt đầu lên máy bay?' },
+  { term: '入住', sub: 'rù zhù', vi: 'nhận phòng', ex: '我想办入住手续。', exVi: 'Tôi muốn làm thủ tục nhận phòng.' },
+  { term: '退房', sub: 'tuì fáng', vi: 'trả phòng', ex: '退房时间是中午十二点。', exVi: 'Giờ trả phòng là mười hai giờ trưa.' },
+  { term: '押金', sub: 'yā jīn', vi: 'tiền đặt cọc', ex: '押金是两百块。', exVi: 'Tiền cọc là hai trăm đồng.' },
+  { term: '景点', sub: 'jǐng diǎn', vi: 'điểm tham quan', ex: '这里有很多有名的景点。', exVi: 'Ở đây có nhiều điểm tham quan nổi tiếng.' },
+  { term: '门票', sub: 'mén piào', vi: 'vé vào cửa', ex: '门票多少钱一张？', exVi: 'Vé vào cửa bao nhiêu tiền một chiếc?' },
+  { term: '导游', sub: 'dǎo yóu', vi: 'hướng dẫn viên', ex: '导游说中文和英文。', exVi: 'Hướng dẫn viên nói tiếng Trung và tiếng Anh.' },
+  { term: '换乘', sub: 'huàn chéng', vi: 'đổi tuyến, chuyển tàu', ex: '在下一站换乘二号线。', exVi: 'Đổi sang tuyến số hai ở bến kế tiếp.' },
+  { term: '迷路', sub: 'mí lù', vi: 'lạc đường', ex: '我迷路了，能帮我吗？', exVi: 'Tôi bị lạc đường, giúp tôi được không?' },
+  { term: '纪念品', sub: 'jì niàn pǐn', vi: 'đồ lưu niệm', ex: '我买了一些纪念品。', exVi: 'Tôi đã mua một ít đồ lưu niệm.' },
+  { term: '拍照', sub: 'pāi zhào', vi: 'chụp ảnh', ex: '这里可以拍照吗？', exVi: 'Ở đây chụp ảnh được không?' },
+]
+
+const ZH_RESTAURANT: PackWord[] = [
+  { term: '位子', sub: 'wèi zi', vi: 'chỗ ngồi, bàn', ex: '还有位子吗？', exVi: 'Còn chỗ ngồi không ạ?' },
+  { term: '招牌菜', sub: 'zhāo pái cài', vi: 'món đặc trưng của quán', ex: '你们的招牌菜是什么？', exVi: 'Món đặc trưng của quán là gì?' },
+  { term: '素食', sub: 'sù shí', vi: 'đồ chay', ex: '我吃素食，有素菜吗？', exVi: 'Tôi ăn chay, có món chay không?' },
+  { term: '过敏', sub: 'guò mǐn', vi: 'dị ứng', ex: '我对花生过敏。', exVi: 'Tôi bị dị ứng đậu phộng.' },
+  { term: '加辣', sub: 'jiā là', vi: 'thêm cay', ex: '请不要加辣。', exVi: 'Xin đừng cho thêm cay.' },
+  { term: '咸', sub: 'xián', vi: 'mặn', ex: '这个菜有点儿咸。', exVi: 'Món này hơi mặn.' },
+  { term: '结账', sub: 'jié zhàng', vi: 'thanh toán', ex: '我们要结账。', exVi: 'Chúng tôi muốn thanh toán.' },
+  { term: '零钱', sub: 'líng qián', vi: 'tiền lẻ', ex: '我没有零钱。', exVi: 'Tôi không có tiền lẻ.' },
+  { term: '干杯', sub: 'gān bēi', vi: 'cạn ly', ex: '为我们的友谊干杯！', exVi: 'Nâng ly vì tình bạn của chúng ta!' },
+  { term: '排队', sub: 'pái duì', vi: 'xếp hàng', ex: '这家店要排队半个小时。', exVi: 'Quán này phải xếp hàng nửa tiếng.' },
+  { term: '外卖', sub: 'wài mài', vi: 'đồ mang đi, giao tận nơi', ex: '我们叫外卖吧。', exVi: 'Chúng ta gọi đồ giao tận nơi đi.' },
+  { term: '服务', sub: 'fú wù', vi: 'phục vụ, dịch vụ', ex: '这家店的服务很好。', exVi: 'Quán này phục vụ rất tốt.' },
+]
+
+const ZH_INTERVIEW: PackWord[] = [
+  { term: '面试', sub: 'miàn shì', vi: 'phỏng vấn', ex: '明天我有一个面试。', exVi: 'Ngày mai tôi có một buổi phỏng vấn.' },
+  { term: '简历', sub: 'jiǎn lì', vi: 'sơ yếu lý lịch', ex: '这是我的简历。', exVi: 'Đây là sơ yếu lý lịch của tôi.' },
+  { term: '应聘', sub: 'yìng pìn', vi: 'ứng tuyển', ex: '我想应聘这个职位。', exVi: 'Tôi muốn ứng tuyển vị trí này.' },
+  { term: '经验', sub: 'jīng yàn', vi: 'kinh nghiệm', ex: '我有三年工作经验。', exVi: 'Tôi có ba năm kinh nghiệm làm việc.' },
+  { term: '优点', sub: 'yōu diǎn', vi: 'ưu điểm', ex: '我的优点是认真。', exVi: 'Ưu điểm của tôi là cẩn thận.' },
+  { term: '缺点', sub: 'quē diǎn', vi: 'khuyết điểm', ex: '我的缺点是太着急。', exVi: 'Khuyết điểm của tôi là hay vội.' },
+  { term: '专业', sub: 'zhuān yè', vi: 'chuyên ngành', ex: '我的专业是国际贸易。', exVi: 'Chuyên ngành của tôi là thương mại quốc tế.' },
+  { term: '毕业', sub: 'bì yè', vi: 'tốt nghiệp', ex: '我去年毕业。', exVi: 'Tôi tốt nghiệp năm ngoái.' },
+  { term: '薪水', sub: 'xīn shuǐ', vi: 'mức lương', ex: '请问薪水是多少？', exVi: 'Cho hỏi mức lương là bao nhiêu ạ?' },
+  { term: '团队', sub: 'tuán duì', vi: 'đội nhóm', ex: '我喜欢团队合作。', exVi: 'Tôi thích làm việc nhóm.' },
+  { term: '责任', sub: 'zé rèn', vi: 'trách nhiệm', ex: '这个职位责任很大。', exVi: 'Vị trí này trách nhiệm rất lớn.' },
+  { term: '录取', sub: 'lù qǔ', vi: 'trúng tuyển, được nhận', ex: '我被录取了！', exVi: 'Tôi được nhận rồi!' },
+]
+
+const ZH_EXAM: PackWord[] = [
+  { term: '水平', sub: 'shuǐ píng', vi: 'trình độ', ex: '我的汉语水平是二级。', exVi: 'Trình độ tiếng Trung của tôi là cấp hai.' },
+  { term: '报名', sub: 'bào míng', vi: 'đăng ký dự thi', ex: '我要报名参加考试。', exVi: 'Tôi muốn đăng ký dự thi.' },
+  { term: '准考证', sub: 'zhǔn kǎo zhèng', vi: 'thẻ dự thi', ex: '别忘了带准考证。', exVi: 'Đừng quên mang thẻ dự thi.' },
+  { term: '听力', sub: 'tīng lì', vi: 'phần nghe', ex: '听力对我来说最难。', exVi: 'Phần nghe với tôi là khó nhất.' },
+  { term: '阅读', sub: 'yuè dú', vi: 'phần đọc hiểu', ex: '阅读有四十道题。', exVi: 'Phần đọc có bốn mươi câu.' },
+  { term: '书写', sub: 'shū xiě', vi: 'phần viết', ex: '书写部分要写汉字。', exVi: 'Phần viết phải viết chữ Hán.' },
+  { term: '成绩', sub: 'chéng jì', vi: 'điểm, kết quả', ex: '什么时候出成绩？', exVi: 'Khi nào có kết quả?' },
+  { term: '及格', sub: 'jí gé', vi: 'đạt, qua điểm sàn', ex: '一百二十分才能及格。', exVi: 'Phải một trăm hai mươi điểm mới đạt.' },
+  { term: '证书', sub: 'zhèng shū', vi: 'chứng chỉ', ex: '证书两年后过期。', exVi: 'Chứng chỉ hết hạn sau hai năm.' },
+  { term: '复习', sub: 'fù xí', vi: 'ôn tập', ex: '我每天复习生词。', exVi: 'Ngày nào tôi cũng ôn từ mới.' },
+  { term: '答案', sub: 'dá àn', vi: 'đáp án', ex: '这道题的答案是 B。', exVi: 'Đáp án câu này là B.' },
+  { term: '考场', sub: 'kǎo chǎng', vi: 'phòng thi', ex: '考场里不能用手机。', exVi: 'Trong phòng thi không được dùng điện thoại.' },
+]
+
+const ZH_SMALLTALK: PackWord[] = [
+  { term: '周末', sub: 'zhōu mò', vi: 'cuối tuần', ex: '周末你做什么？', exVi: 'Cuối tuần bạn làm gì?' },
+  { term: '最近', sub: 'zuì jìn', vi: 'dạo này', ex: '最近怎么样？', exVi: 'Dạo này thế nào?' },
+  { term: '有空', sub: 'yǒu kòng', vi: 'rảnh, có thời gian', ex: '你今天晚上有空吗？', exVi: 'Tối nay bạn có rảnh không?' },
+  { term: '聊天', sub: 'liáo tiān', vi: 'trò chuyện, tán gẫu', ex: '我们聊天聊了两个小时。', exVi: 'Chúng tôi tán gẫu suốt hai tiếng.' },
+  { term: '加微信', sub: 'jiā wēi xìn', vi: 'kết bạn WeChat', ex: '我们加个微信吧。', exVi: 'Mình kết bạn WeChat nhé.' },
+  { term: '老家', sub: 'lǎo jiā', vi: 'quê nhà', ex: '你老家在哪儿？', exVi: 'Quê bạn ở đâu?' },
+  { term: '多大', sub: 'duō dà', vi: 'bao nhiêu tuổi', ex: '你今年多大？', exVi: 'Năm nay bạn bao nhiêu tuổi?' },
+  { term: '一样', sub: 'yí yàng', vi: 'giống nhau', ex: '我们的想法一样。', exVi: 'Suy nghĩ của chúng ta giống nhau.' },
+  { term: '当然', sub: 'dāng rán', vi: 'đương nhiên', ex: '当然可以！', exVi: 'Đương nhiên là được!' },
+  { term: '真的吗', sub: 'zhēn de ma', vi: 'thật à?', ex: '真的吗？太好了！', exVi: 'Thật à? Tuyệt quá!' },
+  { term: '没问题', sub: 'méi wèn tí', vi: 'không vấn đề gì', ex: '没问题，交给我吧。', exVi: 'Không vấn đề gì, để tôi lo.' },
+  { term: '下次', sub: 'xià cì', vi: 'lần sau', ex: '下次一起吃饭吧。', exVi: 'Lần sau cùng đi ăn nhé.' },
+]
+
 export const CONTEXT_PACKS: ContextPack[] = [
   {
     id: 'work', name: 'Công việc & văn phòng', emoji: '💼', tone: 'tone-f', goal: 'work',
     desc: 'Họp hành, deadline, email — nói chuyện công sở tự tin.',
-    words: { ko: KO_WORK, en: EN_WORK },
+    words: { ko: KO_WORK, en: EN_WORK, zh: ZH_WORK },
   },
   {
     id: 'travel', name: 'Du lịch & di chuyển', emoji: '✈️', tone: 'tone-d', goal: 'travel',
     desc: 'Sân bay, khách sạn, hỏi đường — đủ dùng cho cả chuyến đi.',
-    words: { ko: KO_TRAVEL, en: EN_TRAVEL },
+    words: { ko: KO_TRAVEL, en: EN_TRAVEL, zh: ZH_TRAVEL },
   },
   {
     id: 'restaurant', name: 'Nhà hàng & quán xá', emoji: '🍽️', tone: 'tone-c', goal: 'talk',
     desc: 'Gọi món, khen ngon, xin hoá đơn — ăn uống không lo bí từ.',
-    words: { ko: KO_RESTAURANT, en: EN_RESTAURANT },
+    words: { ko: KO_RESTAURANT, en: EN_RESTAURANT, zh: ZH_RESTAURANT },
   },
   {
     id: 'interview', name: 'Phỏng vấn xin việc', emoji: '🤝', tone: 'tone-b', goal: 'work',
     desc: 'Giới thiệu bản thân, điểm mạnh yếu, deal lương — sẵn sàng trúng tuyển.',
-    words: { ko: KO_INTERVIEW, en: EN_INTERVIEW },
+    words: { ko: KO_INTERVIEW, en: EN_INTERVIEW, zh: ZH_INTERVIEW },
   },
   {
     id: 'exam', name: 'Luyện thi & phòng thi', emoji: '🎓', tone: 'tone-a', goal: 'exam',
     desc: 'Đăng ký, đề thi, điểm số, chứng chỉ — bộ từ sống còn mùa ôn thi TOPIK/TOEIC.',
-    words: { ko: KO_EXAM, en: EN_EXAM },
+    words: { ko: KO_EXAM, en: EN_EXAM, zh: ZH_EXAM },
   },
   {
     id: 'smalltalk', name: 'Tán gẫu & kết bạn', emoji: '☕', tone: 'tone-e', goal: 'talk',
     desc: 'Cuối tuần, sở thích, thời tiết — bắt chuyện tự nhiên với bất kỳ ai.',
-    words: { ko: KO_SMALLTALK, en: EN_SMALLTALK },
+    words: { ko: KO_SMALLTALK, en: EN_SMALLTALK, zh: ZH_SMALLTALK },
   },
 ]
 
