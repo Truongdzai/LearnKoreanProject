@@ -1,0 +1,22 @@
+{
+  "id": "fruit",
+  "name": "Trái cây & rau củ",
+  "sub": "Đi siêu thị Hàn gọi đúng tên từng thứ trong giỏ.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "🍎",
+  "words": [
+    { "ko": "사과", "romaja": "sagwa", "vi": "Táo", "pos": "noun", "img": "🍎", "connect": "\"Sa-goa\" cũng có nghĩa \"xin lỗi\" — trái táo xin lỗi.", "ex": "사과 두 개 주세요.", "exVi": "Cho tôi hai quả táo ạ." },
+    { "ko": "바나나", "romaja": "banana", "vi": "Chuối", "pos": "noun", "img": "🍌", "connect": "\"Ba-na-na\" mượn nguyên từ \"banana\".", "ex": "아침에 바나나를 먹어요.", "exVi": "Buổi sáng tôi ăn chuối." },
+    { "ko": "딸기", "romaja": "ttalgi", "vi": "Dâu tây", "pos": "noun", "img": "🍓", "connect": "\"Ttal-ghi\" — mùa đông Hàn Quốc là mùa dâu.", "ex": "겨울에는 딸기가 맛있어요.", "exVi": "Mùa đông thì dâu tây ngon lắm." },
+    { "ko": "포도", "romaja": "podo", "vi": "Nho", "pos": "noun", "img": "🍇", "connect": "\"Phô-đô\" chính là âm Hán \"bồ đào\".", "ex": "포도 주스를 좋아해요.", "exVi": "Tôi thích nước ép nho." },
+    { "ko": "수박", "romaja": "subak", "vi": "Dưa hấu", "pos": "noun", "img": "🍉", "connect": "\"Su\" = nước — trái cây mọng nước nhất mùa hè.", "ex": "여름에는 수박이 최고예요.", "exVi": "Mùa hè thì dưa hấu là nhất." },
+    { "ko": "오렌지", "romaja": "orenji", "vi": "Cam", "pos": "noun", "img": "🍊", "connect": "\"Ô-ren-chi\" mượn từ \"orange\".", "ex": "오렌지 주스 한 잔 주세요.", "exVi": "Cho tôi một ly nước cam ạ." },
+    { "ko": "채소", "romaja": "chaeso", "vi": "Rau củ", "pos": "noun", "img": "🥬", "connect": "\"Chê-sô\" chính là âm Hán \"thái sơ\".", "ex": "채소를 많이 드세요.", "exVi": "Bạn ăn nhiều rau vào nhé." },
+    { "ko": "감자", "romaja": "gamja", "vi": "Khoai tây", "pos": "noun", "img": "🥔", "connect": "\"Kam-cha\" — món khoai chiên 감자튀김 quen thuộc.", "ex": "감자를 삶고 있어요.", "exVi": "Tôi đang luộc khoai tây." },
+    { "ko": "양파", "romaja": "yangpa", "vi": "Hành tây", "pos": "noun", "img": "🧅", "connect": "\"Yang\" = tây/dương + \"pha\" = hành → hành của phương Tây.", "ex": "양파를 썰면 눈물이 나요.", "exVi": "Thái hành tây là chảy nước mắt." },
+    { "ko": "당근", "romaja": "danggeun", "vi": "Cà rốt", "pos": "noun", "img": "🥕", "connect": "\"Đang-gưn\" — giới trẻ còn dùng đùa nghĩa \"đúng rồi\".", "ex": "당근도 넣어 주세요.", "exVi": "Cho thêm cà rốt vào giúp tôi ạ." },
+    { "ko": "토마토", "romaja": "tomato", "vi": "Cà chua", "pos": "noun", "img": "🍅", "connect": "\"Thô-ma-thô\" mượn từ \"tomato\".", "ex": "토마토가 아주 싱싱해요.", "exVi": "Cà chua tươi lắm." },
+    { "ko": "상추", "romaja": "sangchu", "vi": "Rau xà lách (cuốn thịt)", "pos": "noun", "img": "🥬", "connect": "Lá rau bắt buộc khi ăn thịt nướng Hàn Quốc.", "ex": "상추에 고기를 싸서 먹어요.", "exVi": "Tôi cuốn thịt với lá xà lách rồi ăn." }
+  ]
+}

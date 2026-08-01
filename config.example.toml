@@ -2,6 +2,9 @@
 name = "Hàn Quân"
 native_language = "vie"
 target_language = "kor"
+# Tên miền thật khi chạy public — dùng cho sitemap.xml và robots.txt.
+# Để trống thì hệ thống tự lấy theo domain của request.
+public_url = ""
 
 [llm]
 provider = "gemini"
@@ -31,6 +34,50 @@ proxy = ""
 [security]
 expose_docs  = true
 cors_origins = ["*"]
+
+# Hạn mức gọi AI mỗi ngày, tính bằng "điểm" (reset lúc nửa đêm theo giờ máy chủ).
+# Giá mỗi lượt: hỏi gia sư 2 · chấm bài viết TOPIK 5 · luyện nói 2 · chấm phát âm 2 · tra từ sâu 1.
+# Khách chưa đăng nhập tính theo IP; đã đăng nhập tính theo tài khoản.
+[quota]
+guest_per_day    = 20
+user_per_day     = 80
+plus_per_day     = 250
+burst_per_minute = 12
+
+# Đo lường lượt truy cập & xác minh quyền sở hữu website.
+#   ga4_id: mã đo lường Google Analytics 4, dạng "G-XXXXXXXXXX" (lấy ở Admin →
+#           Luồng dữ liệu trong analytics.google.com). ĐỂ TRỐNG thì web KHÔNG nạp
+#           script ngoài nào và không đặt cookie theo dõi — mặc định là tắt.
+#   google_site_verification: dùng để xác minh website trong Google Search Console.
+#           Chọn cách "Tệp HTML", Google cho tải file tên google<mã>.html —
+#           chỉ cần điền phần <mã> vào đây, hệ thống tự phục vụ file đó.
+[analytics]
+ga4_id                   = ""
+google_site_verification = ""
+
+# Gửi email hệ thống (mã đổi/quên mật khẩu). Để TRỐNG host thì hệ thống KHÔNG gửi
+# email thật mà IN MÃ ra console (tiện thử ở máy nhà). Khi muốn gửi thật:
+#   Gmail: host="smtp.gmail.com", port=587, user="<email>@gmail.com",
+#          password="<Mật khẩu ứng dụng 16 ký tự>" (tạo tại https://myaccount.google.com/apppasswords,
+#          cần bật xác minh 2 bước — KHÔNG dùng mật khẩu Gmail thường).
+#   sender để trống thì lấy theo user; sender_name là tên hiển thị.
+[smtp]
+host        = ""
+port        = 587
+user        = ""
+password    = ""
+sender      = ""
+sender_name = "VyLing"
+
+# Thư gửi chủ động (khác với thư theo yêu cầu như mã đổi mật khẩu).
+#   daily_reminder: bật/tắt thư nhắc học hằng ngày cho người hôm nay chưa học.
+#                   Chỉ gửi cho người ĐÃ xác minh email và chưa bấm huỷ nhận;
+#                   mỗi người tối đa 1 thư/ngày; thư nào cũng có link huỷ nhận.
+#   reminder_hour : giờ gửi (0–23) theo giờ máy chủ. 20 = 8 giờ tối.
+# Cần khai [app] public_url thì link trong thư mới trỏ đúng tên miền thật.
+[email]
+daily_reminder = true
+reminder_hour  = 20
 
 # Tài khoản quản trị (đăng nhập trang Admin để quản lý nội dung & người dùng).
 # Để password TRỐNG: lần khởi động đầu hệ thống tự sinh mật khẩu ngẫu nhiên

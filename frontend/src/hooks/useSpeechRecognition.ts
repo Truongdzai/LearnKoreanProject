@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-/* Minimal typings for the Web Speech API (not in lib.dom for all targets). */
 interface SRResultEvent {
   resultIndex: number
   results: ArrayLike<{ 0: { transcript: string }; isFinal: boolean }>
@@ -35,7 +34,7 @@ export function useSpeechRecognition(lang = 'ko-KR') {
   const retryRef = useRef(0)
   const gotResultRef = useRef(false)
 
-  useEffect(() => () => { try { recRef.current?.abort() } catch { /* */ } }, [])
+  useEffect(() => () => { try { recRef.current?.abort() } catch {} }, [])
 
   const begin = useCallback(() => {
     const Ctor = getCtor()
@@ -43,8 +42,7 @@ export function useSpeechRecognition(lang = 'ko-KR') {
       setError('Trình duyệt không hỗ trợ nhận diện giọng nói. Hãy dùng Chrome hoặc Edge.')
       return
     }
-    // Make sure any previous instance is fully torn down before starting again.
-    try { recRef.current?.abort() } catch { /* */ }
+    try { recRef.current?.abort() } catch {}
 
     const rec = new Ctor()
     rec.lang = lang
@@ -64,8 +62,6 @@ export function useSpeechRecognition(lang = 'ko-KR') {
       setInterim(intr)
     }
     rec.onerror = (ev) => {
-      // The Google STT service occasionally drops with a transient "network" error.
-      // Retry a couple of times before giving up, then fall back gracefully.
       if (ev.error === 'network' && retryRef.current < MAX_RETRY) {
         retryRef.current += 1
         setError('Mạng chập chờn, đang thử lại…')
@@ -92,7 +88,6 @@ export function useSpeechRecognition(lang = 'ko-KR') {
       rec.start()
       setListening(true)
     } catch {
-      /* already started */
     }
   }, [lang])
 
@@ -105,7 +100,7 @@ export function useSpeechRecognition(lang = 'ko-KR') {
     begin()
   }, [begin])
 
-  const stop = useCallback(() => { try { recRef.current?.stop() } catch { /* */ } }, [])
+  const stop = useCallback(() => { try { recRef.current?.stop() } catch {} }, [])
   const reset = useCallback(() => {
     setTranscript('')
     setInterim('')

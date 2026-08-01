@@ -1,0 +1,22 @@
+{
+  "id": "clothing",
+  "name": "Quần áo & phụ kiện",
+  "sub": "Đi mua đồ, khen đồ, nói mình đang mặc gì.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "👕",
+  "words": [
+    { "ko": "옷", "romaja": "ot", "vi": "Quần áo", "pos": "noun", "img": "👚", "connect": "\"Ốt\" — một tiếng gọn cho cả bộ đồ.", "ex": "새 옷을 샀어요.", "exVi": "Tôi mới mua quần áo mới." },
+    { "ko": "바지", "romaja": "baji", "vi": "Quần", "pos": "noun", "img": "👖", "connect": "\"Ba-chi\" — nghe gần giống \"ba-dơ\" quần jean.", "ex": "이 바지가 편해요.", "exVi": "Cái quần này thoải mái." },
+    { "ko": "치마", "romaja": "chima", "vi": "Váy", "pos": "noun", "img": "👗", "connect": "\"Chi-ma\" — chiếc váy xoè ra khi xoay.", "ex": "치마를 입고 갈까요?", "exVi": "Hay là mặc váy đi nhỉ?" },
+    { "ko": "셔츠", "romaja": "syeocheu", "vi": "Áo sơ mi", "pos": "noun", "img": "👔", "connect": "\"Syơ-chư\" mượn từ \"shirt\".", "ex": "흰 셔츠가 잘 어울려요.", "exVi": "Áo sơ mi trắng rất hợp với bạn." },
+    { "ko": "신발", "romaja": "sinbal", "vi": "Giày dép", "pos": "noun", "img": "👟", "connect": "\"Sin\" = mang (신다) + \"bal\" = chân → đồ mang ở chân.", "ex": "신발이 좀 작아요.", "exVi": "Đôi giày hơi chật." },
+    { "ko": "양말", "romaja": "yangmal", "vi": "Tất / Vớ", "pos": "noun", "img": "🧦", "connect": "\"Yang-mal\" chính là âm Hán \"dương mạt\" — đồ bọc bàn chân.", "ex": "양말 두 켤레 주세요.", "exVi": "Cho tôi hai đôi tất ạ." },
+    { "ko": "모자", "romaja": "moja", "vi": "Mũ / Nón", "pos": "noun", "img": "🧢", "connect": "\"Mô-cha\" chính là âm Hán \"mạo tử\".", "ex": "햇빛이 강하니까 모자를 쓰세요.", "exVi": "Nắng gắt nên bạn đội mũ vào nhé." },
+    { "ko": "가방", "romaja": "gabang", "vi": "Túi xách / Cặp", "pos": "noun", "img": "🎒", "connect": "\"Ka-bang\" — cái bao mang theo người.", "ex": "가방 안에 책이 있어요.", "exVi": "Trong cặp có sách." },
+    { "ko": "안경", "romaja": "angyeong", "vi": "Kính mắt", "pos": "noun", "img": "👓", "connect": "\"An-kyơng\" chính là âm Hán \"nhãn kính\".", "ex": "안경을 쓰면 잘 보여요.", "exVi": "Đeo kính vào thì tôi nhìn rõ." },
+    { "ko": "시계", "romaja": "sigye", "vi": "Đồng hồ", "pos": "noun", "img": "⌚", "connect": "\"Si-kyê\" chính là âm Hán \"thời kế\".", "ex": "시계가 조금 빨라요.", "exVi": "Đồng hồ hơi nhanh." },
+    { "ko": "입다", "romaja": "ipda", "vi": "Mặc (áo quần)", "pos": "verb", "img": "🧥", "connect": "\"Íp\" — khoác vào người.", "ex": "오늘은 코트를 입었어요.", "exVi": "Hôm nay tôi mặc áo khoác." },
+    { "ko": "신다", "romaja": "sinda", "vi": "Mang / Đi (giày, tất)", "pos": "verb", "img": "👞", "connect": "Dành riêng cho đồ đi ở chân — khác 입다.", "ex": "운동화를 신고 나가요.", "exVi": "Tôi mang giày thể thao rồi đi ra ngoài." }
+  ]
+}

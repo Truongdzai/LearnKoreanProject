@@ -1,0 +1,130 @@
+{
+  "id": "irregular",
+  "name": "Động từ bất quy tắc",
+  "sub": "Nhóm động từ đổi hình khi chia — không thuộc là nói sai ngay.",
+  "pos": "verb",
+  "tone": "tone-b",
+  "emoji": "🌀",
+  "words": [
+    {
+      "ko": "아름답다",
+      "romaja": "areumdapda",
+      "vi": "Đẹp (cảnh, người)",
+      "pos": "verb",
+      "img": "🌸",
+      "connect": "ㅂ bất quy tắc: 아름답다 → 아름다워요. Khác 예쁘다 (xinh) đã học: 아름답다 trang trọng hơn.",
+      "ex": "경치가 아름다워요.",
+      "exVi": "Phong cảnh đẹp quá."
+    },
+    {
+      "ko": "눕다",
+      "romaja": "nupda",
+      "vi": "Nằm",
+      "pos": "verb",
+      "img": "🛌",
+      "connect": "ㅂ bất quy tắc: 눕다 → 누워요.",
+      "ex": "침대에 누워요.",
+      "exVi": "Tôi nằm lên giường."
+    },
+    {
+      "ko": "줍다",
+      "romaja": "jupda",
+      "vi": "Nhặt lên",
+      "pos": "verb",
+      "img": "🫳",
+      "connect": "ㅂ bất quy tắc: 줍다 → 주워요.",
+      "ex": "길에서 지갑을 주웠어요.",
+      "exVi": "Tôi nhặt được cái ví trên đường."
+    },
+    {
+      "ko": "낫다",
+      "romaja": "natda",
+      "vi": "Khỏi bệnh, tốt hơn",
+      "pos": "verb",
+      "img": "💊",
+      "connect": "ㅅ bất quy tắc: 낫다 → 나아요. Ốm dậy là 나았어요.",
+      "ex": "감기가 나았어요.",
+      "exVi": "Tôi đã khỏi cảm rồi."
+    },
+    {
+      "ko": "짓다",
+      "romaja": "jitda",
+      "vi": "Xây, đặt (tên)",
+      "pos": "verb",
+      "img": "🏗️",
+      "connect": "ㅅ bất quy tắc: 짓다 → 지어요. Xây nhà, đặt tên đều dùng.",
+      "ex": "이름을 지어 주세요.",
+      "exVi": "Hãy đặt tên giúp tôi."
+    },
+    {
+      "ko": "붓다",
+      "romaja": "butda",
+      "vi": "Rót, sưng",
+      "pos": "verb",
+      "img": "🫗",
+      "connect": "ㅅ bất quy tắc: 붓다 → 부어요.",
+      "ex": "물을 부어요.",
+      "exVi": "Tôi rót nước vào."
+    },
+    {
+      "ko": "부르다",
+      "romaja": "bureuda",
+      "vi": "Gọi, hát",
+      "pos": "verb",
+      "img": "📣",
+      "connect": "르 bất quy tắc: 부르다 → 불러요. Gọi tên và hát đều dùng.",
+      "ex": "노래를 불러요.",
+      "exVi": "Tôi hát một bài."
+    },
+    {
+      "ko": "고르다",
+      "romaja": "goreuda",
+      "vi": "Chọn",
+      "pos": "verb",
+      "img": "🔍",
+      "connect": "르 bất quy tắc: 고르다 → 골라요.",
+      "ex": "마음에 드는 걸 골라요.",
+      "exVi": "Hãy chọn thứ bạn thích."
+    },
+    {
+      "ko": "자르다",
+      "romaja": "jareuda",
+      "vi": "Cắt",
+      "pos": "verb",
+      "img": "✂️",
+      "connect": "르 bất quy tắc: 자르다 → 잘라요.",
+      "ex": "머리를 잘랐어요.",
+      "exVi": "Tôi đã cắt tóc."
+    },
+    {
+      "ko": "흐르다",
+      "romaja": "heureuda",
+      "vi": "Chảy",
+      "pos": "verb",
+      "img": "🌊",
+      "connect": "르 bất quy tắc: 흐르다 → 흘러요.",
+      "ex": "강물이 흘러요.",
+      "exVi": "Nước sông chảy."
+    },
+    {
+      "ko": "그리다",
+      "romaja": "geurida",
+      "vi": "Vẽ",
+      "pos": "verb",
+      "img": "🖍️",
+      "connect": "Cùng gốc với 그림 (bức tranh) đã học.",
+      "ex": "그림을 그려요.",
+      "exVi": "Tôi vẽ tranh."
+    },
+    {
+      "ko": "서두르다",
+      "romaja": "seodureuda",
+      "vi": "Vội, hối hả",
+      "pos": "verb",
+      "img": "🏃",
+      "connect": "르 bất quy tắc: 서두르다 → 서둘러요.",
+      "ex": "서두르지 마세요.",
+      "exVi": "Đừng vội."
+    }
+  ]
+}

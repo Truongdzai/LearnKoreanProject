@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, type MouseEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react'
 import { formatTime } from '@/core/utils/format'
-import { romanizeWord } from '@/core/utils/romanize'
+import { tokenize, words as wordsOf } from '@/core/segment'
+import { hasReading, useReadings } from '@/core/readings'
 import { addCard } from '@/core/api/srs.api'
 import { defineWord } from '@/core/api/dict.api'
 import { useAppStore } from '@/store/app.store'
@@ -31,6 +32,11 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
   const listRef = useRef<HTMLDivElement>(null)
   const [popup, setPopup] = useState<PopupState | null>(null)
   const [showRomaja, setShowRomaja] = useState(true)
+  const allWords = useMemo(
+    () => (showRomaja ? segments.flatMap((sg) => wordsOf(sg.ko, learnLang)) : []),
+    [segments, learnLang, showRomaja],
+  )
+  const readings = useReadings(allWords, learnLang)
 
   useEffect(() => {
     const list = listRef.current
@@ -40,8 +46,6 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
   }, [activeIndex])
 
   const handleWordClick = async (word: string, rect: DOMRect) => {
-    // Korean has a fast local dictionary (inline popup); other languages use the
-    // shared, AI-powered lookup modal that works for every language.
     if (learnLang !== 'ko') { openLookup(word); return }
     const x = rect.left
     const y = rect.bottom
@@ -59,7 +63,7 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
       <div className="subs-head">
         <span>{t('subs.title')}</span>
         <div className="subs-tools">
-          {cfg.romanizeChat && (
+          {hasReading(learnLang) && (
             <button
               className={'romaja-toggle' + (showRomaja ? ' on' : '')}
               onClick={() => setShowRomaja((v) => !v)}
@@ -78,7 +82,8 @@ export default function SubtitleList({ segments, activeIndex, source, onSeek }: 
             seg={s}
             active={i === activeIndex}
             source={source}
-            showRomaja={showRomaja && cfg.romanizeChat}
+            showRomaja={showRomaja && hasReading(learnLang)}
+            readings={readings}
             lang={learnLang}
             onSeek={() => onSeek(s.start)}
             onWordClick={handleWordClick}
@@ -106,6 +111,7 @@ function SegmentRow({
   active,
   source,
   showRomaja,
+  readings,
   lang,
   onSeek,
   onWordClick,
@@ -114,6 +120,7 @@ function SegmentRow({
   active: boolean
   source: string
   showRomaja: boolean
+  readings: Record<string, string>
   lang: string
   onSeek: () => void
   onWordClick: (word: string, rect: DOMRect) => void
@@ -144,16 +151,16 @@ function SegmentRow({
       <div className="t">{formatTime(seg.start)}</div>
       <div className="txt">
         <div className={'ko' + (showRomaja ? ' has-romaja' : '')} lang={lang}>
-          {seg.ko.split(/(\s+)/).map((tok, i) =>
-            tok.trim() ? (
+          {tokenize(seg.ko, lang).map((tok, i) =>
+            tok.word ? (
               <span className="wword" key={i}>
-                {showRomaja && <span className="romaja">{romanizeWord(tok)}</span>}
+                {showRomaja && !!readings[tok.text] && <span className="romaja">{readings[tok.text]}</span>}
                 <span className="w" onClick={clickWord}>
-                  {tok}
+                  {tok.text}
                 </span>
               </span>
             ) : (
-              <span key={i}> </span>
+              <span key={i}>{tok.text}</span>
             ),
           )}
         </div>

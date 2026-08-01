@@ -4,7 +4,6 @@ import json
 
 from .. import db
 
-# ---- Lesson (transcript + translation, optional speaker labels) ----
 
 def get_lesson(video_id: str) -> dict | None:
     conn = db.get_conn()
@@ -43,7 +42,6 @@ def save_lesson(lesson: dict) -> None:
     finally:
         conn.close()
 
-# ---- Dictionary rich lookup ----
 
 def get_dict(word: str) -> dict | None:
     conn = db.get_conn()
@@ -70,7 +68,6 @@ def save_dict(word: str, data: dict) -> None:
     finally:
         conn.close()
 
-# ---- Speaker labels (diarization) ----
 
 def get_speakers(video_id: str) -> dict | None:
     conn = db.get_conn()

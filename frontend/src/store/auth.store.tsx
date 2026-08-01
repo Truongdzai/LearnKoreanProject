@@ -3,6 +3,8 @@ import { env } from '@/config/env'
 import { getToken, setToken } from '@/core/api/client'
 import { syncUserScope, forgetUserScope } from '@/core/utils/userScope'
 import { loginApi, meApi, registerApi, providersApi, type PendingGift } from '@/core/api/auth.api'
+import { takeRefCode } from '@/core/utils/referral'
+import { track } from '@/core/monitor'
 import type { Account } from '@/models/account.model'
 
 interface Providers { google: boolean; facebook: boolean }
@@ -21,6 +23,10 @@ interface AuthStore {
   clearAuthError: () => void
   openAuth: () => void
   closeAuth: () => void
+  changePwOpen: boolean
+  openChangePw: () => void
+  closeChangePw: () => void
+  applyToken: (token: string) => void
   setAccount: (a: Account) => void
   setBonusAvailable: (v: boolean) => void
   signUpEmail: (name: string, email: string, password: string) => Promise<void>
@@ -38,7 +44,6 @@ const OAUTH_ERRORS: Record<string, string> = {
   '502': 'Không kết nối được nhà cung cấp đăng nhập. Hãy thử lại.',
 }
 
-/** Read a #token / #auth_error returned by the OAuth redirect, before anything else. */
 function consumeAuthHash(): { token?: string; error?: string } {
   const hash = window.location.hash
   if (!hash || (!hash.includes('token=') && !hash.includes('auth_error='))) return {}
@@ -53,6 +58,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
   const [account, setAccountState] = useState<Account | null>(null)
   const [ready, setReady] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
+  const [changePwOpen, setChangePwOpen] = useState(false)
   const [bonusAvailable, setBonusAvailable] = useState(false)
   const [pendingGift, setPendingGift] = useState<PendingGift | null>(null)
   const [providers, setProviders] = useState<Providers>({ google: false, facebook: false })
@@ -81,10 +87,15 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
 
   const openAuth = useCallback(() => setModalOpen(true), [])
   const closeAuth = useCallback(() => setModalOpen(false), [])
+  const openChangePw = useCallback(() => setChangePwOpen(true), [])
+  const closeChangePw = useCallback(() => setChangePwOpen(false), [])
+  const applyToken = useCallback((token: string) => setToken(token), [])
   const clearAuthError = useCallback(() => setAuthError(''), [])
 
   const signUpEmail = useCallback(async (name: string, email: string, password: string) => {
-    const res = await registerApi(name, email, password)
+    const ref = takeRefCode()
+    const res = await registerApi(name, email, password, ref)
+    track('signup', { method: 'email', referred: !!ref })
     setToken(res.token)
     syncUserScope(res.user.id)
     setAccountState(res.user)
@@ -94,6 +105,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
 
   const signInEmail = useCallback(async (email: string, password: string) => {
     const res = await loginApi(email, password)
+    track('login', { method: 'email' })
     setToken(res.token)
     syncUserScope(res.user.id)
     setAccountState(res.user)
@@ -105,6 +117,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
   const clearPendingGift = useCallback(() => setPendingGift(null), [])
 
   const signInOAuth = useCallback((provider: 'google' | 'facebook') => {
+    track('login_start', { method: provider })
     const returnTo = encodeURIComponent(window.location.origin)
     window.location.href = `${env.apiBase}/api/auth/${provider}/start?return_to=${returnTo}`
   }, [])
@@ -130,6 +143,10 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
     clearAuthError,
     openAuth,
     closeAuth,
+    changePwOpen,
+    openChangePw,
+    closeChangePw,
+    applyToken,
     setAccount,
     setBonusAvailable,
     signUpEmail,

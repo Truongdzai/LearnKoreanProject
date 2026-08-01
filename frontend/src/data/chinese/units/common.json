@@ -1,0 +1,130 @@
+{
+  "id": "zh-common",
+  "name": "Hư từ & chữ nối câu",
+  "sub": "Chữ ít nghĩa nhưng quyết định câu đúng hay sai — HSK hỏi nhiều nhất.",
+  "pos": "adverb",
+  "tone": "tone-e",
+  "emoji": "🔗",
+  "words": [
+    {
+      "zh": "很",
+      "pinyin": "hěn",
+      "vi": "Rất",
+      "pos": "adverb",
+      "img": "🔺",
+      "connect": "Tiếng Trung hay chèn 很 trước tính từ cho câu đủ nhịp, nhiều khi không mang nghĩa \"rất\" mạnh: 我很好 = tôi khoẻ.",
+      "ex": "他很高。",
+      "exVi": "Anh ấy rất cao."
+    },
+    {
+      "zh": "太",
+      "pinyin": "tài",
+      "vi": "Quá (mức)",
+      "pos": "adverb",
+      "img": "🌡️",
+      "connect": "太 = thái, như \"thái quá\". Hay đi với 了: 太贵了 = đắt quá.",
+      "ex": "这里太吵了。",
+      "exVi": "Ở đây ồn quá."
+    },
+    {
+      "zh": "都",
+      "pinyin": "dōu",
+      "vi": "Đều, tất cả",
+      "pos": "adverb",
+      "img": "👥",
+      "connect": "都 = đô. Đặt SAU chủ ngữ, trước động từ: 我们都去 = chúng tôi đều đi.",
+      "ex": "他们都是学生。",
+      "exVi": "Họ đều là học sinh."
+    },
+    {
+      "zh": "也",
+      "pinyin": "yě",
+      "vi": "Cũng",
+      "pos": "adverb",
+      "img": "➕",
+      "connect": "也 = dã. Cũng đứng trước động từ chứ không đứng cuối câu như tiếng Việt.",
+      "ex": "我也想去。",
+      "exVi": "Tôi cũng muốn đi."
+    },
+    {
+      "zh": "和",
+      "pinyin": "hé",
+      "vi": "Và, với",
+      "pos": "prep",
+      "img": "🤝",
+      "connect": "和 = hoà, như \"hoà bình\". Nối hai danh từ, KHÔNG nối hai mệnh đề như \"và\" tiếng Việt.",
+      "ex": "我和他是同学。",
+      "exVi": "Tôi và cậu ấy là bạn học."
+    },
+    {
+      "zh": "的",
+      "pinyin": "de",
+      "vi": "(của — nối sở hữu)",
+      "pos": "prep",
+      "img": "🔗",
+      "connect": "Đứng giữa người sở hữu và vật: 我的书 = sách của tôi. Chữ hay gặp nhất trong tiếng Trung.",
+      "ex": "这是我的手机。",
+      "exVi": "Đây là điện thoại của tôi."
+    },
+    {
+      "zh": "了",
+      "pinyin": "le",
+      "vi": "(đánh dấu việc đã xong)",
+      "pos": "adverb",
+      "img": "✔️",
+      "connect": "Gắn sau động từ hoặc cuối câu để nói việc đã hoàn tất: 我吃了 = tôi ăn rồi.",
+      "ex": "我买了一本书。",
+      "exVi": "Tôi đã mua một quyển sách."
+    },
+    {
+      "zh": "没",
+      "pinyin": "méi",
+      "vi": "Chưa, không có",
+      "pos": "adverb",
+      "img": "❌",
+      "connect": "没 = một. Phủ định 有 và phủ định việc đã xảy ra; còn 不 phủ định thói quen, ý muốn.",
+      "ex": "我没去过中国。",
+      "exVi": "Tôi chưa từng đến Trung Quốc."
+    },
+    {
+      "zh": "很多",
+      "pinyin": "hěn duō",
+      "vi": "Rất nhiều",
+      "pos": "adj",
+      "img": "📦",
+      "connect": "很 (rất) + 多 (nhiều) — cụm cố định, dùng thẳng trước danh từ: 很多人.",
+      "ex": "他有很多朋友。",
+      "exVi": "Anh ấy có rất nhiều bạn."
+    },
+    {
+      "zh": "一点儿",
+      "pinyin": "yì diǎnr",
+      "vi": "Một chút",
+      "pos": "adverb",
+      "img": "🤏",
+      "connect": "一 (một) + 点 = điểm (chấm nhỏ) → một chấm nhỏ, tức là một chút.",
+      "ex": "我会说一点儿中文。",
+      "exVi": "Tôi biết nói một chút tiếng Trung."
+    },
+    {
+      "zh": "这",
+      "pinyin": "zhè",
+      "vi": "Này, cái này",
+      "pos": "prep",
+      "img": "👉",
+      "connect": "这 = giá. Cặp đôi với 那 (nà, kia): 这个 = cái này, 那个 = cái kia.",
+      "ex": "这是我的书。",
+      "exVi": "Đây là sách của tôi."
+    },
+    {
+      "zh": "还",
+      "pinyin": "hái",
+      "vi": "Còn, vẫn",
+      "pos": "adverb",
+      "img": "🔁",
+      "connect": "还 = hoàn (như \"hoàn trả\"), nhưng đọc hái thì nghĩa là \"vẫn còn\".",
+      "ex": "他还没回来。",
+      "exVi": "Anh ấy vẫn chưa về."
+    }
+  ]
+}

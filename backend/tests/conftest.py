@@ -10,7 +10,6 @@ from ..services import catalog
 
 @pytest.fixture()
 def client(tmp_path, monkeypatch):
-    """TestClient trên DB file tạm — không bao giờ chạm data/hanquan.db."""
     monkeypatch.setattr(db, "DB_PATH", tmp_path / "test.db")
     db.init_db()
     catalog.seed()

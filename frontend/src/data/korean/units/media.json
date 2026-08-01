@@ -1,0 +1,130 @@
+{
+  "id": "media",
+  "name": "Phim ảnh & giải trí",
+  "sub": "Chủ đề tán gẫu số một với người Hàn, và cũng là cách học nghe.",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🎬",
+  "words": [
+    {
+      "ko": "드라마",
+      "romaja": "deurama",
+      "vi": "Phim truyền hình",
+      "pos": "noun",
+      "img": "📺",
+      "connect": "Từ mượn \"drama\" — thứ đưa tiếng Hàn ra thế giới.",
+      "ex": "요즘 드라마를 봐요.",
+      "exVi": "Dạo này tôi xem phim truyền hình."
+    },
+    {
+      "ko": "가수",
+      "romaja": "gasu",
+      "vi": "Ca sĩ",
+      "pos": "noun",
+      "img": "🎤",
+      "connect": "가수 chính là âm Hán \"ca thủ\".",
+      "ex": "좋아하는 가수가 누구예요?",
+      "exVi": "Ca sĩ bạn thích là ai?"
+    },
+    {
+      "ko": "배우",
+      "romaja": "baeu",
+      "vi": "Diễn viên",
+      "pos": "noun",
+      "img": "🎭",
+      "connect": "배우 chính là âm Hán \"bài ưu\".",
+      "ex": "그 배우 정말 멋있어요.",
+      "exVi": "Diễn viên đó đẹp trai thật."
+    },
+    {
+      "ko": "공연",
+      "romaja": "gongyeon",
+      "vi": "Buổi biểu diễn",
+      "pos": "noun",
+      "img": "🎪",
+      "connect": "공연 chính là âm Hán \"công diễn\".",
+      "ex": "공연이 여덟 시에 시작해요.",
+      "exVi": "Buổi diễn bắt đầu lúc tám giờ."
+    },
+    {
+      "ko": "예매",
+      "romaja": "yemae",
+      "vi": "Đặt vé trước",
+      "pos": "noun",
+      "img": "🎫",
+      "connect": "예매 chính là âm Hán \"dự mãi\" — mua trước.",
+      "ex": "표를 예매했어요.",
+      "exVi": "Tôi đã đặt vé trước."
+    },
+    {
+      "ko": "방송",
+      "romaja": "bangsong",
+      "vi": "Chương trình phát sóng",
+      "pos": "noun",
+      "img": "📡",
+      "connect": "방송 chính là âm Hán \"phóng tống\".",
+      "ex": "생방송을 보고 있어요.",
+      "exVi": "Tôi đang xem phát sóng trực tiếp."
+    },
+    {
+      "ko": "뉴스",
+      "romaja": "nyuseu",
+      "vi": "Tin tức",
+      "pos": "noun",
+      "img": "📰",
+      "connect": "Từ mượn \"news\".",
+      "ex": "아침마다 뉴스를 봐요.",
+      "exVi": "Sáng nào tôi cũng xem tin tức."
+    },
+    {
+      "ko": "채널",
+      "romaja": "chaeneol",
+      "vi": "Kênh",
+      "pos": "noun",
+      "img": "🔢",
+      "connect": "Từ mượn \"channel\", dùng cho cả YouTube.",
+      "ex": "채널을 바꿔 주세요.",
+      "exVi": "Đổi kênh giúp tôi với."
+    },
+    {
+      "ko": "자막",
+      "romaja": "jamak",
+      "vi": "Phụ đề",
+      "pos": "noun",
+      "img": "💬",
+      "connect": "자막 chính là âm Hán \"tự mạc\" — màn chữ.",
+      "ex": "한국어 자막으로 봐요.",
+      "exVi": "Tôi xem với phụ đề tiếng Hàn."
+    },
+    {
+      "ko": "감동",
+      "romaja": "gamdong",
+      "vi": "Sự cảm động",
+      "pos": "noun",
+      "img": "🥹",
+      "connect": "감동 chính là âm Hán \"cảm động\".",
+      "ex": "정말 감동했어요.",
+      "exVi": "Tôi thực sự xúc động."
+    },
+    {
+      "ko": "장면",
+      "romaja": "jangmyeon",
+      "vi": "Cảnh phim",
+      "pos": "noun",
+      "img": "🎞️",
+      "connect": "장면 chính là âm Hán \"trường diện\".",
+      "ex": "이 장면이 제일 좋아요.",
+      "exVi": "Tôi thích cảnh này nhất."
+    },
+    {
+      "ko": "웃음",
+      "romaja": "useum",
+      "vi": "Tiếng cười, nụ cười",
+      "pos": "noun",
+      "img": "😄",
+      "connect": "웃다 (cười) đã học → danh từ 웃음.",
+      "ex": "웃음이 나왔어요.",
+      "exVi": "Tôi bật cười."
+    }
+  ]
+}

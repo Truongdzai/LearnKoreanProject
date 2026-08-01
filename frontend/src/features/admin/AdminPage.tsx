@@ -3,13 +3,29 @@ import Icon from '@/core/components/Icon'
 import {
   fetchAdminStats, fetchAdminCatalog, fetchAdminUsers, saveCatalogItem, deleteCatalogItem,
   updateAdminUser, deleteAdminUser, giftCoins, setUserPlus,
-  fetchAdminFeedback, setFeedbackStatus, deleteFeedback,
+  fetchAdminFeedback, setFeedbackStatus, deleteFeedback, fetchAdminAudit,
   type AdminStats, type AdminUser, type AdminCatalog, type CatalogKind, type AdminPlan, type AdminFeedback,
+  type AuditEntry,
 } from '@/core/api/admin.api'
 import { formatDate } from '@/core/utils/format'
+import { useTabs } from '@/core/a11y'
 import { useAuth } from '@/store/auth.store'
 
-type Tab = 'overview' | 'users' | 'videos' | 'quests' | 'shop' | 'plans' | 'feedback'
+type Tab = 'overview' | 'users' | 'videos' | 'quests' | 'shop' | 'plans' | 'feedback' | 'audit'
+
+const TAB_IDS: Tab[] = ['overview', 'users', 'videos', 'quests', 'shop', 'plans', 'feedback', 'audit']
+
+const AUDIT_LABEL: Record<string, string> = {
+  'admin.login': 'Quản trị đăng nhập',
+  'catalog.save': 'Lưu nội dung',
+  'catalog.delete': 'Xoá nội dung',
+  'user.update': 'Sửa người dùng',
+  'user.gift': 'Tặng xu',
+  'user.plus': 'Đổi gói Plus',
+  'user.delete': 'Xoá người dùng',
+  'feedback.status': 'Đổi trạng thái phản hồi',
+  'feedback.delete': 'Xoá phản hồi',
+}
 
 interface Field { k: string; label: string; type?: 'text' | 'number' | 'bool' | 'select'; opts?: string[]; required?: boolean }
 
@@ -127,6 +143,7 @@ function planStatus(u: AdminUser): string {
 export default function AdminPage() {
   const { account } = useAuth()
   const [tab, setTab] = useState<Tab>('overview')
+  const tabs = useTabs('admin', TAB_IDS, tab, setTab, 'Trang quản trị')
   const [stats, setStats] = useState<AdminStats | null>(null)
   const [catalog, setCatalog] = useState<AdminCatalog | null>(null)
   const [flash, setFlash] = useState('')
@@ -161,6 +178,12 @@ export default function AdminPage() {
   const [fbStatus, setFbStatus] = useState('')
   const [fbPage, setFbPage] = useState(1)
 
+  const [audit, setAudit] = useState<AuditEntry[]>([])
+  const [auditTotal, setAuditTotal] = useState(0)
+  const [auditActions, setAuditActions] = useState<string[]>([])
+  const [auditAction, setAuditAction] = useState('')
+  const [auditPage, setAuditPage] = useState(1)
+
   const showFlash = (m: string) => { setFlash(m); setTimeout(() => setFlash(''), 2600) }
 
   const loadStats = useCallback(() => { fetchAdminStats().then(setStats).catch(() => {}) }, [])
@@ -177,9 +200,16 @@ export default function AdminPage() {
       .catch(() => {})
   }, [fbStatus, fbPage])
 
+  const loadAudit = useCallback(() => {
+    fetchAdminAudit(auditAction, auditPage, PAGE_SIZE)
+      .then((r) => { setAudit(r.items); setAuditTotal(r.total); setAuditActions(r.actions) })
+      .catch(() => {})
+  }, [auditAction, auditPage])
+
   useEffect(() => { loadStats(); loadCatalog() }, [loadStats, loadCatalog])
   useEffect(() => { loadUsers() }, [loadUsers])
   useEffect(() => { if (tab === 'feedback') loadFeedback() }, [tab, loadFeedback])
+  useEffect(() => { if (tab === 'audit') loadAudit() }, [tab, loadAudit])
   useEffect(() => { setCatSearch(''); setCatActive('all'); setCatFilter(''); setCatPage(1) }, [tab])
 
   const planOptions = useMemo(() => (catalog?.plans || []).filter((p) => p.active), [catalog])
@@ -314,15 +344,15 @@ export default function AdminPage() {
         <div className="admin-card-head admin-filters">
           <div className="admin-search">
             <Icon name="search" size={15} />
-            <input value={catSearch} onChange={(e) => { setCatSearch(e.target.value); setCatPage(1) }} placeholder={`Tìm ${KIND_LABEL[kind]}…`} />
+            <input value={catSearch} onChange={(e) => { setCatSearch(e.target.value); setCatPage(1) }} placeholder={`Tìm ${KIND_LABEL[kind]}…`} aria-label={`Tìm ${KIND_LABEL[kind]}`} />
           </div>
           {fcfg && (
-            <select value={catFilter} onChange={(e) => { setCatFilter(e.target.value); setCatPage(1) }}>
+            <select aria-label="Lọc theo phân loại" value={catFilter} onChange={(e) => { setCatFilter(e.target.value); setCatPage(1) }}>
               <option value="">Mọi {fcfg.label}</option>
               {filterOpts.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           )}
-          <select value={catActive} onChange={(e) => { setCatActive(e.target.value); setCatPage(1) }}>
+          <select aria-label="Lọc theo trạng thái bật/tắt" value={catActive} onChange={(e) => { setCatActive(e.target.value); setCatPage(1) }}>
             <option value="all">Mọi trạng thái</option>
             <option value="on">Đang bật</option>
             <option value="off">Đang tắt</option>
@@ -382,7 +412,7 @@ export default function AdminPage() {
 
       {flash && <div className="shop-flash">{flash}</div>}
 
-      <div className="admin-tabs">
+      <div className="admin-tabs" {...tabs.list}>
         {([
           ['overview', 'Tổng quan', 'chart'],
           ['users', 'Người dùng', 'user'],
@@ -391,13 +421,15 @@ export default function AdminPage() {
           ['shop', 'Cửa hàng', 'store'],
           ['plans', 'Gói đăng ký', 'crown'],
           ['feedback', 'Phản hồi', 'bulb'],
+          ['audit', 'Nhật ký', 'lock'],
         ] as [Tab, string, string][]).map(([id, label, ic]) => (
-          <button key={id} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
+          <button key={id} {...tabs.tab(id)} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
             <Icon name={ic as never} size={15} /> {label}
           </button>
         ))}
       </div>
 
+      <div {...tabs.panel(tab)}>
       {tab === 'overview' && (
         <div className="admin-stats">
           {statCards.map((s) => (
@@ -422,24 +454,25 @@ export default function AdminPage() {
                 onChange={(e) => setQInput(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') { setQ(qInput); resetPage() } }}
                 placeholder="Tìm theo tên, email hoặc SĐT…"
+                aria-label="Tìm người dùng theo tên, email hoặc số điện thoại"
               />
             </div>
-            <select value={fRole} onChange={(e) => { setFRole(e.target.value); resetPage() }}>
+            <select aria-label="Lọc theo vai trò" value={fRole} onChange={(e) => { setFRole(e.target.value); resetPage() }}>
               <option value="">Mọi vai trò</option>
               <option value="user">Người dùng</option>
               <option value="admin">Quản trị viên</option>
             </select>
-            <select value={fStatus} onChange={(e) => { setFStatus(e.target.value); resetPage() }}>
+            <select aria-label="Lọc theo trạng thái tài khoản" value={fStatus} onChange={(e) => { setFStatus(e.target.value); resetPage() }}>
               <option value="">Mọi trạng thái</option>
               <option value="active">Hoạt động</option>
               <option value="locked">Đã khoá</option>
             </select>
-            <select value={fPlus} onChange={(e) => { setFPlus(e.target.value); resetPage() }}>
+            <select aria-label="Lọc theo gói đăng ký" value={fPlus} onChange={(e) => { setFPlus(e.target.value); resetPage() }}>
               <option value="">Mọi gói</option>
               <option value="plus">Đang Plus</option>
               <option value="free">Miễn phí</option>
             </select>
-            <select value={fSort} onChange={(e) => { setFSort(e.target.value); resetPage() }}>
+            <select aria-label="Sắp xếp danh sách" value={fSort} onChange={(e) => { setFSort(e.target.value); resetPage() }}>
               <option value="recent">Mới nhất</option>
               <option value="oldest">Cũ nhất</option>
               <option value="active">Hoạt động gần đây</option>
@@ -513,7 +546,7 @@ export default function AdminPage() {
         <div className="admin-card">
           <div className="admin-card-head admin-filters">
             <b>{fbTotal.toLocaleString('vi')} phản hồi</b>
-            <select value={fbStatus} onChange={(e) => { setFbStatus(e.target.value); setFbPage(1) }}>
+            <select aria-label="Lọc góp ý theo trạng thái" value={fbStatus} onChange={(e) => { setFbStatus(e.target.value); setFbPage(1) }}>
               <option value="">Tất cả trạng thái</option>
               <option value="new">Mới</option>
               <option value="seen">Đã xem</option>
@@ -534,7 +567,7 @@ export default function AdminPage() {
                   <td>{f.page}</td>
                   <td>{formatDate(f.createdAt)}</td>
                   <td>
-                    <select value={f.status} onChange={(e) => {
+                    <select aria-label="Đổi trạng thái góp ý" value={f.status} onChange={(e) => {
                       setFeedbackStatus(f.id, e.target.value).then(() => { loadFeedback(); loadStats() }).catch(() => {})
                     }}>
                       <option value="new">Mới</option>
@@ -568,6 +601,57 @@ export default function AdminPage() {
           )}
         </div>
       )}
+
+      {tab === 'audit' && (
+        <div className="admin-card">
+          <div className="admin-card-head admin-filters">
+            <b>{auditTotal.toLocaleString('vi')} thao tác đã ghi</b>
+            <select aria-label="Lọc nhật ký theo loại thao tác" value={auditAction} onChange={(e) => { setAuditAction(e.target.value); setAuditPage(1) }}>
+              <option value="">Tất cả loại thao tác</option>
+              {auditActions.map((a) => (
+                <option key={a} value={a}>{AUDIT_LABEL[a] || a}</option>
+              ))}
+            </select>
+            <span className="admin-hint">Giữ 2000 dòng gần nhất — dùng để truy lại ai đã đổi gì khi có sự cố.</span>
+          </div>
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr><th>Lúc</th><th>Người làm</th><th>Thao tác</th><th>Đối tượng</th><th>Chi tiết</th><th>IP</th></tr>
+              </thead>
+              <tbody>
+                {audit.map((a) => (
+                  <tr key={a.id}>
+                    <td>{formatDate(a.created_at)}</td>
+                    <td>{a.admin_name || a.admin_id}</td>
+                    <td>{AUDIT_LABEL[a.action] || a.action}</td>
+                    <td style={{ maxWidth: 220, wordBreak: 'break-all' }}>{a.target}</td>
+                    <td style={{ maxWidth: 320, wordBreak: 'break-word', color: 'var(--text2)' }}>{a.detail}</td>
+                    <td>{a.ip}</td>
+                  </tr>
+                ))}
+                {audit.length === 0 && (
+                  <tr><td colSpan={6} style={{ textAlign: 'center', color: 'var(--muted)' }}>Chưa có thao tác nào được ghi.</td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+          {auditTotal > PAGE_SIZE && (
+            <div className="admin-pager">
+              <span>Trang {auditPage}/{Math.max(1, Math.ceil(auditTotal / PAGE_SIZE))}</span>
+              <div className="admin-pager-btns">
+                <button className="btn-ghost sm" disabled={auditPage <= 1} onClick={() => setAuditPage((p) => Math.max(1, p - 1))}>
+                  <Icon name="chevron-left" size={15} /> Trước
+                </button>
+                <button className="btn-ghost sm" disabled={auditPage >= Math.ceil(auditTotal / PAGE_SIZE)} onClick={() => setAuditPage((p) => p + 1)}>
+                  Sau <Icon name="chevron-down" size={15} />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+      </div>
 
       {editKind && (
         <div className="auth-backdrop" onClick={closeEdit}>

@@ -3,7 +3,6 @@ import type { PathStep } from '@/models/path.model'
 export interface LangOption {
   code: string
   name: string
-  /** ISO country code used to render a real flag (see Flag component). */
   flag: string
 }
 
@@ -50,10 +49,6 @@ export const LEVELS: { code: string; name: string; tag: string; tone: string }[]
   { code: 'C2', name: 'Proficient', tag: 'Thành thạo', tone: 'lv-f' },
 ]
 
-/**
- * Mục tiêu onboarding ("Bạn học để làm gì?") → gợi ý sẵn các mục tiêu wizard,
- * để lộ trình bám đúng đích thay vì học lan man.
- */
 export const LEARN_GOAL_PRESETS: Record<string, string[]> = {
   talk: ['Phát âm cơ bản', 'Từ vựng sơ cấp', 'Giao tiếp cơ bản'],
   work: ['Từ vựng sơ cấp', 'Ngữ pháp cơ bản', 'Giao tiếp trung cấp'],
@@ -61,7 +56,6 @@ export const LEARN_GOAL_PRESETS: Record<string, string[]> = {
   exam: ['Ngữ pháp cơ bản', 'Từ vựng sơ cấp', 'Luyện thi chứng chỉ'],
 }
 
-/** Giai đoạn trọng tâm theo mục tiêu — mũi nhọn của lộ trình, chống học lan man. */
 const LEARN_GOAL_FOCUS: Record<string, PathStep> = {
   talk: {
     title: 'Tập trung: hội thoại đời sống',
@@ -83,19 +77,16 @@ const LEARN_GOAL_FOCUS: Record<string, PathStep> = {
 
 const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
-/** Lấy mã CEFR (A1, B2…) từ chuỗi trình độ như "A1 Beginner" hoặc "A1 · Beginner". */
 function cefrCode(level: string): string {
   const m = level.toUpperCase().match(/[ABC][12]/)
   return m ? m[0] : 'A1'
 }
 
-/** Mốc CEFR kế tiếp — dùng làm đích cho lộ trình. */
 function nextCefr(code: string): string {
   const i = CEFR_ORDER.indexOf(code)
   return i >= 0 && i < CEFR_ORDER.length - 1 ? CEFR_ORDER[i + 1] : code
 }
 
-/** Build a personalised study plan from the wizard choices, có mốc CEFR & thời lượng ước lượng. */
 export function buildSteps(goals: string[], interests: string[], level: string, learnGoal = ''): PathStep[] {
   const cur = cefrCode(level)
   const target = nextCefr(cur)

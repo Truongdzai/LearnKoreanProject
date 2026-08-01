@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
 from ..errors import AppError
 from ..schemas.pronounce import PronounceIn
-from ..services import llm
+from ..services import auth, llm, quota
 from ..services.langs import study_name, native_name
 
 router = APIRouter(prefix="/api/pronounce", tags=["Phát âm"])
+OptAuth = Depends(auth.get_optional_user)
 
 
 def _system(lang: str, native: str) -> str:
@@ -32,9 +33,10 @@ _SCHEMA = {
 
 
 @router.post("")
-def api_pronounce(body: PronounceIn):
+def api_pronounce(body: PronounceIn, request: Request, user: dict | None = OptAuth):
     if not body.target.strip():
         raise HTTPException(status_code=400, detail="Thiếu câu mẫu.")
+    quota.consume("pronounce", user, quota.client_ip(request))
     lname = study_name(body.lang)
     prompt = (
         f"Câu mẫu ({lname}): {body.target}\n"

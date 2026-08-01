@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, Request
 
 from ..errors import AppError
 from ..schemas.speaking import SpeakIn
-from ..services import llm
+from ..services import auth, llm, quota
 from ..services.langs import study_name, native_name
 
 router = APIRouter(prefix="/api/speaking", tags=["Luyện nói"])
+OptAuth = Depends(auth.get_optional_user)
 
 
 def _system(lang: str, native: str) -> str:
@@ -57,7 +58,8 @@ def _history_text(turns) -> str:
 
 
 @router.post("/reply")
-def api_speaking_reply(body: SpeakIn):
+def api_speaking_reply(body: SpeakIn, request: Request, user: dict | None = OptAuth):
+    quota.consume("speaking", user, quota.client_ip(request))
     lname = study_name(body.lang)
     prompt = (
         f"TÌNH HUỐNG: {body.situation or '(không rõ)'}\n"

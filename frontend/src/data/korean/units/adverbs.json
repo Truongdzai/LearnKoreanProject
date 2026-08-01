@@ -1,0 +1,22 @@
+{
+  "id": "adverbs",
+  "name": "Trạng từ & mức độ",
+  "sub": "Gia vị của câu: rất, hơi, luôn luôn, thỉnh thoảng.",
+  "pos": "adverb",
+  "tone": "tone-b",
+  "emoji": "⏱️",
+  "words": [
+    { "ko": "아주", "romaja": "aju", "vi": "Rất", "pos": "adverb", "img": "🔥", "connect": "\"A-chu\" — nhấn mạnh hết cỡ.", "ex": "이 음식은 아주 맛있어요.", "exVi": "Món này rất ngon." },
+    { "ko": "너무", "romaja": "neomu", "vi": "Quá (mức)", "pos": "adverb", "img": "😵", "connect": "\"Nơ-mu\" — vượt quá mức chịu được.", "ex": "너무 비싸요.", "exVi": "Đắt quá." },
+    { "ko": "조금", "romaja": "jogeum", "vi": "Một chút", "pos": "adverb", "img": "🤏", "connect": "\"Chô-kưm\" — chỉ chút xíu thôi.", "ex": "조금만 주세요.", "exVi": "Cho tôi một chút thôi ạ." },
+    { "ko": "많이", "romaja": "mani", "vi": "Nhiều (đi với động từ)", "pos": "adverb", "img": "📈", "connect": "Từ 많다 (nhiều) đổi thành trạng từ.", "ex": "많이 드세요.", "exVi": "Bạn ăn nhiều vào nhé." },
+    { "ko": "빨리", "romaja": "ppalli", "vi": "Nhanh lên", "pos": "adverb", "img": "⚡", "connect": "\"Ppal-li\" — câu cửa miệng nổi tiếng của người Hàn.", "ex": "빨리 오세요.", "exVi": "Bạn đến nhanh lên nhé." },
+    { "ko": "천천히", "romaja": "cheoncheonhi", "vi": "Từ từ / Chậm rãi", "pos": "adverb", "img": "🐢", "connect": "\"Chơn-chơn\" lặp lại nghe thong thả.", "ex": "천천히 말해 주세요.", "exVi": "Bạn nói chậm lại giúp tôi với." },
+    { "ko": "항상", "romaja": "hangsang", "vi": "Luôn luôn", "pos": "adverb", "img": "♾️", "connect": "\"Hang-sang\" chính là âm Hán \"hằng thường\".", "ex": "저는 항상 아침을 먹어요.", "exVi": "Tôi luôn ăn sáng." },
+    { "ko": "자주", "romaja": "jaju", "vi": "Thường xuyên", "pos": "adverb", "img": "🔁", "connect": "\"Cha-chu\" — chạy qua chạy lại nhiều lần.", "ex": "자주 연락해요.", "exVi": "Chúng ta liên lạc thường xuyên nhé." },
+    { "ko": "가끔", "romaja": "gakkeum", "vi": "Thỉnh thoảng", "pos": "adverb", "img": "🎲", "connect": "\"Ka-kkưm\" — thi thoảng mới ghé qua.", "ex": "가끔 영화를 봐요.", "exVi": "Thỉnh thoảng tôi xem phim." },
+    { "ko": "다시", "romaja": "dasi", "vi": "Lại / Một lần nữa", "pos": "adverb", "img": "🔄", "connect": "\"Đa-si\" — làm thêm lần nữa.", "ex": "다시 말해 주세요.", "exVi": "Bạn nói lại giúp tôi với." },
+    { "ko": "먼저", "romaja": "meonjeo", "vi": "Trước tiên", "pos": "adverb", "img": "1️⃣", "connect": "\"Mơn-chơ\" — đi trước một bước.", "ex": "먼저 가세요.", "exVi": "Bạn đi trước đi ạ." },
+    { "ko": "같이", "romaja": "gachi", "vi": "Cùng nhau", "pos": "adverb", "img": "👫", "connect": "Từ 같다 (giống) → làm giống nhau, cùng nhau.", "ex": "같이 밥 먹을까요?", "exVi": "Chúng ta cùng đi ăn nhé?" }
+  ]
+}

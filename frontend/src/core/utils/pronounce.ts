@@ -1,8 +1,5 @@
-/** Pronunciation scoring by comparing Hangul at the jamo (consonant/vowel) level. */
-
 const clean = (s: string) => s.replace(/[.,!?;:"'`()~…\-]/g, '').replace(/\s+/g, ' ').trim()
 
-/** Decompose a string into a flat token array of jamo (so near-misses score partially). */
 function toJamo(text: string): string[] {
   const out: string[] = []
   for (const ch of clean(text).replace(/\s/g, '')) {
@@ -19,7 +16,6 @@ function toJamo(text: string): string[] {
   return out
 }
 
-/** Levenshtein distance over token arrays. */
 function editDistance(a: string[], b: string[]): number {
   const m = a.length
   const n = b.length
@@ -38,7 +34,6 @@ function editDistance(a: string[], b: string[]): number {
   return prev[n]
 }
 
-/** Accuracy 0–100 comparing what the learner said to the target sentence. */
 export function pronunciationScore(target: string, heard: string): number {
   const t = toJamo(target)
   const h = toJamo(heard)
@@ -54,7 +49,6 @@ export interface WordMark {
   ok: boolean
 }
 
-/** Per-word match for highlighting: a target word is "ok" if it appears in what was heard. */
 export function markWords(target: string, heard: string): WordMark[] {
   const heardSet = new Set(clean(heard).split(' ').map((w) => w.replace(/\s/g, '')))
   const heardJoined = clean(heard).replace(/\s/g, '')

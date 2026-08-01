@@ -78,6 +78,8 @@ CREATE TABLE IF NOT EXISTS users (
     goal           TEXT,
     status         TEXT NOT NULL DEFAULT 'active',
     token_version  INTEGER NOT NULL DEFAULT 0,
+    ref_by         TEXT,
+    ref_count      INTEGER NOT NULL DEFAULT 0,
     created_at     TEXT DEFAULT (datetime('now','localtime')),
     last_active    TEXT
 );
@@ -90,6 +92,27 @@ CREATE TABLE IF NOT EXISTS login_attempts (
     locked_until TEXT,
     updated_at   TEXT
 );
+
+CREATE TABLE IF NOT EXISTS ai_usage (
+    subject    TEXT NOT NULL,
+    day        TEXT NOT NULL,
+    used       INTEGER NOT NULL DEFAULT 0,
+    minute_key TEXT,
+    minute_n   INTEGER NOT NULL DEFAULT 0,
+    updated_at TEXT,
+    PRIMARY KEY (subject, day)
+);
+
+CREATE TABLE IF NOT EXISTS verify_codes (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    email      TEXT NOT NULL,
+    purpose    TEXT NOT NULL,
+    code_hash  TEXT NOT NULL,
+    expires_at TEXT NOT NULL,
+    attempts   INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_verify_email ON verify_codes(email, purpose);
 
 CREATE TABLE IF NOT EXISTS user_items (
     user_id    TEXT NOT NULL,
@@ -173,7 +196,8 @@ CREATE TABLE IF NOT EXISTS catalog_videos (
     tone     TEXT,
     lang     TEXT NOT NULL DEFAULT 'ko',
     sort     INTEGER NOT NULL DEFAULT 0,
-    active   INTEGER NOT NULL DEFAULT 1
+    active   INTEGER NOT NULL DEFAULT 1,
+    custom   INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS catalog_quests (
@@ -198,7 +222,8 @@ CREATE TABLE IF NOT EXISTS catalog_shop (
     art      TEXT NOT NULL,
     plus     INTEGER NOT NULL DEFAULT 0,
     sort     INTEGER NOT NULL DEFAULT 0,
-    active   INTEGER NOT NULL DEFAULT 1
+    active   INTEGER NOT NULL DEFAULT 1,
+    custom   INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS catalog_plans (
@@ -260,6 +285,54 @@ CREATE TABLE IF NOT EXISTS feedback (
     created_at TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE INDEX IF NOT EXISTS idx_feedback_status ON feedback(status, created_at);
+
+CREATE TABLE IF NOT EXISTS email_log (
+    user_id TEXT NOT NULL,
+    kind    TEXT NOT NULL,
+    day     TEXT NOT NULL,
+    sent_at TEXT DEFAULT (datetime('now','localtime')),
+    PRIMARY KEY (user_id, kind, day)
+);
+
+CREATE TABLE IF NOT EXISTS league_members (
+    week    TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    tier    INTEGER NOT NULL DEFAULT 0,
+    settled INTEGER NOT NULL DEFAULT 0,
+    rank    INTEGER,
+    xp      INTEGER NOT NULL DEFAULT 0,
+    result  TEXT,
+    reward  INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (week, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_league_week ON league_members(week, tier);
+
+CREATE TABLE IF NOT EXISTS duels (
+    id         TEXT PRIMARY KEY,
+    a_id       TEXT NOT NULL,
+    b_id       TEXT,
+    start_day  TEXT,
+    end_day    TEXT,
+    status     TEXT NOT NULL DEFAULT 'open',
+    winner     TEXT,
+    a_xp       INTEGER NOT NULL DEFAULT 0,
+    b_xp       INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_duels_a ON duels(a_id, status);
+CREATE INDEX IF NOT EXISTS idx_duels_b ON duels(b_id, status);
+
+CREATE TABLE IF NOT EXISTS admin_audit (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    admin_id   TEXT NOT NULL,
+    admin_name TEXT,
+    action     TEXT NOT NULL,
+    target     TEXT,
+    detail     TEXT,
+    ip         TEXT,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_admin_audit_time ON admin_audit(created_at DESC);
 """
 
 def ensure_dirs() -> None:
@@ -311,9 +384,25 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE users ADD COLUMN goal TEXT")
     if "token_version" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0")
+    if "ref_by" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN ref_by TEXT")
+    if "ref_count" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN ref_count INTEGER NOT NULL DEFAULT 0")
+    if "league_tier" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN league_tier INTEGER NOT NULL DEFAULT 0")
+    if "email_verified" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN email_verified INTEGER NOT NULL DEFAULT 0")
+        conn.execute("UPDATE users SET email_verified = 1 WHERE provider != 'email' AND email IS NOT NULL")
+    if "email_optout" not in cols:
+        conn.execute("ALTER TABLE users ADD COLUMN email_optout INTEGER NOT NULL DEFAULT 0")
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
     if "lang" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
+    if "custom" not in vcols:
+        conn.execute("ALTER TABLE catalog_videos ADD COLUMN custom INTEGER NOT NULL DEFAULT 0")
+    scols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_shop)").fetchall()}
+    if "custom" not in scols:
+        conn.execute("ALTER TABLE catalog_shop ADD COLUMN custom INTEGER NOT NULL DEFAULT 0")
     uvcols = {r["name"] for r in conn.execute("PRAGMA table_info(user_videos)").fetchall()}
     if "lang" not in uvcols:
         conn.execute("ALTER TABLE user_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")

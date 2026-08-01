@@ -1,0 +1,22 @@
+{
+  "id": "zh-daily",
+  "name": "Một ngày của bạn",
+  "sub": "Kể lại việc mình làm từ sáng tới tối.",
+  "pos": "verb",
+  "tone": "tone-d",
+  "emoji": "🌤️",
+  "words": [
+    { "zh": "起床", "pinyin": "qǐ chuáng", "vi": "Thức dậy", "pos": "verb", "img": "🛏️", "connect": "起 = khởi (dậy, như \"khởi đầu\") + 床 = sàng (giường) → rời khỏi giường.", "ex": "我每天六点起床。", "exVi": "Ngày nào tôi cũng dậy lúc sáu giờ." },
+    { "zh": "睡觉", "pinyin": "shuì jiào", "vi": "Đi ngủ", "pos": "verb", "img": "😴", "connect": "睡 = thuỵ (ngủ, như \"thuỵ miên\") + 觉 = giác.", "ex": "我十一点睡觉。", "exVi": "Mười một giờ tôi đi ngủ." },
+    { "zh": "工作", "pinyin": "gōng zuò", "vi": "Làm việc, công việc", "pos": "verb", "img": "💼", "connect": "工 = công + 作 = tác → \"công tác\", đúng chữ tiếng Việt.", "ex": "我在公司工作。", "exVi": "Tôi làm việc ở công ty." },
+    { "zh": "学习", "pinyin": "xué xí", "vi": "Học tập", "pos": "verb", "img": "📖", "connect": "学 = học + 习 = tập → \"học tập\", y hệt tiếng Việt.", "ex": "我在学习中文。", "exVi": "Tôi đang học tiếng Trung." },
+    { "zh": "读", "pinyin": "dú", "vi": "Đọc", "pos": "verb", "img": "📕", "connect": "读 = độc, như \"độc giả\" (người đọc).", "ex": "他每天读报纸。", "exVi": "Ngày nào anh ấy cũng đọc báo." },
+    { "zh": "写", "pinyin": "xiě", "vi": "Viết", "pos": "verb", "img": "✍️", "connect": "写 = tả, như \"miêu tả\", \"tả cảnh\".", "ex": "请写你的名字。", "exVi": "Xin viết tên của bạn." },
+    { "zh": "打电话", "pinyin": "dǎ diàn huà", "vi": "Gọi điện thoại", "pos": "verb", "img": "📞", "connect": "打 = đả (đánh) + 电话 = điện thoại → thời xưa gọi điện phải \"đánh\" máy quay số.", "ex": "我给妈妈打电话。", "exVi": "Tôi gọi điện cho mẹ." },
+    { "zh": "认识", "pinyin": "rèn shi", "vi": "Quen biết, nhận ra", "pos": "verb", "img": "🤝", "connect": "认 = nhận + 识 = thức → \"nhận thức\", biết mặt biết tên ai đó.", "ex": "我认识他很多年了。", "exVi": "Tôi quen anh ấy nhiều năm rồi." },
+    { "zh": "喜欢", "pinyin": "xǐ huan", "vi": "Thích", "pos": "verb", "img": "❤️", "connect": "喜 = hỉ (mừng, như \"song hỉ\") + 欢 = hoan (vui, như \"hoan nghênh\").", "ex": "我很喜欢中国菜。", "exVi": "Tôi rất thích món ăn Trung Quốc." },
+    { "zh": "想", "pinyin": "xiǎng", "vi": "Muốn, nhớ, nghĩ", "pos": "verb", "img": "💭", "connect": "想 = tưởng, như \"tư tưởng\", \"lý tưởng\". Có bộ 心 (tim) ở dưới.", "ex": "我想回家。", "exVi": "Tôi muốn về nhà." },
+    { "zh": "会", "pinyin": "huì", "vi": "Biết làm, sẽ", "pos": "verb", "img": "🎯", "connect": "会 = hội, như \"hội họp\". Nghĩa \"biết làm gì đó nhờ học\": 会说中文 = biết nói tiếng Trung.", "ex": "我会开车。", "exVi": "Tôi biết lái xe." },
+    { "zh": "能", "pinyin": "néng", "vi": "Có thể", "pos": "verb", "img": "💪", "connect": "能 = năng, như \"năng lực\", \"khả năng\". Chỉ điều kiện cho phép, khác 会 (biết nhờ học).", "ex": "明天你能来吗？", "exVi": "Ngày mai bạn đến được không?" }
+  ]
+}

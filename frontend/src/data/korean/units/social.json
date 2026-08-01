@@ -1,0 +1,130 @@
+{
+  "id": "social",
+  "name": "Quan hệ xã hội",
+  "sub": "Tiền bối, hậu bối, hàng xóm — hiểu đúng thì xưng hô mới đúng.",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🧑‍🤝‍🧑",
+  "words": [
+    {
+      "ko": "이웃",
+      "romaja": "iut",
+      "vi": "Hàng xóm",
+      "pos": "noun",
+      "img": "🏘️",
+      "connect": "Thuần Hàn.",
+      "ex": "이웃과 사이가 좋아요.",
+      "exVi": "Tôi hoà thuận với hàng xóm."
+    },
+    {
+      "ko": "선배",
+      "romaja": "seonbae",
+      "vi": "Tiền bối",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "선배 chính là âm Hán \"tiên bối\" — vào trước mình.",
+      "ex": "선배님이 도와주셨어요.",
+      "exVi": "Tiền bối đã giúp tôi."
+    },
+    {
+      "ko": "후배",
+      "romaja": "hubae",
+      "vi": "Hậu bối",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "후배 chính là âm Hán \"hậu bối\" — vào sau mình.",
+      "ex": "후배한테 알려 줬어요.",
+      "exVi": "Tôi đã chỉ cho hậu bối."
+    },
+    {
+      "ko": "동창",
+      "romaja": "dongchang",
+      "vi": "Bạn cùng khoá",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "동창 chính là âm Hán \"đồng song\" — chung cửa sổ lớp học.",
+      "ex": "고등학교 동창이에요.",
+      "exVi": "Bạn ấy là bạn cùng khoá cấp ba."
+    },
+    {
+      "ko": "친척",
+      "romaja": "chincheok",
+      "vi": "Họ hàng",
+      "pos": "noun",
+      "img": "👨‍👩‍👧‍👦",
+      "connect": "친척 chính là âm Hán \"thân thích\".",
+      "ex": "명절에 친척을 만나요.",
+      "exVi": "Dịp lễ tôi gặp họ hàng."
+    },
+    {
+      "ko": "사이",
+      "romaja": "sai",
+      "vi": "Mối quan hệ, khoảng giữa",
+      "pos": "noun",
+      "img": "↔️",
+      "connect": "Vừa là \"giữa hai vật\", vừa là \"quan hệ giữa hai người\".",
+      "ex": "우리는 사이가 좋아요.",
+      "exVi": "Chúng tôi thân nhau."
+    },
+    {
+      "ko": "소개팅",
+      "romaja": "sogaeting",
+      "vi": "Hẹn hò xem mắt",
+      "pos": "noun",
+      "img": "💘",
+      "connect": "소개 (giới thiệu) + \"ting\" từ meeting.",
+      "ex": "소개팅을 했어요.",
+      "exVi": "Tôi đã đi xem mắt."
+    },
+    {
+      "ko": "연애",
+      "romaja": "yeonae",
+      "vi": "Chuyện yêu đương",
+      "pos": "noun",
+      "img": "❤️",
+      "connect": "연애 chính là âm Hán \"luyến ái\".",
+      "ex": "연애 중이에요.",
+      "exVi": "Tôi đang yêu."
+    },
+    {
+      "ko": "애인",
+      "romaja": "aein",
+      "vi": "Người yêu",
+      "pos": "noun",
+      "img": "💑",
+      "connect": "애인 chính là âm Hán \"ái nhân\".",
+      "ex": "애인이 있어요?",
+      "exVi": "Bạn có người yêu chưa?"
+    },
+    {
+      "ko": "사귀다",
+      "romaja": "sagwida",
+      "vi": "Kết bạn, yêu nhau",
+      "pos": "verb",
+      "img": "🤍",
+      "connect": "Tuỳ ngữ cảnh: kết giao bạn bè hoặc bắt đầu yêu.",
+      "ex": "우리는 일 년 사귀었어요.",
+      "exVi": "Chúng tôi yêu nhau được một năm."
+    },
+    {
+      "ko": "결혼하다",
+      "romaja": "gyeolhonhada",
+      "vi": "Kết hôn",
+      "pos": "verb",
+      "img": "💍",
+      "connect": "결혼 chính là âm Hán \"kết hôn\".",
+      "ex": "내년에 결혼해요.",
+      "exVi": "Sang năm tôi kết hôn."
+    },
+    {
+      "ko": "헤어지다",
+      "romaja": "heeojida",
+      "vi": "Chia tay",
+      "pos": "verb",
+      "img": "💔",
+      "connect": "Dùng cho cả chia tay tạm biệt lẫn chia tay tình yêu.",
+      "ex": "우리는 헤어졌어요.",
+      "exVi": "Chúng tôi đã chia tay."
+    }
+  ]
+}

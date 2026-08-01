@@ -4,6 +4,7 @@ import { addCard } from '@/core/api/srs.api'
 import { addTopic } from '@/core/utils/topics'
 import { parseWordsFromText } from '@/core/utils/parseImport'
 import { useAppStore } from '@/store/app.store'
+import { useDialog } from '@/core/a11y'
 
 interface Props {
   onClose: () => void
@@ -12,6 +13,7 @@ interface Props {
 
 export default function CreateTopicModal({ onClose, onCreated }: Props) {
   const { user, recordEvent, t } = useAppStore()
+  const boxRef = useDialog<HTMLDivElement>(true, onClose)
   const [name, setName] = useState('')
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
@@ -48,14 +50,14 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
 
   return (
     <div className="vmodal-backdrop" onClick={onClose}>
-      <div className="vmodal" onClick={(e) => e.stopPropagation()}>
+      <div className="vmodal" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="ctm-title" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="cards" size={18} /> {t('ctm.title')}</h3>
-          <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
+          <h3 id="ctm-title"><Icon name="cards" size={18} /> {t('ctm.title')}</h3>
+          <button type="button" className="vmodal-x" onClick={onClose} aria-label={t('a11y.close')}><Icon name="x" size={18} /></button>
         </div>
 
         <label className="vmodal-label">{t('ctm.name')}</label>
-        <input ref={nameRef} value={name} onChange={(e) => setName(e.target.value)} placeholder={t('ctm.namePh')} />
+        <input ref={nameRef} value={name} onChange={(e) => setName(e.target.value)} placeholder={t('ctm.namePh')} aria-label={t('ctm.name')} />
 
         <label className="vmodal-label">{t('ctm.words')}</label>
         <textarea
@@ -63,6 +65,7 @@ export default function CreateTopicModal({ onClose, onCreated }: Props) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={'메뉴 - thực đơn\n계산서 - hoá đơn'}
+          aria-label={t('ctm.words')}
         />
 
         {err && <div className="vmodal-err">{err}</div>}

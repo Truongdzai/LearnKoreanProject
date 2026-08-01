@@ -1,0 +1,22 @@
+{
+  "id": "time2",
+  "name": "Lịch & mốc thời gian",
+  "sub": "Hẹn lịch, kể chuyện hôm qua – tuần trước – sang năm.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "📅",
+  "words": [
+    { "ko": "주말", "romaja": "jumal", "vi": "Cuối tuần", "pos": "noun", "img": "🎉", "connect": "\"Chu-mal\" chính là âm Hán \"chu mạt\" — cuối tuần.", "ex": "주말에 뭐 해요?", "exVi": "Cuối tuần bạn làm gì?" },
+    { "ko": "평일", "romaja": "pyeongil", "vi": "Ngày thường (trong tuần)", "pos": "noun", "img": "🗓️", "connect": "\"Pyơng-il\" chính là âm Hán \"bình nhật\".", "ex": "평일에는 늘 바빠요.", "exVi": "Ngày thường thì tôi luôn bận." },
+    { "ko": "다음 주", "romaja": "daeum ju", "vi": "Tuần sau", "pos": "noun", "img": "⏭️", "connect": "\"Đa-ưm\" = tiếp theo + \"chu\" = tuần (âm Hán \"chu\").", "ex": "다음 주에 만날까요?", "exVi": "Tuần sau gặp nhau nhé?" },
+    { "ko": "지난주", "romaja": "jinanju", "vi": "Tuần trước", "pos": "noun", "img": "⏮️", "connect": "지나다 = đi qua → tuần đã trôi qua.", "ex": "지난주에 한국에 갔어요.", "exVi": "Tuần trước tôi đã sang Hàn Quốc." },
+    { "ko": "매일", "romaja": "maeil", "vi": "Hằng ngày", "pos": "noun", "img": "🔁", "connect": "\"Me-il\" chính là âm Hán \"mỗi nhật\".", "ex": "매일 한국어를 공부해요.", "exVi": "Ngày nào tôi cũng học tiếng Hàn." },
+    { "ko": "오전", "romaja": "ojeon", "vi": "Buổi sáng (trước trưa)", "pos": "noun", "img": "🌅", "connect": "\"Ô-chơn\" chính là âm Hán \"ngọ tiền\" — trước giờ ngọ.", "ex": "오전 열 시에 회의가 있어요.", "exVi": "Mười giờ sáng tôi có cuộc họp." },
+    { "ko": "오후", "romaja": "ohu", "vi": "Buổi chiều (sau trưa)", "pos": "noun", "img": "🌇", "connect": "\"Ô-hu\" chính là âm Hán \"ngọ hậu\" — sau giờ ngọ.", "ex": "오후에 시간 있어요?", "exVi": "Buổi chiều bạn có thời gian không?" },
+    { "ko": "밤", "romaja": "bam", "vi": "Đêm", "pos": "noun", "img": "🌙", "connect": "Cùng âm với 밤 (hạt dẻ) — đêm tối như vỏ hạt dẻ.", "ex": "밤에 잠이 안 와요.", "exVi": "Ban đêm tôi không ngủ được." },
+    { "ko": "올해", "romaja": "olhae", "vi": "Năm nay", "pos": "noun", "img": "📆", "connect": "\"Ôl\" = nay + \"he\" = năm.", "ex": "올해 한국에 가고 싶어요.", "exVi": "Năm nay tôi muốn đi Hàn Quốc." },
+    { "ko": "작년", "romaja": "jangnyeon", "vi": "Năm ngoái", "pos": "noun", "img": "⬅️", "connect": "\"Chak-nyơn\" chính là âm Hán \"tạc niên\".", "ex": "작년에 처음 만났어요.", "exVi": "Năm ngoái chúng tôi gặp nhau lần đầu." },
+    { "ko": "내년", "romaja": "naenyeon", "vi": "Năm sau", "pos": "noun", "img": "➡️", "connect": "\"Ne-nyơn\" chính là âm Hán \"lai niên\".", "ex": "내년에 졸업해요.", "exVi": "Năm sau tôi tốt nghiệp." },
+    { "ko": "계절", "romaja": "gyejeol", "vi": "Mùa", "pos": "noun", "img": "🍂", "connect": "\"Kyê-chơl\" chính là âm Hán \"quý tiết\".", "ex": "어느 계절을 좋아해요?", "exVi": "Bạn thích mùa nào?" }
+  ]
+}

@@ -2,16 +2,17 @@ from __future__ import annotations
 
 import hashlib
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
 from ..errors import AppError
 from ..schemas.learn import (
     TranscriptIn, ExplainIn, ExplainOut, LevelIn, LevelOut, TranslateIn, TranslateOut,
 )
-from ..services import youtube, translate, cache, jobs, llm
+from ..services import auth, youtube, translate, cache, jobs, llm, quota
 from ..services.langs import study_name, native_name
 
 router = APIRouter(prefix="/api/transcript", tags=["Bài học"])
+OptAuth = Depends(auth.get_optional_user)
 
 def _attach_speakers(lesson: dict) -> dict:
     spk = cache.get_speakers(lesson.get("id", ""))
@@ -21,20 +22,17 @@ def _attach_speakers(lesson: dict) -> dict:
     return lesson
 
 @router.post("")
-def api_transcript(body: TranscriptIn):
+def api_transcript(body: TranscriptIn, request: Request, user: dict | None = OptAuth):
     vid = youtube.extract_id(body.url)
 
-    # Chỉ nhận link/ID YouTube hợp lệ Nếu không, URL tuỳ ý sẽ bị yt_dlp truy cập
-    # (SSRF: gọi tới localhost/mạng nội bộ/metadata cloud) Chặn ngay từ cổng
     if not vid:
         raise AppError("INVALID_URL", "Hãy dán một link video YouTube hợp lệ.", 400)
 
-    # Serve from cache → cheap, instant, no YouTube/AI hit (handles many users).
     cached = cache.get_lesson(vid)
     if cached and cached["segments"]:
         return _attach_speakers(cached)
 
-    # Cache miss: fetch+translate is heavy  limit concurrency so a burst can't crash us.
+    quota.consume("transcript", user, quota.client_ip(request))
     try:
         with jobs.heavy_slot(timeout=45.0):
             try:

@@ -1,0 +1,130 @@
+{
+  "id": "safety",
+  "name": "An toàn & khẩn cấp",
+  "sub": "Mong không phải dùng, nhưng thiếu thì rất nguy khi sống ở Hàn.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "🚨",
+  "words": [
+    {
+      "ko": "사고",
+      "romaja": "sago",
+      "vi": "Tai nạn",
+      "pos": "noun",
+      "img": "💥",
+      "connect": "사고 chính là âm Hán \"sự cố\".",
+      "ex": "교통사고가 났어요.",
+      "exVi": "Đã xảy ra tai nạn giao thông."
+    },
+    {
+      "ko": "위험하다",
+      "romaja": "wiheomhada",
+      "vi": "Nguy hiểm",
+      "pos": "adj",
+      "img": "⚠️",
+      "connect": "위험 chính là âm Hán \"nguy hiểm\".",
+      "ex": "여기는 위험해요.",
+      "exVi": "Chỗ này nguy hiểm."
+    },
+    {
+      "ko": "안전하다",
+      "romaja": "anjeonhada",
+      "vi": "An toàn",
+      "pos": "adj",
+      "img": "🦺",
+      "connect": "안전 chính là âm Hán \"an toàn\".",
+      "ex": "안전하게 오세요.",
+      "exVi": "Bạn đi đường an toàn nhé."
+    },
+    {
+      "ko": "구급차",
+      "romaja": "gugeupcha",
+      "vi": "Xe cấp cứu",
+      "pos": "noun",
+      "img": "🚑",
+      "connect": "구급차 chính là âm Hán \"cứu cấp xa\".",
+      "ex": "구급차를 불러 주세요!",
+      "exVi": "Hãy gọi xe cấp cứu giúp tôi!"
+    },
+    {
+      "ko": "소방서",
+      "romaja": "sobangseo",
+      "vi": "Trạm cứu hoả",
+      "pos": "noun",
+      "img": "🚒",
+      "connect": "소방서 chính là âm Hán \"tiêu phòng thự\".",
+      "ex": "소방서에 신고했어요.",
+      "exVi": "Tôi đã báo cho trạm cứu hoả."
+    },
+    {
+      "ko": "도둑",
+      "romaja": "doduk",
+      "vi": "Kẻ trộm",
+      "pos": "noun",
+      "img": "🥷",
+      "connect": "Thuần Hàn.",
+      "ex": "도둑이 들었어요.",
+      "exVi": "Có trộm vào nhà."
+    },
+    {
+      "ko": "잃어버리다",
+      "romaja": "ireobeorida",
+      "vi": "Đánh mất",
+      "pos": "verb",
+      "img": "😰",
+      "connect": "Khác 찾다 (tìm) đã học — 잃어버리다 là mất hẳn.",
+      "ex": "지갑을 잃어버렸어요.",
+      "exVi": "Tôi đánh mất ví rồi."
+    },
+    {
+      "ko": "신고하다",
+      "romaja": "singohada",
+      "vi": "Trình báo",
+      "pos": "verb",
+      "img": "📞",
+      "connect": "신고 chính là âm Hán \"thân cáo\".",
+      "ex": "경찰에 신고했어요.",
+      "exVi": "Tôi đã trình báo công an."
+    },
+    {
+      "ko": "다행이다",
+      "romaja": "dahaengida",
+      "vi": "May quá",
+      "pos": "adj",
+      "img": "😮‍💨",
+      "connect": "다행 chính là âm Hán \"đa hạnh\" — nhiều may mắn.",
+      "ex": "안 다쳐서 다행이에요.",
+      "exVi": "May là bạn không bị thương."
+    },
+    {
+      "ko": "비상구",
+      "romaja": "bisanggu",
+      "vi": "Lối thoát hiểm",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "비상구 chính là âm Hán \"phi thường khẩu\".",
+      "ex": "비상구가 저쪽이에요.",
+      "exVi": "Lối thoát hiểm ở đằng kia."
+    },
+    {
+      "ko": "응급실",
+      "romaja": "eunggeupsil",
+      "vi": "Phòng cấp cứu",
+      "pos": "noun",
+      "img": "🏥",
+      "connect": "응급실 chính là âm Hán \"ứng cấp thất\".",
+      "ex": "응급실에 갔어요.",
+      "exVi": "Tôi đã vào phòng cấp cứu."
+    },
+    {
+      "ko": "보험",
+      "romaja": "boheom",
+      "vi": "Bảo hiểm",
+      "pos": "noun",
+      "img": "🛡️",
+      "connect": "보험 chính là âm Hán \"bảo hiểm\".",
+      "ex": "보험이 있어요?",
+      "exVi": "Bạn có bảo hiểm không?"
+    }
+  ]
+}

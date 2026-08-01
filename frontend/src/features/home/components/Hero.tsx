@@ -15,19 +15,21 @@ export default function Hero() {
 
         <div className="maker">
           <div className="maker-tabs">
-            <button className={tab === 'youtube' ? 'on' : ''} onClick={() => setTab('youtube')}>
+            <button type="button" aria-pressed={tab === 'youtube'} className={tab === 'youtube' ? 'on' : ''} onClick={() => setTab('youtube')}>
               <Icon name="play" /> YouTube
             </button>
-            <button disabled title={t('hero.soon')}><Icon name="upload" /> {t('hero.upload')}</button>
+            <button type="button" disabled title={t('hero.soon')}><Icon name="upload" /> {t('hero.upload')}</button>
           </div>
           <div className="maker-row">
             <input
+              type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && loadLesson(url)}
               placeholder={t('hero.placeholder', { lang: learnLangName })}
+              aria-label={t('hero.placeholder', { lang: learnLangName })}
             />
-            <button className="go" onClick={() => loadLesson(url)}>
+            <button type="button" className="go" onClick={() => loadLesson(url)}>
               <Icon name="sparkles" /> {t('hero.create')}
             </button>
           </div>

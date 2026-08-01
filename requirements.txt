@@ -6,5 +6,6 @@ python-multipart
 
 yt-dlp
 edge-tts
+pypinyin
 
 pytest

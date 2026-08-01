@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { fetchActivities, fetchActivityDaysApi, type Activities, type ActivityDay } from '@/core/api/me.api'
+import { fetchActivities, fetchActivityDaysApi, setEmailPrefsApi, type Activities, type ActivityDay } from '@/core/api/me.api'
 import { computeBadges } from '@/data/badges'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
+import ShareCard from '@/features/share/ShareCard'
+import MyDataCard from './MyDataCard'
 
 const EMPTY: Activities = {
   labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
@@ -30,8 +32,10 @@ function toISO(d: Date): string {
 }
 
 export default function ActivitiesPage() {
+  const [shareOpen, setShareOpen] = useState(false)
+  const [mailBusy, setMailBusy] = useState(false)
   const { user, savedVideos, garden, paths, t } = useAppStore()
-  const { isAuthed, openAuth } = useAuth()
+  const { isAuthed, openAuth, account, setAccount } = useAuth()
   const [data, setData] = useState<Activities>(EMPTY)
   const [days, setDays] = useState<ActivityDay[]>([])
 
@@ -98,6 +102,44 @@ export default function ActivitiesPage() {
     <div className="activities">
       <h1 className="page-title"><Icon name="chart" /> {t('act.title')}</h1>
       <p className="page-sub">{t('act.sub')}</p>
+
+      {isAuthed && (
+        <div className="act-share">
+          <div>
+            <b>Khoe thành tích &amp; mời bạn học cùng</b>
+            <span>Tạo ảnh chia sẻ kèm link mời — bạn bè đăng ký thì cả hai cùng được 100 xu.</span>
+          </div>
+          <button className="btn-primary sm" onClick={() => setShareOpen(true)}>
+            <Icon name="share" size={15} /> Tạo ảnh chia sẻ
+          </button>
+        </div>
+      )}
+      {shareOpen && <ShareCard onClose={() => setShareOpen(false)} />}
+
+      {isAuthed && account && (
+        <div className="act-share">
+          <div>
+            <b>{t('mail.title')}</b>
+            <span>
+              {account.emailVerified === false ? t('mail.needVerify') : t('mail.sub')}
+            </span>
+          </div>
+          <button
+            className={account.emailOptout ? 'btn-primary sm' : 'btn-ghost sm'}
+            disabled={mailBusy || account.emailVerified === false}
+            onClick={() => {
+              setMailBusy(true)
+              setEmailPrefsApi(!account.emailOptout)
+                .then((r) => setAccount(r.user))
+                .catch(() => {})
+                .finally(() => setMailBusy(false))
+            }}
+          >
+            <Icon name={account.emailOptout ? 'bell' : 'mute'} size={15} />
+            {' '}{account.emailOptout ? t('mail.turnOn') : t('mail.turnOff')}
+          </button>
+        </div>
+      )}
 
       {!isAuthed && (
         <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>
@@ -206,6 +248,8 @@ export default function ActivitiesPage() {
         <div className="as-item"><Icon name="map" size={18} /><b>{paths.length}</b><span>{t('act.paths')}</span></div>
         <div className="as-item"><Icon name="sprout" size={18} /><b>{garden.length}</b><span>{t('act.plants')}</span></div>
       </div>
+
+      {isAuthed && <MyDataCard />}
     </div>
   )
 }

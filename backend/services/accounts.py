@@ -9,7 +9,8 @@ from fastapi import HTTPException
 from ..errors import AppError
 from .. import db
 from ..config import settings
-from . import auth
+from . import auth, mailer, verify
+from .logs import log
 
 WELCOME_COINS = 50
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -32,15 +33,12 @@ def seed_admin() -> None:
         ).fetchone()
         generated = ""
         if not password:
-            # Config không đặt mật khẩu: chỉ can thiệp khi chưa có admin
-            # hoặc admin còn dùng mật khẩu mặc định cũ (lỗ hổng đã công bố).
             if row and row["pass_hash"] and not auth.verify_password(
                 LEGACY_ADMIN_PASSWORD, row["pass_hash"], row["pass_salt"]
             ):
                 return
             password = generated = secrets.token_urlsafe(12)
         if row:
-            # Mật khẩu không đổi thì đừng ghi lại — tránh tăng token_version mỗi lần khởi động.
             if row["pass_hash"] and auth.verify_password(password, row["pass_hash"], row["pass_salt"]):
                 if row["role"] != "admin":
                     conn.execute("UPDATE users SET role = 'admin', status = 'active' WHERE id = ?", (row["id"],))
@@ -61,7 +59,7 @@ def seed_admin() -> None:
             )
         conn.commit()
         if generated:
-            print(f"[VyLing] Mật khẩu admin mới cho {email}: {generated} — lưu lại ngay, chỉ hiện 1 lần.")
+            log(f"[VyLing] Mật khẩu admin mới cho {email}: {generated} — lưu lại ngay, chỉ hiện 1 lần.")
     finally:
         conn.close()
 
@@ -102,6 +100,9 @@ def public_user(row: dict) -> dict:
         "equippedPet": row["equipped_pet"] if "equipped_pet" in row.keys() else None,
         "equippedBg": row["equipped_bg"] if "equipped_bg" in row.keys() else None,
         "goal": row["goal"] if "goal" in row.keys() else None,
+        "refCount": row["ref_count"] if "ref_count" in row.keys() else 0,
+        "emailVerified": bool(row["email_verified"]) if "email_verified" in row.keys() else True,
+        "emailOptout": bool(row["email_optout"]) if "email_optout" in row.keys() else False,
     }
 
 
@@ -132,7 +133,21 @@ def _register_rl(conn, ip: str) -> None:
     conn.commit()
 
 
-def register(name: str, email: str, password: str, ip: str = "") -> dict:
+REF_REWARD = 100
+
+
+def _apply_referral(conn, new_uid: str, ref: str) -> None:
+    ref = (ref or "").strip()
+    if not ref or ref == new_uid:
+        return
+    inviter = conn.execute("SELECT id FROM users WHERE id = ? AND status = 'active'", (ref,)).fetchone()
+    if not inviter:
+        return
+    conn.execute("UPDATE users SET coins = coins + ?, ref_count = ref_count + 1 WHERE id = ?", (REF_REWARD, ref))
+    conn.execute("UPDATE users SET coins = coins + ?, ref_by = ? WHERE id = ?", (REF_REWARD, ref, new_uid))
+
+
+def register(name: str, email: str, password: str, ip: str = "", ref: str = "") -> dict:
     email = (email or "").strip().lower()
     if not EMAIL_RE.match(email):
         raise HTTPException(status_code=400, detail="Email không hợp lệ.")
@@ -150,11 +165,16 @@ def register(name: str, email: str, password: str, ip: str = "") -> dict:
             "VALUES (?,?,?,?,?,?,?,?)",
             (uid, (name or "").strip() or email.split("@")[0], email, pass_hash, salt, "email", "user", WELCOME_COINS),
         )
+        _apply_referral(conn, uid, ref)
         conn.commit()
         row = dict(conn.execute("SELECT * FROM users WHERE id = ?", (uid,)).fetchone())
     finally:
         conn.close()
     touch_streak(uid)
+    try:
+        request_verify(row)
+    except Exception:
+        pass
     return row
 
 
@@ -223,6 +243,147 @@ def reload(user_id: str) -> dict:
         conn.close()
 
 
+
+CODE_MAX = 5
+CODE_WINDOW_MIN = 15
+
+
+def _code_rl(conn, email: str) -> None:
+    key = f"code|{email}"
+    now = datetime.now()
+    row = conn.execute("SELECT fails, updated_at FROM login_attempts WHERE key = ?", (key,)).fetchone()
+    n = 0
+    if row and row["updated_at"] and now - datetime.fromisoformat(row["updated_at"]) < timedelta(minutes=CODE_WINDOW_MIN):
+        n = row["fails"]
+    if n >= CODE_MAX:
+        raise AppError("RATE_LIMITED", "Bạn đã yêu cầu mã quá nhiều lần. Hãy thử lại sau ít phút.", 429)
+    conn.execute(
+        "INSERT INTO login_attempts (key, fails, locked_until, updated_at) VALUES (?,?,NULL,?) "
+        "ON CONFLICT(key) DO UPDATE SET fails = ?, updated_at = ?",
+        (key, n + 1, now.isoformat(), n + 1, now.isoformat()),
+    )
+    conn.commit()
+
+
+def request_reset(email: str) -> None:
+    email = (email or "").strip().lower()
+    if not EMAIL_RE.match(email):
+        return
+    conn = db.get_conn()
+    try:
+        _code_rl(conn, email)
+        row = _by_email(conn, email)
+    finally:
+        conn.close()
+    if row and row["provider"] == "email" and row["pass_hash"]:
+        code = verify.create_code(email, "reset")
+        mailer.send_code(email, code, "reset")
+
+
+VERIFY_REWARD = 50
+
+
+def request_verify(user: dict) -> None:
+    email = (user.get("email") or "").strip().lower()
+    if not email or user.get("provider") != "email" or user.get("email_verified"):
+        return
+    conn = db.get_conn()
+    try:
+        _code_rl(conn, email)
+    finally:
+        conn.close()
+    mailer.send_code(email, verify.create_code(email, "verify"), "verify")
+
+
+def confirm_verify(user_id: str, code: str) -> dict:
+    row = reload(user_id)
+    if row.get("email_verified"):
+        return row
+    email = (row.get("email") or "").strip().lower()
+    if not verify.check_code(email, "verify", code):
+        raise AppError("BAD_CODE", "Mã xác minh không đúng hoặc đã hết hạn.", 400)
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "UPDATE users SET email_verified = 1, coins = coins + ? WHERE id = ?",
+            (VERIFY_REWARD, user_id),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
+
+
+def set_email_optout(user_id: str, optout: bool) -> dict:
+    conn = db.get_conn()
+    try:
+        conn.execute("UPDATE users SET email_optout = ? WHERE id = ?", (1 if optout else 0, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return reload(user_id)
+
+
+def reset_password(email: str, code: str, new_password: str) -> None:
+    email = (email or "").strip().lower()
+    if len(new_password or "") < 6:
+        raise HTTPException(status_code=400, detail="Mật khẩu mới cần ít nhất 6 ký tự.")
+    if not verify.check_code(email, "reset", code):
+        raise AppError("BAD_CODE", "Mã xác nhận không đúng hoặc đã hết hạn.", 400)
+    conn = db.get_conn()
+    try:
+        row = _by_email(conn, email)
+        if not row or row["provider"] != "email":
+            raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản.")
+        pass_hash, salt = auth.hash_password(new_password)
+        conn.execute(
+            "UPDATE users SET pass_hash = ?, pass_salt = ?, token_version = token_version + 1, status = 'active' WHERE id = ?",
+            (pass_hash, salt, row["id"]),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def request_change(user: dict) -> None:
+    if user.get("provider") != "email" or not user.get("email"):
+        raise HTTPException(status_code=400, detail="Tài khoản này đăng nhập qua mạng xã hội, không có mật khẩu để đổi.")
+    email = user["email"].strip().lower()
+    conn = db.get_conn()
+    try:
+        _code_rl(conn, email)
+    finally:
+        conn.close()
+    code = verify.create_code(email, "change")
+    mailer.send_code(email, code, "change")
+
+
+def change_password(user_id: str, current_password: str, code: str, new_password: str) -> dict:
+    if len(new_password or "") < 6:
+        raise HTTPException(status_code=400, detail="Mật khẩu mới cần ít nhất 6 ký tự.")
+    conn = db.get_conn()
+    try:
+        row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản.")
+        row = dict(row)
+        if row["provider"] != "email" or not row["pass_hash"]:
+            raise HTTPException(status_code=400, detail="Tài khoản này không có mật khẩu để đổi.")
+        if not auth.verify_password(current_password or "", row["pass_hash"], row["pass_salt"]):
+            raise HTTPException(status_code=400, detail="Mật khẩu hiện tại không đúng.")
+        if not verify.check_code(row["email"].strip().lower(), "change", code):
+            raise AppError("BAD_CODE", "Mã xác nhận không đúng hoặc đã hết hạn.", 400)
+        pass_hash, salt = auth.hash_password(new_password)
+        conn.execute(
+            "UPDATE users SET pass_hash = ?, pass_salt = ?, token_version = token_version + 1 WHERE id = ?",
+            (pass_hash, salt, user_id),
+        )
+        conn.commit()
+        return dict(conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone())
+    finally:
+        conn.close()
+
+
 def upsert_oauth_user(provider: str, info: dict) -> dict:
     oauth_id = info.get("id")
     email = (info.get("email") or "").strip().lower()
@@ -243,7 +404,8 @@ def upsert_oauth_user(provider: str, info: dict) -> dict:
         else:
             uid = new_id()
             conn.execute(
-                "INSERT INTO users (id, name, email, provider, role, avatar, coins) VALUES (?,?,?,?,?,?,?)",
+                "INSERT INTO users (id, name, email, provider, role, avatar, coins, email_verified) "
+                "VALUES (?,?,?,?,?,?,?,1)",
                 (uid, name, email, provider, "user", avatar, WELCOME_COINS),
             )
             conn.commit()
@@ -477,14 +639,27 @@ def set_avatar(user_id: str, avatar: str | None) -> dict:
     return reload(user_id)
 
 
-def leaderboard(current_id: str | None = None, limit: int = 50) -> list[dict]:
+def leaderboard(current_id: str | None = None, limit: int = 50, scope: str = "all") -> list[dict]:
     conn = db.get_conn()
     try:
-        rows = conn.execute(
-            "SELECT id, name, avatar, xp, streak, is_plus, plus_until, equipped_frame, equipped_bg FROM users "
-            "WHERE status = 'active' AND role != 'admin' ORDER BY xp DESC, streak DESC LIMIT ?",
-            (limit,),
-        ).fetchall()
+        if scope == "week":
+            monday = date.today() - timedelta(days=date.today().weekday())
+            rows = conn.execute(
+                "SELECT u.id, u.name, u.avatar, u.streak, u.is_plus, u.plus_until, "
+                "u.equipped_frame, u.equipped_bg, u.xp AS total_xp, "
+                "COALESCE(SUM(a.xp),0) AS xp "
+                "FROM users u JOIN activity_log a ON a.user_id = u.id AND a.day >= ? "
+                "WHERE u.status = 'active' AND u.role != 'admin' "
+                "GROUP BY u.id HAVING SUM(a.xp) > 0 ORDER BY SUM(a.xp) DESC, u.streak DESC LIMIT ?",
+                (monday.isoformat(), limit),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                "SELECT id, name, avatar, xp, xp AS total_xp, streak, is_plus, plus_until, "
+                "equipped_frame, equipped_bg FROM users "
+                "WHERE status = 'active' AND role != 'admin' ORDER BY xp DESC, streak DESC LIMIT ?",
+                (limit,),
+            ).fetchall()
     finally:
         conn.close()
     out = []
@@ -494,7 +669,7 @@ def leaderboard(current_id: str | None = None, limit: int = 50) -> list[dict]:
             "id": r["id"],
             "name": r["name"],
             "xp": r["xp"],
-            "level": level_for(r["xp"]),
+            "level": level_for(r["total_xp"]),
             "streak": r["streak"],
             "isPlus": plus_active(dict(r)),
             "frame": r["equipped_frame"],
@@ -575,7 +750,6 @@ def admin_update_user(user_id: str, fields: dict) -> dict:
             vals.append(int(v) if k in {"is_plus", "coins", "xp", "streak"} else v)
     if not sets:
         return reload(user_id)
-    # Khoá tài khoản = thu hồi ngay mọi token đang lưu hành.
     if fields.get("status") and fields["status"] != "active":
         sets.append("token_version = token_version + 1")
     vals.append(user_id)
@@ -590,6 +764,31 @@ def admin_update_user(user_id: str, fields: dict) -> dict:
     return reload(user_id)
 
 
+USER_TABLES = (
+    "user_items", "user_garden", "user_paths", "user_videos", "quest_progress",
+    "activity_log", "coin_gifts", "srs_cards", "srs_reviews", "user_plans",
+    "league_members", "email_log",
+)
+
+
+def purge_user(user_id: str) -> None:
+    conn = db.get_conn()
+    try:
+        for table in USER_TABLES:
+            conn.execute(f"DELETE FROM {table} WHERE user_id = ?", (user_id,))
+        conn.execute("DELETE FROM duels WHERE a_id = ? OR b_id = ?", (user_id, user_id))
+        conn.execute("DELETE FROM ai_usage WHERE subject = ?", (f"u:{user_id}",))
+        conn.execute("UPDATE feedback SET user_id = NULL, name = 'Người dùng đã xoá' WHERE user_id = ?", (user_id,))
+        conn.execute("UPDATE users SET ref_by = NULL WHERE ref_by = ?", (user_id,))
+        row = conn.execute("SELECT email FROM users WHERE id = ?", (user_id,)).fetchone()
+        if row and row["email"]:
+            conn.execute("DELETE FROM verify_codes WHERE email = ?", (row["email"],))
+        conn.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        conn.commit()
+    finally:
+        conn.close()
+
+
 def admin_delete_user(user_id: str) -> None:
     conn = db.get_conn()
     try:
@@ -598,9 +797,18 @@ def admin_delete_user(user_id: str) -> None:
             raise HTTPException(status_code=404, detail="Không tìm thấy người dùng.")
         if row["role"] == "admin":
             raise HTTPException(status_code=400, detail="Không thể xoá tài khoản quản trị viên.")
-        for table in ("user_items", "user_garden", "user_paths", "user_videos", "quest_progress", "activity_log", "coin_gifts"):
-            conn.execute(f"DELETE FROM {table} WHERE user_id = ?", (user_id,))
-        conn.execute("DELETE FROM users WHERE id = ?", (user_id,))
-        conn.commit()
     finally:
         conn.close()
+    purge_user(user_id)
+
+
+def delete_own_account(user: dict, password: str = "", confirm: str = "") -> None:
+    row = reload(user["id"])
+    if row["role"] == "admin":
+        raise AppError("FORBIDDEN", "Tài khoản quản trị không tự xoá được. Hãy chuyển quyền trước.", 400)
+    if row["provider"] == "email" and row["pass_hash"]:
+        if not auth.verify_password(password or "", row["pass_hash"], row["pass_salt"]):
+            raise AppError("BAD_PASSWORD", "Mật khẩu không đúng.", 400)
+    elif (confirm or "").strip().upper() != "XOA":
+        raise AppError("BAD_CONFIRM", "Hãy gõ XOA để xác nhận xoá tài khoản.", 400)
+    purge_user(row["id"])

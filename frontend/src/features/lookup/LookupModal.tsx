@@ -7,6 +7,7 @@ import { defineWordRich } from '@/core/api/dict.api'
 import { addCard } from '@/core/api/srs.api'
 import { romanizeWord } from '@/core/utils/romanize'
 import { studyLang } from '@/core/constants/languages'
+import { useDialog } from '@/core/a11y'
 import type { DictRichResult } from '@/models/dict.model'
 
 interface View {
@@ -82,14 +83,9 @@ export default function LookupModal() {
       setSaved(false)
       if (lookupSeed.trim()) run(lookupSeed)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lookupOpen, lookupSeed])
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && closeLookup()
-    if (lookupOpen) window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [lookupOpen, closeLookup])
+  const boxRef = useDialog<HTMLDivElement>(lookupOpen, closeLookup)
 
   if (!lookupOpen) return null
 
@@ -107,22 +103,23 @@ export default function LookupModal() {
 
   return (
     <div className="lookup-backdrop" onClick={closeLookup}>
-      <div className="lookup" onClick={(e) => e.stopPropagation()}>
+      <div className="lookup" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="lookup-title" onClick={(e) => e.stopPropagation()}>
         <div className="lookup-head">
-          <span className="lookup-tab"><Icon name="vyling" size={16} /> {t('lk.title')}</span>
-          <button className="lookup-close" onClick={closeLookup}><Icon name="x" /></button>
+          <span className="lookup-tab" id="lookup-title"><Icon name="vyling" size={16} /> {t('lk.title')}</span>
+          <button type="button" className="lookup-close" onClick={closeLookup} aria-label={t('a11y.close')}><Icon name="x" /></button>
         </div>
 
         <div className="lookup-bar">
           <Icon name="search" size={16} />
           <input
-            autoFocus
+            data-autofocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && run(q)}
             placeholder={t('lk.placeholder', { lang: learnLangName })}
+            aria-label={t('lk.placeholder', { lang: learnLangName })}
           />
-          <button className="lookup-go" onClick={() => run(q)}><Icon name="sparkles" size={15} /> {t('lk.go')}</button>
+          <button type="button" className="lookup-go" onClick={() => run(q)}><Icon name="sparkles" size={15} /> {t('lk.go')}</button>
         </div>
 
         {loading ? (

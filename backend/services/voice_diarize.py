@@ -9,7 +9,6 @@ import yt_dlp
 from ..config import MEDIA_DIR
 from . import media, youtube
 
-# Heavy numeric deps are imported lazily so the app still boots without them.
 
 def available() -> tuple[bool, str]:
     try:
@@ -147,7 +146,7 @@ def diarize(video_id: str, starts: list[float]) -> dict:
         return {"speakers": [i % 2 for i in range(n)], "names": ["Người nói A", "Người nói B"], "source": "voice", "k": 2}
 
     X = StandardScaler().fit_transform(np.array(feats))
-    X[:, -1] *= 4.0  # emphasise pitch (the strongest speaker cue)
+    X[:, -1] *= 4.0
 
     best_k, best_labels, best_score = 1, np.zeros(len(X), dtype=int), -1.0
     for k in range(2, min(6, len(X) - 1) + 1):
@@ -158,7 +157,6 @@ def diarize(video_id: str, starts: list[float]) -> dict:
     if best_score < 0.12:
         best_k, best_labels = 1, np.zeros(len(X), dtype=int)
 
-    # Map clustered (subset) labels back onto every segment via nearest analysed line.
     full = [0] * n
     for pos, seg_i in enumerate(idx):
         full[seg_i] = int(best_labels[pos])

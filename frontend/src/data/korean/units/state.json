@@ -1,0 +1,22 @@
+{
+  "id": "state",
+  "name": "Trạng thái & cảm giác cơ thể",
+  "sub": "Đói, khát, buồn ngủ, nặng, nhẹ — nói ngay điều cơ thể đang thấy.",
+  "pos": "adj",
+  "tone": "tone-a",
+  "emoji": "😮‍💨",
+  "words": [
+    { "ko": "배고프다", "romaja": "baegopeuda", "vi": "Đói bụng", "pos": "adj", "img": "🍽️", "connect": "\"Be\" = bụng + \"kô-pư\" = rỗng → bụng rỗng.", "ex": "너무 배고파요.", "exVi": "Tôi đói quá." },
+    { "ko": "목마르다", "romaja": "mongmareuda", "vi": "Khát nước", "pos": "adj", "img": "🥤", "connect": "\"Môk\" = cổ họng + \"ma-rư\" = khô → khô cổ.", "ex": "목말라요. 물 좀 주세요.", "exVi": "Tôi khát. Cho tôi chút nước ạ." },
+    { "ko": "졸리다", "romaja": "jollida", "vi": "Buồn ngủ", "pos": "adj", "img": "🥱", "connect": "\"Chôl-li\" — mắt cứ chực díp lại.", "ex": "수업 시간에 너무 졸려요.", "exVi": "Trong giờ học tôi buồn ngủ quá." },
+    { "ko": "힘들다", "romaja": "himdeulda", "vi": "Vất vả / Mệt", "pos": "adj", "img": "😮‍💨", "connect": "\"Him\" = sức lực + 들다 = tốn → tốn sức.", "ex": "오늘 일이 좀 힘들었어요.", "exVi": "Hôm nay công việc hơi vất vả." },
+    { "ko": "편하다", "romaja": "pyeonhada", "vi": "Thoải mái / Tiện", "pos": "adj", "img": "🛋️", "connect": "\"Pyơn\" chính là âm Hán \"tiện\".", "ex": "이 신발이 아주 편해요.", "exVi": "Đôi giày này rất thoải mái." },
+    { "ko": "불편하다", "romaja": "bulpyeonhada", "vi": "Bất tiện / Khó chịu", "pos": "adj", "img": "😣", "connect": "불 = bất (phủ định) + 편하다 → bất tiện.", "ex": "의자가 불편해요.", "exVi": "Cái ghế ngồi khó chịu." },
+    { "ko": "답답하다", "romaja": "dapdaphada", "vi": "Ngột ngạt / Bức bối", "pos": "adj", "img": "😤", "connect": "Lặp âm \"đap-đap\" — nghe đã thấy tức ngực.", "ex": "방이 좁아서 답답해요.", "exVi": "Phòng chật nên thấy ngột ngạt." },
+    { "ko": "귀엽다", "romaja": "gwiyeopda", "vi": "Dễ thương", "pos": "adj", "img": "🥺", "connect": "\"Quy-yớp\" — lời khen nghe suốt trong phim Hàn.", "ex": "강아지가 정말 귀여워요.", "exVi": "Con cún dễ thương thật đấy." },
+    { "ko": "무겁다", "romaja": "mugeopda", "vi": "Nặng", "pos": "adj", "img": "🏋️", "connect": "\"Mu-kớp\" — vác lên là muốn khụy.", "ex": "가방이 너무 무거워요.", "exVi": "Cái cặp nặng quá." },
+    { "ko": "가볍다", "romaja": "gabyeopda", "vi": "Nhẹ", "pos": "adj", "img": "🪶", "connect": "\"Ka-byớp\" — nhẹ như chiếc lá bay.", "ex": "이 노트북은 가벼워요.", "exVi": "Cái laptop này nhẹ." },
+    { "ko": "뜨겁다", "romaja": "tteugeopda", "vi": "Nóng (chạm vào)", "pos": "adj", "img": "🔥", "connect": "Khác 덥다 (nóng thời tiết) — 뜨겁다 là nóng khi sờ vào.", "ex": "국이 아직 뜨거워요.", "exVi": "Canh vẫn còn nóng." },
+    { "ko": "차갑다", "romaja": "chagapda", "vi": "Lạnh (chạm vào)", "pos": "adj", "img": "🧊", "connect": "Khác 춥다 (lạnh thời tiết) — 차갑다 là lạnh khi sờ vào.", "ex": "물이 아주 차가워요.", "exVi": "Nước lạnh lắm." }
+  ]
+}

@@ -3,8 +3,6 @@ from __future__ import annotations
 import threading
 from contextlib import contextmanager
 
-# Limit heavy operations (yt-dlp fetch, voice diarization) running at once so a
-# burst of users can't exhaust RAM/CPU and crash the server. Others queue/await.
 _MAX_HEAVY = 2
 _sem = threading.BoundedSemaphore(_MAX_HEAVY)
 

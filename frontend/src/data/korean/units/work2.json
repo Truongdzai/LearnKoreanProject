@@ -1,0 +1,130 @@
+{
+  "id": "work2",
+  "name": "Đồng nghiệp & việc ở công ty",
+  "sub": "Ngôn ngữ của người đi làm ở Hàn, nơi thứ bậc quyết định cách nói.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🏢",
+  "words": [
+    {
+      "ko": "동료",
+      "romaja": "dongnyo",
+      "vi": "Đồng nghiệp",
+      "pos": "noun",
+      "img": "🤝",
+      "connect": "동료 chính là âm Hán \"đồng liêu\".",
+      "ex": "동료들과 점심을 먹어요.",
+      "exVi": "Tôi ăn trưa với đồng nghiệp."
+    },
+    {
+      "ko": "상사",
+      "romaja": "sangsa",
+      "vi": "Cấp trên",
+      "pos": "noun",
+      "img": "🧑‍💼",
+      "connect": "상사 chính là âm Hán \"thượng ty\".",
+      "ex": "상사에게 보고했어요.",
+      "exVi": "Tôi đã báo cáo với cấp trên."
+    },
+    {
+      "ko": "신입",
+      "romaja": "sinip",
+      "vi": "Nhân viên mới",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "신입 chính là âm Hán \"tân nhập\".",
+      "ex": "저는 신입이에요.",
+      "exVi": "Tôi là nhân viên mới."
+    },
+    {
+      "ko": "경력",
+      "romaja": "gyeongnyeok",
+      "vi": "Kinh nghiệm làm việc",
+      "pos": "noun",
+      "img": "📈",
+      "connect": "경력 chính là âm Hán \"kinh lịch\".",
+      "ex": "경력이 삼 년 있어요.",
+      "exVi": "Tôi có ba năm kinh nghiệm."
+    },
+    {
+      "ko": "계획",
+      "romaja": "gyehoek",
+      "vi": "Kế hoạch",
+      "pos": "noun",
+      "img": "🗒️",
+      "connect": "계획 chính là âm Hán \"kế hoạch\".",
+      "ex": "주말 계획이 있어요?",
+      "exVi": "Cuối tuần bạn có kế hoạch gì không?"
+    },
+    {
+      "ko": "보고서",
+      "romaja": "bogoseo",
+      "vi": "Báo cáo",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "보고서 chính là âm Hán \"báo cáo thư\".",
+      "ex": "보고서를 써야 해요.",
+      "exVi": "Tôi phải viết báo cáo."
+    },
+    {
+      "ko": "자료",
+      "romaja": "jaryo",
+      "vi": "Tài liệu",
+      "pos": "noun",
+      "img": "🗂️",
+      "connect": "자료 chính là âm Hán \"tư liệu\".",
+      "ex": "자료를 보내 주세요.",
+      "exVi": "Hãy gửi tài liệu giúp tôi."
+    },
+    {
+      "ko": "일정",
+      "romaja": "iljeong",
+      "vi": "Lịch trình",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "일정 chính là âm Hán \"nhật trình\".",
+      "ex": "일정이 바뀌었어요.",
+      "exVi": "Lịch trình đã thay đổi."
+    },
+    {
+      "ko": "담당",
+      "romaja": "damdang",
+      "vi": "Phụ trách",
+      "pos": "noun",
+      "img": "🙋",
+      "connect": "담당 chính là âm Hán \"đảm đương\".",
+      "ex": "제가 담당이에요.",
+      "exVi": "Tôi là người phụ trách."
+    },
+    {
+      "ko": "승진",
+      "romaja": "seungjin",
+      "vi": "Thăng chức",
+      "pos": "noun",
+      "img": "🎖️",
+      "connect": "승진 chính là âm Hán \"thăng tiến\".",
+      "ex": "승진 축하해요!",
+      "exVi": "Chúc mừng bạn thăng chức!"
+    },
+    {
+      "ko": "야근",
+      "romaja": "yageun",
+      "vi": "Tăng ca buổi tối",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "야근 chính là âm Hán \"dạ cần\" — làm ca đêm.",
+      "ex": "오늘도 야근이에요.",
+      "exVi": "Hôm nay lại tăng ca."
+    },
+    {
+      "ko": "회식",
+      "romaja": "hoesik",
+      "vi": "Tiệc công ty",
+      "pos": "noun",
+      "img": "🍻",
+      "connect": "회식 chính là âm Hán \"hội thực\" — nét văn hoá công sở Hàn.",
+      "ex": "금요일에 회식이 있어요.",
+      "exVi": "Thứ sáu có tiệc công ty."
+    }
+  ]
+}

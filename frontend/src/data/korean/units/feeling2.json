@@ -1,0 +1,130 @@
+{
+  "id": "feeling2",
+  "name": "Cảm xúc sâu hơn",
+  "sub": "Nói được cảm giác thật chứ không chỉ \"vui\" và \"buồn\".",
+  "pos": "adj",
+  "tone": "tone-a",
+  "emoji": "💗",
+  "words": [
+    {
+      "ko": "그립다",
+      "romaja": "geuripda",
+      "vi": "Nhớ nhung",
+      "pos": "adj",
+      "img": "🥺",
+      "connect": "ㅂ bất quy tắc: 그리워요. Nhớ quê, nhớ người.",
+      "ex": "고향이 그리워요.",
+      "exVi": "Tôi nhớ quê hương."
+    },
+    {
+      "ko": "부끄럽다",
+      "romaja": "bukkeureopda",
+      "vi": "Ngượng, xấu hổ",
+      "pos": "adj",
+      "img": "😳",
+      "connect": "ㅂ bất quy tắc: 부끄러워요.",
+      "ex": "너무 부끄러웠어요.",
+      "exVi": "Tôi đã rất ngượng."
+    },
+    {
+      "ko": "외롭다",
+      "romaja": "oeropda",
+      "vi": "Cô đơn",
+      "pos": "adj",
+      "img": "🌧️",
+      "connect": "ㅂ bất quy tắc: 외로워요.",
+      "ex": "혼자 있으면 외로워요.",
+      "exVi": "Ở một mình thì cô đơn."
+    },
+    {
+      "ko": "지루하다",
+      "romaja": "jiruhada",
+      "vi": "Chán, buồn tẻ",
+      "pos": "adj",
+      "img": "🥱",
+      "connect": "Khác 심심하다 (rảnh rỗi buồn) đã học: 지루하다 là nội dung nhàm.",
+      "ex": "영화가 지루했어요.",
+      "exVi": "Bộ phim chán quá."
+    },
+    {
+      "ko": "신나다",
+      "romaja": "sinnada",
+      "vi": "Phấn khích",
+      "pos": "verb",
+      "img": "🤩",
+      "connect": "신 (hứng) + 나다 (trào ra) — vui bật lên.",
+      "ex": "여행 간다니까 신나요!",
+      "exVi": "Nghe nói được đi chơi là thấy phấn khích!"
+    },
+    {
+      "ko": "설레다",
+      "romaja": "seolleda",
+      "vi": "Rộn ràng, hồi hộp mong chờ",
+      "pos": "verb",
+      "img": "💓",
+      "connect": "Cảm giác tim đập nhanh vì mong đợi điều vui.",
+      "ex": "내일이 설레요.",
+      "exVi": "Tôi thấy rộn ràng vì ngày mai."
+    },
+    {
+      "ko": "실망하다",
+      "romaja": "silmanghada",
+      "vi": "Thất vọng",
+      "pos": "verb",
+      "img": "😞",
+      "connect": "실망 chính là âm Hán \"thất vọng\".",
+      "ex": "결과에 실망했어요.",
+      "exVi": "Tôi thất vọng với kết quả."
+    },
+    {
+      "ko": "후회하다",
+      "romaja": "huhoehada",
+      "vi": "Hối hận",
+      "pos": "verb",
+      "img": "😔",
+      "connect": "후회 chính là âm Hán \"hậu hối\".",
+      "ex": "지금은 후회해요.",
+      "exVi": "Bây giờ tôi thấy hối hận."
+    },
+    {
+      "ko": "부럽다",
+      "romaja": "bureopda",
+      "vi": "Ghen tị, thấy đáng ao ước",
+      "pos": "adj",
+      "img": "😍",
+      "connect": "ㅂ bất quy tắc: 부러워요. Nghĩa tích cực, không xấu.",
+      "ex": "정말 부러워요.",
+      "exVi": "Tôi ngưỡng mộ bạn thật đấy."
+    },
+    {
+      "ko": "미안하다",
+      "romaja": "mianhada",
+      "vi": "Áy náy, xin lỗi",
+      "pos": "adj",
+      "img": "🙏",
+      "connect": "미안 chính là âm Hán \"vị an\" — lòng chưa yên.",
+      "ex": "늦어서 미안해요.",
+      "exVi": "Xin lỗi vì tôi đến muộn."
+    },
+    {
+      "ko": "자랑스럽다",
+      "romaja": "jarangseureopda",
+      "vi": "Tự hào",
+      "pos": "adj",
+      "img": "🏆",
+      "connect": "자랑 (khoe) + 스럽다 (mang tính) — ㅂ bất quy tắc.",
+      "ex": "네가 자랑스러워.",
+      "exVi": "Tớ tự hào về cậu."
+    },
+    {
+      "ko": "긴장하다",
+      "romaja": "ginjanghada",
+      "vi": "Căng thẳng, hồi hộp",
+      "pos": "verb",
+      "img": "😬",
+      "connect": "긴장 chính là âm Hán \"khẩn trương\".",
+      "ex": "면접 때 긴장했어요.",
+      "exVi": "Lúc phỏng vấn tôi đã hồi hộp."
+    }
+  ]
+}

@@ -1,11 +1,3 @@
-/**
- * Trích xuất danh sách từ vựng từ văn bản dán tay hoặc tệp tải lên
- * (.txt / .csv / .md / .docx, và cố gắng đọc .pdf) — không cần thư viện ngoài.
- *
- * Mỗi dòng được hiểu là: <từ> <dấu phân cách> <nghĩa>
- * Dấu phân cách chấp nhận: tab, "  -  ", " — ", " : ", ",", "=", "|".
- */
-
 export interface ParsedWord {
   front: string
   back: string
@@ -24,11 +16,9 @@ function splitLine(line: string): ParsedWord | null {
       if (front) return { front, back }
     }
   }
-  // No separator → treat the whole line as a term with no meaning yet.
   return { front: raw, back: '' }
 }
 
-/** Biến văn bản nhiều dòng thành danh sách từ (đã loại trùng theo từ). */
 export function parseWordsFromText(text: string): ParsedWord[] {
   const seen = new Set<string>()
   const out: ParsedWord[] = []
@@ -55,14 +45,12 @@ function decodeXmlEntities(s: string): string {
 }
 
 async function inflate(data: Uint8Array, format: 'deflate' | 'deflate-raw'): Promise<Uint8Array> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const DS = (globalThis as any).DecompressionStream
   if (!DS) throw new Error('Trình duyệt không hỗ trợ giải nén.')
   const stream = new Blob([data as BlobPart]).stream().pipeThrough(new DS(format))
   return new Uint8Array(await new Response(stream).arrayBuffer())
 }
 
-/** Đọc text từ tệp .docx (ZIP chứa word/document.xml). */
 async function extractDocx(file: File): Promise<string> {
   const buf = new Uint8Array(await file.arrayBuffer())
   const dv = new DataView(buf.buffer)
@@ -111,7 +99,6 @@ function latin1(bytes: Uint8Array): string {
 }
 
 function pdfOps(content: string): string {
-  // Pull text out of (...) literals; insert breaks on text-show operators.
   let out = ''
   const re = /\((?:\\.|[^\\()])*\)|\bTd\b|\bTD\b|\bT\*\b|'|"/g
   let m: RegExpExecArray | null
@@ -128,7 +115,6 @@ function pdfOps(content: string): string {
   return out
 }
 
-/** Cố gắng đọc text từ .pdf (chỉ hiệu quả với PDF dạng text, không quét ảnh). */
 async function extractPdf(file: File): Promise<string> {
   const buf = new Uint8Array(await file.arrayBuffer())
   const latin = latin1(buf)
@@ -151,7 +137,6 @@ async function extractPdf(file: File): Promise<string> {
   return text
 }
 
-/** Đọc bất kỳ tệp được hỗ trợ nào thành văn bản thô. */
 export async function readFileText(file: File): Promise<string> {
   const name = file.name.toLowerCase()
   if (name.endsWith('.docx')) return extractDocx(file)

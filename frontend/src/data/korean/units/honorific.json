@@ -1,0 +1,22 @@
+{
+  "id": "honorific",
+  "name": "Kính ngữ & xưng hô",
+  "sub": "Người Hàn nghe cách bạn xưng hô là biết bạn lịch sự hay không.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "🙇",
+  "words": [
+    { "ko": "저", "romaja": "jeo", "vi": "Tôi (khiêm tốn, lịch sự)", "pos": "noun", "img": "🙋", "connect": "Dùng với người lớn tuổi/lạ; thân thiết mới nói 나.", "ex": "저는 베트남 사람이에요.", "exVi": "Tôi là người Việt Nam." },
+    { "ko": "제", "romaja": "je", "vi": "Của tôi", "pos": "noun", "img": "🫱", "connect": "저 + 의 rút gọn thành 제 — sở hữu của \"tôi\".", "ex": "제 이름은 흐엉이에요.", "exVi": "Tên tôi là Hương." },
+    { "ko": "씨", "romaja": "ssi", "vi": "Anh / Chị (gắn sau tên)", "pos": "noun", "img": "🧑", "connect": "Gắn sau TÊN chứ không gắn sau họ: 민수 씨.", "ex": "민수 씨, 어디 가세요?", "exVi": "Anh Min-su, anh đi đâu vậy?" },
+    { "ko": "님", "romaja": "nim", "vi": "Ngài / Quý (đuôi kính trọng)", "pos": "noun", "img": "🎩", "connect": "Gắn sau chức danh: 선생님, 사장님, 고객님.", "ex": "고객님, 이쪽으로 오세요.", "exVi": "Quý khách, mời đi lối này ạ." },
+    { "ko": "우리", "romaja": "uri", "vi": "Chúng ta / Nhà tôi", "pos": "noun", "img": "👨‍👩‍👧", "connect": "Người Hàn nói 우리 집, 우리 회사 thay vì \"của tôi\".", "ex": "우리 집에 놀러 오세요.", "exVi": "Mời bạn đến nhà tôi chơi." },
+    { "ko": "여러분", "romaja": "yeoreobun", "vi": "Các bạn / Quý vị", "pos": "noun", "img": "👥", "connect": "\"Yơ-rơ\" = nhiều + \"bun\" = vị → nhiều vị.", "ex": "여러분, 안녕하세요!", "exVi": "Xin chào các bạn!" },
+    { "ko": "손님", "romaja": "sonnim", "vi": "Khách", "pos": "noun", "img": "🛎️", "connect": "\"Sôn\" = khách + 님 kính trọng.", "ex": "손님이 오셨어요.", "exVi": "Có khách tới rồi ạ." },
+    { "ko": "성함", "romaja": "seongham", "vi": "Quý danh (tên - kính ngữ)", "pos": "noun", "img": "📛", "connect": "Kính ngữ của 이름; \"sơng-ham\" chính là âm Hán \"tính hàm\".", "ex": "성함이 어떻게 되세요?", "exVi": "Cho hỏi quý danh của ngài ạ?" },
+    { "ko": "말씀", "romaja": "malsseum", "vi": "Lời nói (kính ngữ)", "pos": "noun", "img": "💬", "connect": "Kính ngữ của 말 — dùng khi nhắc lời người trên.", "ex": "말씀 좀 여쭤봐도 될까요?", "exVi": "Tôi hỏi thăm một chút được không ạ?" },
+    { "ko": "드리다", "romaja": "deurida", "vi": "Kính biếu / Xin gửi", "pos": "verb", "img": "🎁", "connect": "Kính ngữ của 주다 — mình cho người trên.", "ex": "선물을 드리고 싶어요.", "exVi": "Tôi muốn kính biếu món quà." },
+    { "ko": "드시다", "romaja": "deusida", "vi": "Dùng bữa (kính ngữ của ăn)", "pos": "verb", "img": "🍚", "connect": "Kính ngữ của 먹다 — mời người trên ăn.", "ex": "많이 드세요.", "exVi": "Bác/anh dùng nhiều vào ạ." },
+    { "ko": "계시다", "romaja": "gyesida", "vi": "Có mặt (kính ngữ của ở)", "pos": "verb", "img": "🏠", "connect": "Kính ngữ của 있다 khi nói về người trên.", "ex": "사장님은 사무실에 계세요.", "exVi": "Giám đốc đang ở văn phòng ạ." }
+  ]
+}

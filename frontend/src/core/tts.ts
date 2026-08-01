@@ -38,6 +38,20 @@ export function englishVoiceStatus(): 'ready' | 'none' | 'unknown' {
   }
 }
 
+export function voiceStatus(prefix: string): 'ready' | 'none' | 'unknown' {
+  try {
+    const all = speechSynthesis.getVoices()
+    if (all.some((v) => v.lang.toLowerCase().startsWith(prefix))) return 'ready'
+    return all.length ? 'none' : 'unknown'
+  } catch {
+    return 'none'
+  }
+}
+
+export function koreanVoiceStatus(): 'ready' | 'none' | 'unknown' {
+  return voiceStatus('ko')
+}
+
 export function onVoicesChanged(cb: () => void): () => void {
   listeners.add(cb)
   return () => { listeners.delete(cb) }
@@ -123,6 +137,12 @@ export function stopSpeak(): void {
   }
   try { speechSynthesis.cancel() } catch {  }
 }
+
+export const VOICE_HELP_KO: { os: string; how: string }[] = [
+  { os: 'Windows', how: 'Cài đặt (Settings) → Time & Language → Speech → Manage voices → Add voices → chọn Korean (Korea).' },
+  { os: 'Android', how: 'Mở "Speech Recognition & Synthesis" (Google TTS) → Cài đặt giọng nói → tải dữ liệu giọng 한국어.' },
+  { os: 'iPhone / iPad / Mac', how: 'Cài đặt → Trợ năng → Nội dung được đọc → Giọng nói → thêm Korean (한국어).' },
+]
 
 export const VOICE_HELP: { os: string; how: string }[] = [
   { os: 'Windows', how: 'Cài đặt (Settings) → Time & Language → Speech → Manage voices → Add voices → chọn English (United States).' },

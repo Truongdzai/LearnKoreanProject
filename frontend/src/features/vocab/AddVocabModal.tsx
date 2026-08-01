@@ -4,6 +4,7 @@ import { addCard } from '@/core/api/srs.api'
 import { defineWordRich } from '@/core/api/dict.api'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
+import { useDialog } from '@/core/a11y'
 
 interface Props {
   topics: string[]
@@ -14,6 +15,7 @@ interface Props {
 
 export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAdded }: Props) {
   const { recordEvent, learnLang, nativeLang, t, learnLangName } = useAppStore()
+  const boxRef = useDialog<HTMLDivElement>(true, onClose)
   const cfg = studyLang(learnLang)
   const [front, setFront] = useState('')
   const [back, setBack] = useState('')
@@ -33,7 +35,7 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
       const r = await defineWordRich(w, learnLang, nativeLang)
       const meaning = r.rich?.meaning || r.entries?.[0]?.meaning
       if (meaning) setBack(meaning)
-    } catch { /* tra cứu không bắt buộc */ } finally {
+    } catch {} finally {
       setTranslating(false)
     }
   }
@@ -57,10 +59,10 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
 
   return (
     <div className="vmodal-backdrop" onClick={onClose}>
-      <div className="vmodal" onClick={(e) => e.stopPropagation()}>
+      <div className="vmodal" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="vam-title" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="plus" size={18} /> {t('vam.title')}</h3>
-          <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
+          <h3 id="vam-title"><Icon name="plus" size={18} /> {t('vam.title')}</h3>
+          <button type="button" className="vmodal-x" onClick={onClose} aria-label={t('a11y.close')}><Icon name="x" size={18} /></button>
         </div>
 
         <label className="vmodal-label">{t('vam.word', { lang: learnLangName })}</label>
@@ -71,6 +73,7 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
             onChange={(e) => setFront(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && autoTranslate()}
             placeholder={t('vam.sample', { s: cfg.sample[0] })}
+            aria-label={t('vam.word', { lang: learnLangName })}
             lang={learnLang}
           />
           <button className="btn-ghost sm" disabled={!front.trim() || translating} onClick={autoTranslate}>
@@ -79,13 +82,14 @@ export default function AddVocabModal({ topics, defaultTopic = '', onClose, onAd
         </div>
 
         <label className="vmodal-label">{t('vam.meaning')}</label>
-        <input value={back} onChange={(e) => setBack(e.target.value)} placeholder={t('vam.meaningPh')} />
+        <input value={back} onChange={(e) => setBack(e.target.value)} placeholder={t('vam.meaningPh')} aria-label={t('vam.meaning')} />
 
         <label className="vmodal-label">{t('vam.topic')}</label>
         <input
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder={t('vam.topicPh')}
+          aria-label={t('vam.topic')}
           list="vmodal-topics"
         />
         <datalist id="vmodal-topics">

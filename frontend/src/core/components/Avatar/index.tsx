@@ -4,15 +4,11 @@ import { frameVideoSources } from '@/core/utils/cosmetics'
 
 interface AvatarProps {
   size?: number
-  /** frame art key (e.g. aurora, blossom, flame, ice, forest, galaxy, v-khung1) */
   frame?: string | null
-  /** avatar image (data URL or http URL) — takes priority over initials */
   src?: string | null
-  /** optional initials instead of mascot */
   initials?: string
 }
 
-/** Round avatar with an optional animated frame ring (CSS styles or a video overlay). */
 export default function Avatar({ size = 40, frame, src, initials }: AvatarProps) {
   const [errSrc, setErrSrc] = useState<string | null>(null)
   const vid = frameVideoSources(frame)

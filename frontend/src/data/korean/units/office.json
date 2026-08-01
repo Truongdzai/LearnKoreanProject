@@ -1,0 +1,22 @@
+{
+  "id": "office",
+  "name": "Văn phòng & sự nghiệp",
+  "sub": "Từ dùng thật ở công ty Hàn: phòng ban, deadline, lương, phỏng vấn.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🏢",
+  "words": [
+    { "ko": "사무실", "romaja": "samusil", "vi": "Văn phòng", "pos": "noun", "img": "🏢", "connect": "\"Sa-mu-sil\" chính là âm Hán \"sự vụ thất\".", "ex": "사무실이 십 층에 있어요.", "exVi": "Văn phòng ở tầng mười." },
+    { "ko": "회사원", "romaja": "hoesawon", "vi": "Nhân viên văn phòng", "pos": "noun", "img": "🧑‍💼", "connect": "회사 (công ty) + 원 = viên → nhân viên công ty.", "ex": "저는 회사원이에요.", "exVi": "Tôi là nhân viên văn phòng." },
+    { "ko": "부장님", "romaja": "bujangnim", "vi": "Trưởng phòng", "pos": "noun", "img": "👔", "connect": "\"Bu-chang\" chính là âm Hán \"bộ trưởng\" + 님 kính trọng.", "ex": "부장님께 보고했어요.", "exVi": "Tôi đã báo cáo với trưởng phòng." },
+    { "ko": "팀", "romaja": "tim", "vi": "Nhóm / Đội", "pos": "noun", "img": "👥", "connect": "\"Thim\" mượn từ \"team\".", "ex": "우리 팀은 다섯 명이에요.", "exVi": "Nhóm tôi có năm người." },
+    { "ko": "프로젝트", "romaja": "peurojekteu", "vi": "Dự án", "pos": "noun", "img": "📊", "connect": "\"Pư-rô-chêk-thư\" mượn từ \"project\".", "ex": "새 프로젝트를 맡았어요.", "exVi": "Tôi vừa nhận một dự án mới." },
+    { "ko": "마감", "romaja": "magam", "vi": "Hạn chót", "pos": "noun", "img": "⏳", "connect": "막다 = chặn lại → thời điểm chặn cuối.", "ex": "마감이 내일까지예요.", "exVi": "Hạn chót là đến ngày mai." },
+    { "ko": "출장", "romaja": "chuljang", "vi": "Công tác", "pos": "noun", "img": "🧳", "connect": "\"Chul-chang\" chính là âm Hán \"xuất trường\".", "ex": "다음 주에 부산으로 출장 가요.", "exVi": "Tuần sau tôi đi công tác Busan." },
+    { "ko": "휴가", "romaja": "hyuga", "vi": "Kỳ nghỉ phép", "pos": "noun", "img": "🏖️", "connect": "\"Hyu-ga\" chính là âm Hán \"hưu giả\".", "ex": "휴가를 신청했어요.", "exVi": "Tôi đã xin nghỉ phép." },
+    { "ko": "월급", "romaja": "wolgeup", "vi": "Lương tháng", "pos": "noun", "img": "💰", "connect": "\"Uôl-kưp\" chính là âm Hán \"nguyệt cấp\".", "ex": "월급날이 언제예요?", "exVi": "Ngày lãnh lương là khi nào ạ?" },
+    { "ko": "면접", "romaja": "myeonjeop", "vi": "Phỏng vấn", "pos": "noun", "img": "🗣️", "connect": "\"Myơn-chớp\" chính là âm Hán \"diện tiếp\".", "ex": "내일 면접이 있어요.", "exVi": "Ngày mai tôi có buổi phỏng vấn." },
+    { "ko": "이력서", "romaja": "iryeokseo", "vi": "Sơ yếu lý lịch (CV)", "pos": "noun", "img": "📋", "connect": "\"I-ryớk-sơ\" chính là âm Hán \"lý lịch thư\".", "ex": "이력서를 보내 주세요.", "exVi": "Bạn gửi CV cho tôi nhé." },
+    { "ko": "계약", "romaja": "gyeyak", "vi": "Hợp đồng", "pos": "noun", "img": "🖊️", "connect": "\"Kyê-yak\" chính là âm Hán \"khế ước\".", "ex": "계약서를 잘 읽어 보세요.", "exVi": "Bạn đọc kỹ bản hợp đồng nhé." }
+  ]
+}

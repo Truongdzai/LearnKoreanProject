@@ -1,5 +1,5 @@
 import Icon, { type IconName } from '@/core/components/Icon'
-import { TARGET_WORDS, ALL_WORDS } from '@/data/englishCore'
+import { TARGET_WORDS, ALL_WORDS, PLAN_12_WEEKS, PLAN_TASK_TOTAL, UNITS } from '@/data/englishCore'
 import { PRON_GROUPS } from '@/data/englishPronunciation'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
@@ -46,7 +46,8 @@ export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary, o
       </div>
 
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
-      <RoadmapWeeks onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
+      <RoadmapWeeks weeks={PLAN_12_WEEKS} taskTotal={PLAN_TASK_TOTAL} vocabUnits={UNITS}
+        onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>
       <div className="threec-grid">

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { UNITS as EN_UNITS, wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/englishCore'
+import { wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/vocabCore'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, useLearnedWords } from '../progress'
@@ -16,7 +16,7 @@ const UNITS_PREVIEW = 20
 
 interface Props {
   initialUnit?: string
-  units?: VocabUnit[]
+  units: VocabUnit[]
   speak?: (text: string) => void
   sourceLabel?: string
   lang?: string
@@ -24,7 +24,7 @@ interface Props {
 
 export default function IcesLearn({
   initialUnit,
-  units = EN_UNITS,
+  units,
   speak = speakEN,
   sourceLabel = 'English Core',
   lang = 'en',

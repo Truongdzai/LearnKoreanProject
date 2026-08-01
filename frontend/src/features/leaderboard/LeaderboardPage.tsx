@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Avatar from '@/core/components/Avatar'
 import { bgVideo } from '@/core/utils/cosmetics'
 import { fetchLeaderboard } from '@/core/api/content.api'
 import type { LeaderEntry } from '@/models/gamification.model'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
+import LeaguePanel from './components/LeaguePanel'
+import DuelCard from './components/DuelCard'
+import { useTabs } from '@/core/a11y'
+
+const LB_TABS = ['league', 'weekly', 'all'] as const
 
 function nextWeekReset() {
   const now = new Date()
@@ -34,20 +40,29 @@ const pad = (n: number) => String(n).padStart(2, '0')
 
 export default function LeaderboardPage() {
   const { user, setView, t } = useAppStore()
-  const [scope, setScope] = useState<'weekly' | 'all'>('weekly')
+  const { isAuthed, openAuth } = useAuth()
+  const [scope, setScope] = useState<'league' | 'weekly' | 'all'>(isAuthed ? 'league' : 'weekly')
+  const tabs = useTabs('lb', LB_TABS, scope, setScope)
   const [target] = useState(nextWeekReset)
   const cd = useCountdown(target)
 
   const [entries, setEntries] = useState<LeaderEntry[]>([])
   const [loading, setLoading] = useState(true)
+  const [reloadKey, setReloadKey] = useState(0)
+  const bumpLeague = useCallback(() => setReloadKey((k) => k + 1), [])
 
   useEffect(() => {
+    if (isAuthed) setScope('league')
+  }, [isAuthed])
+
+  useEffect(() => {
+    if (scope === 'league') return
     setLoading(true)
-    fetchLeaderboard()
+    fetchLeaderboard(scope === 'weekly' ? 'week' : 'all')
       .then((r) => setEntries(r.entries))
       .catch(() => setEntries([]))
       .finally(() => setLoading(false))
-  }, [])
+  }, [scope])
 
   const top3 = entries.slice(0, 3)
   const rest = entries.slice(3)
@@ -58,11 +73,33 @@ export default function LeaderboardPage() {
       <h1 className="page-title"><Icon name="trophy" /> {t('lb.title')}</h1>
       <p className="page-sub">{t('lb.sub')}</p>
 
-      <div className="lb-tabs">
-        <button className={scope === 'weekly' ? 'on' : ''} onClick={() => setScope('weekly')}>{t('lb.weekly')}</button>
-        <button className={scope === 'all' ? 'on' : ''} onClick={() => setScope('all')}>{t('lb.all')}</button>
+      <div className="lb-tabs" {...tabs.list}>
+        <button {...tabs.tab('league')} className={scope === 'league' ? 'on' : ''} onClick={() => setScope('league')}>{t('lg.tab')}</button>
+        <button {...tabs.tab('weekly')} className={scope === 'weekly' ? 'on' : ''} onClick={() => setScope('weekly')}>{t('lb.weekly')}</button>
+        <button {...tabs.tab('all')} className={scope === 'all' ? 'on' : ''} onClick={() => setScope('all')}>{t('lb.all')}</button>
       </div>
 
+      <div {...tabs.panel(scope)}>
+      {scope === 'league' && (
+        isAuthed ? (
+          <>
+            <LeaguePanel reloadKey={reloadKey} />
+            <DuelCard onChange={bumpLeague} />
+          </>
+        ) : (
+          <div className="empty">
+            <div className="big">🏆</div>
+            {t('lg.needLogin')}
+            <div style={{ marginTop: 14 }}>
+              <button className="btn-primary" onClick={openAuth}>{t('top.login')}</button>
+            </div>
+          </div>
+        )
+      )}
+
+      {scope !== 'league' && (
+      <>
+      {scope === 'weekly' && (
       <div className="lb-countdown">
         <div className="lb-cd-title">{t('lb.endsIn')}</div>
         <div className="lb-cd-grid">
@@ -80,6 +117,7 @@ export default function LeaderboardPage() {
         </div>
         <div className="lb-cd-foot">{t('lb.top3')}</div>
       </div>
+      )}
 
       {loading ? (
         <div className="empty"><div className="big">🏆</div>{t('lb.loading')}</div>
@@ -120,6 +158,9 @@ export default function LeaderboardPage() {
           </div>
         </>
       )}
+      </>
+      )}
+      </div>
 
       {!user.isPlus && (
         <div className="lb-upsell">

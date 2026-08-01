@@ -66,7 +66,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
             value={val}
             onChange={(e) => setVal(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); check() } }}
-            placeholder={t('dict.placeholder')}
+            placeholder={t('dict.placeholder')} aria-label={t('dict.placeholder')}
             rows={2}
             autoFocus
           />

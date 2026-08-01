@@ -1,0 +1,130 @@
+{
+  "id": "exam",
+  "name": "Thi cử & trường lớp",
+  "sub": "Điểm số, đỗ trượt, học kỳ — bài đọc TOPIK rất hay lấy bối cảnh này.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🎓",
+  "words": [
+    {
+      "ko": "발표",
+      "romaja": "balpyo",
+      "vi": "Thuyết trình, công bố",
+      "pos": "noun",
+      "img": "🎙️",
+      "connect": "발표 chính là âm Hán \"phát biểu\".",
+      "ex": "내일 발표가 있어요.",
+      "exVi": "Ngày mai tôi có bài thuyết trình."
+    },
+    {
+      "ko": "점수",
+      "romaja": "jeomsu",
+      "vi": "Điểm số",
+      "pos": "noun",
+      "img": "💯",
+      "connect": "점수 chính là âm Hán \"điểm số\".",
+      "ex": "점수가 잘 나왔어요.",
+      "exVi": "Điểm của tôi khá tốt."
+    },
+    {
+      "ko": "합격",
+      "romaja": "hapgyeok",
+      "vi": "Đỗ, trúng tuyển",
+      "pos": "noun",
+      "img": "🎉",
+      "connect": "합격 chính là âm Hán \"hợp cách\".",
+      "ex": "시험에 합격했어요!",
+      "exVi": "Tôi đã đỗ kỳ thi!"
+    },
+    {
+      "ko": "성적",
+      "romaja": "seongjeok",
+      "vi": "Thành tích, kết quả",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "성적 chính là âm Hán \"thành tích\".",
+      "ex": "성적표를 받았어요.",
+      "exVi": "Tôi đã nhận bảng điểm."
+    },
+    {
+      "ko": "전공",
+      "romaja": "jeongong",
+      "vi": "Chuyên ngành",
+      "pos": "noun",
+      "img": "📚",
+      "connect": "전공 chính là âm Hán \"chuyên công\".",
+      "ex": "전공이 뭐예요?",
+      "exVi": "Bạn học chuyên ngành gì?"
+    },
+    {
+      "ko": "학기",
+      "romaja": "hakgi",
+      "vi": "Học kỳ",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "학기 chính là âm Hán \"học kỳ\".",
+      "ex": "이번 학기가 끝났어요.",
+      "exVi": "Học kỳ này đã kết thúc."
+    },
+    {
+      "ko": "방학",
+      "romaja": "banghak",
+      "vi": "Kỳ nghỉ (của học sinh)",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "방학 chính là âm Hán \"phóng học\" — thả học.",
+      "ex": "방학에 여행 갈 거예요.",
+      "exVi": "Kỳ nghỉ tôi sẽ đi du lịch."
+    },
+    {
+      "ko": "졸업",
+      "romaja": "joreop",
+      "vi": "Tốt nghiệp",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "졸업 chính là âm Hán \"tốt nghiệp\".",
+      "ex": "작년에 졸업했어요.",
+      "exVi": "Tôi tốt nghiệp năm ngoái."
+    },
+    {
+      "ko": "입학",
+      "romaja": "iphak",
+      "vi": "Nhập học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "입학 chính là âm Hán \"nhập học\".",
+      "ex": "삼월에 입학해요.",
+      "exVi": "Tháng ba tôi nhập học."
+    },
+    {
+      "ko": "장학금",
+      "romaja": "janghakgeum",
+      "vi": "Học bổng",
+      "pos": "noun",
+      "img": "🏅",
+      "connect": "장학금 chính là âm Hán \"tưởng học kim\".",
+      "ex": "장학금을 받았어요.",
+      "exVi": "Tôi đã nhận học bổng."
+    },
+    {
+      "ko": "대학교",
+      "romaja": "daehakgyo",
+      "vi": "Trường đại học",
+      "pos": "noun",
+      "img": "🏛️",
+      "connect": "대학교 chính là âm Hán \"đại học giáo\".",
+      "ex": "대학교에 다녀요.",
+      "exVi": "Tôi đang học đại học."
+    },
+    {
+      "ko": "강의",
+      "romaja": "gangui",
+      "vi": "Bài giảng",
+      "pos": "noun",
+      "img": "👨‍🏫",
+      "connect": "강의 chính là âm Hán \"giảng nghĩa\".",
+      "ex": "강의가 재미있어요.",
+      "exVi": "Bài giảng thú vị lắm."
+    }
+  ]
+}

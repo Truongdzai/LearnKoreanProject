@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel
 
 from .. import db
-from ..services import auth, accounts, catalog, feedback
+from ..services import auth, accounts, audit, catalog, feedback, quota
 
 router = APIRouter(prefix="/api/admin", tags=["Quản trị"])
 Admin = Depends(auth.get_admin)
@@ -89,13 +89,23 @@ def api_catalog(admin: dict = Admin):
 
 
 @router.post("/catalog/save")
-def api_catalog_save(body: CatalogItem, admin: dict = Admin):
-    return catalog.upsert(body.kind, body.data)
+def api_catalog_save(body: CatalogItem, request: Request, admin: dict = Admin):
+    out = catalog.upsert(body.kind, body.data)
+    audit.log(
+        admin,
+        "catalog.save",
+        f"{body.kind}:{body.data.get('id', '')}",
+        {"title": body.data.get("title") or body.data.get("name") or ""},
+        quota.client_ip(request),
+    )
+    return out
 
 
 @router.post("/catalog/delete")
-def api_catalog_delete(body: CatalogDelete, admin: dict = Admin):
-    return catalog.remove(body.kind, body.id)
+def api_catalog_delete(body: CatalogDelete, request: Request, admin: dict = Admin):
+    out = catalog.remove(body.kind, body.id)
+    audit.log(admin, "catalog.delete", f"{body.kind}:{body.id}", None, quota.client_ip(request))
+    return out
 
 
 @router.get("/users")
@@ -113,18 +123,22 @@ def api_users(
 
 
 @router.post("/users/update")
-def api_users_update(body: UserUpdate, admin: dict = Admin):
+def api_users_update(body: UserUpdate, request: Request, admin: dict = Admin):
     fields = body.model_dump(exclude={"id"}, exclude_none=True)
-    return {"ok": True, "user": accounts.public_user(accounts.admin_update_user(body.id, fields))}
+    user = accounts.admin_update_user(body.id, fields)
+    audit.log(admin, "user.update", body.id, fields, quota.client_ip(request))
+    return {"ok": True, "user": accounts.public_user(user)}
 
 
 @router.post("/users/gift")
-def api_users_gift(body: GiftIn, admin: dict = Admin):
-    return {"ok": True, "user": accounts.public_user(accounts.gift_coins(body.id, body.coins, body.message))}
+def api_users_gift(body: GiftIn, request: Request, admin: dict = Admin):
+    user = accounts.gift_coins(body.id, body.coins, body.message)
+    audit.log(admin, "user.gift", body.id, {"coins": body.coins}, quota.client_ip(request))
+    return {"ok": True, "user": accounts.public_user(user)}
 
 
 @router.post("/users/plus")
-def api_users_plus(body: PlusIn, admin: dict = Admin):
+def api_users_plus(body: PlusIn, request: Request, admin: dict = Admin):
     if body.action == "free":
         user = accounts.set_plus(body.id, False)
     elif body.action == "lifetime":
@@ -135,12 +149,31 @@ def api_users_plus(body: PlusIn, admin: dict = Admin):
         user = accounts.grant_plan(body.id, body.plan_id)
     else:
         user = accounts.reload(body.id)
+    if body.action != "keep":
+        audit.log(
+            admin,
+            "user.plus",
+            body.id,
+            {"action": body.action, "until": body.until, "plan": body.plan_id},
+            quota.client_ip(request),
+        )
     return {"ok": True, "user": accounts.public_user(user)}
 
 
 @router.post("/users/delete")
-def api_users_delete(body: IdIn, admin: dict = Admin):
+def api_users_delete(body: IdIn, request: Request, admin: dict = Admin):
+    try:
+        victim = accounts.reload(body.id)
+    except Exception:
+        victim = {}
     accounts.admin_delete_user(body.id)
+    audit.log(
+        admin,
+        "user.delete",
+        body.id,
+        {"email": victim.get("email", ""), "name": victim.get("name", "")},
+        quota.client_ip(request),
+    )
     return {"ok": True}
 
 
@@ -159,10 +192,19 @@ def api_feedback_list(status: str = "", page: int = 1, page_size: int = 20, admi
 
 
 @router.post("/feedback/status")
-def api_feedback_status(body: FeedbackStatusIn, admin: dict = Admin):
-    return feedback.set_status(body.id, body.status)
+def api_feedback_status(body: FeedbackStatusIn, request: Request, admin: dict = Admin):
+    out = feedback.set_status(body.id, body.status)
+    audit.log(admin, "feedback.status", str(body.id), {"status": body.status}, quota.client_ip(request))
+    return out
 
 
 @router.post("/feedback/delete")
-def api_feedback_delete(body: FeedbackIdIn, admin: dict = Admin):
-    return feedback.remove(body.id)
+def api_feedback_delete(body: FeedbackIdIn, request: Request, admin: dict = Admin):
+    out = feedback.remove(body.id)
+    audit.log(admin, "feedback.delete", str(body.id), None, quota.client_ip(request))
+    return out
+
+
+@router.get("/audit")
+def api_audit(action: str = "", page: int = 1, page_size: int = 30, admin: dict = Admin):
+    return audit.recent(page, page_size, action)

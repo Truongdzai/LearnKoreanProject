@@ -1,0 +1,22 @@
+{
+  "id": "verbs2",
+  "name": "Động từ sinh hoạt",
+  "sub": "Chuỗi hành động một ngày: dậy, rửa, ngồi, đi, cười.",
+  "pos": "verb",
+  "tone": "tone-c",
+  "emoji": "🏃",
+  "words": [
+    { "ko": "일어나다", "romaja": "ireonada", "vi": "Thức dậy / Đứng dậy", "pos": "verb", "img": "⏰", "connect": "\"I-rơ-na\" — nhổm người lên khỏi giường.", "ex": "저는 여섯 시에 일어나요.", "exVi": "Tôi thức dậy lúc sáu giờ." },
+    { "ko": "씻다", "romaja": "ssitda", "vi": "Rửa / Tắm rửa", "pos": "verb", "img": "🚿", "connect": "\"Ssít\" nghe như tiếng nước xối.", "ex": "밥 먹기 전에 손을 씻어요.", "exVi": "Trước khi ăn tôi rửa tay." },
+    { "ko": "앉다", "romaja": "anda", "vi": "Ngồi", "pos": "verb", "img": "🪑", "connect": "\"An\" — an vị xuống ghế.", "ex": "여기 앉으세요.", "exVi": "Mời bạn ngồi đây." },
+    { "ko": "서다", "romaja": "seoda", "vi": "Đứng / Dừng lại", "pos": "verb", "img": "🧍", "connect": "\"Sơ-đa\" — đứng sững một chỗ.", "ex": "버스가 앞에서 섰어요.", "exVi": "Xe buýt dừng ở phía trước." },
+    { "ko": "걷다", "romaja": "geotda", "vi": "Đi bộ", "pos": "verb", "img": "🚶", "connect": "\"Kớt\" — bước từng bước một.", "ex": "공원에서 걷는 걸 좋아해요.", "exVi": "Tôi thích đi bộ trong công viên." },
+    { "ko": "뛰다", "romaja": "ttwida", "vi": "Chạy / Nhảy", "pos": "verb", "img": "🏃", "connect": "\"Ttuy\" bật ra nhanh như cú nhảy.", "ex": "늦어서 뛰어갔어요.", "exVi": "Vì muộn nên tôi chạy đi." },
+    { "ko": "웃다", "romaja": "utda", "vi": "Cười", "pos": "verb", "img": "😄", "connect": "\"Út\" — miệng cong lên một cái.", "ex": "그 이야기를 듣고 웃었어요.", "exVi": "Nghe câu chuyện đó tôi đã bật cười." },
+    { "ko": "울다", "romaja": "ulda", "vi": "Khóc", "pos": "verb", "img": "😭", "connect": "\"Ul\" nghe như tiếng nức nở.", "ex": "아이가 계속 울어요.", "exVi": "Đứa bé cứ khóc mãi." },
+    { "ko": "열다", "romaja": "yeolda", "vi": "Mở", "pos": "verb", "img": "🔓", "connect": "\"Yơl\" — cùng gốc với 열쇠 (chìa khoá).", "ex": "창문을 열었어요.", "exVi": "Tôi đã mở cửa sổ." },
+    { "ko": "닫다", "romaja": "datda", "vi": "Đóng", "pos": "verb", "img": "🔒", "connect": "\"Đat\" — sập một tiếng là đóng.", "ex": "가게가 열 시에 닫아요.", "exVi": "Cửa hàng đóng cửa lúc mười giờ." },
+    { "ko": "주다", "romaja": "juda", "vi": "Cho / Đưa", "pos": "verb", "img": "🤲", "connect": "\"Chu-đa\" — chìa tay đưa cho.", "ex": "물 한 잔 주세요.", "exVi": "Cho tôi một cốc nước ạ." },
+    { "ko": "받다", "romaja": "batda", "vi": "Nhận", "pos": "verb", "img": "📥", "connect": "\"Bat\" — bắt lấy thứ người ta đưa.", "ex": "선물을 받아서 기뻐요.", "exVi": "Tôi vui vì nhận được quà." }
+  ]
+}

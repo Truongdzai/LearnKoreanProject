@@ -2,7 +2,6 @@ export interface Segment {
   start: number
   ko: string
   vi?: string
-  /** speaker index assigned for role-play (0-based); optional. */
   speaker?: number
 }
 

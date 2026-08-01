@@ -63,10 +63,10 @@ export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
     }
   }
 
-  const play = () => { try { playerRef.current?.playVideo?.() } catch { /* */ } }
-  const pause = () => { try { playerRef.current?.pauseVideo?.() } catch { /* */ } }
-  const mute = () => { try { playerRef.current?.mute?.() } catch { /* */ } }
-  const unMute = () => { try { playerRef.current?.unMute?.() } catch { /* */ } }
+  const play = () => { try { playerRef.current?.playVideo?.() } catch {} }
+  const pause = () => { try { playerRef.current?.pauseVideo?.() } catch {} }
+  const mute = () => { try { playerRef.current?.mute?.() } catch {} }
+  const unMute = () => { try { playerRef.current?.unMute?.() } catch {} }
 
   return { load, seek, getTime, play, pause, mute, unMute }
 }

@@ -18,7 +18,7 @@ export const dailyDone = (): boolean => {
 }
 
 const markDaily = () => {
-  try { localStorage.setItem(DAILY_KEY, todayISO()) } catch { /* ignore */ }
+  try { localStorage.setItem(DAILY_KEY, todayISO()) } catch {}
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -30,7 +30,6 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-/** Thẻ có đủ mặt sau để chơi (front + back). */
 export function useGameCards(): { cards: SrsCard[]; loading: boolean } {
   const [cards, setCards] = useState<SrsCard[]>([])
   const [loading, setLoading] = useState(true)
@@ -43,7 +42,6 @@ export function useGameCards(): { cards: SrsCard[]; loading: boolean } {
   return { cards, loading }
 }
 
-/* ------------------------------ GHÉP CẶP ------------------------------ */
 
 interface Tile {
   key: string
@@ -79,7 +77,6 @@ export function MatchGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => v
       recordEvent('review', 3)
       setRewarded(true)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done])
 
   const pick = (tile: Tile) => {
@@ -137,7 +134,6 @@ export function MatchGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => v
   )
 }
 
-/* ------------------------------ NGHE-CHỌN ------------------------------ */
 
 interface Round {
   card: SrsCard
@@ -170,14 +166,12 @@ export function ListenGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => 
       recordEvent('review', 2)
       setRewarded(true)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finished])
 
   const speak = () => speakLang(cur.card.front, cfg.locale, 0.85)
 
   useEffect(() => {
     if (!finished) speak()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i, seed])
 
   const pick = (opt: string) => {
@@ -233,7 +227,6 @@ export function ListenGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => 
   )
 }
 
-/* --------------------------- THỬ THÁCH NGÀY --------------------------- */
 
 export function DailyChallenge({ cards, onExit }: { cards: SrsCard[]; onExit: () => void }) {
   const { recordEvent, learnLang, t } = useAppStore()
@@ -252,7 +245,6 @@ export function DailyChallenge({ cards, onExit }: { cards: SrsCard[]; onExit: ()
       markDaily()
       setClaimed(true)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finished])
 
   const pick = (opt: string) => {

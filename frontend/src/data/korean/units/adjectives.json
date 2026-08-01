@@ -1,0 +1,22 @@
+{
+  "id": "adjectives",
+  "name": "Tính từ cơ bản",
+  "sub": "12 cặp đối lập giúp mô tả mọi thứ quanh mình.",
+  "pos": "adj",
+  "tone": "tone-d",
+  "emoji": "🔆",
+  "words": [
+    { "ko": "크다", "romaja": "keuda", "vi": "To / Lớn", "pos": "adj", "img": "🐘", "connect": "\"Khư-đa\" — mở miệng thật to khi đọc.", "ex": "이 가방은 너무 커요.", "exVi": "Cái túi này to quá." },
+    { "ko": "작다", "romaja": "jakda", "vi": "Nhỏ / Bé", "pos": "adj", "img": "🐜", "connect": "\"Chak\" ngắn cụt như vật nhỏ.", "ex": "신발이 좀 작아요.", "exVi": "Đôi giày hơi nhỏ." },
+    { "ko": "많다", "romaja": "manta", "vi": "Nhiều", "pos": "adj", "img": "📚", "connect": "\"Man\" — muôn vàn thứ chất đống.", "ex": "오늘 일이 많아요.", "exVi": "Hôm nay nhiều việc lắm." },
+    { "ko": "적다", "romaja": "jeokda", "vi": "Ít", "pos": "adj", "img": "🤏", "connect": "\"Chớk\" nhỏ giọt — còn chút xíu.", "ex": "돈이 너무 적어요.", "exVi": "Tiền ít quá." },
+    { "ko": "좋다", "romaja": "jota", "vi": "Tốt / Hay", "pos": "adj", "img": "👌", "connect": "\"Chô-tha\" — chuẩn, ổn hết.", "ex": "이 영화 정말 좋아요.", "exVi": "Bộ phim này hay thật đấy." },
+    { "ko": "나쁘다", "romaja": "nappeuda", "vi": "Xấu / Tệ", "pos": "adj", "img": "👎", "connect": "\"Nap-bư\" — nghe cụt lủn như lời chê.", "ex": "날씨가 나빠서 못 갔어요.", "exVi": "Thời tiết xấu nên tôi không đi được." },
+    { "ko": "비싸다", "romaja": "bissada", "vi": "Đắt", "pos": "adj", "img": "💸", "connect": "\"Bi-ssa\" — bị \"xả\" hết tiền trong ví.", "ex": "이 옷은 너무 비싸요.", "exVi": "Bộ đồ này đắt quá." },
+    { "ko": "싸다", "romaja": "ssada", "vi": "Rẻ", "pos": "adj", "img": "🏷️", "connect": "Bỏ chữ \"bi\" đi là hết đắt — thành rẻ.", "ex": "시장이 백화점보다 싸요.", "exVi": "Chợ rẻ hơn trung tâm thương mại." },
+    { "ko": "빠르다", "romaja": "ppareuda", "vi": "Nhanh", "pos": "adj", "img": "⚡", "connect": "\"Ppa-rư\" bật ra rất nhanh.", "ex": "지하철이 제일 빨라요.", "exVi": "Tàu điện ngầm là nhanh nhất." },
+    { "ko": "느리다", "romaja": "neurida", "vi": "Chậm", "pos": "adj", "img": "🐢", "connect": "\"Nư-ri\" kéo dài lê thê.", "ex": "인터넷이 너무 느려요.", "exVi": "Mạng chậm quá." },
+    { "ko": "어렵다", "romaja": "eoryeopda", "vi": "Khó", "pos": "adj", "img": "🧗", "connect": "\"Ơ-ryớp\" — ơ kìa, rắc rối thật.", "ex": "한국어 발음이 어려워요.", "exVi": "Phát âm tiếng Hàn khó lắm." },
+    { "ko": "쉽다", "romaja": "swipda", "vi": "Dễ", "pos": "adj", "img": "🎯", "connect": "\"Suýp\" — nhẹ như một hơi thở.", "ex": "이 문제는 아주 쉬워요.", "exVi": "Câu này dễ lắm." }
+  ]
+}

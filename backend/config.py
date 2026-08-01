@@ -8,11 +8,15 @@ CONFIG_PATH = ROOT / "config.toml"
 EXAMPLE_PATH = ROOT / "config.example.toml"
 
 DEFAULTS: dict = {
-    "app": {"name": "Hàn Quân", "native_language": "vie", "target_language": "kor"},
+    "app": {"name": "Hàn Quân", "native_language": "vie", "target_language": "kor", "public_url": ""},
     "llm": {"provider": "none", "api_key": "", "model": "", "models": []},
     "whisper": {"model": "small"},
     "network": {"proxy": ""},
     "security": {"expose_docs": True, "cors_origins": ["*"]},
+    "quota": {"guest_per_day": 20, "user_per_day": 80, "plus_per_day": 250, "burst_per_minute": 12},
+    "analytics": {"ga4_id": "", "google_site_verification": ""},
+    "smtp": {"host": "", "port": 587, "user": "", "password": "", "sender": "", "sender_name": "VyLing"},
+    "email": {"daily_reminder": True, "reminder_hour": 20},
     "admin": {"email": "admin@vyling.vn", "password": "", "name": "Quản trị viên"},
     "oauth": {
         "google_client_id": "",

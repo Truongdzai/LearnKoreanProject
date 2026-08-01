@@ -1,5 +1,3 @@
-/** Mục tiêu học — nền tảng "dùng gì học nấy" (trụ cột 1 của sản phẩm). */
-
 export interface LearnGoal {
   id: string
   emoji: string

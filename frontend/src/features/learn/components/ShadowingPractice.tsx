@@ -25,7 +25,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const sr = useSpeechRecognition(cfg.locale)
 
   const cur = segs[i]
-  const romaja = useMemo(() => (cfg.romanizeChat ? romanizeLine(cur.ko) : ''), [cur.ko, cfg.romanizeChat])
+  const romaja = useMemo(() => (cfg.reading === 'romaja' ? romanizeLine(cur.ko) : ''), [cur.ko, cfg.reading === 'romaja'])
 
   const speak = (text: string, rate = 0.9) => speakLang(text, cfg.locale, rate)
 
@@ -54,12 +54,10 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     }
   }
 
-  // When recognition finishes and we have a transcript, score it.
   useEffect(() => {
     if (sr.listening || score !== null) return
     const said = sr.transcript.trim()
     if (said) applyResult(said)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sr.listening, sr.transcript])
 
   const askAI = async () => {

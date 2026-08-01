@@ -1,0 +1,22 @@
+{
+  "id": "city",
+  "name": "Thành phố & tiện ích",
+  "sub": "Những nơi bạn ghé mỗi tuần khi sống ở một thành phố Hàn.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🏙️",
+  "words": [
+    { "ko": "편의점", "romaja": "pyeonuijeom", "vi": "Cửa hàng tiện lợi", "pos": "noun", "img": "🏪", "connect": "\"Pyơn-ưi-chơm\" chính là âm Hán \"tiện nghi điếm\".", "ex": "편의점에서 김밥을 샀어요.", "exVi": "Tôi mua cơm cuộn ở cửa hàng tiện lợi." },
+    { "ko": "백화점", "romaja": "baekhwajeom", "vi": "Trung tâm thương mại", "pos": "noun", "img": "🏬", "connect": "\"Bek-hoa-chơm\" chính là âm Hán \"bách hoá điếm\".", "ex": "백화점은 좀 비싸요.", "exVi": "Trung tâm thương mại hơi đắt." },
+    { "ko": "우체국", "romaja": "ucheguk", "vi": "Bưu điện", "pos": "noun", "img": "📮", "connect": "\"U-chê-kuk\" chính là âm Hán \"bưu đệ cục\".", "ex": "우체국에서 소포를 보냈어요.", "exVi": "Tôi đã gửi bưu kiện ở bưu điện." },
+    { "ko": "미용실", "romaja": "miyongsil", "vi": "Tiệm làm tóc", "pos": "noun", "img": "💇", "connect": "\"Mi-yông-sil\" chính là âm Hán \"mỹ dung thất\".", "ex": "미용실에서 머리를 잘랐어요.", "exVi": "Tôi đã cắt tóc ở tiệm làm tóc." },
+    { "ko": "세탁소", "romaja": "setakso", "vi": "Tiệm giặt là", "pos": "noun", "img": "👔", "connect": "Cùng gốc 세탁 với 세탁기 (máy giặt) đã học.", "ex": "코트를 세탁소에 맡겼어요.", "exVi": "Tôi đã gửi áo khoác ở tiệm giặt là." },
+    { "ko": "도서관", "romaja": "doseogwan", "vi": "Thư viện", "pos": "noun", "img": "📚", "connect": "\"Đô-sơ-quan\" chính là âm Hán \"đồ thư quán\".", "ex": "도서관에서 공부해요.", "exVi": "Tôi học bài ở thư viện." },
+    { "ko": "공원", "romaja": "gongwon", "vi": "Công viên", "pos": "noun", "img": "🌳", "connect": "\"Kông-uôn\" chính là âm Hán \"công viên\".", "ex": "공원에서 산책해요.", "exVi": "Tôi đi dạo ở công viên." },
+    { "ko": "극장", "romaja": "geukjang", "vi": "Rạp chiếu phim", "pos": "noun", "img": "🎦", "connect": "\"Kưk-chang\" chính là âm Hán \"kịch trường\".", "ex": "극장에서 영화를 봤어요.", "exVi": "Tôi đã xem phim ở rạp." },
+    { "ko": "경찰서", "romaja": "gyeongchalseo", "vi": "Đồn cảnh sát", "pos": "noun", "img": "🚓", "connect": "경찰 (cảnh sát) + 서 = sở → sở cảnh sát.", "ex": "경찰서가 어디에 있어요?", "exVi": "Đồn cảnh sát ở đâu ạ?" },
+    { "ko": "아파트", "romaja": "apateu", "vi": "Chung cư", "pos": "noun", "img": "🏢", "connect": "\"A-pha-thư\" mượn từ \"apartment\".", "ex": "저는 아파트에 살아요.", "exVi": "Tôi sống ở chung cư." },
+    { "ko": "엘리베이터", "romaja": "ellibeiteo", "vi": "Thang máy", "pos": "noun", "img": "🛗", "connect": "\"El-li-bê-i-thơ\" mượn từ \"elevator\".", "ex": "엘리베이터가 고장 났어요.", "exVi": "Thang máy hỏng rồi." },
+    { "ko": "주차장", "romaja": "juchajang", "vi": "Bãi đỗ xe", "pos": "noun", "img": "🅿️", "connect": "\"Chu-cha-chang\" chính là âm Hán \"trú xa trường\".", "ex": "주차장은 지하에 있어요.", "exVi": "Bãi đỗ xe ở tầng hầm." }
+  ]
+}

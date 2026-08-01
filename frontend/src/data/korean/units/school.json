@@ -1,0 +1,22 @@
+{
+  "id": "school",
+  "name": "Học tập & lớp học",
+  "sub": "Từ dùng trong lớp và khi tự học tiếng Hàn.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🎓",
+  "words": [
+    { "ko": "수업", "romaja": "sueop", "vi": "Tiết học / Buổi học", "pos": "noun", "img": "🧑‍🏫", "connect": "\"Su-ớp\" chính là âm Hán \"thụ nghiệp\".", "ex": "수업이 아홉 시에 시작해요.", "exVi": "Buổi học bắt đầu lúc chín giờ." },
+    { "ko": "숙제", "romaja": "sukje", "vi": "Bài tập về nhà", "pos": "noun", "img": "📝", "connect": "\"Suk-chê\" chính là âm Hán \"túc đề\".", "ex": "숙제를 아직 못 했어요.", "exVi": "Tôi vẫn chưa làm xong bài tập." },
+    { "ko": "시험", "romaja": "siheom", "vi": "Kỳ thi / Bài kiểm tra", "pos": "noun", "img": "🧪", "connect": "\"Si-hơm\" chính là âm Hán \"thí nghiệm\".", "ex": "다음 주에 시험이 있어요.", "exVi": "Tuần sau tôi có bài thi." },
+    { "ko": "책", "romaja": "chaek", "vi": "Sách", "pos": "noun", "img": "📕", "connect": "\"Chek\" chính là âm Hán \"sách\".", "ex": "한국어 책을 읽어요.", "exVi": "Tôi đọc sách tiếng Hàn." },
+    { "ko": "공책", "romaja": "gongchaek", "vi": "Vở ghi", "pos": "noun", "img": "📓", "connect": "\"Gông\" = trống + \"chek\" = sách → quyển sách trắng.", "ex": "공책에 단어를 써요.", "exVi": "Tôi viết từ vựng vào vở." },
+    { "ko": "연필", "romaja": "yeonpil", "vi": "Bút chì", "pos": "noun", "img": "✏️", "connect": "\"Yơn-phil\" chính là âm Hán \"duyên bút\".", "ex": "연필로 답을 쓰세요.", "exVi": "Hãy viết đáp án bằng bút chì." },
+    { "ko": "교실", "romaja": "gyosil", "vi": "Lớp học (phòng)", "pos": "noun", "img": "🏫", "connect": "\"Kyô-sil\" chính là âm Hán \"giáo thất\".", "ex": "교실이 삼 층에 있어요.", "exVi": "Phòng học ở tầng ba." },
+    { "ko": "질문", "romaja": "jilmun", "vi": "Câu hỏi", "pos": "noun", "img": "🙋", "connect": "\"Chil-mun\" chính là âm Hán \"chất vấn\".", "ex": "질문이 하나 있어요.", "exVi": "Tôi có một câu hỏi ạ." },
+    { "ko": "대답", "romaja": "daedap", "vi": "Câu trả lời", "pos": "noun", "img": "💬", "connect": "\"Đe-đap\" chính là âm Hán \"đối đáp\".", "ex": "대답이 맞았어요.", "exVi": "Câu trả lời đúng rồi." },
+    { "ko": "배우다", "romaja": "baeuda", "vi": "Học (tiếp thu)", "pos": "verb", "img": "🧑‍🎓", "connect": "\"Be-u\" — bé nào cũng phải học.", "ex": "저는 한국어를 배워요.", "exVi": "Tôi học tiếng Hàn." },
+    { "ko": "가르치다", "romaja": "gareuchida", "vi": "Dạy", "pos": "verb", "img": "👩‍🏫", "connect": "\"Ka-rư-chi\" — chỉ ra cho người khác thấy.", "ex": "선생님이 문법을 가르쳐요.", "exVi": "Thầy cô dạy ngữ pháp." },
+    { "ko": "단어", "romaja": "daneo", "vi": "Từ vựng", "pos": "noun", "img": "🔤", "connect": "\"Đan-ơ\" chính là âm Hán \"đơn ngữ\".", "ex": "매일 단어를 열 개 외워요.", "exVi": "Mỗi ngày tôi học thuộc mười từ." }
+  ]
+}

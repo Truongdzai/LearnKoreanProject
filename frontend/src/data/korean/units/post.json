@@ -1,0 +1,130 @@
+{
+  "id": "post",
+  "name": "Bưu điện & giấy tờ",
+  "sub": "Việc ai sang Hàn cũng phải làm: gửi đồ, nộp đơn, nhận giấy tờ.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "📮",
+  "words": [
+    {
+      "ko": "우표",
+      "romaja": "upyo",
+      "vi": "Tem thư",
+      "pos": "noun",
+      "img": "🏷️",
+      "connect": "우표 chính là âm Hán \"bưu phiếu\".",
+      "ex": "우표 두 장 주세요.",
+      "exVi": "Cho tôi hai con tem ạ."
+    },
+    {
+      "ko": "소포",
+      "romaja": "sopo",
+      "vi": "Bưu kiện",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "소포 chính là âm Hán \"tiểu bao\" — gói nhỏ.",
+      "ex": "소포를 보내려고 해요.",
+      "exVi": "Tôi định gửi bưu kiện."
+    },
+    {
+      "ko": "등기",
+      "romaja": "deunggi",
+      "vi": "Thư bảo đảm",
+      "pos": "noun",
+      "img": "📜",
+      "connect": "등기 chính là âm Hán \"đăng ký\" — thư có ghi sổ.",
+      "ex": "등기로 보내 주세요.",
+      "exVi": "Hãy gửi bảo đảm giúp tôi."
+    },
+    {
+      "ko": "택배",
+      "romaja": "taekbae",
+      "vi": "Chuyển phát tận nhà",
+      "pos": "noun",
+      "img": "🚚",
+      "connect": "택배 chính là âm Hán \"trạch phối\" — giao tận nhà.",
+      "ex": "택배가 도착했어요.",
+      "exVi": "Hàng chuyển phát đã tới rồi."
+    },
+    {
+      "ko": "배달",
+      "romaja": "baedal",
+      "vi": "Giao hàng, giao đồ ăn",
+      "pos": "noun",
+      "img": "🛵",
+      "connect": "배달 chính là âm Hán \"phối đạt\". Ở Hàn cái gì cũng 배달 được.",
+      "ex": "치킨을 배달시켰어요.",
+      "exVi": "Tôi đã gọi gà rán giao tận nơi."
+    },
+    {
+      "ko": "신청서",
+      "romaja": "sincheongseo",
+      "vi": "Đơn đăng ký",
+      "pos": "noun",
+      "img": "📝",
+      "connect": "신청서 chính là âm Hán \"thân thỉnh thư\".",
+      "ex": "신청서를 작성하세요.",
+      "exVi": "Hãy điền vào đơn đăng ký."
+    },
+    {
+      "ko": "접수",
+      "romaja": "jeopsu",
+      "vi": "Tiếp nhận, nộp hồ sơ",
+      "pos": "noun",
+      "img": "🗃️",
+      "connect": "접수 chính là âm Hán \"tiếp thụ\".",
+      "ex": "접수는 몇 시까지예요?",
+      "exVi": "Nhận hồ sơ đến mấy giờ ạ?"
+    },
+    {
+      "ko": "발급",
+      "romaja": "balgeup",
+      "vi": "Cấp phát (giấy tờ)",
+      "pos": "noun",
+      "img": "🪪",
+      "connect": "발급 chính là âm Hán \"phát cấp\".",
+      "ex": "카드 발급이 됐어요.",
+      "exVi": "Thẻ đã được cấp rồi."
+    },
+    {
+      "ko": "복사하다",
+      "romaja": "boksahada",
+      "vi": "Sao chụp, photo",
+      "pos": "verb",
+      "img": "🖨️",
+      "connect": "복사 chính là âm Hán \"phục tả\".",
+      "ex": "여권을 복사해 주세요.",
+      "exVi": "Hãy photo hộ chiếu giúp tôi."
+    },
+    {
+      "ko": "보내다",
+      "romaja": "bonaeda",
+      "vi": "Gửi",
+      "pos": "verb",
+      "img": "📤",
+      "connect": "Dùng cho gửi thư, gửi tin nhắn, gửi người đi.",
+      "ex": "메일을 보냈어요.",
+      "exVi": "Tôi đã gửi email."
+    },
+    {
+      "ko": "무게",
+      "romaja": "muge",
+      "vi": "Cân nặng (của đồ)",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "무겁다 (nặng) bạn đã học → 무게 là danh từ.",
+      "ex": "무게가 얼마예요?",
+      "exVi": "Nặng bao nhiêu ạ?"
+    },
+    {
+      "ko": "요금",
+      "romaja": "yogeum",
+      "vi": "Cước phí",
+      "pos": "noun",
+      "img": "💴",
+      "connect": "요금 chính là âm Hán \"liệu kim\" — tiền phí dịch vụ.",
+      "ex": "배송 요금이 얼마예요?",
+      "exVi": "Phí vận chuyển bao nhiêu ạ?"
+    }
+  ]
+}

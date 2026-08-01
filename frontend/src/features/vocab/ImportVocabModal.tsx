@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
 import { parseWordsFromText, readFileText } from '@/core/utils/parseImport'
+import { useDialog } from '@/core/a11y'
 
 interface Props {
   title?: string
@@ -16,6 +17,7 @@ const ACCEPT = '.txt,.csv,.md,.docx,.pdf'
 
 export default function ImportVocabModal({ title, topics, defaultTopic = '', onClose, onImported }: Props) {
   const { recordEvent, t } = useAppStore()
+  const boxRef = useDialog<HTMLDivElement>(true, onClose)
   const [text, setText] = useState('')
   const [topic, setTopic] = useState(defaultTopic)
   const [fileName, setFileName] = useState('')
@@ -76,10 +78,10 @@ export default function ImportVocabModal({ title, topics, defaultTopic = '', onC
 
   return (
     <div className="vmodal-backdrop" onClick={onClose}>
-      <div className="vmodal lg" onClick={(e) => e.stopPropagation()}>
+      <div className="vmodal lg" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="ivm-title" onClick={(e) => e.stopPropagation()}>
         <div className="vmodal-head">
-          <h3><Icon name="upload" size={18} /> {title || t('ivm.title')}</h3>
-          <button className="vmodal-x" onClick={onClose}><Icon name="x" size={18} /></button>
+          <h3 id="ivm-title"><Icon name="upload" size={18} /> {title || t('ivm.title')}</h3>
+          <button type="button" className="vmodal-x" onClick={onClose} aria-label={t('a11y.close')}><Icon name="x" size={18} /></button>
         </div>
 
         <p className="vmodal-hint">
@@ -99,10 +101,11 @@ export default function ImportVocabModal({ title, topics, defaultTopic = '', onC
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={'안녕하세요 - xin chào\n감사합니다 - cảm ơn\n사랑 - tình yêu'}
+          aria-label={t('ivm.title')}
         />
 
         <label className="vmodal-label">{t('ivm.saveTopic')}</label>
-        <input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder={t('ivm.topicPh')} list="vimport-topics" />
+        <input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder={t('ivm.topicPh')} aria-label={t('ivm.saveTopic')} list="vimport-topics" />
         <datalist id="vimport-topics">
           {topics.map((tp) => <option key={tp} value={tp} />)}
         </datalist>

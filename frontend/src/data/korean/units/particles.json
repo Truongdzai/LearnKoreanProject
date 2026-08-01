@@ -1,0 +1,130 @@
+{
+  "id": "particles",
+  "name": "Trợ từ thường gặp",
+  "sub": "Thứ quyết định câu tiếng Hàn đúng hay sai — TOPIK hỏi rất nhiều.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🔗",
+  "words": [
+    {
+      "ko": "은/는",
+      "romaja": "eun/neun",
+      "vi": "Trợ từ chủ đề",
+      "pos": "part",
+      "img": "🏷️",
+      "connect": "Gắn vào thứ đang được NÓI VỀ, hàm ý so sánh: \"còn cái này thì...\".",
+      "ex": "저는 학생이에요.",
+      "exVi": "Tôi thì là học sinh."
+    },
+    {
+      "ko": "이/가",
+      "romaja": "i/ga",
+      "vi": "Trợ từ chủ ngữ",
+      "pos": "part",
+      "img": "👉",
+      "connect": "Chỉ thẳng ai/cái gì thực hiện hành động, dùng khi thông tin còn mới.",
+      "ex": "친구가 왔어요.",
+      "exVi": "Bạn tôi đã đến."
+    },
+    {
+      "ko": "을/를",
+      "romaja": "eul/reul",
+      "vi": "Trợ từ tân ngữ",
+      "pos": "part",
+      "img": "🎯",
+      "connect": "Gắn sau thứ bị tác động — cái mà bạn ăn, xem, mua.",
+      "ex": "밥을 먹어요.",
+      "exVi": "Tôi ăn cơm."
+    },
+    {
+      "ko": "에",
+      "romaja": "e",
+      "vi": "Ở / vào lúc / đến",
+      "pos": "part",
+      "img": "📍",
+      "connect": "Chỉ ĐIỂM: điểm đến hoặc mốc thời gian, không phải nơi đang làm gì.",
+      "ex": "학교에 가요.",
+      "exVi": "Tôi đi đến trường."
+    },
+    {
+      "ko": "에서",
+      "romaja": "eseo",
+      "vi": "Tại (nơi làm việc gì) / từ",
+      "pos": "part",
+      "img": "🏢",
+      "connect": "Nơi hành động DIỄN RA. So với 에: 에 là đích, 에서 là chỗ đang làm.",
+      "ex": "집에서 쉬어요.",
+      "exVi": "Tôi nghỉ ở nhà."
+    },
+    {
+      "ko": "도",
+      "romaja": "do",
+      "vi": "Cũng",
+      "pos": "part",
+      "img": "➕",
+      "connect": "Thay thế 은/는 hoặc 을/를 chứ không dính thêm vào chúng.",
+      "ex": "저도 가고 싶어요.",
+      "exVi": "Tôi cũng muốn đi."
+    },
+    {
+      "ko": "만",
+      "romaja": "man",
+      "vi": "Chỉ, mỗi",
+      "pos": "part",
+      "img": "1️⃣",
+      "connect": "Giới hạn lại: chỉ mỗi thứ này thôi.",
+      "ex": "물만 주세요.",
+      "exVi": "Cho tôi nước thôi ạ."
+    },
+    {
+      "ko": "와/과",
+      "romaja": "wa/gwa",
+      "vi": "Và (văn viết)",
+      "pos": "part",
+      "img": "🤝",
+      "connect": "Sau nguyên âm dùng 와, sau phụ âm dùng 과 — trang trọng hơn 하고.",
+      "ex": "빵과 우유를 샀어요.",
+      "exVi": "Tôi đã mua bánh mì và sữa."
+    },
+    {
+      "ko": "하고",
+      "romaja": "hago",
+      "vi": "Và, với (nói)",
+      "pos": "part",
+      "img": "💬",
+      "connect": "Bản nói của 와/과, dùng thoải mái trong hội thoại.",
+      "ex": "친구하고 영화를 봐요.",
+      "exVi": "Tôi xem phim với bạn."
+    },
+    {
+      "ko": "부터",
+      "romaja": "buteo",
+      "vi": "Từ (mốc bắt đầu)",
+      "pos": "part",
+      "img": "🚩",
+      "connect": "Mốc BẮT ĐẦU, hay đi cặp với 까지.",
+      "ex": "아홉 시부터 일해요.",
+      "exVi": "Tôi làm việc từ chín giờ."
+    },
+    {
+      "ko": "까지",
+      "romaja": "kkaji",
+      "vi": "Đến (mốc kết thúc)",
+      "pos": "part",
+      "img": "🏁",
+      "connect": "Mốc KẾT THÚC về thời gian hoặc nơi chốn.",
+      "ex": "여섯 시까지 기다릴게요.",
+      "exVi": "Tôi sẽ đợi đến sáu giờ."
+    },
+    {
+      "ko": "(으)로",
+      "romaja": "(eu)ro",
+      "vi": "Bằng, theo hướng",
+      "pos": "part",
+      "img": "🧭",
+      "connect": "Chỉ phương tiện hoặc hướng đi: bằng xe buýt, về phía trái.",
+      "ex": "버스로 왔어요.",
+      "exVi": "Tôi đến bằng xe buýt."
+    }
+  ]
+}

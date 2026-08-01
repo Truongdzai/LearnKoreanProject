@@ -1,11 +1,8 @@
 export interface FrameSources {
-  /** VP9 WebM with real alpha — plays with a truly transparent background */
   webm: string
-  /** H.264 fallback (Safari) — black background removed via CSS screen blend */
   mp4: string
 }
 
-/* Tăng số này mỗi lần thay file video trong public/cosmetics để phá cache trình duyệt */
 const COSMETICS_VER = 4
 
 export function frameVideoSources(frame?: string | null): FrameSources | null {

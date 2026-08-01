@@ -1,21 +1,8 @@
-/**
- * Xuất danh sách từ vựng ra Word (.doc) và PDF — không cần thư viện ngoài.
- *  - Word : tạo file HTML hợp lệ với Word rồi tải về dưới dạng .doc.
- *  - PDF  : mở cửa sổ in được định dạng đẹp, người dùng chọn "Lưu thành PDF".
- *
- * Dùng chung cho mọi ngôn ngữ (tiếng Anh, tiếng Hàn…) để giữ feature parity.
- */
-
 export interface ExportRow {
-  /** Từ chính (en/ko…) */
   term: string
-  /** Phiên âm / IPA (tuỳ chọn) */
   reading?: string
-  /** Nghĩa */
   meaning: string
-  /** Ví dụ (tuỳ chọn) */
   example?: string
-  /** Nhóm / chủ đề (tuỳ chọn) */
   group?: string
 }
 
@@ -72,7 +59,6 @@ const slug = (s: string): string =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')) || 'tu-vung'
 
-/** Tải danh sách từ về máy dưới dạng file Word (.doc). */
 export function exportVocabToWord(title: string, rows: ExportRow[]): void {
   if (!rows.length) return
   const html = buildHtml(title, rows)
@@ -87,7 +73,6 @@ export function exportVocabToWord(title: string, rows: ExportRow[]): void {
   setTimeout(() => URL.revokeObjectURL(url), 1500)
 }
 
-/** Mở cửa sổ in để người dùng lưu thành PDF. */
 export function exportVocabToPdf(title: string, rows: ExportRow[]): void {
   if (!rows.length) return
   const html = buildHtml(title, rows)

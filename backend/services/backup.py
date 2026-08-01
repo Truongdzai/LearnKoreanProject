@@ -6,13 +6,13 @@ from datetime import datetime
 from pathlib import Path
 
 from ..config import BACKUP_DIR, DB_PATH
+from .logs import log
 
 KEEP_LAST = 14
 INTERVAL_HOURS = 24
 
 
 def run_backup() -> Path:
-    """Sao lưu DB bằng SQLite backup API (an toàn khi đang có kết nối WAL)."""
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     dest = BACKUP_DIR / f"hanquan-{stamp}.db"
@@ -39,7 +39,6 @@ def _prune() -> None:
 
 
 def verify_backup(path: Path) -> dict:
-    """Restore drill: mở bản sao lưu, kiểm tra toàn vẹn + đếm bảng chính."""
     conn = sqlite3.connect(str(path))
     try:
         ok = conn.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
@@ -51,10 +50,9 @@ def verify_backup(path: Path) -> dict:
 
 
 async def backup_loop() -> None:
-    """Chạy nền trong lifespan: sao lưu ngay khi khởi động rồi mỗi 24 giờ."""
     while True:
         try:
             run_backup()
         except Exception as exc:
-            print(f"[VyLing] Sao lưu DB thất bại: {exc}")
+            log(f"[VyLing] Sao lưu DB thất bại: {exc}")
         await asyncio.sleep(INTERVAL_HOURS * 3600)

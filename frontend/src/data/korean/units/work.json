@@ -1,0 +1,22 @@
+{
+  "id": "work",
+  "name": "Công việc & nghề nghiệp",
+  "sub": "Từ dùng ở công ty và khi giới thiệu nghề của mình.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "💼",
+  "words": [
+    { "ko": "일하다", "romaja": "ilhada", "vi": "Làm việc", "pos": "verb", "img": "💼", "connect": "\"Il\" = việc — mỗi ngày một \"ill\" việc phải làm.", "ex": "저는 회사에서 일해요.", "exVi": "Tôi làm việc ở công ty." },
+    { "ko": "회의", "romaja": "hoeui", "vi": "Cuộc họp", "pos": "noun", "img": "🗓️", "connect": "\"Huê-i\" chính là âm Hán \"hội nghị\".", "ex": "오후에 회의가 있어요.", "exVi": "Buổi chiều tôi có cuộc họp." },
+    { "ko": "사장님", "romaja": "sajangnim", "vi": "Giám đốc / Sếp", "pos": "noun", "img": "👔", "connect": "\"Sa-chang\" = xã trưởng, thêm 님 cho kính trọng.", "ex": "사장님께서 지금 안 계세요.", "exVi": "Giám đốc bây giờ không có ở đây." },
+    { "ko": "직원", "romaja": "jigwon", "vi": "Nhân viên", "pos": "noun", "img": "🧑‍💼", "connect": "\"Chík-uôn\" chính là âm Hán \"chức viên\".", "ex": "우리 회사 직원은 스무 명이에요.", "exVi": "Công ty tôi có hai mươi nhân viên." },
+    { "ko": "의사", "romaja": "uisa", "vi": "Bác sĩ", "pos": "noun", "img": "🩺", "connect": "\"Ưi-sa\" chính là âm Hán \"y sư\".", "ex": "언니는 의사예요.", "exVi": "Chị tôi là bác sĩ." },
+    { "ko": "학생", "romaja": "haksaeng", "vi": "Học sinh / Sinh viên", "pos": "noun", "img": "🎒", "connect": "\"Hak-seng\" chính là âm Hán \"học sinh\".", "ex": "저는 아직 학생이에요.", "exVi": "Tôi vẫn còn là học sinh." },
+    { "ko": "요리사", "romaja": "yorisa", "vi": "Đầu bếp", "pos": "noun", "img": "👨‍🍳", "connect": "\"Yô-ri\" = nấu nướng + \"sa\" = người làm nghề.", "ex": "그 식당 요리사는 아주 유명해요.", "exVi": "Đầu bếp của quán đó rất nổi tiếng." },
+    { "ko": "경찰", "romaja": "gyeongchal", "vi": "Cảnh sát", "pos": "noun", "img": "👮", "connect": "\"Kyơng-chal\" chính là âm Hán \"cảnh sát\".", "ex": "문제가 생기면 경찰에 전화하세요.", "exVi": "Có chuyện gì thì hãy gọi cảnh sát." },
+    { "ko": "기사님", "romaja": "gisanim", "vi": "Bác tài (lái xe)", "pos": "noun", "img": "🚕", "connect": "\"Ki-sa\" = kỹ sư/tài xế — gọi bác tài taxi rất hay dùng.", "ex": "기사님, 여기서 세워 주세요.", "exVi": "Bác tài ơi, cho tôi xuống ở đây ạ." },
+    { "ko": "출근하다", "romaja": "chulgeunhada", "vi": "Đi làm (đến chỗ làm)", "pos": "verb", "img": "🌅", "connect": "\"Chul\" = xuất — xuất phát tới chỗ làm.", "ex": "저는 여덟 시에 출근해요.", "exVi": "Tôi đi làm lúc tám giờ." },
+    { "ko": "퇴근하다", "romaja": "toegeunhada", "vi": "Tan làm / Về sau giờ làm", "pos": "verb", "img": "🌆", "connect": "\"Thuê\" = thoái — rút khỏi chỗ làm.", "ex": "보통 여섯 시에 퇴근해요.", "exVi": "Tôi thường tan làm lúc sáu giờ." },
+    { "ko": "명함", "romaja": "myeongham", "vi": "Danh thiếp", "pos": "noun", "img": "🪪", "connect": "\"Myơng-ham\" chính là âm Hán \"danh hàm\".", "ex": "제 명함입니다.", "exVi": "Đây là danh thiếp của tôi ạ." }
+  ]
+}

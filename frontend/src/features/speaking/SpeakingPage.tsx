@@ -21,9 +21,7 @@ export default function SpeakingPage() {
   const cfg = studyLang(learnLang)
   const all = scenariosFor(learnLang)
   const [filter, setFilter] = useState<string>('')
-  // Chỉ hiện những mục tiêu thật sự có tình huống cho ngôn ngữ đang học.
   const filters = LEARN_GOALS.filter((g) => all.some((s) => s.tags?.includes(g.id)))
-  // Tình huống hợp mục tiêu onboarding được xếp lên đầu danh sách.
   const scenarios = all
     .filter((s) => !filter || s.tags?.includes(filter))
     .sort((a, b) => {
@@ -49,10 +47,8 @@ export default function SpeakingPage() {
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [msgs, loading])
 
-  // Leaving a scenario when the user switches study language keeps things consistent.
   useEffect(() => { setScenario(null) }, [learnLang])
 
-  // Khi micro dừng và có kết quả, đưa câu nhận diện vào ô soạn để người học kiểm tra trước khi gửi.
   useEffect(() => {
     if (!sr.listening && sr.transcript.trim()) setDraft(sr.transcript.trim())
   }, [sr.listening, sr.transcript])
@@ -86,7 +82,6 @@ export default function SpeakingPage() {
       return
     }
 
-    // No hand-written lines for this language → let the AI open the conversation.
     setMsgs([]); setSuggestions([]); setLoading(true)
     fetchSpeakReply({ persona: s.persona, situation: s.situation, user_say: '', history: [], lang: learnLang, native: nativeLang })
       .then((r) => {
@@ -165,7 +160,6 @@ export default function SpeakingPage() {
     else { setDraft(''); sr.start() }
   }, [loading, finished, sr])
 
-  // Nhấn Enter để bắt đầu / dừng ghi âm (trừ khi đang gõ trong ô soạn).
   useEffect(() => {
     if (!scenario || finished) return
     const onKey = (e: KeyboardEvent) => {
@@ -263,7 +257,7 @@ export default function SpeakingPage() {
                 <div className="sp-tools">
                   <button onClick={() => speak(m.ko, cfg.locale)}><Icon name="volume" size={13} /> {t('sp.listen')}</button>
                   <button className={viShown.has(i) ? 'on' : ''} onClick={() => toggle(setViShown, i)}><Icon name="globe" size={13} /> {t('sp.trans')}</button>
-                  {cfg.romanizeChat && (
+                  {cfg.reading === 'romaja' && (
                     <button className={romaShown.has(i) ? 'on' : ''} onClick={() => toggle(setRomaShown, i)}><Icon name="letters" size={13} /> {romaShown.has(i) ? t('sp.hideRoma') : t('sp.showRoma')}</button>
                   )}
                 </div>
@@ -349,7 +343,7 @@ export default function SpeakingPage() {
                 onChange={(e) => setDraft(e.target.value)}
                 readOnly={sr.listening}
                 lang={learnLang}
-                placeholder={t('sp.placeholder', { lang: learnLangName })}
+                placeholder={t('sp.placeholder', { lang: learnLangName })} aria-label={t('sp.placeholder', { lang: learnLangName })}
                 onKeyDown={(e) => { if (e.key === 'Enter') send(draft) }}
               />
               <button className="sp-send" disabled={!draft.trim() || loading} onClick={() => send(draft)}><Icon name="send" size={18} /></button>

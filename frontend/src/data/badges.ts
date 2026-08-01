@@ -1,24 +1,15 @@
-/**
- * Huy hiệu thành tích — giữ lửa v2. Tính hoàn toàn từ số liệu sẵn có
- * (XP, streak, thẻ SRS, video đã lưu, cây đã trồng) — không cần bảng DB riêng.
- */
-
 export interface BadgeDef {
   id: string
   emoji: string
-  /** Khoá i18n cho tên + mô tả */
   nameKey: string
   descKey: string
-  /** Ngưỡng đạt */
   target: number
-  /** Nhóm số liệu dùng để tính */
   metric: 'xp' | 'streak' | 'cards' | 'videos' | 'plants'
 }
 
 export interface BadgeState extends BadgeDef {
   value: number
   earned: boolean
-  /** 0–100 cho thanh tiến độ của huy hiệu chưa đạt */
   pct: number
 }
 

@@ -1,19 +1,11 @@
-"""Xu ly anh/video pet -> frontend/src/core/components/Pet/img/<art>/<mood>.(png|webm)
-
-  python tools/process-pet.py pig          # doc tu frontend/pet-src/pig
-  python tools/process-pet.py chick         # video .webm cung duoc keo nen trong suot
-
-Tu dong nhan mau nen (kem/trang/den deu duoc) tu vien anh roi xoa, lam mem mep.
-Ten file dat tieng Viet (cuoi, ngu, sohai...) hoac mood (happy, sleep...) deu hieu.
-"""
 import sys, os, re, glob, shutil, subprocess
 from collections import deque
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAXDIM = 320
-BG_TOL = 42     # khoang lech mau toi da van coi la nen (flood-fill tu vien)
-FRINGE = 96     # vung mep: cang gan mau nen cang trong suot (khu vien)
+BG_TOL = 42
+FRINGE = 96
 
 RULES = [
     ('cuoinhaymat', 'wink'), ('nhaymat', 'wink'), ('wink', 'wink'),
@@ -37,7 +29,6 @@ def mood_of(name):
 
 
 def border_color(px, w, h):
-    """Mau nen = trung vi cua vien anh (2px)."""
     rs, gs, bs = [], [], []
     for x in range(w):
         for y in (0, 1, h - 2, h - 1):
@@ -112,13 +103,11 @@ def find_ffmpeg():
 
 
 def key_video(src, dst):
-    """Keo nen phang (vd den) -> webm VP9 co kenh trong suot (alpha)."""
     ff = find_ffmpeg()
     if not ff:
         print('  ! Khong tim thay ffmpeg, bo qua video:', os.path.basename(src))
         return False
     tmp = Image.new('RGBA', (8, 8))
-    # lay mau nen tu khung dau
     probe = os.path.join(os.path.dirname(dst), '_probe.png')
     subprocess.run([ff, '-y', '-v', 'error', '-i', src, '-frames:v', '1', probe], check=True)
     with Image.open(probe) as fr:

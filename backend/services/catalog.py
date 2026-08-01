@@ -4,8 +4,6 @@ from fastapi import HTTPException
 
 from .. import db
 
-# Kho video theo ngôn ngữ — mọi video đều đã kiểm chứng qua pipeline (có phụ đề
-# đúng ngôn ngữ và tải được). (Video VOA bị YouTube chặn tải nên không dùng.)
 DEFAULT_KO_VIDEOS = [
     ("GnwIG51ah7k", "Podcast cho người mới #01 — 취미 (Sở thích)", "최수수 ChoiSusu", "TOPIK 1", "3:58", "취미", "tone-a", "ko"),
     ("U_ZzQIV5KgM", "Podcast cho người mới #02 — 날씨와 계절 (Thời tiết & mùa)", "최수수 ChoiSusu", "TOPIK 1", "7:13", "날씨", "tone-b", "ko"),
@@ -25,6 +23,22 @@ DEFAULT_KO_VIDEOS = [
     ("vc3hGLgyXL4", "Nghe hiểu dễ — Ở sân bay ✈️", "Daily Korean with Jaerim", "TOPIK 1", "10:20", "공항", "tone-d", "ko"),
     ("-11--LSPNB0", "10 hội thoại thật ở nhà hàng & quán cà phê", "Small Talk in Korean", "TOPIK 1", "17:17", "식당·카페", "tone-e", "ko"),
     ("GGFJvv7fyqY", "Phỏng vấn đường phố — Người Hàn nghĩ gì về người học tiếng Hàn?", "On the spot Korea", "TOPIK 2", "8:35", "인터뷰", "tone-f", "ko"),
+    ("6puwb16HEZs", "Nhập môn A0 — Đầu vào dễ hiểu cho người mới hoàn toàn", "태웅쌤 - Comprehensible Input Korean", "Vỡ lòng", "50:24", "왕초보", "tone-a", "ko"),
+    ("Oh8fiYihNhM", "Tiếng Hàn chậm & dễ hiểu cho người mới bắt đầu", "Ria Korea 리아 코리아", "Vỡ lòng", "8:10", "쉬운 한국어", "tone-b", "ko"),
+    ("f91PZmjhZGA", "Một ngày của tôi — 하루 일과 (nói chậm, hình minh hoạ)", "Comprehensible Korean", "Vỡ lòng", "6:11", "하루 일과", "tone-c", "ko"),
+    ("ZXoJ7NNFX8Q", "Podcast sơ cấp #16 — 고향 소개 (Giới thiệu quê hương)", "한국어 한 조각 A Piece Of Korean", "TOPIK 1", "6:23", "고향", "tone-d", "ko"),
+    ("cHgmBScOGwI", "Hội thoại chậm & dễ cho người mới (trọn buổi)", "Kendra's Language School", "TOPIK 1", "43:53", "쉬운 대화", "tone-e", "ko"),
+    ("6HFzeknPi2A", "Hội thoại cơ bản nói chậm — luyện nghe dài hơi", "Kendra's Language School", "TOPIK 1", "69:46", "기초 대화", "tone-f", "ko"),
+    ("xUiHoufw_Pk", "25 phút nghe hiểu cho người mới hoàn toàn", "Learn Korean with KoreanClass101.com", "TOPIK 1", "23:19", "듣기 연습", "tone-a", "ko"),
+    ("HDMnqs-JEhM", "Luyện nghe Cấp 1 — 12 đoạn hội thoại", "KOREAN FULL COURSE", "TOPIK 1", "24:35", "레벨 1 대화", "tone-b", "ko"),
+    ("q6phk8Zy6sg", "1 giờ luyện nghe cho người mới ❷", "최수수 ChoiSusu", "TOPIK 1", "63:57", "듣기 1시간", "tone-c", "ko"),
+    ("4UlLMVwQ5o0", "Nghe chậm có phụ đề & từ vựng #18 — 작은 습관 (Thói quen nhỏ)", "Korean with Sol", "TOPIK 1-2", "14:22", "습관", "tone-d", "ko"),
+    ("GpmRPcCj8b0", "Nghe chậm có phụ đề & từ vựng #17 — 드라마 (Phim Hàn)", "Korean with Sol", "TOPIK 1-2", "12:23", "드라마", "tone-e", "ko"),
+    ("6Y7VwFR5cDg", "1 giờ hội thoại tự nhiên — phụ đề Hàn/Anh", "Talk To Me In Korean", "TOPIK 2", "61:06", "자연스러운 대화", "tone-f", "ko"),
+    ("4P_pkkh8ynA", "Podcast trung cấp #01 — 취미 생활 (Đời sống sở thích)", "최수수 ChoiSusu", "TOPIK 2", "6:43", "취미 생활", "tone-a", "ko"),
+    ("D982vPFx2t8", "Podcast trung cấp #12 — 습관 (Thói quen)", "최수수 ChoiSusu", "TOPIK 2", "16:39", "습관", "tone-b", "ko"),
+    ("M6UbE1wb9xc", "Podcast trung cấp #21 — Tôi thành giáo viên tiếng Hàn thế nào", "최수수 ChoiSusu", "TOPIK 2", "15:50", "직업 이야기", "tone-c", "ko"),
+    ("OfM84gxU_lY", "Podcast trung cấp #22 — Vì sao tôi bắt đầu làm podcast", "최수수 ChoiSusu", "TOPIK 2", "13:10", "팟캐스트", "tone-d", "ko"),
 ]
 
 DEFAULT_EN_VIDEOS = [
@@ -110,7 +124,6 @@ DEFAULT_DE_VIDEOS = [
     ("lE5FIV-76x0", "Hiểu tiếng Đức đường phố thật (Erfurt)", "Easy German", "B1", "15:03", "Straßendeutsch", "tone-b", "de"),
 ]
 
-# Tiếng Việt cho người nước ngoài — ngôn ngữ học mới (GĐ 1, Tuần 3).
 DEFAULT_VI_VIDEOS = [
     ("ZHstsAfN9AI", "Từ ĐI đa nghĩa — Đi ngủ! Đi chơi! Đi vào!", "Learn Vietnamese With Annie", "Sơ cấp", "2:45", "Từ vựng", "tone-a", "vi"),
     ("gWZ620nh_S0", "Easy Vietnamese 1 — Điều gì đặc trưng Việt Nam?", "Easy Vietnamese", "Sơ cấp", "4:30", "Đường phố", "tone-b", "vi"),
@@ -122,7 +135,6 @@ DEFAULT_VI_VIDEOS = [
     ("xZMRzCoaboA", "CÀ PHÊ — luyện nghe tiếng Việt chậm", "HowToVietnamese", "Sơ cấp", "4:18", "Cà phê", "tone-b", "vi"),
 ]
 
-# Bộ video mặc định theo từng ngôn ngữ (đồng bộ vào kho mỗi lần khởi động).
 DEFAULT_LANG_VIDEOS = {
     "ko": DEFAULT_KO_VIDEOS,
     "en": DEFAULT_EN_VIDEOS,
@@ -192,9 +204,6 @@ DEFAULT_SHOP = [
     ("b-crown", "Vương Miện", "Danh hiệu cho cao thủ", 600, "badge", "crown", 1),
 ]
 
-# Thú cưng nổi ở góc màn hình — đồng hành cùng bạn khi học.
-# Hiện chỉ còn Shiba (ảnh thật, nhiều biểu cảm); các loài khác sẽ phát triển sau.
-# Cơ chế seed bên dưới tự dọn mọi loài không có trong danh sách này khỏi cửa hàng.
 DEFAULT_PETS = [
     ("p-shiba", "Cún Shiba", "Shiba ảnh thật với loạt biểu cảm sống động — tra từ vựng & cùng bạn tập trung Pomodoro", 0, "pet", "shiba", 0),
 ]
@@ -203,8 +212,6 @@ DEFAULT_PETS = [
 def seed() -> None:
     conn = db.get_conn()
     try:
-        # Keep curated per-language libraries in sync on every startup so corrections
-        # (e.g. replacing videos that YouTube made unavailable) reach existing databases.
         for code, vids in DEFAULT_LANG_VIDEOS.items():
             for i, v in enumerate(vids):
                 conn.execute(
@@ -212,14 +219,14 @@ def seed() -> None:
                     "VALUES (?,?,?,?,?,?,?,?,?) "
                     "ON CONFLICT(id) DO UPDATE SET title=excluded.title, channel=excluded.channel, "
                     "level=excluded.level, dur=excluded.dur, topic=excluded.topic, tone=excluded.tone, "
-                    "lang=excluded.lang, sort=excluded.sort",
+                    "lang=excluded.lang, sort=excluded.sort "
+                    "WHERE catalog_videos.custom = 0",
                     (*v, 50 + i),
                 )
-            # Remove videos for this language no longer in the curated list.
             keep = [v[0] for v in vids]
             ph = ",".join("?" for _ in keep)
             conn.execute(
-                f"DELETE FROM catalog_videos WHERE lang = ? AND id NOT IN ({ph})",
+                f"DELETE FROM catalog_videos WHERE lang = ? AND custom = 0 AND id NOT IN ({ph})",
                 (code, *keep),
             )
         if conn.execute("SELECT COUNT(*) AS n FROM catalog_quests").fetchone()["n"] == 0:
@@ -250,22 +257,20 @@ def seed() -> None:
                     "VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                     (*p, i),
                 )
-        # Pets ship after the first seed — keep the roster (name/art/price) in
-        # sync on every startup so design refreshes reach existing databases.
         for i, s in enumerate(DEFAULT_PETS):
             conn.execute(
                 "INSERT INTO catalog_shop (id, name, descr, price, category, art, plus, sort) "
                 "VALUES (?,?,?,?,?,?,?,?) "
                 "ON CONFLICT(id) DO UPDATE SET name=excluded.name, descr=excluded.descr, "
                 "price=excluded.price, category=excluded.category, art=excluded.art, "
-                "plus=excluded.plus, sort=excluded.sort",
+                "plus=excluded.plus, sort=excluded.sort "
+                "WHERE catalog_shop.custom = 0",
                 (*s, 100 + i),
             )
-        # Dọn các loài cũ đã bỏ khỏi cửa hàng ở những database đã seed từ trước.
         keep = [p[0] for p in DEFAULT_PETS]
         placeholders = ",".join("?" for _ in keep)
         conn.execute(
-            f"DELETE FROM catalog_shop WHERE category = 'pet' AND id NOT IN ({placeholders})",
+            f"DELETE FROM catalog_shop WHERE category = 'pet' AND custom = 0 AND id NOT IN ({placeholders})",
             keep,
         )
         conn.commit()
@@ -362,6 +367,7 @@ _TABLES = {
     "plans": ("catalog_plans", {"id", "name", "tagline", "original", "price", "unit", "note", "cta", "days", "featured", "sort", "active"}),
 }
 _INT_FIELDS = {"sort", "active", "plus", "reward", "target", "days", "featured"}
+_CUSTOM_TABLES = {"catalog_videos", "catalog_shop"}
 
 
 def upsert(kind: str, data: dict) -> dict:
@@ -373,6 +379,8 @@ def upsert(kind: str, data: dict) -> dict:
     for k in list(payload):
         if k in _INT_FIELDS and payload[k] is not None:
             payload[k] = int(payload[k])
+    if table in _CUSTOM_TABLES:
+        payload["custom"] = 1
     conn = db.get_conn()
     try:
         exists = conn.execute(f"SELECT 1 FROM {table} WHERE id = ?", (item_id,)).fetchone()

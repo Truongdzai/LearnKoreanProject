@@ -31,5 +31,5 @@ def api_plans():
 
 
 @router.get("/leaderboard")
-def api_leaderboard(user: dict | None = Depends(auth.get_optional_user)):
-    return {"entries": accounts.leaderboard(user["id"] if user else None)}
+def api_leaderboard(scope: str = "all", user: dict | None = Depends(auth.get_optional_user)):
+    return {"entries": accounts.leaderboard(user["id"] if user else None, scope=scope)}

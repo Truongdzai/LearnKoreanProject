@@ -38,7 +38,7 @@ export default function PricingPage() {
         if (r.plans?.length) setPlans(r.plans)
         if (r.perks?.length) setPerks(r.perks)
       })
-      .catch(() => { /* keep defaults */ })
+      .catch(() => {})
   }, [])
 
   const isLifetime = user.isPlus && !user.plusUntil

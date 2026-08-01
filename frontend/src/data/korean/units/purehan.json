@@ -1,0 +1,22 @@
+{
+  "id": "purehan",
+  "name": "Số thuần Hàn & đơn vị đếm",
+  "sub": "Hệ số thứ hai — dùng để đếm đồ vật, người, con vật và nói giờ.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🔟",
+  "words": [
+    { "ko": "넷", "romaja": "net", "vi": "Bốn (thuần Hàn)", "pos": "noun", "img": "4️⃣", "connect": "Đứng trước đơn vị đếm thì rút thành 네: 네 개.", "ex": "사과 네 개 주세요.", "exVi": "Cho tôi bốn quả táo ạ." },
+    { "ko": "다섯", "romaja": "daseot", "vi": "Năm (thuần Hàn)", "pos": "noun", "img": "5️⃣", "connect": "\"Đa-sớt\" — đủ một bàn tay.", "ex": "다섯 시에 만나요.", "exVi": "Năm giờ gặp nhau nhé." },
+    { "ko": "여섯", "romaja": "yeoseot", "vi": "Sáu (thuần Hàn)", "pos": "noun", "img": "6️⃣", "connect": "\"Yơ-sớt\" — cùng đuôi 섯 với 다섯 cho dễ nhớ cặp.", "ex": "여섯 명이 왔어요.", "exVi": "Sáu người đã đến." },
+    { "ko": "일곱", "romaja": "ilgop", "vi": "Bảy (thuần Hàn)", "pos": "noun", "img": "7️⃣", "connect": "\"Il-gôp\" — đừng nhầm với 일 (một) của hệ Hán–Hàn.", "ex": "일곱 시에 일어나요.", "exVi": "Tôi dậy lúc bảy giờ." },
+    { "ko": "여덟", "romaja": "yeodeol", "vi": "Tám (thuần Hàn)", "pos": "noun", "img": "8️⃣", "connect": "Viết có ㅂ nhưng đọc là \"yơ-đơl\".", "ex": "여덟 시까지 오세요.", "exVi": "Bạn đến trước tám giờ nhé." },
+    { "ko": "아홉", "romaja": "ahop", "vi": "Chín (thuần Hàn)", "pos": "noun", "img": "9️⃣", "connect": "\"A-hôp\" — cùng đuôi ㅂ với 일곱.", "ex": "아홉 시에 수업이 있어요.", "exVi": "Chín giờ tôi có tiết học." },
+    { "ko": "열", "romaja": "yeol", "vi": "Mười (thuần Hàn)", "pos": "noun", "img": "🔟", "connect": "Cùng âm với 열 (sốt) — nhớ cặp đôi cho vui.", "ex": "열 개만 주세요.", "exVi": "Cho tôi mười cái thôi ạ." },
+    { "ko": "개", "romaja": "gae", "vi": "Cái / Quả (đếm đồ vật)", "pos": "noun", "img": "📦", "connect": "Cùng âm với 개 (con chó) — nhưng đây là đơn vị đếm.", "ex": "빵 세 개 주세요.", "exVi": "Cho tôi ba cái bánh mì ạ." },
+    { "ko": "명", "romaja": "myeong", "vi": "Người (đếm người)", "pos": "noun", "img": "🧑‍🤝‍🧑", "connect": "\"Myơng\" chính là âm Hán \"danh\".", "ex": "두 명이요.", "exVi": "Hai người ạ." },
+    { "ko": "마리", "romaja": "mari", "vi": "Con (đếm động vật)", "pos": "noun", "img": "🐕", "connect": "\"Ma-ri\" — chỉ dùng cho con vật, không dùng cho người.", "ex": "고양이 두 마리를 키워요.", "exVi": "Tôi nuôi hai con mèo." },
+    { "ko": "병", "romaja": "byeong", "vi": "Chai (đếm chai lọ)", "pos": "noun", "img": "🍾", "connect": "Cùng âm với 병 (bệnh) — nhưng đây là cái chai.", "ex": "물 한 병 주세요.", "exVi": "Cho tôi một chai nước ạ." },
+    { "ko": "잔", "romaja": "jan", "vi": "Ly / Cốc (đếm đồ uống)", "pos": "noun", "img": "🥃", "connect": "\"Chan\" chính là âm Hán \"trản\" = cái chén.", "ex": "커피 두 잔 주세요.", "exVi": "Cho tôi hai ly cà phê ạ." }
+  ]
+}

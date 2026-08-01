@@ -123,7 +123,6 @@ def _cache_put_native(conn, lang: str, native: str, pairs: dict[str, str]) -> No
 
 
 def translate_lines_native(lines: list[str], lang: str, native: str) -> list[str]:
-    """Dịch danh sách câu sang tiếng mẹ đẻ đã chọn, có cache riêng theo (lang, native)."""
     kos = [str(x) for x in lines]
     if native == "vi":
         return translate_lines_vi(kos)

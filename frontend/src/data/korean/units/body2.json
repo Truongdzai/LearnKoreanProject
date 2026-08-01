@@ -1,0 +1,130 @@
+{
+  "id": "body2",
+  "name": "Cơ thể & thể trạng",
+  "sub": "Đủ để nói với bác sĩ chỗ nào đau — phần 병원 hay ra thi.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "🦵",
+  "words": [
+    {
+      "ko": "어깨",
+      "romaja": "eokkae",
+      "vi": "Vai",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "Thuần Hàn. Mỏi vai là 어깨가 아파요.",
+      "ex": "어깨가 아파요.",
+      "exVi": "Tôi bị đau vai."
+    },
+    {
+      "ko": "허리",
+      "romaja": "heori",
+      "vi": "Eo, lưng dưới",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "Thuần Hàn — đau lưng dân văn phòng là 허리.",
+      "ex": "허리를 다쳤어요.",
+      "exVi": "Tôi bị đau lưng."
+    },
+    {
+      "ko": "무릎",
+      "romaja": "mureup",
+      "vi": "Đầu gối",
+      "pos": "noun",
+      "img": "🦵",
+      "connect": "Thuần Hàn.",
+      "ex": "무릎이 아파서 못 걸어요.",
+      "exVi": "Đau đầu gối nên tôi không đi được."
+    },
+    {
+      "ko": "발목",
+      "romaja": "balmok",
+      "vi": "Cổ chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "발 (chân) đã học + 목 (cổ) đã học → cổ của chân.",
+      "ex": "발목을 삐었어요.",
+      "exVi": "Tôi bị trẹo cổ chân."
+    },
+    {
+      "ko": "손가락",
+      "romaja": "songarak",
+      "vi": "Ngón tay",
+      "pos": "noun",
+      "img": "☝️",
+      "connect": "손 (tay) đã học + 가락 (que nhỏ) như 젓가락 (đũa).",
+      "ex": "손가락을 베었어요.",
+      "exVi": "Tôi bị đứt tay."
+    },
+    {
+      "ko": "치아",
+      "romaja": "chia",
+      "vi": "Răng (trang trọng)",
+      "pos": "noun",
+      "img": "🦷",
+      "connect": "치아 chính là âm Hán \"xỉ nha\" — dùng ở nha khoa.",
+      "ex": "치아가 건강해요.",
+      "exVi": "Răng bạn khoẻ đấy."
+    },
+    {
+      "ko": "피",
+      "romaja": "pi",
+      "vi": "Máu",
+      "pos": "noun",
+      "img": "🩸",
+      "connect": "Thuần Hàn, ngắn gọn.",
+      "ex": "피가 나요.",
+      "exVi": "Bị chảy máu rồi."
+    },
+    {
+      "ko": "살",
+      "romaja": "sal",
+      "vi": "Thịt, da (trên người)",
+      "pos": "noun",
+      "img": "🫄",
+      "connect": "Tăng cân là 살이 찌다, giảm cân là 살이 빠지다.",
+      "ex": "살이 좀 쪘어요.",
+      "exVi": "Tôi tăng cân một chút."
+    },
+    {
+      "ko": "키",
+      "romaja": "ki",
+      "vi": "Chiều cao",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "Thuần Hàn, hỏi 키가 몇이에요?",
+      "ex": "키가 어떻게 되세요?",
+      "exVi": "Bạn cao bao nhiêu ạ?"
+    },
+    {
+      "ko": "몸무게",
+      "romaja": "mommuge",
+      "vi": "Cân nặng",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "몸 (cơ thể) đã học + 무게 (cân nặng) vừa học.",
+      "ex": "몸무게를 쟀어요.",
+      "exVi": "Tôi đã cân."
+    },
+    {
+      "ko": "숨",
+      "romaja": "sum",
+      "vi": "Hơi thở",
+      "pos": "noun",
+      "img": "😮‍💨",
+      "connect": "Thuần Hàn: 숨을 쉬다 = thở.",
+      "ex": "숨이 차요.",
+      "exVi": "Tôi thở không ra hơi."
+    },
+    {
+      "ko": "근육",
+      "romaja": "geunyuk",
+      "vi": "Cơ bắp",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "근육 chính là âm Hán \"cân nhục\".",
+      "ex": "운동해서 근육이 아파요.",
+      "exVi": "Tập xong nên cơ bắp đau."
+    }
+  ]
+}
