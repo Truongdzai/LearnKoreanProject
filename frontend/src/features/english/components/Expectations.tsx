@@ -8,6 +8,7 @@ export interface ExpectationSpec {
   can: string[]
   cannot: string[]
   next: string
+  verdict?: string
 }
 
 const LANG_NAME: Record<string, string> = { ko: 'tiếng Hàn', zh: 'tiếng Trung', en: 'tiếng Anh' }
@@ -23,8 +24,8 @@ export default function Expectations({ spec, lang }: { spec: ExpectationSpec; la
         <span className="expect-title">
           <b>Sau 90 ngày bạn sẽ ở đâu?</b>
           <span>
-            {spec.daily} · tổng {spec.hours} · {spec.words.toLocaleString('vi-VN')} từ lõi —
-            đủ để giao tiếp sinh tồn, <b>chưa phải là giỏi {name}</b>. Bấm để xem cụ thể.
+            {spec.daily} · tổng {spec.hours} · {spec.words.toLocaleString('vi-VN')} từ lõi —{' '}
+            {spec.verdict ? <b>{spec.verdict}</b> : <>đủ để giao tiếp sinh tồn, <b>chưa phải là giỏi {name}</b></>}. Bấm để xem cụ thể.
           </span>
         </span>
         <Icon name={open ? 'chevron-down' : 'chevron-left'} size={16} />
