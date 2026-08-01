@@ -1,0 +1,22 @@
+{
+  "id": "zh-weather",
+  "name": "Thời tiết & bốn mùa",
+  "sub": "Câu mở chuyện dễ nhất với người lạ: hôm nay trời thế nào.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "🌤️",
+  "words": [
+    { "zh": "天气", "pinyin": "tiān qì", "vi": "Thời tiết", "pos": "noun", "img": "🌤️", "connect": "天气 = thiên khí, khí trời. Chữ thiên trong thiên nhiên, thiên đường.", "ex": "今天天气很好。", "exVi": "Hôm nay thời tiết rất đẹp." },
+    { "zh": "暖和", "pinyin": "nuǎn huo", "vi": "Ấm áp", "pos": "adj", "img": "🌡️", "connect": "暖和 = noãn hoà, chữ noãn trong ôn noãn (ấm áp).", "ex": "春天的天气很暖和。", "exVi": "Thời tiết mùa xuân rất ấm áp." },
+    { "zh": "凉快", "pinyin": "liáng kuai", "vi": "Mát mẻ", "pos": "adj", "img": "🍃", "connect": "凉快 = lương khoái, chữ lương trong lương trà (trà mát), thanh lương.", "ex": "晚上凉快多了。", "exVi": "Buổi tối mát hơn nhiều." },
+    { "zh": "下雨", "pinyin": "xià yǔ", "vi": "Trời mưa", "pos": "verb", "img": "🌧️", "connect": "下雨 = hạ vũ, tức mưa rơi xuống. Chữ 雨 vẽ hạt nước rơi trong khung trời.", "ex": "外面下雨了，别出去。", "exVi": "Ngoài trời mưa rồi, đừng ra ngoài." },
+    { "zh": "下雪", "pinyin": "xià xuě", "vi": "Trời có tuyết", "pos": "verb", "img": "🌨️", "connect": "下雪 = hạ tuyết, tuyết rơi xuống.", "ex": "我第一次看见下雪。", "exVi": "Lần đầu tiên tôi nhìn thấy tuyết rơi." },
+    { "zh": "风", "pinyin": "fēng", "vi": "Gió", "pos": "noun", "img": "💨", "connect": "风 = phong, đúng chữ trong phong ba, cuồng phong.", "ex": "今天风很大。", "exVi": "Hôm nay gió rất to." },
+    { "zh": "晴天", "pinyin": "qíng tiān", "vi": "Trời nắng đẹp", "pos": "noun", "img": "☀️", "connect": "晴天 = tình thiên. Chữ 晴 có bộ 日 (nhật = mặt trời) bên trái.", "ex": "明天是晴天。", "exVi": "Ngày mai trời nắng đẹp." },
+    { "zh": "阴天", "pinyin": "yīn tiān", "vi": "Trời âm u", "pos": "noun", "img": "☁️", "connect": "阴天 = âm thiên, chữ âm trong âm dương — trời thiếu nắng.", "ex": "今天是阴天，有点闷。", "exVi": "Hôm nay trời âm u, hơi oi." },
+    { "zh": "春天", "pinyin": "chūn tiān", "vi": "Mùa xuân", "pos": "noun", "img": "🌸", "connect": "春 = xuân, đúng chữ trong thanh xuân, xuân tiết.", "ex": "春天花开得很漂亮。", "exVi": "Mùa xuân hoa nở rất đẹp." },
+    { "zh": "夏天", "pinyin": "xià tiān", "vi": "Mùa hè", "pos": "noun", "img": "🏖️", "connect": "夏 = hạ, đúng chữ trong mùa hạ.", "ex": "夏天我们去游泳。", "exVi": "Mùa hè chúng tôi đi bơi." },
+    { "zh": "秋天", "pinyin": "qiū tiān", "vi": "Mùa thu", "pos": "noun", "img": "🍂", "connect": "秋 = thu, đúng chữ trong trung thu.", "ex": "秋天不冷也不热。", "exVi": "Mùa thu không lạnh cũng không nóng." },
+    { "zh": "冬天", "pinyin": "dōng tiān", "vi": "Mùa đông", "pos": "noun", "img": "❄️", "connect": "冬 = đông, đúng chữ trong đông chí, mùa đông.", "ex": "冬天要多穿衣服。", "exVi": "Mùa đông phải mặc nhiều áo." }
+  ]
+}

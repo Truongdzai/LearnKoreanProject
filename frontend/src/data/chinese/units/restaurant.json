@@ -1,0 +1,22 @@
+{
+  "id": "zh-restaurant",
+  "name": "Nhà hàng & gọi món",
+  "sub": "Vào quán, gọi món, khen ngon rồi xin tính tiền.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🍽️",
+  "words": [
+    { "zh": "汤", "pinyin": "tāng", "vi": "Canh, súp", "pos": "noun", "img": "🍲", "connect": "汤 = thang, chữ trong thang thuốc — nước nấu lên để húp.", "ex": "先来一个汤吧。", "exVi": "Gọi một món canh trước đi." },
+    { "zh": "服务员", "pinyin": "fú wù yuán", "vi": "Nhân viên phục vụ", "pos": "noun", "img": "🧑‍🍳", "connect": "服务员 = phục vụ viên, đúng ba chữ trong tiếng Việt.", "ex": "服务员，请给我菜单。", "exVi": "Bạn phục vụ ơi, cho tôi xin thực đơn." },
+    { "zh": "菜单", "pinyin": "cài dān", "vi": "Thực đơn", "pos": "noun", "img": "📋", "connect": "菜单 = thái đơn, tờ đơn ghi các món. Chữ thái nghĩa là rau, món ăn.", "ex": "菜单上有图片。", "exVi": "Trên thực đơn có hình ảnh." },
+    { "zh": "点菜", "pinyin": "diǎn cài", "vi": "Gọi món", "pos": "verb", "img": "☝️", "connect": "点菜 = điểm thái, chỉ điểm vào món mình muốn.", "ex": "我们点菜吧。", "exVi": "Chúng ta gọi món đi." },
+    { "zh": "好喝", "pinyin": "hǎo hē", "vi": "Ngon (đồ uống)", "pos": "adj", "img": "🥤", "connect": "好 = hảo (tốt) + 喝 (uống) → uống thấy ngon. Đồ ăn thì phải nói 好吃.", "ex": "这个茶很好喝。", "exVi": "Trà này rất ngon." },
+    { "zh": "辣", "pinyin": "là", "vi": "Cay", "pos": "adj", "img": "🌶️", "connect": "辣 = lạt, chữ trong cay lạt của tiếng Việt xưa, ớt gọi là lạt tiêu.", "ex": "我不能吃太辣。", "exVi": "Tôi không ăn được cay quá." },
+    { "zh": "甜", "pinyin": "tián", "vi": "Ngọt", "pos": "adj", "img": "🍬", "connect": "甜 = điềm, ghép 舌 (thiệt = lưỡi) + 甘 (cam = ngọt) → lưỡi nếm thấy ngọt.", "ex": "这个汤有点甜。", "exVi": "Canh này hơi ngọt." },
+    { "zh": "筷子", "pinyin": "kuài zi", "vi": "Đũa", "pos": "noun", "img": "🥢", "connect": "筷 = khoái, có bộ 竹 (trúc = tre) ở trên — hai thanh tre gắp đồ ăn.", "ex": "请给我一双筷子。", "exVi": "Cho tôi xin một đôi đũa." },
+    { "zh": "打包", "pinyin": "dǎ bāo", "vi": "Gói mang về", "pos": "verb", "img": "🥡", "connect": "打包 = đả bao, gói lại thành bao. Ăn không hết thì nói câu này.", "ex": "吃不完，打包吧。", "exVi": "Ăn không hết, gói mang về đi." },
+    { "zh": "买单", "pinyin": "mǎi dān", "vi": "Tính tiền", "pos": "verb", "img": "🧾", "connect": "买单 = mãi đơn, mua lại tờ hoá đơn — cách nói tính tiền ở quán.", "ex": "服务员，买单！", "exVi": "Bạn ơi, tính tiền!" },
+    { "zh": "饱", "pinyin": "bǎo", "vi": "No", "pos": "adj", "img": "🤤", "connect": "饱 = bão, chữ trong no đủ là bão hoà, ăn no gọi là ẩm thực bão.", "ex": "我吃饱了，谢谢。", "exVi": "Tôi ăn no rồi, cảm ơn." },
+    { "zh": "味道", "pinyin": "wèi dào", "vi": "Mùi vị", "pos": "noun", "img": "👃", "connect": "味道 = vị đạo, chữ vị trong khẩu vị, hương vị.", "ex": "这个味道很特别。", "exVi": "Mùi vị này rất đặc biệt." }
+  ]
+}

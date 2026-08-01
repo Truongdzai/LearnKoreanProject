@@ -1,5 +1,10 @@
 import Icon, { type IconName } from '@/core/components/Icon'
-import { TARGET_WORDS, ALL_WORDS, PLAN_12_WEEKS, PLAN_TASK_TOTAL, UNITS } from '@/data/englishCore'
+import {
+  TARGET_WORDS, ALL_WORDS, UNITS,
+  PLAN_12_WEEKS, PLAN_TASK_TOTAL,
+  PLAN_12_WEEKS_BOOT, PLAN_BOOT_TASK_TOTAL,
+  type RoadmapMode,
+} from '@/data/englishCore'
 import { PRON_GROUPS } from '@/data/englishPronunciation'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
@@ -17,7 +22,22 @@ const ICES = [
   { k: 'S', label: 'Sound', desc: 'Nghe và nhại lại đúng phát âm, đúng trọng âm.' },
 ]
 
+const MODES: { id: RoadmapMode; icon: IconName; name: string; time: string; goal: string; desc: string }[] = [
+  {
+    id: 'lite', icon: 'cards', name: 'Cơ bản', time: '45–60 phút/ngày',
+    goal: 'Giao tiếp sinh tồn (A2)',
+    desc: 'Học bên cạnh công việc, trường lớp. Nền móng vững, không kiệt sức.',
+  },
+  {
+    id: 'boot', icon: 'flame', name: 'Bootcamp', time: '7–8 giờ/ngày',
+    goal: 'Giỏi giao tiếp (B1–B2)',
+    desc: 'Toàn thời gian như một khoá quân sự: 630–700 giờ trong 90 ngày, kể cả bắt đầu từ số 0.',
+  },
+]
+
 interface Props {
+  mode: RoadmapMode
+  onMode: (m: RoadmapMode) => void
   onStart: () => void
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
@@ -26,16 +46,21 @@ interface Props {
   onPron: (groupId?: string) => void
 }
 
-export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary, onGrammar, onPron }: Props) {
+export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron }: Props) {
   const { learned } = useLearnedWords()
   const day = Math.min(planDay(readPlan().start), 90)
+  const boot = mode === 'boot'
 
   return (
     <div className="en-overview">
       <div className="en-hero">
-        <div className="en-hero-badge"><Icon name="rocket" size={14} /> Lộ trình 3 tháng</div>
-        <h1>Học giỏi Tiếng Anh trong 3 tháng</h1>
-        <p>Đi theo <b>Quy tắc 3C</b> và phương pháp <b>ICES</b>: học đúng từ cần học, nhớ bằng hình ảnh – liên tưởng – trải nghiệm – âm thanh, rồi củng cố bằng lặp lại ngắt quãng.</p>
+        <div className="en-hero-badge"><Icon name="rocket" size={14} /> {boot ? 'Bootcamp 90 ngày' : 'Lộ trình 3 tháng'}</div>
+        <h1>{boot ? 'Giỏi Tiếng Anh trong 90 ngày' : 'Nói được Tiếng Anh trong 3 tháng'}</h1>
+        {boot ? (
+          <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 18 bài ngữ pháp, 12 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
+        ) : (
+          <p>Đi theo <b>Quy tắc 3C</b> và phương pháp <b>ICES</b>: học đúng từ cần học, nhớ bằng hình ảnh – liên tưởng – trải nghiệm – âm thanh, rồi củng cố bằng lặp lại ngắt quãng. Đủ 4 kỹ năng nghe – nói – đọc – viết ngay trong lộ trình.</p>
+        )}
         <div className="en-hero-stats">
           {day > 0 && <div><b>{day}</b><span>ngày đã đi / 90</span></div>}
           <div><b>{ALL_WORDS.length}</b><span>từ lõi sẵn sàng</span></div>
@@ -45,8 +70,25 @@ export default function ProgramOverview({ onStart, onLearn, onQuiz, onSummary, o
         <button className="btn-primary lg" onClick={onStart}><Icon name="play" size={16} /> Bắt đầu học từ vựng</button>
       </div>
 
+      <div className="section-title"><span className="pin" /> Chọn cường độ của bạn</div>
+      <div className="mode-pick">
+        {MODES.map((m) => (
+          <button key={m.id} className={'mode-card' + (mode === m.id ? ' on' : '')} onClick={() => onMode(m.id)}>
+            <div className="mode-head"><Icon name={m.icon} size={17} /> <b>{m.name}</b> <span className="mode-time">{m.time}</span></div>
+            <div className="mode-goal">{m.goal}</div>
+            <p>{m.desc}</p>
+          </button>
+        ))}
+      </div>
+      <div className="mode-note">
+        <Icon name="bulb" size={15} />
+        {boot
+          ? 'Bootcamp dùng chung tiến độ từ vựng, ngữ pháp, phát âm với chế độ Cơ bản — đổi qua lại không mất gì, chỉ khác mật độ nhiệm vụ và chuẩn đầu ra.'
+          : 'Sự thật về số giờ: 45–60 phút/ngày trong 90 ngày ra mức A2. Muốn GIỎI ngay trong 90 ngày thì phải trả bằng giờ — chế độ Bootcamp 7–8 giờ/ngày dành cho người dồn toàn lực.'}
+      </div>
+
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
-      <RoadmapWeeks weeks={PLAN_12_WEEKS} taskTotal={PLAN_TASK_TOTAL} vocabUnits={UNITS}
+      <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>

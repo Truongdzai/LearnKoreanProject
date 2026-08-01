@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { speakEN, stopSpeak, englishVoiceStatus, koreanVoiceStatus, onVoicesChanged, VOICE_HELP, VOICE_HELP_KO } from '@/core/tts'
+import { speakEN, stopSpeak, englishVoiceStatus, koreanVoiceStatus, chineseVoiceStatus, onVoicesChanged, VOICE_HELP, VOICE_HELP_KO, VOICE_HELP_ZH } from '@/core/tts'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
 import { PRON_GROUPS, PRON_PASS, pronWords, scoreSpoken, type PronGroup } from '@/data/englishPronunciation'
@@ -22,6 +22,14 @@ interface LabCtx {
 
 const CTX: LabCtx = { lang: 'en', speak: speakEN, srLang: 'en-US' }
 
+const SR_LANG: Record<string, string> = { ko: 'ko-KR', zh: 'zh-CN', en: 'en-US' }
+
+const VOICE_INFO: Record<string, { name: string; check: () => 'ready' | 'none' | 'unknown'; help: { os: string; how: string }[] }> = {
+  ko: { name: 'tiếng Hàn', check: koreanVoiceStatus, help: VOICE_HELP_KO },
+  zh: { name: 'tiếng Trung', check: chineseVoiceStatus, help: VOICE_HELP_ZH },
+  en: { name: 'tiếng Anh', check: englishVoiceStatus, help: VOICE_HELP },
+}
+
 export default function PronunciationLab({
   initialGroup,
   lang = 'en',
@@ -31,7 +39,7 @@ export default function PronunciationLab({
 }: Props) {
   CTX.lang = lang
   CTX.speak = speak
-  CTX.srLang = lang === 'ko' ? 'ko-KR' : 'en-US'
+  CTX.srLang = SR_LANG[lang] ?? 'en-US'
 
   const { recordEvent } = useAppStore()
   const { pron, record } = usePronProgress(lang)
@@ -93,14 +101,15 @@ export default function PronunciationLab({
 }
 
 function VoiceNotice({ lang }: { lang: string }) {
-  const check = lang === 'ko' ? koreanVoiceStatus : englishVoiceStatus
+  const info = VOICE_INFO[lang] ?? VOICE_INFO.en
+  const check = info.check
   const [status, setStatus] = useState(check)
   useEffect(() => onVoicesChanged(() => setStatus(check())), [check])
   if (status !== 'none') return null
-  const help = lang === 'ko' ? VOICE_HELP_KO : VOICE_HELP
+  const help = info.help
   return (
     <div className="pron-warn">
-      <b><Icon name="volume" size={15} /> Máy chưa có giọng đọc {lang === 'ko' ? 'tiếng Hàn' : 'tiếng Anh'}</b>
+      <b><Icon name="volume" size={15} /> Máy chưa có giọng đọc {info.name}</b>
       <p>Bạn vẫn luyện đọc và chấm điểm được, chỉ là chưa nghe được câu mẫu. Cách cài giọng:</p>
       <ul>
         {help.map((h) => <li key={h.os}><b>{h.os}:</b> {h.how}</li>)}

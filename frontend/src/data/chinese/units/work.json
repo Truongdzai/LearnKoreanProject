@@ -1,0 +1,22 @@
+{
+  "id": "zh-work",
+  "name": "Công việc & văn phòng",
+  "sub": "Nói được mình làm nghề gì, ở đâu, bận thế nào.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "💼",
+  "words": [
+    { "zh": "经理", "pinyin": "jīng lǐ", "vi": "Giám đốc, quản lý", "pos": "noun", "img": "🧑‍💼", "connect": "经理 = kinh lý, người lo việc kinh doanh, quản lý. Chữ kinh trong kinh tế.", "ex": "我们经理是中国人。", "exVi": "Giám đốc của chúng tôi là người Trung Quốc." },
+    { "zh": "公司", "pinyin": "gōng sī", "vi": "Công ty", "pos": "noun", "img": "🏢", "connect": "公司 = công ty, đọc gần y hệt tiếng Việt.", "ex": "我在一家外国公司工作。", "exVi": "Tôi làm ở một công ty nước ngoài." },
+    { "zh": "老板", "pinyin": "lǎo bǎn", "vi": "Ông chủ, sếp", "pos": "noun", "img": "🧑‍💼", "connect": "老板 = lão bản. Trong tiếng Việt ta cũng gọi vui là lão bản, ông chủ tiệm.", "ex": "老板今天不在。", "exVi": "Hôm nay sếp không có ở đây." },
+    { "zh": "同事", "pinyin": "tóng shì", "vi": "Đồng nghiệp", "pos": "noun", "img": "👥", "connect": "同事 = đồng sự, người cùng làm một việc với mình.", "ex": "我的同事都很好。", "exVi": "Đồng nghiệp của tôi đều rất tốt." },
+    { "zh": "会议", "pinyin": "huì yì", "vi": "Cuộc họp", "pos": "noun", "img": "📊", "connect": "会议 = hội nghị, đúng chữ trong tiếng Việt.", "ex": "下午两点开会议。", "exVi": "Hai giờ chiều họp." },
+    { "zh": "办公室", "pinyin": "bàn gōng shì", "vi": "Văn phòng", "pos": "noun", "img": "🏬", "connect": "办公室 = biện công thất, phòng để làm việc công.", "ex": "他在办公室等你。", "exVi": "Anh ấy đợi bạn ở văn phòng." },
+    { "zh": "电脑", "pinyin": "diàn nǎo", "vi": "Máy tính", "pos": "noun", "img": "💻", "connect": "电脑 = điện não, cái não chạy bằng điện — cách gọi rất hình ảnh.", "ex": "我的电脑坏了。", "exVi": "Máy tính của tôi hỏng rồi." },
+    { "zh": "手机", "pinyin": "shǒu jī", "vi": "Điện thoại di động", "pos": "noun", "img": "📱", "connect": "手机 = thủ cơ, cái máy cầm trên tay.", "ex": "我的手机没电了。", "exVi": "Điện thoại của tôi hết pin rồi." },
+    { "zh": "加班", "pinyin": "jiā bān", "vi": "Tăng ca, làm thêm giờ", "pos": "verb", "img": "🌙", "connect": "加班 = gia ban, thêm ca làm. Chữ gia trong gia tăng, gia vị.", "ex": "这个星期我天天加班。", "exVi": "Tuần này ngày nào tôi cũng tăng ca." },
+    { "zh": "上班", "pinyin": "shàng bān", "vi": "Đi làm", "pos": "verb", "img": "🚶", "connect": "上班 = thượng ban, lên ca làm. Chữ ban trong ca ban, ban đêm ban ngày.", "ex": "我每天八点上班。", "exVi": "Ngày nào tôi cũng đi làm lúc tám giờ." },
+    { "zh": "下班", "pinyin": "xià bān", "vi": "Tan làm", "pos": "verb", "img": "🏠", "connect": "下班 = hạ ban, xuống ca — ngược với 上班.", "ex": "我五点半下班。", "exVi": "Tôi tan làm lúc năm giờ rưỡi." },
+    { "zh": "工资", "pinyin": "gōng zī", "vi": "Tiền lương", "pos": "noun", "img": "💰", "connect": "工资 = công tư, tiền trả cho công sức. Chữ tư trong tư bản, vốn liếng.", "ex": "这里的工资不高。", "exVi": "Lương ở đây không cao." }
+  ]
+}
