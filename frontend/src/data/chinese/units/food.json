@@ -1,0 +1,22 @@
+{
+  "id": "zh-food",
+  "name": "Ăn uống & gọi món",
+  "sub": "Đủ để bước vào quán, gọi món và trả tiền.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "🍜",
+  "words": [
+    { "zh": "饭", "pinyin": "fàn", "vi": "Cơm, bữa ăn", "pos": "noun", "img": "🍚", "connect": "饭 = phạn, như \"phạn điếm\" (quán cơm). 吃饭 = ăn cơm, cũng là \"ăn bữa\" nói chung.", "ex": "你吃饭了吗？", "exVi": "Bạn ăn cơm chưa?" },
+    { "zh": "菜", "pinyin": "cài", "vi": "Món ăn, rau", "pos": "noun", "img": "🥬", "connect": "菜 = thái, như \"rau thái\". Có bộ 艹 (cỏ) ở trên vì gốc là rau.", "ex": "这个菜很好吃。", "exVi": "Món này rất ngon." },
+    { "zh": "水", "pinyin": "shuǐ", "vi": "Nước", "pos": "noun", "img": "💧", "connect": "水 = thuỷ, như \"thuỷ sản\", \"phong thuỷ\".", "ex": "请给我一杯水。", "exVi": "Cho tôi xin một cốc nước." },
+    { "zh": "茶", "pinyin": "chá", "vi": "Trà", "pos": "noun", "img": "🍵", "connect": "茶 = trà, đọc gần y hệt tiếng Việt.", "ex": "中国人喜欢喝茶。", "exVi": "Người Trung Quốc thích uống trà." },
+    { "zh": "水果", "pinyin": "shuǐ guǒ", "vi": "Trái cây", "pos": "noun", "img": "🍎", "connect": "水 = thuỷ + 果 = quả → \"thuỷ quả\", thứ quả mọng nước.", "ex": "我每天吃水果。", "exVi": "Ngày nào tôi cũng ăn trái cây." },
+    { "zh": "苹果", "pinyin": "píng guǒ", "vi": "Quả táo", "pos": "noun", "img": "🍎", "connect": "苹 = bình + 果 = quả → \"bình quả\". Hãng Apple ở Trung Quốc cũng gọi đúng tên này.", "ex": "这些苹果很甜。", "exVi": "Mấy quả táo này rất ngọt." },
+    { "zh": "米饭", "pinyin": "mǐ fàn", "vi": "Cơm trắng", "pos": "noun", "img": "🍚", "connect": "米 = mễ (gạo) + 饭 = phạn → cơm nấu từ gạo.", "ex": "我要一碗米饭。", "exVi": "Tôi muốn một bát cơm." },
+    { "zh": "面条", "pinyin": "miàn tiáo", "vi": "Mì, bún sợi", "pos": "noun", "img": "🍜", "connect": "面 = miến (bột mì) + 条 = điều (sợi dài) → sợi mì.", "ex": "他点了一碗面条。", "exVi": "Anh ấy gọi một bát mì." },
+    { "zh": "鸡蛋", "pinyin": "jī dàn", "vi": "Trứng gà", "pos": "noun", "img": "🥚", "connect": "鸡 = kê (gà, như \"kê gà\" trong tử vi) + 蛋 = đản (trứng).", "ex": "早饭我吃两个鸡蛋。", "exVi": "Bữa sáng tôi ăn hai quả trứng." },
+    { "zh": "好吃", "pinyin": "hǎo chī", "vi": "Ngon", "pos": "adj", "img": "😋", "connect": "好 = hảo (tốt) + 吃 (ăn) → \"tốt để ăn\" tức là ngon. Uống ngon thì nói 好喝.", "ex": "妈妈做的菜最好吃。", "exVi": "Món mẹ nấu là ngon nhất." },
+    { "zh": "饭馆", "pinyin": "fàn guǎn", "vi": "Quán ăn, nhà hàng", "pos": "noun", "img": "🍽️", "connect": "饭 = phạn + 馆 = quán → \"phạn quán\", đúng chữ \"quán\" của tiếng Việt.", "ex": "这家饭馆很便宜。", "exVi": "Quán ăn này rất rẻ." },
+    { "zh": "杯子", "pinyin": "bēi zi", "vi": "Cái cốc, ly", "pos": "noun", "img": "🥛", "connect": "杯 = bôi, như \"cạn bôi\" (cạn ly) trong thơ cổ.", "ex": "桌子上有两个杯子。", "exVi": "Trên bàn có hai cái cốc." }
+  ]
+}

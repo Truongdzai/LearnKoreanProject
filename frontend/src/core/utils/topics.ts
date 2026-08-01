@@ -1,5 +1,3 @@
-/** Chủ đề từ vựng do người dùng tạo — lưu cục bộ theo tài khoản. */
-
 const KEY = 'vyling.topics'
 
 function storeKey(uid: string): string {
@@ -17,10 +15,9 @@ export function getTopics(uid: string): string[] {
 }
 
 function save(uid: string, topics: string[]): void {
-  try { localStorage.setItem(storeKey(uid), JSON.stringify(topics)) } catch { /* ignore */ }
+  try { localStorage.setItem(storeKey(uid), JSON.stringify(topics)) } catch {}
 }
 
-/** Thêm một chủ đề (không phân biệt hoa thường khi kiểm tra trùng). Trả về danh sách mới. */
 export function addTopic(uid: string, name: string): string[] {
   const clean = name.trim()
   if (!clean) return getTopics(uid)

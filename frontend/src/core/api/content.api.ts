@@ -27,5 +27,5 @@ export const fetchPlans = () =>
 export const fetchQuestCatalog = () =>
   apiClient.get<{ quests: Quest[] }>('/api/content/quests')
 
-export const fetchLeaderboard = () =>
-  apiClient.get<{ entries: LeaderEntry[] }>('/api/content/leaderboard')
+export const fetchLeaderboard = (scope: 'week' | 'all' = 'all') =>
+  apiClient.get<{ entries: LeaderEntry[] }>('/api/content/leaderboard?scope=' + scope)

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { ALL_WORDS as EN_ALL_WORDS, UNITS as EN_UNITS, wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/englishCore'
+import { wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/vocabCore'
 import { useAppStore } from '@/store/app.store'
 import { speakEN } from '../progress'
 
@@ -12,8 +12,8 @@ interface Q {
 
 interface Props {
   units?: string[]
-  allUnits?: VocabUnit[]
-  allWords?: IcesWord[]
+  allUnits: VocabUnit[]
+  allWords: IcesWord[]
   speak?: (text: string) => void
   lang?: string
   heading?: string
@@ -45,8 +45,8 @@ function buildQuiz(pool: IcesWord[], allWords: IcesWord[]): Q[] {
 
 export default function VocabQuiz({
   units,
-  allUnits = EN_UNITS,
-  allWords = EN_ALL_WORDS,
+  allUnits,
+  allWords,
   speak = speakEN,
   lang = 'en',
   heading,

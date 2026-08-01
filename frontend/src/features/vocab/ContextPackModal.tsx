@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
+import { useDialog } from '@/core/a11y'
 import type { ContextPack } from '@/data/contextPacks'
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 
 export default function ContextPackModal({ pack, lang, onClose, onAdded }: Props) {
   const { recordEvent, t } = useAppStore()
+  const boxRef = useDialog<HTMLDivElement>(true, onClose)
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState('')
   const words = pack.words[lang] || []
@@ -43,8 +45,8 @@ export default function ContextPackModal({ pack, lang, onClose, onAdded }: Props
 
   return (
     <div className="auth-backdrop" onClick={onClose}>
-      <div className="auth-modal pack-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="lookup-close auth-close" onClick={onClose}><Icon name="x" /></button>
+      <div className="auth-modal pack-modal" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="pack-title" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="lookup-close auth-close" onClick={onClose} aria-label={t('a11y.close')}><Icon name="x" /></button>
 
         <div className="auth-head">
           <span className="pack-emoji">{pack.emoji}</span>

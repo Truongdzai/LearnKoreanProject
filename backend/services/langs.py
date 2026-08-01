@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-# Bản đồ tên ngôn ngữ dùng chung toàn backend (prompt AI đọc tự nhiên).
-# Trước đây lặp ở dictionary/pronounce/speaking/youtube — sửa 1 chỗ là đủ.
 
 STUDY_LANGS = {
     "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",

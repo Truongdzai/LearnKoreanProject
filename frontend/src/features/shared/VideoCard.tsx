@@ -1,6 +1,7 @@
 import { thumbUrl } from '@/data/videos'
 import Icon from '@/core/components/Icon'
 import type { Video } from '@/models/video.model'
+import type { FitScore } from '@/core/api/tutor.api'
 
 interface Props {
   video: Video
@@ -8,9 +9,12 @@ interface Props {
   saved?: boolean
   onToggleSave?: (v: Video) => void
   saveLabel?: string
+  fit?: FitScore
 }
 
-export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabel }: Props) {
+const FIT_LABEL: Record<string, string> = { fit: 'Vừa sức', easy: 'Dễ', hard: 'Hơi khó' }
+
+export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabel, fit }: Props) {
   return (
     <div className="vcard" onClick={() => onPick(video)} title={video.title}>
       <div className={'thumb ' + video.tone}>
@@ -23,6 +27,11 @@ export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabe
           }}
         />
         <span className="ko-tag" lang="ko">{video.topic}</span>
+        {fit && FIT_LABEL[fit.band] && (
+          <span className={'fit-badge lib-fit ' + fit.band} title={`${fit.known_pct}% từ trong video này bạn đã biết`}>
+            {FIT_LABEL[fit.band]} · {fit.known_pct}%
+          </span>
+        )}
         <span className="play">▶</span>
         <span className="dur">{video.dur}</span>
         {onToggleSave && (

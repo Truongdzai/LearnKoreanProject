@@ -28,7 +28,6 @@ export default function PathPage() {
   const [level, setLevel] = useState('')
   const [created, setCreated] = useState<LearningPath | null>(null)
 
-  // Arriving here from the sidebar flag switch → jump straight into the wizard.
   useEffect(() => {
     if (!wizardRequested) return
     setStep(0); setLang(learnLang); setNative(nativeLang)
@@ -37,7 +36,6 @@ export default function PathPage() {
     clearWizard()
   }, [wizardRequested, learnLang, nativeLang, clearWizard, learnGoal])
 
-  // Chọn ngôn ngữ trong wizard chỉ đổi lựa chọn cục bộ — chỉ áp dụng cho cả app khi bấm Xác nhận.
   const pickStudy = (code: string) => setLang(code)
   const pickNative = (code: string) => setNative(code)
 
@@ -67,14 +65,13 @@ export default function PathPage() {
       progress: 0,
       learnGoal: learnGoal || undefined,
     }
-    try { await addPath(path) } catch { /* khách: vẫn xem được, đăng nhập để lưu */ }
+    try { await addPath(path) } catch {}
     setCreated(path)
     setMode('result')
   }
 
   const canNext = [lang !== '' && native !== '', goals.length > 0, true, level !== ''][step]
 
-  // ---- Landing ----
   if (mode === 'landing') {
     return (
       <div className="path">
@@ -117,7 +114,6 @@ export default function PathPage() {
     )
   }
 
-  // ---- Result ----
   if (mode === 'result' && created) {
     return (
       <div className="path">
@@ -169,7 +165,6 @@ export default function PathPage() {
     )
   }
 
-  // ---- Wizard ----
   return (
     <div className="wizard">
       <div className="wiz-head"><div className="path-hero-ic sm"><Icon name="map" /></div> {t('path.wizTitle')}</div>

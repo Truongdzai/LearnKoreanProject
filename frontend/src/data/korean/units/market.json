@@ -1,0 +1,130 @@
+{
+  "id": "market",
+  "name": "Siêu thị & đơn vị đóng gói",
+  "sub": "Đi chợ, đi siêu thị: đếm đúng đơn vị và đọc được nhãn hàng.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "🛒",
+  "words": [
+    {
+      "ko": "봉지",
+      "romaja": "bongji",
+      "vi": "Túi (đơn vị)",
+      "pos": "noun",
+      "img": "🛍️",
+      "connect": "Một túi bánh, một túi rau — đếm đồ đóng túi.",
+      "ex": "과자 한 봉지 주세요.",
+      "exVi": "Cho tôi một túi bánh ạ."
+    },
+    {
+      "ko": "팩",
+      "romaja": "paek",
+      "vi": "Hộp, vỉ (đơn vị)",
+      "pos": "noun",
+      "img": "🧃",
+      "connect": "Từ mượn \"pack\" — sữa, trứng, thịt bán theo 팩.",
+      "ex": "우유 두 팩 샀어요.",
+      "exVi": "Tôi đã mua hai hộp sữa."
+    },
+    {
+      "ko": "킬로",
+      "romaja": "killo",
+      "vi": "Ki-lô-gam (nói tắt)",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "Người Hàn nói tắt 킬로 thay cho 킬로그램.",
+      "ex": "사과 두 킬로 주세요.",
+      "exVi": "Cho tôi hai ký táo ạ."
+    },
+    {
+      "ko": "그램",
+      "romaja": "geuraem",
+      "vi": "Gam",
+      "pos": "noun",
+      "img": "🧮",
+      "connect": "Từ mượn \"gram\", hay thấy trên nhãn hàng.",
+      "ex": "삼백 그램이에요.",
+      "exVi": "Ba trăm gam ạ."
+    },
+    {
+      "ko": "유통기한",
+      "romaja": "yutonggihan",
+      "vi": "Hạn sử dụng",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "유통기한 chính là âm Hán \"lưu thông kỳ hạn\".",
+      "ex": "유통기한을 확인하세요.",
+      "exVi": "Hãy kiểm tra hạn sử dụng."
+    },
+    {
+      "ko": "영업시간",
+      "romaja": "yeongeopsigan",
+      "vi": "Giờ mở cửa",
+      "pos": "noun",
+      "img": "🕘",
+      "connect": "영업 = \"doanh nghiệp\" + 시간 (thời gian) đã học.",
+      "ex": "영업시간이 어떻게 돼요?",
+      "exVi": "Cửa hàng mở cửa mấy giờ ạ?"
+    },
+    {
+      "ko": "계산대",
+      "romaja": "gyesandae",
+      "vi": "Quầy thanh toán",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "계산하다 (tính tiền) đã học + 대 (bàn, quầy).",
+      "ex": "계산대에서 기다리세요.",
+      "exVi": "Hãy đợi ở quầy thanh toán."
+    },
+    {
+      "ko": "장바구니",
+      "romaja": "jangbaguni",
+      "vi": "Giỏ đi chợ",
+      "pos": "noun",
+      "img": "🧺",
+      "connect": "장 (chợ) + 바구니 (giỏ). Trên web cũng là giỏ hàng.",
+      "ex": "장바구니에 담았어요.",
+      "exVi": "Tôi đã cho vào giỏ hàng."
+    },
+    {
+      "ko": "신선하다",
+      "romaja": "sinseonhada",
+      "vi": "Tươi",
+      "pos": "adj",
+      "img": "🥬",
+      "connect": "신선 chính là âm Hán \"tân tiên\".",
+      "ex": "채소가 신선해요.",
+      "exVi": "Rau tươi lắm."
+    },
+    {
+      "ko": "상하다",
+      "romaja": "sanghada",
+      "vi": "Bị hỏng, ôi thiu",
+      "pos": "verb",
+      "img": "🤢",
+      "connect": "상 chính là âm Hán \"thương\" — đồ ăn bị tổn.",
+      "ex": "우유가 상했어요.",
+      "exVi": "Sữa bị hỏng rồi."
+    },
+    {
+      "ko": "무료",
+      "romaja": "muryo",
+      "vi": "Miễn phí",
+      "pos": "noun",
+      "img": "🆓",
+      "connect": "무료 chính là âm Hán \"vô liệu\" — không mất phí.",
+      "ex": "배송이 무료예요.",
+      "exVi": "Giao hàng miễn phí ạ."
+    },
+    {
+      "ko": "반값",
+      "romaja": "bangap",
+      "vi": "Nửa giá",
+      "pos": "noun",
+      "img": "🏷️",
+      "connect": "반 (một nửa) + 값 (giá) — biển giảm giá hay ghi.",
+      "ex": "반값에 샀어요.",
+      "exVi": "Tôi mua được nửa giá."
+    }
+  ]
+}

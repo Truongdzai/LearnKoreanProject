@@ -8,7 +8,6 @@ import type { Lesson } from '@/models/lesson.model'
 const norm = (s: string) =>
   s.toLowerCase().normalize('NFC').replace(/[.,!?;:"'()]/g, '').trim()
 
-/** crude token-overlap similarity 0–100 */
 function score(answer: string, ref: string): number {
   const a = norm(answer).split(/\s+/).filter(Boolean)
   const b = norm(ref).split(/\s+/).filter(Boolean)
@@ -76,7 +75,7 @@ export default function TranslatePractice({ lesson }: { lesson: Lesson }) {
           value={val}
           onChange={(e) => setVal(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); revealed ? next() : check() } }}
-          placeholder={t('tp.placeholder')}
+          placeholder={t('tp.placeholder')} aria-label={t('tp.placeholder')}
           disabled={revealed}
           rows={2}
         />

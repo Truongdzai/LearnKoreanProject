@@ -7,35 +7,32 @@ const SIZE_KEY = 'vyling.pet.size'
 const HIDDEN_KEY = 'vyling.pet.hidden'
 const SESSION_KEY = 'vyling.pet.sessionStart'
 const ACT_KEY = 'vyling.pet.lastActivity'
-const POMO_KEY = 'vyling.pet.pomo'        // phiên Pomodoro đang chạy (để giữ qua lần tải lại)
-const POMO_CFG_KEY = 'vyling.pet.pomoCfg' // thời lượng học/nghỉ đã chọn lần trước
+const POMO_KEY = 'vyling.pet.pomo'
+const POMO_CFG_KEY = 'vyling.pet.pomoCfg'
 
 const SIZES: Record<string, number> = { sm: 78, md: 104, lg: 140 }
 
-// ---- Nhịp đổi biểu cảm (đã cho chậm lại cho dễ chịu) ----
-const TICK = 20_000          // chu kỳ đánh giá trạng thái
-const BLINK_EVERY = 5_200    // chớp mắt
+const TICK = 20_000
+const BLINK_EVERY = 5_200
 const IDLE_EXPR_EVERY = 24_000
-const IDLE_EXPR_CHANCE = 0.5 // không phải lúc nào tới hẹn cũng đổi mặt
-const YAWN_EVERY = 60_000    // lúc mệt, lâu lâu ngáp một cái
+const IDLE_EXPR_CHANCE = 0.5
+const YAWN_EVERY = 60_000
 
-// ---- Mốc thời gian học / nghỉ ----
-const YAWN_AFTER = 4 * 3_600_000   // học liên tục 4h -> bắt đầu ngáp
-const SLEEP_AFTER = 5 * 3_600_000  // 5h -> lăn ra ngủ, khuyên nghỉ
-const LONG_IDLE = 25 * 60_000      // không hoạt động lâu -> nhắc học
-const AWAY_RESET = 15 * 60_000     // vắng quá lâu -> tính là phiên học mới
-const NAG_COOLDOWN = 8 * 60_000    // giãn cách giữa các lần nhắc nhở
+const YAWN_AFTER = 4 * 3_600_000
+const SLEEP_AFTER = 5 * 3_600_000
+const LONG_IDLE = 25 * 60_000
+const AWAY_RESET = 15 * 60_000
+const NAG_COOLDOWN = 8 * 60_000
 
-// ---- Pomodoro ----
 type PomoPhase = 'focus' | 'break'
 interface Pomo {
   phase: PomoPhase
   focusMin: number
   breakMin: number
   round: number
-  endsAt: number   // mốc thời điểm kết thúc chặng hiện tại (khi đang chạy)
+  endsAt: number
   paused: boolean
-  leftMs: number   // thời gian còn lại (dùng khi tạm dừng / lưu lại)
+  leftMs: number
 }
 const POMO_PRESETS = [
   { id: 'standard', label: 'Standard', focus: 25, break: 5 },
@@ -53,8 +50,6 @@ const mmss = (sec: number): string => {
   return `${m}:${String(s % 60).padStart(2, '0')}`
 }
 
-// Một AudioContext dùng chung, được "mở khóa" ở lần người dùng tương tác đầu tiên.
-// Nhờ vậy chuông vẫn kêu được khi Pomodoro TỰ chuyển chặng (không có cú click trực tiếp).
 let audioCtx: AudioContext | null = null
 function unlockAudio(): AudioContext | null {
   try {
@@ -68,7 +63,6 @@ function unlockAudio(): AudioContext | null {
   } catch { return null }
 }
 
-// Gõ một tiếng chuông tại thời điểm t: cộng thêm bồi âm lệch để nghe ngân như chuông thật.
 function ring(ctx: AudioContext, freq: number, t: number, vol: number): void {
   const partials = [
     { mult: 1, gain: 1 },
@@ -89,12 +83,10 @@ function ring(ctx: AudioContext, freq: number, t: number, vol: number): void {
   }
 }
 
-// Chuông báo chuyển chặng. up=true: tới giờ HỌC (giai điệu đi lên, réo rắt);
-// up=false: tới giờ NGHỈ (giai điệu đi xuống, dịu nhẹ).
 function chime(up: boolean): void {
   const ctx = unlockAudio()
   if (!ctx) return
-  const seq = up ? [523.25, 659.25, 783.99] : [783.99, 659.25, 523.25] // C5 · E5 · G5
+  const seq = up ? [523.25, 659.25, 783.99] : [783.99, 659.25, 523.25]
   const t0 = ctx.currentTime + 0.02
   seq.forEach((f, i) => ring(ctx, f, t0 + i * 0.18, 0.24))
 }
@@ -105,22 +97,14 @@ const BASE_MOOD: Record<PetState, PetMood> = {
   normal: 'happy', tired: 'happy', sleep: 'sleep', study: 'reading', break: 'love',
 }
 
-// Thoại của pet lưu dạng KHOÁ i18n; bong bóng render qua t() nên đổi ngôn ngữ là đổi thoại.
 const CHEERS = ['pet.cheer1', 'pet.cheer2', 'pet.cheer3', 'pet.cheer4', 'pet.cheer5', 'pet.cheer6']
 
-// 4h: ngáp ngắn — nhắc nhẹ
 const YAWN_MSGS = ['pet.yawn1', 'pet.yawn2', 'pet.yawn3']
-// 5h: ngủ — khuyên nghỉ hẳn
 const REST_MSGS = ['pet.rest1', 'pet.rest2', 'pet.rest3']
-// Lười lâu không học: cầm sách nhắc — hài
 const STUDY_MSGS = ['pet.study1', 'pet.study2', 'pet.study3', 'pet.study4']
-// Học khuya (0–5h sáng): mặt sợ hãi — hù đi ngủ
 const LATE_MSGS = ['pet.late1', 'pet.late2', 'pet.late3']
-// Pomodoro — vào chặng học: cổ vũ tập trung
 const FOCUS_MSGS = ['pet.focus1', 'pet.focus2', 'pet.focus3']
-// Pomodoro — vào chặng nghỉ: khen thưởng, nhắc thư giãn
 const BREAK_MSGS = ['pet.break1', 'pet.break2', 'pet.break3']
-// Biểu cảm dễ thương random lúc rảnh (chỉ đổi mặt, không làm phiền bằng thoại)
 const IDLE_MOODS: PetMood[] = ['wink', 'shy', 'confused', 'love']
 
 const isLateNight = (): boolean => { const h = new Date().getHours(); return h >= 0 && h < 5 }
@@ -133,13 +117,13 @@ function loadCfg(): { focusMin: number; breakMin: number } {
     if (v && typeof v.focusMin === 'number' && typeof v.breakMin === 'number') {
       return { focusMin: clamp(v.focusMin, FOCUS_MIN, FOCUS_MAX), breakMin: clamp(v.breakMin, BREAK_MIN, BREAK_MAX) }
     }
-  } catch { /* ignore */ }
+  } catch {}
   return { focusMin: POMO_PRESETS[0].focus, breakMin: POMO_PRESETS[0].break }
 }
 
 export default function PetWidget() {
   const { setView, openLookup, t } = useAppStore()
-  const art = 'shiba' // hiện chỉ còn Shiba — các loài khác sẽ phát triển sau
+  const art = 'shiba'
 
   const [size, setSize] = useState<string>(() => {
     try { const v = localStorage.getItem(SIZE_KEY); return v && v in SIZES ? v : 'md' } catch { return 'md' }
@@ -153,15 +137,14 @@ export default function PetWidget() {
   const [hop, setHop] = useState(false)
   const [menu, setMenu] = useState(false)
 
-  // Pomodoro
   const [pomo, setPomo] = useState<Pomo | null>(null)
-  const [pomoLeft, setPomoLeft] = useState(0) // giây còn lại, để hiển thị đồng hồ
-  const [setup, setSetup] = useState(false)    // bảng chọn thời gian học/nghỉ
-  const [cfg, setCfg] = useState(loadCfg)      // thời lượng đang chọn ở bảng cài đặt
+  const [pomoLeft, setPomoLeft] = useState(0)
+  const [setup, setSetup] = useState(false)
+  const [cfg, setCfg] = useState(loadCfg)
 
   const stateRef = useRef<PetState>('normal')
   const baseMoodRef = useRef<PetMood>('happy')
-  const transient = useRef(false)        // đang diễn 1 biểu cảm tạm -> idle nhường
+  const transient = useRef(false)
   const lastActivity = useRef(Date.now())
   const sessionStart = useRef(Date.now())
   const lastNag = useRef(0)
@@ -176,7 +159,6 @@ export default function PetWidget() {
 
   useEffect(() => () => { timers.current.forEach(clearTimeout) }, [])
 
-  // Mở khóa âm thanh ở lần tương tác đầu tiên để chuông kêu được khi tự chuyển chặng.
   useEffect(() => {
     const unlock = () => unlockAudio()
     window.addEventListener('pointerdown', unlock, { once: true })
@@ -187,10 +169,9 @@ export default function PetWidget() {
     }
   }, [])
 
-  useEffect(() => { try { localStorage.setItem(SIZE_KEY, size) } catch { /* ignore */ } }, [size])
-  useEffect(() => { try { localStorage.setItem(HIDDEN_KEY, hidden ? '1' : '0') } catch { /* ignore */ } }, [hidden])
+  useEffect(() => { try { localStorage.setItem(SIZE_KEY, size) } catch {} }, [size])
+  useEffect(() => { try { localStorage.setItem(HIDDEN_KEY, hidden ? '1' : '0') } catch {} }, [hidden])
 
-  // Khôi phục đồng hồ phiên học từ lần trước (nếu vắng chưa lâu).
   useEffect(() => {
     const now = Date.now()
     try {
@@ -200,10 +181,9 @@ export default function PetWidget() {
         lastActivity.current = la
         sessionStart.current = ss
       }
-    } catch { /* ignore */ }
+    } catch {}
   }, [])
 
-  // Khôi phục phiên Pomodoro đang chạy (nếu có) sau khi tải lại trang.
   useEffect(() => {
     try {
       const raw = localStorage.getItem(POMO_KEY)
@@ -211,21 +191,19 @@ export default function PetWidget() {
       const p = JSON.parse(raw) as Pomo
       if (!p || (p.phase !== 'focus' && p.phase !== 'break')) return
       const now = Date.now()
-      // Nếu chặng đã hết trong lúc vắng mặt: cho bắt đầu lại chặng hiện tại từ bây giờ.
       if (!p.paused && p.endsAt <= now) { p.endsAt = now + phaseDur(p); p.leftMs = phaseDur(p) }
       else if (p.paused) p.endsAt = now + p.leftMs
       setPomo(p)
       setPomoLeft(Math.ceil((p.paused ? p.leftMs : p.endsAt - now) / 1000))
-    } catch { /* ignore */ }
+    } catch {}
   }, [])
 
-  // Đồng bộ ref + lưu phiên Pomodoro để giữ qua lần tải lại.
   useEffect(() => {
     pomoRef.current = pomo
     try {
       if (pomo) localStorage.setItem(POMO_KEY, JSON.stringify(pomo))
       else localStorage.removeItem(POMO_KEY)
-    } catch { /* ignore */ }
+    } catch {}
   }, [pomo])
 
   const nag = useCallback((msgs: string[]) => {
@@ -241,8 +219,6 @@ export default function PetWidget() {
     after(ms, () => setBubble(''))
   }, [after])
 
-  // Bộ não: quyết định trạng thái theo thời gian học & thời gian rảnh.
-  // Khi Pomodoro đang bật thì nhường quyền điều khiển cho Pomodoro.
   const decide = useCallback(() => {
     if (hidden || pomoRef.current) return
     const now = Date.now()
@@ -264,12 +240,11 @@ export default function PetWidget() {
     try {
       localStorage.setItem(SESSION_KEY, String(sessionStart.current))
       localStorage.setItem(ACT_KEY, String(lastActivity.current))
-    } catch { /* ignore */ }
+    } catch {}
   }, [hidden, nag])
 
   useEffect(() => { decideRef.current = decide }, [decide])
 
-  // Nhịp đánh giá trạng thái.
   useEffect(() => {
     if (hidden) return
     decide()
@@ -277,15 +252,14 @@ export default function PetWidget() {
     return () => clearInterval(id)
   }, [hidden, decide])
 
-  // Theo dõi hoạt động của người dùng (để biết đang học hay đang lười).
   useEffect(() => {
     const bump = () => {
       const now = Date.now()
       const gap = now - lastActivity.current
       lastActivity.current = now
-      if (pomoRef.current) return                       // Pomodoro tự quản trạng thái
-      if (gap > AWAY_RESET) sessionStart.current = now   // quay lại sau khi vắng lâu = phiên mới
-      if (gap > 60_000) decideRef.current()              // vừa hoạt động lại -> đánh giá ngay
+      if (pomoRef.current) return
+      if (gap > AWAY_RESET) sessionStart.current = now
+      if (gap > 60_000) decideRef.current()
     }
     const opts = { passive: true } as AddEventListenerOptions
     window.addEventListener('pointermove', bump, opts)
@@ -303,14 +277,12 @@ export default function PetWidget() {
     }
   }, [])
 
-  // Khi đổi trạng thái: đặt lại khuôn mặt nền tương ứng.
   useEffect(() => {
     transient.current = false
     baseMoodRef.current = BASE_MOOD[state]
     setMood(BASE_MOOD[state])
   }, [state])
 
-  // Pomodoro lái trạng thái pet: chặng học -> "study" (mặt đọc sách), chặng nghỉ -> "break".
   const pomoPhase = pomo?.phase
   useEffect(() => {
     if (!pomoPhase) return
@@ -319,7 +291,6 @@ export default function PetWidget() {
     setState(st)
   }, [pomoPhase])
 
-  // Đồng hồ đếm ngược Pomodoro + tự chuyển chặng.
   const focusMin = pomo?.focusMin
   const breakMin = pomo?.breakMin
   useEffect(() => {
@@ -353,10 +324,8 @@ export default function PetWidget() {
     tick()
     const id = window.setInterval(tick, 1000)
     return () => clearInterval(id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [!!pomo, focusMin, breakMin, say])
 
-  // Chớp mắt đều đặn (chỉ khi đang bình thường).
   useEffect(() => {
     if (hidden) return
     const id = window.setInterval(() => {
@@ -367,7 +336,6 @@ export default function PetWidget() {
     return () => clearInterval(id)
   }, [hidden, after])
 
-  // Thỉnh thoảng đổi sang một biểu cảm dễ thương rồi quay lại (lúc bình thường).
   useEffect(() => {
     if (hidden) return
     const id = window.setInterval(() => {
@@ -380,7 +348,6 @@ export default function PetWidget() {
     return () => clearInterval(id)
   }, [hidden, after])
 
-  // Lúc mệt (>4h): lâu lâu ngáp một cái.
   useEffect(() => {
     if (hidden) return
     const id = window.setInterval(() => {
@@ -392,7 +359,6 @@ export default function PetWidget() {
     return () => clearInterval(id)
   }, [hidden, after])
 
-  // Học khuya: hiện mặt sợ hãi + hù đại ca đi ngủ (khi đang thức học, chưa tới ngưỡng ngủ).
   useEffect(() => {
     if (hidden) return
     const id = window.setInterval(() => {
@@ -406,7 +372,6 @@ export default function PetWidget() {
     return () => clearInterval(id)
   }, [hidden, after, nag])
 
-  // Hook gỡ lỗi: trong môi trường dev có thể tua nhanh đồng hồ để kiểm thử.
   useEffect(() => {
     if (!import.meta.env.DEV) return
     ;(window as unknown as { __pet?: unknown }).__pet = {
@@ -417,7 +382,6 @@ export default function PetWidget() {
     }
   }, [])
 
-  // ---- Hành động Pomodoro ----
   const startPomo = useCallback((focus: number, brk: number) => {
     const f = clamp(focus, FOCUS_MIN, FOCUS_MAX)
     const b = clamp(brk, BREAK_MIN, BREAK_MAX)
@@ -426,7 +390,7 @@ export default function PetWidget() {
     setPomo({ phase: 'focus', focusMin: f, breakMin: b, round: 1, endsAt: Date.now() + dur, paused: false, leftMs: dur })
     setPomoLeft(f * 60)
     setCfg({ focusMin: f, breakMin: b })
-    try { localStorage.setItem(POMO_CFG_KEY, JSON.stringify({ focusMin: f, breakMin: b })) } catch { /* ignore */ }
+    try { localStorage.setItem(POMO_CFG_KEY, JSON.stringify({ focusMin: f, breakMin: b })) } catch {}
     setSetup(false); setMenu(false)
     lastActivity.current = Date.now()
     say(pick(FOCUS_MSGS))

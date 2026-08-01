@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import FitBadge from './components/FitBadge'
 import { useAppStore } from '@/store/app.store'
 import { estimateLevel, type LevelResult } from '@/core/api/learn.api'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
@@ -13,6 +14,7 @@ import DictationPractice from './components/DictationPractice'
 import ClozePractice from './components/ClozePractice'
 import DubbingStudio from './components/DubbingStudio'
 import type { LearnTab } from '@/core/constants/enum'
+import { useTabs } from '@/core/a11y'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'Shadowing' },
@@ -23,6 +25,7 @@ const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'luyendich', ic: 'globe', label: 'learn.tab.translate' },
   { id: 'tomtat', ic: 'note', label: 'learn.tab.summary' },
 ]
+const TAB_IDS = TABS.map((t) => t.id)
 
 export default function LearnPage() {
   const { lesson, status, statusError, setView, t, learnLang } = useAppStore()
@@ -31,6 +34,7 @@ export default function LearnPage() {
   const [level, setLevel] = useState<LevelResult | null>(null)
   const [levelBusy, setLevelBusy] = useState(false)
   const yt = useYouTubePlayer()
+  const tabs = useTabs('learn', TAB_IDS, tab, setTab)
 
   useEffect(() => {
     if (lesson) {
@@ -46,7 +50,7 @@ export default function LearnPage() {
     try {
       const text = lesson.segments.map((s) => s.ko).join(' ')
       setLevel(await estimateLevel(lesson.id, learnLang, text))
-    } catch { /* im lặng — chip giữ nguyên để bấm lại */ } finally {
+    } catch {} finally {
       setLevelBusy(false)
     }
   }
@@ -107,16 +111,18 @@ export default function LearnPage() {
           )}
         </div>
         {level?.reason && <div className="cefr-reason">{level.reason}</div>}
+        <FitBadge videoId={lesson.id} lang={learnLang} />
       </div>
 
-      <div className="learn-tabs">
+      <div className="learn-tabs" {...tabs.list}>
         {TABS.map((tb) => (
-          <button key={tb.id} className={tab === tb.id ? 'on' : ''} onClick={() => setTab(tb.id)}>
+          <button key={tb.id} {...tabs.tab(tb.id)} className={tab === tb.id ? 'on' : ''} onClick={() => setTab(tb.id)}>
             <Icon name={tb.ic} /> {tb.label.includes('.') ? t(tb.label) : tb.label}
           </button>
         ))}
       </div>
 
+      <div {...tabs.panel(tab)}>
       {tab === 'shadowing' ? (
         <div className="learn-grid">
           <div className="player-col">
@@ -143,6 +149,7 @@ export default function LearnPage() {
       ) : (
         <TranslatePractice lesson={lesson} />
       )}
+      </div>
     </>
   )
 }

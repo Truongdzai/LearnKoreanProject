@@ -1,0 +1,130 @@
+{
+  "id": "street",
+  "name": "Chỉ đường chi tiết",
+  "sub": "Nghe được câu chỉ đường của người Hàn — dạng bài nghe kinh điển.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🚸",
+  "words": [
+    {
+      "ko": "사거리",
+      "romaja": "sageori",
+      "vi": "Ngã tư",
+      "pos": "noun",
+      "img": "➕",
+      "connect": "사 (bốn) đã học + 거리 (đường) → bốn ngả.",
+      "ex": "사거리에서 오른쪽으로 가세요.",
+      "exVi": "Đến ngã tư rẽ phải nhé."
+    },
+    {
+      "ko": "횡단보도",
+      "romaja": "hoengdanbodo",
+      "vi": "Vạch qua đường",
+      "pos": "noun",
+      "img": "🚶",
+      "connect": "횡단보도 chính là âm Hán \"hoành đoạn bộ đạo\".",
+      "ex": "횡단보도를 건너세요.",
+      "exVi": "Hãy qua đường ở vạch kẻ."
+    },
+    {
+      "ko": "신호등",
+      "romaja": "sinhodeung",
+      "vi": "Đèn giao thông",
+      "pos": "noun",
+      "img": "🚦",
+      "connect": "신호등 chính là âm Hán \"tín hiệu đăng\".",
+      "ex": "신호등에서 기다리세요.",
+      "exVi": "Hãy đợi ở đèn giao thông."
+    },
+    {
+      "ko": "육교",
+      "romaja": "yukgyo",
+      "vi": "Cầu vượt bộ hành",
+      "pos": "noun",
+      "img": "🌉",
+      "connect": "육교 chính là âm Hán \"lục kiều\" — cầu trên cạn.",
+      "ex": "육교로 건너면 안전해요.",
+      "exVi": "Đi cầu vượt thì an toàn."
+    },
+    {
+      "ko": "정류장",
+      "romaja": "jeongnyujang",
+      "vi": "Trạm xe buýt",
+      "pos": "noun",
+      "img": "🚏",
+      "connect": "정류장 chính là âm Hán \"đình lưu trường\".",
+      "ex": "정류장이 어디예요?",
+      "exVi": "Trạm xe buýt ở đâu ạ?"
+    },
+    {
+      "ko": "갈아타다",
+      "romaja": "garatada",
+      "vi": "Đổi tuyến, chuyển xe",
+      "pos": "verb",
+      "img": "🔄",
+      "connect": "갈다 (đổi) + 타다 (lên xe) đã học.",
+      "ex": "여기서 갈아타세요.",
+      "exVi": "Bạn đổi tuyến ở đây nhé."
+    },
+    {
+      "ko": "지나다",
+      "romaja": "jinada",
+      "vi": "Đi qua",
+      "pos": "verb",
+      "img": "➡️",
+      "connect": "Đi ngang qua chỗ nào đó.",
+      "ex": "편의점을 지나서 가세요.",
+      "exVi": "Đi qua cửa hàng tiện lợi rồi tiếp tục."
+    },
+    {
+      "ko": "건너다",
+      "romaja": "geonneoda",
+      "vi": "Băng qua",
+      "pos": "verb",
+      "img": "🛣️",
+      "connect": "Qua đường, qua cầu, qua sông đều dùng.",
+      "ex": "길을 건너세요.",
+      "exVi": "Hãy băng qua đường."
+    },
+    {
+      "ko": "돌아가다",
+      "romaja": "doragada",
+      "vi": "Quay lại, đi vòng",
+      "pos": "verb",
+      "img": "↩️",
+      "connect": "돌다 (xoay) + 가다 (đi) đã học.",
+      "ex": "집에 돌아가요.",
+      "exVi": "Tôi quay về nhà."
+    },
+    {
+      "ko": "근처",
+      "romaja": "geuncheo",
+      "vi": "Gần đây, khu lân cận",
+      "pos": "noun",
+      "img": "📍",
+      "connect": "근처 chính là âm Hán \"cận xứ\".",
+      "ex": "이 근처에 약국이 있어요?",
+      "exVi": "Gần đây có hiệu thuốc không ạ?"
+    },
+    {
+      "ko": "방향",
+      "romaja": "banghyang",
+      "vi": "Hướng",
+      "pos": "noun",
+      "img": "🧭",
+      "connect": "방향 chính là âm Hán \"phương hướng\".",
+      "ex": "방향이 반대예요.",
+      "exVi": "Hướng đó ngược rồi."
+    },
+    {
+      "ko": "골목",
+      "romaja": "golmok",
+      "vi": "Ngõ nhỏ",
+      "pos": "noun",
+      "img": "🏘️",
+      "connect": "Thuần Hàn: con hẻm giữa các dãy nhà.",
+      "ex": "골목 안에 카페가 있어요.",
+      "exVi": "Trong ngõ có quán cà phê."
+    }
+  ]
+}

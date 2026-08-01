@@ -1,4 +1,3 @@
-
 import sounds from './english/pronunciation/sounds.json'
 
 export interface PronPair {
@@ -48,13 +47,28 @@ export function pronWords(g: PronGroup): PronWord[] {
 }
 
 const STRIP = /[^a-z' ]/g
+const STRIP_KO = /[^가-힣 ]/g
 
-export function normalizeSpoken(s: string): string {
+export function normalizeSpoken(s: string, lang = 'en'): string {
+  if (lang === 'ko') return s.replace(STRIP_KO, ' ').replace(/\s+/g, ' ').trim()
   return s.toLowerCase().replace(/[’]/g, "'").replace(STRIP, ' ').replace(/\s+/g, ' ').trim()
 }
 
-// Điểm đọc: từ đơn thì đúng/sai, câu thì tính tỉ lệ từ khớp để người học thấy tiến bộ dần.
-export function scoreSpoken(target: string, heard: string): number {
+export function scoreSpoken(target: string, heard: string, lang = 'en'): number {
+  if (lang === 'ko') {
+    const w = normalizeSpoken(target, 'ko').replace(/ /g, '')
+    const g = normalizeSpoken(heard, 'ko').replace(/ /g, '')
+    if (!w || !g) return 0
+    if (w === g) return 100
+    let hit = 0
+    const pool = [...g]
+    for (const ch of w) {
+      const i = pool.indexOf(ch)
+      if (i >= 0) { hit += 1; pool.splice(i, 1) }
+    }
+    const penalty = Math.max(0, g.length - w.length) * 0.5
+    return Math.max(0, Math.round(((hit - penalty) / w.length) * 100))
+  }
   const want = normalizeSpoken(target).split(' ').filter(Boolean)
   const got = normalizeSpoken(heard).split(' ').filter(Boolean)
   if (!want.length || !got.length) return 0

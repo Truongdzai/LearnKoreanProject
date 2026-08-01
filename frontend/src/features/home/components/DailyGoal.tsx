@@ -25,7 +25,7 @@ export default function DailyGoal() {
       setReward(r)
       setBurst(true)
       setTimeout(() => setBurst(false), 1800)
-    } catch { /* thông báo lỗi đã nằm trong luồng đăng nhập */ } finally {
+    } catch {} finally {
       setClaiming(false)
     }
   }

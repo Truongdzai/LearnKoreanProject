@@ -7,7 +7,7 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 from ..schemas.account import AuthMeOut, ProvidersOut, SessionOut
-from ..services import accounts, auth, gameplay, oauth
+from ..services import accounts, audit, auth, gameplay, oauth, quota
 
 router = APIRouter(prefix="/api/auth", tags=["Tài khoản"])
 
@@ -16,6 +16,7 @@ class RegisterIn(BaseModel):
     name: str = ""
     email: str
     password: str
+    ref: str = ""
 
 
 class LoginIn(BaseModel):
@@ -33,7 +34,7 @@ def _session(row: dict) -> dict:
 @router.post("/register", response_model=SessionOut)
 def api_register(body: RegisterIn, request: Request):
     ip = request.client.host if request.client else ""
-    row = accounts.register(body.name, body.email, body.password, ip)
+    row = accounts.register(body.name, body.email, body.password, ip, body.ref)
     return _session(row)
 
 
@@ -41,7 +42,65 @@ def api_register(body: RegisterIn, request: Request):
 def api_login(body: LoginIn, request: Request):
     ip = request.client.host if request.client else ""
     row = accounts.login(body.email, body.password, ip)
+    if row.get("role") == "admin":
+        audit.log(row, "admin.login", str(row["id"]), None, quota.client_ip(request))
     return _session(row)
+
+
+class ForgotIn(BaseModel):
+    email: str
+
+
+class ResetIn(BaseModel):
+    email: str
+    code: str
+    password: str
+
+
+class ChangeIn(BaseModel):
+    current_password: str
+    code: str
+    new_password: str
+
+
+@router.post("/password/forgot")
+def api_forgot(body: ForgotIn):
+    accounts.request_reset(body.email)
+    return {"ok": True}
+
+
+@router.post("/password/reset")
+def api_reset(body: ResetIn):
+    accounts.reset_password(body.email, body.code, body.password)
+    return {"ok": True}
+
+
+@router.post("/password/change/code")
+def api_change_code(user: dict = Depends(auth.get_current_user)):
+    accounts.request_change(user)
+    return {"ok": True}
+
+
+@router.post("/password/change")
+def api_change(body: ChangeIn, user: dict = Depends(auth.get_current_user)):
+    row = accounts.change_password(user["id"], body.current_password, body.code, body.new_password)
+    return {"ok": True, "token": auth.make_token(row["id"], row["role"], row.get("token_version") or 0)}
+
+
+class CodeIn(BaseModel):
+    code: str
+
+
+@router.post("/email/verify/send")
+def api_verify_send(user: dict = Depends(auth.get_current_user)):
+    accounts.request_verify(user)
+    return {"ok": True}
+
+
+@router.post("/email/verify")
+def api_verify(body: CodeIn, user: dict = Depends(auth.get_current_user)):
+    row = accounts.confirm_verify(user["id"], body.code)
+    return {"ok": True, "user": accounts.public_user(row)}
 
 
 @router.get("/me", response_model=AuthMeOut)
@@ -65,8 +124,6 @@ def _redirect_uri(request: Request, provider: str) -> str:
 
 
 def _safe_origin(request: Request, return_to: str) -> str:
-    # Token được đính vào URL đích ở callback chỉ cho phép quay về CHÍNH origin
-    # của server này Nếu không sẽ thành open-redirect + rò rỉ token cho web lạ
     self_origin = str(request.base_url).rstrip("/")
     want = (return_to or "").strip()
     if not want:

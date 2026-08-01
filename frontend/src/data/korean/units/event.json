@@ -1,0 +1,130 @@
+{
+  "id": "event",
+  "name": "Lễ tết & sự kiện",
+  "sub": "Sinh nhật, cưới hỏi, Tết — thứ người Hàn hỏi bạn ngay khi thân hơn.",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🎉",
+  "words": [
+    {
+      "ko": "생일",
+      "romaja": "saengil",
+      "vi": "Sinh nhật",
+      "pos": "noun",
+      "img": "🎂",
+      "connect": "생일 chính là âm Hán \"sinh nhật\".",
+      "ex": "생일이 언제예요?",
+      "exVi": "Sinh nhật bạn khi nào?"
+    },
+    {
+      "ko": "결혼식",
+      "romaja": "gyeolhonsik",
+      "vi": "Lễ cưới",
+      "pos": "noun",
+      "img": "💒",
+      "connect": "결혼식 chính là âm Hán \"kết hôn thức\".",
+      "ex": "친구 결혼식에 가요.",
+      "exVi": "Tôi đi dự đám cưới bạn."
+    },
+    {
+      "ko": "명절",
+      "romaja": "myeongjeol",
+      "vi": "Ngày lễ truyền thống",
+      "pos": "noun",
+      "img": "🏮",
+      "connect": "명절 chính là âm Hán \"danh tiết\".",
+      "ex": "명절에 고향에 가요.",
+      "exVi": "Dịp lễ tôi về quê."
+    },
+    {
+      "ko": "설날",
+      "romaja": "seollal",
+      "vi": "Tết âm lịch",
+      "pos": "noun",
+      "img": "🧧",
+      "connect": "설 (năm mới) + 날 (ngày). Ngày ăn canh 떡국.",
+      "ex": "설날에 떡국을 먹어요.",
+      "exVi": "Ngày Tết chúng tôi ăn canh bánh gạo."
+    },
+    {
+      "ko": "추석",
+      "romaja": "chuseok",
+      "vi": "Tết Trung thu Hàn",
+      "pos": "noun",
+      "img": "🌕",
+      "connect": "추석 chính là âm Hán \"thu tịch\" — đêm mùa thu.",
+      "ex": "추석은 가족 명절이에요.",
+      "exVi": "Chuseok là ngày lễ của gia đình."
+    },
+    {
+      "ko": "잔치",
+      "romaja": "janchi",
+      "vi": "Tiệc mừng",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "Thuần Hàn: tiệc mừng thọ, mừng con đầy tuổi.",
+      "ex": "돌잔치에 초대받았어요.",
+      "exVi": "Tôi được mời dự tiệc thôi nôi."
+    },
+    {
+      "ko": "초대장",
+      "romaja": "chodaejang",
+      "vi": "Thiệp mời",
+      "pos": "noun",
+      "img": "💌",
+      "connect": "초대 (mời) + 장 = \"trạng\", tờ giấy.",
+      "ex": "초대장을 받았어요.",
+      "exVi": "Tôi đã nhận được thiệp mời."
+    },
+    {
+      "ko": "축하하다",
+      "romaja": "chukahada",
+      "vi": "Chúc mừng",
+      "pos": "verb",
+      "img": "🎊",
+      "connect": "축하 chính là âm Hán \"chúc hạ\".",
+      "ex": "졸업을 축하해요!",
+      "exVi": "Chúc mừng bạn tốt nghiệp!"
+    },
+    {
+      "ko": "선물",
+      "romaja": "seonmul",
+      "vi": "Quà tặng",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "선물 chính là âm Hán \"tiễn vật\" — vật đem tặng.",
+      "ex": "선물을 준비했어요.",
+      "exVi": "Tôi đã chuẩn bị quà."
+    },
+    {
+      "ko": "파티",
+      "romaja": "pati",
+      "vi": "Bữa tiệc",
+      "pos": "noun",
+      "img": "🥳",
+      "connect": "Từ mượn \"party\".",
+      "ex": "생일 파티를 할 거예요.",
+      "exVi": "Tôi sẽ tổ chức tiệc sinh nhật."
+    },
+    {
+      "ko": "기념일",
+      "romaja": "ginyeomil",
+      "vi": "Ngày kỷ niệm",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "기념일 chính là âm Hán \"kỷ niệm nhật\".",
+      "ex": "오늘은 결혼기념일이에요.",
+      "exVi": "Hôm nay là kỷ niệm ngày cưới."
+    },
+    {
+      "ko": "모임",
+      "romaja": "moim",
+      "vi": "Buổi gặp mặt",
+      "pos": "noun",
+      "img": "👥",
+      "connect": "모이다 (tụ tập) → 모임, buổi họp mặt bạn bè.",
+      "ex": "동창 모임이 있어요.",
+      "exVi": "Có buổi họp lớp."
+    }
+  ]
+}

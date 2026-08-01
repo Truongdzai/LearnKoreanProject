@@ -1,17 +1,7 @@
-/**
- * Gói từ vựng theo ngữ cảnh — "dùng gì học nấy" (trụ cột 1).
- * Mỗi gói gắn với một mục tiêu onboarding; thêm cả gói vào thẻ ôn tập SRS 1 chạm.
- * Hiện có nội dung tiếng Hàn + tiếng Anh; ngôn ngữ khác bổ sung dần.
- */
-
 export interface PackWord {
-  /** Từ ở ngôn ngữ đang học */
   term: string
-  /** Phiên âm / cách đọc */
   sub: string
-  /** Nghĩa tiếng Việt */
   vi: string
-  /** Câu ví dụ ngắn */
   ex: string
   exVi: string
 }
@@ -22,12 +12,10 @@ export interface ContextPack {
   emoji: string
   tone: string
   desc: string
-  /** Mục tiêu onboarding liên quan ("work" | "travel" | "talk" | "exam") */
   goal: string
   words: Record<string, PackWord[]>
 }
 
-/* ------------------------------- TIẾNG HÀN ------------------------------- */
 
 const KO_WORK: PackWord[] = [
   { term: '회사', sub: 'hoe-sa', vi: 'công ty', ex: '저는 IT 회사에 다녀요.', exVi: 'Tôi làm ở một công ty IT.' },
@@ -105,7 +93,6 @@ const KO_INTERVIEW: PackWord[] = [
   { term: '능력', sub: 'neung-nyeok', vi: 'năng lực', ex: '저는 문제 해결 능력이 있어요.', exVi: 'Tôi có khả năng giải quyết vấn đề.' },
 ]
 
-/* ------------------------------- TIẾNG ANH ------------------------------- */
 
 const EN_WORK: PackWord[] = [
   { term: 'deadline', sub: '/ˈded.laɪn/', vi: 'hạn chót', ex: 'The deadline is this Friday.', exVi: 'Hạn chót là thứ Sáu tuần này.' },
@@ -292,7 +279,6 @@ export const CONTEXT_PACKS: ContextPack[] = [
   },
 ]
 
-/** Các gói có nội dung cho ngôn ngữ đang học. */
 export function packsFor(lang: string): ContextPack[] {
   return CONTEXT_PACKS.filter((p) => (p.words[lang] || []).length > 0)
 }

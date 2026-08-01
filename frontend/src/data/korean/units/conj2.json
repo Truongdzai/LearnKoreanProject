@@ -1,0 +1,130 @@
+{
+  "id": "conj2",
+  "name": "Nối câu & diễn đạt ý",
+  "sub": "Ghép được câu dài mạch lạc — điều kiện để viết 쓰기 có điểm.",
+  "pos": "adv",
+  "tone": "tone-f",
+  "emoji": "🧩",
+  "words": [
+    {
+      "ko": "그래도",
+      "romaja": "geuraedo",
+      "vi": "Dù vậy vẫn",
+      "pos": "adv",
+      "img": "💪",
+      "connect": "그렇다 + 도 (cũng) đã học → tuy thế nhưng vẫn.",
+      "ex": "힘들어요. 그래도 계속할 거예요.",
+      "exVi": "Mệt lắm. Dù vậy tôi vẫn tiếp tục."
+    },
+    {
+      "ko": "그러나",
+      "romaja": "geureona",
+      "vi": "Tuy nhiên (văn viết)",
+      "pos": "adv",
+      "img": "✍️",
+      "connect": "Bản trang trọng của 하지만 đã học — dùng khi viết.",
+      "ex": "비가 왔다. 그러나 사람이 많았다.",
+      "exVi": "Trời mưa. Tuy nhiên vẫn đông người."
+    },
+    {
+      "ko": "게다가",
+      "romaja": "gedaga",
+      "vi": "Hơn nữa",
+      "pos": "adv",
+      "img": "➕",
+      "connect": "Thêm một lý do cùng chiều.",
+      "ex": "싸요. 게다가 맛있어요.",
+      "exVi": "Rẻ. Hơn nữa lại ngon."
+    },
+    {
+      "ko": "대신",
+      "romaja": "daesin",
+      "vi": "Thay vì, bù lại",
+      "pos": "adv",
+      "img": "🔁",
+      "connect": "대신 chính là âm Hán \"đại thân\" — thay thế.",
+      "ex": "커피 대신 물을 마셔요.",
+      "exVi": "Tôi uống nước thay vì cà phê."
+    },
+    {
+      "ko": "아니면",
+      "romaja": "animyeon",
+      "vi": "Hoặc là",
+      "pos": "adv",
+      "img": "❓",
+      "connect": "아니다 (không phải) + 면 (nếu) → nếu không thì.",
+      "ex": "커피 아니면 차 드릴까요?",
+      "exVi": "Bạn dùng cà phê hay trà ạ?"
+    },
+    {
+      "ko": "즉",
+      "romaja": "jeuk",
+      "vi": "Tức là",
+      "pos": "adv",
+      "img": "🟰",
+      "connect": "즉 chính là âm Hán \"tức\".",
+      "ex": "즉, 다시 해야 해요.",
+      "exVi": "Tức là phải làm lại."
+    },
+    {
+      "ko": "결국",
+      "romaja": "gyeolguk",
+      "vi": "Rốt cuộc",
+      "pos": "adv",
+      "img": "🏁",
+      "connect": "결국 chính là âm Hán \"kết cục\".",
+      "ex": "결국 안 갔어요.",
+      "exVi": "Rốt cuộc tôi đã không đi."
+    },
+    {
+      "ko": "사실",
+      "romaja": "sasil",
+      "vi": "Thật ra",
+      "pos": "adv",
+      "img": "💡",
+      "connect": "사실 chính là âm Hán \"sự thực\".",
+      "ex": "사실 저도 몰라요.",
+      "exVi": "Thật ra tôi cũng không biết."
+    },
+    {
+      "ko": "어쨌든",
+      "romaja": "eojjaetdeun",
+      "vi": "Dù sao thì",
+      "pos": "adv",
+      "img": "🤷",
+      "connect": "Gạt chuyện rườm rà sang bên để chốt ý.",
+      "ex": "어쨌든 고마워요.",
+      "exVi": "Dù sao cũng cảm ơn bạn."
+    },
+    {
+      "ko": "반면에",
+      "romaja": "banmyeone",
+      "vi": "Ngược lại thì",
+      "pos": "adv",
+      "img": "↔️",
+      "connect": "반면 chính là âm Hán \"phản diện\" — mặt đối lập.",
+      "ex": "형은 조용해요. 반면에 저는 활발해요.",
+      "exVi": "Anh tôi trầm. Ngược lại tôi lại năng động."
+    },
+    {
+      "ko": "우선",
+      "romaja": "useon",
+      "vi": "Trước hết",
+      "pos": "adv",
+      "img": "1️⃣",
+      "connect": "우선 chính là âm Hán \"ưu tiên\".",
+      "ex": "우선 밥부터 먹어요.",
+      "exVi": "Trước hết cứ ăn cơm đã."
+    },
+    {
+      "ko": "마지막으로",
+      "romaja": "majimageuro",
+      "vi": "Cuối cùng là",
+      "pos": "adv",
+      "img": "🔚",
+      "connect": "마지막 (cuối cùng) + 으로 (bằng, theo) vừa học.",
+      "ex": "마지막으로 질문 있어요?",
+      "exVi": "Cuối cùng, ai có câu hỏi không?"
+    }
+  ]
+}

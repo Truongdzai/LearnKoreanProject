@@ -1,0 +1,130 @@
+{
+  "id": "zh-numbers",
+  "name": "Số đếm & tuổi tác",
+  "sub": "Đếm số, hỏi tuổi, nói giá tiền — thứ dùng mỗi ngày.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🔢",
+  "words": [
+    {
+      "zh": "一",
+      "pinyin": "yī",
+      "vi": "Một",
+      "pos": "noun",
+      "img": "1️⃣",
+      "connect": "Một gạch ngang = một. Chữ số tiếng Trung 一二三 vẽ đúng số nét.",
+      "ex": "我有一个哥哥。",
+      "exVi": "Tôi có một người anh trai."
+    },
+    {
+      "zh": "二",
+      "pinyin": "èr",
+      "vi": "Hai",
+      "pos": "noun",
+      "img": "2️⃣",
+      "connect": "二 = nhị, như \"nhị phân\", \"độc nhất vô nhị\".",
+      "ex": "二加二等于四。",
+      "exVi": "Hai cộng hai bằng bốn."
+    },
+    {
+      "zh": "三",
+      "pinyin": "sān",
+      "vi": "Ba",
+      "pos": "noun",
+      "img": "3️⃣",
+      "connect": "三 = tam, như \"tam giác\".",
+      "ex": "我们三个人一起去。",
+      "exVi": "Ba chúng tôi cùng đi."
+    },
+    {
+      "zh": "四",
+      "pinyin": "sì",
+      "vi": "Bốn",
+      "pos": "noun",
+      "img": "4️⃣",
+      "connect": "四 = tứ, như \"tứ phương\", \"tứ quý\".",
+      "ex": "他四点回家。",
+      "exVi": "Anh ấy về nhà lúc bốn giờ."
+    },
+    {
+      "zh": "五",
+      "pinyin": "wǔ",
+      "vi": "Năm (số 5)",
+      "pos": "noun",
+      "img": "5️⃣",
+      "connect": "五 = ngũ, như \"ngũ vị\", \"ngũ hành\".",
+      "ex": "五个苹果多少钱？",
+      "exVi": "Năm quả táo bao nhiêu tiền?"
+    },
+    {
+      "zh": "十",
+      "pinyin": "shí",
+      "vi": "Mười",
+      "pos": "noun",
+      "img": "🔟",
+      "connect": "十 = thập, như \"thập kỷ\", \"thập toàn\". Chữ vẽ đúng dấu cộng.",
+      "ex": "十个人来了。",
+      "exVi": "Mười người đã đến."
+    },
+    {
+      "zh": "百",
+      "pinyin": "bǎi",
+      "vi": "Trăm",
+      "pos": "noun",
+      "img": "💯",
+      "connect": "百 = bách, như \"bách khoa\", \"bách phát bách trúng\".",
+      "ex": "这本书三百块。",
+      "exVi": "Quyển sách này ba trăm tệ."
+    },
+    {
+      "zh": "个",
+      "pinyin": "gè",
+      "vi": "Cái, người (lượng từ)",
+      "pos": "noun",
+      "img": "🧩",
+      "connect": "个 = cá, như \"cá nhân\", \"cá thể\". Lượng từ dùng được cho gần như mọi thứ.",
+      "ex": "我买了三个。",
+      "exVi": "Tôi đã mua ba cái."
+    },
+    {
+      "zh": "岁",
+      "pinyin": "suì",
+      "vi": "Tuổi",
+      "pos": "noun",
+      "img": "🎂",
+      "connect": "岁 = tuế, như \"vạn tuế\", \"tuế nguyệt\".",
+      "ex": "你今年多大岁数？",
+      "exVi": "Năm nay bạn bao nhiêu tuổi?"
+    },
+    {
+      "zh": "多少",
+      "pinyin": "duō shao",
+      "vi": "Bao nhiêu",
+      "pos": "question",
+      "img": "❓",
+      "connect": "多 = đa (nhiều) + 少 = thiểu (ít) → hỏi \"nhiều hay ít\", tức là bao nhiêu.",
+      "ex": "这个多少钱？",
+      "exVi": "Cái này bao nhiêu tiền?"
+    },
+    {
+      "zh": "钱",
+      "pinyin": "qián",
+      "vi": "Tiền",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "钱 = tiền, đọc gần y hệt tiếng Việt; bộ 钅(kim loại) vì tiền xưa đúc bằng kim loại.",
+      "ex": "我没有钱了。",
+      "exVi": "Tôi hết tiền rồi."
+    },
+    {
+      "zh": "块",
+      "pinyin": "kuài",
+      "vi": "Tệ (đơn vị tiền)",
+      "pos": "noun",
+      "img": "🪙",
+      "connect": "块 = khối, vốn nghĩa \"cục/khối\" — nói giá đời thường dùng 块 thay cho 元.",
+      "ex": "一碗面二十块。",
+      "exVi": "Một bát mì hai mươi tệ."
+    }
+  ]
+}

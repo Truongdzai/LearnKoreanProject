@@ -1,0 +1,22 @@
+{
+  "id": "emotions",
+  "name": "Cảm xúc",
+  "sub": "Nói ra cảm giác của mình: vui, buồn, mệt, lo.",
+  "pos": "adj",
+  "tone": "tone-c",
+  "emoji": "😊",
+  "words": [
+    { "ko": "기쁘다", "romaja": "gippeuda", "vi": "Vui mừng", "pos": "adj", "img": "😄", "connect": "\"Ghíp-bư\" — tin vui làm tim đập gấp.", "ex": "합격해서 정말 기뻐요.", "exVi": "Tôi rất vui vì đã đỗ." },
+    { "ko": "슬프다", "romaja": "seulpeuda", "vi": "Buồn", "pos": "adj", "img": "😢", "connect": "\"Sưl-pư\" nghe như tiếng thở dài.", "ex": "영화가 너무 슬퍼요.", "exVi": "Bộ phim buồn quá." },
+    { "ko": "화나다", "romaja": "hwanada", "vi": "Tức giận", "pos": "verb", "img": "😠", "connect": "\"Hoa\" = hoả — lửa giận bốc lên.", "ex": "저는 지금 화가 났어요.", "exVi": "Bây giờ tôi đang giận." },
+    { "ko": "무섭다", "romaja": "museopda", "vi": "Sợ / Đáng sợ", "pos": "adj", "img": "😱", "connect": "\"Mu-sớp\" — mờ tối là thấy sợ.", "ex": "밤에 혼자 있으면 무서워요.", "exVi": "Ban đêm ở một mình thì tôi sợ." },
+    { "ko": "피곤하다", "romaja": "pigonhada", "vi": "Mệt mỏi", "pos": "adj", "img": "😪", "connect": "\"Pi-gon\" gợi \"bì quyện\" — người rã rời.", "ex": "일이 많아서 피곤해요.", "exVi": "Nhiều việc quá nên tôi mệt." },
+    { "ko": "행복하다", "romaja": "haengbokhada", "vi": "Hạnh phúc", "pos": "adj", "img": "🥰", "connect": "\"Heng-bôk\" chính là âm Hán \"hạnh phúc\".", "ex": "가족과 함께라서 행복해요.", "exVi": "Được ở bên gia đình nên tôi hạnh phúc." },
+    { "ko": "사랑하다", "romaja": "saranghada", "vi": "Yêu", "pos": "verb", "img": "❤️", "connect": "\"Sa-rang\" — câu quen thuộc trong phim Hàn.", "ex": "가족을 사랑해요.", "exVi": "Tôi yêu gia đình mình." },
+    { "ko": "좋아하다", "romaja": "joahada", "vi": "Thích", "pos": "verb", "img": "👍", "connect": "\"Chô-a\" — thấy \"chộ\" là ưng liền.", "ex": "저는 한국 음악을 좋아해요.", "exVi": "Tôi thích nhạc Hàn Quốc." },
+    { "ko": "싫어하다", "romaja": "sireohada", "vi": "Ghét / Không thích", "pos": "verb", "img": "👎", "connect": "\"Si-rơ\" — nghe như \"xì\" một tiếng chê.", "ex": "저는 매운 음식을 싫어해요.", "exVi": "Tôi không thích đồ ăn cay." },
+    { "ko": "걱정하다", "romaja": "geokjeonghada", "vi": "Lo lắng", "pos": "verb", "img": "😟", "connect": "\"Cớk-chơng\" — cứ canh cánh trong lòng.", "ex": "너무 걱정하지 마세요.", "exVi": "Bạn đừng lo lắng quá." },
+    { "ko": "놀라다", "romaja": "nollada", "vi": "Ngạc nhiên / Giật mình", "pos": "verb", "img": "😲", "connect": "\"Nôl-la\" — nổ một cái là giật mình.", "ex": "소리 때문에 깜짝 놀랐어요.", "exVi": "Tôi giật mình vì tiếng động." },
+    { "ko": "심심하다", "romaja": "simsimhada", "vi": "Buồn chán / Rảnh rỗi", "pos": "adj", "img": "😑", "connect": "\"Sim-sim\" lặp lại — ngày cứ lặp thì chán.", "ex": "주말에 집에 있으면 심심해요.", "exVi": "Cuối tuần ở nhà thì tôi thấy chán." }
+  ]
+}

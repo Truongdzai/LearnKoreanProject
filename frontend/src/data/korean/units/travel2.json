@@ -1,0 +1,130 @@
+{
+  "id": "travel2",
+  "name": "Sân bay & lưu trú",
+  "sub": "Từ ngữ bạn gặp ngay từ lúc làm thủ tục bay tới lúc nhận phòng.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "✈️",
+  "words": [
+    {
+      "ko": "출국",
+      "romaja": "chulguk",
+      "vi": "Xuất cảnh",
+      "pos": "noun",
+      "img": "🛫",
+      "connect": "출국 chính là âm Hán \"xuất quốc\".",
+      "ex": "출국 수속을 했어요.",
+      "exVi": "Tôi đã làm thủ tục xuất cảnh."
+    },
+    {
+      "ko": "입국",
+      "romaja": "ipguk",
+      "vi": "Nhập cảnh",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "입국 chính là âm Hán \"nhập quốc\".",
+      "ex": "입국 심사가 길어요.",
+      "exVi": "Kiểm tra nhập cảnh lâu quá."
+    },
+    {
+      "ko": "탑승",
+      "romaja": "tapseung",
+      "vi": "Lên máy bay",
+      "pos": "noun",
+      "img": "🎫",
+      "connect": "탑승 chính là âm Hán \"tháp thừa\".",
+      "ex": "탑승 시간이 됐어요.",
+      "exVi": "Đến giờ lên máy bay rồi."
+    },
+    {
+      "ko": "좌석",
+      "romaja": "jwaseok",
+      "vi": "Chỗ ngồi",
+      "pos": "noun",
+      "img": "💺",
+      "connect": "좌석 chính là âm Hán \"toạ tịch\".",
+      "ex": "창가 좌석으로 주세요.",
+      "exVi": "Cho tôi ghế cạnh cửa sổ ạ."
+    },
+    {
+      "ko": "수하물",
+      "romaja": "suhamul",
+      "vi": "Hành lý ký gửi",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "수하물 chính là âm Hán \"thủ hạ vật\".",
+      "ex": "수하물을 찾아야 해요.",
+      "exVi": "Tôi phải đi lấy hành lý."
+    },
+    {
+      "ko": "환승",
+      "romaja": "hwanseung",
+      "vi": "Nối chuyến, chuyển tàu",
+      "pos": "noun",
+      "img": "🔀",
+      "connect": "환승 chính là âm Hán \"hoán thừa\" — đổi phương tiện.",
+      "ex": "인천에서 환승해요.",
+      "exVi": "Tôi nối chuyến ở Incheon."
+    },
+    {
+      "ko": "숙소",
+      "romaja": "sukso",
+      "vi": "Chỗ ở, nơi lưu trú",
+      "pos": "noun",
+      "img": "🏨",
+      "connect": "숙소 chính là âm Hán \"túc sở\".",
+      "ex": "숙소를 예약했어요.",
+      "exVi": "Tôi đã đặt chỗ ở."
+    },
+    {
+      "ko": "체크인",
+      "romaja": "chekeuin",
+      "vi": "Nhận phòng",
+      "pos": "noun",
+      "img": "🔑",
+      "connect": "Từ mượn \"check-in\".",
+      "ex": "체크인은 세 시부터예요.",
+      "exVi": "Nhận phòng từ ba giờ ạ."
+    },
+    {
+      "ko": "기념품",
+      "romaja": "ginyeompum",
+      "vi": "Quà lưu niệm",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "기념품 chính là âm Hán \"kỷ niệm phẩm\".",
+      "ex": "기념품을 샀어요.",
+      "exVi": "Tôi đã mua quà lưu niệm."
+    },
+    {
+      "ko": "지역",
+      "romaja": "jiyeok",
+      "vi": "Khu vực, vùng",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "지역 chính là âm Hán \"địa vực\".",
+      "ex": "이 지역이 유명해요.",
+      "exVi": "Vùng này nổi tiếng lắm."
+    },
+    {
+      "ko": "코스",
+      "romaja": "koseu",
+      "vi": "Lộ trình, tuyến tham quan",
+      "pos": "noun",
+      "img": "🧭",
+      "connect": "Từ mượn \"course\".",
+      "ex": "하루 코스를 짰어요.",
+      "exVi": "Tôi đã lên lộ trình một ngày."
+    },
+    {
+      "ko": "안내",
+      "romaja": "annae",
+      "vi": "Hướng dẫn, chỉ dẫn",
+      "pos": "noun",
+      "img": "ℹ️",
+      "connect": "안내 chính là âm Hán \"án nội\".",
+      "ex": "안내 데스크가 어디예요?",
+      "exVi": "Quầy hướng dẫn ở đâu ạ?"
+    }
+  ]
+}

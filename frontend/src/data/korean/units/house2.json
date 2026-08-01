@@ -1,0 +1,130 @@
+{
+  "id": "house2",
+  "name": "Thuê nhà & sống một mình",
+  "sub": "Bốn từ đầu quyết định bạn có thuê được phòng ở Hàn hay không.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🔑",
+  "words": [
+    {
+      "ko": "원룸",
+      "romaja": "wollum",
+      "vi": "Phòng trọ khép kín",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"One room\" — kiểu phòng du học sinh và người đi làm hay thuê.",
+      "ex": "원룸에서 살아요.",
+      "exVi": "Tôi sống trong phòng trọ khép kín."
+    },
+    {
+      "ko": "월세",
+      "romaja": "wolse",
+      "vi": "Tiền thuê hằng tháng",
+      "pos": "noun",
+      "img": "💸",
+      "connect": "월세 chính là âm Hán \"nguyệt thuế\" — thuế theo tháng.",
+      "ex": "월세가 오십만 원이에요.",
+      "exVi": "Tiền thuê tháng là năm trăm nghìn won."
+    },
+    {
+      "ko": "보증금",
+      "romaja": "bojeunggeum",
+      "vi": "Tiền đặt cọc",
+      "pos": "noun",
+      "img": "🏦",
+      "connect": "보증금 chính là âm Hán \"bảo chứng kim\".",
+      "ex": "보증금은 얼마예요?",
+      "exVi": "Tiền cọc bao nhiêu ạ?"
+    },
+    {
+      "ko": "집주인",
+      "romaja": "jipjuin",
+      "vi": "Chủ nhà",
+      "pos": "noun",
+      "img": "🧑‍💼",
+      "connect": "집 (nhà) đã học + 주인 (chủ).",
+      "ex": "집주인한테 연락했어요.",
+      "exVi": "Tôi đã liên lạc với chủ nhà."
+    },
+    {
+      "ko": "이사하다",
+      "romaja": "isahada",
+      "vi": "Chuyển nhà",
+      "pos": "verb",
+      "img": "📦",
+      "connect": "이사 chính là âm Hán \"di tỉ\" — dời chỗ ở.",
+      "ex": "다음 달에 이사해요.",
+      "exVi": "Tháng sau tôi chuyển nhà."
+    },
+    {
+      "ko": "관리비",
+      "romaja": "gwallibi",
+      "vi": "Phí quản lý",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "관리비 chính là âm Hán \"quản lý phí\".",
+      "ex": "관리비가 따로 있어요.",
+      "exVi": "Có phí quản lý riêng ạ."
+    },
+    {
+      "ko": "층",
+      "romaja": "cheung",
+      "vi": "Tầng",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "층 chính là âm Hán \"tằng\".",
+      "ex": "삼 층에 살아요.",
+      "exVi": "Tôi sống ở tầng ba."
+    },
+    {
+      "ko": "계단",
+      "romaja": "gyedan",
+      "vi": "Cầu thang",
+      "pos": "noun",
+      "img": "🪜",
+      "connect": "계단 chính là âm Hán \"giai đoạn\" — bậc thang.",
+      "ex": "계단으로 올라갔어요.",
+      "exVi": "Tôi đi lên bằng cầu thang."
+    },
+    {
+      "ko": "옥상",
+      "romaja": "oksang",
+      "vi": "Sân thượng",
+      "pos": "noun",
+      "img": "🌆",
+      "connect": "옥상 chính là âm Hán \"ốc thượng\" — trên mái nhà.",
+      "ex": "옥상에서 빨래를 널어요.",
+      "exVi": "Tôi phơi đồ trên sân thượng."
+    },
+    {
+      "ko": "지하",
+      "romaja": "jiha",
+      "vi": "Tầng hầm",
+      "pos": "noun",
+      "img": "⬇️",
+      "connect": "지하 chính là âm Hán \"địa hạ\" — giống 지하철 đã học.",
+      "ex": "지하에 주차장이 있어요.",
+      "exVi": "Có bãi đỗ xe dưới tầng hầm."
+    },
+    {
+      "ko": "마당",
+      "romaja": "madang",
+      "vi": "Sân",
+      "pos": "noun",
+      "img": "🌿",
+      "connect": "Thuần Hàn, sân trước nhà kiểu truyền thống.",
+      "ex": "마당에 꽃이 많아요.",
+      "exVi": "Trong sân có nhiều hoa."
+    },
+    {
+      "ko": "벽",
+      "romaja": "byeok",
+      "vi": "Bức tường",
+      "pos": "noun",
+      "img": "🧱",
+      "connect": "벽 chính là âm Hán \"bích\".",
+      "ex": "벽에 사진을 걸었어요.",
+      "exVi": "Tôi treo ảnh lên tường."
+    }
+  ]
+}

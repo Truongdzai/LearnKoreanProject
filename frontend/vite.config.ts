@@ -19,7 +19,6 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Tách React ra chunk vendor riêng: đổi mã app không làm mất cache thư viện.
         manualChunks: (id) => (id.includes('node_modules') ? 'react-vendor' : undefined),
       },
     },

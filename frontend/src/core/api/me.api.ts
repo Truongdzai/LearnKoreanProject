@@ -93,6 +93,12 @@ export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words =
 export const setGoalApi = (goal: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/goal', { goal })
 
+export const setEmailPrefsApi = (optout: boolean) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/email-prefs', { optout })
+
+export const deleteAccountApi = (password = '', confirm = '') =>
+  apiClient.post<{ ok: boolean }>('/api/me/delete', { password, confirm })
+
 export const goalBonusApi = (goal: number) =>
   apiClient.post<{ ok: boolean; reward: number; user: Account }>('/api/me/goal-bonus', { goal })
 

@@ -21,6 +21,9 @@ class PublicUser(BaseModel):
     equippedPet: str | None = None
     equippedBg: str | None = None
     goal: str | None = None
+    refCount: int = 0
+    emailVerified: bool = True
+    emailOptout: bool = False
 
 
 class GardenPlant(BaseModel):
@@ -43,7 +46,6 @@ class SavedVideo(BaseModel):
 
 
 class UserPath(BaseModel):
-    # Nội dung path là JSON tự do (language, level, steps…) — cho phép field thêm.
     model_config = ConfigDict(extra="allow")
 
     id: str

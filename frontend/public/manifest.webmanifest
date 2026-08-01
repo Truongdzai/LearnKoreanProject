@@ -1,0 +1,24 @@
+{
+  "name": "VyLing — Học ngoại ngữ qua video bạn thích",
+  "short_name": "VyLing",
+  "description": "Học tiếng Hàn, tiếng Anh qua video YouTube: phụ đề song ngữ, tra từ 1 chạm, thẻ ôn tập SRS, lộ trình 90 ngày, gia sư AI và luyện thi TOPIK/TOEIC.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "lang": "vi",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Ôn tập thẻ đến hạn", "short_name": "Ôn tập", "url": "/on-tap", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Kho video", "short_name": "Video", "url": "/kho-video", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Gia sư AI", "short_name": "Gia sư", "url": "/gia-su-ai", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

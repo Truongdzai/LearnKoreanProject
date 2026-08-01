@@ -1,0 +1,22 @@
+{
+  "id": "transport",
+  "name": "Giao thông & đi lại",
+  "sub": "Bắt xe, hỏi đường, lên xuống tàu điện ngầm.",
+  "pos": "noun",
+  "tone": "tone-e",
+  "emoji": "🚇",
+  "words": [
+    { "ko": "지하철", "romaja": "jihacheol", "vi": "Tàu điện ngầm", "pos": "noun", "img": "🚇", "connect": "\"Chi-ha-chơl\" chính là âm Hán \"địa hạ thiết\".", "ex": "지하철로 삼십 분 걸려요.", "exVi": "Đi tàu điện ngầm mất ba mươi phút." },
+    { "ko": "버스", "romaja": "beoseu", "vi": "Xe buýt", "pos": "noun", "img": "🚌", "connect": "\"Bơ-sư\" mượn từ \"bus\".", "ex": "버스 정류장이 어디예요?", "exVi": "Trạm xe buýt ở đâu ạ?" },
+    { "ko": "택시", "romaja": "taeksi", "vi": "Taxi", "pos": "noun", "img": "🚕", "connect": "\"Thek-si\" mượn từ \"taxi\".", "ex": "택시를 타고 갈게요.", "exVi": "Tôi sẽ bắt taxi đi." },
+    { "ko": "기차", "romaja": "gicha", "vi": "Tàu hoả", "pos": "noun", "img": "🚆", "connect": "\"Ki-cha\" chính là âm Hán \"khí xa\".", "ex": "기차표를 미리 샀어요.", "exVi": "Tôi đã mua vé tàu trước rồi." },
+    { "ko": "자동차", "romaja": "jadongcha", "vi": "Ô tô", "pos": "noun", "img": "🚗", "connect": "\"Cha-đông-cha\" chính là âm Hán \"tự động xa\".", "ex": "자동차가 아주 많아요.", "exVi": "Xe ô tô nhiều lắm." },
+    { "ko": "자전거", "romaja": "jajeongeo", "vi": "Xe đạp", "pos": "noun", "img": "🚲", "connect": "\"Cha-chơn-gơ\" chính là âm Hán \"tự chuyển cư\".", "ex": "주말에 자전거를 타요.", "exVi": "Cuối tuần tôi đạp xe." },
+    { "ko": "비행기", "romaja": "bihaenggi", "vi": "Máy bay", "pos": "noun", "img": "✈️", "connect": "\"Bi-heng-ki\" chính là âm Hán \"phi hành cơ\".", "ex": "비행기가 곧 출발해요.", "exVi": "Máy bay sắp khởi hành." },
+    { "ko": "타다", "romaja": "tada", "vi": "Lên xe / Đi (phương tiện)", "pos": "verb", "img": "🙋", "connect": "\"Tha-đa\" — bước lên tha hồ đi.", "ex": "여기서 버스를 타세요.", "exVi": "Bạn lên xe buýt ở đây nhé." },
+    { "ko": "내리다", "romaja": "naerida", "vi": "Xuống xe", "pos": "verb", "img": "🚶", "connect": "\"Ne-ri\" — nê chân xuống đất.", "ex": "다음 역에서 내려요.", "exVi": "Tôi xuống ở ga tiếp theo." },
+    { "ko": "표", "romaja": "pyo", "vi": "Vé", "pos": "noun", "img": "🎫", "connect": "\"Pyô\" chính là âm Hán \"phiếu\".", "ex": "표를 어디서 사요?", "exVi": "Mua vé ở đâu ạ?" },
+    { "ko": "길", "romaja": "gil", "vi": "Đường", "pos": "noun", "img": "🛣️", "connect": "\"Kil\" — con đường dài hun hút.", "ex": "길을 잃어버렸어요.", "exVi": "Tôi bị lạc đường rồi." },
+    { "ko": "운전하다", "romaja": "unjeonhada", "vi": "Lái xe", "pos": "verb", "img": "🧑‍✈️", "connect": "\"Un-chơn\" chính là âm Hán \"vận chuyển\".", "ex": "저는 운전할 수 있어요.", "exVi": "Tôi biết lái xe." }
+  ]
+}

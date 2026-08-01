@@ -100,14 +100,14 @@ export default function ShopPage() {
       )}
 
       <div className="shop-toptabs">
-        <button className={tab === 'shop' ? 'on' : ''} onClick={() => setTab('shop')}>{t('shp.items')}</button>
-        <button className={tab === 'inv' ? 'on' : ''} onClick={() => setTab('inv')}>{t('shp.inv', { n: owned.length })}</button>
-        {!user.isPlus && <button className="plus-pill" onClick={() => setView('pricing')}><Icon name="sparkles" size={13} /> {t('side.upgrade')}</button>}
+        <button type="button" aria-pressed={tab === 'shop'} className={tab === 'shop' ? 'on' : ''} onClick={() => setTab('shop')}>{t('shp.items')}</button>
+        <button type="button" aria-pressed={tab === 'inv'} className={tab === 'inv' ? 'on' : ''} onClick={() => setTab('inv')}>{t('shp.inv', { n: owned.length })}</button>
+        {!user.isPlus && <button type="button" className="plus-pill" onClick={() => setView('pricing')}><Icon name="sparkles" size={13} /> {t('side.upgrade')}</button>}
       </div>
 
       <div className="shop-cats">
         {CATS.map((c) => (
-          <button key={c.id} className={'shop-cat' + (cat === c.id ? ' on' : '')} onClick={() => setCat(c.id)}>{t(c.label)}</button>
+          <button key={c.id} type="button" aria-pressed={cat === c.id} className={'shop-cat' + (cat === c.id ? ' on' : '')} onClick={() => setCat(c.id)}>{t(c.label)}</button>
         ))}
       </div>
 

@@ -239,6 +239,15 @@ def _ai_analyze(word: str, dict_meaning: str, lang: str = "ko", native: str = "v
         return None
     return None
 
+def has_rich_cache(word: str, lang: str = "ko", native: str = "vi") -> bool:
+    from . import cache
+
+    clean = _clean(word)
+    if not clean:
+        return False
+    return cache.get_dict(f"{lang}:{native}:{clean}") is not None
+
+
 def lookup_rich(word: str, lang: str = "ko", native: str = "vi") -> dict:
     from . import cache
 
@@ -249,7 +258,6 @@ def lookup_rich(word: str, lang: str = "ko", native: str = "vi") -> dict:
         if cached:
             return cached
 
-    # KRDICT only covers Korean; other languages rely purely on AI analysis.
     if lang == "ko":
         base = lookup(word)
         entries = base["entries"]
@@ -260,7 +268,6 @@ def lookup_rich(word: str, lang: str = "ko", native: str = "vi") -> dict:
         rich = _ai_analyze(clean, "", lang, native)
 
     result = {**base, "rich": rich}
-    # Only cache once AI enrichment succeeded, so dict-only results retry AI later.
     if key and rich:
         cache.save_dict(key, result)
     return result

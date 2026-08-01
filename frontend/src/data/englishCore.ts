@@ -152,42 +152,9 @@ export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
 export const TARGET_WORDS = 3000
 
 
-export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron'
+import { type WeekTask, type WeekPlan } from './vocabCore'
 
-export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | null
-
-export interface WeekTask {
-  id: string
-  kind: WeekTaskKind
-  label: string
-  unitId?: string
-  pct?: number
-  targetTotal?: number
-  passPct?: number
-  n?: number
-  go?: WeekTaskGo
-  lessonId?: string
-  groupId?: string
-}
-
-export interface SentencePattern {
-  pattern: string
-  vi: string
-  ex: string
-  exVi: string
-}
-
-export interface WeekPlan {
-  week: number
-  month: 1 | 2 | 3
-  phase: 'Compress' | 'Compile' | 'Consolidate'
-  title: string
-  focus: string
-  rhythm: string
-  tasks: WeekTask[]
-  quizUnits?: string[]
-  patterns?: SentencePattern[]
-}
+export type { WeekTaskKind, WeekTaskGo, WeekTask, SentencePattern, WeekPlan } from './vocabCore'
 
 const gl = (week: number, seq: number, lessonId: string): WeekTask => {
   const l = GRAMMAR_LESSONS.find((x) => x.id === lessonId)

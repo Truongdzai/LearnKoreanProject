@@ -15,12 +15,9 @@ const MOODS: PetMood[] = ['happy', 'wink', 'love', 'sleepy', 'sleep', 'reading',
 
 type Frame = { url: string; video: boolean }
 
-// Mọi media pet đặt theo: ./img/<tên-pet>/<biểu-cảm>.(png|webm|mp4) — Vite đóng gói sẵn.
-// Thả thêm folder vào đây là pet đó TỰ chuyển sang dùng media thật (thay vector).
-const PNG = import.meta.glob('./img/*/*.png', { eager: true, query: '?url', import: 'default' }) as Record<string, string>
+const IMG = import.meta.glob('./img/*/*.{webp,png}', { eager: true, query: '?url', import: 'default' }) as Record<string, string>
 const VID = import.meta.glob('./img/*/*.{webm,mp4}', { eager: true, query: '?url', import: 'default' }) as Record<string, string>
 
-// Gom media theo loài: { art: { mood: frame } }. Video được ưu tiên hơn ảnh tĩnh.
 const MEDIA: Record<string, Partial<Record<PetMood, Frame>>> = {}
 function add(path: string, url: string, video: boolean) {
   const m = path.match(/\.\/img\/([^/]+)\/([^/]+)\.[^.]+$/)
@@ -29,13 +26,11 @@ function add(path: string, url: string, video: boolean) {
   const mood = m[2] as PetMood
   if (video || !set[mood]?.video) set[mood] = { url, video }
 }
-for (const [path, url] of Object.entries(PNG)) add(path, url, false)
+for (const [path, url] of Object.entries(IMG)) add(path, url, false)
 for (const [path, url] of Object.entries(VID)) add(path, url, true)
 
-/** Các loài đã có media thật (ưu tiên hơn vector). */
 export const IMAGE_ARTS = Object.keys(MEDIA)
 
-/** Pet media thật: mọi biểu cảm xếp chồng, chuyển bằng cross-fade + "thở" nhẹ. */
 function MediaPet({ art, size, mood, className }: { art: string; size: number; mood: PetMood; className?: string }) {
   const set = MEDIA[art]
   const has = MOODS.filter((m) => set[m])
@@ -50,7 +45,6 @@ function MediaPet({ art, size, mood, className }: { art: string; size: number; m
         const f = set[m]!
         const on = m === active
         const cls = 'pet-frame' + (f.video ? ' pet-frame-vid' : '') + (on ? ' on' : '')
-        // Frame đang hiện tải ngay; frame ẩn để lười tải + video ẩn không preload -> nhẹ lúc đầu.
         return f.video ? (
           <video key={m} src={f.url} className={cls} autoPlay loop muted playsInline preload={on ? 'auto' : 'none'} />
         ) : (
@@ -71,11 +65,9 @@ interface PetProps {
   className?: string
 }
 
-/** Điều phối: loài có media -> media thật; còn lại -> vẽ vector. */
 export default function Pet({ art = 'shiba', size = 96, mood = 'happy', className }: PetProps) {
   if (MEDIA[art]) return <MediaPet art={art} size={size} mood={mood} className={className} />
   return <VectorPet art={art} size={size} mood={mood} className={className} />
 }
 
-/** Mọi loài shop/picker có thể hiển thị (media thật + vector, không trùng). */
 export const PET_ARTS = Array.from(new Set(['shiba', ...IMAGE_ARTS, ...VECTOR_ARTS]))

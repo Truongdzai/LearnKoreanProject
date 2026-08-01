@@ -123,3 +123,18 @@ export const setFeedbackStatus = (id: number, status: string) =>
 
 export const deleteFeedback = (id: number) =>
   apiClient.post<{ ok: boolean }>('/api/admin/feedback/delete', { id })
+
+export interface AuditEntry {
+  id: number
+  admin_id: string
+  admin_name: string
+  action: string
+  target: string
+  detail: string
+  ip: string
+  created_at: string
+}
+
+export const fetchAdminAudit = (action = '', page = 1, pageSize = 30) =>
+  apiClient.get<{ items: AuditEntry[]; total: number; actions: string[] }>(
+    `/api/admin/audit?action=${encodeURIComponent(action)}&page=${page}&page_size=${pageSize}`)

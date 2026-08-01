@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { track } from '@/core/monitor'
 import { scoreRun, type RunGroup, type RunResult } from '../engine'
 import { SKILLS } from '@/data/toeicCore'
 import { englishVoiceStatus, onVoicesChanged, playAudioFiles, speakScript, stopSpeak, VOICE_HELP } from '../tts'
@@ -48,7 +49,9 @@ export default function Runner({
     if (finishedRef.current) return
     finishedRef.current = true
     stopSpeak()
-    onFinish(scoreRun(groups, answers))
+    const res = scoreRun(groups, answers)
+    track('exam_finish', { exam: 'toeic', total: res.total, correct: res.correct })
+    onFinish(res)
   }, [groups, answers, onFinish])
 
   const finishRef = useRef(finish)

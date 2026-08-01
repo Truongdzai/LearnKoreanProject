@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { speakEN, stopSpeak, englishVoiceStatus, onVoicesChanged, VOICE_HELP } from '@/core/tts'
+import { speakEN, stopSpeak, englishVoiceStatus, koreanVoiceStatus, onVoicesChanged, VOICE_HELP, VOICE_HELP_KO } from '@/core/tts'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
 import { PRON_GROUPS, PRON_PASS, pronWords, scoreSpoken, type PronGroup } from '@/data/englishPronunciation'
@@ -8,15 +8,37 @@ import { usePronProgress } from '../progress'
 
 interface Props {
   initialGroup?: string
+  lang?: string
+  groups?: PronGroup[]
+  speak?: (text: string, rate?: number) => void
+  intro?: string
 }
 
-export default function PronunciationLab({ initialGroup }: Props) {
+interface LabCtx {
+  lang: string
+  speak: (text: string, rate?: number) => void
+  srLang: string
+}
+
+const CTX: LabCtx = { lang: 'en', speak: speakEN, srLang: 'en-US' }
+
+export default function PronunciationLab({
+  initialGroup,
+  lang = 'en',
+  groups = PRON_GROUPS,
+  speak = speakEN,
+  intro = 'Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Anh: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm.',
+}: Props) {
+  CTX.lang = lang
+  CTX.speak = speak
+  CTX.srLang = lang === 'ko' ? 'ko-KR' : 'en-US'
+
   const { recordEvent } = useAppStore()
-  const { pron, record } = usePronProgress()
+  const { pron, record } = usePronProgress(lang)
   const [openId, setOpenId] = useState<string | null>(initialGroup ?? null)
 
-  const passed = PRON_GROUPS.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
-  const group = openId ? PRON_GROUPS.find((g) => g.id === openId) ?? null : null
+  const passed = groups.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
+  const group = openId ? groups.find((g) => g.id === openId) ?? null : null
 
   const onDone = useCallback((g: PronGroup, pct: number) => {
     if (record(g.id, pct)) recordEvent('pronounce', 3)
@@ -39,18 +61,18 @@ export default function PronunciationLab({ initialGroup }: Props) {
       <div className="grammar-intro">
         <Icon name="mic" size={20} />
         <div>
-          <b>Luyện phát âm — {passed}/{PRON_GROUPS.length} nhóm âm đạt.</b>
+          <b>Luyện phát âm — {passed}/{groups.length} nhóm âm đạt.</b>
           <p>
-            Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Anh: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm.
-            Đạt {PRON_PASS}% trong bài kiểm tra là hoàn thành nhóm (thưởng XP lần đầu).
+            {intro}
+            {' '}Đạt {PRON_PASS}% trong bài kiểm tra là hoàn thành nhóm (thưởng XP lần đầu).
           </p>
         </div>
       </div>
 
-      <VoiceNotice />
+      <VoiceNotice lang={lang} />
 
       <div className="capsule-grid">
-        {PRON_GROUPS.map((g, i) => {
+        {groups.map((g, i) => {
           const best = pron.best[g.id]
           const ok = (best ?? 0) >= PRON_PASS
           return (
@@ -70,16 +92,18 @@ export default function PronunciationLab({ initialGroup }: Props) {
   )
 }
 
-function VoiceNotice() {
-  const [status, setStatus] = useState(englishVoiceStatus)
-  useEffect(() => onVoicesChanged(() => setStatus(englishVoiceStatus())), [])
+function VoiceNotice({ lang }: { lang: string }) {
+  const check = lang === 'ko' ? koreanVoiceStatus : englishVoiceStatus
+  const [status, setStatus] = useState(check)
+  useEffect(() => onVoicesChanged(() => setStatus(check())), [check])
   if (status !== 'none') return null
+  const help = lang === 'ko' ? VOICE_HELP_KO : VOICE_HELP
   return (
     <div className="pron-warn">
-      <b><Icon name="volume" size={15} /> Máy chưa có giọng đọc tiếng Anh</b>
+      <b><Icon name="volume" size={15} /> Máy chưa có giọng đọc {lang === 'ko' ? 'tiếng Hàn' : 'tiếng Anh'}</b>
       <p>Bạn vẫn luyện đọc và chấm điểm được, chỉ là chưa nghe được câu mẫu. Cách cài giọng:</p>
       <ul>
-        {VOICE_HELP.map((h) => <li key={h.os}><b>{h.os}:</b> {h.how}</li>)}
+        {help.map((h) => <li key={h.os}><b>{h.os}:</b> {h.how}</li>)}
       </ul>
     </div>
   )
@@ -146,9 +170,8 @@ function GroupView({ group, best, onDone, onBack }: ViewProps) {
   )
 }
 
-/* Ghi âm dùng chung: bấm mic → nói → so chuỗi nhận diện với câu mẫu để ra điểm. */
 function useReader() {
-  const sr = useSpeechRecognition('en-US')
+  const sr = useSpeechRecognition(CTX.srLang)
   const [active, setActive] = useState<string | null>(null)
   const [results, setResults] = useState<Record<string, { pct: number; heard: string }>>({})
   const targetRef = useRef<Record<string, string>>({})
@@ -159,7 +182,7 @@ function useReader() {
     if (!startedRef.current || !active) return
     startedRef.current = false
     const heard = sr.transcript.trim()
-    const pct = heard ? scoreSpoken(targetRef.current[active] ?? '', heard) : 0
+    const pct = heard ? scoreSpoken(targetRef.current[active] ?? '', heard, CTX.lang) : 0
     setResults((prev) => ({ ...prev, [active]: { pct, heard } }))
     setActive(null)
     sr.reset()
@@ -231,9 +254,9 @@ function PracticeBoard({ group }: { group: PronGroup }) {
             return (
               <div key={side} className="pron-item">
                 <div className="pron-item-top">
-                  <b lang="en">{w}</b>
+                  <b lang={CTX.lang}>{w}</b>
                   <span className="pron-ipa">{ipa}</span>
-                  <button className="pron-play" onClick={() => speakEN(w, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
+                  <button className="pron-play" onClick={() => CTX.speak(w, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
                   <MicButton id={id} target={w} reader={reader} />
                 </div>
                 <small>{vi}</small>
@@ -251,9 +274,9 @@ function PracticeBoard({ group }: { group: PronGroup }) {
             return (
               <div key={i} className="pron-item">
                 <div className="pron-item-top">
-                  <b lang="en">{w.w}</b>
+                  <b lang={CTX.lang}>{w.w}</b>
                   <span className="pron-ipa">{w.ipa}</span>
-                  <button className="pron-play" onClick={() => speakEN(w.w, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
+                  <button className="pron-play" onClick={() => CTX.speak(w.w, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
                   <MicButton id={id} target={w.w} reader={reader} />
                 </div>
                 <small>{w.vi}</small>
@@ -271,8 +294,8 @@ function PracticeBoard({ group }: { group: PronGroup }) {
           return (
             <div key={i} className="pron-item wide">
               <div className="pron-item-top">
-                <b lang="en">{s.en}</b>
-                <button className="pron-play" onClick={() => speakEN(s.en, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
+                <b lang={CTX.lang}>{s.en}</b>
+                <button className="pron-play" onClick={() => CTX.speak(s.en, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
                 <MicButton id={id} target={s.en} reader={reader} />
               </div>
               <small>{s.vi}</small>
@@ -306,7 +329,7 @@ function EarTraining({ group }: { group: PronGroup }) {
 
   useEffect(() => {
     if (!q) return
-    const id = window.setTimeout(() => speakEN(q.target, 0.85), 250)
+    const id = window.setTimeout(() => CTX.speak(q.target, 0.85), 250)
     return () => window.clearTimeout(id)
   }, [q])
 
@@ -339,7 +362,7 @@ function EarTraining({ group }: { group: PronGroup }) {
         <span className="quiz-score"><Icon name="star" size={13} /> {score} đúng</span>
       </div>
       <p className="pron-ear-q">Bạn vừa nghe từ nào?</p>
-      <button className="btn-ghost pron-replay" onClick={() => speakEN(q.target, 0.8)}>
+      <button className="btn-ghost pron-replay" onClick={() => CTX.speak(q.target, 0.8)}>
         <Icon name="volume" size={16} /> Nghe lại (chậm)
       </button>
       <div className="quiz-options pron-ear-opts">
@@ -360,7 +383,7 @@ function EarTraining({ group }: { group: PronGroup }) {
                 if (w === q.target) setScore((s) => s + 1)
               }}
             >
-              <span lang="en">{w}</span>
+              <span lang={CTX.lang}>{w}</span>
             </button>
           )
         })}
@@ -368,8 +391,8 @@ function EarTraining({ group }: { group: PronGroup }) {
       {picked && (
         <div className="quiz-foot">
           <div className="quiz-ex">{picked === q.target ? '✅ Chính xác.' : `❌ Từ đúng là “${q.target}”.`} Nghe lại cả hai để so sánh:
-            <button className="pron-play inline" onClick={() => speakEN(first, 0.8)}>{first}</button>
-            <button className="pron-play inline" onClick={() => speakEN(second, 0.8)}>{second}</button>
+            <button className="pron-play inline" onClick={() => CTX.speak(first, 0.8)}>{first}</button>
+            <button className="pron-play inline" onClick={() => CTX.speak(second, 0.8)}>{second}</button>
           </div>
           <button className="btn-primary" onClick={() => { setI((x) => x + 1); setPicked(null) }}>
             {i + 1 >= qs.length ? 'Xem kết quả' : 'Câu tiếp'} <Icon name="arrow-right" size={15} />
@@ -462,10 +485,10 @@ function PronTest({ group, words, onDone }: { group: PronGroup; words: ReturnTyp
       </div>
 
       <div className={'pron-test-card' + (item.sentence ? ' sentence' : '')}>
-        <b lang="en">{item.text}</b>
+        <b lang={CTX.lang}>{item.text}</b>
         <small>{item.hint}</small>
         <div className="pron-test-actions">
-          <button className="btn-ghost sm" onClick={() => speakEN(item.text, 0.85)}><Icon name="volume" size={15} /> Nghe mẫu</button>
+          <button className="btn-ghost sm" onClick={() => CTX.speak(item.text, 0.85)}><Icon name="volume" size={15} /> Nghe mẫu</button>
           <button
             className={'pron-mic big' + (reader.active === item.id && reader.sr.listening ? ' on' : '')}
             onClick={() => reader.listen(item.id, item.text)}

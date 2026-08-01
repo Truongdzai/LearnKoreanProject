@@ -1,16 +1,7 @@
-/**
- * Từ của ngày — mỗi ngôn ngữ một bộ từ/cụm thông dụng "đắt giá",
- * xoay vòng theo ngày trong năm để mỗi ngày mở web đều có cái mới.
- */
-
 export interface DayWord {
-  /** Từ/cụm ở ngôn ngữ đang học */
   term: string
-  /** Phiên âm / cách đọc (romaja, pinyin, IPA, furigana…) */
   sub: string
-  /** Nghĩa tiếng Việt */
   vi: string
-  /** Câu ví dụ */
   ex: string
   exVi: string
 }
@@ -95,7 +86,6 @@ const VI: DayWord[] = [
 
 const BY_LANG: Record<string, DayWord[]> = { ko: KO, en: EN, ja: JA, zh: ZH, de: DE, vi: VI }
 
-/** Từ của hôm nay cho ngôn ngữ đang học — xoay theo ngày trong năm. */
 export function wordOfDay(lang: string, date = new Date()): DayWord {
   const list = BY_LANG[lang] || KO
   const start = new Date(date.getFullYear(), 0, 0)

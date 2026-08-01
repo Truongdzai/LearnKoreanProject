@@ -1,6 +1,5 @@
 const UID_KEY = 'vyling.uid'
 
-// Thiết lập theo THIẾT BỊ (không phải dữ liệu tài khoản) — giữ lại khi đổi/đăng xuất.
 const KEEP_EXACT = new Set<string>([
   'vyling.theme',
   'vyling.learnLang',
@@ -12,8 +11,6 @@ const KEEP_EXACT = new Set<string>([
 ])
 const KEEP_PREFIX = ['vyling.pet.']
 
-// Xoá MỌI dữ liệu học gắn với tài khoản trong localStorage (lộ trình, TOEIC, ngữ pháp,
-// phát âm, từ đã thuộc, XP hôm nay, mục tiêu…). Giữ nguyên thiết lập thiết bị ở trên.
 export function clearUserScopedStorage(): void {
   try {
     const drop: string[] = []
@@ -28,11 +25,6 @@ export function clearUserScopedStorage(): void {
   } catch {  }
 }
 
-// Đồng bộ chủ sở hữu dữ liệu local với người vừa đăng nhập.
-// Nếu localStorage đang giữ dữ liệu của MỘT tài khoản KHÁC → xoá sạch rồi tải lại
-// trang để mọi state trong bộ nhớ + bộ đệm module được dựng lại từ server.
-// Lần đầu đăng nhập từ trạng thái khách (chưa có uid) thì giữ nguyên để tiến trình
-// học lúc chưa đăng nhập được nhập vào tài khoản.
 export function syncUserScope(uid: string): void {
   if (!uid) return
   let prev: string | null = null

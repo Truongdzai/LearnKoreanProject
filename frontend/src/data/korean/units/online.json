@@ -1,0 +1,130 @@
+{
+  "id": "online",
+  "name": "Mua sắm online",
+  "sub": "Người Hàn mua gần như mọi thứ trên mạng — đây là từ vựng để làm được điều đó.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "📱",
+  "words": [
+    {
+      "ko": "배송",
+      "romaja": "baesong",
+      "vi": "Vận chuyển",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "배송 chính là âm Hán \"phối tống\".",
+      "ex": "배송이 빨라요.",
+      "exVi": "Giao hàng nhanh lắm."
+    },
+    {
+      "ko": "반품",
+      "romaja": "banpum",
+      "vi": "Trả hàng",
+      "pos": "noun",
+      "img": "↩️",
+      "connect": "반품 chính là âm Hán \"phản phẩm\" — trả lại hàng.",
+      "ex": "반품하고 싶어요.",
+      "exVi": "Tôi muốn trả hàng."
+    },
+    {
+      "ko": "후기",
+      "romaja": "hugi",
+      "vi": "Đánh giá, review",
+      "pos": "noun",
+      "img": "⭐",
+      "connect": "후기 chính là âm Hán \"hậu ký\" — ghi lại sau khi dùng.",
+      "ex": "후기를 읽고 샀어요.",
+      "exVi": "Tôi đọc đánh giá rồi mới mua."
+    },
+    {
+      "ko": "결제",
+      "romaja": "gyeolje",
+      "vi": "Thanh toán",
+      "pos": "noun",
+      "img": "💳",
+      "connect": "결제 chính là âm Hán \"quyết tế\".",
+      "ex": "카드로 결제했어요.",
+      "exVi": "Tôi đã thanh toán bằng thẻ."
+    },
+    {
+      "ko": "품절",
+      "romaja": "pumjeol",
+      "vi": "Hết hàng",
+      "pos": "noun",
+      "img": "🚫",
+      "connect": "품 = \"phẩm\" (hàng) + 절 = đứt → hàng đứt.",
+      "ex": "그 사이즈는 품절이에요.",
+      "exVi": "Cỡ đó hết hàng rồi ạ."
+    },
+    {
+      "ko": "재고",
+      "romaja": "jaego",
+      "vi": "Hàng tồn kho",
+      "pos": "noun",
+      "img": "🏬",
+      "connect": "재고 chính là âm Hán \"tại khố\" — còn trong kho.",
+      "ex": "재고가 있어요?",
+      "exVi": "Còn hàng trong kho không ạ?"
+    },
+    {
+      "ko": "쿠폰",
+      "romaja": "kupon",
+      "vi": "Phiếu giảm giá",
+      "pos": "noun",
+      "img": "🎟️",
+      "connect": "Từ mượn \"coupon\".",
+      "ex": "쿠폰을 사용했어요.",
+      "exVi": "Tôi đã dùng phiếu giảm giá."
+    },
+    {
+      "ko": "적립금",
+      "romaja": "jeongnipgeum",
+      "vi": "Điểm tích luỹ",
+      "pos": "noun",
+      "img": "🪙",
+      "connect": "적립금 chính là âm Hán \"tích lập kim\".",
+      "ex": "적립금으로 샀어요.",
+      "exVi": "Tôi mua bằng điểm tích luỹ."
+    },
+    {
+      "ko": "회원",
+      "romaja": "hoewon",
+      "vi": "Thành viên",
+      "pos": "noun",
+      "img": "🧑‍💻",
+      "connect": "회원 chính là âm Hán \"hội viên\".",
+      "ex": "회원 가입했어요.",
+      "exVi": "Tôi đã đăng ký thành viên."
+    },
+    {
+      "ko": "사이트",
+      "romaja": "saiteu",
+      "vi": "Trang web",
+      "pos": "noun",
+      "img": "🌐",
+      "connect": "Từ mượn \"site\".",
+      "ex": "이 사이트가 싸요.",
+      "exVi": "Trang này rẻ hơn."
+    },
+    {
+      "ko": "클릭하다",
+      "romaja": "keullikada",
+      "vi": "Bấm chuột",
+      "pos": "verb",
+      "img": "🖱️",
+      "connect": "Từ mượn \"click\".",
+      "ex": "여기를 클릭하세요.",
+      "exVi": "Hãy bấm vào đây."
+    },
+    {
+      "ko": "비교하다",
+      "romaja": "bigyohada",
+      "vi": "So sánh",
+      "pos": "verb",
+      "img": "⚖️",
+      "connect": "비교 chính là âm Hán \"tỉ giảo\".",
+      "ex": "가격을 비교해 봐요.",
+      "exVi": "Thử so sánh giá xem."
+    }
+  ]
+}

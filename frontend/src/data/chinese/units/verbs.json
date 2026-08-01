@@ -1,0 +1,22 @@
+{
+  "id": "zh-verbs",
+  "name": "Động từ hằng ngày",
+  "sub": "Mười hai động từ có mặt trong hầu hết câu nói thường ngày.",
+  "pos": "verb",
+  "tone": "tone-e",
+  "emoji": "🏃",
+  "words": [
+    { "zh": "有", "pinyin": "yǒu", "vi": "Có", "pos": "verb", "img": "🈶", "connect": "有 = hữu, như \"hữu ích\", \"sở hữu\". Phủ định phải dùng 没有 chứ không dùng 不.", "ex": "我有两个妹妹。", "exVi": "Tôi có hai em gái." },
+    { "zh": "去", "pinyin": "qù", "vi": "Đi (đến đâu)", "pos": "verb", "img": "🚶", "connect": "去 = khứ, như \"quá khứ\" — rời khỏi đây mà đi.", "ex": "我去学校。", "exVi": "Tôi đi đến trường." },
+    { "zh": "来", "pinyin": "lái", "vi": "Đến, tới", "pos": "verb", "img": "🙌", "connect": "来 = lai, như \"tương lai\", \"lai vãng\".", "ex": "你什么时候来？", "exVi": "Khi nào bạn đến?" },
+    { "zh": "吃", "pinyin": "chī", "vi": "Ăn", "pos": "verb", "img": "🍚", "connect": "Bộ 口 (miệng) bên trái — mọi chữ liên quan tới miệng đều có bộ này.", "ex": "我们一起吃饭吧。", "exVi": "Chúng ta cùng ăn cơm nhé." },
+    { "zh": "喝", "pinyin": "hē", "vi": "Uống", "pos": "verb", "img": "🥤", "connect": "Cũng bộ 口 — ăn và uống đều bắt đầu từ cái miệng.", "ex": "我想喝茶。", "exVi": "Tôi muốn uống trà." },
+    { "zh": "看", "pinyin": "kàn", "vi": "Xem, nhìn", "pos": "verb", "img": "👀", "connect": "Chữ vẽ bàn tay 手 che trên con mắt 目 — đưa tay lên trán mà nhìn ra xa.", "ex": "我喜欢看电影。", "exVi": "Tôi thích xem phim." },
+    { "zh": "听", "pinyin": "tīng", "vi": "Nghe", "pos": "verb", "img": "👂", "connect": "听 = thính, như \"thính giác\", \"thính phòng\".", "ex": "我在听中文歌。", "exVi": "Tôi đang nghe nhạc Trung." },
+    { "zh": "说", "pinyin": "shuō", "vi": "Nói", "pos": "verb", "img": "💬", "connect": "说 = thuyết, như \"thuyết trình\", \"diễn thuyết\".", "ex": "他会说三种语言。", "exVi": "Anh ấy nói được ba thứ tiếng." },
+    { "zh": "做", "pinyin": "zuò", "vi": "Làm", "pos": "verb", "img": "🔧", "connect": "做 = tố, nghĩa \"làm ra\". 做饭 = nấu cơm, 做工作 = làm việc.", "ex": "你在做什么工作？", "exVi": "Bạn đang làm công việc gì?" },
+    { "zh": "买", "pinyin": "mǎi", "vi": "Mua", "pos": "verb", "img": "🛒", "connect": "买 = mãi, như \"mãi lực\" (sức mua). Chú ý phân biệt với 卖 mài = bán (có thêm nét trên đầu).", "ex": "我想买一件衣服。", "exVi": "Tôi muốn mua một cái áo." },
+    { "zh": "住", "pinyin": "zhù", "vi": "Ở, sống tại", "pos": "verb", "img": "🏠", "connect": "住 = trú, như \"cư trú\", \"trú ngụ\".", "ex": "我住在河内。", "exVi": "Tôi sống ở Hà Nội." },
+    { "zh": "回", "pinyin": "huí", "vi": "Về, quay lại", "pos": "verb", "img": "🔙", "connect": "回 = hồi, như \"hồi hương\", \"hồi đáp\". Chữ vẽ vòng tròn trong vòng tròn — đi một vòng rồi về.", "ex": "我六点回家。", "exVi": "Sáu giờ tôi về nhà." }
+  ]
+}

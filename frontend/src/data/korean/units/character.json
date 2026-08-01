@@ -1,0 +1,22 @@
+{
+  "id": "character",
+  "name": "Tính cách con người",
+  "sub": "Tả người: hiền, tốt bụng, chăm chỉ, lười — dùng khi kể về bạn bè, đồng nghiệp.",
+  "pos": "adj",
+  "tone": "tone-d",
+  "emoji": "🙂",
+  "words": [
+    { "ko": "성격", "romaja": "seonggyeok", "vi": "Tính cách", "pos": "noun", "img": "🧩", "connect": "\"Sơng-kyớk\" chính là âm Hán \"tính cách\".", "ex": "성격이 아주 좋아요.", "exVi": "Tính cách bạn ấy rất tốt." },
+    { "ko": "착하다", "romaja": "chakhada", "vi": "Hiền lành / Ngoan", "pos": "adj", "img": "😇", "connect": "\"Chak\" — lời khen dành cho người tử tế.", "ex": "그 사람은 정말 착해요.", "exVi": "Người đó hiền thật đấy." },
+    { "ko": "친절하다", "romaja": "chinjeolhada", "vi": "Tử tế / Thân thiện", "pos": "adj", "img": "🤝", "connect": "\"Chin-chơl\" chính là âm Hán \"thân thiết\".", "ex": "직원이 아주 친절해요.", "exVi": "Nhân viên rất thân thiện." },
+    { "ko": "똑똑하다", "romaja": "ttokttokhada", "vi": "Thông minh", "pos": "adj", "img": "🧠", "connect": "Lặp âm \"ttôk-ttôk\" — nghe gọn gàng, sáng sủa.", "ex": "아이가 정말 똑똑해요.", "exVi": "Đứa bé thông minh thật." },
+    { "ko": "부지런하다", "romaja": "bujireonhada", "vi": "Chăm chỉ / Siêng năng", "pos": "adj", "img": "🐝", "connect": "\"Bu-chi-rơn\" — dậy sớm làm việc mỗi ngày.", "ex": "형은 아주 부지런해요.", "exVi": "Anh trai tôi rất chăm chỉ." },
+    { "ko": "게으르다", "romaja": "geeureuda", "vi": "Lười biếng", "pos": "adj", "img": "🦥", "connect": "\"Kê-ư-rư\" kéo dài uể oải như người lười.", "ex": "주말에는 좀 게을러져요.", "exVi": "Cuối tuần thì tôi hơi lười ra." },
+    { "ko": "솔직하다", "romaja": "soljikhada", "vi": "Thẳng thắn / Thật thà", "pos": "adj", "img": "💯", "connect": "\"Sôl-chík\" chính là âm Hán \"suất trực\".", "ex": "솔직하게 말해 주세요.", "exVi": "Bạn nói thẳng giúp tôi với." },
+    { "ko": "활발하다", "romaja": "hwalbalhada", "vi": "Năng động / Hoạt bát", "pos": "adj", "img": "🤸", "connect": "\"Hoal-bal\" chính là âm Hán \"hoạt bát\".", "ex": "동생은 성격이 활발해요.", "exVi": "Em tôi tính tình hoạt bát." },
+    { "ko": "예의 바르다", "romaja": "yeui bareuda", "vi": "Lễ phép", "pos": "adj", "img": "🙇", "connect": "예의 = lễ nghĩa + 바르다 = ngay thẳng.", "ex": "그 학생은 예의 바르네요.", "exVi": "Em học sinh đó lễ phép ghê." },
+    { "ko": "웃기다", "romaja": "utgida", "vi": "Hài hước / Gây cười", "pos": "adj", "img": "🤣", "connect": "Từ 웃다 (cười) → làm người khác cười.", "ex": "친구가 정말 웃겨요.", "exVi": "Bạn tôi hài thật đấy." },
+    { "ko": "인기", "romaja": "in-gi", "vi": "Sự nổi tiếng / Được yêu thích", "pos": "noun", "img": "🌟", "connect": "\"In-ki\" chính là âm Hán \"nhân khí\".", "ex": "그 가수는 인기가 많아요.", "exVi": "Ca sĩ đó rất được yêu thích." },
+    { "ko": "자신감", "romaja": "jasin-gam", "vi": "Sự tự tin", "pos": "noun", "img": "💪", "connect": "\"Cha-sin-kam\" chính là âm Hán \"tự tín cảm\".", "ex": "자신감을 가지세요!", "exVi": "Bạn hãy tự tin lên!" }
+  ]
+}

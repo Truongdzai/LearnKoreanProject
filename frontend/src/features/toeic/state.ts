@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { UNITS, wTerm } from '@/data/englishCore'
+import UNIT_TERMS from '@/data/english/unitTerms.json'
 import {
   TOEIC_60_DAYS, type ToeicDay, type ToeicTask,
 } from '@/data/toeicCore'
@@ -133,10 +133,10 @@ export interface TaskCtx {
 }
 
 export function vocabDone(task: ToeicTask, learned: Set<string>): { have: number; need: number } {
-  const unit = UNITS.find((u) => u.id === task.unitId)
-  if (!unit) return { have: 0, need: 0 }
-  const need = Math.ceil((unit.words.length * (task.pct ?? 100)) / 100)
-  const have = unit.words.filter((w) => learned.has(wTerm(w))).length
+  const terms = (UNIT_TERMS as Record<string, string[]>)[task.unitId ?? '']
+  if (!terms) return { have: 0, need: 0 }
+  const need = Math.ceil((terms.length * (task.pct ?? 100)) / 100)
+  const have = terms.filter((w) => learned.has(w)).length
   return { have: Math.min(have, need), need }
 }
 

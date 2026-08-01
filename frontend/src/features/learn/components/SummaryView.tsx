@@ -1,16 +1,22 @@
 import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
 import type { Lesson } from '@/models/lesson.model'
+import { isNoSpaceLang, words } from '@/core/segment'
 
-/** Extract candidate Korean words (strip trailing particles) for a vocab chip list. */
-function keywords(lesson: Lesson): string[] {
-  const stop = new Set(['저는', '오늘', '정말', '또'])
+const KO_STOP = new Set(['저는', '오늘', '정말', '또'])
+const CJK_STOP = new Set(['的', '了', '是', '在', '和', '就', '也', '很', '不', '我', '你', '他',
+  'です', 'ます', 'した', 'する', 'して', 'こと', 'これ', 'それ'])
+
+function keywords(lesson: Lesson, lang: string): string[] {
+  const cjk = isNoSpaceLang(lang)
+  const stop = cjk ? CJK_STOP : KO_STOP
   const seen = new Set<string>()
   const out: string[] = []
   for (const seg of lesson.segments) {
-    for (let w of seg.ko.split(/\s+/)) {
-      w = w.replace(/[.,!?]/g, '').replace(/(을|를|이|가|은|는|에서|에게|에|와|과|도)$/u, '')
-      if (w.length >= 2 && !stop.has(w) && !seen.has(w)) {
+    for (let w of words(seg.ko, lang)) {
+      if (!cjk) w = w.replace(/[.,!?]/g, '')
+      if (lang === 'ko') w = w.replace(/(을|를|이|가|은|는|에서|에게|에|와|과|도)$/u, '')
+      if (w.length >= 2 && !/^\d+$/.test(w) && !stop.has(w) && !seen.has(w)) {
         seen.add(w)
         out.push(w)
       }
@@ -29,7 +35,7 @@ const GRAMMAR = [
 
 export default function SummaryView({ lesson }: { lesson: Lesson }) {
   const { openLookup, learnLang, t } = useAppStore()
-  const words = keywords(lesson)
+  const keys = keywords(lesson, learnLang)
   const phrases = lesson.segments.slice(0, 5)
 
   return (
@@ -56,7 +62,7 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
           <div className="sm-label"><Icon name="cards" size={15} /> {t('sm.vocab')}</div>
           <p className="sm-sub">{t('sm.vocabSub')}</p>
           <div className="sm-words">
-            {words.map((w) => (
+            {keys.map((w) => (
               <button key={w} lang={learnLang} onClick={() => openLookup(w)}>{w}</button>
             ))}
           </div>

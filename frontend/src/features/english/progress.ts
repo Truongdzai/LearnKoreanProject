@@ -1,35 +1,22 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { UNITS, wTerm, type WeekPlan, type WeekTask } from '@/data/englishCore'
+import { wTerm } from '@/data/vocabCore'
+import type { VocabUnit, WeekPlan, WeekTask } from '@/data/englishCore'
+import EN_UNIT_TERMS from '@/data/english/unitTerms.json'
 import { GRAMMAR_LESSONS, GRAMMAR_PASS } from '@/data/englishGrammar'
-import { PRON_GROUPS, PRON_PASS } from '@/data/englishPronunciation'
+import { PRON_GROUPS, PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
 import { fetchAllCards } from '@/core/api/srs.api'
 import { fetchActivityDaysApi, fetchPlanApi, savePlanApi, type ActivityDay } from '@/core/api/me.api'
 import { getToken } from '@/core/api/client'
+import { track } from '@/core/monitor'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
 
 export { speakEN } from '@/core/tts'
-
-const learnedKey = (lang: string) => `vyling.${lang}.learned`
-
-function read(lang: string): string[] {
-  try {
-    const raw = localStorage.getItem(learnedKey(lang))
-    return raw ? (JSON.parse(raw) as string[]) : []
-  } catch {
-    return []
-  }
-}
-
-function write(lang: string, list: string[]): void {
-  try {
-    localStorage.setItem(learnedKey(lang), JSON.stringify(list))
-  } catch {
-  }
-}
+export { useLearnedWords, readLearned, writeLearned } from './learned'
 
 
-const PLAN_KEY = 'vyling.en.plan'
-const PLAN_ID = 'en90'
+
+const planKey = (lang: string) => `vyling.${lang}.plan`
+const planId = (lang: string) => `${lang}90`
 
 export interface PlanState {
   start: string | null
@@ -43,30 +30,30 @@ function normalizePlan(raw: unknown): PlanState {
   return { start: p.start ?? null, manual: p.manual ?? [], quiz: p.quiz ?? {}, rewarded: p.rewarded ?? [] }
 }
 
-export function readPlan(): PlanState {
+export function readPlan(lang = 'en'): PlanState {
   try {
-    const raw = localStorage.getItem(PLAN_KEY)
+    const raw = localStorage.getItem(planKey(lang))
     return normalizePlan(raw ? JSON.parse(raw) : null)
   } catch {
     return normalizePlan(null)
   }
 }
 
-function writePlan(p: PlanState): void {
+function writePlan(p: PlanState, lang: string): void {
   try {
-    localStorage.setItem(PLAN_KEY, JSON.stringify(p))
+    localStorage.setItem(planKey(lang), JSON.stringify(p))
   } catch {
   }
 }
 
 
-let planPushTimer: number | undefined
+const planPushTimers: Record<string, number | undefined> = {}
 
-function pushPlanToServer(p: PlanState): void {
+function pushPlanToServer(p: PlanState, lang: string): void {
   if (!getToken()) return
-  window.clearTimeout(planPushTimer)
-  planPushTimer = window.setTimeout(() => {
-    savePlanApi(PLAN_ID, p).catch(() => {  })
+  window.clearTimeout(planPushTimers[lang])
+  planPushTimers[lang] = window.setTimeout(() => {
+    savePlanApi(planId(lang), p).catch(() => {  })
   }, 1200)
 }
 
@@ -98,49 +85,54 @@ export function planWeek(start: string | null): number {
   return Math.min(12, Math.floor((day - 1) / 7) + 1)
 }
 
-export function recordWeekQuiz(week: number, pct: number): void {
-  const p = readPlan()
+export function recordWeekQuiz(week: number, pct: number, lang = 'en'): void {
+  const p = readPlan(lang)
   const key = `w${week}`
   p.quiz[key] = Math.max(p.quiz[key] ?? 0, pct)
-  writePlan(p)
-  pushPlanToServer(p)
+  writePlan(p, lang)
+  pushPlanToServer(p, lang)
+  track('week_quiz', { lang, week, pct })
 }
 
-export function usePlan() {
-  const [plan, setPlan] = useState<PlanState>(readPlan)
+export function usePlan(lang = 'en') {
+  const [plan, setPlan] = useState<PlanState>(() => readPlan(lang))
 
   useEffect(() => {
     if (!getToken()) return
     let alive = true
-    fetchPlanApi<PlanState>(PLAN_ID)
+    fetchPlanApi<PlanState>(planId(lang))
       .then((r) => {
         if (!alive) return
-        const local = readPlan()
+        const local = readPlan(lang)
         if (r.data != null) {
           const merged = mergePlan(normalizePlan(r.data), local)
-          writePlan(merged)
+          writePlan(merged, lang)
           setPlan(merged)
-          pushPlanToServer(merged)
+          pushPlanToServer(merged, lang)
         } else if (local.start || local.manual.length || Object.keys(local.quiz).length) {
-          savePlanApi(PLAN_ID, local).catch(() => {  })
+          savePlanApi(planId(lang), local).catch(() => {  })
         }
       })
       .catch(() => {  })
     return () => { alive = false }
-  }, [])
+  }, [lang])
 
   const mutate = useCallback((fn: (p: PlanState) => PlanState) => {
     setPlan((prev) => {
       const next = fn(prev)
-      writePlan(next)
-      pushPlanToServer(next)
+      writePlan(next, lang)
+      pushPlanToServer(next, lang)
       return next
     })
-  }, [])
+  }, [lang])
 
   const startPlan = useCallback(() => {
-    mutate((p) => (p.start ? p : { ...p, start: todayISO() }))
-  }, [mutate])
+    mutate((p) => {
+      if (p.start) return p
+      track('roadmap_start', { lang })
+      return { ...p, start: todayISO() }
+    })
+  }, [mutate, lang])
 
   const toggleTask = useCallback((id: string) => {
     mutate((p) => ({
@@ -205,8 +197,8 @@ export interface PronProgress {
   rewarded: string[]
 }
 
-const PRON_KEY = 'vyling.en.pron'
-const PRON_PLAN_ID = 'enpron'
+const pronKey = (lang: string) => `vyling.${lang}.pron`
+const pronPlanId = (lang: string) => `${lang}pron`
 
 function normalizePron(raw: unknown): PronProgress {
   const p = (raw ?? {}) as Partial<PronProgress>
@@ -220,17 +212,17 @@ function pronEmpty(p: PronProgress): boolean {
   return !Object.keys(p.best).length && !p.rewarded.length
 }
 
-export function readPronBest(): Record<string, number> {
+export function readPronBest(lang = 'en'): Record<string, number> {
   try {
-    const raw = localStorage.getItem(PRON_KEY)
+    const raw = localStorage.getItem(pronKey(lang))
     return normalizePron(raw ? JSON.parse(raw) : null).best
   } catch {
     return {}
   }
 }
 
-export function usePronProgress() {
-  const { state, mutate } = useServerPlan<PronProgress>(PRON_PLAN_ID, PRON_KEY, normalizePron, pronEmpty)
+export function usePronProgress(lang = 'en') {
+  const { state, mutate } = useServerPlan<PronProgress>(pronPlanId(lang), pronKey(lang), normalizePron, pronEmpty)
 
   const record = useCallback((groupId: string, pct: number): boolean => {
     const firstPass = pct >= PRON_PASS && !state.rewarded.includes(groupId)
@@ -249,7 +241,6 @@ export function grammarTaskDone(t: WeekTask, best: Record<string, number>): bool
   return GRAMMAR_LESSONS.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
 }
 
-// ---- Lịch từng ngày (Ngày 1–7) sinh từ nhiệm vụ thật của tuần ----
 
 export interface DayPlan {
   day: number
@@ -275,8 +266,6 @@ const DAY_THEME: Partial<Record<WeekTask['kind'], string>> = {
   custom: 'Thực hành',
 }
 
-// Phân bổ các nhiệm vụ HỌC vào Ngày 1–5 (đều tay, ưu tiên ngày đầu), Ngày 6 kiểm tra,
-// Ngày 7 ôn tập; nhiệm vụ "cả tuần" (SRS/kho từ/TOEIC) tách riêng.
 export function weekSchedule(w: WeekPlan): WeekSchedule {
   const learn = w.tasks.filter((t) => LEARN_KINDS.includes(t.kind))
   const quiz = w.tasks.filter((t) => t.kind === 'quiz')
@@ -353,15 +342,18 @@ export function useToeicBridge(): ToeicBridge {
   return bridge
 }
 
-export function learnedInUnit(unitId: string, learned: Set<string>): number {
-  const unit = UNITS.find((u) => u.id === unitId)
-  return unit ? unit.words.filter((w) => learned.has(wTerm(w))).length : 0
+function unitTerms(unitId: string, units?: VocabUnit[]): string[] {
+  if (units) return units.find((u) => u.id === unitId)?.words.map(wTerm) ?? []
+  return (EN_UNIT_TERMS as Record<string, string[]>)[unitId] ?? []
 }
 
-export function vocabTarget(t: WeekTask): number {
-  const unit = UNITS.find((u) => u.id === t.unitId)
-  if (!unit) return 0
-  return Math.ceil((unit.words.length * (t.pct ?? 100)) / 100)
+export function learnedInUnit(unitId: string, learned: Set<string>, units?: VocabUnit[]): number {
+  return unitTerms(unitId, units).filter((w) => learned.has(w)).length
+}
+
+export function vocabTarget(t: WeekTask, units?: VocabUnit[]): number {
+  const n = unitTerms(t.unitId ?? '', units).length
+  return n ? Math.ceil((n * (t.pct ?? 100)) / 100) : 0
 }
 
 export interface WeekActivity {
@@ -397,25 +389,28 @@ export function weekActivity(days: ActivityDay[], start: string | null, week: nu
   return { videos, reviewDays }
 }
 
-export function pronTaskDone(t: WeekTask, best: Record<string, number>): boolean {
+export function pronTaskDone(t: WeekTask, best: Record<string, number>, groups = PRON_GROUPS): boolean {
   if (t.groupId) return (best[t.groupId] ?? 0) >= PRON_PASS
-  return PRON_GROUPS.every((g) => (best[g.id] ?? 0) >= PRON_PASS)
+  return groups.every((g) => (best[g.id] ?? 0) >= PRON_PASS)
 }
 
 export interface TaskExtra {
   grammar: Record<string, number>
   pron: Record<string, number>
   toeic: ToeicBridge
+  units?: VocabUnit[]
+  pronGroups?: PronGroup[]
 }
 
 export function taskDone(
   t: WeekTask, week: number, learned: Set<string>, plan: PlanState, bank = 0, act?: WeekActivity, ext?: TaskExtra,
 ): boolean {
-  if (t.kind === 'vocab') return learnedInUnit(t.unitId ?? '', learned) >= vocabTarget(t)
+  const units = ext?.units
+  if (t.kind === 'vocab') return learnedInUnit(t.unitId ?? '', learned, units) >= vocabTarget(t, units)
   if (t.kind === 'quiz') return (plan.quiz[`w${week}`] ?? -1) >= (t.passPct ?? 70)
   if (t.kind === 'total') return bank >= (t.targetTotal ?? Infinity)
   if (t.kind === 'grammar') return grammarTaskDone(t, ext?.grammar ?? readGrammarBest())
-  if (t.kind === 'pron') return pronTaskDone(t, ext?.pron ?? readPronBest())
+  if (t.kind === 'pron') return pronTaskDone(t, ext?.pron ?? readPronBest(), ext?.pronGroups)
   if (t.kind === 'toeic') {
     const b = ext?.toeic ?? readToeicLocal()
     return t.n ? b.days >= t.n : b.started
@@ -430,20 +425,24 @@ export function weekDone(w: WeekPlan, learned: Set<string>, plan: PlanState, ban
 }
 
 const EN_FRONT_RE = /^[a-z][a-z'’ -]*$/i
+const KO_FRONT_RE = /^[가-힣][가-힣 ]*$/
 
-export function useWordBank(learned: Set<string>): number {
+const frontRe = (lang: string) => (lang === 'ko' ? KO_FRONT_RE : EN_FRONT_RE)
+
+export function useWordBank(learned: Set<string>, lang = 'en'): number {
   const [srsFronts, setSrsFronts] = useState<string[]>([])
 
   useEffect(() => {
     let alive = true
+    const re = frontRe(lang)
     fetchAllCards()
       .then((r) => {
         if (!alive) return
-        setSrsFronts(r.cards.map((c) => c.front.trim()).filter((f) => EN_FRONT_RE.test(f)))
+        setSrsFronts(r.cards.map((c) => c.front.trim()).filter((f) => re.test(f)))
       })
       .catch(() => {  })
     return () => { alive = false }
-  }, [])
+  }, [lang])
 
   return useMemo(() => {
     const bank = new Set<string>()
@@ -453,63 +452,4 @@ export function useWordBank(learned: Set<string>): number {
   }, [learned, srsFronts])
 }
 
-const wordsPlanId = (lang: string) => `${lang}words`
-const wordsPushTimers: Record<string, number | undefined> = {}
-const wordsPulled: Record<string, boolean> = {}
 
-function pushWordsToServer(lang: string, list: string[]): void {
-  if (!getToken()) return
-  window.clearTimeout(wordsPushTimers[lang])
-  wordsPushTimers[lang] = window.setTimeout(() => {
-    savePlanApi(wordsPlanId(lang), { words: list }).catch(() => {  })
-  }, 1500)
-}
-
-export function useLearnedWords(lang = 'en') {
-  const [learned, setLearned] = useState<Set<string>>(() => new Set(read(lang)))
-
-  useEffect(() => {
-    setLearned(new Set(read(lang)))
-  }, [lang])
-
-  useEffect(() => {
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === learnedKey(lang)) setLearned(new Set(read(lang)))
-    }
-    window.addEventListener('storage', onStorage)
-    return () => window.removeEventListener('storage', onStorage)
-  }, [lang])
-
-  useEffect(() => {
-    if (wordsPulled[lang] || !getToken()) return
-    wordsPulled[lang] = true
-    fetchPlanApi<{ words?: string[] }>(wordsPlanId(lang))
-      .then((r) => {
-        const remote = r.data?.words ?? []
-        const local = read(lang)
-        const merged = [...new Set([...local, ...remote])]
-        if (merged.length !== local.length) {
-          write(lang, merged)
-          setLearned(new Set(merged))
-        }
-        if (merged.length !== remote.length) pushWordsToServer(lang, merged)
-      })
-      .catch(() => { wordsPulled[lang] = false })
-  }, [lang])
-
-  const mark = useCallback((word: string, on = true) => {
-    setLearned((prev) => {
-      const next = new Set(prev)
-      if (on) next.add(word)
-      else next.delete(word)
-      const list = [...next]
-      write(lang, list)
-      pushWordsToServer(lang, list)
-      return next
-    })
-  }, [lang])
-
-  const has = useCallback((word: string) => learned.has(word), [learned])
-
-  return { learned, mark, has }
-}

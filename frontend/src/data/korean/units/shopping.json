@@ -1,0 +1,22 @@
+{
+  "id": "shopping",
+  "name": "Mua sắm & thanh toán",
+  "sub": "Đủ để tự đi chợ, đi siêu thị và trả tiền ở Hàn.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "🛍️",
+  "words": [
+    { "ko": "가격", "romaja": "gagyeok", "vi": "Giá cả", "pos": "noun", "img": "🏷️", "connect": "\"Ka-kyớk\" chính là âm Hán \"giá cách\".", "ex": "가격이 어떻게 돼요?", "exVi": "Giá bao nhiêu vậy ạ?" },
+    { "ko": "카드", "romaja": "kadeu", "vi": "Thẻ (ngân hàng)", "pos": "noun", "img": "💳", "connect": "\"Ka-đư\" mượn từ \"card\".", "ex": "카드로 계산할게요.", "exVi": "Tôi sẽ thanh toán bằng thẻ." },
+    { "ko": "현금", "romaja": "hyeongeum", "vi": "Tiền mặt", "pos": "noun", "img": "💵", "connect": "\"Hyơn-kưm\" chính là âm Hán \"hiện kim\".", "ex": "현금도 받으세요?", "exVi": "Anh/chị có nhận tiền mặt không ạ?" },
+    { "ko": "계산하다", "romaja": "gyesanhada", "vi": "Thanh toán / Tính tiền", "pos": "verb", "img": "🧾", "connect": "\"Kyê-san\" chính là âm Hán \"kế toán\".", "ex": "여기서 계산해요?", "exVi": "Thanh toán ở đây phải không ạ?" },
+    { "ko": "영수증", "romaja": "yeongsujeung", "vi": "Hoá đơn", "pos": "noun", "img": "🧻", "connect": "\"Yơng-su-chưng\" chính là âm Hán \"lãnh thu chứng\".", "ex": "영수증 주세요.", "exVi": "Cho tôi xin hoá đơn ạ." },
+    { "ko": "봉투", "romaja": "bongtu", "vi": "Túi đựng / Phong bì", "pos": "noun", "img": "🛍️", "connect": "\"Bông-thu\" chính là âm Hán \"phong đầu\".", "ex": "봉투 하나 주시겠어요?", "exVi": "Cho tôi xin một cái túi được không ạ?" },
+    { "ko": "할인", "romaja": "harin", "vi": "Giảm giá", "pos": "noun", "img": "🔖", "connect": "\"Hal-in\" chính là âm Hán \"cát dẫn\" — cắt bớt giá.", "ex": "지금 할인 중이에요.", "exVi": "Bây giờ đang giảm giá ạ." },
+    { "ko": "교환", "romaja": "gyohwan", "vi": "Đổi hàng", "pos": "noun", "img": "🔁", "connect": "\"Kyô-hoan\" chính là âm Hán \"giao hoán\".", "ex": "사이즈를 교환하고 싶어요.", "exVi": "Tôi muốn đổi cỡ khác." },
+    { "ko": "환불", "romaja": "hwanbul", "vi": "Hoàn tiền", "pos": "noun", "img": "↩️", "connect": "\"Hoan-bul\" chính là âm Hán \"hoàn phất\".", "ex": "환불이 가능해요?", "exVi": "Có hoàn tiền được không ạ?" },
+    { "ko": "사이즈", "romaja": "saijeu", "vi": "Cỡ / Size", "pos": "noun", "img": "📐", "connect": "\"Sa-i-chư\" mượn từ \"size\".", "ex": "더 큰 사이즈 있어요?", "exVi": "Có cỡ to hơn không ạ?" },
+    { "ko": "포장", "romaja": "pojang", "vi": "Gói lại / Mang về", "pos": "noun", "img": "📦", "connect": "\"Phô-chang\" chính là âm Hán \"bao trang\".", "ex": "포장해 주세요.", "exVi": "Gói mang về giúp tôi ạ." },
+    { "ko": "깎아 주세요", "romaja": "kkakka juseyo", "vi": "Bớt giá cho tôi với", "pos": "phrase", "img": "✂️", "connect": "\"Kkak\" = cắt gọt — cắt bớt giá đi.", "ex": "조금만 깎아 주세요.", "exVi": "Bớt cho tôi một chút đi ạ." }
+  ]
+}

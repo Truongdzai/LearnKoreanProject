@@ -21,7 +21,6 @@ def add(user: dict | None, kind: str, message: str, page: str = "") -> dict:
         raise HTTPException(status_code=400, detail=f"Phản hồi tối đa {MAX_LEN} ký tự.")
     conn = db.get_conn()
     try:
-        # Chống spam thô: mỗi người (hoặc khách) tối đa 20 phản hồi/ngày.
         owner = user["id"] if user else None
         n = conn.execute(
             "SELECT COUNT(*) FROM feedback WHERE date(created_at) = date('now','localtime') "

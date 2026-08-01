@@ -1,15 +1,3 @@
-"""Sinh MP3 giọng neural cho ngân hàng nghe TOEIC (chạy 1 lần khi biên soạn nội dung).
-
-Cách chạy:  .venv\\Scripts\\python.exe tools\\gen_toeic_audio.py
-
-- Đọc part1-4 JSON, dựng đúng các dòng thoại như engine.ts (p1Group/p2Group/convGroup).
-- Mỗi dòng thoại = 1 file MP3 tại frontend/public/audio/toeic/{itemId}-{i}.mp3
-  (frontend phát tuần tự — người dùng KHÔNG cần giọng TTS trên máy).
-- Giọng neural Microsoft (edge-tts): Mỹ mặc định; hội thoại/bài nói xen kẽ Anh/Úc
-  theo xu hướng đề 2026. Chạy lại chỉ sinh file còn thiếu (idempotent).
-- Xuất manifest {itemId: số dòng} vào frontend/src/data/english/toeic/audioManifest.json.
-"""
-
 import asyncio
 import json
 import sys
@@ -54,7 +42,6 @@ def accent_for(index: int) -> str:
 
 
 def build_lines() -> dict[str, list[tuple[str, str, str]]]:
-    """itemId -> [(speaker, text, accent)] — khớp thứ tự dòng trong engine.ts."""
     items: dict[str, list[tuple[str, str, str]]] = {}
 
     for it in load("part1"):

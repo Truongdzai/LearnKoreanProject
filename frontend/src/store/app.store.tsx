@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import type { AppView, ThemeMode } from '@/core/constants/enum'
 import type { Lesson } from '@/models/lesson.model'
 import type { Video } from '@/models/video.model'
@@ -14,9 +14,12 @@ import {
 } from '@/core/api/me.api'
 import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
-import { pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
+import { META_DESC, PUBLIC_VIEWS, pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
 import { studyLang } from '@/core/constants/languages'
 import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
+import { pageview } from '@/core/analytics'
+import { announce } from '@/core/a11y'
+import { track } from '@/core/monitor'
 import { useAuth } from '@/store/auth.store'
 
 const THEME_KEY = 'vyling.theme'
@@ -75,8 +78,6 @@ function loadNative(): string {
   try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
 }
 
-// Dịch phần "bản dịch" của bài học sang tiếng mẹ đẻ đã chọn (khác tiếng Việt & khác tiếng đang học).
-// Giữ nguyên bản Việt sẵn có làm dự phòng khi AI không trả về dòng tương ứng.
 async function applyNativeTranslation(d: Lesson, lang: string, native: string): Promise<Lesson> {
   if (!native || native === 'vi' || native === lang) return d
   const lines = d.segments.map((s) => s.ko)
@@ -212,8 +213,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const applyPath = useCallback((pathname: string) => {
     const v = viewForPath(pathname)
     if (!v) {
-      window.history.replaceState({ view: 'home' }, '', pathForView('home'))
-      setViewState('home')
+      setViewState('notfound')
       return
     }
     if (!viewAllowedForLang(v, loadLang())) {
@@ -289,13 +289,48 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   )
 
   const learnLangName = studyLangName(uiLang, learnLang)
+  const firstView = useRef(true)
 
   useEffect(() => {
     const label = translate(uiLang, titleKeyForView(view))
-    document.title = view === 'home'
+    const title = view === 'home'
       ? `VyLing — ${translate(uiLang, 'brand.tagline')}`
       : `${label} · VyLing`
+    document.title = title
     document.documentElement.lang = uiLang
+
+    const isPublic = PUBLIC_VIEWS.includes(view)
+    const desc = META_DESC[view] ?? META_DESC.home ?? ''
+    const url = window.location.origin + pathForView(view)
+    const setMeta = (sel: string, attr: 'name' | 'property', key: string, content: string) => {
+      let el = document.head.querySelector<HTMLMetaElement>(sel)
+      if (!el) {
+        el = document.createElement('meta')
+        el.setAttribute(attr, key)
+        document.head.appendChild(el)
+      }
+      el.setAttribute('content', content)
+    }
+    setMeta('meta[name="description"]', 'name', 'description', desc)
+    setMeta('meta[property="og:title"]', 'property', 'og:title', title)
+    setMeta('meta[property="og:description"]', 'property', 'og:description', desc)
+    setMeta('meta[property="og:url"]', 'property', 'og:url', url)
+    setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title)
+    setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', desc)
+    setMeta('meta[name="robots"]', 'name', 'robots', isPublic ? 'index, follow' : 'noindex, follow')
+
+    let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    if (!link) {
+      link = document.createElement('link')
+      link.rel = 'canonical'
+      document.head.appendChild(link)
+    }
+    link.href = url
+
+    pageview(pathForView(view), title)
+
+    if (firstView.current) firstView.current = false
+    else announce(translate(uiLang, 'a11y.page', { name: label }))
   }, [view, uiLang])
 
   const requestWizard = useCallback(() => setWizardRequested(true), [])
@@ -466,10 +501,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     setStatus('Đang lấy phụ đề & dịch... (10–60 giây tùy độ dài video)')
     setLesson(null)
     setView('learn')
+    track('lesson_start', { lang, from: opts?.video ? 'catalog' : 'paste' })
     try {
       const d = await fetchTranscript(u, lang)
       setLesson(d)
       setStatus('')
+      track('lesson_ready', { lang, segments: d.segments?.length || 0 })
       recordEvent('video', 1, 0, 0)
       if (opts?.video) saveVideo(opts.video)
       if (nativeLang !== 'vi' && nativeLang !== lang) {
@@ -479,6 +516,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     } catch (e) {
       setStatusError(true)
       setStatus((e as Error).message)
+      track('lesson_failed', { lang, reason: (e as Error).message.slice(0, 60) })
     }
   }, [recordEvent, learnLang, nativeLang, saveVideo])
 

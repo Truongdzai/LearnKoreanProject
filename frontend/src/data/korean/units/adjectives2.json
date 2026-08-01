@@ -1,0 +1,22 @@
+{
+  "id": "adjectives2",
+  "name": "Tính từ mô tả",
+  "sub": "Khen chê, nhận xét người và đồ vật cho tự nhiên.",
+  "pos": "adj",
+  "tone": "tone-f",
+  "emoji": "🎨",
+  "words": [
+    { "ko": "예쁘다", "romaja": "yeppeuda", "vi": "Xinh / Đẹp", "pos": "adj", "img": "🌸", "connect": "\"Yê-bư\" — lời khen quen thuộc trong phim Hàn.", "ex": "그 옷이 정말 예뻐요.", "exVi": "Bộ đồ đó xinh thật đấy." },
+    { "ko": "멋있다", "romaja": "meositda", "vi": "Ngầu / Bảnh", "pos": "adj", "img": "😎", "connect": "\"Mớt\" = phong độ — có phong độ thì ngầu.", "ex": "오늘 정말 멋있어요.", "exVi": "Hôm nay bạn ngầu thật đấy." },
+    { "ko": "재미있다", "romaja": "jaemiitda", "vi": "Thú vị / Vui", "pos": "adj", "img": "😆", "connect": "\"Che-mi\" = thú vị + \"ít-tha\" = có → có cái thú.", "ex": "이 드라마는 재미있어요.", "exVi": "Bộ phim này thú vị lắm." },
+    { "ko": "재미없다", "romaja": "jaemieopda", "vi": "Chán / Không thú vị", "pos": "adj", "img": "🥱", "connect": "Đổi 있다 thành 없다 là \"không có cái thú\".", "ex": "그 책은 좀 재미없어요.", "exVi": "Quyển sách đó hơi chán." },
+    { "ko": "맛없다", "romaja": "maseopda", "vi": "Không ngon", "pos": "adj", "img": "😖", "connect": "\"Mát\" = vị + 없다 = không → không có vị gì.", "ex": "이 국은 좀 맛없어요.", "exVi": "Món canh này hơi không ngon." },
+    { "ko": "바쁘다", "romaja": "bappeuda", "vi": "Bận rộn", "pos": "adj", "img": "🏃", "connect": "\"Ba-bư\" — bận bù đầu.", "ex": "요즘 너무 바빠요.", "exVi": "Dạo này tôi bận quá." },
+    { "ko": "조용하다", "romaja": "joyonghada", "vi": "Yên tĩnh", "pos": "adj", "img": "🤫", "connect": "\"Chô-yông\" — nhẹ nhàng như dung dăng.", "ex": "도서관은 아주 조용해요.", "exVi": "Thư viện rất yên tĩnh." },
+    { "ko": "시끄럽다", "romaja": "sikkeureopda", "vi": "Ồn ào", "pos": "adj", "img": "📢", "connect": "\"Si-kkư-rớp\" đọc lên đã thấy lộn xộn.", "ex": "밖이 너무 시끄러워요.", "exVi": "Bên ngoài ồn quá." },
+    { "ko": "길다", "romaja": "gilda", "vi": "Dài", "pos": "adj", "img": "📏", "connect": "\"Kil\" — con đường (길) thì dài.", "ex": "머리가 많이 길었어요.", "exVi": "Tóc tôi dài ra nhiều rồi." },
+    { "ko": "짧다", "romaja": "jjalda", "vi": "Ngắn", "pos": "adj", "img": "✂️", "connect": "\"Cchal\" cắt cụt một tiếng.", "ex": "치마가 조금 짧아요.", "exVi": "Cái váy hơi ngắn." },
+    { "ko": "새롭다", "romaja": "saeropda", "vi": "Mới mẻ", "pos": "adj", "img": "✨", "connect": "\"Se\" = mới — 새 chiếc áo mới.", "ex": "새로운 일을 시작했어요.", "exVi": "Tôi đã bắt đầu một công việc mới." },
+    { "ko": "같다", "romaja": "gatda", "vi": "Giống / Như", "pos": "adj", "img": "🟰", "connect": "\"Kát\" — cắt ra hai phần y hệt nhau.", "ex": "우리는 나이가 같아요.", "exVi": "Chúng tôi bằng tuổi nhau." }
+  ]
+}

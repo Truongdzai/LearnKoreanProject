@@ -188,7 +188,7 @@ function face(s: Spec, mood: PetMood): ReactNode {
       mouth = <ellipse cx="50" cy={my + 1} rx="4" ry="4.6" fill="#7a3b46" />
       extra = <path className="pet-spark" style={{ animationDelay: '0s' }} d="M31 45 q-3 5 0 8 q3 -3 0 -8 z" fill="#7fd0ff" stroke="#5bb6ef" strokeWidth=".8" />
       break
-    default: // happy
+    default:
       eyes = <>{openEye(lx, ey)}{openEye(rx, ey)}</>
       mouth = <path d={`M45 ${my} q5 4.5 10 0`} fill="none" stroke={EYE} strokeWidth="2.2" strokeLinecap="round" />
   }
@@ -223,7 +223,6 @@ interface Props {
   className?: string
 }
 
-/** Pet vẽ vector (kawaii). Pet Plus có hào quang + lấp lánh/tàn lửa. */
 export default function VectorPet({ art, size = 96, mood = 'happy', className }: Props) {
   const s = SPECS[art] || SPECS.cat
   const uid = useId().replace(/:/g, '')

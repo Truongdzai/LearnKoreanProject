@@ -1,11 +1,6 @@
 import { env } from '@/config/env'
+import { sendEvent } from '@/core/analytics'
 
-/**
- * Giám sát lỗi & sự kiện nền — nhẹ, không phụ thuộc thư viện ngoài.
- * Sẵn sàng nối Sentry (hoặc bất kỳ collector nào): đặt VITE_MONITOR_ENDPOINT thành
- * URL nhận JSON qua POST. Khi chưa đặt: bỏ qua ở production, in ra ở dev — nên
- * có thể phát hành ngay mà chưa cần tài khoản/DSN.
- */
 
 type Payload = Record<string, unknown>
 
@@ -26,7 +21,6 @@ function send(kind: 'error' | 'event', data: Payload): void {
       console.warn('[monitor]', kind, data)
     }
   } catch {
-    /* giám sát KHÔNG bao giờ được làm hỏng app */
   }
 }
 
@@ -37,6 +31,7 @@ export function reportError(err: unknown, context?: Payload): void {
 
 export function track(event: string, props?: Payload): void {
   send('event', { event, ...props })
+  sendEvent(event, props)
 }
 
 let started = false

@@ -1,0 +1,130 @@
+{
+  "id": "zh-time",
+  "name": "Thời gian & ngày tháng",
+  "sub": "Hẹn giờ, hẹn ngày — nhóm từ phải thuộc để đặt lịch với người khác.",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🕒",
+  "words": [
+    {
+      "zh": "今天",
+      "pinyin": "jīn tiān",
+      "vi": "Hôm nay",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "今 = kim (nay, như \"kim cổ\") + 天 = thiên (ngày trời).",
+      "ex": "今天天气很好。",
+      "exVi": "Hôm nay thời tiết rất đẹp."
+    },
+    {
+      "zh": "明天",
+      "pinyin": "míng tiān",
+      "vi": "Ngày mai",
+      "pos": "noun",
+      "img": "🌅",
+      "connect": "明 = minh (sáng) + 天 → ngày sáng kế tiếp.",
+      "ex": "明天我不上班。",
+      "exVi": "Ngày mai tôi không đi làm."
+    },
+    {
+      "zh": "昨天",
+      "pinyin": "zuó tiān",
+      "vi": "Hôm qua",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "昨 = tạc, như \"tạc dạ\" (đêm qua) trong văn cổ.",
+      "ex": "昨天我看了一部电影。",
+      "exVi": "Hôm qua tôi đã xem một bộ phim."
+    },
+    {
+      "zh": "现在",
+      "pinyin": "xiàn zài",
+      "vi": "Bây giờ",
+      "pos": "noun",
+      "img": "⏰",
+      "connect": "现 = hiện + 在 = tại → \"hiện tại\", y hệt tiếng Việt.",
+      "ex": "现在几点了？",
+      "exVi": "Bây giờ mấy giờ rồi?"
+    },
+    {
+      "zh": "年",
+      "pinyin": "nián",
+      "vi": "Năm (12 tháng)",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "年 = niên, như \"niên khoá\", \"thiếu niên\".",
+      "ex": "今年是二〇二六年。",
+      "exVi": "Năm nay là năm 2026."
+    },
+    {
+      "zh": "月",
+      "pinyin": "yuè",
+      "vi": "Tháng, mặt trăng",
+      "pos": "noun",
+      "img": "🌕",
+      "connect": "月 = nguyệt, như \"nguyệt thực\". Người xưa tính tháng theo mặt trăng nên một chữ hai nghĩa.",
+      "ex": "我八月去中国。",
+      "exVi": "Tháng tám tôi sang Trung Quốc."
+    },
+    {
+      "zh": "日",
+      "pinyin": "rì",
+      "vi": "Ngày, mặt trời",
+      "pos": "noun",
+      "img": "☀️",
+      "connect": "日 = nhật, như \"nhật ký\", \"nhật thực\".",
+      "ex": "五月一日是劳动节。",
+      "exVi": "Ngày 1 tháng 5 là ngày Quốc tế Lao động."
+    },
+    {
+      "zh": "星期",
+      "pinyin": "xīng qī",
+      "vi": "Tuần, thứ",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "星 = tinh (sao) + 期 = kỳ → \"tinh kỳ\". 星期一 là thứ Hai, đếm tiếp tới 星期六.",
+      "ex": "星期天我们去公园。",
+      "exVi": "Chủ nhật chúng ta đi công viên."
+    },
+    {
+      "zh": "点",
+      "pinyin": "diǎn",
+      "vi": "Giờ (đúng giờ)",
+      "pos": "noun",
+      "img": "🕐",
+      "connect": "点 = điểm, đúng chữ \"điểm\" trong \"thời điểm\". 三点 = ba giờ.",
+      "ex": "我七点起床。",
+      "exVi": "Tôi thức dậy lúc bảy giờ."
+    },
+    {
+      "zh": "分钟",
+      "pinyin": "fēn zhōng",
+      "vi": "Phút",
+      "pos": "noun",
+      "img": "⏱️",
+      "connect": "分 = phân (chia nhỏ) + 钟 = chung (cái chuông, đồng hồ).",
+      "ex": "请等我十分钟。",
+      "exVi": "Xin đợi tôi mười phút."
+    },
+    {
+      "zh": "上午",
+      "pinyin": "shàng wǔ",
+      "vi": "Buổi sáng",
+      "pos": "noun",
+      "img": "🌤️",
+      "connect": "上 = thượng (trên) + 午 = ngọ (giữa trưa) → trước giờ ngọ.",
+      "ex": "上午我有课。",
+      "exVi": "Buổi sáng tôi có tiết học."
+    },
+    {
+      "zh": "下午",
+      "pinyin": "xià wǔ",
+      "vi": "Buổi chiều",
+      "pos": "noun",
+      "img": "🌇",
+      "connect": "下 = hạ (dưới) + 午 = ngọ → sau giờ ngọ.",
+      "ex": "下午三点见面，好吗？",
+      "exVi": "Ba giờ chiều gặp nhau nhé?"
+    }
+  ]
+}

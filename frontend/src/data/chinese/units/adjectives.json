@@ -1,0 +1,22 @@
+{
+  "id": "zh-adjectives",
+  "name": "Tính từ thường dùng",
+  "sub": "Tả người, tả vật, tả cảm giác — nói được ý kiến của mình.",
+  "pos": "adj",
+  "tone": "tone-c",
+  "emoji": "🎨",
+  "words": [
+    { "zh": "好", "pinyin": "hǎo", "vi": "Tốt, ổn", "pos": "adj", "img": "👍", "connect": "好 = hảo, như \"hảo hạng\". Chữ ghép 女 (nữ) + 子 (con) — người xưa coi mẹ bồng con là cảnh đẹp nhất.", "ex": "他是一个好人。", "exVi": "Anh ấy là người tốt." },
+    { "zh": "大", "pinyin": "dà", "vi": "To, lớn", "pos": "adj", "img": "🐘", "connect": "大 = đại, như \"đại học\", \"vĩ đại\". Chữ vẽ người dang rộng tay.", "ex": "这个房间很大。", "exVi": "Căn phòng này rất rộng." },
+    { "zh": "小", "pinyin": "xiǎo", "vi": "Nhỏ, bé", "pos": "adj", "img": "🐜", "connect": "小 = tiểu, như \"tiểu học\", \"tiểu thuyết\".", "ex": "我的房子很小。", "exVi": "Nhà tôi rất nhỏ." },
+    { "zh": "多", "pinyin": "duō", "vi": "Nhiều", "pos": "adj", "img": "📚", "connect": "多 = đa, như \"đa số\", \"đa dạng\". Chữ là hai chữ 夕 (buổi tối) chồng lên nhau — nhiều ngày nhiều đêm.", "ex": "北京人很多。", "exVi": "Bắc Kinh rất đông người." },
+    { "zh": "少", "pinyin": "shǎo", "vi": "Ít", "pos": "adj", "img": "🤏", "connect": "少 = thiểu, như \"thiểu số\", \"giảm thiểu\".", "ex": "今天客人很少。", "exVi": "Hôm nay ít khách." },
+    { "zh": "热", "pinyin": "rè", "vi": "Nóng", "pos": "adj", "img": "🥵", "connect": "热 = nhiệt, như \"nhiệt độ\", \"nhiệt tình\". Bốn chấm dưới đáy là bộ lửa.", "ex": "夏天很热。", "exVi": "Mùa hè rất nóng." },
+    { "zh": "冷", "pinyin": "lěng", "vi": "Lạnh", "pos": "adj", "img": "🥶", "connect": "Bên trái là bộ 冫(hai giọt băng) — mọi chữ chỉ lạnh giá đều có bộ này.", "ex": "今天有点儿冷。", "exVi": "Hôm nay hơi lạnh." },
+    { "zh": "高兴", "pinyin": "gāo xìng", "vi": "Vui, phấn khởi", "pos": "adj", "img": "😄", "connect": "高 = cao + 兴 = hưng (hứng khởi) → \"cao hứng\", đúng chữ tiếng Việt hay dùng.", "ex": "认识你我很高兴。", "exVi": "Rất vui được làm quen với bạn." },
+    { "zh": "漂亮", "pinyin": "piào liang", "vi": "Đẹp, xinh", "pos": "adj", "img": "💐", "connect": "Dùng cho người và cả đồ vật, cảnh vật — nghĩa rộng hơn \"xinh\" của tiếng Việt.", "ex": "这件衣服很漂亮。", "exVi": "Cái áo này rất đẹp." },
+    { "zh": "新", "pinyin": "xīn", "vi": "Mới", "pos": "adj", "img": "🆕", "connect": "新 = tân, như \"tân sinh viên\", \"tân niên\".", "ex": "这是我的新手机。", "exVi": "Đây là điện thoại mới của tôi." },
+    { "zh": "忙", "pinyin": "máng", "vi": "Bận", "pos": "adj", "img": "😰", "connect": "忙 = mang. Chữ ghép bộ 忄(tâm) + 亡 (mất) — bận tới mức đánh mất cả tâm trí.", "ex": "他工作很忙。", "exVi": "Anh ấy công việc rất bận." },
+    { "zh": "累", "pinyin": "lèi", "vi": "Mệt", "pos": "adj", "img": "😩", "connect": "累 = luỹ, như \"tích luỹ\" — việc chất chồng lên nhau thì sinh mệt.", "ex": "今天我很累。", "exVi": "Hôm nay tôi rất mệt." }
+  ]
+}

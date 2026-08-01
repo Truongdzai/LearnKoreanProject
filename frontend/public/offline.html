@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Đang ngoại tuyến · VyLing</title>
+    <style>
+      :root { color-scheme: dark }
+      body {
+        margin: 0; min-height: 100vh; display: grid; place-items: center;
+        background: #0f172a; color: #e2e8f0; padding: 24px;
+        font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      .box { max-width: 420px; text-align: center }
+      .logo {
+        width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
+        background: linear-gradient(160deg, #3b82f6, #1d3a8a);
+        display: grid; place-items: center; font-size: 34px; font-weight: 800; color: #fff;
+      }
+      h1 { font-size: 22px; margin: 0 0 10px }
+      p { line-height: 1.65; color: #94a3b8; margin: 0 0 22px }
+      button {
+        border: 0; border-radius: 12px; padding: 12px 22px; font-size: 15px; font-weight: 600;
+        background: #2563eb; color: #fff; cursor: pointer;
+      }
+      button:hover { background: #1d4ed8 }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="logo">V</div>
+      <h1>Bạn đang ngoại tuyến</h1>
+      <p>
+        Không có mạng nên VyLing chưa tải được trang này. Những trang bạn đã mở gần đây vẫn
+        xem lại được; phần tạo bài học từ video và tra từ cần mạng để chạy.
+      </p>
+      <button onclick="location.reload()">Thử lại</button>
+    </div>
+  </body>
+</html>

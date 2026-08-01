@@ -1,8 +1,10 @@
 import { useCallback, useMemo, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
+import { useTabs } from '@/core/a11y'
+import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
 import { GRAMMAR_CAPSULES, SKILLS, TOEIC_TARGET, estimateScore, estimateScoreFull } from '@/data/toeicCore'
-import { useLearnedWords } from '../english/progress'
+import { useLearnedWords } from '../english/learned'
 import { BANK_SIZE, buildFullTest, buildMiniTest, buildPartRun, buildReviewRun, buildWeakRun, rebuildTest, skillStats, weakestSkills, type RunGroup, type RunResult } from './engine'
 import { clearRun, loadRun, saveRun, type RunProgress, type SavedRun } from './testSave'
 import { dueWrong, toeicDay, useActivitySince, useToeicState, type TaskCtx } from './state'
@@ -36,6 +38,7 @@ const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'wrongbook', label: 'Sổ tay câu sai', icon: 'book' },
   { id: 'report', label: 'Phân tích', icon: 'chart' },
 ]
+const TAB_IDS = TABS.map((t) => t.id)
 
 const MINI_TEST_SECONDS = 30 * 60
 const FULL_SECTION_SECONDS = { listening: 45 * 60, reading: 75 * 60 }
@@ -57,6 +60,9 @@ export default function ToeicPage() {
 
   const ctx: TaskCtx = { state, learned, activity }
   const day = toeicDay(state.start)
+
+  const pickTab = (t: Tab) => { setTab(t); setCapsuleId(null) }
+  const tabs = useTabs('toeic', TAB_IDS, tab, pickTab, 'Luyện thi TOEIC')
 
   const weakList = useMemo(() => {
     const w = weakestSkills(skillStats(state.attempts.map((a) => a.skills)))
@@ -263,14 +269,17 @@ export default function ToeicPage() {
         </div>
       </div>
 
-      <div className="en-tabs">
+      <ViContentNote />
+
+      <div className="en-tabs" {...tabs.list}>
         {TABS.map((t) => (
-          <button key={t.id} className={'en-tab' + (tab === t.id ? ' on' : '')} onClick={() => { setTab(t.id); setCapsuleId(null) }}>
+          <button key={t.id} {...tabs.tab(t.id)} className={'en-tab' + (tab === t.id ? ' on' : '')} onClick={() => pickTab(t.id)}>
             <Icon name={t.icon} size={16} /> {t.label}
           </button>
         ))}
       </div>
 
+      <div {...tabs.panel(tab)}>
       {tab === 'road' && (
         <Roadmap60
           state={state}
@@ -367,6 +376,7 @@ export default function ToeicPage() {
           onMiniTest={() => startSession({ kind: 'test' })}
         />
       )}
+      </div>
     </div>
   )
 }

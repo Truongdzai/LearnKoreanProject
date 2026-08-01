@@ -8,7 +8,7 @@ from fastapi import HTTPException
 
 from ..errors import AppError
 from .. import db
-from . import accounts, catalog
+from . import accounts, catalog, league
 
 DAILY_BONUS = 50
 DAILY_BONUS_ID = "__daily_bonus__"
@@ -405,6 +405,7 @@ def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, word
         conn.close()
     if xp_gain:
         accounts.add_xp_coins(user["id"], xp=xp_gain)
+        league.touch(user["id"], user.get("league_tier") or 0)
     return {"ok": True, "user": accounts.public_user(accounts.reload(user["id"]))}
 
 

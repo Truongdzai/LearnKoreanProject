@@ -1,4 +1,5 @@
 import { env } from '@/config/env'
+import { track } from '@/core/monitor'
 
 export const TOKEN_KEY = 'vyling.token'
 
@@ -36,6 +37,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
     const { detail, code } = data as { detail?: string; code?: string }
+    if (res.status === 429) track('quota_blocked', { path, authed: !!token })
     throw new ApiError(detail || 'Đã có lỗi xảy ra, hãy thử lại.', res.status, code || 'UNKNOWN')
   }
   return data as T

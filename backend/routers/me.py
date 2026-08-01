@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from datetime import datetime
+
 from fastapi import APIRouter, Depends
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from ..schemas.account import MeState
-from ..services import auth, accounts, gameplay
+from ..services import auth, accounts, dataexport, gameplay
 
 router = APIRouter(prefix="/api/me", tags=["Người dùng"])
 Auth = Depends(auth.get_current_user)
@@ -186,6 +189,36 @@ def api_event(body: EventIn, user: dict = Auth):
 @router.post("/goal")
 def api_goal(body: GoalIn, user: dict = Auth):
     return {"ok": True, "user": accounts.public_user(accounts.set_goal(user["id"], body.goal))}
+
+
+class EmailPrefIn(BaseModel):
+    optout: bool
+
+
+@router.post("/email-prefs")
+def api_email_prefs(body: EmailPrefIn, user: dict = Auth):
+    return {"ok": True, "user": accounts.public_user(accounts.set_email_optout(user["id"], body.optout))}
+
+
+class DeleteAccountIn(BaseModel):
+    password: str = ""
+    confirm: str = ""
+
+
+@router.get("/export")
+def api_export(user: dict = Auth):
+    data = dataexport.export_user(user["id"])
+    stamp = datetime.now().strftime("%Y%m%d")
+    return JSONResponse(
+        data,
+        headers={"Content-Disposition": f'attachment; filename="vyling-du-lieu-{stamp}.json"'},
+    )
+
+
+@router.post("/delete")
+def api_delete_account(body: DeleteAccountIn, user: dict = Auth):
+    accounts.delete_own_account(user, body.password, body.confirm)
+    return {"ok": True}
 
 
 @router.post("/goal-bonus")

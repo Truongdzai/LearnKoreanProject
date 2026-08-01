@@ -9,7 +9,6 @@ import yt_dlp
 from ..config import settings
 from .langs import study_name as _study_name
 
-# Preferred caption track keys per learning language (first match wins).
 _LANG_KEYS = {
     "ko": ("ko", "ko-KR", "ko-orig"),
     "en": ("en", "en-US", "en-GB", "en-orig"),
@@ -38,7 +37,6 @@ def _pick_track(tracks_map: dict, lang: str = "ko"):
     for key in keys:
         if key in tracks_map and tracks_map[key]:
             return tracks_map[key]
-    # Fall back to a prefix match (e.g. 'en-CA') before giving up.
     base = keys[0]
     for key, val in tracks_map.items():
         if val and key.split("-")[0] == base:
@@ -177,6 +175,5 @@ def get_segments(url: str, lang: str = "ko") -> dict:
     }
 
 
-# Backwards-compatible alias.
 def get_korean_segments(url: str) -> dict:
     return get_segments(url, "ko")

@@ -7,7 +7,6 @@ import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import type { Segment } from '@/models/lesson.model'
 
-// Đã giải thích câu nào thì giữ cho cả phiên — đổi câu qua lại không gọi AI lần nữa.
 const explainCache = new Map<string, ExplainResult>()
 
 export default function CurrentLine({ segment }: { segment?: Segment }) {
@@ -49,7 +48,7 @@ export default function CurrentLine({ segment }: { segment?: Segment }) {
 
   return (
     <div className="cur-line">
-      {segment && cfg.romanizeChat && <div className="ph">{romanizeLine(segment.ko)}</div>}
+      {segment && cfg.reading === 'romaja' && <div className="ph">{romanizeLine(segment.ko)}</div>}
       <div className="ko" lang={learnLang}>{segment ? segment.ko : '—'}</div>
       <div className="vi">{segment?.vi || t('learn.clickLine')}</div>
 

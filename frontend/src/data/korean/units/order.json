@@ -1,0 +1,130 @@
+{
+  "id": "order",
+  "name": "Số thứ tự & đo lường",
+  "sub": "Xếp hạng, đo đạc, phần trăm — cụm từ đề đọc TOPIK rất hay dùng.",
+  "pos": "noun",
+  "tone": "tone-f",
+  "emoji": "📏",
+  "words": [
+    {
+      "ko": "첫째",
+      "romaja": "cheotjjae",
+      "vi": "Thứ nhất",
+      "pos": "noun",
+      "img": "1️⃣",
+      "connect": "Từ 하나 (một) đã học biến thành số thứ tự.",
+      "ex": "첫째, 시간을 지키세요.",
+      "exVi": "Thứ nhất, hãy giữ đúng giờ."
+    },
+    {
+      "ko": "둘째",
+      "romaja": "duljjae",
+      "vi": "Thứ hai",
+      "pos": "noun",
+      "img": "2️⃣",
+      "connect": "Từ 둘 (hai) đã học.",
+      "ex": "둘째 아이가 태어났어요.",
+      "exVi": "Đứa con thứ hai đã chào đời."
+    },
+    {
+      "ko": "셋째",
+      "romaja": "setjjae",
+      "vi": "Thứ ba",
+      "pos": "noun",
+      "img": "3️⃣",
+      "connect": "Từ 셋 (ba) đã học.",
+      "ex": "셋째 줄에 앉으세요.",
+      "exVi": "Hãy ngồi ở hàng thứ ba."
+    },
+    {
+      "ko": "번째",
+      "romaja": "beonjjae",
+      "vi": "Lần thứ ~",
+      "pos": "noun",
+      "img": "🔢",
+      "connect": "Ghép sau số: 두 번째 = lần thứ hai.",
+      "ex": "이번이 세 번째예요.",
+      "exVi": "Đây là lần thứ ba rồi."
+    },
+    {
+      "ko": "미터",
+      "romaja": "miteo",
+      "vi": "Mét",
+      "pos": "noun",
+      "img": "📐",
+      "connect": "Từ mượn \"meter\".",
+      "ex": "백 미터쯤 가세요.",
+      "exVi": "Bạn đi khoảng một trăm mét."
+    },
+    {
+      "ko": "센티미터",
+      "romaja": "sentimiteo",
+      "vi": "Xăng-ti-mét",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "Từ mượn, nói tắt là 센티.",
+      "ex": "키가 백육십 센티미터예요.",
+      "exVi": "Tôi cao một mét sáu mươi."
+    },
+    {
+      "ko": "킬로그램",
+      "romaja": "killogeuraem",
+      "vi": "Ki-lô-gam",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "Dạng đầy đủ của 킬로 đã học ở bài siêu thị.",
+      "ex": "삼 킬로그램이에요.",
+      "exVi": "Ba ki-lô-gam ạ."
+    },
+    {
+      "ko": "온도",
+      "romaja": "ondo",
+      "vi": "Nhiệt độ",
+      "pos": "noun",
+      "img": "🌡️",
+      "connect": "온도 chính là âm Hán \"ôn độ\".",
+      "ex": "오늘 온도가 삼십 도예요.",
+      "exVi": "Nhiệt độ hôm nay là ba mươi độ."
+    },
+    {
+      "ko": "퍼센트",
+      "romaja": "peosenteu",
+      "vi": "Phần trăm",
+      "pos": "noun",
+      "img": "％",
+      "connect": "Từ mượn \"percent\", cũng viết là %.",
+      "ex": "오십 퍼센트 할인이에요.",
+      "exVi": "Giảm giá năm mươi phần trăm."
+    },
+    {
+      "ko": "반",
+      "romaja": "ban",
+      "vi": "Một nửa",
+      "pos": "noun",
+      "img": "½",
+      "connect": "반 chính là âm Hán \"bán\" — như 반값 đã học.",
+      "ex": "한 시 반에 만나요.",
+      "exVi": "Gặp nhau lúc một giờ rưỡi nhé."
+    },
+    {
+      "ko": "정도",
+      "romaja": "jeongdo",
+      "vi": "Khoảng, cỡ",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "정도 chính là âm Hán \"trình độ\" — mức khoảng chừng.",
+      "ex": "삼십 분 정도 걸려요.",
+      "exVi": "Mất khoảng ba mươi phút."
+    },
+    {
+      "ko": "쯤",
+      "romaja": "jjeum",
+      "vi": "Chừng, khoảng",
+      "pos": "part",
+      "img": "🕐",
+      "connect": "Gắn ngay sau số: 세 시쯤 = khoảng ba giờ.",
+      "ex": "여덟 시쯤 도착해요.",
+      "exVi": "Tôi đến khoảng tám giờ."
+    }
+  ]
+}

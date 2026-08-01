@@ -1,0 +1,22 @@
+{
+  "id": "questions",
+  "name": "Từ để hỏi & chỉ định",
+  "sub": "Bộ khung hỏi đáp: cái gì, ở đâu, khi nào, cái này.",
+  "pos": "question",
+  "tone": "tone-d",
+  "emoji": "❓",
+  "words": [
+    { "ko": "뭐", "romaja": "mwo", "vi": "Cái gì", "pos": "question", "img": "❔", "connect": "Rút gọn của 무엇 — hỏi \"mơ vậy?\".", "ex": "이게 뭐예요?", "exVi": "Cái này là cái gì ạ?" },
+    { "ko": "언제", "romaja": "eonje", "vi": "Khi nào", "pos": "question", "img": "📅", "connect": "\"Ơn-chê\" — hỏi mốc thời gian.", "ex": "언제 만날까요?", "exVi": "Khi nào chúng ta gặp nhau nhỉ?" },
+    { "ko": "어디", "romaja": "eodi", "vi": "Ở đâu", "pos": "question", "img": "📍", "connect": "\"Ơ-đi\" nghe gần như \"ở đây\" — hỏi chỗ.", "ex": "화장실이 어디예요?", "exVi": "Nhà vệ sinh ở đâu ạ?" },
+    { "ko": "왜", "romaja": "wae", "vi": "Tại sao", "pos": "question", "img": "🤨", "connect": "\"Uê\" bật lên một tiếng thắc mắc.", "ex": "왜 늦었어요?", "exVi": "Sao bạn đến muộn vậy?" },
+    { "ko": "어떻게", "romaja": "eotteoke", "vi": "Như thế nào", "pos": "question", "img": "🛠️", "connect": "\"Ơ-ttơ-khê\" — hỏi cách làm.", "ex": "이거 어떻게 해요?", "exVi": "Cái này làm thế nào ạ?" },
+    { "ko": "몇", "romaja": "myeot", "vi": "Mấy / Bao nhiêu (đếm)", "pos": "question", "img": "🔢", "connect": "\"Myớt\" — hỏi số lượng đếm được.", "ex": "지금 몇 시예요?", "exVi": "Bây giờ mấy giờ ạ?" },
+    { "ko": "어느", "romaja": "eoneu", "vi": "Cái nào", "pos": "question", "img": "↔️", "connect": "\"Ơ-nư\" — chọn trong nhiều thứ.", "ex": "어느 나라에서 왔어요?", "exVi": "Bạn đến từ nước nào?" },
+    { "ko": "무슨", "romaja": "museun", "vi": "Loại gì / Gì (đứng trước danh từ)", "pos": "question", "img": "🗂️", "connect": "\"Mu-sưn\" — luôn đi kèm một danh từ ngay sau.", "ex": "무슨 일이에요?", "exVi": "Có chuyện gì vậy ạ?" },
+    { "ko": "그것", "romaja": "geugeot", "vi": "Cái đó", "pos": "noun", "img": "👉", "connect": "그 = gần người nghe, chỗ bạn đó.", "ex": "그것도 주세요.", "exVi": "Cho tôi cả cái đó nữa ạ." },
+    { "ko": "저것", "romaja": "jeogeot", "vi": "Cái kia", "pos": "noun", "img": "👆", "connect": "저 = xa cả hai người, đằng kia.", "ex": "저것은 얼마예요?", "exVi": "Cái kia bao nhiêu tiền ạ?" },
+    { "ko": "여기", "romaja": "yeogi", "vi": "Ở đây", "pos": "noun", "img": "📌", "connect": "Cùng gốc 이 — chỗ mình đang đứng.", "ex": "여기에 앉아도 돼요?", "exVi": "Tôi ngồi ở đây được không ạ?" },
+    { "ko": "저기", "romaja": "jeogi", "vi": "Đằng kia", "pos": "noun", "img": "🔭", "connect": "Cùng gốc 저 — chỗ xa; cũng dùng để gọi \"này bạn ơi\".", "ex": "저기 있는 사람이 제 친구예요.", "exVi": "Người đằng kia là bạn tôi." }
+  ]
+}

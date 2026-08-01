@@ -1,0 +1,130 @@
+{
+  "id": "nature",
+  "name": "Thiên nhiên & phong cảnh",
+  "sub": "Tả cảnh khi đi chơi, và từ vựng hay gặp trong bài đọc TOPIK.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🏞️",
+  "words": [
+    {
+      "ko": "강",
+      "romaja": "gang",
+      "vi": "Sông",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "강 chính là âm Hán \"giang\" — như Hàn giang 한강.",
+      "ex": "한강에서 산책했어요.",
+      "exVi": "Tôi đã đi dạo ở sông Hàn."
+    },
+    {
+      "ko": "섬",
+      "romaja": "seom",
+      "vi": "Đảo",
+      "pos": "noun",
+      "img": "🏝️",
+      "connect": "Thuần Hàn — đảo Jeju là 제주도.",
+      "ex": "섬에 배로 갔어요.",
+      "exVi": "Tôi ra đảo bằng tàu."
+    },
+    {
+      "ko": "숲",
+      "romaja": "sup",
+      "vi": "Rừng",
+      "pos": "noun",
+      "img": "🌲",
+      "connect": "Thuần Hàn, ngắn và hay gặp trong văn tả cảnh.",
+      "ex": "숲에서 산책해요.",
+      "exVi": "Tôi đi dạo trong rừng."
+    },
+    {
+      "ko": "호수",
+      "romaja": "hosu",
+      "vi": "Hồ",
+      "pos": "noun",
+      "img": "🏔️",
+      "connect": "호수 chính là âm Hán \"hồ thuỷ\".",
+      "ex": "호수가 아주 조용해요.",
+      "exVi": "Mặt hồ rất yên tĩnh."
+    },
+    {
+      "ko": "언덕",
+      "romaja": "eondeok",
+      "vi": "Đồi",
+      "pos": "noun",
+      "img": "⛰️",
+      "connect": "Thuần Hàn: dốc thoai thoải, thấp hơn 산 (núi).",
+      "ex": "언덕 위에 집이 있어요.",
+      "exVi": "Trên đồi có một ngôi nhà."
+    },
+    {
+      "ko": "들판",
+      "romaja": "deulpan",
+      "vi": "Cánh đồng",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "들 (đồng) + 판 (mặt phẳng).",
+      "ex": "들판이 넓어요.",
+      "exVi": "Cánh đồng rộng lắm."
+    },
+    {
+      "ko": "경치",
+      "romaja": "gyeongchi",
+      "vi": "Phong cảnh",
+      "pos": "noun",
+      "img": "🌄",
+      "connect": "경치 chính là âm Hán \"cảnh trí\".",
+      "ex": "경치가 정말 좋네요.",
+      "exVi": "Phong cảnh đẹp thật đấy."
+    },
+    {
+      "ko": "별",
+      "romaja": "byeol",
+      "vi": "Ngôi sao",
+      "pos": "noun",
+      "img": "⭐",
+      "connect": "Thuần Hàn, khác 성 (tinh) gốc Hán.",
+      "ex": "밤에 별이 많아요.",
+      "exVi": "Ban đêm có nhiều sao."
+    },
+    {
+      "ko": "달",
+      "romaja": "dal",
+      "vi": "Mặt trăng",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "Thuần Hàn. Đừng nhầm với 달다 (ngọt) đã học.",
+      "ex": "달이 밝아요.",
+      "exVi": "Trăng sáng quá."
+    },
+    {
+      "ko": "해",
+      "romaja": "hae",
+      "vi": "Mặt trời",
+      "pos": "noun",
+      "img": "☀️",
+      "connect": "Thuần Hàn — cũng có nghĩa \"năm\" trong 올해 đã học.",
+      "ex": "해가 떴어요.",
+      "exVi": "Mặt trời đã mọc."
+    },
+    {
+      "ko": "파도",
+      "romaja": "pado",
+      "vi": "Sóng biển",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "파도 chính là âm Hán \"ba đào\".",
+      "ex": "파도가 높아요.",
+      "exVi": "Sóng cao lắm."
+    },
+    {
+      "ko": "모래",
+      "romaja": "morae",
+      "vi": "Cát",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "Thuần Hàn, đi với 바다 (biển) đã học.",
+      "ex": "모래 위에 앉았어요.",
+      "exVi": "Tôi ngồi trên cát."
+    }
+  ]
+}

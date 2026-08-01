@@ -141,7 +141,7 @@ export default function VocabHomePage() {
       {(myTopics.length > 0 || allPacks.length > 0) && (
         <div className="vc-search">
           <Icon name="search" size={16} />
-          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t('vc.searchPh')} />
+          <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t('vc.searchPh')} aria-label={t('vc.searchPh')} />
           {query && <button className="lib-search-x" onClick={() => setQuery('')} aria-label={t('lib.clear')}><Icon name="x" size={14} /></button>}
         </div>
       )}

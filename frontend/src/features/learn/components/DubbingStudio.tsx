@@ -44,7 +44,6 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const [error, setError] = useState('')
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
 
-  // Role-play: per-line speaker + which character's original voice is turned off.
   const [speakers, setSpeakers] = useState<number[]>([])
   const [names, setNames] = useState<string[]>([])
   const [roleChar, setRoleChar] = useState<number | null>(null)
@@ -60,7 +59,6 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const onsetRef = useRef<number | null>(null)
   const playTimerRef = useRef<number | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  // Auto-dub: one persistent mic stream, a fresh recorder per "my" line.
   const autoStreamRef = useRef<MediaStream | null>(null)
   const autoMrRef = useRef<MediaRecorder | null>(null)
   const autoStartRef = useRef(0)
@@ -71,7 +69,6 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     setSpeakers(segs.map((s, i) => (typeof s.speaker === 'number' ? s.speaker : i % 2)))
     setRoleChar(null)
     return () => stopPlayback()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson.id])
 
   const spkOf = (idx: number) => speakers[idx] ?? idx % 2
@@ -122,7 +119,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const cycleSpeaker = (idx: number) => {
     setSpeakers((prev) => {
       const max = prev.length ? Math.max(...prev) : 1
-      const total = Math.min(6, Math.max(2, max + 2)) // allow adding up to 6 speakers
+      const total = Math.min(6, Math.max(2, max + 2))
       return prev.map((v, i) => (i === idx ? (v + 1) % total : v))
     })
   }
@@ -168,7 +165,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
           rafRef.current = requestAnimationFrame(tick)
         }
         rafRef.current = requestAnimationFrame(tick)
-      } catch { /* analyser optional */ }
+      } catch {}
 
       mr.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data) }
       mr.onstop = () => {
@@ -198,7 +195,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     }
   }
 
-  const stopRecord = () => { try { mrRef.current?.stop() } catch { /* */ } }
+  const stopRecord = () => { try { mrRef.current?.stop() } catch {} }
 
   const playClip = (idx: number) => {
     const c = clips[idx]
@@ -207,7 +204,6 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     a.play().catch(() => {})
   }
 
-  // Start recording the current "my" line onto the shared mic stream.
   const startAutoRec = (idx: number) => {
     const stream = autoStreamRef.current
     if (!stream || autoMrRef.current) return
@@ -231,11 +227,11 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
       }
       mr.start()
       setRecording(idx)
-    } catch { /* ignore */ }
+    } catch {}
   }
 
   const stopAutoRec = () => {
-    try { autoMrRef.current?.stop() } catch { /* */ }
+    try { autoMrRef.current?.stop() } catch {}
     autoMrRef.current = null
     setRecording(null)
   }
@@ -250,9 +246,6 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     setPlaying(false)
   }
 
-  // Play the video; in role-play mode mute the original ONLY on the chosen
-  // character's turns (by timestamp). When auto-dub is on, the mic records
-  // automatically on each of your turns; otherwise your saved clip plays.
   const play = async () => {
     if (playing) { stopPlayback(); return }
     if (roleChar === null && Object.keys(clips).length === 0) return
@@ -308,7 +301,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     try {
       if (navigator.share) await navigator.share({ title: 'VyLing Dubbing', text })
       else { await navigator.clipboard.writeText(text); setError(''); alert(t('dub.copied')) }
-    } catch { /* cancelled */ }
+    } catch {}
   }
 
   const doneCount = Object.keys(clips).length
@@ -425,7 +418,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                   )}
                 </div>
                 <div className="dub-ko" lang={learnLang}>{s.ko}</div>
-                {cfg.romanizeChat && <div className="dub-romaja">{romanizeLine(s.ko)}</div>}
+                {cfg.reading === 'romaja' && <div className="dub-romaja">{romanizeLine(s.ko)}</div>}
                 {s.vi && <div className="dub-vi">{s.vi}</div>}
                 <div className="dub-line-actions">
                   <button className="btn-ghost sm" onClick={() => speakLang(s.ko, cfg.locale, 0.9)}>

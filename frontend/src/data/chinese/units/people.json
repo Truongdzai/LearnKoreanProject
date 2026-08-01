@@ -1,0 +1,22 @@
+{
+  "id": "zh-people",
+  "name": "Người & gia đình",
+  "sub": "Xưng hô và gọi tên người thân — dùng ngay từ câu đầu tiên.",
+  "pos": "noun",
+  "tone": "tone-b",
+  "emoji": "👨‍👩‍👧",
+  "words": [
+    { "zh": "我", "pinyin": "wǒ", "vi": "Tôi, tớ", "pos": "noun", "img": "🙋", "connect": "\"Ủa\" — nghe như tiếng người Việt kêu lên khi tự chỉ vào mình.", "ex": "我是学生。", "exVi": "Tôi là học sinh." },
+    { "zh": "你", "pinyin": "nǐ", "vi": "Bạn, cậu", "pos": "noun", "img": "👉", "connect": "你 = nễ, có bộ 亻(người) bên trái — chỉ người đối diện.", "ex": "你好吗？", "exVi": "Bạn khoẻ không?" },
+    { "zh": "他", "pinyin": "tā", "vi": "Anh ấy, cậu ấy", "pos": "noun", "img": "👨", "connect": "他 = tha, như \"tha nhân\" (người khác); bộ 亻 = người.", "ex": "他是我的朋友。", "exVi": "Anh ấy là bạn của tôi." },
+    { "zh": "她", "pinyin": "tā", "vi": "Cô ấy, chị ấy", "pos": "noun", "img": "👩", "connect": "Đọc y hệt 他 nhưng viết bộ 女 (nữ) — chỉ nhìn chữ mới phân biệt được nam/nữ.", "ex": "她是老师。", "exVi": "Cô ấy là giáo viên." },
+    { "zh": "们", "pinyin": "men", "vi": "(hậu tố số nhiều)", "pos": "noun", "img": "👥", "connect": "Thêm vào sau người là thành số nhiều: 我们 = chúng tôi, 你们 = các bạn.", "ex": "我们都是朋友。", "exVi": "Chúng ta đều là bạn bè." },
+    { "zh": "爸爸", "pinyin": "bà ba", "vi": "Bố", "pos": "noun", "img": "👨", "connect": "\"Ba ba\" — trùng luôn cách gọi \"ba\" của người miền Nam.", "ex": "我爸爸是医生。", "exVi": "Bố tôi là bác sĩ." },
+    { "zh": "妈妈", "pinyin": "mā ma", "vi": "Mẹ", "pos": "noun", "img": "👩", "connect": "\"Ma ma\" — gần với \"má\" của tiếng Việt.", "ex": "妈妈在家做饭。", "exVi": "Mẹ đang nấu cơm ở nhà." },
+    { "zh": "儿子", "pinyin": "ér zi", "vi": "Con trai", "pos": "noun", "img": "👦", "connect": "儿 = nhi (như \"nhi đồng\") + 子 = tử → \"nhi tử\", đúng chữ Hán–Việt cho con trai.", "ex": "他们有一个儿子。", "exVi": "Họ có một người con trai." },
+    { "zh": "女儿", "pinyin": "nǚ ér", "vi": "Con gái", "pos": "noun", "img": "👧", "connect": "女 = nữ + 儿 = nhi → \"nữ nhi\", con gái.", "ex": "我女儿五岁了。", "exVi": "Con gái tôi năm tuổi rồi." },
+    { "zh": "朋友", "pinyin": "péng you", "vi": "Bạn bè", "pos": "noun", "img": "🤝", "connect": "朋 = bằng + 友 = hữu → \"bằng hữu\", đúng từ Hán–Việt quen thuộc.", "ex": "他是我的好朋友。", "exVi": "Cậu ấy là bạn thân của tôi." },
+    { "zh": "老师", "pinyin": "lǎo shī", "vi": "Giáo viên, thầy cô", "pos": "noun", "img": "👨‍🏫", "connect": "老 = lão + 师 = sư → \"lão sư\", người thầy.", "ex": "王老师教中文。", "exVi": "Thầy Vương dạy tiếng Trung." },
+    { "zh": "学生", "pinyin": "xué sheng", "vi": "Học sinh, sinh viên", "pos": "noun", "img": "🎒", "connect": "学 = học + 生 = sinh → \"học sinh\", y hệt tiếng Việt.", "ex": "我是大学学生。", "exVi": "Tôi là sinh viên đại học." }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "home",
+  "name": "Nhà cửa & đồ dùng",
+  "sub": "Mọi thứ trong nhà — nói chuyện thuê nhà, dọn dẹp.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🏠",
+  "words": [
+    { "ko": "방", "romaja": "bang", "vi": "Phòng", "pos": "noun", "img": "🛏️", "connect": "\"Bang\" chính là âm Hán \"phòng\".", "ex": "제 방은 아주 작아요.", "exVi": "Phòng tôi nhỏ lắm." },
+    { "ko": "부엌", "romaja": "bueok", "vi": "Bếp", "pos": "noun", "img": "🍳", "connect": "\"Bu-ớk\" — nơi bốc khói mỗi bữa.", "ex": "부엌에서 요리해요.", "exVi": "Tôi nấu ăn ở bếp." },
+    { "ko": "침대", "romaja": "chimdae", "vi": "Giường", "pos": "noun", "img": "🛏️", "connect": "\"Chim-đe\" chính là âm Hán \"tẩm đài\".", "ex": "침대에서 쉬고 있어요.", "exVi": "Tôi đang nghỉ trên giường." },
+    { "ko": "책상", "romaja": "chaeksang", "vi": "Bàn học / Bàn làm việc", "pos": "noun", "img": "🪑", "connect": "\"Chek\" = sách + \"sang\" = bàn → bàn để sách.", "ex": "책상 위에 노트북이 있어요.", "exVi": "Trên bàn có cái laptop." },
+    { "ko": "의자", "romaja": "uija", "vi": "Ghế", "pos": "noun", "img": "💺", "connect": "\"Ưi-cha\" chính là âm Hán \"ỷ tử\".", "ex": "의자에 앉으세요.", "exVi": "Mời bạn ngồi xuống ghế." },
+    { "ko": "문", "romaja": "mun", "vi": "Cửa", "pos": "noun", "img": "🚪", "connect": "\"Mun\" chính là âm Hán \"môn\".", "ex": "문을 닫아 주세요.", "exVi": "Đóng cửa giúp tôi với ạ." },
+    { "ko": "창문", "romaja": "changmun", "vi": "Cửa sổ", "pos": "noun", "img": "🪟", "connect": "\"Chang-mun\" chính là âm Hán \"song môn\".", "ex": "창문을 열어도 될까요?", "exVi": "Tôi mở cửa sổ được không ạ?" },
+    { "ko": "냉장고", "romaja": "naengjanggo", "vi": "Tủ lạnh", "pos": "noun", "img": "🧊", "connect": "\"Neng-chang-gô\" chính là âm Hán \"lãnh tàng khố\".", "ex": "우유는 냉장고에 있어요.", "exVi": "Sữa ở trong tủ lạnh." },
+    { "ko": "세탁기", "romaja": "setakgi", "vi": "Máy giặt", "pos": "noun", "img": "🧺", "connect": "\"Sê-thak-ki\" chính là âm Hán \"tẩy trạc cơ\".", "ex": "세탁기가 고장 났어요.", "exVi": "Máy giặt hỏng rồi." },
+    { "ko": "청소하다", "romaja": "cheongsohada", "vi": "Dọn dẹp", "pos": "verb", "img": "🧹", "connect": "\"Chơng-sô\" chính là âm Hán \"thanh tảo\".", "ex": "주말마다 방을 청소해요.", "exVi": "Cuối tuần nào tôi cũng dọn phòng." },
+    { "ko": "요리하다", "romaja": "yorihada", "vi": "Nấu ăn", "pos": "verb", "img": "👩‍🍳", "connect": "\"Yô-ri\" chính là âm Hán \"liệu lý\".", "ex": "저녁을 직접 요리해요.", "exVi": "Tôi tự nấu bữa tối." },
+    { "ko": "열쇠", "romaja": "yeolsoe", "vi": "Chìa khoá", "pos": "noun", "img": "🔑", "connect": "\"Yơl\" = mở (열다) → thứ dùng để mở.", "ex": "열쇠를 잃어버렸어요.", "exVi": "Tôi làm mất chìa khoá rồi." }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "hada",
+  "name": "Động từ ghép với 하다",
+  "sub": "Học một chữ 하다 rồi ghép — cách nhân đôi vốn động từ nhanh nhất.",
+  "pos": "verb",
+  "tone": "tone-a",
+  "emoji": "⚙️",
+  "words": [
+    {
+      "ko": "준비하다",
+      "romaja": "junbihada",
+      "vi": "Chuẩn bị",
+      "pos": "verb",
+      "img": "🎒",
+      "connect": "준비 chính là âm Hán \"chuẩn bị\".",
+      "ex": "여행을 준비해요.",
+      "exVi": "Tôi chuẩn bị cho chuyến đi."
+    },
+    {
+      "ko": "도착하다",
+      "romaja": "dochakhada",
+      "vi": "Đến nơi",
+      "pos": "verb",
+      "img": "🛬",
+      "connect": "도착 chính là âm Hán \"đáo trước\" — tới nơi.",
+      "ex": "공항에 도착했어요.",
+      "exVi": "Tôi đã đến sân bay."
+    },
+    {
+      "ko": "출발하다",
+      "romaja": "chulbalhada",
+      "vi": "Xuất phát",
+      "pos": "verb",
+      "img": "🚦",
+      "connect": "출발 chính là âm Hán \"xuất phát\".",
+      "ex": "지금 출발할게요.",
+      "exVi": "Tôi xuất phát bây giờ đây."
+    },
+    {
+      "ko": "사용하다",
+      "romaja": "sayonghada",
+      "vi": "Sử dụng",
+      "pos": "verb",
+      "img": "🔧",
+      "connect": "사용 chính là âm Hán \"sử dụng\".",
+      "ex": "이 앱을 사용해요.",
+      "exVi": "Tôi dùng ứng dụng này."
+    },
+    {
+      "ko": "이야기하다",
+      "romaja": "iyagihada",
+      "vi": "Trò chuyện, kể",
+      "pos": "verb",
+      "img": "💬",
+      "connect": "이야기 = câu chuyện, thuần Hàn, rất hay dùng.",
+      "ex": "친구하고 이야기했어요.",
+      "exVi": "Tôi đã trò chuyện với bạn."
+    },
+    {
+      "ko": "소개하다",
+      "romaja": "sogaehada",
+      "vi": "Giới thiệu",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "소개 chính là âm Hán \"thiệu giới\".",
+      "ex": "친구를 소개할게요.",
+      "exVi": "Tôi sẽ giới thiệu bạn tôi."
+    },
+    {
+      "ko": "설명하다",
+      "romaja": "seolmyeonghada",
+      "vi": "Giải thích",
+      "pos": "verb",
+      "img": "📖",
+      "connect": "설명 chính là âm Hán \"thuyết minh\".",
+      "ex": "다시 설명해 주세요.",
+      "exVi": "Hãy giải thích lại giúp tôi."
+    },
+    {
+      "ko": "조심하다",
+      "romaja": "josimhada",
+      "vi": "Cẩn thận",
+      "pos": "verb",
+      "img": "⚠️",
+      "connect": "조심 chính là âm Hán \"thao tâm\" — giữ lòng cẩn trọng.",
+      "ex": "차 조심하세요.",
+      "exVi": "Cẩn thận xe cộ nhé."
+    },
+    {
+      "ko": "결정하다",
+      "romaja": "gyeoljeonghada",
+      "vi": "Quyết định",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "결정 chính là âm Hán \"quyết định\".",
+      "ex": "아직 결정 못 했어요.",
+      "exVi": "Tôi vẫn chưa quyết định được."
+    },
+    {
+      "ko": "초대하다",
+      "romaja": "chodaehada",
+      "vi": "Mời",
+      "pos": "verb",
+      "img": "💌",
+      "connect": "초대 chính là âm Hán \"chiêu đãi\" — mời tới.",
+      "ex": "생일에 초대할게요.",
+      "exVi": "Tôi sẽ mời bạn dự sinh nhật."
+    },
+    {
+      "ko": "참가하다",
+      "romaja": "chamgahada",
+      "vi": "Tham gia",
+      "pos": "verb",
+      "img": "🙌",
+      "connect": "참가 chính là âm Hán \"tham gia\".",
+      "ex": "대회에 참가해요.",
+      "exVi": "Tôi tham gia cuộc thi."
+    },
+    {
+      "ko": "신경 쓰다",
+      "romaja": "singyeong sseuda",
+      "vi": "Bận tâm, để ý",
+      "pos": "verb",
+      "img": "🧠",
+      "connect": "신경 = \"thần kinh\" → để thần kinh vào việc gì.",
+      "ex": "너무 신경 쓰지 마세요.",
+      "exVi": "Đừng bận tâm quá."
+    }
+  ]
+}

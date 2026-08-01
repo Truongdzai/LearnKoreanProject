@@ -1,0 +1,130 @@
+{
+  "id": "tech2",
+  "name": "Điện thoại & ứng dụng",
+  "sub": "Thao tác hằng ngày trên máy — và cũng là từ hay gặp khi dùng app Hàn.",
+  "pos": "noun",
+  "tone": "tone-d",
+  "emoji": "💻",
+  "words": [
+    {
+      "ko": "화면",
+      "romaja": "hwamyeon",
+      "vi": "Màn hình",
+      "pos": "noun",
+      "img": "🖥️",
+      "connect": "화면 chính là âm Hán \"hoạ diện\".",
+      "ex": "화면이 안 켜져요.",
+      "exVi": "Màn hình không sáng lên."
+    },
+    {
+      "ko": "배터리",
+      "romaja": "baeteori",
+      "vi": "Pin",
+      "pos": "noun",
+      "img": "🔋",
+      "connect": "Từ mượn \"battery\".",
+      "ex": "배터리가 없어요.",
+      "exVi": "Hết pin rồi."
+    },
+    {
+      "ko": "알림",
+      "romaja": "allim",
+      "vi": "Thông báo",
+      "pos": "noun",
+      "img": "🔔",
+      "connect": "알리다 (báo cho biết) → 알림.",
+      "ex": "알림을 껐어요.",
+      "exVi": "Tôi đã tắt thông báo."
+    },
+    {
+      "ko": "계정",
+      "romaja": "gyejeong",
+      "vi": "Tài khoản (ứng dụng, trang web)",
+      "pos": "noun",
+      "img": "👤",
+      "connect": "계정 chính là âm Hán \"kế định\". Khác 계좌 là tài khoản ngân hàng.",
+      "ex": "계정을 만들었어요.",
+      "exVi": "Tôi đã tạo tài khoản."
+    },
+    {
+      "ko": "로그인",
+      "romaja": "rogeuin",
+      "vi": "Đăng nhập",
+      "pos": "noun",
+      "img": "🔑",
+      "connect": "Từ mượn \"log in\".",
+      "ex": "로그인이 안 돼요.",
+      "exVi": "Tôi không đăng nhập được."
+    },
+    {
+      "ko": "저장하다",
+      "romaja": "jeojanghada",
+      "vi": "Lưu lại",
+      "pos": "verb",
+      "img": "💾",
+      "connect": "저장 chính là âm Hán \"trữ tàng\".",
+      "ex": "사진을 저장했어요.",
+      "exVi": "Tôi đã lưu ảnh."
+    },
+    {
+      "ko": "삭제하다",
+      "romaja": "sakjehada",
+      "vi": "Xoá",
+      "pos": "verb",
+      "img": "🗑️",
+      "connect": "삭제 chính là âm Hán \"tước trừ\".",
+      "ex": "메시지를 삭제했어요.",
+      "exVi": "Tôi đã xoá tin nhắn."
+    },
+    {
+      "ko": "설치하다",
+      "romaja": "seolchihada",
+      "vi": "Cài đặt",
+      "pos": "verb",
+      "img": "⚙️",
+      "connect": "설치 chính là âm Hán \"thiết trí\".",
+      "ex": "앱을 설치하세요.",
+      "exVi": "Hãy cài ứng dụng."
+    },
+    {
+      "ko": "업데이트",
+      "romaja": "eopdeiteu",
+      "vi": "Cập nhật",
+      "pos": "noun",
+      "img": "🔄",
+      "connect": "Từ mượn \"update\".",
+      "ex": "업데이트가 있어요.",
+      "exVi": "Có bản cập nhật."
+    },
+    {
+      "ko": "다운로드",
+      "romaja": "daunnodeu",
+      "vi": "Tải xuống",
+      "pos": "noun",
+      "img": "⬇️",
+      "connect": "Từ mượn \"download\", nói tắt là 다운.",
+      "ex": "파일을 다운로드했어요.",
+      "exVi": "Tôi đã tải tệp về."
+    },
+    {
+      "ko": "파일",
+      "romaja": "pail",
+      "vi": "Tệp tin",
+      "pos": "noun",
+      "img": "📁",
+      "connect": "Từ mượn \"file\".",
+      "ex": "파일을 보내 주세요.",
+      "exVi": "Hãy gửi tệp giúp tôi."
+    },
+    {
+      "ko": "링크",
+      "romaja": "lingkeu",
+      "vi": "Đường liên kết",
+      "pos": "noun",
+      "img": "🔗",
+      "connect": "Từ mượn \"link\".",
+      "ex": "링크를 눌러 보세요.",
+      "exVi": "Bạn thử bấm vào đường link."
+    }
+  ]
+}

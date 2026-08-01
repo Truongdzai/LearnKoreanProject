@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { videoUrl } from '@/data/videos'
+import { getToken } from '@/core/api/client'
+import { fetchFit, type FitScore } from '@/core/api/tutor.api'
 import VideoCard from '@/features/shared/VideoCard'
 import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
@@ -30,6 +32,7 @@ export default function LibraryPage() {
   }, [langVideos])
 
   const savedIds = useMemo(() => new Set(savedVideos.map((v) => v.id)), [savedVideos])
+  const [fits, setFits] = useState<Record<string, FitScore>>({})
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -55,6 +58,15 @@ export default function LibraryPage() {
   }
 
   const reset = () => { setLevel('all'); setLength('all'); setQuery('') }
+  useEffect(() => {
+    if (!getToken() || !list.length) { setFits({}); return }
+    let alive = true
+    fetchFit(list.slice(0, 60).map((v) => v.id), learnLang)
+      .then((r) => { if (alive) setFits(r.fit) })
+      .catch(() => {  })
+    return () => { alive = false }
+  }, [list, learnLang])
+
   const filtered = level !== 'all' || length !== 'all' || query.trim() !== ''
 
   return (
@@ -75,7 +87,7 @@ export default function LibraryPage() {
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder={t('lib.searchPh')}
+                placeholder={t('lib.searchPh')} aria-label={t('lib.searchPh')}
               />
               {query && <button className="lib-search-x" onClick={() => setQuery('')} aria-label={t('lib.clear')}><Icon name="x" size={14} /></button>}
             </div>
@@ -123,6 +135,7 @@ export default function LibraryPage() {
                   saved={savedIds.has(v.id)}
                   onToggleSave={toggleSave}
                   saveLabel={savedIds.has(v.id) ? t('lib.saved') : t('lib.save')}
+                  fit={fits[v.id]}
                 />
               ))}
             </div>

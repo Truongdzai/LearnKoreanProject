@@ -1,0 +1,22 @@
+{
+  "id": "animals",
+  "name": "Động vật & cây cỏ",
+  "sub": "Con vật quen thuộc — dễ nhớ nhờ hình ảnh.",
+  "pos": "noun",
+  "tone": "tone-c",
+  "emoji": "🐶",
+  "words": [
+    { "ko": "동물", "romaja": "dongmul", "vi": "Động vật", "pos": "noun", "img": "🦁", "connect": "\"Đông-mul\" chính là âm Hán \"động vật\".", "ex": "동물원에 가고 싶어요.", "exVi": "Tôi muốn đi sở thú." },
+    { "ko": "강아지", "romaja": "gangaji", "vi": "Con chó / Cún", "pos": "noun", "img": "🐶", "connect": "Nghĩa gốc là chó con, nhưng người Hàn gọi chó nhà nào cũng là 강아지.", "ex": "우리 집에 강아지가 있어요.", "exVi": "Nhà tôi có nuôi chó." },
+    { "ko": "고양이", "romaja": "goyangi", "vi": "Con mèo", "pos": "noun", "img": "🐱", "connect": "\"Kô-yang-i\" — nghe như tiếng mèo kêu ngoao ngoao.", "ex": "고양이가 아주 귀여워요.", "exVi": "Con mèo dễ thương quá." },
+    { "ko": "새", "romaja": "sae", "vi": "Con chim", "pos": "noun", "img": "🐦", "connect": "\"Se\" — nhẹ như cánh chim.", "ex": "새가 노래해요.", "exVi": "Chim đang hót." },
+    { "ko": "물고기", "romaja": "mulgogi", "vi": "Con cá", "pos": "noun", "img": "🐟", "connect": "\"Mul\" = nước + \"kô-ghi\" = thịt → thịt dưới nước.", "ex": "물고기를 구경했어요.", "exVi": "Tôi đã ngắm mấy con cá." },
+    { "ko": "소", "romaja": "so", "vi": "Con bò", "pos": "noun", "img": "🐮", "connect": "\"Sô\" — cùng gốc với 소고기 (thịt bò).", "ex": "소고기가 비싸요.", "exVi": "Thịt bò đắt lắm." },
+    { "ko": "돼지", "romaja": "dwaeji", "vi": "Con lợn", "pos": "noun", "img": "🐷", "connect": "\"Đuê-chi\" — cùng gốc với 돼지고기 (thịt lợn).", "ex": "돼지고기를 좋아해요.", "exVi": "Tôi thích thịt lợn." },
+    { "ko": "닭", "romaja": "dak", "vi": "Con gà", "pos": "noun", "img": "🐔", "connect": "\"Đak\" — cùng gốc với 닭고기, 치킨.", "ex": "닭고기를 시켰어요.", "exVi": "Tôi đã gọi món thịt gà." },
+    { "ko": "말", "romaja": "mal", "vi": "Con ngựa", "pos": "noun", "img": "🐴", "connect": "Cùng âm với 말 (lời nói) — nhớ cặp đôi này cho vui.", "ex": "말을 타 봤어요?", "exVi": "Bạn từng cưỡi ngựa chưa?" },
+    { "ko": "나무", "romaja": "namu", "vi": "Cây", "pos": "noun", "img": "🌳", "connect": "\"Na-mu\" — thân cây mọc lên khỏi đất.", "ex": "공원에 나무가 많아요.", "exVi": "Trong công viên có nhiều cây." },
+    { "ko": "꽃", "romaja": "kkot", "vi": "Hoa", "pos": "noun", "img": "🌷", "connect": "\"Kkốt\" — bật ra như nụ hoa bung nở.", "ex": "봄에 꽃이 많이 펴요.", "exVi": "Mùa xuân hoa nở nhiều." },
+    { "ko": "벌레", "romaja": "beolle", "vi": "Con sâu bọ / Côn trùng", "pos": "noun", "img": "🐛", "connect": "\"Bơl-lê\" — bò lê la khắp nơi.", "ex": "방에 벌레가 있어요.", "exVi": "Trong phòng có con côn trùng." }
+  ]
+}

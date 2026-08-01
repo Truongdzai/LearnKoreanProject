@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
-import { PLAN_12_WEEKS, PLAN_TASK_TOTAL, type WeekTask, type WeekPlan } from '@/data/englishCore'
+import type { VocabUnit, WeekTask, WeekPlan } from '@/data/englishCore'
 import { GRAMMAR_LESSONS, GRAMMAR_PASS } from '@/data/englishGrammar'
-import { PRON_GROUPS, PRON_PASS } from '@/data/englishPronunciation'
+import { PRON_GROUPS, PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
 import { useAppStore } from '@/store/app.store'
 import {
   speakEN, usePlan, useLearnedWords, useWordBank, readPlan,
@@ -14,9 +14,16 @@ import {
 interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
-  onSummary: () => void
-  onGrammar: (lessonId?: string) => void
-  onPron: (groupId?: string) => void
+  onSummary?: () => void
+  onGrammar?: (lessonId?: string) => void
+  onPron?: (groupId?: string) => void
+  lang?: string
+  weeks: WeekPlan[]
+  taskTotal: number
+  vocabUnits?: VocabUnit[]
+  speak?: (text: string) => void
+  firstUnitId?: string
+  pronGroups?: PronGroup[]
 }
 
 const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
@@ -28,18 +35,27 @@ const KIND_ICON: Record<WeekTask['kind'], IconName> = {
 
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
 
-export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, onPron }: Props) {
+export default function RoadmapWeeks({
+  onLearn, onQuiz, onSummary, onGrammar, onPron,
+  lang = 'en',
+  weeks,
+  taskTotal,
+  vocabUnits,
+  speak = speakEN,
+  firstUnitId = 'nouns',
+  pronGroups = PRON_GROUPS,
+}: Props) {
   const { setView, recordEvent } = useAppStore()
-  const { plan, startPlan, toggleTask, grantReward } = usePlan()
-  const { learned } = useLearnedWords()
-  const bank = useWordBank(learned)
+  const { plan, startPlan, toggleTask, grantReward } = usePlan(lang)
+  const { learned } = useLearnedWords(lang)
+  const bank = useWordBank(learned, lang)
   const actDays = useActivityDays(plan.start)
   const { grammar } = useGrammarProgress()
-  const { pron } = usePronProgress()
+  const { pron } = usePronProgress(lang)
   const toeic = useToeicBridge()
-  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic }
+  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups }
   const [open, setOpen] = useState<number | null>(() => {
-    const p = readPlan()
+    const p = readPlan(lang)
     return p.start ? planWeek(p.start) : null
   })
 
@@ -52,13 +68,13 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
   const wkDone = (w: WeekPlan) =>
     weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week), ext)
 
-  const doneWeeks = PLAN_12_WEEKS.filter(wkDone).length
-  const tasksDone = PLAN_12_WEEKS.reduce((s, w) => s + w.tasks.filter((t) => isDone(t, w.week)).length, 0)
+  const doneWeeks = weeks.filter(wkDone).length
+  const tasksDone = weeks.reduce((s, w) => s + w.tasks.filter((t) => isDone(t, w.week)).length, 0)
   const allDone = doneWeeks === 12
 
   useEffect(() => {
     if (!started) return
-    PLAN_12_WEEKS.forEach((w) => {
+    weeks.forEach((w) => {
       if (!plan.rewarded.includes(w.week) && wkDone(w)) {
         grantReward(w.week)
         recordEvent('lesson', 1)
@@ -68,8 +84,8 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
 
   const taskMeta = (t: WeekTask, week: number): string => {
     if (t.kind === 'vocab') {
-      const target = vocabTarget(t)
-      return `${Math.min(learnedInUnit(t.unitId ?? '', learned), target)}/${target} từ`
+      const target = vocabTarget(t, vocabUnits)
+      return `${Math.min(learnedInUnit(t.unitId ?? '', learned, vocabUnits), target)}/${target} từ`
     }
     if (t.kind === 'quiz') {
       const best = plan.quiz[`w${week}`]
@@ -89,8 +105,8 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
     }
     if (t.kind === 'pron') {
       if (!t.groupId) {
-        const ok = PRON_GROUPS.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
-        return `${ok}/${PRON_GROUPS.length} nhóm âm đạt`
+        const ok = pronGroups.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
+        return `${ok}/${pronGroups.length} nhóm âm đạt`
       }
       const best = pron.best[t.groupId]
       return best != null ? `tốt nhất: ${best}%` : ''
@@ -103,8 +119,8 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
   }
 
   const taskAction = (t: WeekTask, w: WeekPlan): { label: string; run: () => void } | null => {
-    if (t.kind === 'grammar') return { label: 'Học ngay', run: () => onGrammar(t.lessonId) }
-    if (t.kind === 'pron') return { label: 'Luyện ngay', run: () => onPron(t.groupId) }
+    if (t.kind === 'grammar') return onGrammar ? { label: 'Học ngay', run: () => onGrammar(t.lessonId) } : null
+    if (t.kind === 'pron') return onPron ? { label: 'Luyện ngay', run: () => onPron(t.groupId) } : null
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     const go = t.go !== undefined ? t.go : (
       t.kind === 'vocab' ? 'learn'
@@ -116,13 +132,13 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
       : null
     )
     switch (go) {
-      case 'learn': return { label: 'Học ngay', run: () => onLearn(t.unitId ?? 'nouns') }
+      case 'learn': return { label: 'Học ngay', run: () => onLearn(t.unitId ?? firstUnitId) }
       case 'quiz': return { label: 'Làm kiểm tra', run: () => onQuiz(w.week, w.quizUnits ?? [], t.passPct ?? 70) }
       case 'library': return { label: 'Kho video', run: () => setView('library') }
       case 'speaking': return { label: 'Luyện nói', run: () => setView('speaking') }
       case 'flashcards': return { label: 'Ôn tập', run: () => setView('flashcards') }
       case 'vocab': return { label: 'Kho từ vựng', run: () => setView('vocab') }
-      case 'summary': return { label: 'Tóm tắt & xuất', run: onSummary }
+      case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
       default: return null
     }
   }
@@ -130,7 +146,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
   const renderTask = (t: WeekTask, week: number) => {
     const done = isDone(t, week)
     const meta = taskMeta(t, week)
-    const action = taskAction(t, PLAN_12_WEEKS[week - 1])
+    const action = taskAction(t, weeks[week - 1])
     return (
       <div key={t.id} className={'wk-task' + (done ? ' done' : '')}>
         {MANUAL.has(t.kind) ? (
@@ -159,7 +175,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
     )
   }
 
-  const sel = open != null ? PLAN_12_WEEKS.find((w) => w.week === open) : undefined
+  const sel = open != null ? weeks.find((w) => w.week === open) : undefined
 
   return (
     <div className="enroad">
@@ -178,10 +194,10 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
           <div className="enroad-day"><b>Ngày {day}</b><span>/ 90</span></div>
           <div className="enroad-mid">
             <div className="enroad-line1">
-              Tuần theo lịch: <b>Tuần {curWeek} — {PLAN_12_WEEKS[curWeek - 1].title}</b>
+              Tuần theo lịch: <b>Tuần {curWeek} — {weeks[curWeek - 1].title}</b>
             </div>
-            <div className="ices-bar"><div className="ices-bar-fill" style={{ width: `${(tasksDone / PLAN_TASK_TOTAL) * 100}%` }} /></div>
-            <div className="enroad-line2">{doneWeeks}/12 tuần hoàn thành · {tasksDone}/{PLAN_TASK_TOTAL} nhiệm vụ</div>
+            <div className="ices-bar"><div className="ices-bar-fill" style={{ width: `${(tasksDone / taskTotal) * 100}%` }} /></div>
+            <div className="enroad-line2">{doneWeeks}/12 tuần hoàn thành · {tasksDone}/{taskTotal} nhiệm vụ</div>
           </div>
           <button className="btn-ghost sm" onClick={() => setOpen(curWeek)}>Mở tuần {curWeek}</button>
         </div>
@@ -194,7 +210,7 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
       )}
 
       <div className="weeks-grid">
-        {PLAN_12_WEEKS.map((w) => {
+        {weeks.map((w) => {
           const done = wkDone(w)
           const n = w.tasks.filter((t) => isDone(t, w.week)).length
           const cls = [
@@ -276,9 +292,9 @@ export default function RoadmapWeeks({ onLearn, onQuiz, onSummary, onGrammar, on
                   <div key={p.pattern} className="wk-pattern">
                     <b>{p.pattern}</b>
                     <span className="wk-pt-vi">{p.vi}</span>
-                    <p lang="en">
+                    <p lang={lang}>
                       “{p.ex}”
-                      <button className="wk-pt-sound" onClick={() => speakEN(p.ex)} title="Nghe câu mẫu">
+                      <button className="wk-pt-sound" onClick={() => speak(p.ex)} title="Nghe câu mẫu">
                         <Icon name="volume" size={13} />
                       </button>
                     </p>

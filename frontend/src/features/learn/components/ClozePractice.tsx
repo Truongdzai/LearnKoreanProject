@@ -3,11 +3,11 @@ import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
+import { isNoSpaceLang, words } from '@/core/segment'
 import type { Lesson } from '@/models/lesson.model'
 
 const REWARD = 2
 
-/** Từ quá phổ biến thì đục lỗ không có giá trị luyện nghe (EN pilot; ngôn ngữ khác lọc theo độ dài). */
 const EN_STOP = new Set(['the', 'and', 'that', 'this', 'with', 'for', 'you', 'your', 'are', 'was', 'were', 'have', 'has', 'not', 'but', 'they', 'them', 'his', 'her', 'its', 'our', 'from', 'will', 'can', 'what', 'when', 'where'])
 
 interface ClozeItem {
@@ -15,6 +15,7 @@ interface ClozeItem {
   text: string
   vi: string
   words: string[]
+  gap: string
   blankIndex: number
   answer: string
   options: string[]
@@ -31,29 +32,29 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-/** Chọn từ để đục lỗ: dài ≥ 3 ký tự, không phải từ quá phổ biến — ưu tiên từ dài (mang nghĩa). */
-function buildItems(lesson: Lesson): ClozeItem[] {
+function buildItems(lesson: Lesson, lang: string): ClozeItem[] {
+  const minLen = isNoSpaceLang(lang) ? 2 : 3
   const vocab = new Set<string>()
   for (const seg of lesson.segments) {
-    for (const w of seg.ko.split(/\s+/)) {
+    for (const w of words(seg.ko, lang)) {
       const c = clean(w).toLowerCase()
-      if (c.length >= 3 && !EN_STOP.has(c)) vocab.add(c)
+      if (c.length >= minLen && !EN_STOP.has(c)) vocab.add(c)
     }
   }
   const pool = [...vocab]
 
   const items: ClozeItem[] = []
   lesson.segments.forEach((seg, segIndex) => {
-    const words = seg.ko.split(/\s+/).filter(Boolean)
-    if (words.length < 4) return
-    const candidates = words
+    const toks = words(seg.ko, lang)
+    if (toks.length < 4) return
+    const candidates = toks
       .map((w, idx) => ({ idx, c: clean(w).toLowerCase() }))
-      .filter(({ c }) => c.length >= 3 && !EN_STOP.has(c))
+      .filter(({ c }) => c.length >= minLen && !EN_STOP.has(c))
       .sort((a, b) => b.c.length - a.c.length)
       .slice(0, 3)
     if (!candidates.length) return
     const pick = candidates[Math.floor(Math.random() * candidates.length)]
-    const answer = clean(words[pick.idx])
+    const answer = clean(toks[pick.idx])
     if (!answer) return
     const distractors = shuffle(pool.filter((w) => w !== answer.toLowerCase()))
       .sort((a, b) => Math.abs(a.length - answer.length) - Math.abs(b.length - answer.length))
@@ -63,7 +64,8 @@ function buildItems(lesson: Lesson): ClozeItem[] {
       segIndex,
       text: seg.ko,
       vi: seg.vi || '',
-      words,
+      words: toks,
+      gap: isNoSpaceLang(lang) ? '' : ' ',
       blankIndex: pick.idx,
       answer,
       options: shuffle([answer.toLowerCase(), ...distractors]),
@@ -75,7 +77,7 @@ function buildItems(lesson: Lesson): ClozeItem[] {
 export default function ClozePractice({ lesson }: { lesson: Lesson }) {
   const { recordEvent, learnLang, t } = useAppStore()
   const cfg = studyLang(learnLang)
-  const items = useMemo(() => buildItems(lesson), [lesson])
+  const items = useMemo(() => buildItems(lesson, learnLang), [lesson, learnLang])
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
@@ -136,7 +138,7 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
                 {done ? cur.answer : '____'}
               </span>
             ) : (
-              <span key={k}>{w} </span>
+              <span key={k}>{w}{cur.gap}</span>
             ),
           )}
         </p>

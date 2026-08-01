@@ -1,0 +1,130 @@
+{
+  "id": "daily2",
+  "name": "Một ngày của bạn",
+  "sub": "Kể lại buổi sáng tới tối — chủ đề nói và viết TOPIK hay ra.",
+  "pos": "verb",
+  "tone": "tone-c",
+  "emoji": "🌅",
+  "words": [
+    {
+      "ko": "세수하다",
+      "romaja": "sesuhada",
+      "vi": "Rửa mặt",
+      "pos": "verb",
+      "img": "🚿",
+      "connect": "세수 chính là âm Hán \"tẩy thủ\" nhưng tiếng Hàn dùng cho rửa mặt.",
+      "ex": "아침에 세수해요.",
+      "exVi": "Buổi sáng tôi rửa mặt."
+    },
+    {
+      "ko": "이를 닦다",
+      "romaja": "ireul dakda",
+      "vi": "Đánh răng",
+      "pos": "verb",
+      "img": "🪥",
+      "connect": "이 = răng, 닦다 = lau chùi → lau răng.",
+      "ex": "밥 먹고 이를 닦아요.",
+      "exVi": "Ăn xong tôi đánh răng."
+    },
+    {
+      "ko": "머리를 감다",
+      "romaja": "meorireul gamda",
+      "vi": "Gội đầu",
+      "pos": "verb",
+      "img": "🧴",
+      "connect": "머리 (đầu) đã học + 감다 dành riêng cho gội đầu.",
+      "ex": "매일 머리를 감아요.",
+      "exVi": "Ngày nào tôi cũng gội đầu."
+    },
+    {
+      "ko": "화장하다",
+      "romaja": "hwajanghada",
+      "vi": "Trang điểm",
+      "pos": "verb",
+      "img": "💄",
+      "connect": "화장 chính là âm Hán \"hoá trang\".",
+      "ex": "화장하고 나가요.",
+      "exVi": "Tôi trang điểm rồi ra ngoài."
+    },
+    {
+      "ko": "갈아입다",
+      "romaja": "garaipda",
+      "vi": "Thay quần áo",
+      "pos": "verb",
+      "img": "👕",
+      "connect": "갈다 (đổi) + 입다 (mặc) — 입다 bạn đã học.",
+      "ex": "옷을 갈아입었어요.",
+      "exVi": "Tôi đã thay quần áo."
+    },
+    {
+      "ko": "정리하다",
+      "romaja": "jeongnihada",
+      "vi": "Dọn dẹp, sắp xếp",
+      "pos": "verb",
+      "img": "🗂️",
+      "connect": "정리 chính là âm Hán \"chỉnh lý\".",
+      "ex": "책상을 정리해요.",
+      "exVi": "Tôi dọn bàn học."
+    },
+    {
+      "ko": "낮잠",
+      "romaja": "natjam",
+      "vi": "Giấc ngủ trưa",
+      "pos": "noun",
+      "img": "😴",
+      "connect": "낮 (ban ngày) + 잠 (giấc ngủ).",
+      "ex": "낮잠을 잤어요.",
+      "exVi": "Tôi đã ngủ trưa."
+    },
+    {
+      "ko": "늦잠",
+      "romaja": "neutjam",
+      "vi": "Ngủ nướng",
+      "pos": "noun",
+      "img": "⏰",
+      "connect": "늦다 (muộn) đã học + 잠 → ngủ dậy muộn.",
+      "ex": "늦잠을 자서 지각했어요.",
+      "exVi": "Tôi ngủ nướng nên đi muộn."
+    },
+    {
+      "ko": "새벽",
+      "romaja": "saebyeok",
+      "vi": "Rạng sáng",
+      "pos": "noun",
+      "img": "🌄",
+      "connect": "Khoảng 3–6 giờ sáng, trước cả 아침.",
+      "ex": "새벽에 일어났어요.",
+      "exVi": "Tôi dậy từ rạng sáng."
+    },
+    {
+      "ko": "하루",
+      "romaja": "haru",
+      "vi": "Một ngày",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "Thuần Hàn, khác 일 (ngày, gốc Hán) đã học.",
+      "ex": "오늘 하루 어땠어요?",
+      "exVi": "Hôm nay một ngày của bạn thế nào?"
+    },
+    {
+      "ko": "습관",
+      "romaja": "seupgwan",
+      "vi": "Thói quen",
+      "pos": "noun",
+      "img": "🔁",
+      "connect": "습관 chính là âm Hán \"tập quán\".",
+      "ex": "좋은 습관을 만들고 싶어요.",
+      "exVi": "Tôi muốn tạo thói quen tốt."
+    },
+    {
+      "ko": "보통",
+      "romaja": "botong",
+      "vi": "Thường thì, bình thường",
+      "pos": "adv",
+      "img": "📊",
+      "connect": "보통 chính là âm Hán \"phổ thông\".",
+      "ex": "보통 일곱 시에 일어나요.",
+      "exVi": "Tôi thường dậy lúc bảy giờ."
+    }
+  ]
+}

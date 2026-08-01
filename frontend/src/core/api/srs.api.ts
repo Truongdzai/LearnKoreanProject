@@ -1,4 +1,5 @@
 import { apiClient } from './client'
+import { track } from '@/core/monitor'
 import type { SrsCard, DueResponse, SrsStats, SrsRating } from '@/models/srs.model'
 
 export interface AddCardPayload {
@@ -8,13 +9,19 @@ export interface AddCardPayload {
 }
 
 export const addCard = (payload: AddCardPayload) =>
-  apiClient.post<SrsCard>('/api/srs/add', payload)
+  apiClient.post<SrsCard>('/api/srs/add', payload).then((card) => {
+    track('srs_add', { source: payload.source || 'khac' })
+    return card
+  })
 
 export const fetchDue = () => apiClient.get<DueResponse>('/api/srs/due')
 
 export const fetchAllCards = () => apiClient.get<{ cards: SrsCard[] }>('/api/srs/all')
 
 export const reviewCard = (card_id: number, rating: SrsRating) =>
-  apiClient.post<SrsCard>('/api/srs/review', { card_id, rating })
+  apiClient.post<SrsCard>('/api/srs/review', { card_id, rating }).then((card) => {
+    track('srs_review', { rating })
+    return card
+  })
 
 export const fetchStats = () => apiClient.get<SrsStats>('/api/srs/stats')

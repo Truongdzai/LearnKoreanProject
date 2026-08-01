@@ -1,0 +1,130 @@
+{
+  "id": "adverbs2",
+  "name": "Trạng từ & mức độ 2",
+  "sub": "Nhóm từ làm câu nói nghe tự nhiên thay vì như sách giáo khoa.",
+  "pos": "adv",
+  "tone": "tone-f",
+  "emoji": "⏱️",
+  "words": [
+    {
+      "ko": "벌써",
+      "romaja": "beolsseo",
+      "vi": "Đã (sớm hơn tưởng)",
+      "pos": "adv",
+      "img": "😲",
+      "connect": "Hàm ý ngạc nhiên vì nhanh quá. Khác 이미 (đã, trung tính).",
+      "ex": "벌써 다 했어요?",
+      "exVi": "Bạn làm xong rồi á?"
+    },
+    {
+      "ko": "아직",
+      "romaja": "ajik",
+      "vi": "Vẫn chưa",
+      "pos": "adv",
+      "img": "⏳",
+      "connect": "Hay đi với phủ định: 아직 안 했어요.",
+      "ex": "아직 안 끝났어요.",
+      "exVi": "Vẫn chưa xong."
+    },
+    {
+      "ko": "이미",
+      "romaja": "imi",
+      "vi": "Đã rồi",
+      "pos": "adv",
+      "img": "✔️",
+      "connect": "Trung tính, không kèm cảm xúc ngạc nhiên như 벌써.",
+      "ex": "이미 알고 있었어요.",
+      "exVi": "Tôi đã biết rồi."
+    },
+    {
+      "ko": "갑자기",
+      "romaja": "gapjagi",
+      "vi": "Đột nhiên",
+      "pos": "adv",
+      "img": "⚡",
+      "connect": "갑 chính là âm Hán \"cấp\" — gấp gáp.",
+      "ex": "갑자기 비가 왔어요.",
+      "exVi": "Trời đột nhiên đổ mưa."
+    },
+    {
+      "ko": "특히",
+      "romaja": "teuki",
+      "vi": "Đặc biệt là",
+      "pos": "adv",
+      "img": "⭐",
+      "connect": "특 chính là âm Hán \"đặc\".",
+      "ex": "특히 김치를 좋아해요.",
+      "exVi": "Tôi đặc biệt thích kimchi."
+    },
+    {
+      "ko": "거의",
+      "romaja": "geoui",
+      "vi": "Hầu như",
+      "pos": "adv",
+      "img": "📉",
+      "connect": "Hay đi với phủ định: 거의 안 먹어요.",
+      "ex": "거의 다 왔어요.",
+      "exVi": "Sắp tới nơi rồi."
+    },
+    {
+      "ko": "전혀",
+      "romaja": "jeonhyeo",
+      "vi": "Hoàn toàn không",
+      "pos": "adv",
+      "img": "🚫",
+      "connect": "Luôn đi với phủ định — mạnh hơn 안.",
+      "ex": "전혀 몰랐어요.",
+      "exVi": "Tôi hoàn toàn không biết."
+    },
+    {
+      "ko": "별로",
+      "romaja": "byeollo",
+      "vi": "Không (mấy)",
+      "pos": "adv",
+      "img": "😐",
+      "connect": "별로 안 좋아요 = không thích lắm. Cách chê lịch sự.",
+      "ex": "별로 안 매워요.",
+      "exVi": "Không cay lắm."
+    },
+    {
+      "ko": "오히려",
+      "romaja": "ohiryeo",
+      "vi": "Ngược lại, trái lại",
+      "pos": "adv",
+      "img": "🔄",
+      "connect": "Dùng khi kết quả trái với dự đoán.",
+      "ex": "오히려 더 좋아요.",
+      "exVi": "Ngược lại còn tốt hơn."
+    },
+    {
+      "ko": "역시",
+      "romaja": "yeoksi",
+      "vi": "Quả nhiên, đúng như nghĩ",
+      "pos": "adv",
+      "img": "👍",
+      "connect": "역시 chính là âm Hán \"diệc thị\". Câu khen cửa miệng của người Hàn.",
+      "ex": "역시 맛있네요!",
+      "exVi": "Quả nhiên là ngon!"
+    },
+    {
+      "ko": "드디어",
+      "romaja": "deudieo",
+      "vi": "Cuối cùng thì",
+      "pos": "adv",
+      "img": "🎊",
+      "connect": "Sau chờ đợi lâu, mang cảm xúc mừng.",
+      "ex": "드디어 끝났어요!",
+      "exVi": "Cuối cùng cũng xong!"
+    },
+    {
+      "ko": "점점",
+      "romaja": "jeomjeom",
+      "vi": "Dần dần",
+      "pos": "adv",
+      "img": "📈",
+      "connect": "점점 chính là âm Hán \"tiệm tiệm\".",
+      "ex": "날씨가 점점 추워져요.",
+      "exVi": "Trời dần trở lạnh."
+    }
+  ]
+}

@@ -72,7 +72,7 @@ export default function FeedbackWidget() {
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
                   maxLength={2000}
-                  placeholder={kind === 'bug' ? t('fb.phBug') : t('fb.phIdea')}
+                  placeholder={kind === 'bug' ? t('fb.phBug') : t('fb.phIdea')} aria-label={kind === 'bug' ? t('fb.phBug') : t('fb.phIdea')}
                 />
 
                 {err && <p className="auth-err">{err}</p>}

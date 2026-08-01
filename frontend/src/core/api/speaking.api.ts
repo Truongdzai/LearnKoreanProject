@@ -1,4 +1,5 @@
 import { apiClient } from './client'
+import { track } from '@/core/monitor'
 
 export interface SpeakLine { ko: string; vi: string }
 export interface SpeakTurn { role: 'bot' | 'me'; ko: string }
@@ -21,5 +22,8 @@ export function fetchSpeakReply(input: {
   lang?: string
   native?: string
 }): Promise<SpeakReply> {
-  return apiClient.post<SpeakReply>('/api/speaking/reply', input)
+  return apiClient.post<SpeakReply>('/api/speaking/reply', input).then((r) => {
+    track('speaking_turn', { lang: input.lang || 'ko', situation: input.situation.slice(0, 40) })
+    return r
+  })
 }

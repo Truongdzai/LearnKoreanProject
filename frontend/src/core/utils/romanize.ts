@@ -29,7 +29,6 @@ function decompose(ch: string): Syllable | null {
   return { lead: Math.floor(code / 588), vowel: Math.floor((code % 588) / 28), tail: code % 28 }
 }
 
-// Returns [coda that stays on this syllable, onset forced onto the next syllable].
 function assimilate(tail: number, nextLead: number): [string, string] {
   const coda = TAIL_CODA[tail]
   const lead = LEAD[nextLead]

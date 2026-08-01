@@ -1,0 +1,130 @@
+{
+  "id": "taste",
+  "name": "Nấu ăn & vị giác",
+  "sub": "Tả món ăn và nói cách nấu — chủ đề gần như chắc chắn có trong đề nghe.",
+  "pos": "verb",
+  "tone": "tone-d",
+  "emoji": "🍳",
+  "words": [
+    {
+      "ko": "시다",
+      "romaja": "sida",
+      "vi": "Chua",
+      "pos": "adj",
+      "img": "🍋",
+      "connect": "Nhớ cặp: 달다 (ngọt) đã học ↔ 시다 (chua).",
+      "ex": "레몬이 너무 시어요.",
+      "exVi": "Chanh chua quá."
+    },
+    {
+      "ko": "싱겁다",
+      "romaja": "singgeopda",
+      "vi": "Nhạt",
+      "pos": "adj",
+      "img": "🥣",
+      "connect": "Ngược với 짜다 (mặn) đã học. ㅂ bất quy tắc: 싱거워요.",
+      "ex": "국이 좀 싱거워요.",
+      "exVi": "Canh hơi nhạt."
+    },
+    {
+      "ko": "고소하다",
+      "romaja": "gosohada",
+      "vi": "Bùi, thơm béo",
+      "pos": "adj",
+      "img": "🥜",
+      "connect": "Vị của mè rang, đậu phộng — tiếng Việt không có từ khớp hẳn.",
+      "ex": "참기름이 고소해요.",
+      "exVi": "Dầu mè thơm bùi."
+    },
+    {
+      "ko": "느끼하다",
+      "romaja": "neukkihada",
+      "vi": "Ngấy, béo ngậy",
+      "pos": "adj",
+      "img": "🍕",
+      "connect": "Ăn nhiều dầu mỡ thấy 느끼해요.",
+      "ex": "피자가 느끼해요.",
+      "exVi": "Pizza ngấy quá."
+    },
+    {
+      "ko": "볶다",
+      "romaja": "bokda",
+      "vi": "Xào",
+      "pos": "verb",
+      "img": "🍜",
+      "connect": "떡볶이 (tteokbokki) chính là bánh gạo đem 볶다.",
+      "ex": "야채를 볶아요.",
+      "exVi": "Tôi xào rau."
+    },
+    {
+      "ko": "삶다",
+      "romaja": "samda",
+      "vi": "Luộc",
+      "pos": "verb",
+      "img": "🥚",
+      "connect": "Trứng luộc là 삶은 달걀.",
+      "ex": "계란을 삶았어요.",
+      "exVi": "Tôi đã luộc trứng."
+    },
+    {
+      "ko": "튀기다",
+      "romaja": "twigida",
+      "vi": "Chiên ngập dầu",
+      "pos": "verb",
+      "img": "🍤",
+      "connect": "치킨 là món được 튀기다.",
+      "ex": "감자를 튀겨요.",
+      "exVi": "Tôi chiên khoai tây."
+    },
+    {
+      "ko": "찌다",
+      "romaja": "jjida",
+      "vi": "Hấp",
+      "pos": "verb",
+      "img": "🥟",
+      "connect": "만두 (bánh bao) hay được 찌다.",
+      "ex": "만두를 쪄요.",
+      "exVi": "Tôi hấp bánh bao."
+    },
+    {
+      "ko": "썰다",
+      "romaja": "sseolda",
+      "vi": "Thái, cắt lát",
+      "pos": "verb",
+      "img": "🔪",
+      "connect": "Khác 자르다 (cắt đứt): 썰다 là thái mỏng đồ ăn.",
+      "ex": "양파를 썰어요.",
+      "exVi": "Tôi thái hành tây."
+    },
+    {
+      "ko": "섞다",
+      "romaja": "seokda",
+      "vi": "Trộn",
+      "pos": "verb",
+      "img": "🥗",
+      "connect": "Trộn cơm 비빔밥 chính là món được 섞다.",
+      "ex": "잘 섞어 주세요.",
+      "exVi": "Hãy trộn đều giúp tôi."
+    },
+    {
+      "ko": "맛보다",
+      "romaja": "matboda",
+      "vi": "Nếm thử",
+      "pos": "verb",
+      "img": "👅",
+      "connect": "맛 (vị) + 보다 (xem) đã học → xem thử vị.",
+      "ex": "한번 맛보세요.",
+      "exVi": "Bạn nếm thử đi."
+    },
+    {
+      "ko": "익다",
+      "romaja": "ikda",
+      "vi": "Chín (thức ăn)",
+      "pos": "verb",
+      "img": "🍖",
+      "connect": "Thịt chín là 고기가 익었어요.",
+      "ex": "고기가 다 익었어요.",
+      "exVi": "Thịt chín hết rồi."
+    }
+  ]
+}
