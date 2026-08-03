@@ -250,5 +250,89 @@
     "skill": "l-photo",
     "vi": "Ảnh: bàn ăn dài trong nhà hàng — mấy chiếc ly rượu và cốc thuỷ tinh đặt phía trước, dọc bàn là các bộ đồ ăn bày sẵn; phía sau là bếp mở.",
     "trap": "Ba câu sai đều thêm NGƯỜI hoặc hành động không có trong ảnh. Bàn ăn bày sẵn = tả bằng thì hiện tại hoàn thành bị động."
+  },
+  {
+    "id": "p1-19",
+    "img": "/img/toeic/p1-04.webp",
+    "statements": [
+      "A man is locking up a bicycle.",
+      "Some vehicles are parked along the street.",
+      "A bicycle is lying on the ground.",
+      "The wall is being repaired."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: chiếc xe đạp dựng tựa vào bức tường đá cũ trên vỉa hè vắng; phía xa cuối phố có mấy chiếc xe đậu sát lề.",
+    "trap": "Không có người trong ảnh → loại ngay (A) và (D) 'is being repaired' (đang được sửa, phải có người làm). (C) đúng vật nhưng sai trạng thái: xe DỰNG TỰA chứ không NẰM dưới đất."
+  },
+  {
+    "id": "p1-20",
+    "img": "/img/toeic/p1-06.webp",
+    "statements": [
+      "A clerk is weighing some produce.",
+      "She is reaching for a pineapple.",
+      "Some fruit has been arranged on a display.",
+      "Shopping carts are stacked near an entrance."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: người phụ nữ đeo ba lô đẩy xe hàng đi qua quầy trái cây trong siêu thị; dứa và các loại quả bày kín mặt quầy.",
+    "trap": "Cô ấy ĐANG ĐẨY xe chứ không với tay lấy quả → loại (B). (A) và (D) tả người/vật không có trong khung hình. Câu đúng dùng thể bị động hoàn thành 'has been arranged' để tả TRẠNG THÁI bày sẵn."
+  },
+  {
+    "id": "p1-21",
+    "img": "/img/toeic/p1-07.webp",
+    "statements": [
+      "He is turning a page.",
+      "He has crossed his legs.",
+      "A newspaper has been left on a bench.",
+      "He is putting on a striped shirt."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: một người ngồi trên ghế gỗ dài, bắt chéo chân, hai tay cầm tờ báo mở rộng che kín mặt; áo kẻ sọc ngang.",
+    "trap": "(C) sai trạng thái: tờ báo ĐANG ĐƯỢC CẦM chứ không bị bỏ lại trên ghế. (D) bẫy kinh điển 'putting on' (đang mặc VÀO) khác 'wearing' (đang mặc trên người)."
+  },
+  {
+    "id": "p1-22",
+    "img": "/img/toeic/p1-08.webp",
+    "statements": [
+      "She is pulling weeds out of the soil.",
+      "A watering can has been set on the ground.",
+      "She is bending over some plants.",
+      "Vegetables are being packed into a crate."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: một phụ nữ mặc váy không tay cúi người tưới cây bằng bình tưới trong vườn rau; quanh chân là luống cây lá xanh.",
+    "trap": "(B) sai vị trí: bình tưới đang Ở TRÊN TAY cô ấy, không đặt dưới đất. (A) và (D) tả hành động khác hẳn. Câu đúng chỉ tả tư thế CÚI NGƯỜI — an toàn vì đúng với mọi cách hiểu."
+  },
+  {
+    "id": "p1-23",
+    "img": "/img/toeic/p1-09.webp",
+    "statements": [
+      "A chef is washing some dishes.",
+      "Some plates have been lined up on a counter.",
+      "He is pouring soup into a bowl.",
+      "Aprons are hanging on a rack."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: cận cảnh bàn tay hai đầu bếp đang bày thức ăn lên một dãy đĩa trắng xếp thẳng hàng trên mặt bàn inox.",
+    "trap": "Ảnh chỉ thấy BÀN TAY, không thấy rõ người → tránh chọn câu tả toàn thân như (A). Câu đúng tả DÃY ĐĨA xếp sẵn — chi tiết chắc chắn nhìn thấy được."
+  },
+  {
+    "id": "p1-24",
+    "img": "/img/toeic/p1-11.webp",
+    "statements": [
+      "He is climbing a ladder.",
+      "He is opening a can of paint.",
+      "A man is kneeling on the ground.",
+      "Some brushes are being rinsed in a bucket."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: một người đàn ông quỳ trên vỉa hè, tay cầm cọ sơn phần chân tường; hộp sơn đã mở đặt ngay cạnh, thang gấp dựng bên trái.",
+    "trap": "Thang CÓ trong ảnh nhưng không ai trèo → (A) sai, đây là bẫy hay gặp nhất Part 1. (B) sai thì: hộp sơn ĐÃ mở sẵn rồi, không phải đang mở."
   }
 ]
