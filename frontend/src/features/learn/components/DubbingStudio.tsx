@@ -6,6 +6,7 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import { detectSpeakers, diarizeVoice } from '@/core/api/learn.api'
+import { refDuration } from '../segments'
 import type { Lesson } from '@/models/lesson.model'
 
 interface Clip {
@@ -14,12 +15,6 @@ interface Clip {
   delay: number | null
   rhythm: number
   delayScore: number | null
-}
-
-function refDuration(segs: Lesson['segments'], idx: number): number {
-  const a = segs[idx].start
-  const b = idx + 1 < segs.length ? segs[idx + 1].start : a + 3.5
-  return Math.max(1.2, Math.min(8, b - a))
 }
 
 function rhythmScore(dur: number, ref: number): number {

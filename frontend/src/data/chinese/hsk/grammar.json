@@ -1,0 +1,326 @@
+[
+  {
+    "id": "h01", "level": 1, "title": "是 · 不是 — Câu \"A là B\"", "tag": "Nền móng câu",
+    "points": [
+      "A + 是 + B chỉ dùng để nối HAI DANH TỪ: 我是学生 (Wǒ shì xuéshēng) — Tôi là học sinh.",
+      "Phủ định thêm 不: 不是 (bú shì). Hỏi thì thêm 吗 ở cuối, hoặc dùng dạng 是不是.",
+      "Trước TÍNH TỪ tuyệt đối không dùng 是: nói 我很好, không nói 我是好 — đây là lỗi số một của người Việt vì tiếng Việt nói \"tôi thì khoẻ\"."
+    ],
+    "examples": [
+      { "zh": "我是越南人。", "py": "Wǒ shì Yuènán rén.", "vi": "Tôi là người Việt Nam." },
+      { "zh": "这不是我的书。", "py": "Zhè bú shì wǒ de shū.", "vi": "Đây không phải sách của tôi." }
+    ],
+    "drill": [
+      { "text": "他___老师。", "options": ["是", "很", "有", "在"], "answer": 0, "explain": "Nối hai danh từ 他 – 老师 nên phải dùng 是." },
+      { "text": "我___中国人，我是越南人。", "options": ["不是", "没有", "不在", "不会"], "answer": 0, "explain": "Phủ định của 是 là 不是 (bú shì), không dùng 没有." },
+      { "text": "这个菜___好吃。", "options": ["是", "很", "有", "的"], "answer": 1, "explain": "好吃 là tính từ → dùng 很 làm chỗ dựa, không dùng 是." },
+      { "text": "你___学生吗？", "options": ["是", "有", "在", "会"], "answer": 0, "explain": "Hỏi \"bạn có phải là học sinh không\" → 是…吗？" }
+    ]
+  },
+  {
+    "id": "h02", "level": 1, "title": "很 + tính từ — Câu vị ngữ tính từ", "tag": "Nền móng câu",
+    "points": [
+      "Tính từ tự làm vị ngữ, không cần động từ: 我很忙 (Wǒ hěn máng) — Tôi bận.",
+      "很 ở câu bình thường chỉ là chỗ dựa cho tính từ, thường KHÔNG dịch là \"rất\"; muốn nhấn mạnh thật thì dùng 非常 hoặc 太…了.",
+      "Phủ định dùng 不 + tính từ: 不贵. Hỏi: 贵吗？hoặc dạng chính phản 贵不贵？"
+    ],
+    "examples": [
+      { "zh": "今天天气很好。", "py": "Jīntiān tiānqì hěn hǎo.", "vi": "Hôm nay thời tiết đẹp." },
+      { "zh": "这件衣服不贵。", "py": "Zhè jiàn yīfu bú guì.", "vi": "Bộ quần áo này không đắt." }
+    ],
+    "drill": [
+      { "text": "她___漂亮。", "options": ["很", "是", "有", "在"], "answer": 0, "explain": "漂亮 là tính từ, đứng sau 很 chứ không sau 是." },
+      { "text": "这个手机___贵。（không đắt）", "options": ["不", "没", "别", "没有"], "answer": 0, "explain": "Phủ định tính từ luôn dùng 不, 没 chỉ dùng cho việc đã/chưa xảy ra." },
+      { "text": "你今天忙___？", "options": ["吗", "了", "的", "在"], "answer": 0, "explain": "Câu hỏi có/không thì thêm 吗 ở cuối câu." },
+      { "text": "这本书___有意思。", "options": ["很", "是", "在", "会"], "answer": 0, "explain": "有意思 (thú vị) đóng vai tính từ → dùng 很." }
+    ]
+  },
+  {
+    "id": "h03", "level": 1, "title": "吗 · 呢 · 是不是 — Ba cách đặt câu hỏi", "tag": "Câu hỏi",
+    "points": [
+      "吗 đặt cuối câu trần thuật là thành câu hỏi có/không: 你好吗？你是学生吗？",
+      "呢 hỏi ngược lại người kia hoặc hỏi \"…đâu rồi?\": 我很好，你呢？· 我的手机呢？",
+      "Dạng chính phản (khẳng định + phủ định) không cần 吗: 你去不去？他是不是老师？"
+    ],
+    "examples": [
+      { "zh": "你喝咖啡吗？", "py": "Nǐ hē kāfēi ma?", "vi": "Bạn uống cà phê không?" },
+      { "zh": "我很累，你呢？", "py": "Wǒ hěn lèi, nǐ ne?", "vi": "Tôi mệt lắm, còn bạn?" }
+    ],
+    "drill": [
+      { "text": "你是中国人___？", "options": ["吗", "呢", "了", "的"], "answer": 0, "explain": "Hỏi có/không thì dùng 吗." },
+      { "text": "我吃米饭，你___？", "options": ["呢", "吗", "了", "吧"], "answer": 0, "explain": "Hỏi ngược lại người đối diện → dùng 呢." },
+      { "text": "明天你___不去学校？", "options": ["去", "是", "有", "在"], "answer": 0, "explain": "Dạng chính phản của 去 là 去不去." },
+      { "text": "他___不是你的哥哥？", "options": ["是", "有", "在", "会"], "answer": 0, "explain": "Dạng chính phản của 是 là 是不是, và khi đó không thêm 吗." }
+    ]
+  },
+  {
+    "id": "h04", "level": 1, "title": "什么 · 谁 · 哪儿 · 几 · 多少 · 怎么样", "tag": "Câu hỏi",
+    "points": [
+      "Tiếng Trung KHÔNG đảo từ để hỏi: từ để hỏi nằm đúng vị trí của câu trả lời — 你吃什么？→ 我吃面条。",
+      "几 hỏi số nhỏ dưới 10 và luôn đi với lượng từ (几个人); 多少 hỏi số bất kỳ, có thể không cần lượng từ (多少钱).",
+      "怎么样 hỏi \"thế nào\"; 哪儿 hỏi nơi chốn; 谁 hỏi người; 什么时候 hỏi lúc nào."
+    ],
+    "examples": [
+      { "zh": "你在哪儿工作？", "py": "Nǐ zài nǎr gōngzuò?", "vi": "Bạn làm việc ở đâu?" },
+      { "zh": "这个多少钱？", "py": "Zhège duōshao qián?", "vi": "Cái này bao nhiêu tiền?" }
+    ],
+    "drill": [
+      { "text": "你家有___口人？", "options": ["几", "多少", "什么", "怎么样"], "answer": 0, "explain": "Số người trong nhà là số nhỏ và có lượng từ 口 → dùng 几." },
+      { "text": "这本书___钱？", "options": ["多少", "几", "谁", "哪儿"], "answer": 0, "explain": "Hỏi giá tiền cố định là 多少钱." },
+      { "text": "他是___？（hỏi người đó là ai）", "options": ["谁", "什么", "哪儿", "几"], "answer": 0, "explain": "Hỏi người dùng 谁." },
+      { "text": "今天的菜___？（hỏi món ăn thế nào）", "options": ["怎么样", "什么", "哪儿", "多少"], "answer": 0, "explain": "Hỏi ý kiến/chất lượng dùng 怎么样." }
+    ]
+  },
+  {
+    "id": "h05", "level": 1, "title": "有 · 没有 · 在 — Sở hữu, tồn tại, ở đâu", "tag": "Động từ lõi",
+    "points": [
+      "有 = có (sở hữu hoặc tồn tại): 我有一个妹妹 · 桌子上有一本书.",
+      "Phủ định của 有 CHỈ có thể là 没有, tuyệt đối không nói 不有.",
+      "在 + nơi chốn = ở tại: 我在家 · 他在学校。So sánh: 有 nói \"có gì ở đó\", 在 nói \"ai/cái gì ở đâu\"."
+    ],
+    "examples": [
+      { "zh": "我家有三口人。", "py": "Wǒ jiā yǒu sān kǒu rén.", "vi": "Nhà tôi có ba người." },
+      { "zh": "我没有钱。", "py": "Wǒ méiyǒu qián.", "vi": "Tôi không có tiền." }
+    ],
+    "drill": [
+      { "text": "我___弟弟，只有一个姐姐。", "options": ["没有", "不有", "不是", "不在"], "answer": 0, "explain": "Phủ định của 有 luôn là 没有." },
+      { "text": "妈妈___家做饭。", "options": ["在", "有", "是", "的"], "answer": 0, "explain": "Nói ai đang ở nơi nào thì dùng 在 + nơi chốn." },
+      { "text": "桌子上___一杯水。", "options": ["有", "在", "是", "会"], "answer": 0, "explain": "Nơi chốn + 有 + đồ vật = ở đó có cái gì." },
+      { "text": "你的老师___哪儿？", "options": ["在", "有", "是", "多少"], "answer": 0, "explain": "Hỏi ai đó ở đâu dùng 在哪儿." }
+    ]
+  },
+  {
+    "id": "h06", "level": 1, "title": "这/那 + lượng từ + danh từ", "tag": "Lượng từ",
+    "points": [
+      "Tiếng Trung bắt buộc có lượng từ giữa số/这/那 và danh từ: 一个人 · 这本书 · 那件衣服.",
+      "Nhớ 6 lượng từ hay ra thi nhất: 个 (chung) · 本 (sách) · 口 (nhân khẩu) · 件 (áo, việc) · 张 (vật phẳng: bàn, vé, giấy) · 杯 (ly).",
+      "Không nói 一书 hay 这书 — thiếu lượng từ là sai ngữ pháp, khác hẳn tiếng Việt \"một sách\" nghe cũng hiểu."
+    ],
+    "examples": [
+      { "zh": "我买了两本书。", "py": "Wǒ mǎi le liǎng běn shū.", "vi": "Tôi đã mua hai quyển sách." },
+      { "zh": "这件衣服很漂亮。", "py": "Zhè jiàn yīfu hěn piàoliang.", "vi": "Bộ quần áo này rất đẹp." }
+    ],
+    "drill": [
+      { "text": "我想买一___汉语书。", "options": ["本", "个", "件", "杯"], "answer": 0, "explain": "Sách vở dùng lượng từ 本." },
+      { "text": "请给我一___水。", "options": ["杯", "本", "张", "口"], "answer": 0, "explain": "Nước đựng trong ly → 一杯水." },
+      { "text": "他家有五___人。", "options": ["口", "个", "本", "张"], "answer": 0, "explain": "Đếm nhân khẩu trong gia đình dùng 口." },
+      { "text": "这___桌子很大。", "options": ["张", "本", "杯", "件"], "answer": 0, "explain": "Vật có mặt phẳng (bàn, vé, giấy) dùng 张." }
+    ]
+  },
+  {
+    "id": "h07", "level": 1, "title": "Giờ · ngày · thứ — 几点 · 号 · 星期", "tag": "Số & thời gian",
+    "points": [
+      "Giờ: 现在几点？→ 两点十分 (2 giờ 10). Chú ý 2 giờ là 两点, không phải 二点; 2 phút mới là 二分.",
+      "Ngày tháng nói TO trước NHỎ sau, ngược tiếng Việt: 2026年8月2号 = ngày 2 tháng 8 năm 2026.",
+      "Thứ: 星期一…星期六, riêng Chủ nhật là 星期天 (hoặc 星期日). Từ chỉ thời gian đứng TRƯỚC động từ: 我明天去 chứ không nói 我去明天."
+    ],
+    "examples": [
+      { "zh": "我们八点半上课。", "py": "Wǒmen bā diǎn bàn shàngkè.", "vi": "Chúng tôi vào học lúc 8 giờ rưỡi." },
+      { "zh": "今天是星期三，五月十号。", "py": "Jīntiān shì xīngqīsān, wǔ yuè shí hào.", "vi": "Hôm nay là thứ Tư, ngày 10 tháng 5." }
+    ],
+    "drill": [
+      { "text": "现在___点？", "options": ["几", "多少", "什么", "怎么"], "answer": 0, "explain": "Hỏi giờ luôn dùng 几点." },
+      { "text": "我们___点见面。（2 giờ）", "options": ["两", "二", "第二", "俩"], "answer": 0, "explain": "Trước lượng từ và 点 thì số 2 đọc là 两, không đọc 二." },
+      { "text": "___我去中国。", "options": ["明天", "去明天", "天明", "明日子"], "answer": 0, "explain": "Từ chỉ thời gian đứng trước động từ: 明天去." },
+      { "text": "星期___是 Chủ nhật。", "options": ["天", "七", "零", "六"], "answer": 0, "explain": "Chủ nhật là 星期天 hoặc 星期日, không có 星期七." }
+    ]
+  },
+  {
+    "id": "h08", "level": 1, "title": "的 — Sở hữu và định ngữ", "tag": "Trợ từ",
+    "points": [
+      "A 的 B = B của A: 我的书 · 老师的名字.",
+      "Quan hệ thân thiết hoặc tổ chức thì bỏ 的: 我妈妈 · 我们学校 · 他哥哥.",
+      "的 còn nối tính từ dài hoặc cụm với danh từ: 很漂亮的衣服 · 我买的书 (cái áo rất đẹp / quyển sách tôi mua)."
+    ],
+    "examples": [
+      { "zh": "这是我的手机。", "py": "Zhè shì wǒ de shǒujī.", "vi": "Đây là điện thoại của tôi." },
+      { "zh": "他是我们学校的老师。", "py": "Tā shì wǒmen xuéxiào de lǎoshī.", "vi": "Anh ấy là giáo viên trường chúng tôi." }
+    ],
+    "drill": [
+      { "text": "这是谁___书？", "options": ["的", "了", "在", "吗"], "answer": 0, "explain": "Hỏi sách của ai → 谁的书." },
+      { "text": "Chọn cách nói tự nhiên nhất khi giới thiệu mẹ mình.", "options": ["我妈妈是医生。", "我的的妈妈是医生。", "妈妈我是医生。", "我是妈妈的医生。"], "answer": 0, "explain": "Quan hệ ruột thịt thường bỏ 的 → 我妈妈. Các câu còn lại thừa 的 hoặc sai trật tự." },
+      { "text": "那是一件很贵___衣服。", "options": ["的", "了", "得", "地"], "answer": 0, "explain": "Cụm tính từ có 很 đứng trước danh từ phải thêm 的." },
+      { "text": "这本书是我___。", "options": ["的", "在", "了", "很"], "answer": 0, "explain": "的 đứng cuối câu thay cho danh từ đã rõ: là của tôi." }
+    ]
+  },
+  {
+    "id": "h09", "level": 1, "title": "想 · 要 · 会 · 能 · 可以 — Động từ năng nguyện", "tag": "Động từ năng nguyện",
+    "points": [
+      "想 = muốn (nguyện vọng, còn nhẹ) · 要 = muốn/cần (ý chí mạnh, sắp làm): 我想去 · 我要买.",
+      "会 = biết làm do đã học (会说汉语) · 能 = có khả năng/điều kiện lúc này (今天我不能去).",
+      "可以 = được phép: 我可以进来吗？Phủ định của 要 khi từ chối là 不想 hoặc 不用, ít khi nói 不要 (nghĩa là \"đừng\")."
+    ],
+    "examples": [
+      { "zh": "我想喝一杯咖啡。", "py": "Wǒ xiǎng hē yì bēi kāfēi.", "vi": "Tôi muốn uống một ly cà phê." },
+      { "zh": "他会说汉语，也会说英语。", "py": "Tā huì shuō Hànyǔ, yě huì shuō Yīngyǔ.", "vi": "Anh ấy biết nói tiếng Trung, cũng biết nói tiếng Anh." }
+    ],
+    "drill": [
+      { "text": "我___说一点儿汉语。（đã học nên biết）", "options": ["会", "想", "可以", "能"], "answer": 0, "explain": "Kỹ năng học mà có thì dùng 会." },
+      { "text": "明天我有事，不___去。", "options": ["能", "会", "想要", "可以吗"], "answer": 0, "explain": "Bận nên không có điều kiện đi → 不能去." },
+      { "text": "我___去中国旅游。（ước muốn）", "options": ["想", "会", "能", "在"], "answer": 0, "explain": "Nguyện vọng, mong muốn dùng 想." },
+      { "text": "老师，我___问一个问题吗？", "options": ["可以", "会", "想不", "有"], "answer": 0, "explain": "Xin phép dùng 可以…吗？" }
+    ]
+  },
+  {
+    "id": "h10", "level": 1, "title": "了 — Việc đã xảy ra & tình hình đổi mới", "tag": "Trợ từ",
+    "points": [
+      "了 sau động từ: việc đã hoàn thành — 我吃了饭 (Tôi ăn cơm rồi).",
+      "了 cuối câu: tình hình có thay đổi — 下雨了 (Trời mưa rồi) · 我十八岁了.",
+      "Phủ định dùng 没(有) và PHẢI bỏ 了: 我没吃饭 — nói 我没吃了饭 là sai."
+    ],
+    "examples": [
+      { "zh": "我昨天买了一件衣服。", "py": "Wǒ zuótiān mǎi le yí jiàn yīfu.", "vi": "Hôm qua tôi đã mua một bộ quần áo." },
+      { "zh": "他没来上课。", "py": "Tā méi lái shàngkè.", "vi": "Anh ấy đã không đến lớp." }
+    ],
+    "drill": [
+      { "text": "我昨天看___一个电影。", "options": ["了", "在", "的", "过来"], "answer": 0, "explain": "Việc đã hoàn thành trong quá khứ → động từ + 了." },
+      { "text": "他___吃饭。（chưa ăn）", "options": ["没", "不", "别", "没了"], "answer": 0, "explain": "Phủ định việc đã xảy ra dùng 没, và bỏ 了." },
+      { "text": "外面下雨___，别出去。", "options": ["了", "的", "吗", "在"], "answer": 0, "explain": "Tình hình mới thay đổi → 了 cuối câu." },
+      { "text": "我妹妹今年二十岁___。", "options": ["了", "的", "吧", "在"], "answer": 0, "explain": "Tuổi tác thay đổi so với trước → 了 cuối câu." }
+    ]
+  },
+  {
+    "id": "h11", "level": 2, "title": "正在…呢 — Đang làm dở", "tag": "Thì & thể",
+    "points": [
+      "Cấu trúc: 正在 / 在 + động từ + 呢 — 我正在吃饭呢 (Tôi đang ăn cơm).",
+      "Có thể lược bớt: chỉ 在…呢, chỉ 正在…, hoặc chỉ …呢 đều được.",
+      "Phủ định: 没在 hoặc 不是在… Chú ý phân biệt 在 làm động từ (我在家) với 在 làm phó từ chỉ đang diễn ra (我在做饭)."
+    ],
+    "examples": [
+      { "zh": "他正在打电话呢。", "py": "Tā zhèngzài dǎ diànhuà ne.", "vi": "Anh ấy đang gọi điện." },
+      { "zh": "我在看电视，你呢？", "py": "Wǒ zài kàn diànshì, nǐ ne?", "vi": "Tôi đang xem TV, còn bạn?" }
+    ],
+    "drill": [
+      { "text": "妈妈___做饭呢。", "options": ["正在", "了", "过", "得"], "answer": 0, "explain": "Việc đang diễn ra dùng 正在…呢." },
+      { "text": "我在看书___。", "options": ["呢", "了", "吗", "的"], "answer": 0, "explain": "呢 đứng cuối câu đi kèm 在 để nhấn việc đang tiếp diễn." },
+      { "text": "他___家看电视。（ở nhà）", "options": ["在", "正在看", "了", "过"], "answer": 0, "explain": "在 + nơi chốn là \"ở tại\", khác với 在 + động từ là \"đang\"." },
+      { "text": "你___做什么呢？", "options": ["在", "了", "过", "得"], "answer": 0, "explain": "Hỏi người ta đang làm gì: 你在做什么呢？" }
+    ]
+  },
+  {
+    "id": "h12", "level": 2, "title": "比 — Câu so sánh", "tag": "So sánh",
+    "points": [
+      "A + 比 + B + tính từ: 我比他高 (Tôi cao hơn anh ấy). Tuyệt đối KHÔNG thêm 很: nói 我比他高, không nói 我比他很高.",
+      "Muốn nói hơn bao nhiêu thì đặt sau tính từ: 他比我大两岁 · 这个便宜一点儿.",
+      "Bằng nhau: A 跟 B 一样 + tính từ. Không hơn: A 没有 B + tính từ (我没有他高)."
+    ],
+    "examples": [
+      { "zh": "今天比昨天热。", "py": "Jīntiān bǐ zuótiān rè.", "vi": "Hôm nay nóng hơn hôm qua." },
+      { "zh": "我的手机跟你的一样。", "py": "Wǒ de shǒujī gēn nǐ de yíyàng.", "vi": "Điện thoại của tôi giống của bạn." }
+    ],
+    "drill": [
+      { "text": "哥哥___我高。", "options": ["比", "跟", "没", "是"], "answer": 0, "explain": "So sánh hơn dùng A 比 B + tính từ." },
+      { "text": "这个比那个___。（rẻ hơn một chút）", "options": ["便宜一点儿", "很便宜", "太便宜", "非常便宜"], "answer": 0, "explain": "Trong câu 比 không dùng 很/太/非常; mức chênh lệch đặt sau tính từ." },
+      { "text": "我___他大三岁。", "options": ["比", "跟", "在", "从"], "answer": 0, "explain": "Chênh lệch tuổi đặt sau tính từ trong câu 比: 比他大三岁." },
+      { "text": "我___他高。（tôi không cao bằng anh ấy）", "options": ["没有", "不比", "不是", "没比"], "answer": 0, "explain": "\"Không bằng\" dùng A 没有 B + tính từ." }
+    ]
+  },
+  {
+    "id": "h13", "level": 2, "title": "太…了 · 非常 · 有点儿 · 一点儿", "tag": "Mức độ",
+    "points": [
+      "太 + tính từ + 了 = quá…: 太贵了 · 太好了. 非常 = vô cùng, mạnh hơn 很.",
+      "有点儿 + tính từ đứng TRƯỚC, mang ý CHÊ, không vừa ý: 这件衣服有点儿贵.",
+      "一点儿 đứng SAU tính từ, dùng khi so sánh hoặc đề nghị: 便宜一点儿吧 (rẻ hơn chút đi)."
+    ],
+    "examples": [
+      { "zh": "这个菜太辣了。", "py": "Zhège cài tài là le.", "vi": "Món này cay quá." },
+      { "zh": "今天有点儿冷。", "py": "Jīntiān yǒudiǎnr lěng.", "vi": "Hôm nay hơi lạnh (thấy khó chịu)." }
+    ],
+    "drill": [
+      { "text": "这个手机___贵了！", "options": ["太", "有点儿", "一点儿", "非常的"], "answer": 0, "explain": "太…了 là cặp cố định để than \"quá…\"." },
+      { "text": "这条裤子___大，有小一点儿的吗？", "options": ["有点儿", "一点儿", "太的", "很的"], "answer": 0, "explain": "Chê nhẹ, không vừa ý → 有点儿 đứng trước tính từ." },
+      { "text": "老板，能不能便宜___？", "options": ["一点儿", "有点儿", "太了", "非常"], "answer": 0, "explain": "一点儿 đứng sau tính từ khi đề nghị giảm bớt." },
+      { "text": "他的汉语说得___好。", "options": ["非常", "有点儿", "太", "一点儿"], "answer": 0, "explain": "非常 = vô cùng, dùng khen mạnh; 有点儿 chỉ dùng khi chê." }
+    ]
+  },
+  {
+    "id": "h14", "level": 2, "title": "因为…所以 · 虽然…但是 — Câu ghép", "tag": "Câu ghép",
+    "points": [
+      "因为 A，所以 B = vì A nên B. Tiếng Trung giữ CẢ HAI vế liên từ, không bỏ như tiếng Việt.",
+      "虽然 A，但是 B = tuy A nhưng B — cũng phải giữ cả cặp.",
+      "Cặp thường gặp khác ở HSK 2: 一边…一边… (vừa…vừa…) · 又…又… (vừa…lại…)."
+    ],
+    "examples": [
+      { "zh": "因为下雨，所以我没去。", "py": "Yīnwèi xià yǔ, suǒyǐ wǒ méi qù.", "vi": "Vì trời mưa nên tôi đã không đi." },
+      { "zh": "虽然很累，但是我很高兴。", "py": "Suīrán hěn lèi, dànshì wǒ hěn gāoxìng.", "vi": "Tuy mệt nhưng tôi rất vui." }
+    ],
+    "drill": [
+      { "text": "___今天有考试，所以我起得很早。", "options": ["因为", "虽然", "但是", "所以"], "answer": 0, "explain": "Vế nguyên nhân mở đầu bằng 因为, vế kết quả có 所以." },
+      { "text": "虽然这个菜很贵，___很好吃。", "options": ["但是", "所以", "因为", "还是不"], "answer": 0, "explain": "虽然 luôn đi cặp với 但是." },
+      { "text": "他___吃饭___看电视。", "options": ["一边…一边", "因为…所以", "虽然…但是", "从…到"], "answer": 0, "explain": "Hai việc cùng lúc dùng 一边…一边…" },
+      { "text": "这个房间___大___干净。", "options": ["又…又", "一边…一边", "因为…所以", "比…没有"], "answer": 0, "explain": "又…又… nêu hai đặc điểm cùng có." }
+    ]
+  },
+  {
+    "id": "h15", "level": 2, "title": "从…到… · 离 · 往 — Nơi chốn & khoảng cách", "tag": "Giới từ",
+    "points": [
+      "从 A 到 B = từ A đến B, dùng cho cả nơi chốn lẫn thời gian: 从家到公司 · 从八点到五点.",
+      "离 dùng để nói KHOẢNG CÁCH giữa hai điểm: 我家离学校很近 — không dùng 从 ở câu này.",
+      "往 + phương hướng + động từ: 往前走 (đi thẳng) · 往右拐 (rẽ phải)."
+    ],
+    "examples": [
+      { "zh": "从我家到公司要半个小时。", "py": "Cóng wǒ jiā dào gōngsī yào bàn ge xiǎoshí.", "vi": "Từ nhà tôi đến công ty mất nửa tiếng." },
+      { "zh": "医院离这儿不远。", "py": "Yīyuàn lí zhèr bù yuǎn.", "vi": "Bệnh viện cách đây không xa." }
+    ],
+    "drill": [
+      { "text": "___八点___十二点我都在学校。", "options": ["从…到", "离…到", "在…往", "因为…所以"], "answer": 0, "explain": "Khoảng thời gian từ… đến… dùng 从…到…" },
+      { "text": "我家___地铁站很近。", "options": ["离", "从", "往", "到"], "answer": 0, "explain": "Nói khoảng cách xa/gần thì dùng 离." },
+      { "text": "___前走，然后往右拐。", "options": ["往", "离", "从", "到"], "answer": 0, "explain": "Chỉ hướng đi dùng 往 + phương hướng." },
+      { "text": "他___中国来。", "options": ["从", "离", "往", "在"], "answer": 0, "explain": "Xuất phát điểm dùng 从: 从中国来 (từ Trung Quốc đến)." }
+    ]
+  },
+  {
+    "id": "h16", "level": 2, "title": "过 — Từng làm, đã trải qua", "tag": "Thì & thể",
+    "points": [
+      "Động từ + 过 = đã từng làm (kinh nghiệm): 我去过中国 (Tôi từng đi Trung Quốc).",
+      "Phủ định: 没(有) + động từ + 过 — 我没去过 (chưa từng đi). Chú ý 过 KHÔNG bị bỏ như 了.",
+      "Khác nhau: 了 nói việc hoàn thành một lần cụ thể (我昨天吃了) — 过 nói kinh nghiệm có hay chưa (我吃过北京烤鸭)."
+    ],
+    "examples": [
+      { "zh": "我去过北京两次。", "py": "Wǒ qù guo Běijīng liǎng cì.", "vi": "Tôi từng đi Bắc Kinh hai lần." },
+      { "zh": "他没吃过越南菜。", "py": "Tā méi chī guo Yuènán cài.", "vi": "Anh ấy chưa từng ăn món Việt Nam." }
+    ],
+    "drill": [
+      { "text": "我学___汉语，学了一年。", "options": ["过", "了过", "在", "得"], "answer": 0, "explain": "Kinh nghiệm từng học dùng động từ + 过." },
+      { "text": "你去___中国吗？（đã từng đi chưa）", "options": ["过", "了", "着", "得"], "answer": 0, "explain": "Hỏi kinh nghiệm đã từng làm hay chưa: 去过…吗？" },
+      { "text": "我___看过这个电影。（chưa từng xem）", "options": ["没", "不", "别", "没了"], "answer": 0, "explain": "Phủ định của 过 là 没…过, giữ nguyên 过." },
+      { "text": "我昨天___一本书。（đọc xong hôm qua）", "options": ["看了", "看过", "在看", "看得"], "answer": 0, "explain": "Việc cụ thể hoàn thành hôm qua dùng 了, không dùng 过." }
+    ]
+  },
+  {
+    "id": "h17", "level": 2, "title": "得 — Bổ ngữ trình độ (làm việc gì thế nào)", "tag": "Bổ ngữ",
+    "points": [
+      "Động từ + 得 + tính từ: 他跑得很快 (Anh ấy chạy nhanh) — nhận xét mức độ làm việc đó.",
+      "Có tân ngữ thì phải nhắc lại động từ: 他说汉语说得很好 (hoặc rút thành 他汉语说得很好).",
+      "Phủ định đặt sau 得: 他跑得不快. Hỏi: 跑得快不快？"
+    ],
+    "examples": [
+      { "zh": "他汉语说得很流利。", "py": "Tā Hànyǔ shuō de hěn liúlì.", "vi": "Anh ấy nói tiếng Trung rất trôi chảy." },
+      { "zh": "我今天起得很早。", "py": "Wǒ jīntiān qǐ de hěn zǎo.", "vi": "Hôm nay tôi dậy rất sớm." }
+    ],
+    "drill": [
+      { "text": "他跑___很快。", "options": ["得", "的", "地", "了"], "answer": 0, "explain": "Nhận xét mức độ của hành động dùng 得 (không phải 的)." },
+      { "text": "她唱歌唱___非常好听。", "options": ["得", "的", "了", "过"], "answer": 0, "explain": "Có tân ngữ 歌 thì nhắc lại động từ 唱 rồi mới thêm 得." },
+      { "text": "我昨天睡得___。（không ngon）", "options": ["不好", "没好", "不很好", "别好"], "answer": 0, "explain": "Phủ định đặt SAU 得: 睡得不好." },
+      { "text": "你写汉字写得___？", "options": ["怎么样", "什么", "多少", "哪儿"], "answer": 0, "explain": "Hỏi mức độ làm việc gì thế nào dùng 怎么样." }
+    ]
+  },
+  {
+    "id": "h18", "level": 2, "title": "别 · 不要 · 请 · 吧 — Đề nghị và ngăn cản", "tag": "Câu cầu khiến",
+    "points": [
+      "别 / 不要 + động từ = đừng…: 别走 · 不要说话. 别 nghe thân mật hơn.",
+      "请 + động từ = mời/xin: 请进 · 请坐 · 请给我看看.",
+      "吧 cuối câu làm lời đề nghị mềm đi: 我们走吧 (mình đi thôi) · 你去问问吧."
+    ],
+    "examples": [
+      { "zh": "请给我一杯水。", "py": "Qǐng gěi wǒ yì bēi shuǐ.", "vi": "Cho tôi xin một ly nước." },
+      { "zh": "太晚了，别看电视了。", "py": "Tài wǎn le, bié kàn diànshì le.", "vi": "Muộn rồi, đừng xem TV nữa." }
+    ],
+    "drill": [
+      { "text": "___说话，老师来了。", "options": ["别", "不", "没", "很"], "answer": 0, "explain": "Ngăn cản ai đó làm gì dùng 别 + động từ." },
+      { "text": "___坐，喝杯茶。", "options": ["请", "别", "不要", "没"], "answer": 0, "explain": "Mời lịch sự dùng 请." },
+      { "text": "我们一起去吃饭___。", "options": ["吧", "吗", "呢", "了"], "answer": 0, "explain": "Rủ rê, đề nghị mềm dùng 吧; 吗 là câu hỏi có/không." },
+      { "text": "开车的时候___打电话。", "options": ["不要", "不是", "没有", "别的"], "answer": 0, "explain": "不要 + động từ = đừng làm gì, dùng cho lời khuyên/cảnh báo." }
+    ]
+  }
+]

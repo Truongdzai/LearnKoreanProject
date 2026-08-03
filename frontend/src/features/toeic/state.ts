@@ -24,6 +24,13 @@ export interface WrongNote {
   t: string
 }
 
+export interface TestRecord {
+  n: number
+  best: number
+  last: number
+  t: string
+}
+
 export interface ToeicState {
   start: string | null
   done: string[]
@@ -31,6 +38,7 @@ export interface ToeicState {
   attempts: ToeicAttempt[]
   rewarded: number[]
   wrong: WrongNote[]
+  tests: Record<string, TestRecord>
 }
 
 const LOCAL_KEY = 'vyling.toeic60'
@@ -47,6 +55,7 @@ function normalize(raw: unknown): ToeicState {
     attempts: Array.isArray(p.attempts) ? p.attempts : [],
     rewarded: Array.isArray(p.rewarded) ? p.rewarded : [],
     wrong: Array.isArray(p.wrong) ? p.wrong.filter((w) => w && typeof w.key === 'string') : [],
+    tests: p.tests && typeof p.tests === 'object' && !Array.isArray(p.tests) ? p.tests : {},
   }
 }
 
@@ -230,6 +239,25 @@ export function useToeicState() {
     })
   }, [mutate])
 
+  const recordFixedTest = useCallback((idx: number, score: number) => {
+    mutate((p) => {
+      const key = String(idx)
+      const prev = p.tests[key]
+      return {
+        ...p,
+        tests: {
+          ...p.tests,
+          [key]: {
+            n: (prev?.n ?? 0) + 1,
+            best: Math.max(prev?.best ?? 0, score),
+            last: score,
+            t: todayISO(),
+          },
+        },
+      }
+    })
+  }, [mutate])
+
   const grantDayReward = useCallback((d: number) => {
     mutate((p) => (p.rewarded.includes(d) ? p : { ...p, rewarded: [...p.rewarded, d] }))
   }, [mutate])
@@ -242,5 +270,5 @@ export function useToeicState() {
     return null
   }, [state.attempts])
 
-  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, grantDayReward, latestEstimate }
+  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, recordFixedTest, grantDayReward, latestEstimate }
 }

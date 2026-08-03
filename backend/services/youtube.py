@@ -32,6 +32,17 @@ def extract_id(url: str) -> str:
 def proxy() -> str:
     return (settings.get("network", {}) or {}).get("proxy", "") or ""
 
+def _is_machine_translated(track: list) -> bool:
+    for part in track or []:
+        if "tlang=" in (part.get("url") or ""):
+            return True
+    return False
+
+
+def _drop_translated(tracks_map: dict) -> dict:
+    return {k: v for k, v in (tracks_map or {}).items() if v and not _is_machine_translated(v)}
+
+
 def _pick_track(tracks_map: dict, lang: str = "ko"):
     keys = _LANG_KEYS.get(lang, _LANG_KEYS["ko"])
     for key in keys:
@@ -153,12 +164,19 @@ def get_segments(url: str, lang: str = "ko") -> dict:
     subs = info.get("subtitles") or {}
     autos = info.get("automatic_captions") or {}
 
-    track = _pick_track(subs, lang)
+    track = _pick_track(_drop_translated(subs), lang)
     source = "phụ đề chính thức"
     if track is None:
-        track = _pick_track(autos, lang)
+        track = _pick_track(_drop_translated(autos), lang)
         source = "phụ đề tự động (auto)"
     if track is None:
+        translated = _pick_track(subs, lang) or _pick_track(autos, lang)
+        if translated is not None:
+            raise RuntimeError(
+                f"Video này chỉ có phụ đề {_study_name(lang)} do máy dịch tự động từ tiếng khác, "
+                "không phải lời thoại thật trong video nên không dùng để học được. "
+                "Hãy chọn video có tiếng nói bằng chính ngôn ngữ bạn đang học."
+            )
         raise RuntimeError(
             f"Video này không có phụ đề {_study_name(lang)}. "
             "Hãy chọn video khác có phụ đề."

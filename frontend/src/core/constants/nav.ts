@@ -16,6 +16,7 @@ export const NAV: NavItem[] = [
   { id: 'korean', icon: 'globe', label: 'Tiếng Hàn 3 tháng', langs: ['ko'] },
   { id: 'topik', icon: 'book', label: 'Luyện thi TOPIK', langs: ['ko'] },
   { id: 'chinese', icon: 'globe', label: 'Tiếng Trung 3 tháng', langs: ['zh'] },
+  { id: 'hsk', icon: 'book', label: 'Luyện thi HSK', langs: ['zh'] },
   { id: 'lingo', icon: 'trending', label: 'Hot Lingo', langs: ['ko'] },
   { id: 'vocab', icon: 'cards', label: 'Từ vựng' },
   { id: 'flashcards', icon: 'letters', label: 'Ôn tập' },

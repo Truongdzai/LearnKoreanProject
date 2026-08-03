@@ -11,6 +11,8 @@ import ChineseRoadmap from './ChineseRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
+import { useAppStore } from '@/store/app.store'
+import { HSK_BANK } from '@/data/hskCore'
 
 type Tab = 'program' | 'learn' | 'pron' | 'quiz'
 
@@ -29,6 +31,7 @@ interface WeekQuiz {
 }
 
 export default function ChinesePage() {
+  const { setView } = useAppStore()
   const [tab, setTab] = useState<Tab>('program')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
   const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
@@ -105,6 +108,20 @@ export default function ChinesePage() {
           next: 'Sau 90 ngày: xem video tiếng Trung trong vùng vừa sức i+1, luyện nói với AI mỗi ngày, và nới vốn từ lên mốc HSK 3. Chữ Hán là chuyện của nhiều năm — 90 ngày là để bạn không còn sợ nó.',
         }}
       />
+
+      <div className="en-principle">
+        <Icon name="trophy" size={20} />
+        <div>
+          <b>Muốn lấy chứng chỉ HSK?</b> Lộ trình này dạy để nói được; còn dạng câu ra thi thì học ở trang
+          <b> Luyện thi HSK</b>: {HSK_BANK.capsules} viên ngữ pháp HSK 1–2, {HSK_BANK.listening} câu 听力,
+          {' '}{HSK_BANK.reading} câu 阅读 và đề thi thử quy đổi thang 200.
+          <div className="zh-hsk-cta">
+            <button className="btn-primary sm" onClick={() => setView('hsk')}>
+              <Icon name="book" size={15} /> Mở trang Luyện thi HSK
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="en-tabs" {...tabs.list}>
         {TABS.map((t) => (

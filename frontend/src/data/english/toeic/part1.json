@@ -194,5 +194,61 @@
     "skill": "l-photo",
     "vi": "Ảnh: cận cảnh mặt bàn làm việc — hai máy tính xách tay đang mở, một người cầm bút viết lên cuốn sổ ở giữa, hai bàn tay người khác ở bên phải; vài chiếc bút nằm trên mặt bàn.",
     "trap": "Chọn câu tả ĐỒ VẬT chắc chắn thấy được. B và D gán dạng \"is being\" cho hành động không ai làm; C tả cái bắt tay không hề có."
+  },
+  {
+    "id": "p1-15",
+    "img": "/img/toeic/p1-05.webp",
+    "statements": [
+      "Some dishes have been stacked on a counter.",
+      "The floor is being mopped.",
+      "A light fixture is being installed above the counter.",
+      "All of the cooks have left the kitchen."
+    ],
+    "answer": 0,
+    "skill": "l-photo",
+    "vi": "Ảnh: bếp nhà hàng — các đầu bếp áo trắng đang làm việc, chồng đĩa xếp sẵn trên quầy, dãy đèn treo phía trên.",
+    "trap": "Câu tả TRẠNG THÁI đồ vật (have been stacked) gần như luôn an toàn. B và C gán \"is being + V\" cho hành động không ai đang làm; D phủ định điều ảnh cho thấy rõ."
+  },
+  {
+    "id": "p1-16",
+    "img": "/img/toeic/p1-10.webp",
+    "statements": [
+      "The cranes are being taken apart.",
+      "Containers have been loaded onto a ship.",
+      "Passengers are boarding a ferry.",
+      "Workers are painting the side of the vessel."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: cảnh cảng biển — một tàu hàng lớn cập bến với các container xếp chồng trên boong, phía sau là dãy cần cẩu; nửa dưới ảnh là mặt nước.",
+    "trap": "Ảnh cảng biển hay bị bẫy bằng từ đúng chủ đề (cranes, ferry, workers) nhưng hành động không có. Chỉ chọn câu tả cái MẮT THẤY."
+  },
+  {
+    "id": "p1-17",
+    "img": "/img/toeic/p1-12.webp",
+    "statements": [
+      "A train is being cleaned at the platform.",
+      "The platform is completely empty.",
+      "Some people are waiting on a platform.",
+      "Travelers are carrying suitcases up a staircase."
+    ],
+    "answer": 2,
+    "skill": "l-photo",
+    "vi": "Ảnh: sân ga tàu điện ngầm đông người — hành khách đeo ba lô, kéo vali đứng chờ trước cửa chắn ke ga.",
+    "trap": "D đúng đồ vật (vali) nhưng sai hành động và sai nơi chốn (cầu thang). B mâu thuẫn hẳn với ảnh đông người."
+  },
+  {
+    "id": "p1-18",
+    "img": "/img/toeic/p1-13.webp",
+    "statements": [
+      "A server is pouring water into a glass.",
+      "Glasses have been arranged on a table.",
+      "The chairs have been stacked in a corner.",
+      "Customers are being seated by the window."
+    ],
+    "answer": 1,
+    "skill": "l-photo",
+    "vi": "Ảnh: bàn ăn dài trong nhà hàng — mấy chiếc ly rượu và cốc thuỷ tinh đặt phía trước, dọc bàn là các bộ đồ ăn bày sẵn; phía sau là bếp mở.",
+    "trap": "Ba câu sai đều thêm NGƯỜI hoặc hành động không có trong ảnh. Bàn ăn bày sẵn = tả bằng thì hiện tại hoàn thành bị động."
   }
 ]

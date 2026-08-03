@@ -1851,5 +1851,644 @@
         "skill": "l-detail"
       }
     ]
+  },
+  {
+    "id": "p3-29",
+    "title": "Đặt lại phòng họp",
+    "script": [
+      {
+        "s": "M",
+        "text": "Farah, the client call moved to eleven and the room we booked is taken until half past. Is there anywhere else free?"
+      },
+      {
+        "s": "W",
+        "text": "The small room on four is open, but it only seats four and there'll be six of us."
+      },
+      {
+        "s": "M",
+        "text": "Six is too many for that room, and the client wants to share slides."
+      },
+      {
+        "s": "W",
+        "text": "Then let's do it from the studio. It's really a recording room, but it has a screen and the door shuts properly. I'll move the booking now and send everyone a new calendar invite so nobody walks to the wrong floor."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What problem do the speakers discuss?",
+        "options": [
+          "A meeting room is unavailable.",
+          "A client cancelled a call.",
+          "A screen is broken.",
+          "A colleague is late."
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "Why is the room on the fourth floor unsuitable?",
+        "options": [
+          "It has no screen.",
+          "It is too small.",
+          "It is being cleaned.",
+          "It is too noisy."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the woman do next?",
+        "options": [
+          "Call the client",
+          "Print the slides",
+          "Send a new invitation",
+          "Cancel the meeting"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-30",
+    "title": "Khách phàn nàn về hoá đơn điện thoại",
+    "script": [
+      {
+        "s": "W",
+        "text": "Hi, my bill this month is nearly double the usual amount and I haven't changed anything."
+      },
+      {
+        "s": "M",
+        "text": "Let me look... I see it. Your plan includes ten gigabytes, and last month you used fourteen. The extra four were charged at the out-of-bundle rate."
+      },
+      {
+        "s": "W",
+        "text": "I was abroad for two weeks, that would explain it. Is there a plan that covers that?"
+      },
+      {
+        "s": "M",
+        "text": "There is — three dollars more a month and it doubles your data with roaming included. I can switch you today, but it starts from your next billing date, so this month's charge stands. I can, however, spread it over three payments if that helps."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the woman calling?",
+        "options": [
+          "To report a lost phone",
+          "To ask about a high bill",
+          "To cancel her service",
+          "To change her address"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What caused the extra charge?",
+        "options": [
+          "A late payment",
+          "Extra data usage",
+          "An international call",
+          "A new handset"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man offer?",
+        "options": [
+          "A full refund",
+          "Free roaming this month",
+          "Payment in instalments",
+          "A new telephone"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-31",
+    "title": "Bàn giao ca ở khách sạn",
+    "script": [
+      {
+        "s": "M",
+        "text": "Before you take over, two things from the morning. Room 512 asked for a late checkout — I said two o'clock, it's noted in the system."
+      },
+      {
+        "s": "W",
+        "text": "Fine. And the second?"
+      },
+      {
+        "s": "M",
+        "text": "The lift engineer is coming between three and five. He'll need the service key and someone to stay with him on the roof."
+      },
+      {
+        "s": "W",
+        "text": "I can't leave the desk between four and five, that's when the tour group arrives. I'll ask Kwame from housekeeping to go up with him, and I'll leave the key at reception with a note."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Where do the speakers most likely work?",
+        "options": [
+          "At a hotel",
+          "At a hospital",
+          "At an airport",
+          "At a school"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What is scheduled for the afternoon?",
+        "options": [
+          "A staff meeting",
+          "A lift inspection",
+          "A room inspection",
+          "A fire drill"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why can the woman not go to the roof?",
+        "options": [
+          "She does not have the key.",
+          "She must greet a group.",
+          "She is afraid of heights.",
+          "Her shift ends at four."
+        ],
+        "answer": 1,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p3-32",
+    "title": "Chuẩn bị gian hàng hội chợ",
+    "script": [
+      {
+        "s": "W",
+        "text": "The stand looks good, but the banner is hanging over the price list. Nobody standing in the aisle can read it."
+      },
+      {
+        "s": "M",
+        "text": "I noticed that too. I could move the banner up, but the frame is already at its highest."
+      },
+      {
+        "s": "W",
+        "text": "Then move the price list. Put it on the side panel at eye level — people read that as they walk past anyway."
+      },
+      {
+        "s": "M",
+        "text": "That works. I'll need the double-sided tape from the box under the table. And while I do that, could you check whether the samples arrived? They were due at eight and I haven't seen a delivery note."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers preparing for?",
+        "options": [
+          "A trade show",
+          "A staff party",
+          "A photo shoot",
+          "An office move"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What is the problem with the display?",
+        "options": [
+          "The banner has the wrong logo.",
+          "Part of it is hidden.",
+          "The colours do not match.",
+          "It is too heavy."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man ask the woman to check?",
+        "options": [
+          "Whether the samples have arrived",
+          "Whether the tape is finished",
+          "Where the price list is printed",
+          "When the show opens"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-33",
+    "title": "Ba người bàn lịch phỏng vấn",
+    "script": [
+      {
+        "s": "W",
+        "text": "We have six candidates and only Thursday afternoon. Forty minutes each doesn't fit."
+      },
+      {
+        "s": "M",
+        "text": "Thirty would fit, but you can't judge a designer in half an hour."
+      },
+      {
+        "s": "W2",
+        "text": "Then don't judge them all on Thursday. Do a fifteen-minute call with all six this week, cut to three, and give those three a full hour on Thursday."
+      },
+      {
+        "s": "M",
+        "text": "That's better. Who makes the calls?"
+      },
+      {
+        "s": "W2",
+        "text": "I'll do them — I wrote the job description, so I know what we're testing for. Sanne, could you send me their portfolios this afternoon?"
+      },
+      {
+        "s": "W",
+        "text": "They're in the shared folder already. I'll send you the link."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers mainly discussing?",
+        "options": [
+          "How to schedule interviews",
+          "How to write a job advertisement",
+          "How to design a portfolio",
+          "How to train new staff"
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the second woman suggest?",
+        "options": [
+          "Interviewing everyone for thirty minutes",
+          "Holding short calls before Thursday",
+          "Postponing the interviews",
+          "Hiring two candidates"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will Sanne do?",
+        "options": [
+          "Make the phone calls",
+          "Write the job description",
+          "Share a link to the portfolios",
+          "Book a meeting room"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-34",
+    "title": "Đổi hàng ở cửa hàng thể thao",
+    "script": [
+      {
+        "s": "M",
+        "text": "I bought these running shoes on Saturday and the left one rubs at the heel. I've only worn them indoors."
+      },
+      {
+        "s": "W",
+        "text": "That's fine — indoor wear doesn't affect a return. Do you have the receipt?"
+      },
+      {
+        "s": "M",
+        "text": "I paid by card but I can't find the paper receipt anywhere."
+      },
+      {
+        "s": "W",
+        "text": "Not a problem. If you tap the same card on the reader, the system finds the transaction. Would you rather have the same model half a size up, or your money back? If it's the size, I have the next size in the stockroom; give me two minutes."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the man's problem?",
+        "options": [
+          "The shoes are uncomfortable.",
+          "The shoes are the wrong colour.",
+          "He was charged twice.",
+          "The shoes arrived late."
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the woman say about the receipt?",
+        "options": [
+          "It must be presented.",
+          "The card can be used instead.",
+          "It expires after seven days.",
+          "A photo of it is required."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the woman most likely do next?",
+        "options": [
+          "Refund the payment",
+          "Call a manager",
+          "Fetch another pair",
+          "Order from another shop"
+        ],
+        "answer": 2,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p3-35",
+    "title": "Xin nghỉ để học thêm",
+    "script": [
+      {
+        "s": "W",
+        "text": "Do you have a minute? I'd like to take the data analysis course at the technical college in the autumn."
+      },
+      {
+        "s": "M",
+        "text": "That sounds useful for the team. What does it involve?"
+      },
+      {
+        "s": "W",
+        "text": "One afternoon a week for twelve weeks, Wednesdays from two. The company covers half the fee if the course is job-related, which this clearly is."
+      },
+      {
+        "s": "M",
+        "text": "Wednesday afternoon is when we run the weekly numbers, though. If you can move that to Tuesday and show me it still gets to the regional office on time, I'll approve both the time and the funding. Put it in writing and I'll sign it this week."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What does the woman request?",
+        "options": [
+          "A pay increase",
+          "Time off to study",
+          "A transfer to another team",
+          "A new computer"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What condition does the man set?",
+        "options": [
+          "She must pay the full fee.",
+          "She must change when a task is done.",
+          "She must take the course online.",
+          "She must train a colleague."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the woman most likely do next?",
+        "options": [
+          "Write a formal request",
+          "Enrol at the college",
+          "Cancel the weekly report",
+          "Speak to the regional office"
+        ],
+        "answer": 0,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p3-36",
+    "title": "Sửa máy pha cà phê ở quán",
+    "script": [
+      {
+        "s": "M",
+        "text": "The machine is steaming but the pressure gauge won't go above six. It should sit at nine."
+      },
+      {
+        "s": "W",
+        "text": "How old is the group head seal? They harden after about a year and let pressure out."
+      },
+      {
+        "s": "M",
+        "text": "Replaced in March, so five months. It looked fine when I cleaned it yesterday."
+      },
+      {
+        "s": "W",
+        "text": "Then I'd check the pump before anything else. I can come tomorrow morning before you open — say seven? If it is the pump I carry a spare on the van, so you'd be running by eight rather than waiting a week for a part."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is wrong with the machine?",
+        "options": [
+          "It does not heat water.",
+          "The pressure is too low.",
+          "It leaks onto the counter.",
+          "It makes a loud noise."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man say he did yesterday?",
+        "options": [
+          "Replaced a seal",
+          "Cleaned part of the machine",
+          "Called the manufacturer",
+          "Ordered a new pump"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why does the woman suggest coming at seven?",
+        "options": [
+          "The shop is closed then.",
+          "Parts are delivered early.",
+          "She works elsewhere later.",
+          "The machine cools overnight."
+        ],
+        "answer": 0,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p3-37",
+    "title": "Chọn nhà in cho tờ rơi",
+    "script": [
+      {
+        "s": "W",
+        "text": "Two quotes for the five thousand leaflets. Kestrel Print is cheaper by ninety dollars but needs eight working days."
+      },
+      {
+        "s": "M",
+        "text": "And the other?"
+      },
+      {
+        "s": "W",
+        "text": "Marchetti can do four days, but they're ninety more and they want the artwork by Friday morning."
+      },
+      {
+        "s": "M",
+        "text": "The leaflets have to be in the shops before the sale starts on the twentieth, and today is the eleventh. Eight working days takes us past that. Go with Marchetti — ninety dollars is cheaper than printing leaflets nobody sees. Can you get the artwork finished by Friday?"
+      },
+      {
+        "s": "W",
+        "text": "If I skip the second photo, yes. One image is plenty for a leaflet this size anyway."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers deciding?",
+        "options": [
+          "Which printing company to use",
+          "How many leaflets to order",
+          "Where to sell a product",
+          "When to start a sale"
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "Why does the man choose the more expensive option?",
+        "options": [
+          "The quality is better.",
+          "It will be ready in time.",
+          "The company is nearby.",
+          "It includes free delivery."
+        ],
+        "answer": 1,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What does the woman say she will do?",
+        "options": [
+          "Use fewer images",
+          "Ask for a discount",
+          "Delay the sale",
+          "Print a sample first"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-38",
+    "title": "Hỏi đường tới hội thảo",
+    "script": [
+      {
+        "s": "M",
+        "text": "Excuse me, I'm looking for the Aldwyn Centre. My map says it's on this street but I only see a bank."
+      },
+      {
+        "s": "W",
+        "text": "You're close. The entrance isn't on this street — it's round the corner on Pier Lane, behind the bank."
+      },
+      {
+        "s": "M",
+        "text": "Ah. Is it far? My session starts in ten minutes."
+      },
+      {
+        "s": "W",
+        "text": "Three minutes on foot, less if you cut through the arcade. But if you're here for the conference, registration closed at nine and they're sending latecomers to the side desk on the second floor. Take the stairs by the cafe — the lift queue at this hour is worse than the walk."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the man trying to find?",
+        "options": [
+          "A bank",
+          "A conference venue",
+          "A car park",
+          "A cafe"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the woman say about the entrance?",
+        "options": [
+          "It is on a different street.",
+          "It is closed today.",
+          "It is inside the bank.",
+          "It is under repair."
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the woman recommend?",
+        "options": [
+          "Taking the lift",
+          "Using the stairs",
+          "Coming back later",
+          "Registering online"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-39",
+    "title": "Đánh giá phần mềm quản lý kho",
+    "script": [
+      {
+        "s": "W",
+        "text": "We've been on the trial of the new stock software for a month. What does the warehouse think?"
+      },
+      {
+        "s": "M",
+        "text": "Scanning is much faster and the counts are finally accurate. The complaint is reporting — you can't export anything to a spreadsheet."
+      },
+      {
+        "s": "W",
+        "text": "That's a problem. Finance rebuilds those numbers by hand every month as it is."
+      },
+      {
+        "s": "M",
+        "text": "Their support team says export arrives in the next release, but they wouldn't give me a date. I'd say we extend the trial another month rather than sign a two-year contract on a promise."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers discussing?",
+        "options": [
+          "A software trial",
+          "A warehouse move",
+          "A staff shortage",
+          "A supplier visit"
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the man say is the main drawback?",
+        "options": [
+          "It counts stock incorrectly.",
+          "It cannot export reports.",
+          "It is slow to scan.",
+          "It costs too much."
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man recommend?",
+        "options": [
+          "Signing a long contract",
+          "Continuing the trial",
+          "Returning to the old system",
+          "Hiring more staff"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
   }
 ]

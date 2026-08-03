@@ -1,6 +1,6 @@
 import {
   TOEIC_P1, TOEIC_P2, TOEIC_P3, TOEIC_P4, TOEIC_P5, TOEIC_P6, TOEIC_P7,
-  SKILLS, type ScriptLine, type ToeicConvItem, type ToeicGraphic, type ToeicP1Item, type ToeicP7Item,
+  SKILLS, type ScriptLine, type ToeicConvItem, type ToeicGraphic, type ToeicP1Item, type ToeicP6Item, type ToeicP7Item,
 } from '@/data/toeicCore'
 import audioManifest from '@/data/english/toeic/audioManifest.json'
 
@@ -36,6 +36,7 @@ export interface RunGroup {
   passageTitle?: string
   intro?: string
   qStart?: number
+  needsGraphic?: boolean
   questions: RunQuestion[]
 }
 
@@ -105,6 +106,36 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
+const FIXED_SEED = 20260803
+
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0
+  return () => {
+    a = (a + 0x6d2b79f5) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const a = [...arr]
+  const rnd = mulberry32(seed)
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+function slotSlice<T>(pool: T[], need: number, testIdx: number, salt: number): T[] {
+  if (!pool.length || need <= 0) return []
+  const s = seededShuffle(pool, FIXED_SEED + salt)
+  const out: T[] = []
+  for (let k = 0; k < need; k++) out.push(s[(testIdx * need + k) % s.length])
+  return out
+}
+
 
 function p1Group(item: ToeicP1Item): RunGroup {
   const labels = ['A', 'B', 'C', 'D']
@@ -168,6 +199,23 @@ function convGroup(item: ToeicConvItem, part: 3 | 4): RunGroup {
   }
 }
 
+function p6Group(item: ToeicP6Item): RunGroup {
+  return {
+    id: item.id,
+    part: 6,
+    passage: item.text,
+    passageTitle: item.title,
+    questions: item.blanks.map((b, i) => ({
+      key: `${item.id}-${i}`,
+      text: `Chỗ trống (${i + 1})`,
+      options: b.options,
+      answer: b.answer,
+      skill: b.skill,
+      explain: b.explain,
+    })),
+  }
+}
+
 function p7Group(item: ToeicP7Item): RunGroup {
   return {
     id: item.id,
@@ -208,20 +256,7 @@ export function buildPartRun(part: number, n: number): RunGroup[] {
         }],
       }))
     case 6:
-      return shuffle(TOEIC_P6).slice(0, Math.max(1, Math.ceil(n / 4))).map((item) => ({
-        id: item.id,
-        part: 6,
-        passage: item.text,
-        passageTitle: item.title,
-        questions: item.blanks.map((b, i) => ({
-          key: `${item.id}-${i}`,
-          text: `Chỗ trống (${i + 1})`,
-          options: b.options,
-          answer: b.answer,
-          skill: b.skill,
-          explain: b.explain,
-        })),
-      }))
+      return shuffle(TOEIC_P6).slice(0, Math.max(1, Math.ceil(n / 4))).map(p6Group)
     case 7: {
       const groups: RunGroup[] = []
       let count = 0
@@ -320,6 +355,94 @@ export function buildFullTest(): RunGroup[] {
     ...buildPartRun(5, 30),
     ...buildPartRun(6, 16),
     ...[...pickSingles29(), ...doubles, ...triples].map(p7Group),
+  ]
+  return numberGroups(groups, kindMap())
+}
+
+const P7_SINGLES = (p: ToeicP7Item) => p.kind !== 'double' && p.kind !== 'triple'
+
+function p7Pools() {
+  const singles = TOEIC_P7.filter(P7_SINGLES)
+  return {
+    threes: singles.filter((p) => p.questions.length === 3),
+    fours: singles.filter((p) => p.questions.length === 4),
+    doubles: TOEIC_P7.filter((p) => p.kind === 'double'),
+    triples: TOEIC_P7.filter((p) => p.kind === 'triple'),
+  }
+}
+
+const GRAPHICS_PER_PART = 2
+
+function convPools(pool: ToeicConvItem[]) {
+  return {
+    graphic: pool.filter((c) => c.graphic),
+    plain: pool.filter((c) => !c.graphic),
+  }
+}
+
+function photoSlices(slices: number): ToeicP1Item[][] {
+  const shuffled = seededShuffle(TOEIC_P1, FIXED_SEED + 1)
+  const out: ToeicP1Item[][] = Array.from({ length: slices }, () => [])
+  const imgs: Set<string>[] = Array.from({ length: slices }, () => new Set<string>())
+  const left: ToeicP1Item[] = []
+  for (const item of shuffled) {
+    const at = out.findIndex((s, k) => s.length < 6 && !imgs[k].has(item.img))
+    if (at < 0) { left.push(item); continue }
+    out[at].push(item)
+    imgs[at].add(item.img)
+  }
+  for (const item of left) {
+    const at = out.findIndex((s) => s.length < 6)
+    if (at < 0) break
+    out[at].push(item)
+  }
+  return out
+}
+
+export const FIXED_TEST_COUNT = (() => {
+  const p7 = p7Pools()
+  const c3 = convPools(TOEIC_P3)
+  const c4 = convPools(TOEIC_P4)
+  const ratios = [
+    TOEIC_P1.length / 6,
+    TOEIC_P2.length / 25,
+    c3.graphic.length / GRAPHICS_PER_PART,
+    c3.plain.length / (13 - GRAPHICS_PER_PART),
+    c4.graphic.length / GRAPHICS_PER_PART,
+    c4.plain.length / (10 - GRAPHICS_PER_PART),
+    TOEIC_P5.length / 30,
+    TOEIC_P6.length / 4,
+    p7.threes.length / 7,
+    p7.fours.length / 2,
+    p7.doubles.length / 2,
+    p7.triples.length / 3,
+  ]
+  return Math.max(1, Math.floor(Math.min(...ratios)))
+})()
+
+export function buildFixedTest(testIdx: number): RunGroup[] {
+  const p7 = p7Pools()
+  const c3 = convPools(TOEIC_P3)
+  const c4 = convPools(TOEIC_P4)
+  const groups = [
+    ...(photoSlices(FIXED_TEST_COUNT)[testIdx] ?? []).map(p1Group),
+    ...slotSlice(TOEIC_P2, 25, testIdx, 2).map(p2Group),
+    ...[
+      ...slotSlice(c3.graphic, GRAPHICS_PER_PART, testIdx, 3),
+      ...slotSlice(c3.plain, 13 - GRAPHICS_PER_PART, testIdx, 13),
+    ].map((c) => convGroup(c, 3)),
+    ...[
+      ...slotSlice(c4.graphic, GRAPHICS_PER_PART, testIdx, 4),
+      ...slotSlice(c4.plain, 10 - GRAPHICS_PER_PART, testIdx, 14),
+    ].map((c) => convGroup(c, 4)),
+    ...slotSlice(TOEIC_P5, 30, testIdx, 5).map((item) => buildFromP5(item.id)),
+    ...slotSlice(TOEIC_P6, 4, testIdx, 6).map(p6Group),
+    ...[
+      ...slotSlice(p7.threes, 7, testIdx, 7),
+      ...slotSlice(p7.fours, 2, testIdx, 8),
+      ...slotSlice(p7.doubles, 2, testIdx, 9),
+      ...slotSlice(p7.triples, 3, testIdx, 10),
+    ].map(p7Group),
   ]
   return numberGroups(groups, kindMap())
 }

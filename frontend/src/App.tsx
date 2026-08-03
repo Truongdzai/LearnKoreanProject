@@ -32,6 +32,7 @@ const ToeicPage = lazyPage(() => import('@/features/toeic/ToeicPage'))
 const KoreanPage = lazyPage(() => import('@/features/korean/KoreanPage'))
 const ChinesePage = lazyPage(() => import('@/features/chinese/ChinesePage'))
 const TopikPage = lazyPage(() => import('@/features/topik/TopikPage'))
+const HskPage = lazyPage(() => import('@/features/hsk/HskPage'))
 const ActivitiesPage = lazyPage(() => import('@/features/activities/ActivitiesPage'))
 const LeaderboardPage = lazyPage(() => import('@/features/leaderboard/LeaderboardPage'))
 const QuestsPage = lazyPage(() => import('@/features/quests/QuestsPage'))
@@ -83,6 +84,7 @@ export default function App() {
             {view === 'korean' && <KoreanPage />}
             {view === 'chinese' && <ChinesePage />}
             {view === 'topik' && <TopikPage />}
+            {view === 'hsk' && <HskPage />}
             {view === 'vocab' && <VocabHomePage />}
             {view === 'flashcards' && <ReviewPage />}
             {view === 'activities' && <ActivitiesPage />}

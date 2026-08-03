@@ -11,14 +11,25 @@ router = APIRouter(prefix="/api/speaking", tags=["Luyện nói"])
 OptAuth = Depends(auth.get_optional_user)
 
 
-def _system(lang: str, native: str) -> str:
+LEVEL_TEXT = {
+    "beginner": "mới bắt đầu — câu RẤT ngắn (1 câu), chỉ dùng từ vựng cơ bản nhất",
+    "intermediate": "trung cấp — câu dài vừa (1-2 câu), có liên từ và từ vựng thông dụng",
+    "advanced": "cao cấp — diễn đạt tự nhiên như người bản xứ (2-3 câu), dùng thành ngữ khi hợp",
+}
+
+
+def _level_text(level: str) -> str:
+    return LEVEL_TEXT.get(level, LEVEL_TEXT["beginner"])
+
+
+def _system(lang: str, native: str, level: str) -> str:
     lname = study_name(lang)
     nname = native_name(native)
     return (
-        f"Bạn là bạn đồng hành luyện hội thoại {lname} cho người mới học (giải thích bằng {nname}). "
+        f"Bạn là bạn đồng hành luyện hội thoại {lname} (giải thích bằng {nname}). "
         f"Bạn nhập vai một nhân vật trong tình huống được mô tả và trò chuyện thật TỰ NHIÊN bằng {lname}.\n"
         "Quy tắc:\n"
-        f"- Lời thoại {lname} NGẮN, đơn giản, hợp trình độ người mới (1-2 câu), lịch sự.\n"
+        f"- Trình độ người học: {_level_text(level)}. Lời thoại {lname} phải bám đúng mức đó, lịch sự.\n"
         "- Bám sát nhân vật và tình huống, dẫn dắt hội thoại tiến triển một cách hợp lý.\n"
         f"- Trường reply_ko chứa câu {lname}; reply_vi là bản dịch sát nghĩa, tự nhiên sang {nname}.\n"
         f"- Gợi ý 2-3 câu trả lời mẫu bằng {lname} (trường 'ko') kèm bản dịch {nname} (trường 'vi') để người học nói ở lượt tiếp theo.\n"
@@ -65,13 +76,13 @@ def api_speaking_reply(body: SpeakIn, request: Request, user: dict | None = OptA
         f"TÌNH HUỐNG: {body.situation or '(không rõ)'}\n"
         f"VAI CỦA BẠN: {body.persona or 'một người bản xứ thân thiện'}\n"
         f"Ngôn ngữ hội thoại: {lname}\n"
-        f"Trình độ người học: {body.level}\n\n"
+        f"Trình độ người học: {_level_text(body.level)}\n\n"
         f"Lịch sử hội thoại:\n{_history_text(body.history)}\n\n"
         f"Người học vừa nói: {body.user_say or '(chưa nói gì)'}\n\n"
         "Hãy trả lời lượt tiếp theo của nhân vật theo đúng JSON yêu cầu."
     )
     try:
-        data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native), temperature=0.7)
+        data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native, body.level), temperature=0.7)
     except Exception as exc:
         raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
     return {

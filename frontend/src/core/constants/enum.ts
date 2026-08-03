@@ -12,6 +12,7 @@ export type AppView =
   | 'korean'
   | 'topik'
   | 'chinese'
+  | 'hsk'
   | 'vocab'
   | 'flashcards'
   | 'activities'

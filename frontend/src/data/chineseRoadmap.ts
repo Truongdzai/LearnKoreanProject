@@ -59,6 +59,27 @@ const speak = (week: number, topic: string) => ({
   label: `Luyện nói 1 buổi với AI: ${topic}`,
 })
 
+const read = (week: number, label: string) => ({
+  id: `zw${week}-read`,
+  kind: 'custom' as const,
+  label,
+  go: 'library' as const,
+})
+
+const write = (week: number, label: string) => ({
+  id: `zw${week}-write`,
+  kind: 'custom' as const,
+  label,
+  go: null,
+})
+
+const hsk = (week: number, label: string) => ({
+  id: `zw${week}-hsk`,
+  kind: 'custom' as const,
+  label,
+  go: 'hsk' as const,
+})
+
 export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 1, month: 1, phase: 'Compress', title: 'Chào hỏi & xưng hô',
@@ -74,6 +95,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       bank(1, 36),
       video(1, 2),
       review(1, 3),
+      write(1, 'Chép tay 10 chữ Hán đã học, mỗi chữ 3 lần — nhớ mặt chữ bằng tay, không chỉ nhìn'),
     ],
     patterns: [
       { pattern: '我是 + N', vi: 'Tôi là N', ex: '我是越南人。', exVi: 'Tôi là người Việt Nam.' },
@@ -95,6 +117,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       bank(2, 72),
       video(2, 2),
       review(2, 3),
+      read(2, 'Đọc lại phụ đề song ngữ 1 video đã xem: đọc to từng câu theo pinyin, tra từ chưa biết'),
     ],
     patterns: [
       { pattern: 'Số + lượng từ + N', vi: 'Đếm vật: luôn phải có lượng từ ở giữa', ex: '我有两个哥哥。', exVi: 'Tôi có hai anh trai.' },
@@ -115,6 +138,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       bank(3, 96),
       video(3, 2),
       review(3, 3),
+      write(3, 'Viết 5 câu kể một ngày của bạn, mỗi câu dùng 1 động từ mới học'),
     ],
     patterns: [
       { pattern: '我在 + V', vi: 'Tôi đang làm gì đó', ex: '我在吃饭。', exVi: 'Tôi đang ăn cơm.' },
@@ -136,6 +160,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(4, 'hẹn bạn đi chơi cuối tuần'),
       video(4, 2),
       review(4, 3),
+      read(4, 'Chép chính tả 1 video ngắn (mở video → tab Chép chính tả), nghe tới đâu gõ tới đó'),
     ],
     patterns: [
       { pattern: '…什么时候…？', vi: 'Khi nào thì…?', ex: '你什么时候来？', exVi: 'Khi nào bạn tới?' },
@@ -157,6 +182,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(5, 'gọi món ở nhà hàng Trung Quốc'),
       video(5, 2),
       review(5, 3),
+      write(5, 'Viết thực đơn 8 món bạn hay ăn bằng chữ Hán kèm pinyin'),
     ],
     patterns: [
       { pattern: '我要 + N', vi: 'Cho tôi N (gọi món, mua đồ)', ex: '我要一碗米饭。', exVi: 'Cho tôi một bát cơm.' },
@@ -178,6 +204,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(6, 'mặc cả khi mua đồ ở chợ'),
       video(6, 2),
       review(6, 3),
+      read(6, 'Đọc 1 đoạn hội thoại mua bán trong phụ đề video, lưu 5 từ mới vào thẻ ôn tập'),
     ],
     patterns: [
       { pattern: '太贵了，便宜一点吧', vi: 'Đắt quá, rẻ chút đi (câu mặc cả)', ex: '太贵了，便宜一点吧。', exVi: 'Đắt quá, rẻ một chút đi.' },
@@ -199,6 +226,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       bank(7, 204),
       video(7, 2),
       review(7, 4),
+      hsk(7, 'Làm 12 câu 阅读 ở trang Luyện thi HSK, xem lời giải từng câu sai'),
     ],
     patterns: [
       { pattern: '因为 A，所以 B', vi: 'Vì A nên B (hai vế luôn đi cặp)', ex: '因为下雨，所以我没去。', exVi: 'Vì trời mưa nên tôi đã không đi.' },
@@ -220,6 +248,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(8, 'tả triệu chứng và mua thuốc'),
       video(8, 2),
       review(8, 4),
+      write(8, 'Viết 5 câu tả thời tiết tuần này và 3 câu kể một lần bạn bị ốm'),
     ],
     patterns: [
       { pattern: '今天天气 + adj', vi: 'Hôm nay thời tiết thế nào', ex: '今天天气很好。', exVi: 'Hôm nay thời tiết rất đẹp.' },
@@ -241,6 +270,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(9, 'hỏi đường tới ga tàu điện ngầm'),
       video(9, 2),
       review(9, 4),
+      hsk(9, 'Làm 8 câu 听力 ở trang Luyện thi HSK — bật lời thoại đối chiếu sau khi nghe'),
     ],
     patterns: [
       { pattern: '坐 / 骑 + xe + 去 + nơi chốn', vi: 'Đi tới đâu bằng phương tiện gì (xe hai bánh dùng 骑)', ex: '我坐地铁去公司。', exVi: 'Tôi đi tàu điện ngầm tới công ty.' },
@@ -262,6 +292,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(10, 'hỏi thuê phòng và xem nhà'),
       video(10, 2),
       review(10, 4),
+      read(10, 'Chép chính tả 1 video dài 2 phút, sau đó đọc lại toàn bộ bản chép thành tiếng'),
     ],
     patterns: [
       { pattern: 'N + 在 + nơi chốn + 上/里', vi: 'N ở trên/trong đâu đó', ex: '书在桌子上。', exVi: 'Sách ở trên bàn.' },
@@ -282,6 +313,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(11, 'giới thiệu công việc và chỗ làm'),
       video(11, 3),
       review(11, 4),
+      write(11, 'Viết đoạn 5–7 câu giới thiệu bản thân và công việc, rồi đọc to lên'),
     ],
     patterns: [
       { pattern: '我在 + nơi + 工作 / 学习', vi: 'Tôi làm việc / học ở đâu', ex: '我在一家公司工作。', exVi: 'Tôi làm việc ở một công ty.' },
@@ -302,6 +334,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       speak(12, 'kể về sở thích và chuyến đi sắp tới'),
       video(12, 3),
       review(12, 4),
+      hsk(12, 'Thi thử HSK 20 câu / 20 phút ở trang Luyện thi HSK và ghi lại điểm quy đổi'),
     ],
     patterns: [
       { pattern: '我喜欢 + V/N', vi: 'Tôi thích gì đó', ex: '我喜欢看电影。', exVi: 'Tôi thích xem phim.' },

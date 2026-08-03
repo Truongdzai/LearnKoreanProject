@@ -32,7 +32,7 @@ export const wRead = (w: IcesWord): string => w.ipa ?? w.romaja ?? w.pinyin ?? '
 
 export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron'
 
-export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | null
+export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | null
 
 export interface WeekTask {
   id: string

@@ -11,6 +11,7 @@ export interface RunProgress {
 
 export interface SavedRun extends RunProgress {
   full: boolean
+  fixed?: number
   ids: string[]
   savedAt: number
 }

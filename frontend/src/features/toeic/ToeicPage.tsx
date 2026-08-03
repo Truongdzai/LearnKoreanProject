@@ -1,11 +1,14 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
 import { GRAMMAR_CAPSULES, SKILLS, TOEIC_TARGET, estimateScore, estimateScoreFull } from '@/data/toeicCore'
 import { useLearnedWords } from '../english/learned'
-import { BANK_SIZE, buildFullTest, buildMiniTest, buildPartRun, buildReviewRun, buildWeakRun, rebuildTest, skillStats, weakestSkills, type RunGroup, type RunResult } from './engine'
+import { buildFixedTest, buildFullTest, buildMiniTest, buildPartRun, buildReviewRun, buildWeakRun, rebuildTest, skillStats, weakestSkills, type RunGroup, type RunResult } from './engine'
+import { buildEtsListening, buildEtsPart5 } from './etsEngine'
+import { loadEtsTest } from '@/data/english/toeic/etsTests'
+import type { RunGroup as EtsRunGroup } from './engine'
 import { clearRun, loadRun, saveRun, type RunProgress, type SavedRun } from './testSave'
 import { dueWrong, toeicDay, useActivitySince, useToeicState, type TaskCtx } from './state'
 import Runner from './components/Runner'
@@ -15,14 +18,16 @@ import PartPractice from './components/PartPractice'
 import SkillReport from './components/SkillReport'
 import WrongBook from './components/WrongBook'
 import TestReview from './components/TestReview'
+import TestLibrary from './components/TestLibrary'
 
 type Tab = 'road' | 'grammar' | 'practice' | 'test' | 'report' | 'wrongbook'
 
 type Session =
   | { kind: 'practice'; part: number; n: number }
   | { kind: 'weak'; n: number }
-  | { kind: 'test'; full?: boolean }
+  | { kind: 'test'; full?: boolean; fixed?: number }
   | { kind: 'review'; keys: string[] }
+  | { kind: 'ets'; test: number; section: 'listening' | 'p5' }
 
 interface SessionResult {
   session: Session
@@ -34,7 +39,7 @@ const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'road', label: 'Lộ trình 60 ngày', icon: 'map' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'practice', label: 'Luyện theo Part', icon: 'target' },
-  { id: 'test', label: 'Thi thử', icon: 'trophy' },
+  { id: 'test', label: 'Bộ đề & thi thử', icon: 'trophy' },
   { id: 'wrongbook', label: 'Sổ tay câu sai', icon: 'book' },
   { id: 'report', label: 'Phân tích', icon: 'chart' },
 ]
@@ -42,10 +47,12 @@ const TAB_IDS = TABS.map((t) => t.id)
 
 const MINI_TEST_SECONDS = 30 * 60
 const FULL_SECTION_SECONDS = { listening: 45 * 60, reading: 75 * 60 }
+const ETS_LISTENING_SECONDS = 45 * 60
+const ETS_PART5_SECONDS = 12 * 60
 
 export default function ToeicPage() {
   const { recordEvent } = useAppStore()
-  const { state, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, grantDayReward, latestEstimate } = useToeicState()
+  const { state, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, recordFixedTest, grantDayReward, latestEstimate } = useToeicState()
   const { learned } = useLearnedWords()
   const { activity, refresh } = useActivitySince(state.start)
 
@@ -57,6 +64,9 @@ export default function ToeicPage() {
   const [saved, setSaved] = useState<SavedRun | null>(loadRun)
   const [resumed, setResumed] = useState<SavedRun | null>(null)
   const [reviewing, setReviewing] = useState(false)
+  const [etsGroups, setEtsGroups] = useState<EtsRunGroup[]>([])
+  const [etsSkippedP1, setEtsSkippedP1] = useState(0)
+  const [etsError, setEtsError] = useState<string | null>(null)
 
   const ctx: TaskCtx = { state, learned, activity }
   const day = toeicDay(state.start)
@@ -71,12 +81,35 @@ export default function ToeicPage() {
 
   const groups: RunGroup[] = useMemo(() => {
     if (!session) return []
+    if (session.kind === 'ets') return etsGroups
     if (session.kind === 'practice') return buildPartRun(session.part, session.n)
     if (session.kind === 'weak') return buildWeakRun(weakList, session.n)
     if (session.kind === 'review') return buildReviewRun(session.keys, session.keys.length)
     if (resumed) return rebuildTest(resumed.ids)
+    if (session.fixed != null) return buildFixedTest(session.fixed)
     return session.full ? buildFullTest() : buildMiniTest()
-  }, [session, nonce])
+  }, [session, nonce, etsGroups])
+
+  useEffect(() => {
+    if (!session || session.kind !== 'ets') return
+    let alive = true
+    setEtsGroups([])
+    setEtsError(null)
+    loadEtsTest(session.test)
+      .then((doc) => {
+        if (!alive) return
+        if (session.section === 'listening') {
+          const built = buildEtsListening(doc)
+          setEtsGroups(built.groups)
+          setEtsSkippedP1(built.skipped.part1)
+        } else {
+          setEtsGroups(buildEtsPart5(doc))
+          setEtsSkippedP1(0)
+        }
+      })
+      .catch(() => { if (alive) setEtsError('Không tải được đề này. Thử lại sau nhé.') })
+    return () => { alive = false }
+  }, [session])
 
   const startSession = (s: Session) => {
     setResult(null)
@@ -92,7 +125,7 @@ export default function ToeicPage() {
     setResult(null)
     setResumed(saved)
     setNonce((x) => x + 1)
-    setSession({ kind: 'test', full: saved.full })
+    setSession({ kind: 'test', full: saved.full, fixed: saved.fixed })
   }
 
   const dropSaved = () => {
@@ -107,7 +140,7 @@ export default function ToeicPage() {
 
   const persist = useCallback((p: RunProgress) => {
     if (!session || session.kind !== 'test') return
-    saveRun({ ...p, full: !!session.full, ids: groups.map((x) => x.id), savedAt: Date.now() })
+    saveRun({ ...p, full: !!session.full, fixed: session.fixed, ids: groups.map((x) => x.id), savedAt: Date.now() })
   }, [session, groups])
 
   const onFinish = (res: RunResult) => {
@@ -126,7 +159,8 @@ export default function ToeicPage() {
       skills: res.skills,
       est,
     })
-    recordWrong(res.wrong.map((w) => ({ key: w.key, part: w.part })), res.rightKeys)
+    if (session.kind !== 'ets') recordWrong(res.wrong.map((w) => ({ key: w.key, part: w.part })), res.rightKeys)
+    if (session.kind === 'test' && session.fixed != null && est) recordFixedTest(session.fixed, est.total)
     recordEvent('toeic', 1)
     refresh()
     clearRun()
@@ -136,12 +170,48 @@ export default function ToeicPage() {
     setSession(null)
   }
 
+  if (session && session.kind === 'ets') {
+    const listening = session.section === 'listening'
+    if (etsError || !groups.length) {
+      return (
+        <div className="toeic-page">
+          <div className="lesson-head">
+            <h2><Icon name="trophy" /> ETS 2026 · Test {session.test}</h2>
+            <div className="meta">{etsError ?? 'Đang tải đề…'}</div>
+          </div>
+          <button className="btn-ghost" onClick={() => setSession(null)}>
+            <Icon name="arrow-left" size={14} /> Quay lại
+          </button>
+        </div>
+      )
+    }
+    return (
+      <div className="toeic-page">
+        {listening && etsSkippedP1 > 0 && (
+          <div className="tr-pace">
+            📸 {etsSkippedP1} câu Part 1 của đề này chưa có ảnh nên đã được bỏ ra khỏi lượt thi.
+          </div>
+        )}
+        <Runner
+          groups={groups}
+          mode="test"
+          title={`ETS 2026 · Test ${session.test} · ${listening ? `Nghe ${groups.reduce((s, g) => s + g.questions.length, 0)} câu` : 'Part 5 · 30 câu'}`}
+          timerSec={listening ? ETS_LISTENING_SECONDS : ETS_PART5_SECONDS}
+          playOnce={listening}
+          onFinish={onFinish}
+          onExit={() => setSession(null)}
+        />
+      </div>
+    )
+  }
+
   if (session) {
     const title = session.kind === 'practice'
       ? `Luyện Part ${session.part} · ${session.n} câu`
       : session.kind === 'weak' ? 'Luyện điểm yếu'
       : session.kind === 'review' ? `Luyện lại câu sai · ${session.keys.length} câu`
-      : session.full ? 'FULL TEST · 200 câu · Nghe 45′ + Đọc 75′' : 'Thi thử TOEIC rút gọn'
+      : session.fixed != null ? `Đề số ${session.fixed + 1} · 200 câu · Nghe 45′ + Đọc 75′`
+      : session.full ? 'Đề ngẫu nhiên · 200 câu · Nghe 45′ + Đọc 75′' : 'Thi thử TOEIC rút gọn'
     return (
       <div className="toeic-page">
         <Runner
@@ -167,7 +237,11 @@ export default function ToeicPage() {
           <h2><Icon name="book" /> Ôn lại bài thi</h2>
           <div className="meta">{result.res.correct}/{result.res.total} câu đúng · xem lại từng câu kèm giải thích</div>
         </div>
-        <TestReview res={result.res} onBack={() => setReviewing(false)} />
+        <TestReview
+          res={result.res}
+          saveToWrongBook={result.session.kind !== 'ets'}
+          onBack={() => setReviewing(false)}
+        />
       </div>
     )
   }
@@ -191,7 +265,7 @@ export default function ToeicPage() {
               </div>
               <p className="toeic-disclaimer">
                 {result.session.kind === 'test' && result.session.full
-                  ? `FULL TEST ${res.total} câu — quy đổi theo bảng neo sát bảng điểm thật (Nghe ${res.rawL}/100 · Đọc ${res.rawR}/100).`
+                  ? `${result.session.fixed != null ? `Đề số ${result.session.fixed + 1}` : 'Đề ngẫu nhiên'} · ${res.total} câu — quy đổi theo bảng neo sát bảng điểm thật (Nghe ${res.rawL}/100 · Đọc ${res.rawR}/100).${result.session.fixed != null ? ' Đề này cố định nên lần sau làm lại là so được điểm.' : ''}`
                   : `Ước lượng từ đề rút gọn ${res.total} câu — chỉ mang tính tham khảo. Muốn số liệu sát nhất, làm FULL TEST 200 câu / 120 phút.`}
               </p>
             </>
@@ -206,7 +280,9 @@ export default function ToeicPage() {
           </h3>
 
           <p className="toeic-wb-note">
-            {result.session.kind === 'review'
+            {result.session.kind === 'ets'
+              ? '📓 Đề ETS chưa vào Sổ tay câu sai — bấm “Ôn lại từng câu” để xem transcript và giải thích.'
+              : result.session.kind === 'review'
               ? res.rightKeys.length > 0
                 ? `📓 Đã gạch ${res.rightKeys.length} câu khỏi sổ tay câu sai.`
                 : '📓 Chưa câu nào được gạch khỏi sổ — cứ luyện lại lần nữa nhé.'
@@ -312,53 +388,19 @@ export default function ToeicPage() {
       )}
 
       {tab === 'test' && (
-        <div className="toeic-test-intro">
-          {saved && (
-            <div className="tt-resume">
-              <div>
-                <b>⏸️ Bạn có một bài thi đang dở</b>
-                <p>
-                  {saved.full ? 'FULL TEST 200 câu' : 'Thi thử rút gọn'} · đã làm{' '}
-                  {Object.keys(saved.answers).length} câu · còn {savedMinutes} phút
-                  {saved.full ? (savedInReading ? ' của phần Đọc' : ' (Nghe + Đọc)') : ''}.
-                  Bài tự lưu nên tắt máy hay lỡ tay thoát vẫn không mất.
-                </p>
-              </div>
-              <div className="tt-resume-actions">
-                <button className="btn-primary sm" onClick={resumeSaved}>
-                  <Icon name="rocket" size={14} /> Tiếp tục bài thi
-                </button>
-                <button className="btn-ghost sm" onClick={dropSaved}>Bỏ bài này</button>
-              </div>
-            </div>
-          )}
-          <div className="tt-card">
-            <h3>Thi thử rút gọn</h3>
-            <ul>
-              <li><b>~50 câu · 30 phút</b></li>
-              <li>Hợp với kiểm tra nhanh giữa lộ trình; điểm ước lượng thang 990 mang tính tham khảo.</li>
-              <li>Cũng bốc ngẫu nhiên nên làm lại nhiều lần vẫn ra đề mới.</li>
-            </ul>
-            <button className="btn-primary" onClick={() => startSession({ kind: 'test' })}>
-              <Icon name="target" size={16} /> Thi rút gọn
-            </button>
-          </div>
-          <div className="tt-card full">
-            <h3>FULL TEST — theo cấu trúc đề 2026</h3>
-            <ul>
-              <li><b>200 câu · Nghe 45 phút + Đọc 75 phút</b> tính giờ riêng như đề thật, đủ 7 Part đúng tỉ lệ, đánh số liên tục 1–200.</li>
-              <li>Audio phát <b>đúng một lần</b> và có câu dẫn như phòng thi; điểm quy đổi bằng bảng neo sát thang ETS.</li>
-              <li>Bài <b>tự lưu liên tục</b> — tắt máy giữa chừng vẫn quay lại làm tiếp được.</li>
-              <li>Mỗi lượt <b>bốc ngẫu nhiên từ kho {BANK_SIZE} câu</b> nên hầu như không lần nào trùng đề.</li>
-            </ul>
-            <button className="btn-primary" onClick={() => startSession({ kind: 'test', full: true })}>
-              <Icon name="trophy" size={16} /> Vào FULL TEST
-            </button>
-            {latestEstimate && (
-              <small className="tt-last">Lần gần nhất: <b>{latestEstimate.total}</b>/990 (Nghe {latestEstimate.listening} · Đọc {latestEstimate.reading})</small>
-            )}
-          </div>
-        </div>
+        <TestLibrary
+          tests={state.tests}
+          saved={saved}
+          savedMinutes={savedMinutes}
+          savedInReading={savedInReading}
+          latestEstimate={latestEstimate}
+          onFixed={(i) => startSession({ kind: 'test', full: true, fixed: i })}
+          onRandomFull={() => startSession({ kind: 'test', full: true })}
+          onMini={() => startSession({ kind: 'test' })}
+          onResume={resumeSaved}
+          onDropSaved={dropSaved}
+          onEts={(test, section) => startSession({ kind: 'ets', test, section })}
+        />
       )}
 
       {tab === 'wrongbook' && (

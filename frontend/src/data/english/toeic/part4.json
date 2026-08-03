@@ -1298,5 +1298,235 @@
         "skill": "l-detail"
       }
     ]
+  },
+  {
+    "id": "p4-26",
+    "title": "Tin nhắn thoại: linh kiện về trễ",
+    "kind": "voicemail",
+    "script": [
+      {
+        "s": "W",
+        "text": "Hello, this is Renata Halloran from Ardmore Components calling for Mr. Okada. I'm ringing about order 4471, the replacement motors for your packing line. Two of the six shipped this morning and should reach you Thursday. The other four are held up because our supplier changed the housing design and we're waiting on the new mounting brackets — realistically that's another ten days. I know your line is running at half capacity, so here's what I can offer: we have four refurbished units of the previous model in our warehouse. They're fully tested, they fit your existing frame, and I can send them tomorrow at no charge as a loan until the new ones arrive. If that helps, call me back on 555-0148 before four o'clock today and I'll put them on tonight's truck."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the speaker calling?",
+        "options": [
+          "To confirm a payment",
+          "To explain a partial shipment",
+          "To cancel an order",
+          "To arrange a factory visit"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What caused the delay?",
+        "options": [
+          "A change to a part's design",
+          "A strike at the port",
+          "A mistake in the order form",
+          "Bad weather"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker offer to do?",
+        "options": [
+          "Refund the full amount",
+          "Send older units on loan",
+          "Visit the plant on Thursday",
+          "Reduce the price by half"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-27",
+    "title": "Bản tin phát thanh: giao thông và thời tiết",
+    "kind": "broadcast",
+    "script": [
+      {
+        "s": "M",
+        "text": "You're listening to Kestrel FM, and it's seven twenty on Wednesday morning. Traffic first: the Eastbridge tunnel is down to one lane after an overnight repair ran long, and drivers heading into the city are reporting delays of about twenty-five minutes. The crew expects to clear the site by nine, so if your journey can wait an hour, it probably should. Buses on routes 14 and 22 are being diverted along Quarry Road and will not stop at the hospital this morning. Now the weather: dry and bright until midday, then a band of heavy rain moving in from the west that should last through the evening rush. Tomorrow looks calmer and a few degrees warmer. Coming up after the news, our monthly small-business slot — this week, how three local cafes share a single delivery driver."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is causing the traffic delays?",
+        "options": [
+          "A traffic accident",
+          "Repair work that is not finished",
+          "A public event",
+          "Heavy rain"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker suggest listeners do?",
+        "options": [
+          "Take the bus instead of driving",
+          "Travel later in the morning",
+          "Avoid the hospital area all day",
+          "Carry an umbrella before noon"
+        ],
+        "answer": 1,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What will be discussed later in the program?",
+        "options": [
+          "A weather forecast for the week",
+          "Changes to bus routes",
+          "How local businesses cooperate",
+          "A new tunnel project"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-28",
+    "title": "Bài nói: hướng dẫn tình nguyện viên bảo tàng",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "W",
+        "text": "Welcome, everyone, and thank you for giving us your Saturday mornings. I'm Priscilla Vaughan, the volunteer coordinator here at the Maritime Museum. Before we walk the galleries, three practical things. First, your badge: it gets you through the staff door on Anchor Street and it also gets you a free hot drink in the cafe on the days you work, so please don't leave it at home. Second, questions from visitors. You are not expected to know everything — nobody does. If you're unsure, say so and walk the visitor to the information desk; that's far better than guessing. Third, the shift book. Sign in when you arrive and out when you leave, because our insurance depends on it. Now, the most common question we get is about the wreck exhibit on level two, so that's where we'll start the tour. Follow me and please stay together — the lift only takes six."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Who most likely are the listeners?",
+        "options": [
+          "New volunteers",
+          "Museum visitors",
+          "Building contractors",
+          "Journalists"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the speaker say the listeners should do if they cannot answer a question?",
+        "options": [
+          "Look it up on a phone",
+          "Take the visitor to the information desk",
+          "Ask another volunteer",
+          "Give their best guess"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the listeners do next?",
+        "options": [
+          "Collect their badges",
+          "Sign the shift book",
+          "Go to an exhibit on level two",
+          "Have a drink in the cafe"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-29",
+    "title": "Thông báo trong siêu thị",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "M",
+        "text": "Attention shoppers, and good afternoon. A quick note about changes in store this week. From tomorrow, the bakery counter moves from the back wall to the front of the store, next to the flowers, so you'll smell it on the way in — which is, I'm told, entirely deliberate. The space at the back becomes a chilled ready-meals section opening on Friday. While the shelves are being fitted, aisle nine is closed and pasta and rice have moved temporarily to the end of aisle six. Our staff are wearing green lanyards this week specifically to help you find things, so please do stop them. Finally, checkout six is now a returns and click-and-collect desk only. If you're paying for shopping, please use lanes one to five or the self-service machines by the exit. Thank you for shopping with us."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the main purpose of the announcement?",
+        "options": [
+          "To advertise weekly discounts",
+          "To describe changes to the store layout",
+          "To announce a hiring event",
+          "To explain a new payment method"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "Where can shoppers currently find pasta?",
+        "options": [
+          "In aisle nine",
+          "At the end of aisle six",
+          "Next to the flowers",
+          "By the bakery counter"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is indicated about checkout six?",
+        "options": [
+          "It is closed this week.",
+          "It is only for staff.",
+          "It no longer takes payments for shopping.",
+          "It has been replaced by a machine."
+        ],
+        "answer": 2,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p4-30",
+    "title": "Giới thiệu tham quan nhà máy",
+    "kind": "tour",
+    "script": [
+      {
+        "s": "W",
+        "text": "Good morning and welcome to the Thornbury bottling plant. I'm Adaeze, and I'll be with you for the next ninety minutes. A word on safety before we go through: the vests and glasses in the basket by the door are compulsory beyond this point, and please keep inside the green walkways at all times — forklifts have right of way over people, always. Photographs are fine everywhere except the filling hall, where the equipment is still under a supplier agreement. Our route today goes syrup room, filling hall, labelling, then the warehouse, and we finish in the tasting room, where you'll try three drinks that aren't on sale anywhere yet. It gets loud in the filling hall, so I'll stop talking there and pick up the explanation afterwards. If you can't hear me at any point, wave — I'd much rather repeat myself than have you miss half the tour."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the listeners required to do?",
+        "options": [
+          "Leave their bags at the door",
+          "Wear protective equipment",
+          "Sign a supplier agreement",
+          "Stay silent during the tour"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Where are photographs not allowed?",
+        "options": [
+          "In the syrup room",
+          "In the filling hall",
+          "In the warehouse",
+          "In the tasting room"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why does the speaker say she will stop talking in one area?",
+        "options": [
+          "The equipment is very noisy.",
+          "Visitors must concentrate.",
+          "The area is confidential.",
+          "Another guide takes over."
+        ],
+        "answer": 0,
+        "skill": "l-infer"
+      }
+    ]
   }
 ]

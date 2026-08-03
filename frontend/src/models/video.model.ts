@@ -7,4 +7,5 @@ export interface Video {
   topic: string
   tone: string
   lang?: string
+  tags?: string[]
 }

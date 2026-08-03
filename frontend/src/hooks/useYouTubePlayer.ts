@@ -8,6 +8,7 @@ export interface YouTubePlayer {
   pause: () => void
   mute: () => void
   unMute: () => void
+  setRate: (rate: number) => void
 }
 
 export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
@@ -21,11 +22,21 @@ export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
     }
   }, [])
 
+  const alive = (): boolean => {
+    try {
+      const frame = playerRef.current?.getIframe?.()
+      return !!frame && document.contains(frame)
+    } catch {
+      return false
+    }
+  }
+
   const load = (id: string) => {
     const make = () => {
-      if (playerRef.current?.loadVideoById) {
+      if (alive() && playerRef.current?.loadVideoById) {
         playerRef.current.loadVideoById(id)
       } else if (document.getElementById(elementId)) {
+        try { playerRef.current?.destroy?.() } catch {}
         playerRef.current = new window.YT.Player(elementId, {
           videoId: id,
           height: '100%',
@@ -67,6 +78,7 @@ export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
   const pause = () => { try { playerRef.current?.pauseVideo?.() } catch {} }
   const mute = () => { try { playerRef.current?.mute?.() } catch {} }
   const unMute = () => { try { playerRef.current?.unMute?.() } catch {} }
+  const setRate = (rate: number) => { try { playerRef.current?.setPlaybackRate?.(rate) } catch {} }
 
-  return { load, seek, getTime, play, pause, mute, unMute }
+  return { load, seek, getTime, play, pause, mute, unMute, setRate }
 }

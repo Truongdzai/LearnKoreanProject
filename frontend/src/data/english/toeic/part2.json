@@ -713,5 +713,265 @@
     "skill": "l-similar",
     "trap": "signed/sign là bẫy âm kinh điển; \"at least\" bẫy âm với lease. Đáp án đúng nêu người giữ tài liệu.",
     "vi": "Tôi tìm bản hợp đồng thuê đã ký ở đâu? — Chị Patel giữ chúng trong phòng làm việc."
+  },
+  {
+    "id": "p2-56",
+    "q": "When does the new safety training start?",
+    "options": [
+      "In the training room upstairs.",
+      "The first week of April.",
+      "About forty employees."
+    ],
+    "answer": 1,
+    "skill": "l-wh",
+    "trap": "Câu hỏi When phải trả lời THỜI GIAN. A trả lời Where, C trả lời How many — hai bẫy quen thuộc nhất của Part 2.",
+    "vi": "Khoá tập huấn an toàn mới bắt đầu khi nào? — Tuần đầu tháng Tư."
+  },
+  {
+    "id": "p2-57",
+    "q": "Who's covering the front desk while Lan is on leave?",
+    "options": [
+      "Two weeks, I think.",
+      "Daniel volunteered.",
+      "It's on the ground floor."
+    ],
+    "answer": 1,
+    "skill": "l-wh",
+    "trap": "Who hỏi NGƯỜI. A đáp thời lượng nghỉ, C đáp vị trí — cả hai đều bám từ trong câu hỏi để đánh lừa.",
+    "vi": "Ai trực quầy lễ tân trong lúc Lan nghỉ phép? — Daniel xung phong rồi."
+  },
+  {
+    "id": "p2-58",
+    "q": "Why was the shipment held at the port?",
+    "options": [
+      "A document was missing.",
+      "By truck, usually.",
+      "Yes, it arrived Monday."
+    ],
+    "answer": 0,
+    "skill": "l-wh",
+    "trap": "Why cần LÝ DO. C bắt đầu bằng Yes — câu hỏi Wh- không bao giờ trả lời Yes/No, loại được ngay.",
+    "vi": "Vì sao lô hàng bị giữ ở cảng? — Thiếu một giấy tờ."
+  },
+  {
+    "id": "p2-59",
+    "q": "How long will the road work outside our building last?",
+    "options": [
+      "Until the end of the month.",
+      "It's quite loud, isn't it?",
+      "The city council approved it."
+    ],
+    "answer": 0,
+    "skill": "l-wh",
+    "trap": "How long hỏi KHOẢNG THỜI GIAN. B và C đều là bình luận hợp lý về công trình nhưng không trả lời câu hỏi.",
+    "vi": "Công trình đường trước toà nhà mình kéo dài bao lâu? — Đến cuối tháng."
+  },
+  {
+    "id": "p2-60",
+    "q": "Where should I put these files that Ms. Ferrand signed?",
+    "options": [
+      "She signed them yesterday.",
+      "In the cabinet behind you.",
+      "About thirty pages."
+    ],
+    "answer": 1,
+    "skill": "l-wh",
+    "trap": "Where hỏi NƠI CHỐN. A lặp lại signed để bẫy, C đáp số lượng.",
+    "vi": "Tôi để mấy hồ sơ chị Ferrand đã ký ở đâu? — Trong tủ sau lưng bạn."
+  },
+  {
+    "id": "p2-61",
+    "q": "Have you sent the quotation to Bergman Construction yet?",
+    "options": [
+      "I'm waiting on one price.",
+      "The construction site.",
+      "He's a new supplier."
+    ],
+    "answer": 0,
+    "skill": "l-yesno",
+    "trap": "Đáp án đúng KHÔNG có Yes/No mà giải thích lý do chưa gửi — kiểu trả lời gián tiếp chiếm rất nhiều câu trong đề thật.",
+    "vi": "Bạn gửi báo giá cho Bergman Construction chưa? — Tôi còn đợi một giá nữa."
+  },
+  {
+    "id": "p2-62",
+    "q": "Did the caterer confirm the number of guests?",
+    "options": [
+      "A buffet, I believe.",
+      "Not since Tuesday.",
+      "The guest room upstairs."
+    ],
+    "answer": 1,
+    "skill": "l-yesno",
+    "trap": "\"Not since Tuesday\" = chưa xác nhận lại từ thứ Ba. C bẫy âm guests/guest room.",
+    "vi": "Bên đặt tiệc xác nhận số khách chưa? — Từ thứ Ba tới giờ chưa thấy gì."
+  },
+  {
+    "id": "p2-63",
+    "q": "Is the parking garage open on public holidays?",
+    "options": [
+      "Only the lower level.",
+      "I parked there this morning.",
+      "It costs four dollars."
+    ],
+    "answer": 0,
+    "skill": "l-yesno",
+    "trap": "Đáp án đúng là câu trả lời có ĐIỀU KIỆN (chỉ tầng dưới) thay vì Yes thẳng. B lặp park để bẫy.",
+    "vi": "Bãi xe có mở vào ngày lễ không? — Chỉ tầng dưới thôi."
+  },
+  {
+    "id": "p2-64",
+    "q": "Would you like me to book a taxi to the airport?",
+    "options": [
+      "The flight was delayed.",
+      "That would be a big help.",
+      "Terminal two, gate nine."
+    ],
+    "answer": 1,
+    "skill": "l-yesno",
+    "trap": "Would you like me to…? là lời ĐỀ NGHỊ GIÚP. A và C đều nói về chuyến bay nhưng không đáp lại lời đề nghị.",
+    "vi": "Bạn có muốn tôi đặt taxi ra sân bay không? — Thế thì tốt quá."
+  },
+  {
+    "id": "p2-65",
+    "q": "Should we order more toner before the audit?",
+    "options": [
+      "We printed the report already.",
+      "There are two boxes in the store cupboard.",
+      "The auditor arrives at nine."
+    ],
+    "answer": 1,
+    "skill": "l-yesno",
+    "trap": "Đáp án đúng trả lời gián tiếp: còn hai hộp nghĩa là chưa cần đặt. C bám từ audit/auditor.",
+    "vi": "Mình có nên đặt thêm mực trước đợt kiểm toán không? — Trong kho còn hai hộp mà."
+  },
+  {
+    "id": "p2-66",
+    "q": "Do you want the meeting in the boardroom or online?",
+    "options": [
+      "Online is easier for the Manila team.",
+      "It lasted about an hour.",
+      "Yes, at two o'clock."
+    ],
+    "answer": 0,
+    "skill": "l-choice",
+    "trap": "Câu hỏi lựa chọn A or B thì KHÔNG trả lời Yes/No → loại C ngay lập tức.",
+    "vi": "Bạn muốn họp ở phòng họp lớn hay họp trực tuyến? — Trực tuyến thì nhóm Manila tiện hơn."
+  },
+  {
+    "id": "p2-67",
+    "q": "Would you rather review the contract now or after lunch?",
+    "options": [
+      "The lunch menu changed.",
+      "Whenever you have time.",
+      "It's a three-year contract."
+    ],
+    "answer": 1,
+    "skill": "l-choice",
+    "trap": "\"Whenever you have time\" = không chọn vế nào, nhường người kia — dạng đáp án đúng rất hay gặp ở câu lựa chọn.",
+    "vi": "Bạn muốn xem hợp đồng bây giờ hay sau bữa trưa? — Lúc nào bạn rảnh cũng được."
+  },
+  {
+    "id": "p2-68",
+    "q": "Are we interviewing candidates in person or by video call?",
+    "options": [
+      "Both, actually — video first.",
+      "She has eight years of experience.",
+      "In the interview room."
+    ],
+    "answer": 0,
+    "skill": "l-choice",
+    "trap": "Đáp án \"Both\" hợp lệ với câu hỏi lựa chọn. C bẫy âm interview/interview room.",
+    "vi": "Mình phỏng vấn ứng viên trực tiếp hay gọi video? — Cả hai, video trước đã."
+  },
+  {
+    "id": "p2-69",
+    "q": "The elevator on the east side is out of service again.",
+    "options": [
+      "I'll take the stairs then.",
+      "A service contract.",
+      "On the eighth floor."
+    ],
+    "answer": 0,
+    "skill": "l-statement",
+    "trap": "Câu trần thuật cần PHẢN ỨNG hợp lý. B bẫy âm service, C trả lời câu hỏi Where không ai hỏi.",
+    "vi": "Thang máy phía đông lại hỏng rồi. — Vậy tôi đi thang bộ."
+  },
+  {
+    "id": "p2-70",
+    "q": "I can't find the receipt for the conference registration.",
+    "options": [
+      "It was a good conference.",
+      "Try your e-mail — they send a copy.",
+      "Register before Friday."
+    ],
+    "answer": 1,
+    "skill": "l-statement",
+    "trap": "Người nói đang gặp KHÓ KHĂN → đáp án đúng đưa ra cách xử lý. A và C chỉ lặp từ conference/register.",
+    "vi": "Tôi không tìm thấy biên lai đăng ký hội thảo. — Thử tìm trong email xem, họ có gửi bản sao."
+  },
+  {
+    "id": "p2-71",
+    "q": "This report has to reach the client before five.",
+    "options": [
+      "I'll finish the summary in ten minutes.",
+      "The client is from Osaka.",
+      "Five copies, please."
+    ],
+    "answer": 0,
+    "skill": "l-statement",
+    "trap": "Câu nêu SỨC ÉP THỜI GIAN → đáp án đúng cam kết kịp giờ. C bẫy âm five/five copies.",
+    "vi": "Báo cáo này phải tới tay khách trước năm giờ. — Mười phút nữa tôi xong phần tóm tắt."
+  },
+  {
+    "id": "p2-72",
+    "q": "You've already checked the invoice figures, haven't you?",
+    "options": [
+      "A cheque, please.",
+      "Twice, and they match.",
+      "The figure in the diagram."
+    ],
+    "answer": 1,
+    "skill": "l-similar",
+    "trap": "Bẫy âm dày: checked/cheque, figures/figure. Đáp án đúng xác nhận đã kiểm tra hai lần.",
+    "vi": "Bạn kiểm tra số liệu trên hoá đơn rồi đúng không? — Hai lần rồi, khớp hết."
+  },
+  {
+    "id": "p2-73",
+    "q": "Where did you store the spare projector bulbs?",
+    "options": [
+      "The store closes at eight.",
+      "In the drawer under the screen.",
+      "It's a bright room."
+    ],
+    "answer": 1,
+    "skill": "l-similar",
+    "trap": "store (động từ: cất) bị bẫy bằng store (danh từ: cửa hàng); bulbs/bright cũng là bẫy liên tưởng.",
+    "vi": "Bạn cất bóng đèn máy chiếu dự phòng ở đâu? — Trong ngăn kéo dưới màn chiếu."
+  },
+  {
+    "id": "p2-74",
+    "q": "How did the presentation to the board go?",
+    "options": [
+      "Better than I expected.",
+      "A whiteboard and a marker.",
+      "I'll present it tomorrow."
+    ],
+    "answer": 0,
+    "skill": "l-similar",
+    "trap": "board/whiteboard và presentation/present là hai cặp bẫy âm. Đáp án đúng nhận xét về kết quả.",
+    "vi": "Buổi trình bày trước ban giám đốc thế nào? — Tốt hơn tôi tưởng."
+  },
+  {
+    "id": "p2-75",
+    "q": "Has the accountant finished counting the stock yet?",
+    "options": [
+      "He's on the last aisle.",
+      "The account number.",
+      "I bought some stocks."
+    ],
+    "answer": 0,
+    "skill": "l-similar",
+    "trap": "accountant/account, stock (hàng tồn) / stocks (cổ phiếu). Đáp án đúng nói vẫn đang làm nốt dãy cuối.",
+    "vi": "Kế toán kiểm kê hàng xong chưa? — Anh ấy đang ở dãy cuối rồi."
   }
 ]

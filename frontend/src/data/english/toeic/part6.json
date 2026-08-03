@@ -518,5 +518,109 @@
         "explain": "Đại từ quan hệ thay cho NGƯỜI (your branch manager) và làm CHỦ NGỮ của \"will arrange\" → who. whom làm tân ngữ; which thay vật."
       }
     ]
+  },
+  {
+    "id": "p6-11",
+    "title": "Thông báo: đóng bãi gửi xe để sửa",
+    "kind": "notice",
+    "text": "NOTICE TO ALL TENANTS — WEST CAR PARK\n\nThe west car park will be closed for resurfacing from Monday 6 April (1)___ Friday 17 April. During those two weeks, tenants may use the visitor spaces on Level B without a permit.\n\nThe work is (2)___ than last year's repairs, so we expect very little noise before 8:00 A.M. Contractors have agreed not to operate cutting equipment until the offices open.\n\n(3)___ Space there is limited, so please arrive early or consider sharing a car with a colleague for the fortnight.\n\nAny vehicle left in the west car park after 6:00 P.M. on Sunday 5 April (4)___ at the owner's expense. Please plan ahead.\n\nBuilding Management",
+    "blanks": [
+      {
+        "options": [
+          "through",
+          "among",
+          "within",
+          "during"
+        ],
+        "answer": 0,
+        "skill": "prep",
+        "explain": "\"from A through B\" = từ ngày A đến hết ngày B. within/during không đi với from để mở một khoảng ngày."
+      },
+      {
+        "options": [
+          "quiet",
+          "quieter",
+          "quietest",
+          "quietly"
+        ],
+        "answer": 1,
+        "skill": "comparative",
+        "explain": "Có \"than\" phía sau ⇒ bắt buộc dùng dạng SO SÁNH HƠN: quieter. quietest cần \"the\" và không đi với than."
+      },
+      {
+        "options": [
+          "Overflow parking is available on the street behind the building.",
+          "The west car park will reopen in December.",
+          "Tenants must apply for a new permit this week.",
+          "Cutting equipment will run all night."
+        ],
+        "answer": 0,
+        "skill": "sentence",
+        "explain": "Câu sau nói \"Space there is limited\" — \"there\" phải trỏ tới một chỗ đỗ xe vừa nhắc ⇒ chọn A. D mâu thuẫn đoạn trên, B sai mốc thời gian, C trái với câu \"không cần giấy phép\"."
+      },
+      {
+        "options": [
+          "will remove",
+          "will be removed",
+          "removing",
+          "has removed"
+        ],
+        "answer": 1,
+        "skill": "passive",
+        "explain": "Chủ ngữ \"any vehicle\" BỊ kéo đi chứ không tự kéo ai ⇒ bị động will be removed. Cụm \"at the owner's expense\" cũng là dấu hiệu của câu bị động."
+      }
+    ]
+  },
+  {
+    "id": "p6-12",
+    "title": "Email: mời tham gia khảo sát khách hàng",
+    "kind": "email",
+    "text": "To: subscribers@ravensmoordelivery.com\nFrom: feedback@ravensmoordelivery.com\nSubject: Five minutes of your time?\n\nDear customer,\n\nYou have been ordering from Ravensmoor for more than a year, (1)___ we would like to hear how we are doing.\n\nThe survey has twelve questions and takes about five minutes. Your answers are anonymous; we never link them to your account or your delivery address. (2)___\n\nWe are especially interested in the evening delivery window, which we (3)___ in March. Early figures suggest it is popular, but the numbers do not tell us why.\n\nEveryone who completes the survey by 30 September will receive a code for free delivery on their (4)___ order.\n\nThank you for helping us improve.\n\nThe Ravensmoor Team",
+    "blanks": [
+      {
+        "options": [
+          "so",
+          "but",
+          "although",
+          "unless"
+        ],
+        "answer": 0,
+        "skill": "conj",
+        "explain": "Vế sau là KẾT QUẢ của vế trước (khách quen lâu năm ⇒ muốn nghe ý kiến) ⇒ so. but/although diễn tả tương phản, unless là điều kiện phủ định."
+      },
+      {
+        "options": [
+          "Please attach a copy of your receipt.",
+          "Results are reported only as totals across all customers.",
+          "Delivery charges will increase next month.",
+          "Our office is closed on public holidays."
+        ],
+        "answer": 1,
+        "skill": "sentence",
+        "explain": "Câu trước cam kết ẩn danh ⇒ câu chèn phải nói tiếp về cách xử lý dữ liệu. A, C, D lạc chủ đề đoạn."
+      },
+      {
+        "options": [
+          "introduce",
+          "introduced",
+          "will introduce",
+          "are introducing"
+        ],
+        "answer": 1,
+        "skill": "tense",
+        "explain": "\"in March\" là mốc quá khứ đã qua (câu sau nói \"early figures suggest\") ⇒ quá khứ đơn introduced."
+      },
+      {
+        "options": [
+          "next",
+          "last",
+          "recent",
+          "previous"
+        ],
+        "answer": 0,
+        "skill": "vocab",
+        "explain": "Phần thưởng dùng cho đơn hàng SẮP TỚI ⇒ next order. last/previous/recent đều chỉ đơn đã đặt rồi, không thể tặng mã cho quá khứ."
+      }
+    ]
   }
 ]

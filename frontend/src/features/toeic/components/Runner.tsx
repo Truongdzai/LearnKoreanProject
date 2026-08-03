@@ -237,6 +237,13 @@ export default function Runner({
           </div>
         ) : null}
 
+        {g.needsGraphic && (
+          <div className="tr-pace low">
+            🖼️ Nhóm này có câu “Look at the graphic” nhưng hình của đề gốc chưa được nhập —
+            câu đó bạn tạm đoán, các câu còn lại vẫn tính bình thường.
+          </div>
+        )}
+
         {g.graphic && (
           <div className="tr-graphic" lang="en">
             <b>{g.graphic.title}</b>

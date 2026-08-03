@@ -23,6 +23,7 @@ from .routers import (
     srs as srs_router,
     pronounce as pronounce_router,
     speaking as speaking_router,
+    rooms as rooms_router,
     tutor as tutor_router,
     topik as topik_router,
     auth as auth_router,
@@ -88,6 +89,8 @@ _GA_CONNECT = (
     else ""
 )
 
+_RTC_CONNECT = " stun: stuns: turn: turns:"
+
 _CSP = (
     "default-src 'self'; "
     "img-src 'self' data: https:; "
@@ -96,7 +99,7 @@ _CSP = (
     "font-src 'self' https://fonts.gstatic.com data:; "
     f"script-src 'self' https://www.youtube.com https://s.ytimg.com{_GA_SCRIPT}; "
     "frame-src https://www.youtube.com https://www.youtube-nocookie.com; "
-    f"connect-src 'self'{_GA_CONNECT}; "
+    f"connect-src 'self'{_GA_CONNECT}{_RTC_CONNECT}; "
     "object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
 )
 
@@ -121,6 +124,7 @@ app.include_router(dict_router.router)
 app.include_router(srs_router.router)
 app.include_router(pronounce_router.router)
 app.include_router(speaking_router.router)
+app.include_router(rooms_router.router)
 app.include_router(tutor_router.router)
 app.include_router(topik_router.router)
 app.include_router(auth_router.router)
@@ -158,6 +162,8 @@ _PUBLIC_PATHS = [
     ("/luyen-thi-topik", "0.9", "weekly"),
     ("/tieng-anh-3-thang", "0.9", "weekly"),
     ("/luyen-thi-toeic", "0.9", "weekly"),
+    ("/tieng-trung-3-thang", "0.8", "weekly"),
+    ("/luyen-thi-hsk", "0.8", "weekly"),
     ("/luyen-noi", "0.8", "weekly"),
     ("/gia-su-ai", "0.8", "weekly"),
     ("/tu-vung", "0.7", "weekly"),
@@ -212,9 +218,13 @@ def sitemap(request: Request):
 
 
 _DIST = ROOT / "frontend" / "dist"
+_MEDIA = ROOT / "media"
 
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("text/javascript", ".js")
+
+if _MEDIA.exists():
+    app.mount("/media", StaticFiles(directory=str(_MEDIA)), name="media")
 
 
 class SpaStaticFiles(StaticFiles):

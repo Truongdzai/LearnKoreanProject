@@ -44,6 +44,10 @@ export default function LearnPage() {
     }
   }, [lesson])
 
+  useEffect(() => {
+    if (lesson && tab === 'shadowing') yt.load(lesson.id)
+  }, [tab, lesson])
+
   const askLevel = async () => {
     if (!lesson || levelBusy || level) return
     setLevelBusy(true)

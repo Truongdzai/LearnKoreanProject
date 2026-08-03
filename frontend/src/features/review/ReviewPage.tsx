@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { fetchDue, reviewCard } from '@/core/api/srs.api'
 import type { SrsCard, SrsStats, SrsRating } from '@/models/srs.model'
 import Spinner from '@/core/components/Spinner'
@@ -30,6 +30,11 @@ function hint(card: SrsCard, rating: SrsRating, t: T): string {
 
 type ReviewMode = 'cards' | 'match' | 'listen' | 'daily'
 
+function deckLabel(source: string): string {
+  const clean = source.replace(/\s*\((youtube|url|file):[^)]*\)\s*$/i, '').trim()
+  return clean.length > 30 ? clean.slice(0, 29) + '…' : clean
+}
+
 export default function ReviewPage() {
   const { t, learnLang } = useAppStore()
   const [loading, setLoading] = useState(true)
@@ -38,6 +43,7 @@ export default function ReviewPage() {
   const [revealed, setRevealed] = useState(false)
   const [stats, setStats] = useState<SrsStats | null>(null)
   const [mode, setMode] = useState<ReviewMode>('cards')
+  const [deck, setDeck] = useState('')
   const { cards: gameCards } = useGameCards()
 
   const load = useCallback(async () => {
@@ -57,7 +63,27 @@ export default function ReviewPage() {
     load()
   }, [load])
 
-  const card = queue[i]
+  const decks = useMemo(() => {
+    const by = new Map<string, number>()
+    for (const c of queue) {
+      const key = (c.source || '').trim()
+      by.set(key, (by.get(key) || 0) + 1)
+    }
+    return [...by.entries()].sort((a, b) => b[1] - a[1])
+  }, [queue])
+
+  const view = useMemo(
+    () => (deck ? queue.filter((c) => (c.source || '').trim() === deck) : queue),
+    [queue, deck],
+  )
+
+  const pickDeck = (key: string) => {
+    setDeck(key)
+    setI(0)
+    setRevealed(false)
+  }
+
+  const card = view[i]
 
   const rate = useCallback(
     async (rating: SrsRating) => {
@@ -113,6 +139,20 @@ export default function ReviewPage() {
         </div>
       )}
 
+      {mode === 'cards' && decks.length > 1 && (
+        <div className="rv-decks">
+          <span className="rv-deck-head">{t('rv.deckHead')}</span>
+          <button className={'rv-deck' + (deck === '' ? ' on' : '')} onClick={() => pickDeck('')}>
+            {t('rv.deckAll')} <b>{queue.length}</b>
+          </button>
+          {decks.map(([key, n]) => (
+            <button key={key || 'other'} className={'rv-deck' + (deck === key ? ' on' : '')} onClick={() => pickDeck(key)} title={key}>
+              {key ? deckLabel(key) : t('rv.deckOther')} <b>{n}</b>
+            </button>
+          ))}
+        </div>
+      )}
+
       {mode === 'cards' && gameCards.length >= 4 && (
         <div className="mg-row">
           <button className={'mg-launch' + (dailyDone() ? ' done' : '')} onClick={() => setMode('daily')} disabled={dailyDone()}>
@@ -143,12 +183,17 @@ export default function ReviewPage() {
             <>
               <h3>{t('rv.doneTitle')}</h3>
               <p>{t('rv.doneText', { n: reviewedThisSession })}</p>
+              {deck && (
+                <button className="btn-ghost sm" onClick={() => pickDeck('')}>
+                  <Icon name="cards" size={14} /> {t('rv.deckBack')}
+                </button>
+              )}
             </>
           )}
         </div>
       ) : (
         <div className="review-wrap">
-          <div className="review-progress">{t('rv.left', { n: queue.length - i })}</div>
+          <div className="review-progress">{t('rv.left', { n: view.length - i })}</div>
           <div className="flashcard">
             <div className="fc-front" lang={learnLang}>{card.front}</div>
             {revealed ? (

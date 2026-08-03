@@ -39,9 +39,11 @@ const actual = {
   zhWords: zh.words,
   zhUnits: zh.units,
   topikCapsules: readJson(join(DATA, 'korean', 'topik', 'grammar.json')).length,
+  hskCapsules: readJson(join(DATA, 'chinese', 'hsk', 'grammar.json')).length,
   videos: vid.total,
   koVideos: vid.ko,
   enVideos: vid.en,
+  zhVideos: vid.zh,
 }
 
 const src = readFileSync(join(DATA, 'counts.ts'), 'utf8')

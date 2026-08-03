@@ -1380,5 +1380,741 @@
         "skill": "r-infer"
       }
     ]
+  },
+  {
+    "id": "p7-28",
+    "title": "Thông báo: tạm dừng thẻ tập",
+    "kind": "notice",
+    "text": "NORTHGATE FITNESS — MEMBERSHIP FREEZE\n\nGoing away for a while? Instead of cancelling, you can freeze your membership and keep your current monthly rate when you return.\n\nHow it works\n• Freezes run in whole months, from 1 to 6 months per calendar year.\n• A flat fee of $9 per frozen month keeps your locker and your rate.\n• Requests must reach the front desk at least seven days before your billing date. Requests received later take effect the following month.\n\nWhile frozen, your card will not open the doors, and class bookings are suspended. Personal training sessions already paid for do not expire and can be used after you return.\n\nTo request a freeze, fill in the form at the front desk or email members@northgatefitness.com with your member number. Freezes cannot be arranged by phone.",
+    "questions": [
+      {
+        "q": "What is the main purpose of the notice?",
+        "options": [
+          "To announce a price increase",
+          "To explain an option for pausing a membership",
+          "To advertise a new class schedule",
+          "To recruit personal trainers"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What happens if a request arrives three days before the billing date?",
+        "options": [
+          "It is refused entirely.",
+          "The fee is doubled.",
+          "It starts the month after.",
+          "The member is charged $9 twice."
+        ],
+        "answer": 2,
+        "skill": "r-infer"
+      },
+      {
+        "q": "How can a member request a freeze?",
+        "options": [
+          "By calling the front desk",
+          "By sending an e-mail",
+          "Through the mobile application",
+          "By writing to the head office"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-29",
+    "title": "Email: chuyển văn phòng",
+    "kind": "email",
+    "text": "To: all-staff@lindqvistdesign.com\nFrom: r.abara@lindqvistdesign.com\nSubject: Moving day — what you need to do\nDate: 5 May\n\nDear all,\n\nOur move to the Ashfield Building takes place over the weekend of 24–25 May. The new address is 12 Ashfield Road, floors 3 and 4.\n\nPacking crates will be delivered to each desk on Wednesday 21 May. Please label every crate with your name and your new floor — designers move to floor 3, the accounts and admin teams to floor 4. Anything left unlabelled will go to storage, and retrieving it may take up to two weeks.\n\nMonitors, docking stations and desk chairs stay behind; the new office is furnished. Only personal items, paper files and laptops travel with you.\n\nThe office will be closed on Monday 26 May so that the network can be tested. Work from home that day and check your e-mail at 4:00 P.M. for confirmation that the building is ready.\n\nRosa Abara, Office Manager",
+    "questions": [
+      {
+        "q": "What are employees asked to do before the move?",
+        "options": [
+          "Take their chairs home",
+          "Write their name and floor on their crates",
+          "Return their laptops to the IT desk",
+          "Order new furniture"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Where will the accounts team be located?",
+        "options": [
+          "On the third floor",
+          "On the fourth floor",
+          "In the storage room",
+          "At the old address"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is indicated about Monday 26 May?",
+        "options": [
+          "Staff will work remotely.",
+          "The move will begin.",
+          "New chairs will arrive.",
+          "The office opens early."
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-30",
+    "title": "Quảng cáo: chỗ ngồi làm việc chung",
+    "kind": "ad",
+    "text": "THE LOOM — WORKSPACE THAT GROWS WITH YOU\n\nOpening 1 October in the Canal District.\n\nHot desk — $18/day or $210/month\nUnlimited access 7 A.M.–9 P.M., printing credit, meeting room booking at member rates.\n\nDedicated desk — $340/month\nYour own desk and lockable drawer, 24-hour access, five hours of meeting room time included.\n\nPrivate studio (2–6 people) — from $780/month\nEverything above, plus a lockable room and your company name at reception.\n\nAll plans include fibre internet, unlimited coffee, and access to our Thursday evening talks.\n\nFounding offer: sign before 15 September and pay nothing for your second month. Bring a colleague and you each receive an extra week free. Tours run daily at 11 A.M. and 4 P.M. — no appointment needed. Details at theloomwork.com.",
+    "questions": [
+      {
+        "q": "What is included in every plan?",
+        "options": [
+          "A lockable drawer",
+          "Twenty-four-hour access",
+          "Internet and coffee",
+          "A name at reception"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What must a customer do to get a free second month?",
+        "options": [
+          "Bring a colleague",
+          "Sign up before a certain date",
+          "Choose a private studio",
+          "Attend a Thursday talk"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is NOT mentioned about tours?",
+        "options": [
+          "They happen every day.",
+          "They are offered twice a day.",
+          "They require booking in advance.",
+          "They are available before noon."
+        ],
+        "answer": 2,
+        "skill": "r-nots"
+      }
+    ]
+  },
+  {
+    "id": "p7-31",
+    "title": "Bài báo: tiệm bánh mở rộng",
+    "kind": "article",
+    "text": "SMALL BAKERY, BIG DECISION\n\nBy Delphine Marchetti\n\nWhen Aurelio Sandi opened Pane Vivo eleven years ago, he baked 60 loaves a day in a rented kitchen behind a laundromat. — [1] — Today the bakery supplies 34 restaurants across the region and employs 22 people.\n\nGrowth, however, brought a problem the owner had not expected. \"Restaurants order at eight in the morning for the same evening,\" Mr. Sandi said. \"For years we simply baked more than anyone could want and threw away the rest.\" — [2] —\n\nLast spring he replaced the guesswork with a simple ordering app built by a former employee. Chefs now place their orders by 4 P.M. the day before, and the bakery mixes exactly what is needed. — [3] — Waste fell by roughly 40 percent in the first three months.\n\nThe savings paid for a second oven rather than a second shop. — [4] — \"Everyone told me to open branches,\" Mr. Sandi said. \"But a second address means a second landlord and a second set of problems. One good kitchen, run properly, feeds far more people.\"",
+    "questions": [
+      {
+        "q": "What problem did the bakery face as it grew?",
+        "options": [
+          "It could not hire enough staff.",
+          "It produced more bread than it sold.",
+          "Its rent increased sharply.",
+          "Its restaurant customers paid late."
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What did Mr. Sandi decide to spend the savings on?",
+        "options": [
+          "Opening branches",
+          "Buying additional equipment",
+          "Hiring an app developer",
+          "Moving to a larger city"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"The change also gave the night shift a predictable schedule for the first time.\"",
+        "options": [
+          "[1]",
+          "[2]",
+          "[3]",
+          "[4]"
+        ],
+        "answer": 2,
+        "skill": "r-insert"
+      }
+    ]
+  },
+  {
+    "id": "p7-32",
+    "title": "Tin nhắn nhóm: giao hàng trễ",
+    "kind": "chat",
+    "text": "Priya Raman (9:12 A.M.)\nThe printer for the trade fair booth hasn't arrived. The courier site still says \"in transit.\"\n\nTom Okonkwo (9:14 A.M.)\nWe need it printing badges by 1 P.M. or people queue at the door.\n\nPriya Raman (9:15 A.M.)\nI know. I'm on hold with the courier now.\n\nMarta Silva (9:18 A.M.)\nThe convention centre has a business desk on level 2 that rents printers by the day. Not cheap, about $95, but it's forty metres from our booth.\n\nTom Okonkwo (9:19 A.M.)\nThat's under our contingency line. Book it.\n\nPriya Raman (9:21 A.M.)\nCourier just answered — the van broke down outside Halton, delivery Thursday at the earliest.\n\nTom Okonkwo (9:22 A.M.)\nThen Marta's plan is the plan. Priya, ask them to hold the parcel at the depot; we'll collect it after the fair.\n\nMarta Silva (9:24 A.M.)\nWalking to level 2 now. I'll message when it's confirmed.",
+    "questions": [
+      {
+        "q": "What is the group discussing?",
+        "options": [
+          "A late shipment of equipment",
+          "A change to the fair schedule",
+          "A booking error at a hotel",
+          "A budget cut"
+        ],
+        "answer": 0,
+        "skill": "r-main"
+      },
+      {
+        "q": "At 9:19 A.M., what does Mr. Okonkwo most likely mean when he writes, \"That's under our contingency line\"?",
+        "options": [
+          "The cost is acceptable.",
+          "The booth is too small.",
+          "The courier is at fault.",
+          "The deadline has passed."
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What will Ms. Silva do next?",
+        "options": [
+          "Call the courier company",
+          "Rent a printer at the venue",
+          "Collect the parcel from the depot",
+          "Print the badges at the office"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-33",
+    "title": "Memo: phần mềm báo cáo chi phí",
+    "kind": "memo",
+    "text": "MEMORANDUM\n\nTo: All employees who travel\nFrom: Finance Department\nRe: Switching to Ledgerly for expense claims\nDate: 8 January\n\nFrom 1 February, all expense claims must be submitted through Ledgerly. The paper claim form will no longer be accepted.\n\nWhat changes\nYou photograph a receipt with the Ledgerly app and the amount, date and currency are read automatically. You only choose the category and add a short note. Claims under $50 no longer need a manager's signature; they are approved automatically unless flagged.\n\nWhat does not change\nThe monthly cut-off stays the 25th, and payment still reaches your account with the following month's salary. Per-diem rates are unchanged.\n\nTraining\nThree 30-minute sessions will run on 20, 21 and 22 January at 10:00 A.M. in Meeting Room B. Attend whichever suits you; the content is identical. Anyone who cannot attend should watch the recording on the intranet before 1 February.\n\nClaims for January expenses may still use the old form until the 25th of this month.",
+    "questions": [
+      {
+        "q": "What is the memo mainly about?",
+        "options": [
+          "A new expense claim system",
+          "A change to travel allowances",
+          "A reduction in salaries",
+          "A new meeting room"
+        ],
+        "answer": 0,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is stated about claims below fifty dollars?",
+        "options": [
+          "They are no longer reimbursed.",
+          "They need two signatures.",
+          "They are approved without a manager.",
+          "They must be submitted on paper."
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is suggested about the three training sessions?",
+        "options": [
+          "They cover different topics.",
+          "Employees need attend only one.",
+          "They are held in the afternoon.",
+          "Attendance is compulsory for all staff."
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-34",
+    "title": "Trang web: chính sách đổi trả",
+    "kind": "web",
+    "text": "https://www.baldrick-outdoors.com/returns\n\nRETURNS & EXCHANGES\n\nWe want the gear to be right. If it is not, here is how to send it back.\n\nWithin 30 days — full refund\nItems must be unused, with tags attached, in the original packaging. Refunds are issued to the original payment method within five working days of arrival at our warehouse.\n\nDays 31–90 — store credit\nSame condition rules apply. Credit is valid for two years and can be combined with sale prices.\n\nAlways free: return postage on orders over $75. Below that amount, $6 is deducted from the refund.\n\nCannot be returned: climbing rope cut to length, personalised items, and any footwear worn outdoors. Boots tried on indoors are fine — we check the soles.\n\nFaulty goods are outside this policy and are covered by our three-year guarantee. Contact us with photographs before sending anything back.\n\nStart a return: log in, open \"My orders\", and select Return. A printable label appears immediately.",
+    "questions": [
+      {
+        "q": "What is offered for an item returned after 45 days?",
+        "options": [
+          "A full cash refund",
+          "Credit at the shop",
+          "A replacement item",
+          "Nothing at all"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is indicated about return postage?",
+        "options": [
+          "It is always free.",
+          "It costs $6 on small orders.",
+          "It is charged on every return.",
+          "It is refunded after 90 days."
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Which item may still be returned?",
+        "options": [
+          "Rope cut to a customer's length",
+          "A jacket with the customer's name printed on it",
+          "Boots tried on inside the house",
+          "Shoes worn on a mountain trail"
+        ],
+        "answer": 2,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-35",
+    "title": "Thư cảm ơn nhà cung cấp",
+    "kind": "letter",
+    "text": "Wexley Interiors\n40 Carron Street, Dunmore\n\n18 November\n\nMs. Hanna Ivarsdottir\nProduction Manager\nNordfelt Textiles\n\nDear Ms. Ivarsdottir,\n\nI am writing to thank you and your team for the way you handled our order for the Aldgate Hotel project.\n\nWhen the hotel changed its opening date, we asked you to bring forward 900 metres of upholstery fabric by nearly three weeks. You confirmed within a day, and the delivery arrived on 2 November, two days ahead of even the revised date. The colour matched the sample exactly, which is rarely the case with a rushed batch.\n\nThe hotel opened on schedule, and our client has already asked which mill produced the fabric. I have given them your details.\n\nWe expect to specify Nordfelt for two further projects in the spring and would like to discuss volume pricing before we quote. Would a call in early December suit you? My assistant, Colm Byrne, can arrange a time.\n\nWith thanks and best wishes,\n\nAudrey Wexley\nDirector",
+    "questions": [
+      {
+        "q": "Why did Ms. Wexley write the letter?",
+        "options": [
+          "To place a new order",
+          "To express appreciation for a supplier's work",
+          "To complain about a colour mismatch",
+          "To request a refund"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is indicated about the delivery?",
+        "options": [
+          "It arrived earlier than the new deadline.",
+          "It was three weeks late.",
+          "It was the wrong colour.",
+          "It was sent to the hotel by mistake."
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does Ms. Wexley propose?",
+        "options": [
+          "Visiting the mill in November",
+          "Sending a new fabric sample",
+          "Talking about prices in December",
+          "Cancelling the spring projects"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-36",
+    "title": "Đánh giá trực tuyến: địa điểm hội nghị",
+    "kind": "review",
+    "text": "Venue review — Calder Hall Conference Centre\nPosted by Nkechi Obi, events lead at Bramwell Analytics\nRating: 4 out of 5\n\nWe ran a two-day user conference here in March for 280 delegates, and I would book it again with one reservation.\n\nWhat worked: the main auditorium seats 320 and the sightlines are good from every row. The audio-visual team is in-house rather than subcontracted, which meant our speakers could rehearse at 7 A.M. on both mornings without an extra charge — I have never had that anywhere else. Catering was punctual and the vegetarian option was genuinely planned, not an afterthought.\n\nWhat did not: the three breakout rooms are on the floor above and are reached by a single narrow staircase. Moving 280 people between sessions took eleven minutes rather than the five we had allowed, and we lost most of a session on day one before we rewrote the timings.\n\nMy advice: if your programme has more than two parallel tracks, walk the route before you finalise the schedule. For a single-track event, Calder Hall is excellent value.",
+    "questions": [
+      {
+        "q": "What did Ms. Obi praise about the venue?",
+        "options": [
+          "Its central location",
+          "Its overnight accommodation",
+          "Its in-house technical staff",
+          "Its low room rate"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What problem does the review describe?",
+        "options": [
+          "The auditorium was too small.",
+          "Moving between rooms took too long.",
+          "The catering arrived late.",
+          "Rehearsals cost extra."
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "For whom does Ms. Obi recommend the venue?",
+        "options": [
+          "Events with one track of sessions",
+          "Events with many parallel sessions",
+          "Events of more than 320 people",
+          "Events lasting a single morning"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-37",
+    "title": "Bài báo: hãng vận tải đổi hướng",
+    "kind": "article",
+    "text": "FROM WAREHOUSES TO WORKSHOPS: HOW MERIDIAN FREIGHT CHANGED COURSE\n\nBy Samuel Achterberg\n\nFor three decades Meridian Freight did one thing: move pallets between ports and regional warehouses. — [1] — In 2023 the company began doing something its founders would not recognise — repairing the goods it carries.\n\nThe change started with complaints. Roughly one appliance in forty arrived with cosmetic damage, and retailers routinely sent the whole unit back to the manufacturer, often abroad. — [2] — Meridian's operations director, Wilhelmina Fosu, calculated that the return journey cost more than the dent.\n\nThe company now runs three repair workshops attached to its distribution centres. Minor damage is fixed on site within 48 hours and the item continues to the shop. — [3] — Manufacturers pay a fixed fee per repair, well below the cost of shipping a unit back across a continent.\n\nRepairs brought in 18 percent of revenue last year, up from nothing two years earlier. — [4] — Ms. Fosu is cautious about the pace. \"We are a logistics company that repairs things,\" she said. \"The moment we forget that order, we will be bad at both.\"\n\nTwo rivals have announced similar schemes for next year.",
+    "questions": [
+      {
+        "q": "What is the article mainly about?",
+        "options": [
+          "A company adding a new type of service",
+          "A merger between two carriers",
+          "A shortage of warehouse space",
+          "A new government regulation"
+        ],
+        "answer": 0,
+        "skill": "r-main"
+      },
+      {
+        "q": "What led Meridian to change its approach?",
+        "options": [
+          "A drop in shipping demand",
+          "The cost of returning damaged goods",
+          "A request from its employees",
+          "New safety rules at ports"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does Ms. Fosu suggest about the company's priorities?",
+        "options": [
+          "Repairs should become the main business.",
+          "Logistics must remain the core activity.",
+          "The workshops will close next year.",
+          "Prices will rise for retailers."
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Only units beyond economical repair now make the long trip home.\"",
+        "options": [
+          "[1]",
+          "[2]",
+          "[3]",
+          "[4]"
+        ],
+        "answer": 2,
+        "skill": "r-insert"
+      }
+    ]
+  },
+  {
+    "id": "p7-38",
+    "title": "Tin tuyển dụng + email ứng tuyển (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Tin tuyển dụng ---\nHALVORD & REES — QUALITY ANALYST (Bakery Division)\nLocation: Sennfield plant · Full time · Posted 4 June\n\nHalvord & Rees supplies packaged bread to 900 supermarkets. We are looking for a Quality Analyst to join the six-person team that signs off every batch before it leaves the plant.\n\nYou will:\n• run daily moisture and texture tests on production samples\n• write the weekly quality summary for the plant manager\n• host supermarket auditors twice a year\n\nWe ask for:\n• a degree in food science, chemistry or a related field\n• at least two years in a production environment (bakery experience is not required)\n• willingness to work one Saturday in four\n\nWe offer $46,000–$52,000 depending on experience, plant bonus, and the cost of one professional certification per year.\n\nSend a CV and a short cover note to careers@halvordrees.com by 27 June. Interviews will be held in the week of 7 July; candidates who cannot attend that week should say so in their note.\n\n--- Văn bản 2: Email ứng tuyển ---\nTo: careers@halvordrees.com\nFrom: b.szabo@mailworks.net\nSubject: Quality Analyst — application\nDate: 19 June\n\nDear Hiring Team,\n\nPlease find my CV attached for the Quality Analyst position at the Sennfield plant.\n\nI hold a degree in chemistry and have spent the last four years as a laboratory technician at a dairy, where I ran moisture and fat-content testing on every production line and prepared the monthly report our retail customers received. I have also sat in on two supermarket audits, though I did not lead them.\n\nI have no experience with bread specifically, but the testing routines look close to what I do now.\n\nOne note on timing: I am away from 5 to 12 July and could not attend an interview that week. Any date from 14 July would suit me.\n\nKind regards,\nBence Szabo",
+    "questions": [
+      {
+        "q": "What is one duty of the advertised position?",
+        "options": [
+          "Delivering bread to supermarkets",
+          "Preparing a weekly quality report",
+          "Hiring plant employees",
+          "Designing new packaging"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does the advertisement indicate about bakery experience?",
+        "options": [
+          "It is essential.",
+          "It is not necessary.",
+          "It replaces the degree requirement.",
+          "It increases the salary offered."
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What requirement does Mr. Szabo clearly meet?",
+        "options": [
+          "Two years in a production environment",
+          "Experience leading audits",
+          "A qualification in food science",
+          "Previous work in a bakery"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      },
+      {
+        "q": "Why does Mr. Szabo mention the dates 5 to 12 July?",
+        "options": [
+          "He can start work then.",
+          "He will be unavailable for an interview.",
+          "He is attending a certification course.",
+          "He must give notice to his employer."
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is suggested about Mr. Szabo's application?",
+        "options": [
+          "It arrived after the deadline.",
+          "It was sent before the closing date.",
+          "It was missing a CV.",
+          "It was sent to the wrong address."
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-39",
+    "title": "Hoá đơn + email khiếu nại (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Hoá đơn ---\nPELLWORTH OFFICE SUPPLIES\nInvoice #PW-88214 · Date: 3 August · Due: 2 September\nBill to: Trantor Legal, 8 Kingsway Court\n\nItem                              Qty    Unit      Total\nA4 copier paper (box of 5 reams)   20   $21.00   $420.00\nToner cartridge TX-500              6   $58.00   $348.00\nDesk lamp, adjustable arm           4   $39.00   $156.00\nStandard delivery                   —        —    $18.00\n                                        Subtotal $942.00\n\nAccounts with the Pellworth Business Plan receive 10% off stationery items (paper, files, pens). Equipment and delivery are excluded from the discount.\n\nPayment by bank transfer to the account on the reverse. A 2% late fee applies after the due date.\n\n--- Văn bản 2: Email ---\nTo: accounts@pellworth.com\nFrom: f.demir@trantorlegal.com\nSubject: Invoice PW-88214 — two problems\nDate: 6 August\n\nHello,\n\nThank you for the quick delivery on 3 August. Two issues before we pay.\n\nFirst, we have been on the Business Plan since March, but the discount does not appear anywhere on this invoice. By my reading it should come off the paper line.\n\nSecond, we ordered three desk lamps, not four. The fourth arrived boxed and unopened; we are happy to return it if you send a collection label, or to keep it if you would rather not pay for the courier.\n\nCould you send a corrected invoice? Our finance team pays on the 25th, so anything received by the 20th will go out in that run.\n\nRegards,\nFiliz Demir\nOffice Manager, Trantor Legal",
+    "questions": [
+      {
+        "q": "What did Pellworth Office Supplies send to Trantor Legal?",
+        "options": [
+          "A price list",
+          "A bill for goods delivered",
+          "A delivery schedule",
+          "A contract renewal"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "Which item on the invoice qualifies for the discount Ms. Demir mentions?",
+        "options": [
+          "The copier paper",
+          "The toner cartridges",
+          "The desk lamps",
+          "The delivery charge"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is the second problem Ms. Demir reports?",
+        "options": [
+          "An item arrived damaged.",
+          "The delivery was late.",
+          "More lamps were sent than ordered.",
+          "The toner was the wrong model."
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does Ms. Demir offer to do?",
+        "options": [
+          "Pay the invoice immediately",
+          "Cancel the Business Plan",
+          "Return an item if collection is arranged",
+          "Collect the order herself"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "By when does Ms. Demir want the corrected invoice?",
+        "options": [
+          "3 August",
+          "20 August",
+          "25 August",
+          "2 September"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-40",
+    "title": "Lịch hội thảo + email + thư trả lời (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Lịch chương trình ---\nCOASTAL RETAIL FORUM — Thursday 9 October, Marram Centre\n\n09:30  Registration and coffee\n10:00  Opening: What shoppers changed in 2026 — Dr. Ines Kowalczyk\n11:15  Workshop A: Pricing for small chains — Room 1\n11:15  Workshop B: Hiring seasonal staff — Room 2\n12:30  Lunch\n13:30  Panel: Town centres after the retail parks\n15:00  Workshop C: Stock systems on a budget — Room 1\n16:30  Close\n\nWorkshops A and B run at the same time; delegates choose one when booking. Workshop C is open to everyone.\n\n--- Văn bản 2: Email ---\nTo: bookings@coastalretailforum.org\nFrom: j.mbeki@fenlowgrocers.com\nSubject: Booking for three — Fenlow Grocers\nDate: 15 September\n\nHello,\n\nPlease book three places for our team: myself, Dara Quinn and Toby Ellis.\n\nDara and I would like Workshop B, as we take on twelve people every summer and never get it right. Toby runs our two smallest shops and should go to Workshop A.\n\nOne of us has a train that leaves at 15:40, so we may have to slip out of the last session early — I hope that is not a problem.\n\nCould you also confirm whether lunch covers a gluten-free option? Dara needs one.\n\nThanks,\nJoseph Mbeki\n\n--- Văn bản 3: Thư trả lời ---\nTo: j.mbeki@fenlowgrocers.com\nFrom: bookings@coastalretailforum.org\nSubject: RE: Booking for three — Fenlow Grocers\nDate: 16 September\n\nDear Mr. Mbeki,\n\nAll three places are confirmed, with the workshop choices as you set them out.\n\nLunch is buffet style and always includes gluten-free dishes, clearly labelled. Please ask Ms. Quinn to speak to the catering desk on arrival so we can point them out.\n\nLeaving the afternoon session early is fine — Room 1 has a side door onto the corridor, so no one needs to cross in front of the speaker.\n\nOne change since the programme was printed: the panel has moved to 13:15 to allow a longer break afterwards. Everything else runs as listed.\n\nWith best wishes,\nMarguerite Osei, Delegate Services",
+    "questions": [
+      {
+        "q": "What is the purpose of Mr. Mbeki's e-mail?",
+        "options": [
+          "To reserve places at an event",
+          "To ask for a refund",
+          "To propose a talk",
+          "To cancel a booking"
+        ],
+        "answer": 0,
+        "skill": "r-main"
+      },
+      {
+        "q": "Which workshop will Mr. Ellis attend?",
+        "options": [
+          "Workshop A",
+          "Workshop B",
+          "Both A and B",
+          "Neither"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Which session are the delegates likely to leave early?",
+        "options": [
+          "The opening talk",
+          "The panel discussion",
+          "Workshop C",
+          "Registration"
+        ],
+        "answer": 2,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is Ms. Quinn advised to do?",
+        "options": [
+          "Bring her own lunch",
+          "Arrive before 09:30",
+          "Speak to the catering desk",
+          "Change her workshop choice"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "According to Ms. Osei, what has changed?",
+        "options": [
+          "The start time of the panel",
+          "The room used for Workshop A",
+          "The date of the forum",
+          "The price of a place"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-41",
+    "title": "Trang catalogue + phiếu đặt hàng + thông báo (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Trang catalogue ---\nBRAMBLE & CO — CAFÉ CHAIRS, SPRING RANGE\n\nCode   Model        Material        Stackable   Price each\nBC-11  Harrow       Beech           Yes         $58\nBC-14  Selby        Beech + rattan  No          $86\nBC-20  Delph        Powder steel    Yes         $64\nBC-25  Marris       Oak             No          $112\n\nOrders of 12 or more of a single model: 8% off that model.\nLead time: stackable models 2 weeks, non-stackable 5 weeks (made to order).\nDelivery is free within 60 km of our workshop; beyond that, $2.10 per km.\n\n--- Văn bản 2: Phiếu đặt hàng ---\nORDER FORM — Bramble & Co\nCustomer: The Signal Box Café, 41 Weir Lane, Padmore (78 km from workshop)\nContact: Órla Fitzgerald · Date: 12 March\n\nCode    Model    Qty\nBC-20   Delph    14\nBC-14   Selby     4\n\nNotes from customer: We reopen on 20 April after refurbishment and need everything on site by 17 April at the latest. If the second model cannot arrive in time, send the first on its own and we will take the rest later.\n\n--- Văn bản 3: Thông báo gửi khách hàng ---\nTo: All customers ordering in March\nFrom: Bramble & Co Workshop\nDate: 14 March\n\nOur rattan supplier has stopped shipping while its factory is repaired. Any model containing rattan is delayed by a further three weeks; all other models are unaffected and continue at the usual lead time.\n\nWe are contacting affected customers individually. If a delay does not work for you, we will split the order at no extra delivery cost, or substitute a beech seat at the same price.",
+    "questions": [
+      {
+        "q": "What is indicated about the Delph chairs?",
+        "options": [
+          "They are made of oak.",
+          "They can be stacked.",
+          "They are made to order.",
+          "They are the most expensive model."
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What discount does the Signal Box Café qualify for?",
+        "options": [
+          "Eight percent off the Delph chairs",
+          "Eight percent off the Selby chairs",
+          "Eight percent off the whole order",
+          "No discount at all"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What will the café most likely have to pay for?",
+        "options": [
+          "Assembly of the chairs",
+          "Delivery to Padmore",
+          "Storage at the workshop",
+          "A design consultation"
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "Which part of the café's order is affected by the notice?",
+        "options": [
+          "The Delph chairs",
+          "The Selby chairs",
+          "Both models",
+          "Neither model"
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What does the workshop offer affected customers?",
+        "options": [
+          "A full refund",
+          "A different material at the same price",
+          "Free assembly on site",
+          "A discount on their next order"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-42",
+    "title": "Lịch tập huấn + memo + phiếu góp ý (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Lịch tập huấn ---\nHOLLOWAY HEALTHCARE — SPRING TRAINING, WARD STAFF\nAll sessions in the Education Suite, 45 minutes each.\n\nMon 3 March, 07:30   Fire safety refresher (annual, compulsory)\nMon 3 March, 14:00   Fire safety refresher (repeat)\nWed 5 March, 07:30   New patient record system — part 1\nWed 5 March, 14:00   New patient record system — part 1 (repeat)\nFri 7 March, 07:30   New patient record system — part 2\nFri 7 March, 14:00   New patient record system — part 2 (repeat)\n\nStaff on night shift should attend the 07:30 session at the end of their shift. Part 2 assumes you have completed part 1.\n\n--- Văn bản 2: Memo ---\nTo: Ward managers\nFrom: Ngozi Adeyemi, Head of Education\nDate: 26 February\nRe: Spring training — attendance\n\nThe record system goes live on 17 March, so both parts must be completed by 14 March. Fire safety is a yearly legal requirement and has no exceptions.\n\nPlease do not send more than four people from one ward to the same session; the suite seats twenty and we have six wards.\n\nIf someone misses part 1, they should not attend part 2 — the material will not make sense. Book them into the make-up session on 12 March at 12:00 instead, which covers both parts in ninety minutes.\n\nA short feedback form will be handed out at the end of every session. Please encourage staff to complete it before leaving the room; response rates collapse once people go back to the ward.\n\n--- Văn bản 3: Phiếu góp ý ---\nTRAINING FEEDBACK — New patient record system, part 1\nSession attended: Wed 5 March, 14:00\nWard: Rosewood\n\n1. The pace of the session was: too slow / about right / too fast → too fast\n2. I feel confident using the system: yes / partly / no → partly\n3. Comments:\nThe trainer knew the system well, but eighteen of us shared five practice terminals, so most of the time I was watching someone else type. Could the next session be split so everyone gets a screen? I will book the make-up session before part 2 so I can practise properly.",
+    "questions": [
+      {
+        "q": "What is the purpose of the memo?",
+        "options": [
+          "To explain how staff should be booked onto training",
+          "To announce a new hospital ward",
+          "To advertise a job opening",
+          "To report the results of an inspection"
+        ],
+        "answer": 0,
+        "skill": "r-main"
+      },
+      {
+        "q": "What does Ms. Adeyemi say about the fire safety session?",
+        "options": [
+          "It is optional for night staff.",
+          "It must be attended by everyone.",
+          "It has been moved to March 12.",
+          "It lasts ninety minutes."
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Why does Ms. Adeyemi limit each ward to four attendees per session?",
+        "options": [
+          "The trainer works part time.",
+          "The room has limited seats.",
+          "Wards must stay fully staffed.",
+          "The system allows four users."
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What problem does the feedback form describe?",
+        "options": [
+          "The trainer arrived late.",
+          "The session was cancelled.",
+          "There were too few computers.",
+          "The room was too cold."
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What will the person who wrote the feedback most likely do?",
+        "options": [
+          "Attend the session on 12 March",
+          "Skip part 2 entirely",
+          "Repeat the fire safety course",
+          "Ask to change wards"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      }
+    ]
   }
 ]
