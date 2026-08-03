@@ -49,6 +49,17 @@ const MINI_TEST_SECONDS = 30 * 60
 const FULL_SECTION_SECONDS = { listening: 45 * 60, reading: 75 * 60 }
 const ETS_LISTENING_SECONDS = 45 * 60
 const ETS_PART5_SECONDS = 12 * 60
+const MEDIA_MISSING = 'Máy này chưa có audio và ảnh của đề ETS (thư mục media/ không nằm trong git vì nặng 396 MB). '
+  + 'Giải nén gói bằng: python tools/toeic_ets/bundle.py restore toeic-ets-bundle.zip'
+
+async function mediaReady(url: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, { method: 'HEAD' })
+    return res.ok
+  } catch {
+    return false
+  }
+}
 
 export default function ToeicPage() {
   const { recordEvent } = useAppStore()
@@ -96,10 +107,16 @@ export default function ToeicPage() {
     setEtsGroups([])
     setEtsError(null)
     loadEtsTest(session.test)
-      .then((doc) => {
+      .then(async (doc) => {
         if (!alive) return
         if (session.section === 'listening') {
           const built = buildEtsListening(doc)
+          const probe = built.groups[0]?.mp3?.[0]
+          if (probe && !(await mediaReady(probe))) {
+            if (alive) setEtsError(MEDIA_MISSING)
+            return
+          }
+          if (!alive) return
           setEtsGroups(built.groups)
           setEtsSkippedP1(built.skipped.part1)
         } else {
