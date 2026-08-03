@@ -1,0 +1,82 @@
+[
+ {
+  "id": "ets26-t01",
+  "test": 1,
+  "name": "ETS 2026 · Test 1",
+  "listening": 100,
+  "part1": 6,
+  "part5": 28
+ },
+ {
+  "id": "ets26-t02",
+  "test": 2,
+  "name": "ETS 2026 · Test 2",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t03",
+  "test": 3,
+  "name": "ETS 2026 · Test 3",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t04",
+  "test": 4,
+  "name": "ETS 2026 · Test 4",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t05",
+  "test": 5,
+  "name": "ETS 2026 · Test 5",
+  "listening": 100,
+  "part1": 6,
+  "part5": 29
+ },
+ {
+  "id": "ets26-t06",
+  "test": 6,
+  "name": "ETS 2026 · Test 6",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t07",
+  "test": 7,
+  "name": "ETS 2026 · Test 7",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t08",
+  "test": 8,
+  "name": "ETS 2026 · Test 8",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t09",
+  "test": 9,
+  "name": "ETS 2026 · Test 9",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ },
+ {
+  "id": "ets26-t10",
+  "test": 10,
+  "name": "ETS 2026 · Test 10",
+  "listening": 100,
+  "part1": 6,
+  "part5": 30
+ }
+]
