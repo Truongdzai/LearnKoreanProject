@@ -7,31 +7,31 @@
     "blanks": [
       {
         "options": [
-          "confirming",
           "confirmed",
-          "confirmation",
-          "confirm"
+          "confirming",
+          "confirm",
+          "confirmation"
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "word-form",
         "explain": "\"pleased to + V nguyên thể\": vui mừng XÁC NHẬN → to confirm."
       },
       {
         "options": [
-          "left",
-          "leaving",
+          "leaves",
           "leave",
-          "leaves"
+          "leaving",
+          "left"
         ],
-        "answer": 3,
+        "answer": 0,
         "skill": "tense",
         "explain": "Mệnh đề thời gian \"as soon as\" nói việc tương lai nhưng chia HIỆN TẠI ĐƠN; chủ ngữ \"the package\" số ít → leaves."
       },
       {
         "options": [
+          "Similarly",
           "Therefore",
           "For instance",
-          "Similarly",
           "However"
         ],
         "answer": 3,
@@ -70,10 +70,10 @@
       },
       {
         "options": [
-          "operationally",
+          "operation",
           "operational",
-          "operate",
-          "operation"
+          "operationally",
+          "operate"
         ],
         "answer": 1,
         "skill": "word-form",
@@ -82,11 +82,11 @@
       {
         "options": [
           "requires",
-          "requiring",
           "required",
+          "requiring",
           "requirement"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "passive",
         "explain": "\"is required by…\" — bị động: ĐƯỢC YÊU CẦU bởi quy định thành phố."
       },
@@ -111,20 +111,20 @@
     "blanks": [
       {
         "options": [
-          "leading",
           "led",
+          "leading",
           "leads",
           "lead"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "passive",
         "explain": "\"will be led by…\" — bị động: workshop ĐƯỢC DẪN DẮT bởi bà Whitfield → led (V3)."
       },
       {
         "options": [
-          "as long as",
           "as well as",
           "so far as",
+          "as long as",
           "as soon as"
         ],
         "answer": 3,
@@ -134,9 +134,9 @@
       {
         "options": [
           "completes",
-          "complete",
+          "completing they",
           "who complete",
-          "completing they"
+          "complete"
         ],
         "answer": 2,
         "skill": "relative",
@@ -163,23 +163,23 @@
     "blanks": [
       {
         "options": [
-          "nineteen",
           "ninety",
-          "ninth",
-          "nine"
+          "nine",
+          "nineteen",
+          "ninth"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "word-form",
         "explain": "\"its ninth location\" — chi nhánh THỨ CHÍN → số thứ tự ninth."
       },
       {
         "options": [
-          "save",
-          "savings",
+          "saving",
           "saved",
-          "saving"
+          "save",
+          "savings"
         ],
-        "answer": 3,
+        "answer": 0,
         "skill": "word-form",
         "explain": "\"a saving of fifty dollars\" — khoản tiết kiệm 50 đô. Sau mạo từ \"a\" cần danh từ số ít."
       },
@@ -187,8 +187,8 @@
         "options": [
           "much",
           "any",
-          "few",
-          "little"
+          "little",
+          "few"
         ],
         "answer": 1,
         "skill": "vocab",
@@ -216,8 +216,8 @@
       {
         "options": [
           "on",
-          "until",
           "at",
+          "until",
           "in"
         ],
         "answer": 0,
@@ -226,23 +226,23 @@
       },
       {
         "options": [
-          "receive",
-          "receipt",
           "received",
-          "receiving"
+          "receive",
+          "receiving",
+          "receipt"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "word-form",
         "explain": "Sau trợ động từ \"will\" cần động từ nguyên thể: will receive."
       },
       {
         "options": [
+          "However",
           "Therefore",
           "Otherwise",
-          "Similarly",
-          "However"
+          "Similarly"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "conj",
         "explain": "Giá sắp tăng → VÌ VẬY gia hạn ngay để giữ giá cũ: Therefore."
       },
@@ -278,9 +278,9 @@
       },
       {
         "options": [
-          "basic",
           "base",
           "basing",
+          "basic",
           "basis"
         ],
         "answer": 3,
@@ -290,9 +290,9 @@
       {
         "options": [
           "will become",
-          "becoming",
+          "would have become",
           "became",
-          "would have become"
+          "becoming"
         ],
         "answer": 0,
         "skill": "tense",
@@ -319,23 +319,23 @@
     "blanks": [
       {
         "options": [
-          "growth",
           "grown",
+          "grow",
           "growing",
-          "grow"
+          "growth"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "tense",
         "explain": "has + V3 (hiện tại hoàn thành) — dấu hiệu \"Over the past year\" chỉ khoảng thời gian kéo dài tới hiện tại."
       },
       {
         "options": [
-          "following",
-          "follows",
           "to follow",
-          "followed"
+          "follows",
+          "followed",
+          "following"
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "passive",
         "explain": "Rút gọn mệnh đề bị động: \"…a short tour, (which will be) followed by refreshments\" — chuyến tham quan ĐƯỢC tiếp nối bởi tiệc nhẹ."
       },
@@ -352,12 +352,12 @@
       },
       {
         "options": [
-          "provide",
           "provision",
-          "provided",
-          "providing"
+          "provide",
+          "providing",
+          "provided"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "word-form",
         "explain": "Sau \"can\" phải là động từ NGUYÊN THỂ → provide. provide + người + with + số liệu."
       }
@@ -371,23 +371,23 @@
     "blanks": [
       {
         "options": [
-          "in",
-          "at",
           "on",
+          "at",
+          "in",
           "with"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "prep",
         "explain": "\"on orders of six or more\" — giới từ on dùng khi nói điều kiện áp dụng cho ĐƠN HÀNG (free delivery on orders over…)."
       },
       {
         "options": [
-          "less",
+          "little",
           "fewer",
-          "few",
-          "little"
+          "less",
+          "few"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "comparative",
         "explain": "\"than\" → so sánh hơn. Với thời lượng (two minutes) coi là không đếm được → less than two minutes."
       },
@@ -405,11 +405,11 @@
       {
         "options": [
           "scheduling",
+          "scheduled",
           "schedule",
-          "schedules",
-          "scheduled"
+          "schedules"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "gerund",
         "explain": "to + V nguyên thể (to schedule a demo). \"to\" ở đây là dấu hiệu động từ nguyên thể chỉ mục đích, không phải giới từ."
       }
@@ -423,8 +423,8 @@
     "blanks": [
       {
         "options": [
-          "highly",
           "higher",
+          "highly",
           "highest",
           "high"
         ],
@@ -446,9 +446,9 @@
       {
         "options": [
           "during",
-          "by",
+          "since",
           "for",
-          "since"
+          "by"
         ],
         "answer": 2,
         "skill": "prep",
@@ -456,12 +456,12 @@
       },
       {
         "options": [
-          "will be published",
           "publishing",
           "publishes",
-          "have published"
+          "have published",
+          "will be published"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "passive",
         "explain": "Kết quả được ĐĂNG (không tự đăng) + mốc tương lai \"next week\" → bị động tương lai will be published."
       }
@@ -475,23 +475,23 @@
     "blanks": [
       {
         "options": [
-          "effect",
-          "effectively",
           "effective",
-          "effectiveness"
+          "effectiveness",
+          "effectively",
+          "effect"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "word-form",
         "explain": "\"effective + mốc thời gian\" = có hiệu lực từ (effective 1 September) — cụm cố định trong văn bản công sở."
       },
       {
         "options": [
-          "acceptable",
           "acceptance",
           "accepting",
+          "acceptable",
           "accept"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "word-form",
         "explain": "Sau động từ nối remain cần TÍNH TỪ bổ ngữ → remain acceptable (vẫn được chấp nhận)."
       },
@@ -538,12 +538,12 @@
       },
       {
         "options": [
-          "quiet",
-          "quietest",
           "quieter",
-          "quietly"
+          "quietly",
+          "quietest",
+          "quiet"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "comparative",
         "explain": "Có \"than\" phía sau ⇒ bắt buộc dùng dạng SO SÁNH HƠN: quieter. quietest cần \"the\" và không đi với than."
       },
@@ -561,11 +561,11 @@
       {
         "options": [
           "removing",
-          "will remove",
           "has removed",
-          "will be removed"
+          "will be removed",
+          "will remove"
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "passive",
         "explain": "Chủ ngữ \"any vehicle\" BỊ kéo đi chứ không tự kéo ai ⇒ bị động will be removed. Cụm \"at the owner's expense\" cũng là dấu hiệu của câu bị động."
       }
@@ -601,21 +601,21 @@
       },
       {
         "options": [
-          "introduced",
           "are introducing",
-          "will introduce",
-          "introduce"
+          "introduced",
+          "introduce",
+          "will introduce"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "tense",
         "explain": "\"in March\" là mốc quá khứ đã qua (câu sau nói \"early figures suggest\") ⇒ quá khứ đơn introduced."
       },
       {
         "options": [
-          "last",
-          "next",
           "recent",
-          "previous"
+          "next",
+          "previous",
+          "last"
         ],
         "answer": 1,
         "skill": "vocab",
@@ -631,12 +631,12 @@
     "blanks": [
       {
         "options": [
-          "expand",
-          "depart",
+          "arrive",
           "proceed",
-          "arrive"
+          "expand",
+          "depart"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "vocab",
         "explain": "\"proceed in stages\" = tiến hành theo từng giai đoạn. Sau \"will\" dùng động từ nguyên thể. Các từ còn lại không đi với \"in stages\"."
       },
@@ -644,21 +644,21 @@
         "options": [
           "The north tower car park will also be closed.",
           "All tenants must renew their parking permits this month.",
-          "The lifts were originally installed in 1998.",
-          "Deliveries should therefore be scheduled outside these hours."
+          "Deliveries should therefore be scheduled outside these hours.",
+          "The lifts were originally installed in 1998."
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "sentence",
         "explain": "Câu trước nói giờ cao điểm 8-10 giờ sáng, câu sau khuyên đi thang bộ → câu chèn phải nói cách TRÁNH khung giờ đó. Các phương án kia đổi chủ đề sang bãi xe, giấy phép, lịch sử toà nhà."
       },
       {
         "options": [
-          "expectation",
-          "expected",
           "expecting",
-          "expects"
+          "expects",
+          "expectation",
+          "expected"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "word-form",
         "explain": "\"be expected to + V\" = dự kiến sẽ. Chủ ngữ \"the project\" bị động → expected."
       },
@@ -666,10 +666,10 @@
         "options": [
           "with",
           "to",
-          "by",
-          "for"
+          "for",
+          "by"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "prep",
         "explain": "Bị động \"be affected BY + tác nhân\". Đây là cụm cố định, không dùng for/with/to."
       }
@@ -683,12 +683,12 @@
     "blanks": [
       {
         "options": [
-          "on",
           "under",
+          "on",
           "into",
           "above"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "prep",
         "explain": "\"under review\" = đang được xem xét — cụm cố định. \"on/into/above review\" đều không tồn tại."
       },
@@ -705,23 +705,23 @@
       },
       {
         "options": [
-          "despite",
-          "if",
+          "so",
           "whether",
-          "so"
+          "despite",
+          "if"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "conj",
         "explain": "Cần liên từ chỉ ĐIỀU KIỆN nối hai mệnh đề: liên hệ lại NẾU có vị trí tương tự. \"despite\" đi với danh từ, \"whether\" mang nghĩa \"liệu có\"."
       },
       {
         "options": [
-          "interest",
           "interesting",
+          "interestingly",
           "interested",
-          "interestingly"
+          "interest"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "word-form",
         "explain": "Sau tính từ sở hữu \"your\" phải là DANH TỪ → interest. \"your interest in…\" = sự quan tâm của bạn đến…"
       }
@@ -735,23 +735,23 @@
     "blanks": [
       {
         "options": [
-          "accepted",
           "accept",
+          "accepted",
           "accepting",
           "acceptance"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "passive",
         "explain": "\"will no longer be + V3\" — bị động: đơn giấy KHÔNG CÒN ĐƯỢC chấp nhận → accepted."
       },
       {
         "options": [
-          "fast",
-          "fastly",
+          "faster",
           "fastest",
-          "faster"
+          "fast",
+          "fastly"
         ],
-        "answer": 3,
+        "answer": 0,
         "skill": "comparative",
         "explain": "Có \"than\" phía sau → bắt buộc dùng dạng SO SÁNH HƠN. \"fastly\" không phải từ tiếng Anh."
       },
@@ -769,11 +769,11 @@
       {
         "options": [
           "since",
-          "before",
+          "until",
           "during",
-          "until"
+          "before"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "prep",
         "explain": "Phải đặt mật khẩu TRƯỚC mốc đó → before. \"until then\" nghĩa là kéo dài cho đến lúc đó, sai logic."
       }
@@ -787,12 +787,12 @@
     "blanks": [
       {
         "options": [
+          "including",
           "inclusion",
           "includes",
-          "include",
-          "including"
+          "include"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "agreement",
         "explain": "Chủ ngữ \"Every membership\" là SỐ ÍT → động từ thêm -s. \"Every + danh từ\" luôn chia số ít."
       },
@@ -809,21 +809,21 @@
       },
       {
         "options": [
-          "surprised",
           "surprise",
           "surprisingly",
+          "surprised",
           "surprising"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "word-form",
         "explain": "Chỗ trống bổ nghĩa cho TÍNH TỪ \"friendly\" → phải dùng TRẠNG TỪ: surprisingly friendly."
       },
       {
         "options": [
           "on",
-          "for",
           "in",
-          "at"
+          "at",
+          "for"
         ],
         "answer": 0,
         "skill": "prep",

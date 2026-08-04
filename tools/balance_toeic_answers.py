@@ -11,7 +11,8 @@ PARTS = ("part3", "part4", "part7")
 LETTERED = ("part1", "part2", "part5", "part6")
 SEED = 20260804
 NOTE_FIELDS = ("explain", "trap", "vi")
-BARE_LETTER = re.compile(r"(?<![A-Za-zÀ-ỹ])[A-D](?![A-Za-zÀ-ỹ0-9])")
+BARE_LETTER = re.compile(r"(?<![A-Za-zÀ-ỹ\-])[A-D](?![A-Za-zÀ-ỹ0-9\-])")
+QUOTED = re.compile(r"“[^”]*”")
 
 ENDS_DIGIT = re.compile(r"\d\s*$")
 CLOCK = re.compile(r"\d{1,2}:\d{2}")
@@ -53,7 +54,7 @@ def mentions_letter(node):
 
     for field in NOTE_FIELDS:
         text = node.get(field)
-        if isinstance(text, str) and BARE_LETTER.search(text):
+        if isinstance(text, str) and BARE_LETTER.search(QUOTED.sub(" ", text)):
             return True
     return False
 

@@ -36,8 +36,8 @@
         "q": "What will passengers receive shortly?",
         "options": [
           "Meal vouchers",
-          "Headphones",
           "New boarding passes",
+          "Headphones",
           "Free drinks"
         ],
         "answer": 3,
@@ -59,10 +59,10 @@
       {
         "q": "Why is the woman calling?",
         "options": [
-          "To reschedule a repair",
+          "To confirm an address",
           "To say a car is ready",
-          "To order a spare part",
-          "To confirm an address"
+          "To reschedule a repair",
+          "To order a spare part"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -71,9 +71,9 @@
         "q": "Why is the total lower than the estimate?",
         "options": [
           "A part did not need replacing.",
-          "A discount coupon was applied.",
           "The labor was free.",
-          "The customer paid in advance."
+          "The customer paid in advance.",
+          "A discount coupon was applied."
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -82,9 +82,9 @@
         "q": "What is the listener asked to bring?",
         "options": [
           "A claim ticket",
-          "A credit card",
           "A driver's license",
-          "The old air filter"
+          "The old air filter",
+          "A credit card"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -105,10 +105,10 @@
       {
         "q": "What will happen starting Monday?",
         "options": [
-          "A new cafeteria will open.",
+          "A staff meeting will be moved.",
           "A parking lot will be closed.",
-          "Employee badges will be reissued.",
-          "A staff meeting will be moved."
+          "A new cafeteria will open.",
+          "Employee badges will be reissued."
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -116,9 +116,9 @@
       {
         "q": "How long is the work expected to take?",
         "options": [
-          "One week",
-          "Two weeks",
           "Two days",
+          "Two weeks",
+          "One week",
           "One month"
         ],
         "answer": 1,
@@ -128,9 +128,9 @@
         "q": "What will employees receive during the construction?",
         "options": [
           "A parking refund",
-          "Taxi vouchers",
+          "Gift cards",
           "Free coffee",
-          "Gift cards"
+          "Taxi vouchers"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -162,9 +162,9 @@
       {
         "q": "How can customers get free delivery and installation?",
         "options": [
-          "By joining a membership",
-          "By visiting on Sunday",
           "By ordering online",
+          "By visiting on Sunday",
+          "By joining a membership",
           "By spending over $500"
         ],
         "answer": 3,
@@ -175,8 +175,8 @@
         "options": [
           "Sunday at 9 P.M.",
           "Saturday at noon",
-          "Monday morning",
-          "Friday evening"
+          "Friday evening",
+          "Monday morning"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -198,9 +198,9 @@
         "q": "Who most likely is the speaker?",
         "options": [
           "A tour guide",
+          "A safety inspector",
           "A factory manager",
-          "A chocolate chef",
-          "A safety inspector"
+          "A chocolate chef"
         ],
         "answer": 0,
         "skill": "l-purpose"
@@ -209,9 +209,9 @@
         "q": "What is NOT allowed on the production line?",
         "options": [
           "Taking photos",
-          "Walking",
+          "Talking",
           "Eating",
-          "Talking"
+          "Walking"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -244,9 +244,9 @@
         "q": "What is causing delays on the Harbor Bridge?",
         "options": [
           "A traffic accident",
-          "Heavy rain",
+          "A public event",
           "Lane closures for repairs",
-          "A public event"
+          "Heavy rain"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -255,8 +255,8 @@
         "q": "What does the speaker recommend?",
         "options": [
           "Working from home",
-          "Taking the bus",
           "Leaving after lunch",
+          "Taking the bus",
           "Using the Riverside Tunnel"
         ],
         "answer": 3,
@@ -266,8 +266,8 @@
         "q": "According to the speaker, when will it start raining heavily?",
         "options": [
           "In the late afternoon",
-          "Around noon",
           "In the morning",
+          "Around noon",
           "At midnight"
         ],
         "answer": 0,
@@ -289,9 +289,9 @@
       {
         "q": "What is the speaker mainly announcing?",
         "options": [
-          "A new office location",
           "A change in salary policy",
           "An employee survey",
+          "A new office location",
           "A permanent flexible work program"
         ],
         "answer": 3,
@@ -311,10 +311,10 @@
       {
         "q": "Why does the speaker mention the employee survey?",
         "options": [
-          "To criticize the trial period",
+          "To ask for more responses",
           "To announce survey winners",
           "To explain why the program will continue",
-          "To ask for more responses"
+          "To criticize the trial period"
         ],
         "answer": 2,
         "skill": "l-infer"
@@ -336,8 +336,8 @@
         "q": "What has changed about the 9:15 express?",
         "options": [
           "Its departure time",
-          "Its ticket price",
           "Its final destination",
+          "Its ticket price",
           "Its departure platform"
         ],
         "answer": 3,
@@ -348,8 +348,8 @@
         "options": [
           "Next to the ticket office",
           "Near the north exit",
-          "Under the main hall",
-          "Beside platform two"
+          "Beside platform two",
+          "Under the main hall"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -357,10 +357,10 @@
       {
         "q": "Who should passengers contact for luggage assistance?",
         "options": [
-          "The train conductor",
           "The coffee kiosk clerk",
+          "Platform security",
           "Staff in red vests",
-          "Platform security"
+          "The train conductor"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -381,10 +381,10 @@
       {
         "q": "What is being advertised?",
         "options": [
+          "A grammar textbook",
           "A translation service",
-          "A recruitment agency",
           "An online writing course",
-          "A grammar textbook"
+          "A recruitment agency"
         ],
         "answer": 2,
         "skill": "l-purpose"
@@ -392,10 +392,10 @@
       {
         "q": "What do listeners get by using the code?",
         "options": [
-          "A job interview",
+          "A free textbook",
           "A personal laptop",
           "A discount and a free session",
-          "A free textbook"
+          "A job interview"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -403,8 +403,8 @@
       {
         "q": "Why does the speaker mention the placement quiz?",
         "options": [
-          "To explain the refund policy",
           "To warn about a difficult exam",
+          "To explain the refund policy",
           "To introduce a new coach",
           "To encourage listeners to start right away"
         ],
@@ -427,10 +427,10 @@
       {
         "q": "What is the purpose of the talk?",
         "options": [
+          "To celebrate a retirement",
           "To introduce a new client",
-          "To announce a website redesign",
           "To present an employee award",
-          "To celebrate a retirement"
+          "To announce a website redesign"
         ],
         "answer": 2,
         "skill": "l-purpose"
@@ -449,10 +449,10 @@
       {
         "q": "What will most likely happen next?",
         "options": [
+          "A new award will be announced.",
           "The client will give a speech.",
-          "The team will join a video call.",
           "Amara will speak to the audience.",
-          "A new award will be announced."
+          "The team will join a video call."
         ],
         "answer": 2,
         "skill": "l-infer"
@@ -474,8 +474,8 @@
         "q": "Why is the speaker calling?",
         "options": [
           "To question a detail in an order",
-          "To announce a new supplier",
           "To cancel an order",
+          "To announce a new supplier",
           "To request a payment"
         ],
         "answer": 0,
@@ -485,9 +485,9 @@
         "q": "What does the speaker suspect about the order?",
         "options": [
           "It lists the wrong cartridge model.",
+          "It is missing a signature.",
           "It exceeds the budget.",
-          "It was submitted twice.",
-          "It is missing a signature."
+          "It was submitted twice."
         ],
         "answer": 0,
         "skill": "l-infer"
@@ -519,9 +519,9 @@
       {
         "q": "What is happening in the bakery section?",
         "options": [
+          "A charity sale",
           "A cooking class",
           "A photography session",
-          "A charity sale",
           "A product tasting"
         ],
         "answer": 3,
@@ -531,8 +531,8 @@
         "q": "What comes with each loaf of bread?",
         "options": [
           "A discount coupon",
-          "A recipe card",
           "A free drink",
+          "A recipe card",
           "A loyalty stamp"
         ],
         "answer": 0,
@@ -541,9 +541,9 @@
       {
         "q": "Why are some checkout lanes closed?",
         "options": [
-          "The store is closing early.",
-          "Registers are being upgraded.",
           "Staff are on break.",
+          "Registers are being upgraded.",
+          "The store is closing early.",
           "A spill is being cleaned."
         ],
         "answer": 1,
@@ -565,8 +565,8 @@
       {
         "q": "What type of event is taking place?",
         "options": [
-          "A press conference",
           "A job interview",
+          "A press conference",
           "A product launch",
           "An online training session"
         ],
@@ -577,9 +577,9 @@
         "q": "How should participants ask questions?",
         "options": [
           "By using the chat window",
-          "By emailing afterward",
+          "By unmuting anytime",
           "By raising their hands",
-          "By unmuting anytime"
+          "By emailing afterward"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -587,9 +587,9 @@
       {
         "q": "Why does the speaker mention the practice files?",
         "options": [
-          "They contain the session recording.",
           "They were sent to the wrong people.",
           "They must be printed.",
+          "They contain the session recording.",
           "They are needed for later exercises."
         ],
         "answer": 3,
@@ -622,8 +622,8 @@
       {
         "q": "Where should passengers find the shuttle buses?",
         "options": [
-          "At the airport terminal",
           "Outside the north entrance",
+          "At the airport terminal",
           "On the lower level",
           "Next to the ticket machines"
         ],
@@ -657,10 +657,10 @@
       {
         "q": "Why is the speaker calling?",
         "options": [
-          "To announce new office hours",
+          "To confirm a payment",
           "To reschedule an appointment",
           "To recommend a specialist",
-          "To confirm a payment"
+          "To announce new office hours"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -668,9 +668,9 @@
       {
         "q": "What reason is given for the change?",
         "options": [
+          "The equipment is being repaired.",
           "The office is being renovated.",
           "The patient requested a later time.",
-          "The equipment is being repaired.",
           "The dentist will be at a conference."
         ],
         "answer": 3,
@@ -705,8 +705,8 @@
         "options": [
           "At an art museum",
           "At a glass factory",
-          "At a cooking school",
-          "At a hardware store"
+          "At a hardware store",
+          "At a cooking school"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -714,10 +714,10 @@
       {
         "q": "What are listeners told they may not do in the blowing studio?",
         "options": [
-          "Speak to the artisans",
           "Wear safety glasses",
+          "Touch the equipment",
           "Take photographs",
-          "Touch the equipment"
+          "Speak to the artisans"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -726,8 +726,8 @@
         "q": "What will listeners receive at the end of the tour?",
         "options": [
           "A free glass sample",
-          "A certificate of attendance",
           "A printed brochure",
+          "A certificate of attendance",
           "A shop discount"
         ],
         "answer": 3,
@@ -749,10 +749,10 @@
       {
         "q": "What is the main topic of the report?",
         "options": [
+          "A market opening",
           "A weather warning",
-          "A new ferry company",
           "A bridge construction project",
-          "A market opening"
+          "A new ferry company"
         ],
         "answer": 2,
         "skill": "l-main"
@@ -761,8 +761,8 @@
         "q": "What does the speaker say officials recommend?",
         "options": [
           "Leaving home before six o'clock",
-          "Working from home",
           "Using an alternate bridge",
+          "Working from home",
           "Taking the ferry"
         ],
         "answer": 3,
@@ -772,9 +772,9 @@
         "q": "What is suggested about the farmers market?",
         "options": [
           "It had a successful summer.",
+          "It will close during construction.",
           "It will move to a new location.",
-          "It has raised its fees.",
-          "It will close during construction."
+          "It has raised its fees."
         ],
         "answer": 0,
         "skill": "l-infer"
@@ -795,10 +795,10 @@
       {
         "q": "What service is being advertised?",
         "options": [
-          "A furniture store",
-          "A moving company",
           "A storage facility",
-          "An insurance agency"
+          "A moving company",
+          "An insurance agency",
+          "A furniture store"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -807,9 +807,9 @@
         "q": "What does the speaker emphasize about the price?",
         "options": [
           "It includes no unexpected fees.",
-          "It is charged by the hour.",
           "It is lower than competitors'.",
-          "It can be paid in installments."
+          "It can be paid in installments.",
+          "It is charged by the hour."
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -817,10 +817,10 @@
       {
         "q": "What is offered to customers who book this month?",
         "options": [
-          "A free extra crew member",
-          "Complimentary packing materials",
           "A half-price weekend rate",
-          "An additional month of storage"
+          "Complimentary packing materials",
+          "An additional month of storage",
+          "A free extra crew member"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -843,8 +843,8 @@
         "options": [
           "To honor a retiring colleague",
           "To welcome a new employee",
-          "To announce an office move",
-          "To introduce a software system"
+          "To introduce a software system",
+          "To announce an office move"
         ],
         "answer": 0,
         "skill": "l-purpose"
@@ -913,9 +913,9 @@
         "q": "Why was one session moved?",
         "options": [
           "More people registered than expected.",
-          "The programme was printed incorrectly.",
+          "The room needs repairs.",
           "The speaker arrived late.",
-          "The room needs repairs."
+          "The programme was printed incorrectly."
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -934,10 +934,10 @@
       {
         "q": "What does the speaker say about badges?",
         "options": [
-          "They must be exchanged at the desk.",
-          "They will be scanned at the auditorium.",
           "They are needed only for coffee.",
-          "They should be returned after the forum."
+          "They will be scanned at the auditorium.",
+          "They should be returned after the forum.",
+          "They must be exchanged at the desk."
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1066,9 +1066,9 @@
         "q": "What is the reason for the delay?",
         "options": [
           "A technical inspection",
-          "A closed runway",
+          "Bad weather",
           "A missing crew member",
-          "Bad weather"
+          "A closed runway"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -1076,10 +1076,10 @@
       {
         "q": "What can passengers get at the transfer desk?",
         "options": [
-          "A cash refund",
           "A hotel room",
+          "A boarding pass reprint",
           "A free rebooking",
-          "A boarding pass reprint"
+          "A cash refund"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1138,8 +1138,8 @@
         "options": [
           "Pay the balance",
           "Request an upgrade",
-          "Confirm her address",
-          "Collect the ticket"
+          "Collect the ticket",
+          "Confirm her address"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1149,8 +1149,8 @@
         "options": [
           "Parking fills up quickly.",
           "The hall doors close during the speech.",
-          "Tickets are checked only once.",
-          "Dinner is served early."
+          "Dinner is served early.",
+          "Tickets are checked only once."
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1208,9 +1208,9 @@
         "q": "What does the speaker say about the start of the year?",
         "options": [
           "A key supplier was changed.",
-          "The team was short-staffed.",
+          "Prices were increased.",
           "The website was being rebuilt.",
-          "Prices were increased."
+          "The team was short-staffed."
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1218,10 +1218,10 @@
       {
         "q": "What does the speaker propose?",
         "options": [
-          "Running another separate experiment",
+          "Ending the autumn campaign",
           "Funding free shipping from the campaign budget",
           "Raising prices next year",
-          "Ending the autumn campaign"
+          "Running another separate experiment"
         ],
         "answer": 1,
         "skill": "l-infer"
@@ -1267,9 +1267,9 @@
       {
         "q": "Look at the graphic. Which service date will change?",
         "options": [
+          "19 March",
           "5 March",
           "12 March",
-          "19 March",
           "26 March"
         ],
         "answer": 3,
@@ -1278,10 +1278,10 @@
       {
         "q": "What are listeners asked to do today?",
         "options": [
-          "Stop production entirely",
+          "Work an extra shift",
           "Use the other cutting machine",
-          "Report faults to the engineer",
-          "Work an extra shift"
+          "Stop production entirely",
+          "Report faults to the engineer"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1290,8 +1290,8 @@
         "q": "What should listeners do about an urgent job?",
         "options": [
           "Start the machine carefully",
-          "Send it to another factory",
           "Leave it until tomorrow",
+          "Send it to another factory",
           "Speak to a shift leader"
         ],
         "answer": 3,
@@ -1324,9 +1324,9 @@
       {
         "q": "What caused the delay?",
         "options": [
-          "A mistake in the order form",
-          "A change to a part's design",
           "A strike at the port",
+          "A change to a part's design",
+          "A mistake in the order form",
           "Bad weather"
         ],
         "answer": 1,
@@ -1336,8 +1336,8 @@
         "q": "What does the speaker offer to do?",
         "options": [
           "Refund the full amount",
-          "Reduce the price by half",
           "Visit the plant on Thursday",
+          "Reduce the price by half",
           "Send older units on loan"
         ],
         "answer": 3,
@@ -1360,8 +1360,8 @@
         "q": "What is causing the traffic delays?",
         "options": [
           "Repair work that is not finished",
-          "A public event",
           "A traffic accident",
+          "A public event",
           "Heavy rain"
         ],
         "answer": 0,
@@ -1370,9 +1370,9 @@
       {
         "q": "What does the speaker suggest listeners do?",
         "options": [
-          "Avoid the hospital area all day",
-          "Travel later in the morning",
           "Take the bus instead of driving",
+          "Travel later in the morning",
+          "Avoid the hospital area all day",
           "Carry an umbrella before noon"
         ],
         "answer": 1,
@@ -1381,10 +1381,10 @@
       {
         "q": "What will be discussed later in the program?",
         "options": [
-          "A weather forecast for the week",
           "Changes to bus routes",
+          "A new tunnel project",
           "How local businesses cooperate",
-          "A new tunnel project"
+          "A weather forecast for the week"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1405,10 +1405,10 @@
       {
         "q": "Who most likely are the listeners?",
         "options": [
-          "Museum visitors",
-          "New volunteers",
           "Building contractors",
-          "Journalists"
+          "New volunteers",
+          "Journalists",
+          "Museum visitors"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -1428,9 +1428,9 @@
         "q": "What will the listeners do next?",
         "options": [
           "Go to an exhibit on level two",
-          "Have a drink in the cafe",
+          "Collect their badges",
           "Sign the shift book",
-          "Collect their badges"
+          "Have a drink in the cafe"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -1451,9 +1451,9 @@
       {
         "q": "What is the main purpose of the announcement?",
         "options": [
-          "To explain a new payment method",
-          "To announce a hiring event",
           "To advertise weekly discounts",
+          "To announce a hiring event",
+          "To explain a new payment method",
           "To describe changes to the store layout"
         ],
         "answer": 3,
@@ -1463,8 +1463,8 @@
         "q": "Where can shoppers currently find pasta?",
         "options": [
           "In aisle nine",
-          "By the bakery counter",
           "Next to the flowers",
+          "By the bakery counter",
           "At the end of aisle six"
         ],
         "answer": 3,
@@ -1497,9 +1497,9 @@
       {
         "q": "What are the listeners required to do?",
         "options": [
+          "Stay silent during the tour",
           "Leave their bags at the door",
           "Sign a supplier agreement",
-          "Stay silent during the tour",
           "Wear protective equipment"
         ],
         "answer": 3,
@@ -1508,9 +1508,9 @@
       {
         "q": "Where are photographs not allowed?",
         "options": [
-          "In the syrup room",
           "In the warehouse",
           "In the tasting room",
+          "In the syrup room",
           "In the filling hall"
         ],
         "answer": 3,
@@ -1520,9 +1520,9 @@
         "q": "Why does the speaker say she will stop talking in one area?",
         "options": [
           "The equipment is very noisy.",
+          "Another guide takes over.",
           "Visitors must concentrate.",
-          "The area is confidential.",
-          "Another guide takes over."
+          "The area is confidential."
         ],
         "answer": 0,
         "skill": "l-infer"
@@ -1543,8 +1543,8 @@
       {
         "q": "Why will the store close early?",
         "options": [
-          "For repairs",
           "For a staff meeting",
+          "For repairs",
           "For an inventory count",
           "For a private event"
         ],
@@ -1556,8 +1556,8 @@
         "options": [
           "The registers will stop taking new customers",
           "The doors will be locked",
-          "Staff will start counting",
-          "A sale will begin"
+          "A sale will begin",
+          "Staff will start counting"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -1565,10 +1565,10 @@
       {
         "q": "What will happen tomorrow?",
         "options": [
+          "Extra staff will be hired",
           "The store will open late",
-          "A new product line will arrive",
           "Prices in one section will be reduced",
-          "Extra staff will be hired"
+          "A new product line will arrive"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1590,9 +1590,9 @@
         "q": "Why is the appointment being changed?",
         "options": [
           "The dentist will be away",
+          "Equipment is being replaced",
           "The office is closing",
-          "The patient asked to change it",
-          "Equipment is being replaced"
+          "The patient asked to change it"
         ],
         "answer": 0,
         "skill": "l-purpose"
@@ -1600,10 +1600,10 @@
       {
         "q": "What is the listener asked to do?",
         "options": [
-          "Complete a form online",
-          "Return the call",
           "Arrive early",
-          "Bring insurance details"
+          "Return the call",
+          "Bring insurance details",
+          "Complete a form online"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1611,9 +1611,9 @@
       {
         "q": "What will happen if the listener does not respond by Tuesday?",
         "options": [
+          "A letter will be posted",
           "A fee will be charged",
           "The appointment will be cancelled entirely",
-          "A letter will be posted",
           "The times will be offered to other patients"
         ],
         "answer": 3,
@@ -1646,8 +1646,8 @@
       {
         "q": "What are listeners asked not to do?",
         "options": [
-          "Bring bags inside",
           "Take photographs",
+          "Bring bags inside",
           "Use mobile phones",
           "Touch the exhibits"
         ],
@@ -1658,9 +1658,9 @@
         "q": "Why will the group not enter the restoration workshop?",
         "options": [
           "It is closed at weekends",
-          "It is being renovated",
           "It requires a separate ticket",
-          "It is already full"
+          "It is already full",
+          "It is being renovated"
         ],
         "answer": 0,
         "skill": "l-infer"
@@ -1692,8 +1692,8 @@
       {
         "q": "What does the speaker say is unusual about the company?",
         "options": [
-          "It has international branches",
           "It works on weekends",
+          "It has international branches",
           "It includes free storage",
           "It guarantees same-day service"
         ],
@@ -1703,10 +1703,10 @@
       {
         "q": "What is offered to customers who book this month?",
         "options": [
-          "A longer guarantee",
+          "A discount on labour",
           "An extra worker",
           "Free packing materials",
-          "A discount on labour"
+          "A longer guarantee"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1753,9 +1753,9 @@
         "q": "Why has the programme been changed?",
         "options": [
           "A speaker has been delayed",
-          "Equipment has failed",
+          "A room is unavailable",
           "Too few people registered",
-          "A room is unavailable"
+          "Equipment has failed"
         ],
         "answer": 0,
         "skill": "l-purpose"
@@ -1763,10 +1763,10 @@
       {
         "q": "Look at the graphic. Which session will now begin at two o'clock?",
         "options": [
-          "Closing remarks",
+          "Digital tools workshop",
           "Panel discussion",
           "Supply chain risk",
-          "Digital tools workshop"
+          "Closing remarks"
         ],
         "answer": 1,
         "skill": "l-graphic"
@@ -1774,8 +1774,8 @@
       {
         "q": "What does the speaker say about the closing remarks?",
         "options": [
-          "They have been cancelled",
           "They have been shortened",
+          "They have been cancelled",
           "They will start at the original time",
           "Someone else will give them"
         ],
@@ -1800,8 +1800,8 @@
         "options": [
           "A traffic report",
           "A weather warning",
-          "A sports result",
-          "A local election"
+          "A local election",
+          "A sports result"
         ],
         "answer": 0,
         "skill": "l-main"
@@ -1821,9 +1821,9 @@
         "q": "What does the speaker say has resumed?",
         "options": [
           "A ferry service",
+          "A rail line",
           "A bus route",
-          "A bridge crossing",
-          "A rail line"
+          "A bridge crossing"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -1844,10 +1844,10 @@
       {
         "q": "What is the purpose of the announcement?",
         "options": [
-          "To announce a cancellation",
           "To request volunteers",
+          "To explain a baggage policy",
           "To inform passengers of a gate change",
-          "To explain a baggage policy"
+          "To announce a cancellation"
         ],
         "answer": 2,
         "skill": "l-purpose"
@@ -1856,8 +1856,8 @@
         "q": "What does the speaker ask passengers to do?",
         "options": [
           "Allow extra time to walk",
-          "Check in a second time",
           "Collect a new boarding pass",
+          "Check in a second time",
           "Contact the airline"
         ],
         "answer": 0,
@@ -1890,9 +1890,9 @@
       {
         "q": "What is the talk mainly about?",
         "options": [
-          "A new review process",
-          "Updates to employee benefits",
           "A change in working hours",
+          "Updates to employee benefits",
+          "A new review process",
           "An office relocation"
         ],
         "answer": 1,
@@ -1912,10 +1912,10 @@
       {
         "q": "What will Sena do after the session?",
         "options": [
-          "Collect signatures",
+          "Hand out forms",
           "Answer questions individually",
           "Lead a tour",
-          "Hand out forms"
+          "Collect signatures"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1961,9 +1961,9 @@
       {
         "q": "What event is taking place?",
         "options": [
-          "A shareholder meeting",
-          "A job fair",
           "A product launch",
+          "A job fair",
+          "A shareholder meeting",
           "A training day"
         ],
         "answer": 3,
@@ -2008,9 +2008,9 @@
         "q": "What is being advertised?",
         "options": [
           "A translation service",
-          "A textbook series",
+          "A study-abroad programme",
           "Language courses",
-          "A study-abroad programme"
+          "A textbook series"
         ],
         "answer": 2,
         "skill": "l-main"
@@ -2018,9 +2018,9 @@
       {
         "q": "What is new this term?",
         "options": [
-          "A larger class size",
           "A weekend schedule",
           "A payment plan",
+          "A larger class size",
           "The option to attend online"
         ],
         "answer": 3,
@@ -2029,10 +2029,10 @@
       {
         "q": "What can people do on the twenty-eighth of January?",
         "options": [
-          "Meet the teachers",
-          "Attend a free lesson",
           "Take a placement test",
-          "Receive a discount"
+          "Attend a free lesson",
+          "Receive a discount",
+          "Meet the teachers"
         ],
         "answer": 1,
         "skill": "l-detail"

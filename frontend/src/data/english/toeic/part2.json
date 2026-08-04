@@ -3,14 +3,14 @@
     "id": "p2-01",
     "q": "Where is the marketing meeting being held?",
     "options": [
-      "In the third-floor conference room.",
       "At nine o'clock sharp.",
-      "Yes, I'll be there."
+      "Yes, I'll be there.",
+      "In the third-floor conference room."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Cuộc họp marketing tổ chức ở đâu? — Phòng họp tầng 3.",
-    "trap": "Câu hỏi Where cần ĐỊA ĐIỂM; đáp án B trả lời giờ (When), C trả lời Yes cho câu hỏi WH — hai bẫy kinh điển."
+    "trap": "Câu hỏi Where cần ĐỊA ĐIỂM; phương án “At nine o'clock sharp” trả lời giờ (When), “Yes, I'll be there” trả lời Yes cho câu hỏi WH — hai bẫy kinh điển."
   },
   {
     "id": "p2-02",
@@ -23,54 +23,54 @@
     "answer": 1,
     "skill": "l-wh",
     "vi": "Khi nào tàu tốc hành ra sân bay chạy? — Cứ 20 phút một chuyến.",
-    "trap": "When hỏi thời gian — tần suất \"every twenty minutes\" là đáp án hợp lệ; A trả lời Where, C trả lời How much."
+    "trap": "When hỏi thời gian — tần suất \"every twenty minutes\" là đáp án hợp lệ; “From platform two” trả lời Where, “It costs ten dollars” trả lời How much."
   },
   {
     "id": "p2-03",
     "q": "Who is preparing the slides for tomorrow's presentation?",
     "options": [
-      "About the new budget.",
+      "It went very well.",
       "Ms. Lee from the design team.",
-      "It went very well."
+      "About the new budget."
     ],
     "answer": 1,
     "skill": "l-wh",
     "vi": "Ai đang chuẩn bị slide cho buổi thuyết trình ngày mai? — Cô Lee bên nhóm thiết kế.",
-    "trap": "Who cần MỘT NGƯỜI. A trả lời What about, C nói về kết quả đã qua."
+    "trap": "Who cần MỘT NGƯỜI. “About the new budget” trả lời What about, “It went very well” nói về kết quả đã qua."
   },
   {
     "id": "p2-04",
     "q": "Why was the product launch delayed?",
     "options": [
-      "Because of a packaging problem.",
+      "At the main warehouse.",
       "Next Thursday, I think.",
-      "At the main warehouse."
+      "Because of a packaging problem."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Vì sao buổi ra mắt sản phẩm bị hoãn? — Vì trục trặc bao bì.",
-    "trap": "Why → Because. B trả lời When, C trả lời Where."
+    "trap": "Why → Because. “Next Thursday, I think” trả lời When, “At the main warehouse” trả lời Where."
   },
   {
     "id": "p2-05",
     "q": "How do I get reimbursed for my travel expenses?",
     "options": [
-      "It was a long trip.",
       "Fill out the online form.",
-      "Round-trip tickets."
+      "Round-trip tickets.",
+      "It was a long trip."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-wh",
     "vi": "Tôi được hoàn tiền công tác bằng cách nào? — Điền mẫu đơn trực tuyến.",
-    "trap": "How hỏi CÁCH LÀM. A và C lặp lại chủ đề \"đi lại\" để đánh lừa nhưng không trả lời câu hỏi."
+    "trap": "How hỏi CÁCH LÀM. “It was a long trip” và “Round-trip tickets” lặp lại chủ đề \"đi lại\" để đánh lừa nhưng không trả lời câu hỏi."
   },
   {
     "id": "p2-06",
     "q": "Did you send the invoice to the client?",
     "options": [
       "Yes, first thing this morning.",
-      "To the new client.",
-      "An invoice number."
+      "An invoice number.",
+      "To the new client."
     ],
     "answer": 0,
     "skill": "l-yesno",
@@ -81,105 +81,105 @@
     "id": "p2-07",
     "q": "Have you met the new branch manager yet?",
     "options": [
-      "A branch in Hanoi.",
       "Not yet, but I will at lunch.",
-      "He managed it well."
+      "He managed it well.",
+      "A branch in Hanoi."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
     "vi": "Bạn gặp giám đốc chi nhánh mới chưa? — Chưa, nhưng trưa nay sẽ gặp.",
-    "trap": "\"Not yet\" là câu trả lời tự nhiên cho \"…yet?\". A lặp \"branch\", C lặp âm \"manage\"."
+    "trap": "\"Not yet\" là câu trả lời tự nhiên cho \"…yet?\". “A branch in Hanoi” lặp \"branch\", “He managed it well” lặp âm \"manage\"."
   },
   {
     "id": "p2-08",
     "q": "Would you like the window seat or the aisle seat?",
     "options": [
-      "Yes, please.",
       "The aisle, if possible.",
+      "Yes, please.",
       "Near the window display."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-choice",
     "vi": "Anh muốn ngồi ghế cạnh cửa sổ hay cạnh lối đi? — Cạnh lối đi, nếu được.",
-    "trap": "Câu hỏi lựa chọn A-hay-B KHÔNG trả lời bằng Yes/No — bẫy ở đáp án A."
+    "trap": "Câu hỏi lựa chọn A-hay-B KHÔNG trả lời bằng Yes/No — bẫy ở phương án “Yes, please”."
   },
   {
     "id": "p2-09",
     "q": "The copier on the second floor is out of order again.",
     "options": [
+      "In the right order.",
       "Twenty copies, please.",
-      "I'll call the repair service right away.",
-      "In the right order."
+      "I'll call the repair service right away."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-statement",
     "vi": "Máy photo tầng 2 lại hỏng rồi. — Để tôi gọi thợ sửa ngay.",
-    "trap": "Câu TRẦN THUẬT cần phản hồi phù hợp ngữ cảnh, không phải câu trả lời máy móc. C chơi chữ \"order\"."
+    "trap": "Câu TRẦN THUẬT cần phản hồi phù hợp ngữ cảnh, không phải câu trả lời máy móc. “In the right order” chơi chữ \"order\"."
   },
   {
     "id": "p2-10",
     "q": "Could you review my report before I submit it?",
     "options": [
-      "Sure, leave it on my desk.",
       "A weather report.",
+      "Sure, leave it on my desk.",
       "Because it's due Friday."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-yesno",
     "vi": "Anh xem giúp báo cáo trước khi tôi nộp nhé? — Được chứ, cứ để trên bàn tôi.",
-    "trap": "Lời nhờ vả (Could you…) → nhận/từ chối lịch sự. B lặp từ \"report\" nghĩa khác."
+    "trap": "Lời nhờ vả (Could you…) → nhận/từ chối lịch sự. “A weather report” lặp từ \"report\" nghĩa khác."
   },
   {
     "id": "p2-11",
     "q": "What time does the pharmacy close on weekends?",
     "options": [
       "At the shopping center.",
-      "It's open until nine P.M.",
-      "Twice a week."
+      "Twice a week.",
+      "It's open until nine P.M."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Cuối tuần hiệu thuốc đóng cửa mấy giờ? — Mở đến 9 giờ tối.",
-    "trap": "What time cần GIỜ. A trả lời địa điểm, C trả lời tần suất."
+    "trap": "What time cần GIỜ. “At the shopping center” trả lời địa điểm, “Twice a week” trả lời tần suất."
   },
   {
     "id": "p2-12",
     "q": "Whose laptop is this on the meeting table?",
     "options": [
-      "It's brand new.",
+      "On the table, please.",
       "I think it's Daniel's.",
-      "On the table, please."
+      "It's brand new."
     ],
     "answer": 1,
     "skill": "l-wh",
     "vi": "Laptop trên bàn họp là của ai vậy? — Chắc của Daniel.",
-    "trap": "Whose cần sở hữu (Daniel's). A tả tình trạng máy, C lặp \"table\"."
+    "trap": "Whose cần sở hữu (Daniel's). “It's brand new” tả tình trạng máy, “On the table, please” lặp \"table\"."
   },
   {
     "id": "p2-13",
     "q": "Why don't we share a taxi to the conference?",
     "options": [
-      "That's a good idea.",
       "Because the taxi was late.",
+      "That's a good idea.",
       "A shared office."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-yesno",
     "vi": "Hay là mình đi chung taxi tới hội nghị? — Ý hay đấy.",
-    "trap": "\"Why don't we…\" là LỜI RỦ, không phải câu hỏi Why → không trả lời bằng Because (bẫy B)."
+    "trap": "\"Why don't we…\" là LỜI RỦ, không phải câu hỏi Why → không trả lời bằng Because (bẫy “Because the taxi was late”."
   },
   {
     "id": "p2-14",
     "q": "How many people have registered for the workshop?",
     "options": [
-      "It lasts two hours.",
       "Around forty so far.",
-      "Register at the door."
+      "Register at the door.",
+      "It lasts two hours."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-wh",
     "vi": "Bao nhiêu người đã đăng ký workshop rồi? — Tầm 40 người.",
-    "trap": "How many cần CON SỐ. A trả lời How long, C lặp từ \"register\"."
+    "trap": "How many cần CON SỐ. “It lasts two hours” trả lời How long, “Register at the door” lặp từ \"register\"."
   },
   {
     "id": "p2-15",
@@ -192,20 +192,20 @@
     "answer": 0,
     "skill": "l-choice",
     "vi": "Căng tin còn phục vụ bữa trưa không hay mình lỡ rồi? — Họ phục vụ đến 2 giờ.",
-    "trap": "Đáp án tốt có thể trả lời GIÁN TIẾP (đến 2 giờ = vẫn còn). B chơi chữ \"miss\" nghĩa khác."
+    "trap": "Đáp án tốt có thể trả lời GIÁN TIẾP (đến 2 giờ = vẫn còn). “Yes, I missed you too” chơi chữ \"miss\" nghĩa khác."
   },
   {
     "id": "p2-16",
     "q": "You've finished the inventory count, haven't you?",
     "options": [
-      "Almost — I'll be done by noon.",
       "In the storage room.",
+      "Almost — I'll be done by noon.",
       "Counting on you."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-yesno",
     "vi": "Anh kiểm kê xong rồi đúng không? — Sắp xong, trưa nay là xong.",
-    "trap": "Câu hỏi ĐUÔI xác nhận thông tin — trả lời thực tế (Almost) tự nhiên hơn Yes/No máy móc. C chơi chữ \"count\"."
+    "trap": "Câu hỏi ĐUÔI xác nhận thông tin — trả lời thực tế (Almost) tự nhiên hơn Yes/No máy móc. “Counting on you” chơi chữ \"count\"."
   },
   {
     "id": "p2-17",
@@ -218,20 +218,20 @@
     "answer": 1,
     "skill": "l-similar",
     "vi": "Văn phòng phẩm để ở đâu nhỉ? — Trong tủ cạnh máy in.",
-    "trap": "\"supplies\" và \"surprise\" phát âm na ná — bẫy âm gần giống ở đáp án C."
+    "trap": "\"supplies\" và \"surprise\" phát âm na ná — bẫy âm gần giống ở phương án “That's a surprise”."
   },
   {
     "id": "p2-18",
     "q": "When will the maintenance work on the parking garage begin?",
     "options": [
-      "It began to rain.",
       "Early next month.",
-      "About two hundred spaces."
+      "About two hundred spaces.",
+      "It began to rain."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-similar",
     "vi": "Khi nào việc bảo trì nhà xe bắt đầu? — Đầu tháng sau.",
-    "trap": "A lặp \"begin/began\" nhưng nói chuyện trời mưa; C trả lời How many."
+    "trap": "“It began to rain” lặp \"begin/began\" nhưng nói chuyện trời mưa; “About two hundred spaces” trả lời How many."
   },
   {
     "id": "p2-19",
@@ -244,30 +244,30 @@
     "answer": 1,
     "skill": "l-choice",
     "vi": "Tôi nên đặt vé bay luôn hay chờ khuyến mãi? — Tôi mà là bạn thì đặt luôn, giá đang lên.",
-    "trap": "C bẫy âm \"book\" (đặt vé >< quyển sách)."
+    "trap": "“He read the book already” bẫy âm \"book\" (đặt vé >< quyển sách)."
   },
   {
     "id": "p2-20",
     "q": "Who approved the overtime request?",
     "options": [
-      "The department head did.",
       "About ten extra hours.",
-      "I'll prove it."
+      "I'll prove it.",
+      "The department head did."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-similar",
     "vi": "Ai duyệt yêu cầu tăng ca vậy? — Trưởng phòng duyệt.",
-    "trap": "C bẫy âm \"approve\"/\"prove\". B lặp chủ đề tăng ca nhưng trả lời How many."
+    "trap": "“I'll prove it” bẫy âm \"approve\"/\"prove\". “About ten extra hours” lặp chủ đề tăng ca nhưng trả lời How many."
   },
   {
     "id": "p2-21",
     "q": "Haven't the brochures arrived from the printer yet?",
     "options": [
-      "No, I can't print it.",
       "They're due this afternoon.",
+      "No, I can't print it.",
       "Yes, a beautiful brochure."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
     "vi": "Tờ rơi vẫn chưa về từ nhà in à? — Chiều nay là về.",
     "trap": "Câu hỏi PHỦ ĐỊNH — trả lời bằng thông tin thực tế thay vì Yes/No dễ nhầm."
@@ -283,33 +283,33 @@
     "answer": 1,
     "skill": "l-wh",
     "vi": "Anh thấy ứng viên phỏng vấn sáng nay thế nào? — Thật ra là rất ấn tượng.",
-    "trap": "\"What did you think of…\" hỏi Ý KIẾN, không phải thời gian (A) hay số lượng (C)."
+    "trap": "\"What did you think of…\" hỏi Ý KIẾN, không phải thời gian “At ten o'clock” hay số lượng “Three interviews”."
   },
   {
     "id": "p2-23",
     "q": "The air conditioner in my office is making a strange noise.",
     "options": [
       "I'll have someone take a look at it.",
-      "Yes, the weather is nice.",
-      "Turn left at the corner."
+      "Turn left at the corner.",
+      "Yes, the weather is nice."
     ],
     "answer": 0,
     "skill": "l-statement",
     "vi": "Điều hoà phòng tôi kêu lạ lắm. — Để tôi cho người đến xem.",
-    "trap": "Câu trần thuật báo sự cố → phản hồi xử lý. B nói chuyện thời tiết (liên tưởng \"air\")."
+    "trap": "Câu trần thuật báo sự cố → phản hồi xử lý. “Yes, the weather is nice” nói chuyện thời tiết (liên tưởng \"air\")."
   },
   {
     "id": "p2-24",
     "q": "How long is the warranty on this refrigerator?",
     "options": [
+      "About two meters wide.",
       "Two years, parts and labor.",
-      "It's quite long.",
-      "About two meters wide."
+      "It's quite long."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-wh",
     "vi": "Tủ lạnh này bảo hành bao lâu? — Hai năm, cả linh kiện lẫn công sửa.",
-    "trap": "How long ở đây hỏi THỜI HẠN; C bẫy đo chiều rộng, B mơ hồ không có thông tin."
+    "trap": "How long ở đây hỏi THỜI HẠN; “About two meters wide” bẫy đo chiều rộng, “It's quite long” mơ hồ không có thông tin."
   },
   {
     "id": "p2-25",
@@ -335,69 +335,69 @@
     "answer": 0,
     "skill": "l-wh",
     "vi": "Năm ngoái mình thuê bên tiệc nào nhỉ? — Bên ở đường Riverside đó.",
-    "trap": "Which hỏi CHỌN bên nào → \"The one…\". C khen đồ ăn, hợp chủ đề nhưng lạc câu hỏi."
+    "trap": "Which hỏi CHỌN bên nào → \"The one…\". “It was delicious” khen đồ ăn, hợp chủ đề nhưng lạc câu hỏi."
   },
   {
     "id": "p2-27",
     "q": "Do you know where I can validate my parking ticket?",
     "options": [
       "It's a valid point.",
-      "At the front desk in the lobby.",
-      "For three hours."
+      "For three hours.",
+      "At the front desk in the lobby."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-similar",
     "vi": "Anh biết tôi đóng dấu vé xe ở đâu không? — Ở quầy lễ tân dưới sảnh.",
-    "trap": "Câu hỏi gián tiếp \"Do you know where…\" — trả lời địa điểm, không cần Yes/No. A bẫy âm \"validate/valid\"."
+    "trap": "Câu hỏi gián tiếp \"Do you know where…\" — trả lời địa điểm, không cần Yes/No. “It's a valid point” bẫy âm \"validate/valid\"."
   },
   {
     "id": "p2-28",
     "q": "We should order more printer paper before we run out.",
     "options": [
+      "Run a bit faster.",
       "I already placed an order yesterday.",
-      "The paper reported it.",
-      "Run a bit faster."
+      "The paper reported it."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-statement",
     "vi": "Mình nên đặt thêm giấy in trước khi hết. — Tôi đặt hôm qua rồi.",
-    "trap": "B bẫy \"paper\" (giấy >< tờ báo), C bẫy \"run\" (hết >< chạy)."
+    "trap": "“The paper reported it” bẫy \"paper\" (giấy >< tờ báo), “Run a bit faster” bẫy \"run\" (hết >< chạy)."
   },
   {
     "id": "p2-29",
     "q": "Who should I talk to about changing my health insurance plan?",
     "options": [
       "A healthy breakfast.",
-      "Ms. Gomez in human resources.",
-      "Yes, you should."
+      "Yes, you should.",
+      "Ms. Gomez in human resources."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Tôi cần gặp ai để đổi gói bảo hiểm y tế? — Cô Gomez phòng nhân sự.",
-    "trap": "A bẫy âm \"health/healthy\"; C trả lời Yes cho câu hỏi WH."
+    "trap": "“A healthy breakfast” bẫy âm \"health/healthy\"; “Yes, you should” trả lời Yes cho câu hỏi WH."
   },
   {
     "id": "p2-30",
     "q": "Isn't the quarterly review scheduled for this Friday?",
     "options": [
-      "A five-star review.",
+      "Every quarter of an hour.",
       "It was moved to Monday.",
-      "Every quarter of an hour."
+      "A five-star review."
     ],
     "answer": 1,
     "skill": "l-yesno",
     "vi": "Buổi đánh giá quý chẳng phải xếp lịch thứ Sáu này sao? — Dời sang thứ Hai rồi.",
-    "trap": "A bẫy \"review\" (đánh giá sản phẩm), C bẫy \"quarter\" (quý >< 15 phút)."
+    "trap": "“A five-star review” bẫy \"review\" (đánh giá sản phẩm), “Every quarter of an hour” bẫy \"quarter\" (quý >< 15 phút)."
   },
   {
     "id": "p2-31",
     "q": "Where should I file these expense reports?",
     "options": [
-      "The expenses were quite high.",
+      "Ask Dana — she reorganized the cabinets last week.",
       "On the first of the month.",
-      "Ask Dana — she reorganized the cabinets last week."
+      "The expenses were quite high."
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "l-wh",
     "vi": "Tôi cất mấy báo cáo chi phí này vào đâu? — Hỏi Dana ấy, tuần trước cô ấy vừa sắp xếp lại tủ.",
     "trap": "Kiểu 2025: KHÔNG trả lời địa điểm mà chỉ sang người biết câu trả lời — đáp án gián tiếp vẫn là đáp án đúng."
@@ -420,23 +420,23 @@
     "q": "Has the shipment from Busan cleared customs yet?",
     "options": [
       "The tracking page hasn't updated since Tuesday.",
-      "Yes, the custom design.",
-      "About two tons."
+      "About two tons.",
+      "Yes, the custom design."
     ],
     "answer": 0,
     "skill": "l-yesno",
     "vi": "Lô hàng từ Busan thông quan chưa? — Trang theo dõi chưa cập nhật gì từ thứ Ba.",
-    "trap": "Không Yes/No thẳng — mô tả tình trạng thay câu trả lời. B bẫy âm customs/custom."
+    "trap": "Không Yes/No thẳng — mô tả tình trạng thay câu trả lời. “Yes, the custom design” bẫy âm customs/custom."
   },
   {
     "id": "p2-34",
     "q": "Why don't we move the team lunch to Thursday?",
     "options": [
+      "Wasn't Priya planning something for that day?",
       "Because the food was cold.",
-      "The lunch special.",
-      "Wasn't Priya planning something for that day?"
+      "The lunch special."
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "l-yesno",
     "vi": "Hay mình dời bữa trưa nhóm sang thứ Năm? — Ơ hình như Priya có kế hoạch gì hôm đó rồi mà?",
     "trap": "Lời rủ đáp bằng CÂU HỎI NGƯỢC nêu vướng mắc — hoàn toàn hợp lệ trong đề mới; đừng chờ Yes/No."
@@ -445,11 +445,11 @@
     "id": "p2-35",
     "q": "Who's presenting the sales figures at tomorrow's meeting?",
     "options": [
-      "It's on the shared calendar.",
       "At ten thirty.",
-      "The figures look great."
+      "The figures look great.",
+      "It's on the shared calendar."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Ai trình bày số liệu bán hàng ở cuộc họp mai? — Có ghi trên lịch chung đấy.",
     "trap": "Không nêu tên người mà chỉ NGUỒN tra cứu — dạng gián tiếp đặc trưng 2025."
@@ -458,40 +458,40 @@
     "id": "p2-36",
     "q": "Could you give me a hand with these chairs before the seminar?",
     "options": [
+      "About forty seats.",
       "Second-hand furniture.",
-      "Sure, just let me lock my screen.",
-      "About forty seats."
+      "Sure, just let me lock my screen."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-yesno",
     "vi": "Giúp tôi khiêng mấy cái ghế trước giờ hội thảo nhé? — Được, để tôi khoá màn hình đã.",
-    "trap": "give someone a hand = giúp một tay. A bẫy âm hand/second-hand."
+    "trap": "give someone a hand = giúp một tay. “Second-hand furniture” bẫy âm hand/second-hand."
   },
   {
     "id": "p2-37",
     "q": "How did the client react to the revised proposal?",
     "options": [
       "By registered mail.",
-      "Better than we hoped, actually.",
-      "Around fifty pages."
+      "Around fifty pages.",
+      "Better than we hoped, actually."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Khách phản ứng thế nào với bản đề xuất sửa? — Thật ra là tốt hơn mong đợi.",
-    "trap": "How hỏi cảm nhận/kết quả; A trả lời phương thức gửi, C trả lời độ dài."
+    "trap": "How hỏi cảm nhận/kết quả; “By registered mail” trả lời phương thức gửi, “Around fifty pages” trả lời độ dài."
   },
   {
     "id": "p2-38",
     "q": "Do you want me to book the morning flight or the evening one?",
     "options": [
-      "A window seat, please.",
       "Whichever is cheaper.",
-      "Yes, two nights."
+      "Yes, two nights.",
+      "A window seat, please."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-choice",
     "vi": "Anh muốn tôi đặt chuyến sáng hay chuyến tối? — Chuyến nào rẻ hơn thì đặt.",
-    "trap": "Câu hỏi lựa chọn trả lời bằng tiêu chí (\"cái nào rẻ hơn\") thay vì chọn thẳng — vẫn đúng; C trả lời Yes cho câu hỏi or."
+    "trap": "Câu hỏi lựa chọn trả lời bằng tiêu chí (\"cái nào rẻ hơn\") thay vì chọn thẳng — vẫn đúng; “Yes, two nights” trả lời Yes cho câu hỏi or."
   },
   {
     "id": "p2-39",
@@ -504,20 +504,20 @@
     "answer": 0,
     "skill": "l-yesno",
     "vi": "Máy chiếu phòng B chạy lại rồi đúng không? — Bên cơ sở vật chất bảo trưa nay sửa xong.",
-    "trap": "Không xác nhận thẳng mà dẫn lời bên thứ ba. C bẫy âm right (đúng >< rẽ phải)."
+    "trap": "Không xác nhận thẳng mà dẫn lời bên thứ ba. “Turn right at the elevator” bẫy âm right (đúng >< rẽ phải)."
   },
   {
     "id": "p2-40",
     "q": "Would you rather review the draft now or after lunch?",
     "options": [
-      "I'd rather not say.",
+      "It was a rough draft.",
       "Now works — my afternoon is packed.",
-      "It was a rough draft."
+      "I'd rather not say."
     ],
     "answer": 1,
     "skill": "l-choice",
     "vi": "Anh muốn xem bản nháp bây giờ hay sau bữa trưa? — Bây giờ đi, chiều tôi kín lịch.",
-    "trap": "Chọn + kèm lý do. A dùng \"rather\" để bẫy âm; C lặp từ draft."
+    "trap": "Chọn + kèm lý do. “I'd rather not say” dùng \"rather\" để bẫy âm; “It was a rough draft” lặp từ draft."
   },
   {
     "id": "p2-41",
@@ -529,7 +529,7 @@
     ],
     "answer": 1,
     "skill": "l-wh",
-    "trap": "Trả lời GIÁN TIẾP kiểu đề mới: không nói tên ai, mà chỉ chỗ tra ra câu trả lời. A trả lời Where; C bẫy âm \"leave/left\".",
+    "trap": "Trả lời GIÁN TIẾP kiểu đề mới: không nói tên ai, mà chỉ chỗ tra ra câu trả lời. “It's on the second floor” trả lời Where; “She left around noon” bẫy âm \"leave/left\".",
     "vi": "Ai trực quầy lễ tân khi Marta nghỉ? — Lịch phân công đã gửi sáng nay rồi."
   },
   {
@@ -537,23 +537,23 @@
     "q": "When will the new catalogs be delivered?",
     "options": [
       "Sometime before the trade show.",
-      "To the marketing department.",
-      "Yes, they printed extra copies."
+      "Yes, they printed extra copies.",
+      "To the marketing department."
     ],
     "answer": 0,
     "skill": "l-wh",
-    "trap": "Câu hỏi When có thể được đáp bằng mốc MỜ (before the trade show) chứ không cần ngày giờ cụ thể. B trả lời Where; C sai vì Wh- không đáp Yes.",
+    "trap": "Câu hỏi When có thể được đáp bằng mốc MỜ (before the trade show) chứ không cần ngày giờ cụ thể. “To the marketing department” trả lời Where; “Yes, they printed extra copies” sai vì Wh- không đáp Yes.",
     "vi": "Khi nào catalog mới được giao? — Khoảng trước hội chợ thương mại."
   },
   {
     "id": "p2-43",
     "q": "Why was the client meeting moved to Thursday?",
     "options": [
+      "In the large conference room.",
       "I wasn't in the office yesterday.",
-      "About forty-five minutes.",
-      "In the large conference room."
+      "About forty-five minutes."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-wh",
     "trap": "Dạng \"lảng\" rất phổ biến từ 2023: người trả lời không biết vì hôm qua không có mặt. Đừng loại đáp án chỉ vì nó không nêu lý do.",
     "vi": "Sao cuộc họp với khách bị dời sang thứ Năm? — Hôm qua tôi không ở văn phòng."
@@ -562,13 +562,13 @@
     "id": "p2-44",
     "q": "How often does the maintenance crew inspect the elevators?",
     "options": [
-      "Every three months, I believe.",
       "They're taking the stairs.",
+      "Every three months, I believe.",
       "It's a twelve-story building."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-wh",
-    "trap": "How often → tần suất. B và C đều dùng từ cùng chủ đề thang máy/toà nhà để đánh lạc hướng.",
+    "trap": "How often → tần suất. “They're taking the stairs” và “It's a twelve-story building” đều dùng từ cùng chủ đề thang máy/toà nhà để đánh lạc hướng.",
     "vi": "Đội bảo trì kiểm tra thang máy bao lâu một lần? — Ba tháng một lần, tôi nghĩ vậy."
   },
   {
@@ -581,33 +581,33 @@
     ],
     "answer": 0,
     "skill": "l-wh",
-    "trap": "Where → nơi chốn. \"Anywhere…\" là cách đáp mở rất hay gặp; B trả lời How many, C trả lời Why.",
+    "trap": "Where → nơi chốn. \"Anywhere…\" là cách đáp mở rất hay gặp; “About twenty samples” trả lời How many, “Because the shelf is full” trả lời Why.",
     "vi": "Tôi nên để mấy hộp hàng mẫu này ở đâu? — Để dọc bức tường kia chỗ nào cũng được."
   },
   {
     "id": "p2-46",
     "q": "Have you had a chance to look over the vendor contract?",
     "options": [
-      "A three-year agreement.",
       "Not yet — it just landed in my inbox.",
+      "A three-year agreement.",
       "Yes, I looked everywhere."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
-    "trap": "\"Not yet\" + lý do là đáp án chuẩn của dạng Have you…? C lặp từ look để bẫy âm.",
+    "trap": "\"Not yet\" + lý do là đáp án chuẩn của dạng Have you…? “Yes, I looked everywhere” lặp từ look để bẫy âm.",
     "vi": "Anh xem qua hợp đồng nhà cung cấp chưa? — Chưa, nó vừa mới vào hộp thư của tôi."
   },
   {
     "id": "p2-47",
     "q": "Didn't we order more toner last week?",
     "options": [
-      "The printer on the third floor.",
       "I can check the order log.",
+      "The printer on the third floor.",
       "No, it's much lighter."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
-    "trap": "Câu hỏi phủ định: đáp \"để tôi kiểm tra\" hoàn toàn hợp lệ và thường là đáp án đúng. C bẫy âm toner/lighter theo hướng nghĩa lệch.",
+    "trap": "Câu hỏi phủ định: đáp \"để tôi kiểm tra\" hoàn toàn hợp lệ và thường là đáp án đúng. “No, it's much lighter” bẫy âm toner/lighter theo hướng nghĩa lệch.",
     "vi": "Tuần trước mình đặt thêm mực in rồi mà nhỉ? — Để tôi kiểm tra sổ đặt hàng."
   },
   {
@@ -620,7 +620,7 @@
     ],
     "answer": 0,
     "skill": "l-yesno",
-    "trap": "Câu đuôi: đáp án đúng thường ĐÍNH CHÍNH một phần (\"chỉ tầng hầm thôi\") thay vì Yes/No trơn. B bẫy âm parking/parked.",
+    "trap": "Câu đuôi: đáp án đúng thường ĐÍNH CHÍNH một phần (\"chỉ tầng hầm thôi\") thay vì Yes/No trơn. “I parked next to the van” bẫy âm parking/parked.",
     "vi": "Bãi đỗ xe đóng cửa thứ Bảy, đúng không? — Thật ra chỉ đóng tầng dưới thôi."
   },
   {
@@ -633,20 +633,20 @@
     ],
     "answer": 1,
     "skill": "l-choice",
-    "trap": "Câu hỏi \"A or B\" KHÔNG BAO GIỜ đáp Yes/No → loại C ngay. Đáp án đúng hoãn quyết định, một dạng rất hay gặp.",
+    "trap": "Câu hỏi \"“It was a wonderful party” or “Let's see what the budget allows”\" KHÔNG BAO GIỜ đáp Yes/No → loại “Yes, they cater weddings too” ngay. Đáp án đúng hoãn quyết định, một dạng rất hay gặp.",
     "vi": "Mình thuê dịch vụ tiệc cho lễ kỷ niệm hay tự lo phần ăn? — Xem ngân sách cho phép tới đâu đã."
   },
   {
     "id": "p2-50",
     "q": "Would you prefer the aisle seat or the window?",
     "options": [
-      "Whichever is closer to the exit.",
+      "Yes, I booked it online.",
       "The flight leaves at six.",
-      "Yes, I booked it online."
+      "Whichever is closer to the exit."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-choice",
-    "trap": "\"Whichever…\" là đáp án lựa chọn linh hoạt, đúng chuẩn dạng A-or-B. C vi phạm quy tắc không đáp Yes.",
+    "trap": "\"Whichever…\" là đáp án lựa chọn linh hoạt, đúng chuẩn dạng A-or-B. “Yes, I booked it online” vi phạm quy tắc không đáp Yes.",
     "vi": "Anh muốn ghế lối đi hay ghế cạnh cửa sổ? — Ghế nào gần cửa thoát hơn cũng được."
   },
   {
@@ -667,36 +667,36 @@
     "q": "I still haven't received the reimbursement for my trip.",
     "options": [
       "It was a great conference.",
-      "Payroll processes those at the end of the month.",
-      "By train, I think."
+      "By train, I think.",
+      "Payroll processes those at the end of the month."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-statement",
-    "trap": "Đáp án đúng GIẢI THÍCH nguyên nhân chậm trễ. A và C bám vào chủ đề chuyến đi để đánh lạc hướng.",
+    "trap": "Đáp án đúng GIẢI THÍCH nguyên nhân chậm trễ. “It was a great conference” và “By train, I think” bám vào chủ đề chuyến đi để đánh lạc hướng.",
     "vi": "Tôi vẫn chưa nhận được tiền hoàn công tác phí. — Bộ phận lương xử lý các khoản đó vào cuối tháng."
   },
   {
     "id": "p2-53",
     "q": "We're running low on packing tape again.",
     "options": [
+      "It ran for two hours.",
       "Could you add it to the supply list?",
-      "The tape measure is in the drawer.",
-      "It ran for two hours."
+      "The tape measure is in the drawer."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-statement",
-    "trap": "Đáp bằng CÂU HỎI NGƯỢC là xu hướng rất mạnh của đề mới. B bẫy âm tape, C bẫy âm running/ran.",
+    "trap": "Đáp bằng CÂU HỎI NGƯỢC là xu hướng rất mạnh của đề mới. “The tape measure is in the drawer” bẫy âm tape, “It ran for two hours” bẫy âm running/ran.",
     "vi": "Băng keo đóng gói lại sắp hết rồi. — Anh thêm vào danh sách vật tư giúp nhé?"
   },
   {
     "id": "p2-54",
     "q": "Has the shipment from Osaka cleared customs?",
     "options": [
-      "I clean my desk on Fridays.",
+      "It should clear tomorrow morning.",
       "The customer service line.",
-      "It should clear tomorrow morning."
+      "I clean my desk on Fridays."
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "l-similar",
     "trap": "Bẫy âm dày đặc: customs/customer, cleared/clean. Nghe NGHĨA chứ đừng bắt từ giống.",
     "vi": "Lô hàng từ Osaka đã thông quan chưa? — Chắc sáng mai mới xong."
@@ -705,9 +705,9 @@
     "id": "p2-55",
     "q": "Where can I find the signed copies of the lease?",
     "options": [
-      "The sign is above the door.",
+      "At least two years.",
       "Ms. Patel keeps them in her office.",
-      "At least two years."
+      "The sign is above the door."
     ],
     "answer": 1,
     "skill": "l-similar",
@@ -719,12 +719,12 @@
     "q": "When does the new safety training start?",
     "options": [
       "In the training room upstairs.",
-      "The first week of April.",
-      "About forty employees."
+      "About forty employees.",
+      "The first week of April."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "Câu hỏi When phải trả lời THỜI GIAN. A trả lời Where, C trả lời How many — hai bẫy quen thuộc nhất của Part 2.",
+    "trap": "Câu hỏi When phải trả lời THỜI GIAN. “In the training room upstairs” trả lời Where, “About forty employees” trả lời How many — hai bẫy quen thuộc nhất của Part 2.",
     "vi": "Khoá tập huấn an toàn mới bắt đầu khi nào? — Tuần đầu tháng Tư."
   },
   {
@@ -737,7 +737,7 @@
     ],
     "answer": 1,
     "skill": "l-wh",
-    "trap": "Who hỏi NGƯỜI. A đáp thời lượng nghỉ, C đáp vị trí — cả hai đều bám từ trong câu hỏi để đánh lừa.",
+    "trap": "Who hỏi NGƯỜI. “Two weeks, I think” đáp thời lượng nghỉ, “It's on the ground floor” đáp vị trí — cả hai đều bám từ trong câu hỏi để đánh lừa.",
     "vi": "Ai trực quầy lễ tân trong lúc Lan nghỉ phép? — Daniel xung phong rồi."
   },
   {
@@ -750,33 +750,33 @@
     ],
     "answer": 0,
     "skill": "l-wh",
-    "trap": "Why cần LÝ DO. C bắt đầu bằng Yes — câu hỏi Wh- không bao giờ trả lời Yes/No, loại được ngay.",
+    "trap": "Why cần LÝ DO. “Yes, it arrived Monday” bắt đầu bằng Yes — câu hỏi Wh- không bao giờ trả lời Yes/No, loại được ngay.",
     "vi": "Vì sao lô hàng bị giữ ở cảng? — Thiếu một giấy tờ."
   },
   {
     "id": "p2-59",
     "q": "How long will the road work outside our building last?",
     "options": [
-      "Until the end of the month.",
       "It's quite loud, isn't it?",
-      "The city council approved it."
+      "The city council approved it.",
+      "Until the end of the month."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "How long hỏi KHOẢNG THỜI GIAN. B và C đều là bình luận hợp lý về công trình nhưng không trả lời câu hỏi.",
+    "trap": "How long hỏi KHOẢNG THỜI GIAN. “It's quite loud, isn't it?” và “The city council approved it” đều là bình luận hợp lý về công trình nhưng không trả lời câu hỏi.",
     "vi": "Công trình đường trước toà nhà mình kéo dài bao lâu? — Đến cuối tháng."
   },
   {
     "id": "p2-60",
     "q": "Where should I put these files that Ms. Ferrand signed?",
     "options": [
+      "About thirty pages.",
       "She signed them yesterday.",
-      "In the cabinet behind you.",
-      "About thirty pages."
+      "In the cabinet behind you."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "Where hỏi NƠI CHỐN. A lặp lại signed để bẫy, C đáp số lượng.",
+    "trap": "Where hỏi NƠI CHỐN. “She signed them yesterday” lặp lại signed để bẫy, “About thirty pages” đáp số lượng.",
     "vi": "Tôi để mấy hồ sơ chị Ferrand đã ký ở đâu? — Trong tủ sau lưng bạn."
   },
   {
@@ -796,13 +796,13 @@
     "id": "p2-62",
     "q": "Did the caterer confirm the number of guests?",
     "options": [
-      "A buffet, I believe.",
       "Not since Tuesday.",
-      "The guest room upstairs."
+      "The guest room upstairs.",
+      "A buffet, I believe."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
-    "trap": "\"Not since Tuesday\" = chưa xác nhận lại từ thứ Ba. C bẫy âm guests/guest room.",
+    "trap": "\"Not since Tuesday\" = chưa xác nhận lại từ thứ Ba. “The guest room upstairs” bẫy âm guests/guest room.",
     "vi": "Bên đặt tiệc xác nhận số khách chưa? — Từ thứ Ba tới giờ chưa thấy gì."
   },
   {
@@ -810,25 +810,25 @@
     "q": "Is the parking garage open on public holidays?",
     "options": [
       "Only the lower level.",
-      "I parked there this morning.",
-      "It costs four dollars."
+      "It costs four dollars.",
+      "I parked there this morning."
     ],
     "answer": 0,
     "skill": "l-yesno",
-    "trap": "Đáp án đúng là câu trả lời có ĐIỀU KIỆN (chỉ tầng dưới) thay vì Yes thẳng. B lặp park để bẫy.",
+    "trap": "Đáp án đúng là câu trả lời có ĐIỀU KIỆN (chỉ tầng dưới) thay vì Yes thẳng. “I parked there this morning” lặp park để bẫy.",
     "vi": "Bãi xe có mở vào ngày lễ không? — Chỉ tầng dưới thôi."
   },
   {
     "id": "p2-64",
     "q": "Would you like me to book a taxi to the airport?",
     "options": [
-      "The flight was delayed.",
       "That would be a big help.",
+      "The flight was delayed.",
       "Terminal two, gate nine."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
-    "trap": "Would you like me to…? là lời ĐỀ NGHỊ GIÚP. A và C đều nói về chuyến bay nhưng không đáp lại lời đề nghị.",
+    "trap": "Would you like me to…? là lời ĐỀ NGHỊ GIÚP. “The flight was delayed” và “Terminal two, gate nine” đều nói về chuyến bay nhưng không đáp lại lời đề nghị.",
     "vi": "Bạn có muốn tôi đặt taxi ra sân bay không? — Thế thì tốt quá."
   },
   {
@@ -841,7 +841,7 @@
     ],
     "answer": 1,
     "skill": "l-yesno",
-    "trap": "Đáp án đúng trả lời gián tiếp: còn hai hộp nghĩa là chưa cần đặt. C bám từ audit/auditor.",
+    "trap": "Đáp án đúng trả lời gián tiếp: còn hai hộp nghĩa là chưa cần đặt. “The auditor arrives at nine” bám từ audit/auditor.",
     "vi": "Mình có nên đặt thêm mực trước đợt kiểm toán không? — Trong kho còn hai hộp mà."
   },
   {
@@ -849,23 +849,23 @@
     "q": "Do you want the meeting in the boardroom or online?",
     "options": [
       "Online is easier for the Manila team.",
-      "It lasted about an hour.",
-      "Yes, at two o'clock."
+      "Yes, at two o'clock.",
+      "It lasted about an hour."
     ],
     "answer": 0,
     "skill": "l-choice",
-    "trap": "Câu hỏi lựa chọn A or B thì KHÔNG trả lời Yes/No → loại C ngay lập tức.",
+    "trap": "Câu hỏi lựa chọn “Online is easier for the Manila team” or “It lasted about an hour” thì KHÔNG trả lời Yes/No → loại “Yes, at two o'clock” ngay lập tức.",
     "vi": "Bạn muốn họp ở phòng họp lớn hay họp trực tuyến? — Trực tuyến thì nhóm Manila tiện hơn."
   },
   {
     "id": "p2-67",
     "q": "Would you rather review the contract now or after lunch?",
     "options": [
-      "Whenever you have time.",
+      "It's a three-year contract.",
       "The lunch menu changed.",
-      "It's a three-year contract."
+      "Whenever you have time."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-choice",
     "trap": "\"Whenever you have time\" = không chọn vế nào, nhường người kia — dạng đáp án đúng rất hay gặp ở câu lựa chọn.",
     "vi": "Bạn muốn xem hợp đồng bây giờ hay sau bữa trưa? — Lúc nào bạn rảnh cũng được."
@@ -874,52 +874,52 @@
     "id": "p2-68",
     "q": "Are we interviewing candidates in person or by video call?",
     "options": [
-      "Both, actually — video first.",
+      "In the interview room.",
       "She has eight years of experience.",
-      "In the interview room."
+      "Both, actually — video first."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-choice",
-    "trap": "Đáp án \"Both\" hợp lệ với câu hỏi lựa chọn. C bẫy âm interview/interview room.",
+    "trap": "Đáp án \"Both\" hợp lệ với câu hỏi lựa chọn. “In the interview room” bẫy âm interview/interview room.",
     "vi": "Mình phỏng vấn ứng viên trực tiếp hay gọi video? — Cả hai, video trước đã."
   },
   {
     "id": "p2-69",
     "q": "The elevator on the east side is out of service again.",
     "options": [
-      "I'll take the stairs then.",
       "A service contract.",
+      "I'll take the stairs then.",
       "On the eighth floor."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-statement",
-    "trap": "Câu trần thuật cần PHẢN ỨNG hợp lý. B bẫy âm service, C trả lời câu hỏi Where không ai hỏi.",
+    "trap": "Câu trần thuật cần PHẢN ỨNG hợp lý. “A service contract” bẫy âm service, “On the eighth floor” trả lời câu hỏi Where không ai hỏi.",
     "vi": "Thang máy phía đông lại hỏng rồi. — Vậy tôi đi thang bộ."
   },
   {
     "id": "p2-70",
     "q": "I can't find the receipt for the conference registration.",
     "options": [
-      "It was a good conference.",
       "Try your e-mail — they send a copy.",
+      "It was a good conference.",
       "Register before Friday."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-statement",
-    "trap": "Người nói đang gặp KHÓ KHĂN → đáp án đúng đưa ra cách xử lý. A và C chỉ lặp từ conference/register.",
+    "trap": "Người nói đang gặp KHÓ KHĂN → đáp án đúng đưa ra cách xử lý. “It was a good conference” và “Register before Friday” chỉ lặp từ conference/register.",
     "vi": "Tôi không tìm thấy biên lai đăng ký hội thảo. — Thử tìm trong email xem, họ có gửi bản sao."
   },
   {
     "id": "p2-71",
     "q": "This report has to reach the client before five.",
     "options": [
-      "I'll finish the summary in ten minutes.",
       "The client is from Osaka.",
-      "Five copies, please."
+      "Five copies, please.",
+      "I'll finish the summary in ten minutes."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-statement",
-    "trap": "Câu nêu SỨC ÉP THỜI GIAN → đáp án đúng cam kết kịp giờ. C bẫy âm five/five copies.",
+    "trap": "Câu nêu SỨC ÉP THỜI GIAN → đáp án đúng cam kết kịp giờ. “Five copies, please” bẫy âm five/five copies.",
     "vi": "Báo cáo này phải tới tay khách trước năm giờ. — Mười phút nữa tôi xong phần tóm tắt."
   },
   {
@@ -952,11 +952,11 @@
     "id": "p2-74",
     "q": "How did the presentation to the board go?",
     "options": [
-      "Better than I expected.",
       "A whiteboard and a marker.",
+      "Better than I expected.",
       "I'll present it tomorrow."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-similar",
     "trap": "board/whiteboard và presentation/present là hai cặp bẫy âm. Đáp án đúng nhận xét về kết quả.",
     "vi": "Buổi trình bày trước ban giám đốc thế nào? — Tốt hơn tôi tưởng."
@@ -965,11 +965,11 @@
     "id": "p2-75",
     "q": "Has the accountant finished counting the stock yet?",
     "options": [
+      "I bought some stocks.",
       "The account number.",
-      "He's on the last aisle.",
-      "I bought some stocks."
+      "He's on the last aisle."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-similar",
     "trap": "accountant/account, stock (hàng tồn) / stocks (cổ phiếu). Đáp án đúng nói vẫn đang làm nốt dãy cuối.",
     "vi": "Kế toán kiểm kê hàng xong chưa? — Anh ấy đang ở dãy cuối rồi."
@@ -984,7 +984,7 @@
     ],
     "answer": 0,
     "skill": "l-wh",
-    "trap": "Where hỏi NƠI CHỐN. (B) bám vào expense để nói giá tiền, (C) lặp report và trả lời Yes cho câu Where — cả hai đều sai dạng.",
+    "trap": "Where hỏi NƠI CHỐN. “It costs about thirty dollars” bám vào expense để nói giá tiền, “Yes, I reported it” lặp report và trả lời Yes cho câu Where — cả hai đều sai dạng.",
     "vi": "Tôi nên cất mấy bản kê chi phí này ở đâu? — Trong tủ cạnh cửa."
   },
   {
@@ -997,7 +997,7 @@
     ],
     "answer": 1,
     "skill": "l-wh",
-    "trap": "When hỏi THỜI GIAN. (A) trả lời số lượng, (C) lặp print để đánh lạc hướng sang nơi chốn.",
+    "trap": "When hỏi THỜI GIAN. “Two hundred copies” trả lời số lượng, “At the print shop downtown” lặp print để đánh lạc hướng sang nơi chốn.",
     "vi": "Khi nào catalog mới được in? — Phải đến thứ Ba tuần sau."
   },
   {
@@ -1005,25 +1005,25 @@
     "q": "Who arranged the seating for the banquet?",
     "options": [
       "The events coordinator did.",
-      "In the main hall.",
-      "For about sixty guests."
+      "For about sixty guests.",
+      "In the main hall."
     ],
     "answer": 0,
     "skill": "l-wh",
-    "trap": "Who hỏi NGƯỜI. (B) nơi chốn, (C) số lượng — đều là dữ kiện hợp cảnh nhưng sai câu hỏi.",
+    "trap": "Who hỏi NGƯỜI. “In the main hall” nơi chốn, “For about sixty guests” số lượng — đều là dữ kiện hợp cảnh nhưng sai câu hỏi.",
     "vi": "Ai sắp xếp chỗ ngồi cho bữa tiệc? — Điều phối viên sự kiện làm."
   },
   {
     "id": "p2-79",
     "q": "Why was the shipment delayed?",
     "options": [
+      "Three business days.",
       "By truck, usually.",
-      "A storm closed the highway.",
-      "Three business days."
+      "A storm closed the highway."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "Why hỏi LÝ DO. (A) trả lời phương tiện (How), (C) trả lời khoảng thời gian (How long).",
+    "trap": "Why hỏi LÝ DO. “By truck, usually” trả lời phương tiện (How), “Three business days” trả lời khoảng thời gian (How long).",
     "vi": "Vì sao lô hàng bị chậm? — Bão làm đóng đường cao tốc."
   },
   {
@@ -1043,13 +1043,13 @@
     "id": "p2-81",
     "q": "Which supplier gave us the better quote?",
     "options": [
+      "We supply them monthly.",
       "I'll quote you a price.",
-      "The one in Portland.",
-      "We supply them monthly."
+      "The one in Portland."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "Which + danh từ thì đáp án hay có dạng 'The one…'. (A) và (C) lặp quote/supply ở nghĩa khác.",
+    "trap": "Which + danh từ thì đáp án hay có dạng 'The one…'. “I'll quote you a price” và “We supply them monthly” lặp quote/supply ở nghĩa khác.",
     "vi": "Nhà cung cấp nào báo giá tốt hơn? — Bên ở Portland."
   },
   {
@@ -1057,10 +1057,10 @@
     "q": "What time does the shuttle leave for the airport?",
     "options": [
       "A round-trip ticket.",
-      "Terminal four.",
-      "Every twenty minutes."
+      "Every twenty minutes.",
+      "Terminal four."
     ],
-    "answer": 2,
+    "answer": 1,
     "skill": "l-wh",
     "trap": "Hỏi giờ nhưng đáp án đúng trả lời TẦN SUẤT — cách trả lời gián tiếp rất hay gặp. Đừng chờ nghe đúng một con số giờ.",
     "vi": "Mấy giờ xe đưa đón chạy ra sân bay? — Cứ 20 phút một chuyến."
@@ -1069,52 +1069,52 @@
     "id": "p2-83",
     "q": "How did the client respond to our proposal?",
     "options": [
-      "She asked for a few changes.",
       "I proposed a new date.",
-      "By e-mail attachment."
+      "By e-mail attachment.",
+      "She asked for a few changes."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "How ở đây hỏi PHẢN ỨNG chứ không hỏi phương tiện, nên (C) 'By e-mail' nghe hợp lý mà vẫn sai. (B) lặp propose.",
+    "trap": "How ở đây hỏi PHẢN ỨNG chứ không hỏi phương tiện, nên “By e-mail attachment” 'By e-mail' nghe hợp lý mà vẫn sai. “I proposed a new date” lặp propose.",
     "vi": "Khách phản hồi thế nào về đề xuất của mình? — Cô ấy yêu cầu sửa vài chỗ."
   },
   {
     "id": "p2-84",
     "q": "Where can I get my badge replaced?",
     "options": [
+      "A photo and a signature.",
       "It expired last month.",
-      "Security is on the ground floor.",
-      "A photo and a signature."
+      "Security is on the ground floor."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-wh",
-    "trap": "Where hỏi NƠI CHỐN. (A) và (C) đều là thông tin thật về thẻ nhân viên nhưng không trả lời 'ở đâu'.",
+    "trap": "Where hỏi NƠI CHỐN. “It expired last month” và “A photo and a signature” đều là thông tin thật về thẻ nhân viên nhưng không trả lời 'ở đâu'.",
     "vi": "Tôi làm lại thẻ ở đâu? — Phòng bảo vệ ở tầng trệt."
   },
   {
     "id": "p2-85",
     "q": "Have you signed up for the safety workshop yet?",
     "options": [
-      "The sign is over there.",
+      "It was very safe.",
       "I'm waiting for my manager's approval.",
-      "It was very safe."
+      "The sign is over there."
     ],
     "answer": 1,
     "skill": "l-yesno",
-    "trap": "Đáp án đúng không nói Yes/No mà nêu lý do CHƯA làm được — dạng trả lời gián tiếp chiếm rất nhiều trong Part 2. (A) sign/signed, (C) safety/safe.",
+    "trap": "Đáp án đúng không nói Yes/No mà nêu lý do CHƯA làm được — dạng trả lời gián tiếp chiếm rất nhiều trong Part 2. “The sign is over there” sign/signed, “It was very safe” safety/safe.",
     "vi": "Bạn đăng ký buổi tập huấn an toàn chưa? — Tôi đang chờ quản lý duyệt."
   },
   {
     "id": "p2-86",
     "q": "Is the conference room booked for this afternoon?",
     "options": [
-      "Let me check the calendar.",
       "She booked a flight.",
-      "About twelve people."
+      "About twelve people.",
+      "Let me check the calendar."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-yesno",
-    "trap": "'Để tôi kiểm tra' là đáp án đúng kinh điển khi người nghe chưa biết. (B) lặp booked ở nghĩa đặt vé.",
+    "trap": "'Để tôi kiểm tra' là đáp án đúng kinh điển khi người nghe chưa biết. “She booked a flight” lặp booked ở nghĩa đặt vé.",
     "vi": "Phòng họp chiều nay có ai đặt chưa? — Để tôi xem lịch đã."
   },
   {
@@ -1127,83 +1127,83 @@
     ],
     "answer": 2,
     "skill": "l-yesno",
-    "trap": "Câu phủ định vẫn trả lời như câu thường. (A) bẫy order (đặt hàng / thứ tự), (B) ăn theo bối cảnh máy in.",
+    "trap": "Câu phủ định vẫn trả lời như câu thường. “In alphabetical order” bẫy order (đặt hàng / thứ tự), “The printer downstairs” ăn theo bối cảnh máy in.",
     "vi": "Chẳng phải mình đã đặt thêm mực rồi sao? — Thứ Năm là hàng về."
   },
   {
     "id": "p2-88",
     "q": "Can you cover the front desk during lunch?",
     "options": [
-      "Sorry, I have a client call.",
+      "The lunch menu changed.",
       "Under the desk.",
-      "The lunch menu changed."
+      "Sorry, I have a client call."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-yesno",
-    "trap": "Lời nhờ vả thì đáp án đúng thường là lời TỪ CHỐI kèm lý do. (B) lặp desk, (C) lặp lunch.",
+    "trap": "Lời nhờ vả thì đáp án đúng thường là lời TỪ CHỐI kèm lý do. “Under the desk” lặp desk, “The lunch menu changed” lặp lunch.",
     "vi": "Bạn trực giúp quầy lễ tân giờ trưa được không? — Xin lỗi, tôi có cuộc gọi với khách."
   },
   {
     "id": "p2-89",
     "q": "You're presenting at the quarterly review, aren't you?",
     "options": [
-      "A quarter past three.",
       "Only if Marcus can't.",
-      "They reviewed it twice."
+      "They reviewed it twice.",
+      "A quarter past three."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-yesno",
-    "trap": "Câu hỏi đuôi. Đáp án đúng nêu ĐIỀU KIỆN thay vì Yes/No. (A) bẫy quarterly/quarter, (C) bẫy review.",
+    "trap": "Câu hỏi đuôi. Đáp án đúng nêu ĐIỀU KIỆN thay vì Yes/No. “A quarter past three” bẫy quarterly/quarter, “They reviewed it twice” bẫy review.",
     "vi": "Bạn sẽ thuyết trình ở buổi tổng kết quý, đúng không? — Chỉ khi Marcus không làm được thôi."
   },
   {
     "id": "p2-90",
     "q": "Should we reserve a larger venue this year?",
     "options": [
-      "More people did register.",
       "The reservation desk.",
-      "It's a large room."
+      "It's a large room.",
+      "More people did register."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-yesno",
-    "trap": "Đáp án đúng đồng tình gián tiếp bằng cách đưa lý do. (B) bẫy reserve/reservation, (C) bẫy larger/large.",
+    "trap": "Đáp án đúng đồng tình gián tiếp bằng cách đưa lý do. “The reservation desk” bẫy reserve/reservation, “It's a large room” bẫy larger/large.",
     "vi": "Năm nay mình có nên thuê chỗ rộng hơn không? — Đúng là số người đăng ký đông hơn thật."
   },
   {
     "id": "p2-91",
     "q": "Has the budget been approved?",
     "options": [
-      "Approximately fifteen thousand.",
+      "The finance building.",
       "Not that I've heard.",
-      "The finance building."
+      "Approximately fifteen thousand."
     ],
     "answer": 1,
     "skill": "l-yesno",
-    "trap": "'Not that I've heard' = chưa nghe nói gì, một kiểu trả lời 'tôi không biết'. (A) đưa con số ngân sách nghe rất hợp cảnh.",
+    "trap": "'Not that I've heard' = chưa nghe nói gì, một kiểu trả lời 'tôi không biết'. “Approximately fifteen thousand” đưa con số ngân sách nghe rất hợp cảnh.",
     "vi": "Ngân sách được duyệt chưa? — Tôi chưa nghe nói gì cả."
   },
   {
     "id": "p2-92",
     "q": "Would you rather review the contract now or after the call?",
     "options": [
-      "After the call is fine.",
       "Yes, I reviewed it.",
-      "A two-year contract."
+      "A two-year contract.",
+      "After the call is fine."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-choice",
-    "trap": "Câu hỏi lựa chọn KHÔNG BAO GIỜ trả lời Yes/No, nên (B) loại ngay. (C) lặp contract.",
+    "trap": "Câu hỏi lựa chọn KHÔNG BAO GIỜ trả lời Yes/No, nên “Yes, I reviewed it” loại ngay. “A two-year contract” lặp contract.",
     "vi": "Bạn muốn xem hợp đồng bây giờ hay sau cuộc gọi? — Sau cuộc gọi cũng được."
   },
   {
     "id": "p2-93",
     "q": "Do you want the report printed in colour or in black and white?",
     "options": [
-      "About forty pages.",
       "Whichever is cheaper.",
+      "About forty pages.",
       "The printer is jammed."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-choice",
     "trap": "'Whichever…' là kiểu trả lời không chọn hẳn bên nào — rất hay là đáp án của câu hỏi lựa chọn.",
     "vi": "Bạn muốn in màu hay in đen trắng? — Cái nào rẻ hơn cũng được."
@@ -1212,24 +1212,24 @@
     "id": "p2-94",
     "q": "Should I email the invoice or drop it off?",
     "options": [
-      "The invoice number.",
+      "No, I dropped it.",
       "Email is faster.",
-      "No, I dropped it."
+      "The invoice number."
     ],
     "answer": 1,
     "skill": "l-choice",
-    "trap": "Đáp án đúng chọn hẳn một vế và nêu lý do. (C) vừa trả lời No cho câu lựa chọn vừa lặp drop.",
+    "trap": "Đáp án đúng chọn hẳn một vế và nêu lý do. “No, I dropped it” vừa trả lời No cho câu lựa chọn vừa lặp drop.",
     "vi": "Tôi gửi hoá đơn qua email hay mang tới? — Email nhanh hơn."
   },
   {
     "id": "p2-95",
     "q": "Did you send the contract to the legal department?",
     "options": [
+      "The department store closes at nine.",
       "I sent it this morning.",
-      "He's a legal resident.",
-      "The department store closes at nine."
+      "He's a legal resident."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-similar",
     "trap": "Hai phương án sai đều lấy nguyên từ trong câu hỏi (department, legal) nhưng dùng ở nghĩa khác hẳn.",
     "vi": "Bạn gửi hợp đồng cho phòng pháp chế chưa? — Tôi gửi sáng nay rồi."
@@ -1264,39 +1264,39 @@
     "id": "p2-98",
     "q": "I can't find the key to the supply closet.",
     "options": [
+      "I found it interesting.",
       "Reception keeps a spare.",
-      "It's a supply chain issue.",
-      "I found it interesting."
+      "It's a supply chain issue."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-statement",
-    "trap": "Câu than phiền thì đáp án đúng là một GIẢI PHÁP. (B) và (C) lặp supply, found.",
+    "trap": "Câu than phiền thì đáp án đúng là một GIẢI PHÁP. “It's a supply chain issue” và “I found it interesting” lặp supply, found.",
     "vi": "Tôi không tìm thấy chìa khoá kho vật tư. — Lễ tân có giữ một chìa dự phòng."
   },
   {
     "id": "p2-99",
     "q": "This projector keeps shutting off.",
     "options": [
-      "The shutters are closed.",
       "Maintenance is on the way.",
-      "A projection of sales."
+      "A projection of sales.",
+      "The shutters are closed."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-statement",
-    "trap": "Báo hỏng thì đáp án là hướng xử lý. (A) shutting/shutters, (C) projector/projection — bẫy âm gần giống.",
+    "trap": "Báo hỏng thì đáp án là hướng xử lý. “The shutters are closed” shutting/shutters, “A projection of sales” projector/projection — bẫy âm gần giống.",
     "vi": "Cái máy chiếu này cứ tắt ngang. — Bảo trì đang trên đường tới."
   },
   {
     "id": "p2-100",
     "q": "We're running low on packaging materials.",
     "options": [
-      "I'll put in an order today.",
+      "The package arrived.",
       "He runs every morning.",
-      "The package arrived."
+      "I'll put in an order today."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-statement",
-    "trap": "'running low on' = sắp hết. (B) bắt chữ run theo nghĩa chạy bộ, (C) bắt chữ package.",
+    "trap": "'running low on' = sắp hết. “He runs every morning” bắt chữ run theo nghĩa chạy bộ, “The package arrived” bắt chữ package.",
     "vi": "Vật tư đóng gói sắp hết rồi. — Hôm nay tôi đặt thêm."
   }
 ]

@@ -3,12 +3,12 @@
     "id": "p1-01",
     "img": "/img/toeic/p1-01.webp",
     "statements": [
-      "She is putting on her glasses.",
-      "She is arranging some flowers.",
       "She is drinking from a cup.",
-      "She is typing on a laptop."
+      "She is arranging some flowers.",
+      "She is typing on a laptop.",
+      "She is putting on her glasses."
     ],
-    "answer": 3,
+    "answer": 2,
     "skill": "l-photo",
     "vi": "Ảnh: người phụ nữ ngồi gõ laptop cạnh cửa sổ; trên bàn có cốc cà phê, cặp kính và lọ hoa.",
     "trap": "Cốc, kính, lọ hoa đều CÓ trong ảnh — nhưng cô ấy không làm gì với chúng. Part 1 hay đọc tên đồ vật có thật để dụ chọn sai hành động; nghe kỹ ĐỘNG TỪ."
@@ -17,10 +17,10 @@
     "id": "p1-02",
     "img": "/img/toeic/p1-02.webp",
     "statements": [
-      "A man is carrying a box.",
       "A plant is being moved outside.",
+      "The oven door has been left open.",
       "Some boxes are stacked on top of each other.",
-      "The oven door has been left open."
+      "A man is carrying a box."
     ],
     "answer": 2,
     "skill": "l-photo",
@@ -31,12 +31,12 @@
     "id": "p1-03",
     "img": "/img/toeic/p1-03.webp",
     "statements": [
+      "They are leaving the room.",
       "The women are seated across from each other.",
-      "They are shaking hands.",
       "One of the women is opening a window.",
-      "They are leaving the room."
+      "They are shaking hands."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-photo",
     "vi": "Ảnh: hai người phụ nữ ngồi đối diện nhau trò chuyện bên bàn tròn nhỏ, cạnh cửa sổ lớn nhìn ra thành phố.",
     "trap": "'seated across from each other' = ngồi đối diện nhau — cụm vị trí rất hay gặp. Cửa sổ CÓ trong ảnh nhưng không ai đang mở."
@@ -59,9 +59,9 @@
     "id": "p1-05",
     "img": "/img/toeic/p1-05.webp",
     "statements": [
-      "The cooks are washing some dishes.",
       "Lamps are being installed above the counter.",
       "The kitchen has been left empty.",
+      "The cooks are washing some dishes.",
       "Some plates have been stacked on the counter."
     ],
     "answer": 3,
@@ -87,57 +87,57 @@
     "id": "p1-07",
     "img": "/img/toeic/p1-07.webp",
     "statements": [
-      "The man is folding a newspaper and putting it away.",
-      "The man is holding a newspaper open in front of him.",
       "Newspapers have been stacked on the bench.",
-      "A wall is being painted behind the man."
+      "A wall is being painted behind the man.",
+      "The man is folding a newspaper and putting it away.",
+      "The man is holding a newspaper open in front of him."
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "l-photo",
     "vi": "Ảnh: một người ngồi trên ghế gỗ dài, bắt chéo chân, hai tay cầm tờ báo mở rộng che kín mặt; phía sau là bức tường vẽ graffiti bị làm mờ.",
-    "trap": "D là bẫy kinh điển \"is being + V3\" — trong ảnh không có AI đang sơn tường. C nhắc đúng chữ \"bench\" nhưng tả vật không có (không hề có chồng báo)."
+    "trap": "“A wall is being painted behind the man” là bẫy kinh điển \"is being + V3\" — trong ảnh không có AI đang sơn tường. “Newspapers have been stacked on the bench” nhắc đúng chữ \"bench\" nhưng tả vật không có (không hề có chồng báo)."
   },
   {
     "id": "p1-08",
     "img": "/img/toeic/p1-08.webp",
     "statements": [
+      "Garden tools have been left on the lawn.",
       "She is watering plants in a garden.",
-      "She is picking vegetables into a basket.",
       "She is planting a tree in the grass.",
-      "Garden tools have been left on the lawn."
+      "She is picking vegetables into a basket."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-photo",
     "vi": "Ảnh: một phụ nữ mặc váy không tay cúi người tưới cây bằng bình tưới trong vườn rau; quanh chân là luống cây lá to và mấy cọc gỗ chống.",
-    "trap": "B và C mượn bối cảnh khu vườn để đánh lạc hướng, D tả đồ vật không có trong ảnh. Với ảnh có người, hãy chọn theo HÀNH ĐỘNG đang diễn ra."
+    "trap": "“She is picking vegetables into a basket” và “She is planting a tree in the grass” mượn bối cảnh khu vườn để đánh lạc hướng, “Garden tools have been left on the lawn” tả đồ vật không có trong ảnh. Với ảnh có người, hãy chọn theo HÀNH ĐỘNG đang diễn ra."
   },
   {
     "id": "p1-09",
     "img": "/img/toeic/p1-09.webp",
     "statements": [
       "Food is being arranged on plates.",
-      "The plates have been stacked in a cupboard.",
       "A waiter is carrying a tray to a table.",
+      "The plates have been stacked in a cupboard.",
       "The cooks are washing dishes at a sink."
     ],
     "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: cận cảnh bàn tay hai đầu bếp đang bày thức ăn lên một dãy đĩa trắng đặt trên mặt bàn inox trong bếp nhà hàng.",
-    "trap": "Đây là trường hợp \"is being + V3\" ĐÚNG vì có người đang thao tác ngay trong ảnh — đừng loại A chỉ vì thấy dạng bị động tiếp diễn."
+    "trap": "Đây là trường hợp \"is being + V3\" ĐÚNG vì có người đang thao tác ngay trong ảnh — đừng loại “Food is being arranged on plates” chỉ vì thấy dạng bị động tiếp diễn."
   },
   {
     "id": "p1-10",
     "img": "/img/toeic/p1-10.webp",
     "statements": [
-      "Cargo containers are stacked on a ship.",
       "The harbor is empty of boats.",
-      "Workers are climbing onto a crane.",
-      "A bridge crosses over the water."
+      "A bridge crosses over the water.",
+      "Cargo containers are stacked on a ship.",
+      "Workers are climbing onto a crane."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-photo",
     "vi": "Ảnh: cảnh cảng biển — một tàu hàng lớn cập bến với các container xếp chồng trên boong, phía sau là dãy cần cẩu; nửa dưới ảnh là mặt nước.",
-    "trap": "Đề hay hỏi CHI TIẾT (container xếp chồng) thay vì toàn cảnh. B nói ngược hẳn; C tả người mà ảnh chụp từ xa không có người; D tả vật không có."
+    "trap": "Đề hay hỏi CHI TIẾT (container xếp chồng) thay vì toàn cảnh. “The harbor is empty of boats” nói ngược hẳn; “Workers are climbing onto a crane” tả người mà ảnh chụp từ xa không có người; “A bridge crosses over the water” tả vật không có."
   },
   {
     "id": "p1-11",
@@ -151,7 +151,7 @@
     "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: một người đàn ông quỳ trên vỉa hè, tay cầm cọ sơn phần chân tường màu sẫm; hộp sơn mở đặt ngay cạnh, một chiếc thang chữ A dựng bên trái.",
-    "trap": "Đáp án đúng tả CHI TIẾT PHỤ (cái thang) chứ không tả người ở giữa ảnh — đúng xu hướng đề mới. B sai vì không ai leo thang, C sai vị trí (tường chứ không phải trần)."
+    "trap": "Đáp án đúng tả CHI TIẾT PHỤ (cái thang) chứ không tả người ở giữa ảnh — đúng xu hướng đề mới. “The man is climbing the ladder” sai vì không ai leo thang, “He is rolling paint onto the ceiling” sai vị trí (tường chứ không phải trần)."
   },
   {
     "id": "p1-12",
@@ -165,57 +165,57 @@
     "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: sân ga tàu điện ngầm đông người — hành khách đeo ba lô, kéo vali đứng chờ trước cửa chắn ke ga; trên cao có biển \"Platform 1B\", bên phải là biển chỉ thang cuốn.",
-    "trap": "C nói ngược với ảnh; B và D tả hành động KHÔNG nhìn thấy được. Câu đúng của Part 1 luôn là điều chắc chắn quan sát được."
+    "trap": "“The platform is completely empty” nói ngược với ảnh; “The train is pulling out of the station” và “A man is sweeping the platform floor” tả hành động KHÔNG nhìn thấy được. Câu đúng của Part 1 luôn là điều chắc chắn quan sát được."
   },
   {
     "id": "p1-13",
     "img": "/img/toeic/p1-13.webp",
     "statements": [
       "Glasses have been set out on a table.",
-      "A customer is drinking from a glass.",
       "The chairs have been stacked against the wall.",
-      "A light fixture is being installed on the ceiling."
+      "A light fixture is being installed on the ceiling.",
+      "A customer is drinking from a glass."
     ],
     "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: bàn ăn dài trong nhà hàng — mấy chiếc ly rượu và cốc thuỷ tinh đặt phía trước, dọc bàn là các bộ đồ ăn bày sẵn; phía sau là bếp mở có một người đang làm việc dưới hai chiếc đèn thả.",
-    "trap": "Đáp án đúng tả TRẠNG THÁI đồ vật đã được bày sẵn (have been + V3 — hoàn toàn hợp lệ ở Part 1). D dùng \"is being installed\" cho chiếc đèn đã treo từ trước, đúng kiểu bẫy quen thuộc."
+    "trap": "Đáp án đúng tả TRẠNG THÁI đồ vật đã được bày sẵn (have been + V3 — hoàn toàn hợp lệ ở Part 1). “A light fixture is being installed on the ceiling” dùng \"is being installed\" cho chiếc đèn đã treo từ trước, đúng kiểu bẫy quen thuộc."
   },
   {
     "id": "p1-14",
     "img": "/img/toeic/p1-14.webp",
     "statements": [
-      "Some pens have been placed on the table.",
-      "One of the laptops is being repaired.",
       "The people are shaking hands across the desk.",
+      "One of the laptops is being repaired.",
+      "Some pens have been placed on the table.",
       "A notebook is being handed to a colleague."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-photo",
     "vi": "Ảnh: cận cảnh mặt bàn làm việc — hai máy tính xách tay đang mở, một người cầm bút viết lên cuốn sổ ở giữa, hai bàn tay người khác ở bên phải; vài chiếc bút nằm trên mặt bàn.",
-    "trap": "Chọn câu tả ĐỒ VẬT chắc chắn thấy được. B và D gán dạng \"is being\" cho hành động không ai làm; C tả cái bắt tay không hề có."
+    "trap": "Chọn câu tả ĐỒ VẬT chắc chắn thấy được. “One of the laptops is being repaired” và “A notebook is being handed to a colleague” gán dạng \"is being\" cho hành động không ai làm; “The people are shaking hands across the desk” tả cái bắt tay không hề có."
   },
   {
     "id": "p1-15",
     "img": "/img/toeic/p1-05.webp",
     "statements": [
-      "Some dishes have been stacked on a counter.",
-      "The floor is being mopped.",
+      "All of the cooks have left the kitchen.",
       "A light fixture is being installed above the counter.",
-      "All of the cooks have left the kitchen."
+      "The floor is being mopped.",
+      "Some dishes have been stacked on a counter."
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "l-photo",
     "vi": "Ảnh: bếp nhà hàng — các đầu bếp áo trắng đang làm việc, chồng đĩa xếp sẵn trên quầy, dãy đèn treo phía trên.",
-    "trap": "Câu tả TRẠNG THÁI đồ vật (have been stacked) gần như luôn an toàn. B và C gán \"is being + V\" cho hành động không ai đang làm; D phủ định điều ảnh cho thấy rõ."
+    "trap": "Câu tả TRẠNG THÁI đồ vật (have been stacked) gần như luôn an toàn. “The floor is being mopped” và “A light fixture is being installed above the counter” gán \"is being + V\" cho hành động không ai đang làm; “All of the cooks have left the kitchen” phủ định điều ảnh cho thấy rõ."
   },
   {
     "id": "p1-16",
     "img": "/img/toeic/p1-10.webp",
     "statements": [
-      "Workers are painting the side of the vessel.",
-      "Containers have been loaded onto a ship.",
       "Passengers are boarding a ferry.",
+      "Containers have been loaded onto a ship.",
+      "Workers are painting the side of the vessel.",
       "The cranes are being taken apart."
     ],
     "answer": 1,
@@ -227,26 +227,26 @@
     "id": "p1-17",
     "img": "/img/toeic/p1-12.webp",
     "statements": [
-      "A train is being cleaned at the platform.",
-      "The platform is completely empty.",
       "Some people are waiting on a platform.",
-      "Travelers are carrying suitcases up a staircase."
+      "Travelers are carrying suitcases up a staircase.",
+      "A train is being cleaned at the platform.",
+      "The platform is completely empty."
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: sân ga tàu điện ngầm đông người — hành khách đeo ba lô, kéo vali đứng chờ trước cửa chắn ke ga.",
-    "trap": "D đúng đồ vật (vali) nhưng sai hành động và sai nơi chốn (cầu thang). B mâu thuẫn hẳn với ảnh đông người."
+    "trap": "“Travelers are carrying suitcases up a staircase” đúng đồ vật (vali) nhưng sai hành động và sai nơi chốn (cầu thang). “The platform is completely empty” mâu thuẫn hẳn với ảnh đông người."
   },
   {
     "id": "p1-18",
     "img": "/img/toeic/p1-13.webp",
     "statements": [
-      "The chairs have been stacked in a corner.",
       "Customers are being seated by the window.",
       "Glasses have been arranged on a table.",
+      "The chairs have been stacked in a corner.",
       "A server is pouring water into a glass."
     ],
-    "answer": 2,
+    "answer": 1,
     "skill": "l-photo",
     "vi": "Ảnh: bàn ăn dài trong nhà hàng — mấy chiếc ly rượu và cốc thuỷ tinh đặt phía trước, dọc bàn là các bộ đồ ăn bày sẵn; phía sau là bếp mở.",
     "trap": "Ba câu sai đều thêm NGƯỜI hoặc hành động không có trong ảnh. Bàn ăn bày sẵn = tả bằng thì hiện tại hoàn thành bị động."
@@ -255,57 +255,57 @@
     "id": "p1-19",
     "img": "/img/toeic/p1-04.webp",
     "statements": [
-      "A man is locking up a bicycle.",
-      "Some vehicles are parked along the street.",
       "A bicycle is lying on the ground.",
-      "The wall is being repaired."
+      "A man is locking up a bicycle.",
+      "The wall is being repaired.",
+      "Some vehicles are parked along the street."
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "l-photo",
     "vi": "Ảnh: chiếc xe đạp dựng tựa vào bức tường đá cũ trên vỉa hè vắng; phía xa cuối phố có mấy chiếc xe đậu sát lề.",
-    "trap": "Không có người trong ảnh → loại ngay (A) và (D) 'is being repaired' (đang được sửa, phải có người làm). (C) đúng vật nhưng sai trạng thái: xe DỰNG TỰA chứ không NẰM dưới đất."
+    "trap": "Không có người trong ảnh → loại ngay “A man is locking up a bicycle”, và “The wall is being repaired” cũng sai vì 'is being repaired' (đang được sửa) đòi phải có người làm. “A bicycle is lying on the ground” đúng vật nhưng sai trạng thái: xe DỰNG TỰA chứ không NẰM dưới đất."
   },
   {
     "id": "p1-20",
     "img": "/img/toeic/p1-06.webp",
     "statements": [
       "A clerk is weighing some produce.",
+      "Shopping carts are stacked near an entrance.",
       "She is reaching for a pineapple.",
-      "Some fruit has been arranged on a display.",
-      "Shopping carts are stacked near an entrance."
+      "Some fruit has been arranged on a display."
     ],
-    "answer": 2,
+    "answer": 3,
     "skill": "l-photo",
     "vi": "Ảnh: người phụ nữ đeo ba lô đẩy xe hàng đi qua quầy trái cây trong siêu thị; dứa và các loại quả bày kín mặt quầy.",
-    "trap": "Cô ấy ĐANG ĐẨY xe chứ không với tay lấy quả → loại (B). (A) và (D) tả người/vật không có trong khung hình. Câu đúng dùng thể bị động hoàn thành 'has been arranged' để tả TRẠNG THÁI bày sẵn."
+    "trap": "Cô ấy ĐANG ĐẨY xe chứ không với tay lấy quả → loại “She is reaching for a pineapple”. “A clerk is weighing some produce” và “Shopping carts are stacked near an entrance” tả người/vật không có trong khung hình. Câu đúng dùng thể bị động hoàn thành 'has been arranged' để tả TRẠNG THÁI bày sẵn."
   },
   {
     "id": "p1-21",
     "img": "/img/toeic/p1-07.webp",
     "statements": [
-      "He is turning a page.",
       "He has crossed his legs.",
+      "He is turning a page.",
       "A newspaper has been left on a bench.",
       "He is putting on a striped shirt."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: một người ngồi trên ghế gỗ dài, bắt chéo chân, hai tay cầm tờ báo mở rộng che kín mặt; áo kẻ sọc ngang.",
-    "trap": "(C) sai trạng thái: tờ báo ĐANG ĐƯỢC CẦM chứ không bị bỏ lại trên ghế. (D) bẫy kinh điển 'putting on' (đang mặc VÀO) khác 'wearing' (đang mặc trên người)."
+    "trap": "“A newspaper has been left on a bench” sai trạng thái: tờ báo ĐANG ĐƯỢC CẦM chứ không bị bỏ lại trên ghế. “He is putting on a striped shirt” bẫy kinh điển 'putting on' (đang mặc VÀO) khác 'wearing' (đang mặc trên người)."
   },
   {
     "id": "p1-22",
     "img": "/img/toeic/p1-08.webp",
     "statements": [
       "She is pulling weeds out of the soil.",
-      "A watering can has been set on the ground.",
+      "Vegetables are being packed into a crate.",
       "She is bending over some plants.",
-      "Vegetables are being packed into a crate."
+      "A watering can has been set on the ground."
     ],
     "answer": 2,
     "skill": "l-photo",
     "vi": "Ảnh: một phụ nữ mặc váy không tay cúi người tưới cây bằng bình tưới trong vườn rau; quanh chân là luống cây lá xanh.",
-    "trap": "(B) sai vị trí: bình tưới đang Ở TRÊN TAY cô ấy, không đặt dưới đất. (A) và (D) tả hành động khác hẳn. Câu đúng chỉ tả tư thế CÚI NGƯỜI — an toàn vì đúng với mọi cách hiểu."
+    "trap": "“A watering can has been set on the ground” sai vị trí: bình tưới đang Ở TRÊN TAY cô ấy, không đặt dưới đất. “She is pulling weeds out of the soil” và “Vegetables are being packed into a crate” tả hành động khác hẳn. Câu đúng chỉ tả tư thế CÚI NGƯỜI — an toàn vì đúng với mọi cách hiểu."
   },
   {
     "id": "p1-23",
@@ -313,26 +313,26 @@
     "statements": [
       "A chef is washing some dishes.",
       "Some plates have been lined up on a counter.",
-      "He is pouring soup into a bowl.",
-      "Aprons are hanging on a rack."
+      "Aprons are hanging on a rack.",
+      "He is pouring soup into a bowl."
     ],
     "answer": 1,
     "skill": "l-photo",
     "vi": "Ảnh: cận cảnh bàn tay hai đầu bếp đang bày thức ăn lên một dãy đĩa trắng xếp thẳng hàng trên mặt bàn inox.",
-    "trap": "Ảnh chỉ thấy BÀN TAY, không thấy rõ người → tránh chọn câu tả toàn thân như (A). Câu đúng tả DÃY ĐĨA xếp sẵn — chi tiết chắc chắn nhìn thấy được."
+    "trap": "Ảnh chỉ thấy BÀN TAY, không thấy rõ người → tránh chọn câu tả toàn thân như “A chef is washing some dishes”. Câu đúng tả DÃY ĐĨA xếp sẵn — chi tiết chắc chắn nhìn thấy được."
   },
   {
     "id": "p1-24",
     "img": "/img/toeic/p1-11.webp",
     "statements": [
-      "He is climbing a ladder.",
-      "He is opening a can of paint.",
       "A man is kneeling on the ground.",
+      "He is opening a can of paint.",
+      "He is climbing a ladder.",
       "Some brushes are being rinsed in a bucket."
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "l-photo",
     "vi": "Ảnh: một người đàn ông quỳ trên vỉa hè, tay cầm cọ sơn phần chân tường; hộp sơn đã mở đặt ngay cạnh, thang gấp dựng bên trái.",
-    "trap": "Thang CÓ trong ảnh nhưng không ai trèo → (A) sai, đây là bẫy hay gặp nhất Part 1. (B) sai thì: hộp sơn ĐÃ mở sẵn rồi, không phải đang mở."
+    "trap": "Thang CÓ trong ảnh nhưng không ai trèo → “He is climbing a ladder” sai, đây là bẫy hay gặp nhất Part 1. “He is opening a can of paint” sai thì: hộp sơn ĐÃ mở sẵn rồi, không phải đang mở."
   }
 ]
