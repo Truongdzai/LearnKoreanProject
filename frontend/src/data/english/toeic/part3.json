@@ -24,23 +24,23 @@
       {
         "q": "Where does the woman work?",
         "options": [
-          "At an airline",
           "At a dental office",
-          "At a travel agency",
-          "At a hotel"
+          "At an airline",
+          "At a hotel",
+          "At a travel agency"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "Why does the man want to change his appointment?",
         "options": [
-          "He is feeling sick.",
           "His flight was delayed.",
+          "He is feeling sick.",
           "He lost his car keys.",
           "He has another meeting."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
@@ -83,8 +83,8 @@
         "options": [
           "A room is double-booked.",
           "A projector is not working.",
-          "A client canceled a meeting.",
-          "A cable is missing."
+          "A cable is missing.",
+          "A client canceled a meeting."
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -92,23 +92,23 @@
       {
         "q": "What does the man suggest?",
         "options": [
-          "Calling a technician",
           "Postponing the presentation",
           "Moving to another room",
+          "Calling a technician",
           "Buying a new projector"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
         "q": "What will the woman most likely do next?",
         "options": [
-          "Reserve room D",
-          "Repair the cable",
+          "Print the slides",
           "Greet the clients",
-          "Print the slides"
+          "Reserve room D",
+          "Repair the cable"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-infer"
       }
     ]
@@ -138,12 +138,12 @@
       {
         "q": "Why is the woman at the store?",
         "options": [
-          "To buy a gift",
           "To return a faulty product",
           "To apply for a membership",
+          "To buy a gift",
           "To pick up an order"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
@@ -151,21 +151,21 @@
         "options": [
           "She lost her membership card.",
           "The store is out of stock.",
-          "She did not bring her receipt.",
-          "The price was incorrect."
+          "The price was incorrect.",
+          "She did not bring her receipt."
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What does the man offer to do?",
         "options": [
           "Call the manufacturer",
-          "Extend her warranty",
           "Give her a discount coupon",
-          "Look up the purchase record"
+          "Look up the purchase record",
+          "Extend her warranty"
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "l-detail"
       }
     ]
@@ -195,34 +195,34 @@
       {
         "q": "What are the speakers mainly discussing?",
         "options": [
-          "A trade show booth",
-          "Hiring a new employee",
+          "A department budget",
           "A website redesign",
-          "A department budget"
+          "Hiring a new employee",
+          "A trade show booth"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-main"
       },
       {
         "q": "What is the woman waiting for?",
         "options": [
-          "A job description",
           "A budget approval",
+          "A job description",
           "A client contract",
           "A software update"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
         "q": "Why is the man concerned about timing?",
         "options": [
-          "The office is closing early.",
-          "A new employee is needed before an event.",
+          "The director is on vacation.",
           "The posting fee will increase.",
-          "The director is on vacation."
+          "The office is closing early.",
+          "A new employee is needed before an event."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -253,9 +253,9 @@
         "q": "Why is the woman in the building?",
         "options": [
           "To attend a training session",
-          "To repair the elevator",
+          "To interview for a job",
           "To deliver a package",
-          "To interview for a job"
+          "To repair the elevator"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -263,23 +263,23 @@
       {
         "q": "Where is the seminar room?",
         "options": [
-          "Behind the reception desk",
           "On the fourth floor",
-          "Next to the cafeteria",
-          "On the second floor"
+          "Behind the reception desk",
+          "On the second floor",
+          "Next to the cafeteria"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What will the woman receive at the check-in table?",
         "options": [
           "A parking pass",
+          "A software license",
           "A meal voucher",
-          "A name badge and materials",
-          "A software license"
+          "A name badge and materials"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -309,34 +309,34 @@
       {
         "q": "What did many customers complain about?",
         "options": [
+          "Long delivery times",
           "Product quality",
           "Website errors",
-          "Long delivery times",
           "High prices"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What does the man say about the affected customers?",
         "options": [
-          "They are mostly new customers.",
           "They live mainly in rural areas.",
+          "They are mostly new customers.",
           "They shop only online.",
           "They canceled their orders."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What does the woman suggest?",
         "options": [
           "Hiring more drivers",
-          "Working with a local courier",
           "Closing rural branches",
+          "Working with a local courier",
           "Offering discount codes"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-infer"
       }
     ]
@@ -366,34 +366,34 @@
       {
         "q": "What problem does the man have?",
         "options": [
-          "He lost the meeting link.",
           "A meeting app keeps freezing.",
           "His camera is broken.",
+          "He lost the meeting link.",
           "He joined the wrong call."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What does the woman suggest doing?",
         "options": [
           "Restarting the computer",
-          "Calling the IT department",
           "Joining through a web browser",
+          "Calling the IT department",
           "Rescheduling the meeting"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
         "q": "What does the man ask the woman to do?",
         "options": [
           "Send him the calendar invitation",
-          "Let the others know he will be late",
           "Take notes during the call",
-          "Turn off her microphone"
+          "Turn off her microphone",
+          "Let the others know he will be late"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -423,23 +423,23 @@
       {
         "q": "Why is the woman calling?",
         "options": [
-          "To cancel an order",
           "To ask for an earlier pickup",
+          "To change a delivery address",
           "To complain about a design",
-          "To change a delivery address"
+          "To cancel an order"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-main"
       },
       {
         "q": "What does the man say about the express service?",
         "options": [
           "It is not available this week.",
-          "It costs twenty percent extra.",
           "It requires a new order number.",
-          "It only applies to small orders."
+          "It only applies to small orders.",
+          "It costs twenty percent extra."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
@@ -447,10 +447,10 @@
         "options": [
           "Visit the print shop",
           "Contact her client",
-          "Approve a design file",
-          "Compare other printers"
+          "Compare other printers",
+          "Approve a design file"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -480,19 +480,19 @@
       {
         "q": "What are the speakers mainly discussing?",
         "options": [
-          "A negative online review",
           "A new menu item",
           "A staff promotion",
+          "A negative online review",
           "A kitchen renovation"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-main"
       },
       {
         "q": "According to the man, what caused the problem on Saturday?",
         "options": [
-          "A broken oven",
           "Too many reservations",
+          "A broken oven",
           "A shortage of kitchen staff",
           "A late food delivery"
         ],
@@ -502,12 +502,12 @@
       {
         "q": "What does the man mean when he says some tables should be closed?",
         "options": [
-          "The restaurant should serve fewer customers when understaffed.",
           "The dining room needs new furniture.",
+          "The restaurant should serve fewer customers when understaffed.",
           "The restaurant should close earlier.",
           "Some tables are reserved for staff."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -537,21 +537,21 @@
       {
         "q": "What is the announcement about?",
         "options": [
-          "A new office building",
           "A remote work policy",
+          "A company anniversary",
           "A quarterly bonus",
-          "A company anniversary"
+          "A new office building"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-main"
       },
       {
         "q": "What concern does the woman mention?",
         "options": [
           "Her internet connection is unstable.",
-          "Her commute is too long.",
+          "Her team meets every day.",
           "Her manager disagrees with the policy.",
-          "Her team meets every day."
+          "Her commute is too long."
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -560,11 +560,11 @@
         "q": "Why does the woman say, \"That changes things\"?",
         "options": [
           "She will look for a new apartment.",
-          "The benefits address her concerns.",
           "The policy starts earlier than expected.",
-          "She wants to work five days at home."
+          "She wants to work five days at home.",
+          "The benefits address her concerns."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -620,12 +620,12 @@
       {
         "q": "What solution do the speakers agree on?",
         "options": [
-          "Renting a hotel ballroom",
           "Holding two smaller sessions",
+          "Renting a hotel ballroom",
           "Moving the date of the workshop",
           "Limiting the number of attendees"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -660,11 +660,11 @@
         "q": "Why is the woman calling?",
         "options": [
           "To report a power outage",
-          "To question a high bill",
+          "To change her address",
           "To close her account",
-          "To change her address"
+          "To question a high bill"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-main"
       },
       {
@@ -682,11 +682,11 @@
         "q": "What will the woman most likely do next?",
         "options": [
           "Pay the original bill",
-          "Wait for a technician's visit",
           "Upload a photo of her meter",
+          "Wait for a technician's visit",
           "Install a new keypad"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -720,34 +720,34 @@
       {
         "q": "What event are the speakers preparing for?",
         "options": [
-          "A store opening",
-          "A company picnic",
           "An electronics expo",
+          "A company picnic",
+          "A store opening",
           "A press conference"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-main"
       },
       {
         "q": "What problem does the man mention?",
         "options": [
           "The tablets have not arrived.",
-          "A logo was printed incorrectly.",
           "The booth is too small.",
-          "The banner was damaged."
+          "The banner was damaged.",
+          "A logo was printed incorrectly."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What does the woman imply about the giveaway bags?",
         "options": [
           "They are essential to the booth.",
-          "The event can succeed without them.",
           "They should be redesigned.",
+          "The event can succeed without them.",
           "They cost too much to reprint."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-infer"
       }
     ]
@@ -777,34 +777,34 @@
       {
         "q": "Why did the caterer call the man?",
         "options": [
+          "To raise their prices",
           "To confirm a delivery time",
           "To say a menu is unavailable",
-          "To raise their prices",
           "To cancel the contract"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What does the woman mean when she says, \"Let's give the bistro a shot\"?",
         "options": [
-          "She wants to try the new restaurant.",
           "She wants to photograph the bistro.",
           "She prefers the Italian menu.",
-          "She will cancel the board lunch."
+          "She will cancel the board lunch.",
+          "She wants to try the new restaurant."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-infer"
       },
       {
         "q": "What does the woman hope to gain from her decision?",
         "options": [
+          "A larger meeting room",
           "A lower catering price",
           "A backup food supplier",
-          "A larger meeting room",
           "A longer lunch break"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-infer"
       }
     ]
@@ -834,34 +834,34 @@
       {
         "q": "What problem is the woman having?",
         "options": [
-          "An app will not recognize her face.",
           "She forgot her badge at home.",
           "Her shift was changed.",
-          "Her profile was deleted."
+          "Her profile was deleted.",
+          "An app will not recognize her face."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "According to the man, what caused the problem?",
         "options": [
-          "A server outage",
           "Low-quality photos from the old system",
           "An expired password",
+          "A server outage",
           "A missing software update"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What does the man suggest the woman do?",
         "options": [
-          "Email HR every morning",
-          "Get a new badge printed",
+          "Clock in on paper",
           "Retake her photo in the app",
-          "Clock in on paper"
+          "Get a new badge printed",
+          "Email HR every morning"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -891,10 +891,10 @@
       {
         "q": "Where does this conversation most likely take place?",
         "options": [
-          "At an airport gate",
+          "At a repair shop",
           "At a car rental counter",
           "At a hotel reception",
-          "At a repair shop"
+          "At an airport gate"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -902,9 +902,9 @@
       {
         "q": "What does the woman offer the man?",
         "options": [
-          "A free GPS unit",
-          "A larger car at no extra cost",
           "A discount coupon",
+          "A larger car at no extra cost",
+          "A free GPS unit",
           "A later flight"
         ],
         "answer": 1,
@@ -915,10 +915,10 @@
         "options": [
           "Return the car Saturday night",
           "Pay in cash",
-          "Use the express key box",
-          "Call the counter in advance"
+          "Call the counter in advance",
+          "Use the express key box"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -957,11 +957,11 @@
         "q": "What are the speakers mainly discussing?",
         "options": [
           "Hiring additional warehouse staff",
-          "Relocating to a new warehouse",
           "Renegotiating a shipping contract",
-          "Redesigning a loading dock"
+          "Redesigning a loading dock",
+          "Relocating to a new warehouse"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-main"
       },
       {
@@ -979,11 +979,11 @@
         "q": "Why does the woman approve of weekend rates?",
         "options": [
           "The staff prefer working weekends.",
-          "Weekend rates are cheaper.",
           "Avoiding order delays is worth the extra cost.",
+          "Weekend rates are cheaper.",
           "The city office is closed on weekdays."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -1018,33 +1018,33 @@
         "q": "Why is the woman calling?",
         "options": [
           "To cancel a subscription",
-          "To ask about an increased charge",
           "To report a service outage",
-          "To change her mailing address"
+          "To change her mailing address",
+          "To ask about an increased charge"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What does the woman imply when she says, \"Well, that's news to me\"?",
         "options": [
-          "She had not been aware the rate was temporary.",
-          "She reads the company newsletter.",
           "She wants to speak to a manager.",
+          "She reads the company newsletter.",
+          "She had not been aware the rate was temporary.",
           "She recently moved to a new city."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-infer"
       },
       {
         "q": "What does the woman ask the man to send?",
         "options": [
+          "The plan's terms by e-mail",
           "A refund check",
           "A replacement device",
-          "The plan's terms by e-mail",
           "A printed copy of her old invoices"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -1078,23 +1078,23 @@
       {
         "q": "What change does the man report?",
         "options": [
-          "The booth location has changed.",
-          "The trade show was postponed.",
           "A supplier raised its prices.",
-          "A colleague canceled her trip."
+          "The trade show was postponed.",
+          "A colleague canceled her trip.",
+          "The booth location has changed."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What problem does the woman identify?",
         "options": [
-          "The banner is the wrong size.",
           "The entrance will be crowded.",
+          "The banner is the wrong size.",
           "The print shop is closed.",
           "The setup date was moved up."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
@@ -1102,8 +1102,8 @@
         "options": [
           "Contact the organizer",
           "Approve an additional expense",
-          "Deliver the banner herself",
-          "Reserve a hotel room"
+          "Reserve a hotel room",
+          "Deliver the banner herself"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -1143,32 +1143,32 @@
       {
         "q": "What is the purpose of the conversation?",
         "options": [
+          "To announce a promotion",
           "To schedule job interviews",
-          "To review a printing contract",
           "To plan a design conference",
-          "To announce a promotion"
+          "To review a printing contract"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-purpose"
       },
       {
         "q": "Why is Tuesday not suitable for the second woman?",
         "options": [
           "She has client calls.",
+          "She has not reviewed the applications.",
           "She will be visiting a printing plant.",
-          "She is taking a vacation day.",
-          "She has not reviewed the applications."
+          "She is taking a vacation day."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will the candidates be asked to do?",
         "options": [
           "Bring printed portfolios",
-          "Arrive an hour early",
+          "Complete a written test",
           "Submit digital files beforehand",
-          "Complete a written test"
+          "Arrive an hour early"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -1208,34 +1208,34 @@
       {
         "q": "What is the woman trying to do?",
         "options": [
-          "Enroll in a course",
-          "Return a laptop",
           "Reschedule a meeting",
-          "Apply for a transfer"
+          "Return a laptop",
+          "Apply for a transfer",
+          "Enroll in a course"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What does the man suggest the woman do while she waits?",
         "options": [
           "Contact the instructor directly",
-          "Attend a weekly refresher session",
           "Take an online exam",
-          "Buy a textbook"
+          "Buy a textbook",
+          "Attend a weekly refresher session"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "Why might the woman bring her own laptop?",
         "options": [
           "The training room has no computers.",
-          "She needs to join by video.",
           "She wants to keep the practice files.",
+          "She needs to join by video.",
           "The software is not installed on site."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -1269,12 +1269,12 @@
       {
         "q": "What problem does the woman report?",
         "options": [
+          "She lost her identification card.",
           "A freezer is not working.",
           "Her badge no longer opens a door.",
-          "She lost her identification card.",
           "A training class was canceled."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
@@ -1364,12 +1364,12 @@
       {
         "q": "What event is the woman planning?",
         "options": [
-          "A safety workshop",
           "A client dinner",
           "A job fair",
+          "A safety workshop",
           "A product launch"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-purpose"
       },
       {
@@ -1387,11 +1387,11 @@
         "q": "What does the woman ask the man to arrange?",
         "options": [
           "Extra chairs",
-          "A projector check",
           "Catering for the morning",
-          "A parking permit"
+          "A parking permit",
+          "A projector check"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -1466,23 +1466,23 @@
       {
         "q": "Why does the man need to allow extra time?",
         "options": [
-          "The terminal is far from his office.",
           "He has to collect a package.",
+          "The terminal is far from his office.",
           "The ferry is often delayed.",
           "He must buy a ticket at the counter."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
         "q": "What does the woman say about the staff card?",
         "options": [
-          "It must be shown at the office.",
-          "It gives a discount on the fare.",
+          "It expires at the end of the month.",
           "It replaces a printed ticket.",
-          "It expires at the end of the month."
+          "It gives a discount on the fare.",
+          "It must be shown at the office."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       }
     ]
@@ -1556,23 +1556,23 @@
       {
         "q": "Why does the woman advise against using two boxes?",
         "options": [
-          "The contents would be damaged.",
           "The total cost would be higher.",
-          "Two boxes would arrive separately.",
-          "The branch office cannot accept them."
+          "The contents would be damaged.",
+          "The branch office cannot accept them.",
+          "Two boxes would arrive separately."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-infer"
       },
       {
         "q": "What is available for an additional charge?",
         "options": [
-          "Next-day delivery",
-          "Insurance cover",
           "Stronger packaging",
-          "A tracking number"
+          "Insurance cover",
+          "A tracking number",
+          "Next-day delivery"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -1647,22 +1647,22 @@
         "q": "Why does the man suggest taking the stairs?",
         "options": [
           "The lift is out of order.",
-          "The lift has been slow.",
           "The stairs are closer to reception.",
-          "The lift stops only at even floors."
+          "The lift stops only at even floors.",
+          "The lift has been slow."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What does the man say about the woman's badge?",
         "options": [
-          "It must be renewed each year.",
           "It works at every company site.",
+          "It must be renewed each year.",
           "It has to be shown at the desk.",
           "It does not open the stairwell."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -1726,8 +1726,8 @@
         "q": "What has the woman ordered?",
         "options": [
           "Office chairs",
-          "A filing cabinet",
           "Printer paper",
+          "A filing cabinet",
           "A delivery van"
         ],
         "answer": 0,
@@ -1747,12 +1747,12 @@
       {
         "q": "What happens if nobody signs for the delivery?",
         "options": [
-          "The order is refunded.",
           "The driver returns the next week.",
           "The items go to a collection point.",
+          "The order is refunded.",
           "The customer must pay a second fee."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -1831,12 +1831,12 @@
       {
         "q": "Why does the man warn against a larger package?",
         "options": [
-          "The budget has been cut.",
           "Leftover copies were a problem last year.",
+          "The budget has been cut.",
           "Larger orders take longer to print.",
           "The booklets would not fit in the venue."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-infer"
       },
       {
@@ -1888,23 +1888,23 @@
       {
         "q": "Why is the room on the fourth floor unsuitable?",
         "options": [
-          "It has no screen.",
           "It is too small.",
+          "It is too noisy.",
           "It is being cleaned.",
-          "It is too noisy."
+          "It has no screen."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What will the woman do next?",
         "options": [
           "Call the client",
-          "Print the slides",
           "Send a new invitation",
-          "Cancel the meeting"
+          "Cancel the meeting",
+          "Print the slides"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -1934,12 +1934,12 @@
       {
         "q": "Why is the woman calling?",
         "options": [
-          "To report a lost phone",
-          "To ask about a high bill",
           "To cancel her service",
-          "To change her address"
+          "To report a lost phone",
+          "To change her address",
+          "To ask about a high bill"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
@@ -1956,12 +1956,12 @@
       {
         "q": "What does the man offer?",
         "options": [
-          "A full refund",
           "Free roaming this month",
           "Payment in instalments",
+          "A full refund",
           "A new telephone"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -1991,12 +1991,12 @@
       {
         "q": "Where do the speakers most likely work?",
         "options": [
-          "At a hotel",
           "At a hospital",
+          "At a hotel",
           "At an airport",
           "At a school"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-purpose"
       },
       {
@@ -2013,10 +2013,10 @@
       {
         "q": "Why can the woman not go to the roof?",
         "options": [
-          "She does not have the key.",
+          "Her shift ends at four.",
           "She must greet a group.",
           "She is afraid of heights.",
-          "Her shift ends at four."
+          "She does not have the key."
         ],
         "answer": 1,
         "skill": "l-infer"
@@ -2049,8 +2049,8 @@
         "q": "What are the speakers preparing for?",
         "options": [
           "A trade show",
-          "A staff party",
           "A photo shoot",
+          "A staff party",
           "An office move"
         ],
         "answer": 0,
@@ -2059,23 +2059,23 @@
       {
         "q": "What is the problem with the display?",
         "options": [
-          "The banner has the wrong logo.",
-          "Part of it is hidden.",
+          "It is too heavy.",
           "The colours do not match.",
-          "It is too heavy."
+          "The banner has the wrong logo.",
+          "Part of it is hidden."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What does the man ask the woman to check?",
         "options": [
-          "Whether the samples have arrived",
           "Whether the tape is finished",
           "Where the price list is printed",
+          "Whether the samples have arrived",
           "When the show opens"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-detail"
       }
     ]
@@ -2113,34 +2113,34 @@
       {
         "q": "What are the speakers mainly discussing?",
         "options": [
-          "How to schedule interviews",
-          "How to write a job advertisement",
           "How to design a portfolio",
+          "How to write a job advertisement",
+          "How to schedule interviews",
           "How to train new staff"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-main"
       },
       {
         "q": "What does the second woman suggest?",
         "options": [
           "Interviewing everyone for thirty minutes",
-          "Holding short calls before Thursday",
           "Postponing the interviews",
+          "Holding short calls before Thursday",
           "Hiring two candidates"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will Sanne do?",
         "options": [
           "Make the phone calls",
-          "Write the job description",
           "Share a link to the portfolios",
+          "Write the job description",
           "Book a meeting room"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -2171,9 +2171,9 @@
         "q": "What is the man's problem?",
         "options": [
           "The shoes are uncomfortable.",
-          "The shoes are the wrong colour.",
+          "The shoes arrived late.",
           "He was charged twice.",
-          "The shoes arrived late."
+          "The shoes are the wrong colour."
         ],
         "answer": 0,
         "skill": "l-main"
@@ -2181,19 +2181,19 @@
       {
         "q": "What does the woman say about the receipt?",
         "options": [
+          "It expires after seven days.",
           "It must be presented.",
           "The card can be used instead.",
-          "It expires after seven days.",
           "A photo of it is required."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will the woman most likely do next?",
         "options": [
-          "Refund the payment",
           "Call a manager",
+          "Refund the payment",
           "Fetch another pair",
           "Order from another shop"
         ],
@@ -2227,34 +2227,34 @@
       {
         "q": "What does the woman request?",
         "options": [
-          "A pay increase",
-          "Time off to study",
+          "A new computer",
           "A transfer to another team",
-          "A new computer"
+          "A pay increase",
+          "Time off to study"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What condition does the man set?",
         "options": [
           "She must pay the full fee.",
-          "She must change when a task is done.",
           "She must take the course online.",
+          "She must change when a task is done.",
           "She must train a colleague."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will the woman most likely do next?",
         "options": [
-          "Write a formal request",
           "Enrol at the college",
           "Cancel the weekly report",
-          "Speak to the regional office"
+          "Speak to the regional office",
+          "Write a formal request"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -2296,22 +2296,22 @@
         "q": "What does the man say he did yesterday?",
         "options": [
           "Replaced a seal",
-          "Cleaned part of the machine",
           "Called the manufacturer",
+          "Cleaned part of the machine",
           "Ordered a new pump"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "Why does the woman suggest coming at seven?",
         "options": [
-          "The shop is closed then.",
-          "Parts are delivered early.",
+          "The machine cools overnight.",
           "She works elsewhere later.",
-          "The machine cools overnight."
+          "The shop is closed then.",
+          "Parts are delivered early."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-infer"
       }
     ]
@@ -2346,9 +2346,9 @@
         "q": "What are the speakers deciding?",
         "options": [
           "Which printing company to use",
-          "How many leaflets to order",
+          "When to start a sale",
           "Where to sell a product",
-          "When to start a sale"
+          "How many leaflets to order"
         ],
         "answer": 0,
         "skill": "l-main"
@@ -2358,8 +2358,8 @@
         "options": [
           "The quality is better.",
           "It will be ready in time.",
-          "The company is nearby.",
-          "It includes free delivery."
+          "It includes free delivery.",
+          "The company is nearby."
         ],
         "answer": 1,
         "skill": "l-infer"
@@ -2367,12 +2367,12 @@
       {
         "q": "What does the woman say she will do?",
         "options": [
-          "Use fewer images",
           "Ask for a discount",
+          "Print a sample first",
           "Delay the sale",
-          "Print a sample first"
+          "Use fewer images"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -2402,20 +2402,20 @@
       {
         "q": "What is the man trying to find?",
         "options": [
+          "A car park",
           "A bank",
           "A conference venue",
-          "A car park",
           "A cafe"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-purpose"
       },
       {
         "q": "What does the woman say about the entrance?",
         "options": [
           "It is on a different street.",
-          "It is closed today.",
           "It is inside the bank.",
+          "It is closed today.",
           "It is under repair."
         ],
         "answer": 0,
@@ -2424,12 +2424,12 @@
       {
         "q": "What does the woman recommend?",
         "options": [
-          "Taking the lift",
-          "Using the stairs",
           "Coming back later",
-          "Registering online"
+          "Taking the lift",
+          "Registering online",
+          "Using the stairs"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -2460,8 +2460,8 @@
         "q": "What are the speakers discussing?",
         "options": [
           "A software trial",
-          "A warehouse move",
           "A staff shortage",
+          "A warehouse move",
           "A supplier visit"
         ],
         "answer": 0,
@@ -2481,10 +2481,815 @@
       {
         "q": "What does the man recommend?",
         "options": [
-          "Signing a long contract",
-          "Continuing the trial",
           "Returning to the old system",
+          "Continuing the trial",
+          "Signing a long contract",
           "Hiring more staff"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-40",
+    "title": "Thay ghế phòng đào tạo",
+    "script": [
+      {
+        "s": "W",
+        "text": "Marcus, the chairs in the training room are starting to fall apart. Three of them won't stay upright anymore."
+      },
+      {
+        "s": "M",
+        "text": "I noticed that too. I can put in a request with purchasing, but they'll want to know how many."
+      },
+      {
+        "s": "W",
+        "text": "Let's replace all twelve while we're at it. Mismatched chairs look terrible when clients visit."
+      },
+      {
+        "s": "M",
+        "text": "Good point. I'll send the request this afternoon and copy you on it."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What problem does the woman mention?",
+        "options": [
+          "A room is too small",
+          "A delivery is late",
+          "Some furniture is damaged",
+          "A key is missing"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why does the woman want to replace all the chairs?",
+        "options": [
+          "To qualify for a discount",
+          "To use up a budget",
+          "To meet a safety rule",
+          "To keep the room looking consistent"
+        ],
+        "answer": 3,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What will the man do this afternoon?",
+        "options": [
+          "Visit a showroom",
+          "Measure the room",
+          "Call a repair service",
+          "Submit a request"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-41",
+    "title": "Dời buổi tập huấn phần mềm",
+    "script": [
+      {
+        "s": "M",
+        "text": "Hi Priya, I'm calling about the software training scheduled for Thursday. Our whole team is being pulled into the audit that day."
+      },
+      {
+        "s": "W",
+        "text": "That's the second time we've had to move it. Would the following Tuesday work?"
+      },
+      {
+        "s": "M",
+        "text": "Tuesday afternoon would be fine. Could we also add an hour? Last time we ran out of time before the reporting section."
+      },
+      {
+        "s": "W",
+        "text": "I'll block out three hours instead of two and make sure we cover reporting properly."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the man calling?",
+        "options": [
+          "To request a refund",
+          "To cancel a subscription",
+          "To change a date",
+          "To report an error"
+        ],
+        "answer": 2,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the woman imply when she says, \"That's the second time we've had to move it\"?",
+        "options": [
+          "She is pleased with the progress",
+          "She has met the man twice",
+          "Two teams need training",
+          "The session has been postponed before"
+        ],
+        "answer": 3,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What will the rescheduled session cover more thoroughly?",
+        "options": [
+          "Installation",
+          "Security settings",
+          "Reporting",
+          "Practice exercises"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-42",
+    "title": "Xin trả phòng khách sạn muộn",
+    "script": [
+      {
+        "s": "W",
+        "text": "Good morning. I'm in room eight twelve and I was hoping to keep the room until three. My flight isn't until six."
+      },
+      {
+        "s": "M",
+        "text": "Let me see. We can do two o'clock at no charge. After that there's a half-day rate."
+      },
+      {
+        "s": "W",
+        "text": "Two is fine. Is there somewhere I can leave my bags after that?"
+      },
+      {
+        "s": "M",
+        "text": "Certainly. The bell desk by the main entrance will hold them for as long as you need."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Where does the conversation most likely take place?",
+        "options": [
+          "At a hotel",
+          "At an airport",
+          "At a car rental office",
+          "At a train station"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the woman request?",
+        "options": [
+          "A ride to the airport",
+          "A room upgrade",
+          "A printed receipt",
+          "A later time to leave her room"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is available near the main entrance?",
+        "options": [
+          "A shuttle stop",
+          "A currency exchange",
+          "A luggage service",
+          "A business centre"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-43",
+    "title": "Chuẩn bị định hướng cho thực tập sinh",
+    "script": [
+      {
+        "s": "W",
+        "text": "Daniel, Rosa, the four summer interns start Monday. I'd like each of you to take part in the orientation."
+      },
+      {
+        "s": "M",
+        "text": "Happy to. I can walk them through the filing system and the shared drives."
+      },
+      {
+        "s": "M2",
+        "text": "And I'll cover the lab safety rules. That takes about forty minutes with the demonstration."
+      },
+      {
+        "s": "W",
+        "text": "Perfect. Let's keep the whole morning to three hours so they still have time to set up their accounts."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers preparing for?",
+        "options": [
+          "An office move",
+          "An orientation for new interns",
+          "A client visit",
+          "An annual audit"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "What will the second man explain?",
+        "options": [
+          "Safety procedures",
+          "Payroll forms",
+          "The filing system",
+          "Parking rules"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why does the woman want to limit the morning to three hours?",
+        "options": [
+          "A room is booked later",
+          "She has another meeting",
+          "The interns must set up accounts",
+          "Lunch is being served"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-44",
+    "title": "Chọn dịch vụ chuyển phát theo bảng giá",
+    "script": [
+      {
+        "s": "W",
+        "text": "We need these samples in Denver by Thursday morning. What are our options?"
+      },
+      {
+        "s": "M",
+        "text": "It's Monday, so we have three days. Ground takes five, so that's out straight away."
+      },
+      {
+        "s": "W",
+        "text": "Thursday morning is a hard deadline. The client presentation is that afternoon. But finance has been watching courier costs, so let's not overspend."
+      },
+      {
+        "s": "M",
+        "text": "Understood. I'll book the cheapest service that still gets there in time and have it collected before five."
+      }
+    ],
+    "graphic": {
+      "title": "SHIPPING OPTIONS",
+      "headers": [
+        "Service",
+        "Delivery time",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Ground",
+          "5 days",
+          "$12"
+        ],
+        [
+          "Economy",
+          "3 days",
+          "$25"
+        ],
+        [
+          "Express",
+          "2 days",
+          "$40"
+        ],
+        [
+          "Overnight",
+          "1 day",
+          "$75"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "What does the woman need to send?",
+        "options": [
+          "Some samples",
+          "A signed contract",
+          "A laptop",
+          "Some brochures"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Look at the graphic. Which service will the man most likely choose?",
+        "options": [
+          "Ground",
+          "Economy",
+          "Express",
+          "Overnight"
+        ],
+        "answer": 1,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "What will the man do before five o'clock?",
+        "options": [
+          "Confirm a price with finance",
+          "Update a tracking system",
+          "Arrange for the package to be collected",
+          "Reschedule the presentation"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-45",
+    "title": "Gọi bộ phận kỹ thuật vì pin laptop",
+    "script": [
+      {
+        "s": "M",
+        "text": "Help desk, this is Owen."
+      },
+      {
+        "s": "W",
+        "text": "Hi, my laptop won't hold a charge anymore. It dies within twenty minutes if it isn't plugged in."
+      },
+      {
+        "s": "M",
+        "text": "How old is the machine? Batteries in that model usually last about three years."
+      },
+      {
+        "s": "W",
+        "text": "I've had it since I started, so four years next month."
+      },
+      {
+        "s": "M",
+        "text": "That would explain it. Bring it down and I'll swap the battery. We keep spares in stock, so you'll have it back the same day."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What problem does the woman describe?",
+        "options": [
+          "Her laptop will not start",
+          "Her screen is cracked",
+          "Her battery drains quickly",
+          "Her keyboard is broken"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man ask about?",
+        "options": [
+          "The software version",
+          "A warranty number",
+          "Her department",
+          "The age of the device"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the man say about the repair?",
+        "options": [
+          "It must be sent to the manufacturer",
+          "It will be finished the same day",
+          "A part must be ordered",
+          "It will cost extra"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-46",
+    "title": "Đặt tiệc trưa cho cuộc họp hội đồng",
+    "script": [
+      {
+        "s": "W",
+        "text": "I'm organising lunch for the board meeting on the ninth. Twenty-two people, and four have said they're vegetarian."
+      },
+      {
+        "s": "M",
+        "text": "We can do a sandwich platter with a separate vegetarian tray, or a hot buffet if you have the space."
+      },
+      {
+        "s": "W",
+        "text": "The boardroom doesn't have room for warming trays, so let's go with the platters."
+      },
+      {
+        "s": "M",
+        "text": "Fine. I'll email you a quote today. If you confirm by Friday I can hold the delivery slot for eleven thirty."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the woman arranging?",
+        "options": [
+          "A venue rental",
+          "A staff outing",
+          "Catering for a meeting",
+          "A supply delivery"
+        ],
+        "answer": 2,
+        "skill": "l-main"
+      },
+      {
+        "q": "Why does the woman rule out the buffet?",
+        "options": [
+          "It costs too much",
+          "There is not enough space",
+          "It takes too long to serve",
+          "The menu is limited"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What must the woman do by Friday?",
+        "options": [
+          "Pay a deposit",
+          "Reserve a room",
+          "Send a guest list",
+          "Confirm the order"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-47",
+    "title": "Đặt sách theo yêu cầu ở hiệu sách",
+    "script": [
+      {
+        "s": "W",
+        "text": "Excuse me, do you have Coastal Architecture of the North in stock?"
+      },
+      {
+        "s": "M",
+        "text": "Let me check. We sold our last copy on Saturday. I can order one for you. It usually takes four to five days."
+      },
+      {
+        "s": "W",
+        "text": "I need it before the twentieth. It's a gift."
+      },
+      {
+        "s": "M",
+        "text": "That's a week and a half, so you'll be fine. If you leave your number, we'll text you the moment it arrives."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What does the woman want to buy?",
+        "options": [
+          "A map",
+          "A book",
+          "A magazine",
+          "A calendar"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why can the man not sell her the item today?",
+        "options": [
+          "It is reserved for another customer",
+          "It is out of stock",
+          "The store is closing",
+          "It is a display copy"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the store do when the item arrives?",
+        "options": [
+          "Send her a text message",
+          "Deliver it to her home",
+          "Hold it for one day only",
+          "Apply a discount"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-48",
+    "title": "Chọn chuyến bay theo bảng giờ",
+    "script": [
+      {
+        "s": "M",
+        "text": "I need to be at the Portland office by two on the fifteenth for the quarterly review."
+      },
+      {
+        "s": "W",
+        "text": "There are four flights that morning. The nine forty gets in at eleven twenty, which gives you plenty of margin."
+      },
+      {
+        "s": "M",
+        "text": "I have a call at nine that I can't move, so that one's too early for me. What's the next one that still works?"
+      },
+      {
+        "s": "W",
+        "text": "Then take the one after it. It lands at twelve fifty, so you'd still make it comfortably."
+      }
+    ],
+    "graphic": {
+      "title": "MORNING FLIGHTS TO PORTLAND - 15 MARCH",
+      "headers": [
+        "Flight",
+        "Departs",
+        "Arrives"
+      ],
+      "rows": [
+        [
+          "KL220",
+          "07:15",
+          "09:05"
+        ],
+        [
+          "KL244",
+          "09:40",
+          "11:20"
+        ],
+        [
+          "KL268",
+          "11:05",
+          "12:50"
+        ],
+        [
+          "KL290",
+          "12:30",
+          "14:15"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "Why is the man travelling to Portland?",
+        "options": [
+          "To meet a new client",
+          "To attend a quarterly review",
+          "To attend a trade show",
+          "To inspect a facility"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "Look at the graphic. Which flight will the man take?",
+        "options": [
+          "KL220",
+          "KL244",
+          "KL268",
+          "KL290"
+        ],
+        "answer": 2,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "Why does the man reject the flight the woman suggests first?",
+        "options": [
+          "It costs too much",
+          "It is fully booked",
+          "It arrives too late",
+          "He has a scheduled call"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-49",
+    "title": "Lệch số liệu tồn kho",
+    "script": [
+      {
+        "s": "W",
+        "text": "Ravi, the system says we have sixty units of the model four hundred pump, but I counted forty-eight on the shelf."
+      },
+      {
+        "s": "M",
+        "text": "Twelve missing is a lot. Did you check whether any were moved to the returns area?"
+      },
+      {
+        "s": "W",
+        "text": "I did. Nothing there. My guess is the last shipment was logged before it was fully unpacked."
+      },
+      {
+        "s": "M",
+        "text": "That's happened before. Let's recount together after lunch and then adjust the record."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers discussing?",
+        "options": [
+          "A pricing error",
+          "A count that does not match the system",
+          "A damaged shipment",
+          "A new supplier"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the woman think caused the problem?",
+        "options": [
+          "Items were stolen",
+          "The software failed",
+          "A shipment was logged too early",
+          "A box was mislabelled"
+        ],
+        "answer": 2,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What will the speakers do after lunch?",
+        "options": [
+          "Count the items again",
+          "Contact the supplier",
+          "Move stock to another shelf",
+          "File a complaint"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-50",
+    "title": "Nâng cấp gói tập gym",
+    "script": [
+      {
+        "s": "M",
+        "text": "I'd like to add the pool to my membership. Right now I only have the gym floor."
+      },
+      {
+        "s": "W",
+        "text": "The all-access plan is fifteen dollars more a month, and it includes the pool, the sauna and all group classes."
+      },
+      {
+        "s": "M",
+        "text": "That's less than I expected. Can I start it today?"
+      },
+      {
+        "s": "W",
+        "text": "Yes. I'll update your account now. The change shows on your next billing date, which is the first of the month."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What does the man want to do?",
+        "options": [
+          "Cancel his membership",
+          "Book a personal trainer",
+          "Pause his account",
+          "Add facilities to his plan"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is included in the all-access plan?",
+        "options": [
+          "A private locker",
+          "Group classes",
+          "Towel service",
+          "Free parking"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "When will the change appear on the man's bill?",
+        "options": [
+          "Immediately",
+          "At the start of next month",
+          "After thirty days",
+          "In two weeks"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-51",
+    "title": "Lên kế hoạch chuyển văn phòng",
+    "script": [
+      {
+        "s": "W",
+        "text": "Both of you have been through an office move before, so I'd like your input. We take over the new floor on the first."
+      },
+      {
+        "s": "M",
+        "text": "The biggest mistake last time was moving everyone on the same weekend. The network wasn't ready and half the team couldn't work on Monday."
+      },
+      {
+        "s": "W2",
+        "text": "I agree. Move one department at a time and test the connections before the next group goes."
+      },
+      {
+        "s": "W",
+        "text": "That's sensible. I'll ask facilities to draw up a schedule by department."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the speakers mainly discussing?",
+        "options": [
+          "A hiring plan",
+          "A new phone system",
+          "A budget shortfall",
+          "How to organise an office move"
+        ],
+        "answer": 3,
+        "skill": "l-main"
+      },
+      {
+        "q": "What problem does the man describe from a previous move?",
+        "options": [
+          "Furniture arrived late",
+          "Boxes were mislabelled",
+          "The network was not ready",
+          "A lease was delayed"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the woman say she will do?",
+        "options": [
+          "Visit the new floor",
+          "Ask facilities for a schedule",
+          "Survey the staff",
+          "Hire a moving company"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p3-52",
+    "title": "Gia hạn tạp chí và chuyển sang bản điện tử",
+    "script": [
+      {
+        "s": "W",
+        "text": "I received a renewal notice for my subscription, but the price has gone up by almost thirty percent."
+      },
+      {
+        "s": "M",
+        "text": "The print edition did increase this year. The digital-only option is actually cheaper than what you paid last year."
+      },
+      {
+        "s": "W",
+        "text": "I do read most issues on my tablet anyway. Does digital include the archive?"
+      },
+      {
+        "s": "M",
+        "text": "It does. Every issue back to nineteen ninety-eight. I can switch you over now if you'd like."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the woman calling?",
+        "options": [
+          "To cancel a delivery",
+          "To report a missing issue",
+          "To change her address",
+          "To ask about a price increase"
+        ],
+        "answer": 3,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the man suggest?",
+        "options": [
+          "Switching to a digital subscription",
+          "Paying in instalments",
+          "Sharing a subscription",
+          "Waiting until next year"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is included with the option the man describes?",
+        "options": [
+          "A printed annual",
+          "Access to past issues",
+          "A discount on events",
+          "A free gift"
         ],
         "answer": 1,
         "skill": "l-detail"

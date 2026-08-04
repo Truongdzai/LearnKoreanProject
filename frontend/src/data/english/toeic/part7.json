@@ -8,12 +8,12 @@
       {
         "q": "What is the main purpose of the email?",
         "options": [
-          "To announce a new schedule",
           "To introduce a new director",
           "To request vacation plans",
-          "To explain a pay increase"
+          "To explain a pay increase",
+          "To announce a new schedule"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-main"
       },
       {
@@ -31,11 +31,11 @@
         "q": "What should employees do if they want to keep their regular hours?",
         "options": [
           "Email Mr. Webb directly",
-          "Tell their team leader by June 20",
+          "Fill out an online form",
           "Contact the support manager",
-          "Fill out an online form"
+          "Tell their team leader by June 20"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-detail"
       }
     ]
@@ -51,8 +51,8 @@
         "options": [
           "A client wants an earlier demo.",
           "A video file was lost.",
-          "A meeting room was changed.",
-          "A deadline was extended."
+          "A deadline was extended.",
+          "A meeting room was changed."
         ],
         "answer": 0,
         "skill": "r-main"
@@ -61,22 +61,22 @@
         "q": "At 10:17, what does Linh mean when she writes, \"You two are lifesavers\"?",
         "options": [
           "Her colleagues work as doctors.",
-          "She is grateful for their help.",
           "She wants them to work overtime.",
-          "They saved the client's account."
+          "They saved the client's account.",
+          "She is grateful for their help."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
         "q": "What will Priya most likely do tonight?",
         "options": [
           "Record a new section",
-          "Call the client",
           "Check the audio quality",
+          "Call the client",
           "Upload the video"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       }
     ]
@@ -91,33 +91,33 @@
         "q": "What is Ms. Brooks's book mainly about?",
         "options": [
           "Learning to fly a plane",
+          "Opening a bookshop",
           "Traveling without using airplanes",
-          "Working at an airport",
-          "Opening a bookshop"
+          "Working at an airport"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What is indicated about the event?",
         "options": [
+          "Attendance is free of charge.",
           "Tickets cost 15 dollars.",
           "It starts at 2:30 P.M.",
-          "Seats must be reserved for a fee.",
-          "Attendance is free of charge."
+          "Seats must be reserved for a fee."
         ],
-        "answer": 3,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What is suggested about parking?",
         "options": [
-          "The library lot is unavailable.",
-          "Parking is free in the library lot.",
+          "Guests should carpool.",
           "A parking pass is required.",
-          "Guests should carpool."
+          "The library lot is unavailable.",
+          "Parking is free in the library lot."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-infer"
       }
     ]
@@ -132,33 +132,33 @@
         "q": "What is one responsibility of the position?",
         "options": [
           "Cooking staff meals",
-          "Responding to online reviews",
           "Cleaning guest rooms",
-          "Managing hotel finances"
+          "Managing hotel finances",
+          "Responding to online reviews"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What is NOT listed as a requirement?",
         "options": [
+          "A university degree",
           "Customer service experience",
           "Fluency in English",
-          "A university degree",
           "Weekend availability"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-nots"
       },
       {
         "q": "When will interviews take place?",
         "options": [
+          "In late August",
           "By August 15",
           "In early August",
-          "In late August",
           "In September"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-detail"
       }
     ]
@@ -183,12 +183,12 @@
       {
         "q": "Why does Mr. Nguyen mention his flight number?",
         "options": [
-          "To request a refund",
           "To arrange a free pickup",
-          "To change his flight",
-          "To claim lost luggage"
+          "To request a refund",
+          "To claim lost luggage",
+          "To change his flight"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-infer"
       },
       {
@@ -205,12 +205,12 @@
       {
         "q": "By when did Mr. Nguyen need to send his flight details to qualify for the pickup?",
         "options": [
-          "48 hours before landing",
-          "One week before arrival",
+          "On the day of arrival",
           "By March 3",
-          "On the day of arrival"
+          "48 hours before landing",
+          "One week before arrival"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -246,9 +246,9 @@
       {
         "q": "What happened in 2023?",
         "options": [
-          "The company opened in Singapore.",
-          "A video made the bakery famous.",
           "Ms. Delgado sold her company.",
+          "A video made the bakery famous.",
+          "The company opened in Singapore.",
           "Three bakeries closed down."
         ],
         "answer": 1,
@@ -258,22 +258,22 @@
         "q": "How did Ms. Delgado increase production?",
         "options": [
           "By building new factories",
+          "By reducing quality",
           "By importing bread",
-          "By partnering with other bakeries",
-          "By reducing quality"
+          "By partnering with other bakeries"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "The word \"handmade\" in paragraph 3 is closest in meaning to:",
         "options": [
-          "expensive",
           "artisanal",
+          "convenient",
           "imported",
-          "convenient"
+          "expensive"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-vocab"
       }
     ]
@@ -288,33 +288,33 @@
         "q": "Why did Ms. Sato contact Mr. Fontaine?",
         "options": [
           "To borrow a laptop",
+          "To find a missing cable",
           "To ask about a projector",
-          "To reschedule a meeting",
-          "To find a missing cable"
+          "To reschedule a meeting"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "At 2:08 P.M., what does Ms. Sato mean when she writes, \"Of course she did\"?",
         "options": [
-          "She is not surprised by the news.",
-          "She approved Sofia's request.",
           "She remembers lending the cable.",
-          "She thinks the town hall went well."
+          "She approved Sofia's request.",
+          "She thinks the town hall went well.",
+          "She is not surprised by the news."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
         "q": "How will Ms. Sato most likely give her presentation?",
         "options": [
           "Using the portable projector",
-          "From a laptop at the client's office",
           "By rescheduling to another day",
-          "By printing her slides"
+          "By printing her slides",
+          "From a laptop at the client's office"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-detail"
       }
     ]
@@ -328,34 +328,34 @@
       {
         "q": "What is included in every paid plan?",
         "options": [
-          "Unlimited team members",
-          "A 14-day free trial",
+          "E-signature tools",
           "Priority phone support",
-          "E-signature tools"
+          "A 14-day free trial",
+          "Unlimited team members"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What is indicated about the Standard plan?",
         "options": [
           "It includes 2 TB of storage.",
-          "It backs up files automatically.",
           "It offers phone support.",
+          "It backs up files automatically.",
           "It is free for nonprofits."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "How can an organization receive the 10% additional discount?",
         "options": [
           "By paying annually",
-          "By adding ten members",
           "By providing nonprofit documentation",
+          "By adding ten members",
           "By signing up during a trial"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       }
     ]
@@ -369,12 +369,12 @@
       {
         "q": "What is the main purpose of the memo?",
         "options": [
-          "To announce new recycling procedures",
           "To introduce new cleaning staff",
           "To report a broken elevator",
-          "To schedule a building inspection"
+          "To schedule a building inspection",
+          "To announce new recycling procedures"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-main"
       },
       {
@@ -382,10 +382,10 @@
         "options": [
           "Place them in the metal bin",
           "Flatten them first",
-          "Take them to the lobby cart on designated days",
-          "Put them in the shredding console"
+          "Put them in the shredding console",
+          "Take them to the lobby cart on designated days"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
@@ -411,41 +411,41 @@
         "q": "What is the article mainly about?",
         "options": [
           "The rising cost of office furniture",
-          "A trend toward quiet spaces in offices",
+          "The history of public libraries",
           "A shortage of meeting rooms",
-          "The history of public libraries"
+          "A trend toward quiet spaces in offices"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-main"
       },
       {
         "q": "What is suggested about the library zone at Datawheel?",
         "options": [
           "It is rarely used.",
-          "It is in high demand.",
           "It doubles as a meeting room.",
+          "It is in high demand.",
           "It was required by regulators."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-infer"
       },
       {
         "q": "According to the study, workers with quiet areas reported:",
         "options": [
-          "Fewer errors in detailed work",
           "Longer meetings",
           "Less collaboration",
-          "Higher salaries"
+          "Higher salaries",
+          "Fewer errors in detailed work"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "The word \"protected\" in paragraph 3 is closest in meaning to:",
         "options": [
-          "insured",
-          "dedicated",
           "hidden",
+          "dedicated",
+          "insured",
           "locked"
         ],
         "answer": 1,
@@ -463,33 +463,33 @@
         "q": "What is stated about the position in the job posting?",
         "options": [
           "It requires working in the office.",
-          "It is a full-time role.",
           "It involves preparing a monthly report.",
+          "It is a full-time role.",
           "It requires a university degree."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       },
       {
         "q": "In the posting, the phrase \"a plus\" is closest in meaning to:",
         "options": [
           "a requirement",
-          "an advantage",
           "an addition to salary",
+          "an advantage",
           "a positive review"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-vocab"
       },
       {
         "q": "What does Ms. Chau include in her email?",
         "options": [
-          "A link to her portfolio",
           "A reference letter",
           "A monthly report sample",
+          "A link to her portfolio",
           "A photo of her workspace"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -497,8 +497,8 @@
         "options": [
           "The posting schedule",
           "The Monday meeting time",
-          "The editing skills",
-          "The application deadline"
+          "The application deadline",
+          "The editing skills"
         ],
         "answer": 1,
         "skill": "r-infer"
@@ -506,12 +506,12 @@
       {
         "q": "What experience makes Ms. Chau's application match the \"plus\" in the posting?",
         "options": [
+          "Her campaign for a bubble tea chain",
           "Her design class",
           "Her hourly rate",
-          "Her campaign for a bubble tea chain",
           "Her video editing course"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-infer"
       }
     ]
@@ -536,23 +536,23 @@
       {
         "q": "What is indicated about Booth 14?",
         "options": [
-          "It includes a power outlet.",
           "It is located near the main entrance.",
           "It comes with four chairs.",
+          "It includes a power outlet.",
           "It is a food vendor booth."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "In the flyer, what benefit is offered to vendors who register by October 15?",
         "options": [
           "A free corner upgrade",
+          "An extra table",
           "Half-price registration",
-          "Reserved parking",
-          "An extra table"
+          "Reserved parking"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -569,9 +569,9 @@
       {
         "q": "What advice from the email does Ms. Boyle plan to follow?",
         "options": [
-          "Printing extra flyers",
-          "Arriving before the loading area gets busy",
           "Bringing her own chairs",
+          "Arriving before the loading area gets busy",
+          "Printing extra flyers",
           "Paying the remaining balance"
         ],
         "answer": 1,
@@ -588,56 +588,56 @@
       {
         "q": "What is included with the Nimbus X2 at no extra cost?",
         "options": [
-          "An extended warranty",
           "A travel case",
           "A cleaning kit",
+          "An extended warranty",
           "Replacement cushions"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What problem does Mr. Okafor mention?",
         "options": [
           "Short battery life",
+          "Slow customer service",
           "Weak noise canceling",
-          "Discomfort when wearing glasses",
-          "Slow customer service"
+          "Discomfort when wearing glasses"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "In the review, the phrase \"live up to\" is closest in meaning to:",
         "options": [
-          "exceed",
           "match",
+          "exceed",
           "question",
           "advertise"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-vocab"
       },
       {
         "q": "Who will receive the new cushions for free?",
         "options": [
-          "All Nimbus X2 owners",
           "Customers who bought the extended warranty",
-          "Customers who wrote reviews",
-          "Glasses wearers who register online"
+          "All Nimbus X2 owners",
+          "Glasses wearers who register online",
+          "Customers who wrote reviews"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-infer"
       },
       {
         "q": "What did the company send to Mr. Okafor?",
         "options": [
           "A refund",
-          "A new pair of headphones",
           "A cleaning kit",
-          "A discount code"
+          "A discount code",
+          "A new pair of headphones"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       }
     ]
@@ -652,11 +652,11 @@
         "q": "Why is Ms. Vega traveling to Lisbon?",
         "options": [
           "To attend a training course",
-          "To meet a client and attend a trade show",
           "To open a new office",
-          "To interview job candidates"
+          "To interview job candidates",
+          "To meet a client and attend a trade show"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-main"
       },
       {
@@ -664,43 +664,43 @@
         "options": [
           "Her first flight was canceled.",
           "The trade show was extended.",
-          "A client proposed a factory tour.",
-          "She wants a vacation day."
+          "She wants a vacation day.",
+          "A client proposed a factory tour."
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What determines whether Ms. Vega needs her department head's approval?",
         "options": [
-          "The cost of the change",
           "The airline she flies",
           "The hotel category",
+          "The cost of the change",
           "The number of client meetings"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-infer"
       },
       {
         "q": "If the extension is approved, how much can Ms. Vega claim for meals on March 21?",
         "options": [
           "Nothing",
-          "Up to $40",
+          "The full cost",
           "Up to $150",
-          "The full cost"
+          "Up to $40"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
         "q": "In the email, the phrase \"double the size\" refers to:",
         "options": [
           "The factory building",
-          "The client's order",
           "The trade show booth",
+          "The client's order",
           "Her hotel room"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-vocab"
       }
     ]
@@ -725,23 +725,23 @@
       {
         "q": "What will happen if a user ignores a substitution notification?",
         "options": [
-          "The order will be canceled.",
           "The item will be refunded.",
+          "Delivery will be delayed.",
           "A similar item will be sent.",
-          "Delivery will be delayed."
+          "The order will be canceled."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What is indicated about the changes?",
         "options": [
-          "They were based on user feedback.",
           "They require reinstalling the app.",
+          "They were based on user feedback.",
           "They apply only to express orders.",
           "They begin immediately."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "r-detail"
       }
     ]
@@ -756,9 +756,9 @@
         "q": "What is the article mainly about?",
         "options": [
           "A four-day workweek trend",
-          "A new insurance product",
+          "A meeting software launch",
           "A local hiring boom",
-          "A meeting software launch"
+          "A new insurance product"
         ],
         "answer": 0,
         "skill": "r-main"
@@ -767,33 +767,33 @@
         "q": "According to Dr. Moreau, what did successful companies do first?",
         "options": [
           "Hired additional staff",
-          "Reduced internal meetings",
+          "Extended daily hours",
           "Cut salaries slightly",
-          "Extended daily hours"
+          "Reduced internal meetings"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What is suggested about restaurants and hospitals?",
         "options": [
           "They adopted the model fastest.",
+          "They oppose the Chamber survey.",
           "The model is harder for them to afford.",
-          "They reported higher satisfaction.",
-          "They oppose the Chamber survey."
+          "They reported higher satisfaction."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-infer"
       },
       {
         "q": "The word \"absorb\" in paragraph 3 is closest in meaning to:",
         "options": [
           "understand",
-          "afford",
           "soak up",
-          "ignore"
+          "ignore",
+          "afford"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-vocab"
       }
     ]
@@ -807,9 +807,9 @@
       {
         "q": "What service cost the most in June?",
         "options": [
-          "Window washing",
-          "Weekly cleaning",
           "Carpet deep-clean",
+          "Weekly cleaning",
+          "Window washing",
           "The supplies surcharge"
         ],
         "answer": 1,
@@ -820,8 +820,8 @@
         "options": [
           "The contract includes supplies.",
           "The amount was calculated twice.",
-          "Supplies were never delivered.",
-          "The rate increased without notice."
+          "The rate increased without notice.",
+          "Supplies were never delivered."
         ],
         "answer": 0,
         "skill": "r-infer"
@@ -829,32 +829,32 @@
       {
         "q": "According to the email, what is wrong with the carpet-cleaning entry?",
         "options": [
-          "The service date is incorrect.",
           "The price is too high.",
+          "The work was unsatisfactory.",
           "The wrong room is listed.",
-          "The work was unsatisfactory."
+          "The service date is incorrect."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What will Lotus Dental Clinic most likely do next?",
         "options": [
-          "Pay the original invoice",
           "Wait for a corrected invoice",
+          "Pay the original invoice",
           "Cancel the cleaning contract",
           "Contact a different cleaner"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-infer"
       },
       {
         "q": "In the email, the word \"performed\" is closest in meaning to:",
         "options": [
           "carried out",
-          "acted on stage",
+          "scheduled",
           "improved",
-          "scheduled"
+          "acted on stage"
         ],
         "answer": 0,
         "skill": "r-vocab"
@@ -872,10 +872,10 @@
         "options": [
           "A private locker",
           "24/7 building access",
-          "Free meeting-room credits",
-          "A parking space"
+          "A parking space",
+          "Free meeting-room credits"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
@@ -892,34 +892,34 @@
       {
         "q": "Why did Mr. Le most likely choose the Dedicated Desk plan?",
         "options": [
-          "He needs access outside business hours.",
           "He manages a team of six.",
+          "He needs access outside business hours.",
           "He only visits occasionally.",
           "He wants free day passes."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "r-infer"
       },
       {
         "q": "What happened to the referral code?",
         "options": [
-          "It was applied to the add-on.",
           "It had expired and was not used.",
+          "It was applied to the add-on.",
           "It doubled the autumn discount.",
           "It was entered incorrectly."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What will Mr. Le receive on his first day?",
         "options": [
-          "A free month of coffee",
-          "A locker key and access card",
           "A new referral code",
-          "A meeting-room schedule"
+          "A free month of coffee",
+          "A meeting-room schedule",
+          "A locker key and access card"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-detail"
       }
     ]
@@ -934,33 +934,33 @@
         "q": "What is the purpose of the notice?",
         "options": [
           "To announce an increase in parking fees",
-          "To inform tenants about temporary parking changes",
           "To advertise additional bicycle storage",
+          "To inform tenants about temporary parking changes",
           "To request volunteers for a building project"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-main"
       },
       {
         "q": "What is indicated about permit holders?",
         "options": [
           "They will be charged a daily rate.",
-          "They must apply for a new permit.",
           "They can use their current permit on other levels.",
+          "They must apply for a new permit.",
           "They should park on the street."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       },
       {
         "q": "According to the notice, what will NOT be available during the closure?",
         "options": [
-          "Motorcycle bays",
           "The bicycle store",
           "Visitor parking",
+          "Motorcycle bays",
           "Reception registration"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-nots"
       }
     ]
@@ -975,9 +975,9 @@
         "q": "Why did Ms. Rahman start the discussion?",
         "options": [
           "A colleague is unable to work.",
-          "A supplier canceled a meeting.",
+          "A shift board was removed.",
           "The warehouse is closing early.",
-          "A shift board was removed."
+          "A supplier canceled a meeting."
         ],
         "answer": 0,
         "skill": "r-main"
@@ -985,23 +985,23 @@
       {
         "q": "At 08:20, what does Mr. Ilic most likely mean when he writes, \"Don't rush on my account\"?",
         "options": [
-          "He does not need Ms. Sundaram to hurry back.",
           "He will pay for the taxi himself.",
+          "He does not need Ms. Sundaram to hurry back.",
           "He wants to change his account settings.",
           "He prefers to keep the original schedule."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "r-infer"
       },
       {
         "q": "What will Ms. Rahman do next?",
         "options": [
           "Call the supplier",
-          "Visit the warehouse",
           "Update the shift board",
+          "Visit the warehouse",
           "Approve a day off"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       }
     ]
@@ -1016,22 +1016,22 @@
         "q": "Why is Ms. Oyelaran not being charged for the part?",
         "options": [
           "The blender is still within its original warranty.",
+          "The company has recalled the model.",
           "Registering the product extended her coverage.",
-          "She returned the product to a service point.",
-          "The company has recalled the model."
+          "She returned the product to a service point."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"A short video showing the whole procedure is on our support site.\"",
         "options": [
           "[1]",
+          "[4]",
           "[2]",
-          "[3]",
-          "[4]"
+          "[3]"
         ],
-        "answer": 3,
+        "answer": 1,
         "skill": "r-insert"
       },
       {
@@ -1056,10 +1056,10 @@
       {
         "q": "What is required to start a return?",
         "options": [
-          "A customer account",
+          "A membership card",
           "An order number",
           "A store receipt",
-          "A membership card"
+          "A customer account"
         ],
         "answer": 1,
         "skill": "r-detail"
@@ -1068,22 +1068,22 @@
         "q": "In the section \"A few conditions,\" the word \"carry\" is closest in meaning to",
         "options": [
           "transport",
+          "sell",
           "still have",
-          "support",
-          "sell"
+          "support"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-vocab"
       },
       {
         "q": "What is suggested about damaged items?",
         "options": [
+          "Customers pay no return postage for them.",
           "They must be returned within 45 days.",
           "They can only be exchanged.",
-          "Customers pay no return postage for them.",
           "They must be taken to a partner shop."
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-infer"
       }
     ]
@@ -1098,44 +1098,44 @@
         "q": "What is the main topic of the article?",
         "options": [
           "A dispute between residents and the city council",
-          "The wider effects of a reopened night market",
           "A new plan to build shops on Vasa Street",
-          "Changes to the city's trading laws"
+          "Changes to the city's trading laws",
+          "The wider effects of a reopened night market"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-main"
       },
       {
         "q": "What is indicated about the market's size?",
         "options": [
+          "It is limited to weekends.",
           "It has grown far beyond what was expected.",
           "It has stayed the same since reopening.",
-          "It is limited to weekends.",
           "It will be reduced in January."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "r-detail"
       },
       {
         "q": "According to the article, what is NOT mentioned as a result of the market?",
         "options": [
+          "An increase in city tax revenue",
           "Empty shops being filled",
           "Higher commercial rents",
-          "Complaints about noise",
-          "An increase in city tax revenue"
+          "Complaints about noise"
         ],
-        "answer": 3,
+        "answer": 0,
         "skill": "r-nots"
       },
       {
         "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"She was not the only one to make that jump.\"",
         "options": [
           "[1]",
-          "[2]",
           "[3]",
-          "[4]"
+          "[4]",
+          "[2]"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-insert"
       }
     ]
@@ -1160,20 +1160,20 @@
       {
         "q": "What are staff asked to do on Tuesdays and Wednesdays?",
         "options": [
+          "Attend the office",
           "Work from home",
           "Book a desk on floor 6",
-          "Attend the office",
           "Submit expense claims"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "Who keeps an assigned desk?",
         "options": [
-          "Team leaders",
-          "Staff who requested one for health reasons",
           "Everyone on floors 4 and 5",
+          "Staff who requested one for health reasons",
+          "Team leaders",
           "Staff who book fourteen days ahead"
         ],
         "answer": 1,
@@ -1184,8 +1184,8 @@
         "options": [
           "They required fewer core office days than the new rules.",
           "They offered a larger equipment allowance.",
-          "They applied only to floors 4 and 5.",
-          "They covered broadband costs."
+          "They covered broadband costs.",
+          "They applied only to floors 4 and 5."
         ],
         "answer": 0,
         "skill": "r-infer"
@@ -1201,9 +1201,9 @@
       {
         "q": "Why was the e-mail sent to Dr. Mbeki?",
         "options": [
-          "To invite her to attend the forum",
-          "To give her details about her session",
           "To ask her to change her flight",
+          "To give her details about her session",
+          "To invite her to attend the forum",
           "To confirm a hotel reservation"
         ],
         "answer": 1,
@@ -1212,12 +1212,12 @@
       {
         "q": "What is Dr. Mbeki asked to do before the event?",
         "options": [
-          "Submit her slides in advance",
-          "Bring her own laptop",
           "Register the attendees",
-          "Prepare a written summary"
+          "Bring her own laptop",
+          "Prepare a written summary",
+          "Submit her slides in advance"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
@@ -1235,22 +1235,22 @@
         "q": "How long should Dr. Mbeki's prepared talk last?",
         "options": [
           "10 minutes",
-          "30 minutes",
           "40 minutes",
+          "30 minutes",
           "60 minutes"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What can be concluded about the Cedar Room?",
         "options": [
-          "It is used for more than one morning session.",
           "It is the largest room at the forum.",
           "It is located in the foyer.",
+          "It is used for more than one morning session.",
           "It will be closed after the coffee break."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-infer"
       }
     ]
@@ -1264,23 +1264,23 @@
       {
         "q": "What is indicated about the Landscape Intensive?",
         "options": [
-          "It is limited to six participants.",
           "It runs all year round.",
+          "It costs €95 per hour.",
           "It is held indoors.",
-          "It costs €95 per hour."
+          "It is limited to six participants."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What does Mr. Gallagher say he does not need?",
         "options": [
-          "Lunch on full days",
-          "A loan camera body",
+          "Transport to the studio",
           "A course booklet",
-          "Transport to the studio"
+          "A loan camera body",
+          "Lunch on full days"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -1297,12 +1297,12 @@
       {
         "q": "What did the studio do in response to Mr. Gallagher's question?",
         "options": [
-          "It refunded part of his fee.",
-          "It replaced one shooting location.",
+          "It moved the course to October.",
           "It arranged private tuition instead.",
-          "It moved the course to October."
+          "It replaced one shooting location.",
+          "It refunded part of his fee."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -1310,10 +1310,10 @@
         "options": [
           "Extending the portrait course to three days",
           "Lowering the price of private tuition",
-          "Adding an access-needs field to the booking form",
-          "Offering courses in winter"
+          "Offering courses in winter",
+          "Adding an access-needs field to the booking form"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-infer"
       }
     ]
@@ -1327,23 +1327,23 @@
       {
         "q": "What is the purpose of the notice?",
         "options": [
+          "To announce new building regulations",
           "To advertise vacant shops on Harbour Road",
           "To describe a funding programme for businesses",
-          "To announce new building regulations",
           "To invite tenders from contractors"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-main"
       },
       {
         "q": "Why was one item on the application rejected?",
         "options": [
-          "The quote was missing.",
           "The cost was too high.",
-          "Security cameras are not covered.",
-          "The work had already been done."
+          "The quote was missing.",
+          "The work had already been done.",
+          "Security cameras are not covered."
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
@@ -1360,10 +1360,10 @@
       {
         "q": "By when must the work at 47 Harbour Road be finished?",
         "options": [
-          "Within four weeks of the decision",
+          "Before any payment is quoted",
           "By 31 March",
           "Within six months of approval",
-          "Before any payment is quoted"
+          "Within four weeks of the decision"
         ],
         "answer": 2,
         "skill": "r-infer"
@@ -1371,12 +1371,12 @@
       {
         "q": "What is suggested about Marlow's Bakery?",
         "options": [
-          "It has met the minimum trading period.",
           "It submitted only one quote.",
           "It is located on Mill Lane.",
-          "It will be paid before the work starts."
+          "It will be paid before the work starts.",
+          "It has met the minimum trading period."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-infer"
       }
     ]
@@ -1390,23 +1390,23 @@
       {
         "q": "What is the main purpose of the notice?",
         "options": [
+          "To advertise a new class schedule",
           "To announce a price increase",
           "To explain an option for pausing a membership",
-          "To advertise a new class schedule",
           "To recruit personal trainers"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-main"
       },
       {
         "q": "What happens if a request arrives three days before the billing date?",
         "options": [
-          "It is refused entirely.",
           "The fee is doubled.",
           "It starts the month after.",
+          "It is refused entirely.",
           "The member is charged $9 twice."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-infer"
       },
       {
@@ -1432,33 +1432,33 @@
         "q": "What are employees asked to do before the move?",
         "options": [
           "Take their chairs home",
-          "Write their name and floor on their crates",
           "Return their laptops to the IT desk",
+          "Write their name and floor on their crates",
           "Order new furniture"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "Where will the accounts team be located?",
         "options": [
-          "On the third floor",
-          "On the fourth floor",
+          "At the old address",
           "In the storage room",
-          "At the old address"
+          "On the fourth floor",
+          "On the third floor"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What is indicated about Monday 26 May?",
         "options": [
-          "Staff will work remotely.",
-          "The move will begin.",
           "New chairs will arrive.",
+          "The move will begin.",
+          "Staff will work remotely.",
           "The office opens early."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-infer"
       }
     ]
@@ -1472,23 +1472,23 @@
       {
         "q": "What is included in every plan?",
         "options": [
+          "Internet and coffee",
           "A lockable drawer",
           "Twenty-four-hour access",
-          "Internet and coffee",
           "A name at reception"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What must a customer do to get a free second month?",
         "options": [
           "Bring a colleague",
-          "Sign up before a certain date",
           "Choose a private studio",
+          "Sign up before a certain date",
           "Attend a Thursday talk"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -1513,20 +1513,20 @@
       {
         "q": "What problem did the bakery face as it grew?",
         "options": [
-          "It could not hire enough staff.",
-          "It produced more bread than it sold.",
+          "Its restaurant customers paid late.",
           "Its rent increased sharply.",
-          "Its restaurant customers paid late."
+          "It could not hire enough staff.",
+          "It produced more bread than it sold."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-main"
       },
       {
         "q": "What did Mr. Sandi decide to spend the savings on?",
         "options": [
-          "Opening branches",
-          "Buying additional equipment",
           "Hiring an app developer",
+          "Buying additional equipment",
+          "Opening branches",
           "Moving to a larger city"
         ],
         "answer": 1,
@@ -1535,12 +1535,12 @@
       {
         "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"The change also gave the night shift a predictable schedule for the first time.\"",
         "options": [
+          "[3]",
           "[1]",
           "[2]",
-          "[3]",
           "[4]"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-insert"
       }
     ]
@@ -1554,12 +1554,12 @@
       {
         "q": "What is the group discussing?",
         "options": [
-          "A late shipment of equipment",
           "A change to the fair schedule",
+          "A budget cut",
           "A booking error at a hotel",
-          "A budget cut"
+          "A late shipment of equipment"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-main"
       },
       {
@@ -1577,11 +1577,11 @@
         "q": "What will Ms. Silva do next?",
         "options": [
           "Call the courier company",
-          "Rent a printer at the venue",
           "Collect the parcel from the depot",
+          "Rent a printer at the venue",
           "Print the badges at the office"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       }
     ]
@@ -1606,23 +1606,23 @@
       {
         "q": "What is stated about claims below fifty dollars?",
         "options": [
+          "They are approved without a manager.",
           "They are no longer reimbursed.",
           "They need two signatures.",
-          "They are approved without a manager.",
           "They must be submitted on paper."
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
         "q": "What is suggested about the three training sessions?",
         "options": [
           "They cover different topics.",
-          "Employees need attend only one.",
           "They are held in the afternoon.",
-          "Attendance is compulsory for all staff."
+          "Attendance is compulsory for all staff.",
+          "Employees need attend only one."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-infer"
       }
     ]
@@ -1636,9 +1636,9 @@
       {
         "q": "What is offered for an item returned after 45 days?",
         "options": [
-          "A full cash refund",
-          "Credit at the shop",
           "A replacement item",
+          "Credit at the shop",
+          "A full cash refund",
           "Nothing at all"
         ],
         "answer": 1,
@@ -1649,8 +1649,8 @@
         "options": [
           "It is always free.",
           "It costs $6 on small orders.",
-          "It is charged on every return.",
-          "It is refunded after 90 days."
+          "It is refunded after 90 days.",
+          "It is charged on every return."
         ],
         "answer": 1,
         "skill": "r-detail"
@@ -1658,12 +1658,12 @@
       {
         "q": "Which item may still be returned?",
         "options": [
+          "Boots tried on inside the house",
           "Rope cut to a customer's length",
           "A jacket with the customer's name printed on it",
-          "Boots tried on inside the house",
           "Shoes worn on a mountain trail"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-infer"
       }
     ]
@@ -1677,23 +1677,23 @@
       {
         "q": "Why did Ms. Wexley write the letter?",
         "options": [
-          "To place a new order",
           "To express appreciation for a supplier's work",
+          "To place a new order",
           "To complain about a colour mismatch",
           "To request a refund"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-main"
       },
       {
         "q": "What is indicated about the delivery?",
         "options": [
-          "It arrived earlier than the new deadline.",
-          "It was three weeks late.",
+          "It was sent to the hotel by mistake.",
           "It was the wrong colour.",
-          "It was sent to the hotel by mistake."
+          "It arrived earlier than the new deadline.",
+          "It was three weeks late."
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -1701,10 +1701,10 @@
         "options": [
           "Visiting the mill in November",
           "Sending a new fabric sample",
-          "Talking about prices in December",
-          "Cancelling the spring projects"
+          "Cancelling the spring projects",
+          "Talking about prices in December"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       }
     ]
@@ -1741,8 +1741,8 @@
         "q": "For whom does Ms. Obi recommend the venue?",
         "options": [
           "Events with one track of sessions",
-          "Events with many parallel sessions",
           "Events of more than 320 people",
+          "Events with many parallel sessions",
           "Events lasting a single morning"
         ],
         "answer": 0,
@@ -1770,34 +1770,34 @@
       {
         "q": "What led Meridian to change its approach?",
         "options": [
+          "A request from its employees",
           "A drop in shipping demand",
           "The cost of returning damaged goods",
-          "A request from its employees",
           "New safety rules at ports"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What does Ms. Fosu suggest about the company's priorities?",
         "options": [
-          "Repairs should become the main business.",
           "Logistics must remain the core activity.",
+          "Repairs should become the main business.",
           "The workshops will close next year.",
           "Prices will rise for retailers."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-infer"
       },
       {
         "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? \"Only units beyond economical repair now make the long trip home.\"",
         "options": [
+          "[3]",
           "[1]",
           "[2]",
-          "[3]",
           "[4]"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "r-insert"
       }
     ]
@@ -1823,44 +1823,44 @@
         "q": "What does the advertisement indicate about bakery experience?",
         "options": [
           "It is essential.",
-          "It is not necessary.",
           "It replaces the degree requirement.",
+          "It is not necessary.",
           "It increases the salary offered."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
         "q": "What requirement does Mr. Szabo clearly meet?",
         "options": [
-          "Two years in a production environment",
           "Experience leading audits",
-          "A qualification in food science",
-          "Previous work in a bakery"
+          "Two years in a production environment",
+          "Previous work in a bakery",
+          "A qualification in food science"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "r-infer"
       },
       {
         "q": "Why does Mr. Szabo mention the dates 5 to 12 July?",
         "options": [
-          "He can start work then.",
-          "He will be unavailable for an interview.",
+          "He must give notice to his employer.",
           "He is attending a certification course.",
-          "He must give notice to his employer."
+          "He can start work then.",
+          "He will be unavailable for an interview."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
         "q": "What is suggested about Mr. Szabo's application?",
         "options": [
           "It arrived after the deadline.",
-          "It was sent before the closing date.",
           "It was missing a CV.",
+          "It was sent before the closing date.",
           "It was sent to the wrong address."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "r-infer"
       }
     ]
@@ -1874,56 +1874,56 @@
       {
         "q": "What did Pellworth Office Supplies send to Trantor Legal?",
         "options": [
-          "A price list",
           "A bill for goods delivered",
+          "A contract renewal",
           "A delivery schedule",
-          "A contract renewal"
+          "A price list"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-main"
       },
       {
         "q": "Which item on the invoice qualifies for the discount Ms. Demir mentions?",
         "options": [
-          "The copier paper",
-          "The toner cartridges",
+          "The delivery charge",
           "The desk lamps",
-          "The delivery charge"
+          "The toner cartridges",
+          "The copier paper"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
         "q": "What is the second problem Ms. Demir reports?",
         "options": [
-          "An item arrived damaged.",
           "The delivery was late.",
-          "More lamps were sent than ordered.",
-          "The toner was the wrong model."
+          "An item arrived damaged.",
+          "The toner was the wrong model.",
+          "More lamps were sent than ordered."
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "What does Ms. Demir offer to do?",
         "options": [
-          "Pay the invoice immediately",
           "Cancel the Business Plan",
-          "Return an item if collection is arranged",
-          "Collect the order herself"
+          "Pay the invoice immediately",
+          "Collect the order herself",
+          "Return an item if collection is arranged"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "By when does Ms. Demir want the corrected invoice?",
         "options": [
-          "3 August",
           "20 August",
+          "3 August",
           "25 August",
           "2 September"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       }
     ]
@@ -1938,8 +1938,8 @@
         "q": "What is the purpose of Mr. Mbeki's e-mail?",
         "options": [
           "To reserve places at an event",
-          "To ask for a refund",
           "To propose a talk",
+          "To ask for a refund",
           "To cancel a booking"
         ],
         "answer": 0,
@@ -1948,12 +1948,12 @@
       {
         "q": "Which workshop will Mr. Ellis attend?",
         "options": [
-          "Workshop A",
           "Workshop B",
           "Both A and B",
+          "Workshop A",
           "Neither"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-detail"
       },
       {
@@ -1961,10 +1961,10 @@
         "options": [
           "The opening talk",
           "The panel discussion",
-          "Workshop C",
-          "Registration"
+          "Registration",
+          "Workshop C"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-infer"
       },
       {
@@ -1972,21 +1972,21 @@
         "options": [
           "Bring her own lunch",
           "Arrive before 09:30",
-          "Speak to the catering desk",
-          "Change her workshop choice"
+          "Change her workshop choice",
+          "Speak to the catering desk"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "r-detail"
       },
       {
         "q": "According to Ms. Osei, what has changed?",
         "options": [
-          "The start time of the panel",
           "The room used for Workshop A",
           "The date of the forum",
-          "The price of a place"
+          "The price of a place",
+          "The start time of the panel"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-detail"
       }
     ]
@@ -2000,9 +2000,9 @@
       {
         "q": "What is indicated about the Delph chairs?",
         "options": [
-          "They are made of oak.",
-          "They can be stacked.",
           "They are made to order.",
+          "They can be stacked.",
+          "They are made of oak.",
           "They are the most expensive model."
         ],
         "answer": 1,
@@ -2011,23 +2011,23 @@
       {
         "q": "What discount does the Signal Box Café qualify for?",
         "options": [
-          "Eight percent off the Delph chairs",
-          "Eight percent off the Selby chairs",
           "Eight percent off the whole order",
+          "Eight percent off the Selby chairs",
+          "Eight percent off the Delph chairs",
           "No discount at all"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "r-infer"
       },
       {
         "q": "What will the café most likely have to pay for?",
         "options": [
-          "Assembly of the chairs",
           "Delivery to Padmore",
           "Storage at the workshop",
+          "Assembly of the chairs",
           "A design consultation"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-infer"
       },
       {
@@ -2063,23 +2063,23 @@
       {
         "q": "What is the purpose of the memo?",
         "options": [
-          "To explain how staff should be booked onto training",
           "To announce a new hospital ward",
           "To advertise a job opening",
-          "To report the results of an inspection"
+          "To report the results of an inspection",
+          "To explain how staff should be booked onto training"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "r-main"
       },
       {
         "q": "What does Ms. Adeyemi say about the fire safety session?",
         "options": [
-          "It is optional for night staff.",
           "It must be attended by everyone.",
+          "It is optional for night staff.",
           "It has been moved to March 12.",
           "It lasts ninety minutes."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "r-detail"
       },
       {
@@ -2096,24 +2096,730 @@
       {
         "q": "What problem does the feedback form describe?",
         "options": [
-          "The trainer arrived late.",
-          "The session was cancelled.",
+          "The room was too cold.",
           "There were too few computers.",
-          "The room was too cold."
+          "The session was cancelled.",
+          "The trainer arrived late."
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "r-detail"
       },
       {
         "q": "What will the person who wrote the feedback most likely do?",
         "options": [
-          "Attend the session on 12 March",
-          "Skip part 2 entirely",
           "Repeat the fire safety course",
-          "Ask to change wards"
+          "Skip part 2 entirely",
+          "Ask to change wards",
+          "Attend the session on 12 March"
+        ],
+        "answer": 3,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-43",
+    "title": "Thông báo: đóng phòng đọc để sửa đèn",
+    "kind": "notice",
+    "text": "NOTICE - Eastvale Public Library\n\nThe main reading room will be closed from Monday 6 May to Friday 17 May while the ceiling lighting is replaced. During this period:\n\n- The lending desk, children's section and computer suite remain open as usual.\n- Study tables have been set up in the ground-floor meeting room, though space is limited to thirty seats.\n- Items requested through the inter-library service can still be collected at the lending desk.\n\nReaders who need a quiet space for longer sessions may wish to use the Northgate branch, which extends its opening hours to nine in the evening throughout May.\n\nWe apologise for the disruption. Questions may be directed to the duty librarian.",
+    "questions": [
+      {
+        "q": "What is the purpose of the notice?",
+        "options": [
+          "To announce a change in membership fees",
+          "To advertise a new branch",
+          "To inform readers about a temporary closure",
+          "To request volunteers"
+        ],
+        "answer": 2,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is indicated about the ground-floor meeting room?",
+        "options": [
+          "It will be closed to the public",
+          "It has a limited number of seats",
+          "It is reserved for staff",
+          "It must be booked a day ahead"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is suggested about the Northgate branch?",
+        "options": [
+          "It is closing in May",
+          "It will be open later than usual",
+          "It has recently opened",
+          "It has no computers"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-44",
+    "title": "Email: sai lệch trên hoá đơn",
+    "kind": "email",
+    "text": "To: accounts@varden-supply.example\nFrom: p.harlow@brightlinemedia.example\nSubject: Invoice 44-1108\nDate: 12 October\n\nHello,\n\nI'm writing about invoice 44-1108, dated 30 September, which we received last week. The invoice lists twelve boxes of A3 paper at thirty-four pounds each, but our delivery note and our own count both show ten boxes.\n\nI've attached a scan of the signed delivery note for your reference. Could you issue a corrected invoice for ten boxes? Our payment run is on the twenty-fifth, and I'd like to settle this before then rather than carry it into November.\n\nEverything else on the invoice matches our records.\n\nMany thanks,\nPriya Harlow\nOffice Manager, Brightline Media",
+    "questions": [
+      {
+        "q": "Why did Ms. Harlow write the email?",
+        "options": [
+          "To place a new order",
+          "To report a billing error",
+          "To request a delivery date",
+          "To close an account"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What did Ms. Harlow attach to the email?",
+        "options": [
+          "A signed delivery note",
+          "A purchase order",
+          "A price list",
+          "A payment receipt"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does Ms. Harlow want to do before the twenty-fifth?",
+        "options": [
+          "Return some goods",
+          "Meet a sales representative",
+          "Renew a contract",
+          "Pay the corrected amount"
+        ],
+        "answer": 3,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-45",
+    "title": "Tin nhắn: xe giao hàng không vào được",
+    "kind": "chat",
+    "text": "Dario Feng (2:14 P.M.) Hi Meg - the courier just called. He's outside the loading bay but nobody is answering the buzzer.\nMeg Sullivan (2:16 P.M.) Sorry, we moved the receiving desk to the east side this morning. The buzzer there hasn't been connected yet.\nDario Feng (2:17 P.M.) That explains it. Should I tell him to leave the pallets at the old bay?\nMeg Sullivan (2:19 P.M.) Please don't. The old bay is being repainted and the floor is still wet. Ask him to come round to the east entrance and I'll meet him there in five minutes.\nDario Feng (2:20 P.M.) Will do. He said he has another stop at three, so he'd like to be away by half past.\nMeg Sullivan (2:21 P.M.) That's fine. Two of us will unload.",
+    "questions": [
+      {
+        "q": "What problem does Mr. Feng report?",
+        "options": [
+          "A delivery is late",
+          "An order is incomplete",
+          "A driver cannot get anyone's attention",
+          "A road is closed"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "At 2:19 P.M., what does Ms. Sullivan most likely mean when she writes, \"Please don't\"?",
+        "options": [
+          "She wants the delivery postponed",
+          "She does not want the goods left at the old bay",
+          "She has not approved the order",
+          "She cannot meet the driver"
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is suggested about the driver?",
+        "options": [
+          "He needs a manager's signature",
+          "He has a schedule to keep",
+          "He will return tomorrow",
+          "He is new to the route"
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      }
+    ]
+  },
+  {
+    "id": "p7-46",
+    "title": "Quảng cáo: tiệm giặt là chuyển địa điểm",
+    "kind": "ad",
+    "text": "MERIDIAN CLEANERS - now on Castle Street\n\nTwenty years on Bridge Road, and we've moved just around the corner to a bigger shop at 14 Castle Street.\n\n- Shirts laundered and pressed from 2.40 pounds\n- Suits, coats and formalwear: two-day standard service\n- Same-day service on items brought in before 9 A.M., Monday to Thursday\n- Free collection and delivery for orders over 30 pounds within three miles\n\nTo mark the move, every customer who brings this advertisement receives twenty percent off their first order at the new address. Offer valid until 30 June.\n\nOpen Monday to Saturday, 7:30 A.M. to 6:30 P.M. Closed Sundays.",
+    "questions": [
+      {
+        "q": "What is being announced?",
+        "options": [
+          "A closing-down sale",
+          "A change of ownership",
+          "A new franchise",
+          "A relocation"
+        ],
+        "answer": 3,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is required for same-day service?",
+        "options": [
+          "Paying in advance",
+          "Bringing items in early on certain days",
+          "Spending more than thirty pounds",
+          "Booking online"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "How can customers receive a discount?",
+        "options": [
+          "By presenting the advertisement",
+          "By visiting on a Saturday",
+          "By ordering collection",
+          "By joining a loyalty scheme"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-47",
+    "title": "Trang web: khoá học kế toán cơ bản",
+    "kind": "web",
+    "text": "www.claymore-institute.example/courses/bookkeeping\n\nIntroduction to Bookkeeping - Online, 8 weeks\n\nThis course is designed for people who run a small business, or who handle accounts as part of a wider role, and who have no formal accountancy training. By the end of the course you will be able to record transactions, reconcile a bank statement and prepare a simple set of year-end figures.\n\nFormat: two recorded lessons per week, released each Monday and Thursday, plus one live question session on the last Wednesday of each month.\nAssessment: a short exercise after each unit. There is no final examination.\nCost: 180 pounds, or 150 pounds if you register more than four weeks before the start date.\n\nPlease note: this course does not lead to a professional accountancy qualification. Learners wanting that route should see our Level 3 Diploma page.",
+    "questions": [
+      {
+        "q": "For whom is the course intended?",
+        "options": [
+          "Qualified accountants",
+          "Software developers",
+          "People without formal accountancy training",
+          "University students"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "How can a learner pay less for the course?",
+        "options": [
+          "By registering early",
+          "By studying part-time",
+          "By enrolling as a group",
+          "By completing a free trial"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does the page indicate about the course?",
+        "options": [
+          "It ends with a final examination",
+          "It does not provide a professional qualification",
+          "It leads to a professional qualification",
+          "It requires attendance in person"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-48",
+    "title": "Thông báo nội bộ: đổi cách cấp thẻ đỗ xe",
+    "kind": "memo",
+    "text": "MEMORANDUM\nTo: All employees, Fairhaven site\nFrom: Facilities\nDate: 3 November\nSubject: Parking permits for the coming year\n\nCurrent parking permits expire on 31 December. Applications for next year's permits open on 10 November and close on 5 December.\n\nTwo things have changed this year. First, permits will be issued electronically: your registration number is read at the barrier, so there is no card to display. Second, staff who live within one mile of the site will not be eligible, following the council's condition on our planning consent.\n\nIf you are affected by the second change, the travel office can advise on the cycle loan scheme and on discounted bus passes. Please apply through the staff portal; paper applications will not be processed this year.",
+    "questions": [
+      {
+        "q": "What is the main purpose of the memo?",
+        "options": [
+          "To announce a car park closure",
+          "To explain the permit application process",
+          "To introduce a new bus route",
+          "To report a rise in parking fees"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is one change described in the memo?",
+        "options": [
+          "Permits will cost more",
+          "Permits will no longer be displayed on cards",
+          "Applications must be posted",
+          "The car park will be resurfaced"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Who is NOT eligible for a permit?",
+        "options": [
+          "Employees living close to the site",
+          "Part-time staff",
+          "Visitors",
+          "New employees"
+        ],
+        "answer": 0,
+        "skill": "r-nots"
+      }
+    ]
+  },
+  {
+    "id": "p7-49",
+    "title": "Đánh giá nhà hàng",
+    "kind": "review",
+    "text": "Posted by J. Alvarez - 4 of 5 stars\n\nI've walked past Tuck and Larder for months and finally booked a table for my mother's birthday. It's smaller inside than it looks, about twelve tables, so booking is essential, especially at the weekend.\n\nThe food was the highlight. The braised lamb was genuinely excellent, and the bread is baked on site, which you can smell the moment you walk in. Prices are fair for the portion sizes.\n\nMy only complaint is the noise. With a hard floor and no soft furnishings, a full room becomes very loud, and my mother struggled to follow the conversation. If you're going with older guests, ask for one of the two tables in the back alcove.\n\nI'll be back, but on a weeknight.",
+    "questions": [
+      {
+        "q": "What does the reviewer recommend doing?",
+        "options": [
+          "Ordering the set menu",
+          "Reserving a table in advance",
+          "Arriving early",
+          "Parking on the street"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What did the reviewer like most?",
+        "options": [
+          "The decoration",
+          "The service",
+          "The location",
+          "The food"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What problem does the reviewer describe?",
+        "options": [
+          "The restaurant is expensive",
+          "The portions are small",
+          "The room is noisy",
+          "The staff are slow"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-50",
+    "title": "Bài báo: chợ nông sản mở rộng gấp đôi",
+    "kind": "article",
+    "text": "MARKET TO DOUBLE IN SIZE AS TRADERS RETURN\n\nKelso - The Saturday producers' market on Union Square will expand from twenty-four stalls to fifty from next spring, the town council confirmed on Tuesday.\n\nThe market, which began in 2016 with nine stalls, shrank during the road works of 2022 and has taken three years to recover. Council figures show footfall on Saturdays is now eleven percent higher than before the works began.\n\nThe expansion will use the eastern half of the square, which has been used for parking. Thirty spaces will be lost. \"We looked hard at that trade-off,\" said councillor Ama Boateng. \"But the multi-storey on Fell Street is under half full on Saturdays, and it's a four-minute walk.\"\n\nStallholders pay a flat weekly fee rather than a share of takings, a system traders asked for when the market was set up. Applications for the new pitches open in January, with priority given to producers based within thirty miles.",
+    "questions": [
+      {
+        "q": "What is the article mainly about?",
+        "options": [
+          "The closure of a car park",
+          "A change in council leadership",
+          "A new road scheme",
+          "The planned expansion of a market"
+        ],
+        "answer": 3,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is indicated about the market?",
+        "options": [
+          "It has always had fifty stalls",
+          "It operates every day",
+          "It was founded last year",
+          "It was affected by road works"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does Ms. Boateng suggest about the Fell Street car park?",
+        "options": [
+          "It is too far to walk",
+          "It will be demolished",
+          "It will become free of charge",
+          "It has spare capacity on Saturdays"
+        ],
+        "answer": 3,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is stated about the stall fees?",
+        "options": [
+          "They are based on sales",
+          "They are waived for new traders",
+          "They are a fixed weekly amount",
+          "They will rise in January"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-51",
+    "title": "Thư trả lời khiếu nại của khách",
+    "kind": "letter",
+    "text": "Ravenna Home Appliances\n88 Wick Lane, Colgrave\n\n14 August\n\nMs. Ines Duarte\n7 Alder Court\n\nDear Ms. Duarte,\n\nThank you for your letter of 6 August regarding the dishwasher delivered to you on 22 July.\n\nI have reviewed the engineer's report. You are right that the machine should not have been left without the fitting kit, and I apologise for the inconvenience of waiting a further nine days for it. The engineer's note confirms that the kit was not loaded onto the van, which is our error and not the manufacturer's.\n\nBy way of apology I have arranged two things. A credit of forty-five pounds has been applied to your account, which you may use against any purchase or ask us to refund to your card. In addition, I have extended the warranty on the appliance from two years to three at no cost.\n\nShould you prefer the refund, please call our accounts team on 555 0176 and quote your order number, 2211-D.\n\nYours sincerely,\nColin Marsh\nCustomer Relations Manager",
+    "questions": [
+      {
+        "q": "Why did Mr. Marsh write the letter?",
+        "options": [
+          "To confirm a delivery date",
+          "To request a payment",
+          "To advertise a service",
+          "To respond to a complaint"
+        ],
+        "answer": 3,
+        "skill": "r-main"
+      },
+      {
+        "q": "What problem does the letter acknowledge?",
+        "options": [
+          "A machine arrived damaged",
+          "An engineer arrived late",
+          "The wrong model was sent",
+          "A part was missing at delivery"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What did Mr. Marsh do in addition to applying a credit?",
+        "options": [
+          "Lengthened the warranty",
+          "Sent a replacement machine",
+          "Cancelled the order",
+          "Arranged a free service visit"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is Ms. Duarte asked to do if she wants a refund?",
+        "options": [
+          "Return the appliance",
+          "Telephone the accounts team",
+          "Write another letter",
+          "Visit the shop"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-52",
+    "title": "Email + lịch hội thảo (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Email ---\nTo: h.varga@nordlight.example\nFrom: programme@urbanmobilityforum.example\nSubject: Your session - Urban Mobility Forum\nDate: 2 September\n\nDear Dr. Varga,\n\nThank you for agreeing to speak at this year's forum on 19 September. Your session, \"Cycling Infrastructure That People Actually Use\", is scheduled for the morning block.\n\nEach workshop runs for fifty minutes with ten minutes for questions. Rooms are equipped with a projector and a lapel microphone; please bring your slides on a USB drive, as we cannot rely on the venue's wi-fi.\n\nOne request: two of our morning workshops overlap heavily in subject matter, and we would rather not run them side by side. If you would be willing to move to the eleven o'clock slot instead, we would be very grateful. Please let me know by Friday.\n\nRegards,\nProgramme Team\n\n--- Văn bản 2: Lịch chương trình ---\nURBAN MOBILITY FORUM - MORNING WORKSHOPS, 19 SEPTEMBER\n\n09:00  Funding Local Transport - Room A\n10:00  Cycling Infrastructure That People Actually Use - Room B\n10:00  Making Bus Lanes Work - Room C\n11:00  Freight and the Last Mile - Room D",
+    "questions": [
+      {
+        "q": "What is the purpose of the email?",
+        "options": [
+          "To ask for a written paper",
+          "To confirm arrangements and request a change",
+          "To cancel a session",
+          "To invite a new speaker"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What are speakers asked to bring?",
+        "options": [
+          "Printed handouts",
+          "A USB drive",
+          "A laptop",
+          "A microphone"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Look at the schedule. Which session most likely overlaps with Dr. Varga's in subject matter?",
+        "options": [
+          "Freight and the Last Mile",
+          "Funding Local Transport",
+          "Closing remarks",
+          "Making Bus Lanes Work"
+        ],
+        "answer": 3,
+        "skill": "r-infer"
+      },
+      {
+        "q": "If Dr. Varga agrees to the request, when will her session begin?",
+        "options": [
+          "At 9:00",
+          "At 10:00",
+          "At 11:00",
+          "At 12:00"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is Dr. Varga asked to do by Friday?",
+        "options": [
+          "Reply about the time change",
+          "Confirm her travel plans",
+          "Submit her slides",
+          "Register online"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-53",
+    "title": "Thông báo + tin nhắn nhóm (đọc kép)",
+    "kind": "double",
+    "text": "--- Văn bản 1: Thông báo ---\nSTAFF NOTICE - Kitchen refurbishment, Floor 4\n\nThe fourth-floor staff kitchen will be out of use from Monday 13 January for approximately two weeks while the cabinets and sink are replaced.\n\nDuring the works:\n- Please use the kitchen on Floor 2 (open 7 A.M. to 7 P.M.)\n- The Floor 4 water cooler will be moved to the corridor outside meeting room 4C\n- Please empty your locker in the kitchen by Friday 10 January; anything left will be cleared\n\nThe coffee machine will be relocated to Floor 2 rather than switched off. Milk deliveries continue as normal.\n\nFacilities\n\n--- Văn bản 2: Tin nhắn nhóm ---\nOwen Reyes (8:52 A.M.) Did anyone actually clear out the kitchen lockers on 4? I left a lunchbox in there.\nFarah Idris (8:55 A.M.) I emptied mine on Thursday. Facilities did say anything left would go.\nOwen Reyes (8:56 A.M.) That was yesterday's deadline, wasn't it? I'll ask at the desk.\nFarah Idris (8:58 A.M.) Worth a try. Also, the coffee machine is already downstairs - I found it next to the Floor 2 sink this morning.\nOwen Reyes (9:01 A.M.) Good, at least that survived the move.",
+    "questions": [
+      {
+        "q": "What is the purpose of the notice?",
+        "options": [
+          "To advertise a new cafe",
+          "To announce a hiring plan",
+          "To inform staff about a refurbishment",
+          "To report a water leak"
+        ],
+        "answer": 2,
+        "skill": "r-main"
+      },
+      {
+        "q": "What are staff asked to do before 10 January?",
+        "options": [
+          "Return their keys",
+          "Move their desks",
+          "Clear their kitchen lockers",
+          "Order supplies"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What is indicated about the coffee machine?",
+        "options": [
+          "It will be repaired",
+          "It will be switched off",
+          "It will be moved to another floor",
+          "It will be replaced"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What can be concluded about the message exchange?",
+        "options": [
+          "It took place after the locker deadline",
+          "It took place on Floor 2",
+          "It took place before the notice was issued",
+          "It took place at the weekend"
         ],
         "answer": 0,
         "skill": "r-infer"
+      },
+      {
+        "q": "What does Ms. Idris confirm?",
+        "options": [
+          "The Floor 2 kitchen is closed",
+          "The coffee machine has already been moved",
+          "The works have been delayed",
+          "Milk deliveries have stopped"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-54",
+    "title": "Quảng cáo + email + biên nhận (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Quảng cáo ---\nHALLORAN GARDEN CENTRE - Autumn Planting Week\n6 to 12 October\n\n- All bare-root hedging: 25% off\n- Bulbs: buy three packs, get the fourth free\n- Free soil test with any purchase over 40 pounds; results in five working days\n- Delivery 6 pounds within ten miles, free over 75 pounds\n\nMembers of the Halloran Garden Club receive an extra 10% on all plants during the week. Not a member? Join in store for 15 pounds a year.\n\n--- Văn bản 2: Email ---\nTo: orders@halloran-garden.example\nFrom: m.ferreira@postbox.example\nSubject: Order 9932 - soil test\nDate: 14 October\n\nHello,\n\nI placed an order during your planting week (order 9932, collected on the ninth) and asked for the free soil test that was advertised. I handed the sample to a member of staff at the till.\n\nIt's now been more than five working days and I haven't received the results. Could you check whether the sample was logged? The bed I want to plant is heavy clay and I'd rather not put the hedging in until I know what it needs.\n\nThank you,\nMarta Ferreira\n\n--- Văn bản 3: Biên nhận ---\nHALLORAN GARDEN CENTRE\nOrder 9932 - collected 9 October\n\nBare-root beech hedging, 20 plants      96.00\nLess planting week discount (25%)      -24.00\nDaffodil bulbs, 4 packs (3 + 1 free)    18.00\nSubtotal                                90.00\nGarden Club discount (10%, plants only) -7.20\nTotal paid                              82.80",
+    "questions": [
+      {
+        "q": "What is the purpose of the advertisement?",
+        "options": [
+          "To announce a new shop",
+          "To promote a week of special offers",
+          "To recruit seasonal staff",
+          "To describe a delivery service"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "Why did Ms. Ferreira write the email?",
+        "options": [
+          "To change her order",
+          "To request a refund",
+          "To ask about a service she has not received",
+          "To cancel a delivery"
+        ],
+        "answer": 2,
+        "skill": "r-main"
+      },
+      {
+        "q": "What is suggested about Ms. Ferreira?",
+        "options": [
+          "She works at the garden centre",
+          "She is a member of the Garden Club",
+          "She is a first-time customer",
+          "She had her order delivered"
+        ],
+        "answer": 1,
+        "skill": "r-infer"
+      },
+      {
+        "q": "Was Ms. Ferreira entitled to the free soil test?",
+        "options": [
+          "Yes, her order was above the threshold",
+          "No, her order was below the threshold",
+          "No, the offer had already expired",
+          "Yes, but only with delivery"
+        ],
+        "answer": 0,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What does Ms. Ferreira say about her garden?",
+        "options": [
+          "It has already been planted",
+          "It is very small",
+          "It floods in winter",
+          "The soil is heavy clay"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-55",
+    "title": "Bài báo + email + thông báo (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Bài báo ---\nFERRY OPERATOR ADDS WINTER SAILINGS\n\nPortmair - Sound Line Ferries will run a reduced winter timetable this year rather than suspending its Portmair to Craigmore service altogether, the company said last week.\n\nThe route has closed every January and February since 2019 because of low demand. Under the new plan, two return sailings a day will operate through the winter, down from nine in summer.\n\nManaging director Ines Kovac said the change followed a survey of island residents. \"The message was that people can live with fewer sailings, but not with none,\" she said. The company expects the winter service to run at a small loss, offset by a grant from the regional transport authority.\n\n--- Văn bản 2: Email ---\nTo: bookings@soundline.example\nFrom: g.tallis@mailpost.example\nSubject: Vehicle booking, 8 February\nDate: 20 January\n\nHello,\n\nI read that you're running a winter service this year. I need to bring a small van across on 8 February and return on the tenth.\n\nTwo questions. Is the vehicle deck open on the winter sailings, or is it foot passengers only? And do I need to book in advance, or can I simply turn up?\n\nRegards,\nGreg Tallis\n\n--- Văn bản 3: Thông báo ---\nSOUND LINE FERRIES - WINTER SERVICE NOTICE\n\nPortmair to Craigmore, 2 January to 28 February\n\nDepartures: Portmair 07:30 and 15:45 · Craigmore 09:00 and 17:15\n\n- The vehicle deck operates on all winter sailings. Capacity is limited to twelve vehicles.\n- Vehicle bookings must be made at least 24 hours in advance. Foot passengers may buy tickets at the pier.\n- Sailings may be cancelled at short notice in severe weather. Please check our website before travelling.",
+    "questions": [
+      {
+        "q": "What is the article mainly about?",
+        "options": [
+          "A new ferry route",
+          "A change to a winter timetable",
+          "A rise in ticket prices",
+          "A merger between two companies"
+        ],
+        "answer": 1,
+        "skill": "r-main"
+      },
+      {
+        "q": "What did the survey indicate about island residents?",
+        "options": [
+          "They prefer no winter service",
+          "They want more summer sailings",
+          "They can accept a reduced service",
+          "They rarely use the ferry"
+        ],
+        "answer": 2,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What is the answer to Mr. Tallis's first question?",
+        "options": [
+          "The vehicle deck is closed in winter",
+          "Only small vans are permitted",
+          "Vehicles travel on a separate ship",
+          "The vehicle deck operates on all winter sailings"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What must Mr. Tallis do in order to bring his van?",
+        "options": [
+          "Book at least a day ahead",
+          "Contact the transport authority",
+          "Buy a ticket at the pier",
+          "Travel as a foot passenger"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What does the notice warn travellers about?",
+        "options": [
+          "A change of terminal",
+          "A limit on luggage",
+          "Higher fares in February",
+          "Possible cancellations in bad weather"
+        ],
+        "answer": 3,
+        "skill": "r-detail"
+      }
+    ]
+  },
+  {
+    "id": "p7-56",
+    "title": "Trang web + đánh giá + phản hồi (đọc ba)",
+    "kind": "triple",
+    "text": "--- Văn bản 1: Trang web ---\nwww.brambleandpine.example/workshops\n\nBRAMBLE AND PINE - Weekend Woodworking Workshops\n\nBeginners' Bench (one day, 95 pounds)\nBuild a small stool. No experience needed. Tools provided. Maximum six people.\n\nChair Repair (one day, 85 pounds)\nBring a wobbly chair and take it home solid. Some hand-tool experience helpful.\n\nGreen Woodworking (two days, 190 pounds)\nWork unseasoned timber with traditional tools. Includes lunch on both days.\n\nAll workshops run from 9:30 to 4:30. Materials are included unless stated. Cancellations more than fourteen days before the date receive a full refund; after that we can transfer your place to another date once.\n\n--- Văn bản 2: Đánh giá ---\nPosted by Ruth Kelleher - 5 of 5\n\nI did the two-day course in March with no previous experience at all, despite what the description suggests, and I was never made to feel out of place. Ivan slowed down whenever anyone got lost, and the group was small enough that everyone got proper attention.\n\nThe lunch was better than I expected: proper hot food, not sandwiches. My only warning is that the workshop is genuinely cold in winter. I wore two jumpers on the second day and was still chilly.\n\n--- Văn bản 3: Phản hồi ---\nReply from Bramble and Pine\n\nThank you, Ruth. It was a pleasure having you.\n\nYou're quite right about the temperature, and we've done something about it: a wood-burning stove was installed in the main workshop in April, so the winter courses should be a good deal more comfortable this year.\n\nOn experience, don't undersell yourself - you picked it up quickly. We describe that course as suiting people who have handled tools before mainly because of the pace, but anyone willing to ask questions manages fine.",
+    "questions": [
+      {
+        "q": "What is indicated about the Beginners' Bench workshop?",
+        "options": [
+          "It is limited to six participants",
+          "It lasts two days",
+          "It requires previous experience",
+          "It is the most expensive course"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "Which workshop did Ms. Kelleher attend?",
+        "options": [
+          "Beginners' Bench",
+          "Chair Repair",
+          "Green Woodworking",
+          "She did not name one"
+        ],
+        "answer": 2,
+        "skill": "r-infer"
+      },
+      {
+        "q": "What did Ms. Kelleher praise?",
+        "options": [
+          "The food",
+          "The parking",
+          "The low price",
+          "The location"
+        ],
+        "answer": 0,
+        "skill": "r-detail"
+      },
+      {
+        "q": "What problem did Ms. Kelleher mention?",
+        "options": [
+          "The tools were worn out",
+          "The workshop was cold",
+          "The group was too large",
+          "The day was too short"
+        ],
+        "answer": 1,
+        "skill": "r-detail"
+      },
+      {
+        "q": "How has the business responded to Ms. Kelleher's comment?",
+        "options": [
+          "By offering her a refund",
+          "By reducing the price",
+          "By installing a stove",
+          "By changing the course dates"
+        ],
+        "answer": 2,
+        "skill": "r-detail"
       }
     ]
   }

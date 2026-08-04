@@ -69,8 +69,8 @@
     "q": "Did you send the invoice to the client?",
     "options": [
       "Yes, first thing this morning.",
-      "An invoice number.",
-      "To the new client."
+      "To the new client.",
+      "An invoice number."
     ],
     "answer": 0,
     "skill": "l-yesno",
@@ -263,11 +263,11 @@
     "id": "p2-21",
     "q": "Haven't the brochures arrived from the printer yet?",
     "options": [
+      "No, I can't print it.",
       "They're due this afternoon.",
-      "Yes, a beautiful brochure.",
-      "No, I can't print it."
+      "Yes, a beautiful brochure."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-yesno",
     "vi": "Tờ rơi vẫn chưa về từ nhà in à? — Chiều nay là về.",
     "trap": "Câu hỏi PHỦ ĐỊNH — trả lời bằng thông tin thực tế thay vì Yes/No dễ nhầm."
@@ -315,11 +315,11 @@
     "id": "p2-25",
     "q": "Would you mind closing the window? It's getting cold in here.",
     "options": [
-      "Not at all.",
+      "I bought a new coat.",
       "Yes, it's open.",
-      "I bought a new coat."
+      "Not at all."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-yesno",
     "vi": "Phiền anh đóng cửa sổ giúp? Trong này lạnh quá. — Không phiền gì đâu (tôi đóng ngay).",
     "trap": "\"Would you mind…\" → \"Not at all\" nghĩa là ĐỒNG Ý làm. Trả lời \"Yes\" mới là từ chối — điểm ngược đời hay bị bẫy."
@@ -393,11 +393,11 @@
     "id": "p2-31",
     "q": "Where should I file these expense reports?",
     "options": [
-      "Ask Dana — she reorganized the cabinets last week.",
       "The expenses were quite high.",
-      "On the first of the month."
+      "On the first of the month.",
+      "Ask Dana — she reorganized the cabinets last week."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-wh",
     "vi": "Tôi cất mấy báo cáo chi phí này vào đâu? — Hỏi Dana ấy, tuần trước cô ấy vừa sắp xếp lại tủ.",
     "trap": "Kiểu 2025: KHÔNG trả lời địa điểm mà chỉ sang người biết câu trả lời — đáp án gián tiếp vẫn là đáp án đúng."
@@ -406,9 +406,9 @@
     "id": "p2-32",
     "q": "When will the new intern start?",
     "options": [
-      "A very promising resume.",
+      "At the front desk.",
       "I just got back from vacation, so I'm not sure.",
-      "At the front desk."
+      "A very promising resume."
     ],
     "answer": 1,
     "skill": "l-wh",
@@ -445,11 +445,11 @@
     "id": "p2-35",
     "q": "Who's presenting the sales figures at tomorrow's meeting?",
     "options": [
-      "The figures look great.",
       "It's on the shared calendar.",
-      "At ten thirty."
+      "At ten thirty.",
+      "The figures look great."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-wh",
     "vi": "Ai trình bày số liệu bán hàng ở cuộc họp mai? — Có ghi trên lịch chung đấy.",
     "trap": "Không nêu tên người mà chỉ NGUỒN tra cứu — dạng gián tiếp đặc trưng 2025."
@@ -549,11 +549,11 @@
     "id": "p2-43",
     "q": "Why was the client meeting moved to Thursday?",
     "options": [
-      "In the large conference room.",
       "I wasn't in the office yesterday.",
-      "About forty-five minutes."
+      "About forty-five minutes.",
+      "In the large conference room."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-wh",
     "trap": "Dạng \"lảng\" rất phổ biến từ 2023: người trả lời không biết vì hôm qua không có mặt. Đừng loại đáp án chỉ vì nó không nêu lý do.",
     "vi": "Sao cuộc họp với khách bị dời sang thứ Năm? — Hôm qua tôi không ở văn phòng."
@@ -692,11 +692,11 @@
     "id": "p2-54",
     "q": "Has the shipment from Osaka cleared customs?",
     "options": [
+      "I clean my desk on Fridays.",
       "The customer service line.",
-      "It should clear tomorrow morning.",
-      "I clean my desk on Fridays."
+      "It should clear tomorrow morning."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-similar",
     "trap": "Bẫy âm dày đặc: customs/customer, cleared/clean. Nghe NGHĨA chứ đừng bắt từ giống.",
     "vi": "Lô hàng từ Osaka đã thông quan chưa? — Chắc sáng mai mới xong."
@@ -783,11 +783,11 @@
     "id": "p2-61",
     "q": "Have you sent the quotation to Bergman Construction yet?",
     "options": [
-      "I'm waiting on one price.",
       "The construction site.",
-      "He's a new supplier."
+      "He's a new supplier.",
+      "I'm waiting on one price."
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "l-yesno",
     "trap": "Đáp án đúng KHÔNG có Yes/No mà giải thích lý do chưa gửi — kiểu trả lời gián tiếp chiếm rất nhiều câu trong đề thật.",
     "vi": "Bạn gửi báo giá cho Bergman Construction chưa? — Tôi còn đợi một giá nữa."
@@ -861,11 +861,11 @@
     "id": "p2-67",
     "q": "Would you rather review the contract now or after lunch?",
     "options": [
-      "The lunch menu changed.",
       "Whenever you have time.",
+      "The lunch menu changed.",
       "It's a three-year contract."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-choice",
     "trap": "\"Whenever you have time\" = không chọn vế nào, nhường người kia — dạng đáp án đúng rất hay gặp ở câu lựa chọn.",
     "vi": "Bạn muốn xem hợp đồng bây giờ hay sau bữa trưa? — Lúc nào bạn rảnh cũng được."
@@ -927,10 +927,10 @@
     "q": "You've already checked the invoice figures, haven't you?",
     "options": [
       "A cheque, please.",
-      "Twice, and they match.",
-      "The figure in the diagram."
+      "The figure in the diagram.",
+      "Twice, and they match."
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "l-similar",
     "trap": "Bẫy âm dày: checked/cheque, figures/figure. Đáp án đúng xác nhận đã kiểm tra hai lần.",
     "vi": "Bạn kiểm tra số liệu trên hoá đơn rồi đúng không? — Hai lần rồi, khớp hết."
@@ -939,11 +939,11 @@
     "id": "p2-73",
     "q": "Where did you store the spare projector bulbs?",
     "options": [
-      "The store closes at eight.",
       "In the drawer under the screen.",
+      "The store closes at eight.",
       "It's a bright room."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-similar",
     "trap": "store (động từ: cất) bị bẫy bằng store (danh từ: cửa hàng); bulbs/bright cũng là bẫy liên tưởng.",
     "vi": "Bạn cất bóng đèn máy chiếu dự phòng ở đâu? — Trong ngăn kéo dưới màn chiếu."
@@ -965,11 +965,11 @@
     "id": "p2-75",
     "q": "Has the accountant finished counting the stock yet?",
     "options": [
-      "He's on the last aisle.",
       "The account number.",
+      "He's on the last aisle.",
       "I bought some stocks."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-similar",
     "trap": "accountant/account, stock (hàng tồn) / stocks (cổ phiếu). Đáp án đúng nói vẫn đang làm nốt dãy cuối.",
     "vi": "Kế toán kiểm kê hàng xong chưa? — Anh ấy đang ở dãy cuối rồi."
@@ -1030,11 +1030,11 @@
     "id": "p2-80",
     "q": "How often does the maintenance team inspect the elevators?",
     "options": [
+      "The service entrance.",
       "Every three months.",
-      "On the fifth floor.",
-      "The service entrance."
+      "On the fifth floor."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-wh",
     "trap": "How often hỏi TẦN SUẤT. Hai phương án còn lại đều là nơi chốn, ăn theo bối cảnh toà nhà.",
     "vi": "Bao lâu tổ bảo trì kiểm tra thang máy một lần? — Ba tháng một lần."
@@ -1056,8 +1056,8 @@
     "id": "p2-82",
     "q": "What time does the shuttle leave for the airport?",
     "options": [
-      "Terminal four.",
       "A round-trip ticket.",
+      "Terminal four.",
       "Every twenty minutes."
     ],
     "answer": 2,
@@ -1199,11 +1199,11 @@
     "id": "p2-93",
     "q": "Do you want the report printed in colour or in black and white?",
     "options": [
+      "About forty pages.",
       "Whichever is cheaper.",
-      "The printer is jammed.",
-      "About forty pages."
+      "The printer is jammed."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-choice",
     "trap": "'Whichever…' là kiểu trả lời không chọn hẳn bên nào — rất hay là đáp án của câu hỏi lựa chọn.",
     "vi": "Bạn muốn in màu hay in đen trắng? — Cái nào rẻ hơn cũng được."
@@ -1225,11 +1225,11 @@
     "id": "p2-95",
     "q": "Did you send the contract to the legal department?",
     "options": [
-      "The department store closes at nine.",
       "I sent it this morning.",
-      "He's a legal resident."
+      "He's a legal resident.",
+      "The department store closes at nine."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-similar",
     "trap": "Hai phương án sai đều lấy nguyên từ trong câu hỏi (department, legal) nhưng dùng ở nghĩa khác hẳn.",
     "vi": "Bạn gửi hợp đồng cho phòng pháp chế chưa? — Tôi gửi sáng nay rồi."
@@ -1238,11 +1238,11 @@
     "id": "p2-96",
     "q": "The board meeting was moved to Friday.",
     "options": [
-      "I'll move these boxes.",
       "Thanks for letting me know.",
+      "I'll move these boxes.",
       "It's a wooden board."
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "l-similar",
     "trap": "board (ban lãnh đạo / tấm ván) và move (dời lịch / khiêng đồ) đều bị dùng lại ở nghĩa khác. Câu báo tin thì đáp án hợp lý là lời cảm ơn.",
     "vi": "Cuộc họp ban lãnh đạo dời sang thứ Sáu. — Cảm ơn đã báo tôi."
@@ -1251,11 +1251,11 @@
     "id": "p2-97",
     "q": "Where did you park the delivery van?",
     "options": [
+      "She delivered the news.",
       "In the lot behind the building.",
-      "It's a very large park.",
-      "She delivered the news."
+      "It's a very large park."
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "l-similar",
     "trap": "park (đỗ xe / công viên) và deliver (giao hàng / truyền đạt) — nghe NGHĨA của cả câu chứ đừng bắt từ lẻ.",
     "vi": "Bạn đỗ xe giao hàng ở đâu? — Ở bãi phía sau toà nhà."

@@ -3,12 +3,12 @@
     "id": "p5-01",
     "text": "The marketing team will announce the ___ of the new campaign next Monday.",
     "options": [
+      "launching",
       "launch",
-      "launches",
       "launched",
-      "launching"
+      "launches"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "word-form",
     "explain": "Sau mạo từ \"the\" và trước \"of\" cần một DANH TỪ số ít: the launch of… (buổi ra mắt)."
   },
@@ -16,12 +16,12 @@
     "id": "p5-02",
     "text": "All employees must submit their expense reports ___ Friday afternoon.",
     "options": [
-      "by",
-      "until",
       "at",
-      "in"
+      "in",
+      "until",
+      "by"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "prep",
     "explain": "\"by + mốc thời gian\" = trước hoặc đúng hạn chót. \"until\" chỉ hành động kéo dài liên tục, không dùng cho việc nộp 1 lần."
   },
@@ -29,12 +29,12 @@
     "id": "p5-03",
     "text": "Ms. Tran ___ the sales department since March of last year.",
     "options": [
-      "manages",
       "has managed",
-      "is managing",
-      "managed"
+      "managed",
+      "manages",
+      "is managing"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "tense",
     "explain": "\"since + mốc quá khứ\" là dấu hiệu của thì hiện tại hoàn thành: has managed."
   },
@@ -42,12 +42,12 @@
     "id": "p5-04",
     "text": "The new printer works much more ___ than the old model.",
     "options": [
-      "efficient",
       "efficiently",
+      "efficient",
       "efficiency",
       "efficiencies"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ \"works\" phải là TRẠNG TỪ: efficiently. \"more … than\" là so sánh hơn của trạng từ dài."
   },
@@ -56,9 +56,9 @@
     "text": "Please contact Mr. Okada ___ you have any questions about the schedule.",
     "options": [
       "if",
+      "but",
       "so",
-      "or",
-      "but"
+      "or"
     ],
     "answer": 0,
     "skill": "conj",
@@ -81,10 +81,10 @@
     "id": "p5-07",
     "text": "Employees who complete the training course will receive a ___ certificate.",
     "options": [
-      "signs",
-      "signed",
       "signing",
-      "signature"
+      "signed",
+      "signature",
+      "signs"
     ],
     "answer": 1,
     "skill": "word-form",
@@ -107,12 +107,12 @@
     "id": "p5-09",
     "text": "The quarterly report must be reviewed ___ it is sent to headquarters.",
     "options": [
-      "before",
+      "about",
       "during",
-      "between",
-      "about"
+      "before",
+      "between"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "conj",
     "explain": "Sau chỗ trống là mệnh đề (it is sent…) → cần liên từ thời gian \"before\". \"during\" là giới từ, chỉ đi với danh từ."
   },
@@ -120,12 +120,12 @@
     "id": "p5-10",
     "text": "Ms. Alvarez asked her assistant to make ten ___ of the contract.",
     "options": [
+      "copying",
       "copy",
       "copies",
-      "copying",
       "copied"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Sau số đếm \"ten\" cần danh từ SỐ NHIỀU: copies."
   },
@@ -134,11 +134,11 @@
     "text": "The elevator in the east wing is ___ repaired and will reopen on Thursday.",
     "options": [
       "current",
-      "currently",
+      "more current",
       "currency",
-      "more current"
+      "currently"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "word-form",
     "explain": "Chen giữa \"is\" và \"repaired\" (bị động) phải là TRẠNG TỪ: is currently repaired — hiện đang được sửa."
   },
@@ -146,12 +146,12 @@
     "id": "p5-12",
     "text": "___ joining Vylang Consulting, Mr. Park worked at an accounting firm for six years.",
     "options": [
-      "Before",
       "While",
-      "Since",
-      "Until"
+      "Until",
+      "Before",
+      "Since"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "prep",
     "explain": "\"Before + V-ing\": trước khi vào công ty, ông ấy đã làm kế toán. \"worked … for six years\" (quá khứ đơn) loại \"Since\"."
   },
@@ -159,12 +159,12 @@
     "id": "p5-13",
     "text": "Applicants should send their resumes directly to the personnel ___.",
     "options": [
-      "depart",
-      "departed",
       "department",
-      "departure"
+      "depart",
+      "departure",
+      "departed"
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Cần danh từ chỉ phòng ban: personnel department (phòng nhân sự). \"departure\" là sự khởi hành — bẫy hình thức gần giống."
   },
@@ -173,9 +173,9 @@
     "text": "The seminar room can hold up to fifty people, but ___ twenty attended today.",
     "options": [
       "only",
-      "almost",
+      "quite",
       "very",
-      "quite"
+      "almost"
     ],
     "answer": 0,
     "skill": "vocab",
@@ -185,12 +185,12 @@
     "id": "p5-15",
     "text": "Guests may leave ___ luggage at the front desk before check-in time.",
     "options": [
-      "they",
       "them",
-      "their",
-      "theirs"
+      "theirs",
+      "they",
+      "their"
     ],
-    "answer": 2,
+    "answer": 3,
     "skill": "pronoun",
     "explain": "Trước danh từ \"luggage\" cần TÍNH TỪ SỞ HỮU: their luggage."
   },
@@ -198,12 +198,12 @@
     "id": "p5-16",
     "text": "The director himself ___ the proposal before it was submitted to the board.",
     "options": [
-      "review",
-      "reviewed",
+      "reviewing",
       "reviews",
-      "reviewing"
+      "reviewed",
+      "review"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "tense",
     "explain": "Mệnh đề sau ở quá khứ (was submitted) → hành động duyệt cũng ở QUÁ KHỨ ĐƠN: reviewed. \"himself\" chỉ nhấn mạnh, không đổi thì."
   },
@@ -213,10 +213,10 @@
     "options": [
       "prompt",
       "prompter",
-      "promptly",
-      "promptness"
+      "promptness",
+      "promptly"
     ],
-    "answer": 2,
+    "answer": 3,
     "skill": "word-form",
     "explain": "\"as … as possible\" bổ nghĩa động từ \"respond\" → cần trạng từ: as promptly as possible."
   },
@@ -225,11 +225,11 @@
     "text": "Employees ___ parking permits expire this month should renew them online.",
     "options": [
       "who",
-      "whose",
       "which",
-      "whom"
+      "whom",
+      "whose"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "relative",
     "explain": "Cần đại từ quan hệ SỞ HỮU nối \"employees\" với \"parking permits\": whose = giấy phép CỦA HỌ."
   },
@@ -250,12 +250,12 @@
     "id": "p5-20",
     "text": "Sales figures for the third quarter were ___ higher than analysts had predicted.",
     "options": [
+      "signify",
       "significant",
-      "significantly",
       "significance",
-      "signify"
+      "significantly"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho tính từ so sánh \"higher\" cần TRẠNG TỪ: significantly higher — cao hơn đáng kể."
   },
@@ -276,12 +276,12 @@
     "id": "p5-22",
     "text": "The workshop was so ___ that many participants asked for a second session.",
     "options": [
-      "inform",
       "informative",
       "information",
-      "informed"
+      "informed",
+      "inform"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Sau \"so\" và trước \"that\" cần TÍNH TỪ tả buổi workshop: informative (bổ ích). \"informed\" tả người."
   },
@@ -289,12 +289,12 @@
     "id": "p5-23",
     "text": "Ms. Nakamura will be out of the office ___ the end of the week.",
     "options": [
-      "until",
       "by",
       "on",
-      "since"
+      "since",
+      "until"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "prep",
     "explain": "Trạng thái \"vắng mặt\" kéo dài LIÊN TỤC đến cuối tuần → until. \"by\" dùng cho hành động xảy ra một lần trước hạn chót."
   },
@@ -315,12 +315,12 @@
     "id": "p5-25",
     "text": "Please review the attached file and return it with your ___ by noon tomorrow.",
     "options": [
-      "comment",
-      "comments",
       "commented",
-      "commenting"
+      "commenting",
+      "comments",
+      "comment"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Sau \"your\" cần danh từ; \"comments\" (số nhiều) là cách dùng tự nhiên cho ý kiến nhận xét trong email công việc."
   },
@@ -328,12 +328,12 @@
     "id": "p5-26",
     "text": "The new security system is designed to prevent unauthorized access ___ the server room.",
     "options": [
-      "to",
-      "of",
       "at",
+      "of",
+      "to",
       "with"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "prep",
     "explain": "Cụm cố định \"access to + nơi/dữ liệu\": quyền truy cập VÀO phòng máy chủ."
   },
@@ -341,12 +341,12 @@
     "id": "p5-27",
     "text": "___ the negotiation lasted nine hours, the two companies failed to reach an agreement.",
     "options": [
-      "Despite",
       "Although",
-      "Because",
-      "However"
+      "Despite",
+      "However",
+      "Because"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "conj",
     "explain": "Sau chỗ trống là MỆNH ĐỀ đầy đủ + nghĩa tương phản → Although. \"Despite\" chỉ đi với danh từ/V-ing."
   },
@@ -356,8 +356,8 @@
     "options": [
       "are",
       "is",
-      "were",
-      "have been"
+      "have been",
+      "were"
     ],
     "answer": 1,
     "skill": "agreement",
@@ -368,9 +368,9 @@
     "text": "The finance director suggested ___ the budget meeting to early next week.",
     "options": [
       "move",
-      "to move",
+      "moved",
       "moving",
-      "moved"
+      "to move"
     ],
     "answer": 2,
     "skill": "gerund",
@@ -380,12 +380,12 @@
     "id": "p5-30",
     "text": "Ticket holders may exchange their tickets for another performance at no ___ charge.",
     "options": [
-      "add",
-      "added",
       "additional",
-      "addition"
+      "addition",
+      "added",
+      "add"
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Trước danh từ \"charge\" cần TÍNH TỪ: additional charge — phụ phí. Cụm \"at no additional charge\" rất hay gặp trong đề."
   },
@@ -393,12 +393,12 @@
     "id": "p5-31",
     "text": "The keynote speech was delivered by Dr. Chen, ___ research on renewable energy is widely known.",
     "options": [
+      "whom",
       "who",
-      "whose",
       "that",
-      "whom"
+      "whose"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "relative",
     "explain": "\"___ research\" = nghiên cứu CỦA BÀ ẤY → đại từ quan hệ sở hữu whose."
   },
@@ -406,12 +406,12 @@
     "id": "p5-32",
     "text": "By the time the auditors arrive, the accounting team ___ all the financial records.",
     "options": [
-      "organizes",
-      "will have organized",
+      "is organizing",
       "has organized",
-      "is organizing"
+      "organizes",
+      "will have organized"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "tense",
     "explain": "\"By the time + hiện tại đơn\" nói về tương lai → mệnh đề chính dùng TƯƠNG LAI HOÀN THÀNH: will have organized."
   },
@@ -419,12 +419,12 @@
     "id": "p5-33",
     "text": "The instruction manual explains how to install the software ___.",
     "options": [
+      "themselves",
       "yourself",
-      "itself",
       "himself",
-      "themselves"
+      "itself"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "pronoun",
     "explain": "Người đọc tự cài đặt → đại từ phản thân ngôi \"you\": install it yourself."
   },
@@ -432,12 +432,12 @@
     "id": "p5-34",
     "text": "Reservations for the banquet hall should be made at least two weeks in ___.",
     "options": [
+      "front",
       "forward",
       "advance",
-      "ahead",
-      "front"
+      "ahead"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "vocab",
     "explain": "Cụm cố định \"in advance\" = trước, sớm. \"ahead\"/\"forward\" không đi với \"in\" theo nghĩa này."
   },
@@ -445,12 +445,12 @@
     "id": "p5-35",
     "text": "The catering staff worked quickly ___ the tables before the guests arrived.",
     "options": [
-      "set",
-      "to set",
+      "will set",
       "setting up",
-      "will set"
+      "to set",
+      "set"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "gerund",
     "explain": "\"to set\" (to V chỉ mục đích) — làm nhanh ĐỂ dọn bàn xong trước khi khách đến."
   },
@@ -471,9 +471,9 @@
     "id": "p5-37",
     "text": "The museum is closed on Mondays; ___, it remains open on public holidays.",
     "options": [
-      "therefore",
-      "however",
       "moreover",
+      "however",
+      "therefore",
       "for example"
     ],
     "answer": 1,
@@ -484,12 +484,12 @@
     "id": "p5-38",
     "text": "Please handle the glass samples with ___ when moving them to the display case.",
     "options": [
-      "care",
-      "careful",
+      "caring",
       "carefully",
-      "caring"
+      "care",
+      "careful"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Sau giới từ \"with\" cần DANH TỪ: with care = cẩn thận."
   },
@@ -497,12 +497,12 @@
     "id": "p5-39",
     "text": "The training video ___ to all new employees during orientation week.",
     "options": [
-      "shows",
-      "is shown",
+      "has shown",
       "showing",
-      "has shown"
+      "shows",
+      "is shown"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "passive",
     "explain": "Video ĐƯỢC CHIẾU cho nhân viên → bị động: is shown. Chủ ngữ \"video\" không tự \"show\"."
   },
@@ -511,11 +511,11 @@
     "text": "Ms. Duval speaks three languages ___, which makes her ideal for the overseas position.",
     "options": [
       "fluent",
-      "fluently",
       "fluency",
+      "fluently",
       "more fluent"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ \"speaks\" → trạng từ fluently."
   },
@@ -523,12 +523,12 @@
     "id": "p5-41",
     "text": "___ orders placed before 2 P.M. are shipped the same day.",
     "options": [
-      "Almost",
-      "Most",
       "The most",
-      "Mostly"
+      "Mostly",
+      "Most",
+      "Almost"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "vocab",
     "explain": "\"Most + danh từ số nhiều\" = hầu hết đơn hàng. \"Almost\" là trạng từ, phải nói \"Almost all orders\"."
   },
@@ -536,12 +536,12 @@
     "id": "p5-42",
     "text": "The lease agreement will expire at the end of June ___ it is renewed by both parties.",
     "options": [
-      "unless",
       "if",
-      "because",
-      "since"
+      "unless",
+      "since",
+      "because"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "conj",
     "explain": "Hợp đồng hết hạn TRỪ KHI được gia hạn → unless (= if not)."
   },
@@ -549,12 +549,12 @@
     "id": "p5-43",
     "text": "Employees are encouraged to share ___ ideas during the monthly brainstorming session.",
     "options": [
-      "they",
       "them",
-      "theirs",
-      "their"
+      "their",
+      "they",
+      "theirs"
     ],
-    "answer": 3,
+    "answer": 1,
     "skill": "pronoun",
     "explain": "Trước danh từ \"ideas\" cần tính từ sở hữu: their ideas."
   },
@@ -562,10 +562,10 @@
     "id": "p5-44",
     "text": "The airline offers a full refund to passengers ___ flights are canceled.",
     "options": [
-      "who",
-      "whose",
       "which",
-      "where"
+      "whose",
+      "where",
+      "who"
     ],
     "answer": 1,
     "skill": "relative",
@@ -575,12 +575,12 @@
     "id": "p5-45",
     "text": "Construction of the new warehouse is expected to be completed ___ the end of the year.",
     "options": [
-      "by",
       "until",
       "on",
-      "for"
+      "for",
+      "by"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "prep",
     "explain": "Hoàn thành (hành động 1 lần) trước hạn chót → by the end of the year."
   },
@@ -588,12 +588,12 @@
     "id": "p5-46",
     "text": "After reviewing both offers, we concluded that the second one was ___ for our budget.",
     "options": [
-      "good",
-      "well",
       "better",
-      "best"
+      "best",
+      "well",
+      "good"
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "comparative",
     "explain": "So sánh giữa HAI lựa chọn (both offers) → so sánh hơn: better. So sánh nhất cần nhóm từ 3 trở lên."
   },
@@ -601,12 +601,12 @@
     "id": "p5-47",
     "text": "The IT department will ___ a system upgrade this weekend, so the server will be unavailable.",
     "options": [
-      "perform",
-      "performs",
       "performing",
-      "performance"
+      "perform",
+      "performance",
+      "performs"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "word-form",
     "explain": "Sau trợ động từ \"will\" cần ĐỘNG TỪ NGUYÊN THỂ: will perform."
   },
@@ -614,12 +614,12 @@
     "id": "p5-48",
     "text": "Ms. Rios has been with the company ___ more than a decade.",
     "options": [
-      "since",
-      "for",
       "during",
-      "from"
+      "since",
+      "from",
+      "for"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "prep",
     "explain": "\"for + KHOẢNG thời gian\" (more than a decade). \"since\" đi với MỐC thời gian (since 2015)."
   },
@@ -627,12 +627,12 @@
     "id": "p5-49",
     "text": "The board meeting has been ___ until further notice.",
     "options": [
+      "postponement",
       "postpone",
-      "postponed",
       "postponing",
-      "postponement"
+      "postponed"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "passive",
     "explain": "\"has been + V3\" — bị động hoàn thành: cuộc họp ĐÃ BỊ HOÃN → postponed."
   },
@@ -640,12 +640,12 @@
     "id": "p5-50",
     "text": "Our customer service team is available ___ the clock, seven days a week.",
     "options": [
-      "around",
+      "under",
       "along",
-      "beside",
-      "under"
+      "around",
+      "beside"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "vocab",
     "explain": "Thành ngữ \"around the clock\" = 24/24. Cụm này xuất hiện thường xuyên trong quảng cáo dịch vụ."
   },
@@ -653,12 +653,12 @@
     "id": "p5-51",
     "text": "___ the safety inspection is finished, production will resume immediately.",
     "options": [
-      "As soon as",
       "In order to",
-      "So that",
-      "Rather than"
+      "As soon as",
+      "Rather than",
+      "So that"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "conj",
     "explain": "Nghĩa thời gian: NGAY KHI kiểm tra xong, sản xuất tiếp tục → as soon as + mệnh đề."
   },
@@ -666,12 +666,12 @@
     "id": "p5-52",
     "text": "The company ___ its headquarters to Da Nang three years ago.",
     "options": [
-      "relocates",
       "relocated",
       "has relocated",
-      "will relocate"
+      "will relocate",
+      "relocates"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "tense",
     "explain": "\"three years ago\" là dấu hiệu chắc chắn của QUÁ KHỨ ĐƠN: relocated. Không dùng hiện tại hoàn thành với \"ago\"."
   },
@@ -679,12 +679,12 @@
     "id": "p5-53",
     "text": "Please make sure that all windows are locked before ___ the office.",
     "options": [
-      "leave",
+      "to leave",
       "left",
-      "leaving",
-      "to leave"
+      "leave",
+      "leaving"
     ],
-    "answer": 2,
+    "answer": 3,
     "skill": "gerund",
     "explain": "Sau giới từ/liên từ \"before\" dùng V-ing: before leaving the office."
   },
@@ -705,12 +705,12 @@
     "id": "p5-55",
     "text": "Mr. Haddad could not attend the ceremony, so he sent his deputy ___.",
     "options": [
-      "instead",
       "however",
-      "moreover",
-      "otherwise"
+      "otherwise",
+      "instead",
+      "moreover"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "vocab",
     "explain": "Không đến được nên cử cấp phó ĐI THAY → instead (thay vào đó) đứng cuối câu."
   },
@@ -719,11 +719,11 @@
     "text": "The auditorium was filled to ___ for the annual shareholders' meeting.",
     "options": [
       "capable",
-      "capacity",
       "capably",
-      "capacious"
+      "capacious",
+      "capacity"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "word-form",
     "explain": "Cụm cố định \"filled to capacity\" = kín chỗ. Sau \"to\" (giới từ) cần danh từ."
   },
@@ -731,12 +731,12 @@
     "id": "p5-57",
     "text": "If the shipment ___ tomorrow morning, please notify the warehouse manager at once.",
     "options": [
-      "arrives",
-      "arrived",
       "will arrive",
-      "would arrive"
+      "arrived",
+      "would arrive",
+      "arrives"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "tense",
     "explain": "Câu điều kiện loại 1: mệnh đề If dùng HIỆN TẠI ĐƠN (arrives), không dùng will trong vế if."
   },
@@ -744,12 +744,12 @@
     "id": "p5-58",
     "text": "The recipe was ___ modified to suit local tastes.",
     "options": [
-      "slight",
       "slightly",
-      "slighter",
-      "slightest"
+      "slight",
+      "slightest",
+      "slighter"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ bị động \"was modified\" cần trạng từ: slightly modified — chỉnh sửa đôi chút."
   },
@@ -757,9 +757,9 @@
     "id": "p5-59",
     "text": "All laboratory equipment must ___ to its original place after each experiment.",
     "options": [
-      "return",
-      "be returned",
       "returning",
+      "be returned",
+      "return",
       "have returned"
     ],
     "answer": 1,
@@ -770,12 +770,12 @@
     "id": "p5-60",
     "text": "Ms. Petrova is regarded as one of the most ___ architects in the region.",
     "options": [
-      "talent",
       "talented",
+      "talent",
       "talents",
       "talentless"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "\"one of the most + TÍNH TỪ + danh từ số nhiều\": most talented architects. \"talentless\" (thiếu tài) ngược nghĩa khen."
   },
@@ -783,12 +783,12 @@
     "id": "p5-61",
     "text": "The project deadline was moved up, so the team had to ___ the design phase.",
     "options": [
-      "speed up",
-      "turn down",
       "put off",
-      "call off"
+      "call off",
+      "speed up",
+      "turn down"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "vocab",
     "explain": "Hạn bị đẩy sớm → phải ĐẨY NHANH: speed up. turn down = từ chối; put off = hoãn; call off = huỷ — phrasal verb là trọng tâm đề 2025."
   },
@@ -796,12 +796,12 @@
     "id": "p5-62",
     "text": "Please ___ the attached form and return it to the personnel office.",
     "options": [
-      "fill out",
+      "check out",
       "find out",
-      "run out",
-      "check out"
+      "fill out",
+      "run out"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "vocab",
     "explain": "fill out a form = điền vào mẫu đơn — cụm cố định. find out = tìm ra; run out = cạn kiệt."
   },
@@ -809,12 +809,12 @@
     "id": "p5-63",
     "text": "The two companies finally reached an ___ after months of negotiation.",
     "options": [
-      "agree",
       "agreement",
-      "agreeable",
-      "agreeably"
+      "agreeably",
+      "agree",
+      "agreeable"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Collocation \"reach an agreement\" = đạt được thoả thuận; sau mạo từ \"an\" cần danh từ."
   },
@@ -822,12 +822,12 @@
     "id": "p5-64",
     "text": "Employees should ___ advantage of the free training sessions offered each month.",
     "options": [
-      "take",
       "make",
       "do",
+      "take",
       "get"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "vocab",
     "explain": "take advantage of = tận dụng — collocation cố định, không dùng make/do/get."
   },
@@ -836,8 +836,8 @@
     "text": "The new manager quickly gained the ___ of the entire sales team.",
     "options": [
       "respect",
-      "respectful",
       "respectfully",
+      "respectful",
       "respecting"
     ],
     "answer": 0,
@@ -848,12 +848,12 @@
     "id": "p5-66",
     "text": "Due to a scheduling conflict, the product demonstration has been ___ until next Tuesday.",
     "options": [
-      "put off",
       "taken off",
+      "put off",
       "turned off",
       "set off"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "put off = hoãn lại (= postpone). take off = cất cánh/cởi; turn off = tắt; set off = khởi hành."
   },
@@ -861,12 +861,12 @@
     "id": "p5-67",
     "text": "___ the low turnout, the organizers considered the fundraiser a success.",
     "options": [
+      "Because of",
       "Despite",
       "Although",
-      "Because of",
       "Unless"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "conj",
     "explain": "Sau chỗ trống là CỤM DANH TỪ (the low turnout) + nghĩa tương phản → Despite."
   },
@@ -874,12 +874,12 @@
     "id": "p5-68",
     "text": "The maintenance crew will ___ out a full inspection of the ventilation system.",
     "options": [
-      "carry",
       "bring",
-      "take",
-      "put"
+      "carry",
+      "put",
+      "take"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "carry out = tiến hành (kiểm tra, nghiên cứu) — collocation với inspection/survey/research."
   },
@@ -887,12 +887,12 @@
     "id": "p5-69",
     "text": "All visitors are required to comply ___ the laboratory's safety regulations.",
     "options": [
-      "with",
       "to",
+      "with",
       "on",
       "for"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "prep",
     "explain": "comply WITH regulations = tuân thủ quy định — động từ + giới từ cố định."
   },
@@ -900,12 +900,12 @@
     "id": "p5-70",
     "text": "The marketing director asked her team to come up ___ three alternative slogans.",
     "options": [
+      "against",
       "with",
       "to",
-      "against",
       "from"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "prep",
     "explain": "come up with = nghĩ ra, đề xuất — phrasal verb 3 từ rất hay gặp."
   },
@@ -915,8 +915,8 @@
     "options": [
       "time",
       "timely",
-      "timing",
-      "timed"
+      "timed",
+      "timing"
     ],
     "answer": 1,
     "skill": "word-form",
@@ -927,9 +927,9 @@
     "text": "The board meeting ran ___ schedule, so lunch was served an hour late.",
     "options": [
       "behind",
+      "past",
       "under",
-      "below",
-      "past"
+      "below"
     ],
     "answer": 0,
     "skill": "vocab",
@@ -952,12 +952,12 @@
     "id": "p5-74",
     "text": "The hotel is conveniently ___ within walking distance of the convention center.",
     "options": [
-      "located",
       "locating",
       "location",
-      "locate"
+      "locate",
+      "located"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "passive",
     "explain": "be conveniently located = toạ lạc thuận tiện — khách sạn ĐƯỢC ĐẶT ở vị trí đó (bị động)."
   },
@@ -965,12 +965,12 @@
     "id": "p5-75",
     "text": "Please review the safety manual ___ before operating the machinery.",
     "options": [
+      "more thorough",
       "thorough",
       "thoroughly",
-      "thoroughness",
-      "more thorough"
+      "thoroughness"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ \"review\" cần trạng từ: thoroughly (kỹ lưỡng)."
   },
@@ -978,12 +978,12 @@
     "id": "p5-76",
     "text": "The airline apologized for the delay and offered passengers meal vouchers as ___.",
     "options": [
-      "compensate",
       "compensation",
-      "compensated",
-      "compensating"
+      "compensating",
+      "compensate",
+      "compensated"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "as compensation = như một khoản bồi thường; sau \"as\" ở đây cần danh từ."
   },
@@ -992,9 +992,9 @@
     "text": "Mr. Beaumont turned ___ the promotion because it required relocating overseas.",
     "options": [
       "down",
-      "up",
       "in",
-      "over"
+      "over",
+      "up"
     ],
     "answer": 0,
     "skill": "vocab",
@@ -1004,12 +1004,12 @@
     "id": "p5-78",
     "text": "___ who wish to attend the banquet should RSVP by Friday.",
     "options": [
-      "Those",
       "They",
       "Them",
+      "Those",
       "Whoever"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "pronoun",
     "explain": "Those who… = những ai… — cấu trúc kinh điển của Part 5; \"They who\" không dùng trong văn viết chuẩn."
   },
@@ -1017,12 +1017,12 @@
     "id": "p5-79",
     "text": "The revised contract is ___ identical to the version we reviewed last week.",
     "options": [
-      "near",
       "nearly",
       "nearing",
-      "nearby"
+      "nearby",
+      "near"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho tính từ \"identical\" cần trạng từ: nearly identical — gần như giống hệt."
   },
@@ -1030,12 +1030,12 @@
     "id": "p5-80",
     "text": "Construction noise is expected; we apologize ___ any inconvenience this may cause.",
     "options": [
-      "for",
-      "to",
       "about",
+      "to",
+      "for",
       "with"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "prep",
     "explain": "apologize FOR + điều gây phiền — câu xin lỗi mẫu trong mọi thông báo tiếng Anh."
   },
@@ -1043,12 +1043,12 @@
     "id": "p5-81",
     "text": "Once the invoice ___, please allow five business days for processing.",
     "options": [
-      "is received",
-      "receives",
+      "will receive",
       "receiving",
-      "will receive"
+      "receives",
+      "is received"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "passive",
     "explain": "Hoá đơn ĐƯỢC NHẬN → bị động: is received; mệnh đề \"Once\" không dùng will."
   },
@@ -1057,9 +1057,9 @@
     "text": "The IT team backed ___ all files before migrating to the new server.",
     "options": [
       "up",
+      "away",
       "out",
-      "off",
-      "away"
+      "off"
     ],
     "answer": 0,
     "skill": "vocab",
@@ -1069,12 +1069,12 @@
     "id": "p5-83",
     "text": "Attendance at the weekly briefing is ___ for all department heads.",
     "options": [
-      "mandatory",
       "voluntary",
       "tentative",
-      "redundant"
+      "redundant",
+      "mandatory"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "vocab",
     "explain": "mandatory = bắt buộc (>< voluntary tự nguyện). Câu quy định nội bộ → bắt buộc."
   },
@@ -1082,12 +1082,12 @@
     "id": "p5-84",
     "text": "___ of the workshops has its own registration link on the company intranet.",
     "options": [
-      "Each",
+      "Most",
       "All",
-      "Both",
-      "Most"
+      "Each",
+      "Both"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "agreement",
     "explain": "Động từ \"has\" số ít → Each of the… (All/Both/Most of + số nhiều → have)."
   },
@@ -1095,12 +1095,12 @@
     "id": "p5-85",
     "text": "The quarterly figures were better ___ expected, thanks to strong online sales.",
     "options": [
+      "from",
       "than",
       "as",
-      "that",
-      "from"
+      "that"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "comparative",
     "explain": "better THAN expected = tốt hơn dự kiến — so sánh hơn luôn đi với than."
   },
@@ -1108,12 +1108,12 @@
     "id": "p5-86",
     "text": "Candidates ___ applications arrive after the deadline will not be considered.",
     "options": [
-      "whose",
-      "who",
       "whom",
-      "which"
+      "who",
+      "which",
+      "whose"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "relative",
     "explain": "Hồ sơ CỦA ứng viên → đại từ quan hệ sở hữu whose + danh từ."
   },
@@ -1121,12 +1121,12 @@
     "id": "p5-87",
     "text": "The finance team is responsible ___ preparing the annual budget report.",
     "options": [
-      "for",
-      "of",
+      "at",
       "to",
-      "at"
+      "of",
+      "for"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "prep",
     "explain": "be responsible FOR + V-ing = chịu trách nhiệm về — cụm tính từ + giới từ cố định."
   },
@@ -1135,9 +1135,9 @@
     "text": "Since the printer broke down this morning, the technician ___ it twice.",
     "options": [
       "has inspected",
+      "will inspect",
       "inspected",
-      "inspects",
-      "will inspect"
+      "inspects"
     ],
     "answer": 0,
     "skill": "tense",
@@ -1147,12 +1147,12 @@
     "id": "p5-89",
     "text": "We look forward to ___ a long-term partnership with your firm.",
     "options": [
-      "establish",
-      "establishing",
       "establishment",
-      "established"
+      "established",
+      "establishing",
+      "establish"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "gerund",
     "explain": "look forward to + V-ing (to là giới từ): establishing. Câu chốt thư thương mại kinh điển."
   },
@@ -1160,12 +1160,12 @@
     "id": "p5-90",
     "text": "The cafeteria will remain open ___ renovations are being carried out upstairs.",
     "options": [
-      "while",
-      "during",
+      "throughout",
       "meanwhile",
-      "throughout"
+      "during",
+      "while"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "conj",
     "explain": "Sau chỗ trống là MỆNH ĐỀ → liên từ while. during/throughout là giới từ; meanwhile đứng đầu câu riêng."
   },
@@ -1173,12 +1173,12 @@
     "id": "p5-91",
     "text": "All visitors must present a valid photo ID at the front desk ___ entering the laboratory wing.",
     "options": [
-      "before",
       "during",
-      "since",
-      "while"
+      "while",
+      "before",
+      "since"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "prep",
     "explain": "Sau chỗ trống là V-ing (entering) → before/during/while đều đứng được, nhưng nghĩa \"trình thẻ TRƯỚC KHI vào\" chỉ hợp với before. during + danh từ, since chỉ mốc quá khứ."
   },
@@ -1186,12 +1186,12 @@
     "id": "p5-92",
     "text": "The new packaging machine operates far more ___ than the model it replaced.",
     "options": [
-      "efficient",
       "efficiently",
-      "efficiency",
-      "efficiencies"
+      "efficient",
+      "efficiencies",
+      "efficiency"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ operates → trạng từ efficiently. Dấu hiệu \"more ___ than\" + động từ hành động = trạng từ so sánh."
   },
@@ -1199,12 +1199,12 @@
     "id": "p5-93",
     "text": "Ms. Alvarez was promoted to regional director in recognition of her ___ to the company's expansion.",
     "options": [
-      "contribute",
-      "contributor",
+      "contributed",
       "contribution",
-      "contributed"
+      "contributor",
+      "contribute"
     ],
-    "answer": 2,
+    "answer": 1,
     "skill": "word-form",
     "explain": "Sau tính từ sở hữu her cần DANH TỪ. contribution (sự đóng góp) hợp nghĩa \"ghi nhận đóng góp\"; contributor là người đóng góp, không đi với to the expansion ở đây."
   },
@@ -1212,12 +1212,12 @@
     "id": "p5-94",
     "text": "Employees who wish to attend the leadership seminar should register ___ Friday at the latest.",
     "options": [
-      "by",
       "until",
       "from",
-      "within"
+      "within",
+      "by"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "prep",
     "explain": "by + mốc thời gian = hạn chót (chậm nhất là thứ Sáu). until dùng cho hành động KÉO DÀI đến mốc đó (stay until Friday)."
   },
@@ -1238,10 +1238,10 @@
     "id": "p5-96",
     "text": "By the time the auditors arrive next Monday, the finance team ___ all supporting documents.",
     "options": [
-      "prepares",
+      "has prepared",
       "was preparing",
       "will have prepared",
-      "has prepared"
+      "prepares"
     ],
     "answer": 2,
     "skill": "tense",
@@ -1251,12 +1251,12 @@
     "id": "p5-97",
     "text": "Renovation of the east lobby has been ___ until the shipment of marble tiles arrives.",
     "options": [
-      "postponed",
-      "postponing",
+      "postponement",
       "postpone",
-      "postponement"
+      "postponing",
+      "postponed"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "passive",
     "explain": "has been + V3 = bị động hoàn thành. Việc cải tạo bị hoãn (không tự hoãn) → postponed."
   },
@@ -1264,10 +1264,10 @@
     "id": "p5-98",
     "text": "Ticket holders may exchange their seats for a later showing at no ___ cost.",
     "options": [
-      "addition",
+      "add",
       "additional",
-      "additionally",
-      "add"
+      "addition",
+      "additionally"
     ],
     "answer": 1,
     "skill": "word-form",
@@ -1278,11 +1278,11 @@
     "text": "The consultant recommended ___ the checkout process to reduce the number of abandoned carts.",
     "options": [
       "simplify",
-      "to simplify",
       "simplifying",
+      "to simplify",
       "simplified"
     ],
-    "answer": 2,
+    "answer": 1,
     "skill": "gerund",
     "explain": "recommend + V-ing (recommend simplifying). Nhóm suggest / recommend / consider / avoid luôn theo sau bởi V-ing."
   },
@@ -1304,11 +1304,11 @@
     "text": "Applicants ___ résumés arrive after the deadline will be considered for the next hiring cycle.",
     "options": [
       "who",
-      "whose",
       "which",
-      "whom"
+      "whom",
+      "whose"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "relative",
     "explain": "Sau chỗ trống là DANH TỪ không mạo từ (résumés) → đại từ quan hệ sở hữu whose (hồ sơ của họ). who/whom thay người làm chủ/tân ngữ, không đứng trước danh từ trần."
   },
@@ -1316,12 +1316,12 @@
     "id": "p5-102",
     "text": "Please make sure that all confidential files are stored ___ in the locked cabinet.",
     "options": [
-      "secure",
-      "security",
       "securely",
-      "secured"
+      "security",
+      "secured",
+      "secure"
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho are stored (hành động) → trạng từ securely. Câu đã đủ bị động, không cần thêm tính từ."
   },
@@ -1342,12 +1342,12 @@
     "id": "p5-104",
     "text": "Sales in the third quarter were ___ higher than analysts had predicted.",
     "options": [
+      "consider",
       "considerable",
       "considerably",
-      "consider",
       "consideration"
     ],
-    "answer": 1,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho tính từ so sánh higher → trạng từ considerably (cao hơn đáng kể)."
   },
@@ -1355,12 +1355,12 @@
     "id": "p5-105",
     "text": "Guests are asked to keep noise to a minimum, ___ the conference rooms are in use.",
     "options": [
-      "as",
-      "so",
+      "although",
       "yet",
-      "although"
+      "so",
+      "as"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "conj",
     "explain": "as ở đây = vì (nêu lý do). so chỉ kết quả, yet/although chỉ tương phản — không hợp mạch câu."
   },
@@ -1368,12 +1368,12 @@
     "id": "p5-106",
     "text": "Mr. Okafor asked his assistant to forward the invoices to ___ before the end of the day.",
     "options": [
-      "he",
-      "him",
       "his",
-      "himself"
+      "he",
+      "himself",
+      "him"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "pronoun",
     "explain": "Sau giới từ to cần đại từ TÂN NGỮ. Chủ ngữ của \"forward\" là the assistant (người khác) nên không dùng himself."
   },
@@ -1382,9 +1382,9 @@
     "text": "The workshop was so ___ that the organizers scheduled a second session for the following month.",
     "options": [
       "popular",
-      "popularly",
       "popularity",
-      "populate"
+      "populate",
+      "popularly"
     ],
     "answer": 0,
     "skill": "word-form",
@@ -1394,12 +1394,12 @@
     "id": "p5-108",
     "text": "All personnel ___ complete the fire-safety module before their badge is activated.",
     "options": [
-      "must",
+      "used to",
       "would",
       "might",
-      "used to"
+      "must"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "modal",
     "explain": "Quy định bắt buộc → must. might/would chỉ khả năng hoặc giả định; used to chỉ thói quen quá khứ."
   },
@@ -1407,12 +1407,12 @@
     "id": "p5-109",
     "text": "Because the supplier missed two deliveries, the purchasing team decided to look for ___ vendor.",
     "options": [
-      "other",
-      "another",
+      "each",
       "the others",
-      "each"
+      "other",
+      "another"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "article",
     "explain": "another + danh từ ĐẾM ĐƯỢC SỐ ÍT (vendor). other phải đi với số nhiều (other vendors); the others đứng một mình."
   },
@@ -1420,10 +1420,10 @@
     "id": "p5-110",
     "text": "The updated policy requires that every expense claim ___ by a department head.",
     "options": [
-      "approves",
-      "be approved",
       "approving",
-      "is approving"
+      "be approved",
+      "is approving",
+      "approves"
     ],
     "answer": 1,
     "skill": "passive",
@@ -1433,12 +1433,12 @@
     "id": "p5-111",
     "text": "Of the three candidates interviewed on Tuesday, Ms. Bergman had the ___ experience in logistics.",
     "options": [
-      "much",
-      "more",
       "most",
-      "many"
+      "more",
+      "many",
+      "much"
     ],
-    "answer": 2,
+    "answer": 0,
     "skill": "comparative",
     "explain": "\"Of the three\" = so sánh từ 3 người trở lên → so sánh NHẤT: the most."
   },
@@ -1446,12 +1446,12 @@
     "id": "p5-112",
     "text": "Please ___ the attached spreadsheet for a full breakdown of the travel expenses.",
     "options": [
-      "refer to",
       "remind",
-      "report",
-      "reply"
+      "refer to",
+      "reply",
+      "report"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "refer to + tài liệu = tham khảo. remind cần tân ngữ người; reply to a message; report thì không đi với \"the attached spreadsheet\" theo nghĩa này."
   },
@@ -1459,12 +1459,12 @@
     "id": "p5-113",
     "text": "The airline offers a generous baggage ___ for passengers traveling in business class.",
     "options": [
-      "allowance",
       "allowed",
-      "allowable",
-      "allow"
+      "allowance",
+      "allow",
+      "allowable"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "baggage allowance = mức hành lý miễn cước (collocation cố định). Vị trí sau tính từ generous + danh từ ghép cần DANH TỪ."
   },
@@ -1473,9 +1473,9 @@
     "text": "Sales representatives are expected to ___ closely with the marketing department this quarter.",
     "options": [
       "collaborate",
+      "belong",
       "attend",
-      "consist",
-      "belong"
+      "consist"
     ],
     "answer": 0,
     "skill": "vocab",
@@ -1485,12 +1485,12 @@
     "id": "p5-115",
     "text": "The hotel's rooftop restaurant is ___ booked on weekends, so reservations are essential.",
     "options": [
-      "fully",
-      "full",
+      "fullness",
       "fill",
-      "fullness"
+      "fully",
+      "full"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho quá khứ phân từ booked → trạng từ fully (kín chỗ hoàn toàn)."
   },
@@ -1498,12 +1498,12 @@
     "id": "p5-116",
     "text": "Since the software update, technical complaints have dropped ___ forty percent.",
     "options": [
-      "by",
-      "of",
+      "to",
       "for",
-      "to"
+      "by",
+      "of"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "prep",
     "explain": "drop / increase / rise BY + mức thay đổi. \"to\" dùng khi nêu con số ĐÍCH (dropped to 40 complaints)."
   },
@@ -1511,12 +1511,12 @@
     "id": "p5-117",
     "text": "The manager postponed the announcement ___ she had confirmed the budget with head office.",
     "options": [
+      "in order to",
       "until",
       "during",
-      "as soon",
-      "in order to"
+      "as soon"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "conj",
     "explain": "until + mệnh đề = cho đến khi. \"as soon\" thiếu as; during là giới từ; in order to + V nguyên thể."
   },
@@ -1524,12 +1524,12 @@
     "id": "p5-118",
     "text": "Our warehouse staff ___ the entire inventory twice a year to keep records accurate.",
     "options": [
-      "counts",
       "counting",
-      "to count",
-      "is counted"
+      "is counted",
+      "counts",
+      "to count"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "tense",
     "explain": "Câu thiếu động từ chính; twice a year = thói quen → hiện tại đơn. Nhân viên tự đếm nên không dùng bị động."
   },
@@ -1537,12 +1537,12 @@
     "id": "p5-119",
     "text": "The keynote speaker's flight was delayed, so the opening ceremony began ___ than planned.",
     "options": [
-      "late",
       "later",
-      "latest",
-      "lately"
+      "late",
+      "lately",
+      "latest"
     ],
-    "answer": 1,
+    "answer": 0,
     "skill": "comparative",
     "explain": "Có \"than\" → dạng SO SÁNH HƠN later. lately nghĩa \"gần đây\", là bẫy nghĩa quen thuộc của Part 5."
   },
@@ -1552,8 +1552,8 @@
     "options": [
       "learn",
       "learning",
-      "learned",
-      "to learning"
+      "to learning",
+      "learned"
     ],
     "answer": 1,
     "skill": "gerund",
@@ -1564,8 +1564,8 @@
     "text": "The revised contract must be signed by both parties ___ it takes effect.",
     "options": [
       "before",
-      "ahead",
       "prior",
+      "ahead",
       "advance"
     ],
     "answer": 0,
@@ -1576,12 +1576,12 @@
     "id": "p5-122",
     "text": "Attendance at the quarterly meeting is ___ for all department heads.",
     "options": [
-      "mandatory",
-      "mandate",
+      "mandating",
       "mandatorily",
-      "mandating"
+      "mandatory",
+      "mandate"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "word-form",
     "explain": "Sau is cần TÍNH TỪ bổ ngữ → mandatory (bắt buộc)."
   },
@@ -1589,12 +1589,12 @@
     "id": "p5-123",
     "text": "Ms. Chen will oversee the branch office ___ the current manager is on parental leave.",
     "options": [
-      "while",
-      "meanwhile",
+      "besides",
       "during",
-      "besides"
+      "while",
+      "meanwhile"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "conj",
     "explain": "while + MỆNH ĐỀ = trong lúc. meanwhile là trạng từ đứng riêng; during là giới từ + danh từ."
   },
@@ -1602,12 +1602,12 @@
     "id": "p5-124",
     "text": "The technician explained the repair procedure in terms that were easy for everyone to ___.",
     "options": [
+      "be followed",
       "follow",
       "following",
-      "be followed",
       "follows"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "easy for someone to + V nguyên thể; follow ở đây nghĩa \"hiểu, theo kịp\" — nghĩa rất hay được hỏi trong đề."
   },
@@ -1615,9 +1615,9 @@
     "id": "p5-125",
     "text": "Please submit your reimbursement form together with the ___ receipts.",
     "options": [
-      "origin",
-      "original",
       "originally",
+      "original",
+      "origin",
       "originality"
     ],
     "answer": 1,
@@ -1628,12 +1628,12 @@
     "id": "p5-126",
     "text": "The two departments share the same floor, but ___ has its own reception area.",
     "options": [
-      "each",
-      "every",
+      "both",
       "all",
-      "both"
+      "each",
+      "every"
     ],
-    "answer": 0,
+    "answer": 2,
     "skill": "pronoun",
     "explain": "each có thể đứng MỘT MÌNH làm chủ ngữ số ít (has). every luôn cần danh từ theo sau; all/both đi với động từ số nhiều have."
   },
@@ -1641,12 +1641,12 @@
     "id": "p5-127",
     "text": "Customers who purchase the extended warranty are ___ to free annual servicing.",
     "options": [
-      "entitled",
       "entitle",
+      "entitled",
       "entitling",
       "entitlement"
     ],
-    "answer": 0,
+    "answer": 1,
     "skill": "vocab",
     "explain": "be entitled to = được hưởng (quyền lợi). Cụm cố định be entitled to + danh từ, rất hay ra ở Part 5 và Part 7."
   },
@@ -1654,12 +1654,12 @@
     "id": "p5-128",
     "text": "The catering company has built a strong ___ for punctuality among corporate clients.",
     "options": [
-      "reputation",
-      "reputable",
       "reputably",
-      "repute"
+      "reputable",
+      "repute",
+      "reputation"
     ],
-    "answer": 0,
+    "answer": 3,
     "skill": "vocab",
     "explain": "build a reputation for = gây dựng uy tín về. Sau mạo từ a + tính từ strong cần DANH TỪ."
   },
@@ -1667,10 +1667,10 @@
     "id": "p5-129",
     "text": "Because of the storm, several morning flights ___ before passengers reached the airport.",
     "options": [
-      "canceled",
-      "were canceled",
       "have canceling",
-      "cancel"
+      "were canceled",
+      "cancel",
+      "canceled"
     ],
     "answer": 1,
     "skill": "passive",
@@ -1680,12 +1680,12 @@
     "id": "p5-130",
     "text": "The new filing system allows staff to locate archived contracts much more ___ than before.",
     "options": [
-      "quick",
-      "quickly",
       "quickness",
-      "quicken"
+      "quicken",
+      "quick",
+      "quickly"
     ],
-    "answer": 1,
+    "answer": 3,
     "skill": "word-form",
     "explain": "Bổ nghĩa cho động từ locate → trạng từ quickly. \"much more ___ than\" là dấu hiệu trạng từ so sánh."
   }
