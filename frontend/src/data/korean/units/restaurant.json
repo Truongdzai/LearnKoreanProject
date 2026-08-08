@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "🍜",
   "words": [
-    { "ko": "메뉴", "romaja": "menyu", "vi": "Thực đơn", "pos": "noun", "img": "📋", "connect": "\"Mê-nyu\" mượn từ \"menu\".", "ex": "메뉴 좀 주세요.", "exVi": "Cho tôi xin thực đơn ạ." },
-    { "ko": "주문하다", "romaja": "jumunhada", "vi": "Gọi món / Đặt hàng", "pos": "verb", "img": "🙋", "connect": "\"Chu-mun\" chính là âm Hán \"chú văn\".", "ex": "주문할게요.", "exVi": "Tôi gọi món nhé." },
-    { "ko": "국물", "romaja": "gungmul", "vi": "Nước dùng / Nước canh", "pos": "noun", "img": "🍲", "connect": "\"Kuk\" = canh + \"mul\" = nước.", "ex": "국물이 시원해요.", "exVi": "Nước dùng thanh ngọt ghê." },
-    { "ko": "반찬", "romaja": "banchan", "vi": "Món ăn kèm", "pos": "noun", "img": "🥗", "connect": "\"Ban-chan\" chính là âm Hán \"phạn soạn\" — dọn kèm cơm.", "ex": "반찬 좀 더 주세요.", "exVi": "Cho tôi thêm món ăn kèm với ạ." },
-    { "ko": "숟가락", "romaja": "sutgarak", "vi": "Thìa", "pos": "noun", "img": "🥄", "connect": "\"Sut-ka-rak\" — dụng cụ xúc cơm canh.", "ex": "숟가락이 없어요.", "exVi": "Không có thìa ạ." },
-    { "ko": "젓가락", "romaja": "jeotgarak", "vi": "Đũa", "pos": "noun", "img": "🥢", "connect": "Cùng đuôi 가락 với thìa — một cặp đi chung mâm.", "ex": "젓가락으로 먹어요.", "exVi": "Tôi ăn bằng đũa." },
-    { "ko": "맵다", "romaja": "maepda", "vi": "Cay", "pos": "adj", "img": "🌶️", "connect": "\"Mép\" — mém một cái là bỏng lưỡi.", "ex": "이 음식은 너무 매워요.", "exVi": "Món này cay quá." },
-    { "ko": "짜다", "romaja": "jjada", "vi": "Mặn", "pos": "adj", "img": "🧂", "connect": "\"Cha-đa\" — chát mặn ở đầu lưỡi.", "ex": "국이 좀 짜요.", "exVi": "Canh hơi mặn." },
-    { "ko": "달다", "romaja": "dalda", "vi": "Ngọt", "pos": "adj", "img": "🍯", "connect": "\"Đal\" — cùng gốc với 달콤하다 (ngọt ngào).", "ex": "이 과자는 아주 달아요.", "exVi": "Bánh này ngọt lắm." },
-    { "ko": "배부르다", "romaja": "baebureuda", "vi": "No bụng", "pos": "adj", "img": "😋", "connect": "\"Be\" = bụng + \"bu-rư\" = đầy lên.", "ex": "많이 먹어서 배불러요.", "exVi": "Tôi ăn nhiều nên no rồi." },
-    { "ko": "여기요", "romaja": "yeogiyo", "vi": "Em ơi / Cho hỏi (gọi phục vụ)", "pos": "phrase", "img": "🙋‍♀️", "connect": "Từ 여기 (ở đây) — gọi người phục vụ lại chỗ mình.", "ex": "여기요, 물 좀 주세요.", "exVi": "Em ơi, cho tôi xin nước với ạ." },
-    { "ko": "잘 먹겠습니다", "romaja": "jal meokgetseumnida", "vi": "Tôi xin phép ăn ngon miệng", "pos": "phrase", "img": "🙏", "connect": "Câu bắt buộc trước bữa ăn ở Hàn — như \"mời cả nhà\".", "ex": "잘 먹겠습니다!", "exVi": "Tôi xin phép ăn ạ!" }
+    {
+      "ko": "메뉴",
+      "romaja": "menyu",
+      "vi": "Thực đơn",
+      "pos": "noun",
+      "img": "📋",
+      "connect": "\"Mê-nyu\" mượn từ \"menu\".",
+      "ex": "메뉴 좀 주세요.",
+      "exVi": "Cho tôi xin thực đơn ạ."
+    },
+    {
+      "ko": "주문하다",
+      "romaja": "jumunhada",
+      "vi": "Gọi món / Đặt hàng",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "\"Chu-mun\" chính là âm Hán \"chú văn\".",
+      "ex": "주문할게요.",
+      "exVi": "Tôi gọi món nhé."
+    },
+    {
+      "ko": "국물",
+      "romaja": "gungmul",
+      "vi": "Nước dùng / Nước canh",
+      "pos": "noun",
+      "img": "🍲",
+      "connect": "\"Kuk\" = canh + \"mul\" = nước.",
+      "ex": "국물이 시원해요.",
+      "exVi": "Nước dùng thanh ngọt ghê."
+    },
+    {
+      "ko": "반찬",
+      "romaja": "banchan",
+      "vi": "Món ăn kèm",
+      "pos": "noun",
+      "img": "🥗",
+      "connect": "\"Ban-chan\" chính là âm Hán \"phạn soạn\" — dọn kèm cơm.",
+      "ex": "반찬 좀 더 주세요.",
+      "exVi": "Cho tôi thêm món ăn kèm với ạ."
+    },
+    {
+      "ko": "숟가락",
+      "romaja": "sutgarak",
+      "vi": "Thìa",
+      "pos": "noun",
+      "img": "🥄",
+      "connect": "\"Sut-ka-rak\" — dụng cụ xúc cơm canh.",
+      "ex": "숟가락이 없어요.",
+      "exVi": "Không có thìa ạ."
+    },
+    {
+      "ko": "젓가락",
+      "romaja": "jeotgarak",
+      "vi": "Đũa",
+      "pos": "noun",
+      "img": "🥢",
+      "connect": "Cùng đuôi 가락 với thìa — một cặp đi chung mâm.",
+      "ex": "젓가락으로 먹어요.",
+      "exVi": "Tôi ăn bằng đũa."
+    },
+    {
+      "ko": "맵다",
+      "romaja": "maepda",
+      "vi": "Cay",
+      "pos": "adj",
+      "img": "🌶️",
+      "connect": "\"Mép\" — mém một cái là bỏng lưỡi.",
+      "ex": "이 음식은 너무 매워요.",
+      "exVi": "Món này cay quá."
+    },
+    {
+      "ko": "짜다",
+      "romaja": "jjada",
+      "vi": "Mặn",
+      "pos": "adj",
+      "img": "🧂",
+      "connect": "\"Cha-đa\" — chát mặn ở đầu lưỡi.",
+      "ex": "국이 좀 짜요.",
+      "exVi": "Canh hơi mặn."
+    },
+    {
+      "ko": "달다",
+      "romaja": "dalda",
+      "vi": "Ngọt",
+      "pos": "adj",
+      "img": "🍯",
+      "connect": "\"Đal\" — cùng gốc với 달콤하다 (ngọt ngào).",
+      "ex": "이 과자는 아주 달아요.",
+      "exVi": "Bánh này ngọt lắm."
+    },
+    {
+      "ko": "배부르다",
+      "romaja": "baebureuda",
+      "vi": "No bụng",
+      "pos": "adj",
+      "img": "😋",
+      "connect": "\"Be\" = bụng + \"bu-rư\" = đầy lên.",
+      "ex": "많이 먹어서 배불러요.",
+      "exVi": "Tôi ăn nhiều nên no rồi."
+    },
+    {
+      "ko": "여기요",
+      "romaja": "yeogiyo",
+      "vi": "Em ơi / Cho hỏi (gọi phục vụ)",
+      "pos": "phrase",
+      "img": "🙋‍♀️",
+      "connect": "Từ 여기 (ở đây) — gọi người phục vụ lại chỗ mình.",
+      "ex": "여기요, 물 좀 주세요.",
+      "exVi": "Em ơi, cho tôi xin nước với ạ."
+    },
+    {
+      "ko": "잘 먹겠습니다",
+      "romaja": "jal meokgetseumnida",
+      "vi": "Tôi xin phép ăn ngon miệng",
+      "pos": "phrase",
+      "img": "🙏",
+      "connect": "Câu bắt buộc trước bữa ăn ở Hàn — như \"mời cả nhà\".",
+      "ex": "잘 먹겠습니다!",
+      "exVi": "Tôi xin phép ăn ạ!"
+    }
   ]
 }

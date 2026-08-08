@@ -1,0 +1,330 @@
+{
+  "id": "adjectives9",
+  "name": "Tính từ & trạng từ tần suất cao",
+  "sub": "Large, difficult, sure, possible, usual…",
+  "pos": "adj",
+  "tone": "tone-b",
+  "emoji": "🏷️",
+  "words": [
+    {
+      "en": "large",
+      "ipa": "/lɑːrdʒ/",
+      "vi": "lớn, rộng",
+      "pos": "adj",
+      "img": "🔷",
+      "connect": "Cỡ áo size L chính là large.",
+      "ex": "They live in a large house.",
+      "exVi": "Họ sống trong một ngôi nhà rộng."
+    },
+    {
+      "en": "next",
+      "ipa": "/nekst/",
+      "vi": "tiếp theo, kế bên",
+      "pos": "adj",
+      "img": "⏭️",
+      "connect": "Next to = ngay cạnh.",
+      "ex": "See you next week.",
+      "exVi": "Hẹn gặp bạn tuần tới."
+    },
+    {
+      "en": "public",
+      "ipa": "/ˈpʌb.lɪk/",
+      "vi": "công cộng, công khai",
+      "pos": "adj",
+      "img": "🏛️",
+      "connect": "Public transport: phương tiện công cộng.",
+      "ex": "The park is open to the public.",
+      "exVi": "Công viên mở cửa cho công chúng."
+    },
+    {
+      "en": "difficult",
+      "ipa": "/ˈdɪf.ə.kəlt/",
+      "vi": "khó",
+      "pos": "adj",
+      "img": "🧗",
+      "connect": "Trang trọng hơn hard — trọng âm ở đầu: DI-ffi-cult.",
+      "ex": "This question is too difficult for me.",
+      "exVi": "Câu hỏi này quá khó với tôi."
+    },
+    {
+      "en": "simple",
+      "ipa": "/ˈsɪm.pəl/",
+      "vi": "đơn giản",
+      "pos": "adj",
+      "img": "🟩",
+      "connect": "\"Sim-pồ\" — trái nghĩa với complicated.",
+      "ex": "The recipe is very simple.",
+      "exVi": "Công thức này rất đơn giản."
+    },
+    {
+      "en": "sure",
+      "ipa": "/ʃʊr/",
+      "vi": "chắc chắn",
+      "pos": "adj",
+      "img": "👌",
+      "connect": "\"Sua\" — Are you sure? = Bạn chắc chứ?",
+      "ex": "Are you sure about the address?",
+      "exVi": "Bạn chắc chắn về địa chỉ chứ?"
+    },
+    {
+      "en": "true",
+      "ipa": "/truː/",
+      "vi": "đúng, thật",
+      "pos": "adj",
+      "img": "✔️",
+      "connect": "Come true: trở thành sự thật.",
+      "ex": "Is it true that you are moving?",
+      "exVi": "Có đúng là bạn sắp chuyển đi không?"
+    },
+    {
+      "en": "real",
+      "ipa": "/riːl/",
+      "vi": "thật, có thật",
+      "pos": "adj",
+      "img": "🪞",
+      "connect": "Real là có thật, true là đúng sự thật.",
+      "ex": "Is that a real diamond?",
+      "exVi": "Đó có phải kim cương thật không?"
+    },
+    {
+      "en": "rough",
+      "ipa": "/rʌf/",
+      "vi": "thô ráp, sơ bộ",
+      "pos": "adj",
+      "img": "🪨",
+      "connect": "Đọc là \"rắf\" — ough ở đây kêu /ʌf/.",
+      "ex": "The wall feels rough.",
+      "exVi": "Bức tường sờ vào thấy nhám."
+    },
+    {
+      "en": "shallow",
+      "ipa": "/ˈʃæl.oʊ/",
+      "vi": "nông, cạn",
+      "pos": "adj",
+      "img": "🏖️",
+      "connect": "Trái nghĩa với deep (sâu).",
+      "ex": "The water here is shallow.",
+      "exVi": "Nước ở đây nông."
+    },
+    {
+      "en": "similar",
+      "ipa": "/ˈsɪm.ə.lɚ/",
+      "vi": "tương tự, giống nhau",
+      "pos": "adj",
+      "img": "👯",
+      "connect": "Similar to = giống với.",
+      "ex": "Your bag is similar to mine.",
+      "exVi": "Túi của bạn giống túi của tôi."
+    },
+    {
+      "en": "possible",
+      "ipa": "/ˈpɑː.sə.bəl/",
+      "vi": "có thể xảy ra",
+      "pos": "adj",
+      "img": "🎯",
+      "connect": "As soon as possible: càng sớm càng tốt.",
+      "ex": "Is it possible to change my seat?",
+      "exVi": "Tôi đổi chỗ ngồi được không?"
+    },
+    {
+      "en": "impossible",
+      "ipa": "/ɪmˈpɑː.sə.bəl/",
+      "vi": "không thể",
+      "pos": "adj",
+      "img": "🚧",
+      "connect": "Thêm im- vào possible để phủ định.",
+      "ex": "Nothing is impossible if you try.",
+      "exVi": "Không gì là không thể nếu bạn cố gắng."
+    },
+    {
+      "en": "national",
+      "ipa": "/ˈnæʃ.ən.əl/",
+      "vi": "thuộc quốc gia",
+      "pos": "adj",
+      "img": "🏳️",
+      "connect": "Từ nation (quốc gia) + -al.",
+      "ex": "Today is a national holiday.",
+      "exVi": "Hôm nay là ngày lễ quốc gia."
+    },
+    {
+      "en": "social",
+      "ipa": "/ˈsoʊ.ʃəl/",
+      "vi": "thuộc xã hội",
+      "pos": "adj",
+      "img": "📱",
+      "connect": "Social media: mạng xã hội.",
+      "ex": "She spends hours on social media.",
+      "exVi": "Cô ấy dành hàng giờ trên mạng xã hội."
+    },
+    {
+      "en": "special",
+      "ipa": "/ˈspeʃ.əl/",
+      "vi": "đặc biệt",
+      "pos": "adj",
+      "img": "⭐",
+      "connect": "\"Sờ-pé-sồ\" — special offer: ưu đãi đặc biệt.",
+      "ex": "Today is a special day for us.",
+      "exVi": "Hôm nay là ngày đặc biệt với chúng tôi."
+    },
+    {
+      "en": "successful",
+      "ipa": "/səkˈses.fəl/",
+      "vi": "thành công",
+      "pos": "adj",
+      "img": "🏆",
+      "connect": "Từ success + -ful — hai chữ c và hai chữ s.",
+      "ex": "She is a successful businesswoman.",
+      "exVi": "Cô ấy là một nữ doanh nhân thành công."
+    },
+    {
+      "en": "traditional",
+      "ipa": "/trəˈdɪʃ.ən.əl/",
+      "vi": "truyền thống",
+      "pos": "adj",
+      "img": "🏮",
+      "connect": "Từ tradition (truyền thống) + -al.",
+      "ex": "We wore traditional clothes at the festival.",
+      "exVi": "Chúng tôi mặc trang phục truyền thống trong lễ hội."
+    },
+    {
+      "en": "usual",
+      "ipa": "/ˈjuː.ʒu.əl/",
+      "vi": "thường lệ, quen thuộc",
+      "pos": "adj",
+      "img": "🔁",
+      "connect": "As usual: như thường lệ.",
+      "ex": "We met at the usual place.",
+      "exVi": "Chúng tôi gặp nhau ở chỗ quen thuộc."
+    },
+    {
+      "en": "normal",
+      "ipa": "/ˈnɔːr.məl/",
+      "vi": "bình thường",
+      "pos": "adj",
+      "img": "📏",
+      "connect": "\"Noó-mồ\" — back to normal: trở lại bình thường.",
+      "ex": "His temperature is back to normal.",
+      "exVi": "Nhiệt độ của anh ấy đã về mức bình thường."
+    },
+    {
+      "en": "private",
+      "ipa": "/ˈpraɪ.vət/",
+      "vi": "riêng tư, tư nhân",
+      "pos": "adj",
+      "img": "🔒",
+      "connect": "Trái nghĩa với public — private school: trường tư.",
+      "ex": "This is a private conversation.",
+      "exVi": "Đây là cuộc trò chuyện riêng tư."
+    },
+    {
+      "en": "political",
+      "ipa": "/pəˈlɪt̬.ɪ.kəl/",
+      "vi": "thuộc chính trị",
+      "pos": "adj",
+      "img": "🗳️",
+      "connect": "Từ politics (chính trị) — trọng âm ở âm thứ hai.",
+      "ex": "They avoid political topics at dinner.",
+      "exVi": "Họ tránh chủ đề chính trị trong bữa tối."
+    },
+    {
+      "en": "economic",
+      "ipa": "/ˌiː.kəˈnɑː.mɪk/",
+      "vi": "thuộc kinh tế",
+      "pos": "adj",
+      "img": "💹",
+      "connect": "Economic là về kinh tế, economical là tiết kiệm.",
+      "ex": "The country is facing economic problems.",
+      "exVi": "Đất nước đang đối mặt với các vấn đề kinh tế."
+    },
+    {
+      "en": "financial",
+      "ipa": "/faɪˈnæn.ʃəl/",
+      "vi": "thuộc tài chính",
+      "pos": "adj",
+      "img": "🏦",
+      "connect": "Từ finance (tài chính) — financial report: báo cáo tài chính.",
+      "ex": "She gives financial advice to small firms.",
+      "exVi": "Cô ấy tư vấn tài chính cho các công ty nhỏ."
+    },
+    {
+      "en": "medical",
+      "ipa": "/ˈmed.ɪ.kəl/",
+      "vi": "thuộc y tế",
+      "pos": "adj",
+      "img": "🩺",
+      "connect": "Cùng gốc với medicine (thuốc, y học).",
+      "ex": "He needs medical help right now.",
+      "exVi": "Anh ấy cần trợ giúp y tế ngay lập tức."
+    },
+    {
+      "en": "quick",
+      "ipa": "/kwɪk/",
+      "vi": "nhanh",
+      "pos": "adj",
+      "img": "⚡",
+      "connect": "Quick là nhanh gọn trong khoảnh khắc, fast là tốc độ cao.",
+      "ex": "Let's have a quick coffee.",
+      "exVi": "Làm nhanh một ly cà phê nhé."
+    },
+    {
+      "en": "sorry",
+      "ipa": "/ˈsɔːr.i/",
+      "vi": "xin lỗi, tiếc",
+      "pos": "adj",
+      "img": "😔",
+      "connect": "Sorry for + danh từ, sorry to + động từ.",
+      "ex": "I am sorry for the late reply.",
+      "exVi": "Tôi xin lỗi vì trả lời muộn."
+    },
+    {
+      "en": "sudden",
+      "ipa": "/ˈsʌd.ən/",
+      "vi": "đột ngột",
+      "pos": "adj",
+      "img": "😲",
+      "connect": "All of a sudden: bỗng nhiên.",
+      "ex": "There was a sudden change of plan.",
+      "exVi": "Đã có một thay đổi kế hoạch đột ngột."
+    },
+    {
+      "en": "equal",
+      "ipa": "/ˈiː.kwəl/",
+      "vi": "bằng nhau, ngang nhau",
+      "pos": "adj",
+      "img": "🟰",
+      "connect": "Dấu = trong toán đọc là equals.",
+      "ex": "Everyone should have equal rights.",
+      "exVi": "Mọi người đều nên có quyền bình đẳng."
+    },
+    {
+      "en": "unfair",
+      "ipa": "/ʌnˈfer/",
+      "vi": "không công bằng",
+      "pos": "adj",
+      "img": "⚖️",
+      "connect": "Thêm un- vào fair (công bằng).",
+      "ex": "That rule is unfair to new students.",
+      "exVi": "Quy định đó không công bằng với học sinh mới."
+    },
+    {
+      "en": "perhaps",
+      "ipa": "/pɚˈhæps/",
+      "vi": "có lẽ",
+      "pos": "adverb",
+      "img": "🤔",
+      "connect": "Trang trọng hơn maybe, cùng nghĩa.",
+      "ex": "Perhaps we should ask for help.",
+      "exVi": "Có lẽ chúng ta nên nhờ giúp đỡ."
+    },
+    {
+      "en": "otherwise",
+      "ipa": "/ˈʌð.ɚ.waɪz/",
+      "vi": "nếu không thì",
+      "pos": "adverb",
+      "img": "↩️",
+      "connect": "Nối hai vế: làm đi, otherwise sẽ muộn.",
+      "ex": "Leave now, otherwise you will be late.",
+      "exVi": "Đi ngay đi, nếu không bạn sẽ muộn."
+    }
+  ]
+}

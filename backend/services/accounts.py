@@ -684,9 +684,15 @@ _SORTS = {
     "recent": "created_at DESC",
     "oldest": "created_at ASC",
     "active": "last_active DESC",
+    "active_asc": "last_active ASC",
     "coins": "coins DESC",
+    "coins_asc": "coins ASC",
     "xp": "xp DESC",
+    "xp_asc": "xp ASC",
+    "streak": "streak DESC",
+    "streak_asc": "streak ASC",
     "name": "name COLLATE NOCASE ASC",
+    "name_desc": "name COLLATE NOCASE DESC",
 }
 
 

@@ -6,29 +6,245 @@
   "tone": "tone-d",
   "emoji": "🔧",
   "words": [
-    { "en": "device", "ipa": "/dɪˈvaɪs/", "vi": "thiết bị", "pos": "noun", "img": "📱", "connect": "\"Đi-vai-s\" — máy móc điện tử.", "ex": "Turn off all devices at night.", "exVi": "Tắt hết thiết bị vào ban đêm." },
-    { "en": "gadget", "ipa": "/ˈɡædʒ.ɪt/", "vi": "đồ công nghệ nhỏ", "pos": "noun", "img": "⌚", "connect": "\"Ge-jịt\" — món đồ chơi công nghệ.", "ex": "He loves buying new gadgets.", "exVi": "Anh ấy mê mua đồ công nghệ mới." },
-    { "en": "appliance", "ipa": "/əˈplaɪ.əns/", "vi": "thiết bị gia dụng", "pos": "noun", "img": "🔌", "connect": "\"Ờ-plai-ừns\" — đồ điện trong nhà.", "ex": "The store sells home appliances.", "exVi": "Cửa hàng bán đồ gia dụng." },
-    { "en": "microwave", "ipa": "/ˈmaɪ.kroʊ.weɪv/", "vi": "lò vi sóng", "pos": "noun", "img": "📻", "connect": "micro (siêu nhỏ) + wave (sóng).", "ex": "Heat the soup in the microwave.", "exVi": "Hâm súp trong lò vi sóng." },
-    { "en": "vacuum", "ipa": "/ˈvæk.juːm/", "vi": "máy hút bụi; hút bụi", "pos": "noun", "img": "🧹", "connect": "\"Ve-kiu-m\" — máy hút bụi.", "ex": "I vacuum the room on Sundays.", "exVi": "Chủ nhật tôi hút bụi phòng." },
-    { "en": "toaster", "ipa": "/ˈtoʊ.stɚ/", "vi": "máy nướng bánh mì", "pos": "noun", "img": "🍞", "connect": "toast (bánh nướng) + er.", "ex": "Put the bread in the toaster.", "exVi": "Cho bánh mì vào máy nướng." },
-    { "en": "blender", "ipa": "/ˈblen.dɚ/", "vi": "máy xay sinh tố", "pos": "noun", "img": "🥤", "connect": "blend (xay trộn) + er.", "ex": "Make a smoothie with the blender.", "exVi": "Xay sinh tố bằng máy xay." },
-    { "en": "freezer", "ipa": "/ˈfriː.zɚ/", "vi": "ngăn đá, tủ đông", "pos": "noun", "img": "🧊", "connect": "freeze (đóng băng) + er.", "ex": "Keep the ice cream in the freezer.", "exVi": "Cất kem trong ngăn đá." },
-    { "en": "dryer", "ipa": "/ˈdraɪ.ɚ/", "vi": "máy sấy", "pos": "noun", "img": "💨", "connect": "dry (làm khô) + er — máy sấy tóc/quần áo.", "ex": "Use the dryer for your hair.", "exVi": "Dùng máy sấy tóc đi." },
-    { "en": "bulb", "ipa": "/bʌlb/", "vi": "bóng đèn", "pos": "noun", "img": "💡", "connect": "\"Bălb\" — bóng đèn tròn.", "ex": "The bulb needs changing.", "exVi": "Bóng đèn cần thay rồi." },
-    { "en": "wire", "ipa": "/waɪr/", "vi": "dây điện", "pos": "noun", "img": "🔌", "connect": "\"Wai-ơ\" — sợi dây kim loại.", "ex": "Don't touch the electric wire.", "exVi": "Đừng chạm vào dây điện." },
-    { "en": "plug", "ipa": "/plʌɡ/", "vi": "phích cắm", "pos": "noun", "img": "🔌", "connect": "\"Plăg\" — cắm phích vào ổ.", "ex": "Put the plug into the socket.", "exVi": "Cắm phích vào ổ điện." },
-    { "en": "remote", "ipa": "/rɪˈmoʊt/", "vi": "điều khiển từ xa", "pos": "noun", "img": "📺", "connect": "\"Ri-mâu-t\" — cái remote TV.", "ex": "Where is the TV remote?", "exVi": "Cái điều khiển TV đâu rồi?" },
-    { "en": "speaker", "ipa": "/ˈspiː.kɚ/", "vi": "cái loa", "pos": "noun", "img": "🔊", "connect": "speak (nói) + er — máy phát tiếng.", "ex": "Play music through the speaker.", "exVi": "Phát nhạc qua loa." },
-    { "en": "cable", "ipa": "/ˈkeɪ.bəl/", "vi": "dây cáp", "pos": "noun", "img": "🪢", "connect": "\"Kê-bồ\" — cáp sạc, cáp mạng.", "ex": "I need a new charging cable.", "exVi": "Tôi cần một sợi cáp sạc mới." },
-    { "en": "lock", "ipa": "/lɑːk/", "vi": "ổ khoá; khoá lại", "pos": "noun", "img": "🔒", "connect": "\"Lóc\" — khoá cửa.", "ex": "Don't forget to lock the door.", "exVi": "Đừng quên khoá cửa nhé." },
-    { "en": "handle", "ipa": "/ˈhæn.dəl/", "vi": "tay cầm, tay nắm", "pos": "noun", "img": "🚪", "connect": "hand (tay) + le — chỗ để cầm.", "ex": "The door handle is broken.", "exVi": "Tay nắm cửa bị hỏng." },
-    { "en": "hook", "ipa": "/hʊk/", "vi": "cái móc", "pos": "noun", "img": "🪝", "connect": "\"Húc\" — móc treo đồ.", "ex": "Hang your coat on the hook.", "exVi": "Treo áo khoác lên móc." },
-    { "en": "ladder", "ipa": "/ˈlæd.ɚ/", "vi": "cái thang", "pos": "noun", "img": "🪜", "connect": "\"Le-đờ\" — trèo thang.", "ex": "He climbed the ladder to the roof.", "exVi": "Anh ấy trèo thang lên mái nhà." },
-    { "en": "hammer", "ipa": "/ˈhæm.ɚ/", "vi": "cái búa", "pos": "noun", "img": "🔨", "connect": "\"He-mờ\" — búa đóng đinh.", "ex": "Hit the nail with a hammer.", "exVi": "Đóng đinh bằng búa." },
-    { "en": "screw", "ipa": "/skruː/", "vi": "con ốc vít", "pos": "noun", "img": "🔩", "connect": "\"Sờ-cru\" — vặn ốc vít.", "ex": "Tighten the screw, please.", "exVi": "Vặn chặt con ốc lại giúp nhé." },
-    { "en": "drill", "ipa": "/drɪl/", "vi": "máy khoan; khoan", "pos": "noun", "img": "🛠️", "connect": "\"Đril\" — khoan tường (cũng nghĩa bài luyện tập).", "ex": "He drilled a hole in the wall.", "exVi": "Anh ấy khoan một lỗ trên tường." },
-    { "en": "tape", "ipa": "/teɪp/", "vi": "băng dính", "pos": "noun", "img": "📼", "connect": "\"Tê-p\" — cuộn băng keo.", "ex": "Stick it with tape.", "exVi": "Dán nó bằng băng dính." },
-    { "en": "rope", "ipa": "/roʊp/", "vi": "dây thừng", "pos": "noun", "img": "🪢", "connect": "\"Râu-p\" — sợi thừng to.", "ex": "Tie the boat with a rope.", "exVi": "Buộc thuyền bằng dây thừng." }
+    {
+      "en": "device",
+      "ipa": "/dɪˈvaɪs/",
+      "vi": "thiết bị",
+      "pos": "noun",
+      "img": "📱",
+      "connect": "\"Đi-vai-s\" — máy móc điện tử.",
+      "ex": "Turn off all devices at night.",
+      "exVi": "Tắt hết thiết bị vào ban đêm."
+    },
+    {
+      "en": "gadget",
+      "ipa": "/ˈɡædʒ.ɪt/",
+      "vi": "đồ công nghệ nhỏ",
+      "pos": "noun",
+      "img": "⌚",
+      "connect": "\"Ge-jịt\" — món đồ chơi công nghệ.",
+      "ex": "He loves buying new gadgets.",
+      "exVi": "Anh ấy mê mua đồ công nghệ mới."
+    },
+    {
+      "en": "appliance",
+      "ipa": "/əˈplaɪ.əns/",
+      "vi": "thiết bị gia dụng",
+      "pos": "noun",
+      "img": "🔌",
+      "connect": "\"Ờ-plai-ừns\" — đồ điện trong nhà.",
+      "ex": "The store sells home appliances.",
+      "exVi": "Cửa hàng bán đồ gia dụng."
+    },
+    {
+      "en": "microwave",
+      "ipa": "/ˈmaɪ.kroʊ.weɪv/",
+      "vi": "lò vi sóng",
+      "pos": "noun",
+      "img": "📻",
+      "connect": "micro (siêu nhỏ) + wave (sóng).",
+      "ex": "Heat the soup in the microwave.",
+      "exVi": "Hâm súp trong lò vi sóng."
+    },
+    {
+      "en": "vacuum",
+      "ipa": "/ˈvæk.juːm/",
+      "vi": "máy hút bụi; hút bụi",
+      "pos": "noun",
+      "img": "🧹",
+      "connect": "\"Ve-kiu-m\" — máy hút bụi.",
+      "ex": "I vacuum the room on Sundays.",
+      "exVi": "Chủ nhật tôi hút bụi phòng."
+    },
+    {
+      "en": "toaster",
+      "ipa": "/ˈtoʊ.stɚ/",
+      "vi": "máy nướng bánh mì",
+      "pos": "noun",
+      "img": "🍞",
+      "connect": "toast (bánh nướng) + er.",
+      "ex": "Put the bread in the toaster.",
+      "exVi": "Cho bánh mì vào máy nướng."
+    },
+    {
+      "en": "blender",
+      "ipa": "/ˈblen.dɚ/",
+      "vi": "máy xay sinh tố",
+      "pos": "noun",
+      "img": "🥤",
+      "connect": "blend (xay trộn) + er.",
+      "ex": "Make a smoothie with the blender.",
+      "exVi": "Xay sinh tố bằng máy xay."
+    },
+    {
+      "en": "freezer",
+      "ipa": "/ˈfriː.zɚ/",
+      "vi": "ngăn đá, tủ đông",
+      "pos": "noun",
+      "img": "🧊",
+      "connect": "freeze (đóng băng) + er.",
+      "ex": "Keep the ice cream in the freezer.",
+      "exVi": "Cất kem trong ngăn đá."
+    },
+    {
+      "en": "dryer",
+      "ipa": "/ˈdraɪ.ɚ/",
+      "vi": "máy sấy",
+      "pos": "noun",
+      "img": "💨",
+      "connect": "dry (làm khô) + er — máy sấy tóc/quần áo.",
+      "ex": "Use the dryer for your hair.",
+      "exVi": "Dùng máy sấy tóc đi."
+    },
+    {
+      "en": "bulb",
+      "ipa": "/bʌlb/",
+      "vi": "bóng đèn",
+      "pos": "noun",
+      "img": "💡",
+      "connect": "\"Bălb\" — bóng đèn tròn.",
+      "ex": "The bulb needs changing.",
+      "exVi": "Bóng đèn cần thay rồi."
+    },
+    {
+      "en": "wire",
+      "ipa": "/waɪr/",
+      "vi": "dây điện",
+      "pos": "noun",
+      "img": "🔌",
+      "connect": "\"Wai-ơ\" — sợi dây kim loại.",
+      "ex": "Don't touch the electric wire.",
+      "exVi": "Đừng chạm vào dây điện."
+    },
+    {
+      "en": "plug",
+      "ipa": "/plʌɡ/",
+      "vi": "phích cắm",
+      "pos": "noun",
+      "img": "🔌",
+      "connect": "\"Plăg\" — cắm phích vào ổ.",
+      "ex": "Put the plug into the socket.",
+      "exVi": "Cắm phích vào ổ điện."
+    },
+    {
+      "en": "remote",
+      "ipa": "/rɪˈmoʊt/",
+      "vi": "điều khiển từ xa",
+      "pos": "noun",
+      "img": "📺",
+      "connect": "\"Ri-mâu-t\" — cái remote TV.",
+      "ex": "Where is the TV remote?",
+      "exVi": "Cái điều khiển TV đâu rồi?"
+    },
+    {
+      "en": "speaker",
+      "ipa": "/ˈspiː.kɚ/",
+      "vi": "cái loa",
+      "pos": "noun",
+      "img": "🔊",
+      "connect": "speak (nói) + er — máy phát tiếng.",
+      "ex": "Play music through the speaker.",
+      "exVi": "Phát nhạc qua loa."
+    },
+    {
+      "en": "cable",
+      "ipa": "/ˈkeɪ.bəl/",
+      "vi": "dây cáp",
+      "pos": "noun",
+      "img": "🪢",
+      "connect": "\"Kê-bồ\" — cáp sạc, cáp mạng.",
+      "ex": "I need a new charging cable.",
+      "exVi": "Tôi cần một sợi cáp sạc mới."
+    },
+    {
+      "en": "lock",
+      "ipa": "/lɑːk/",
+      "vi": "ổ khoá; khoá lại",
+      "pos": "noun",
+      "img": "🔒",
+      "connect": "\"Lóc\" — khoá cửa.",
+      "ex": "Don't forget to lock the door.",
+      "exVi": "Đừng quên khoá cửa nhé."
+    },
+    {
+      "en": "handle",
+      "ipa": "/ˈhæn.dəl/",
+      "vi": "tay cầm, tay nắm",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "hand (tay) + le — chỗ để cầm.",
+      "ex": "The door handle is broken.",
+      "exVi": "Tay nắm cửa bị hỏng."
+    },
+    {
+      "en": "hook",
+      "ipa": "/hʊk/",
+      "vi": "cái móc",
+      "pos": "noun",
+      "img": "🪝",
+      "connect": "\"Húc\" — móc treo đồ.",
+      "ex": "Hang your coat on the hook.",
+      "exVi": "Treo áo khoác lên móc."
+    },
+    {
+      "en": "ladder",
+      "ipa": "/ˈlæd.ɚ/",
+      "vi": "cái thang",
+      "pos": "noun",
+      "img": "🪜",
+      "connect": "\"Le-đờ\" — trèo thang.",
+      "ex": "He climbed the ladder to the roof.",
+      "exVi": "Anh ấy trèo thang lên mái nhà."
+    },
+    {
+      "en": "hammer",
+      "ipa": "/ˈhæm.ɚ/",
+      "vi": "cái búa",
+      "pos": "noun",
+      "img": "🔨",
+      "connect": "\"He-mờ\" — búa đóng đinh.",
+      "ex": "Hit the nail with a hammer.",
+      "exVi": "Đóng đinh bằng búa."
+    },
+    {
+      "en": "screw",
+      "ipa": "/skruː/",
+      "vi": "con ốc vít",
+      "pos": "noun",
+      "img": "🔩",
+      "connect": "\"Sờ-cru\" — vặn ốc vít.",
+      "ex": "Tighten the screw, please.",
+      "exVi": "Vặn chặt con ốc lại giúp nhé."
+    },
+    {
+      "en": "drill",
+      "ipa": "/drɪl/",
+      "vi": "máy khoan; khoan",
+      "pos": "noun",
+      "img": "🛠️",
+      "connect": "\"Đril\" — khoan tường (cũng nghĩa bài luyện tập).",
+      "ex": "He drilled a hole in the wall.",
+      "exVi": "Anh ấy khoan một lỗ trên tường."
+    },
+    {
+      "en": "tape",
+      "ipa": "/teɪp/",
+      "vi": "băng dính",
+      "pos": "noun",
+      "img": "📼",
+      "connect": "\"Tê-p\" — cuộn băng keo.",
+      "ex": "Stick it with tape.",
+      "exVi": "Dán nó bằng băng dính."
+    },
+    {
+      "en": "rope",
+      "ipa": "/roʊp/",
+      "vi": "dây thừng",
+      "pos": "noun",
+      "img": "🪢",
+      "connect": "\"Râu-p\" — sợi thừng to.",
+      "ex": "Tie the boat with a rope.",
+      "exVi": "Buộc thuyền bằng dây thừng."
+    }
   ]
 }

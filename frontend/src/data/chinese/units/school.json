@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "🏫",
   "words": [
-    { "zh": "大学", "pinyin": "dà xué", "vi": "Trường đại học", "pos": "noun", "img": "🎓", "connect": "大学 = đại học, đúng chữ trong tiếng Việt.", "ex": "我在河内的一所大学学习。", "exVi": "Tôi học ở một trường đại học tại Hà Nội." },
-    { "zh": "同学", "pinyin": "tóng xué", "vi": "Bạn học", "pos": "noun", "img": "👫", "connect": "同学 = đồng học, người cùng học với mình.", "ex": "他是我的同学。", "exVi": "Cậu ấy là bạn học của tôi." },
-    { "zh": "教室", "pinyin": "jiào shì", "vi": "Phòng học", "pos": "noun", "img": "🪟", "connect": "教室 = giáo thất, chữ thất nghĩa là phòng, như văn phòng là biện công thất.", "ex": "教室里有二十个人。", "exVi": "Trong phòng học có hai mươi người." },
-    { "zh": "课", "pinyin": "kè", "vi": "Tiết học, bài học", "pos": "noun", "img": "📖", "connect": "课 = khoá, đúng chữ trong khoá học, giáo khoa.", "ex": "我今天有三节课。", "exVi": "Hôm nay tôi có ba tiết học." },
-    { "zh": "汉语", "pinyin": "hàn yǔ", "vi": "Tiếng Trung, Hán ngữ", "pos": "noun", "img": "🀄", "connect": "汉语 = Hán ngữ, đúng chữ trong âm Hán Việt.", "ex": "汉语的发音很重要。", "exVi": "Phát âm tiếng Trung rất quan trọng." },
-    { "zh": "生词", "pinyin": "shēng cí", "vi": "Từ mới", "pos": "noun", "img": "🆕", "connect": "生词 = sinh từ, chữ sinh nghĩa là lạ, chưa quen — từ còn lạ mặt.", "ex": "这课有十五个生词。", "exVi": "Bài này có mười lăm từ mới." },
-    { "zh": "语法", "pinyin": "yǔ fǎ", "vi": "Ngữ pháp", "pos": "noun", "img": "🧱", "connect": "语法 = ngữ pháp, đúng chữ trong tiếng Việt.", "ex": "汉语语法比英语简单。", "exVi": "Ngữ pháp tiếng Trung đơn giản hơn tiếng Anh." },
-    { "zh": "练习", "pinyin": "liàn xí", "vi": "Luyện tập", "pos": "verb", "img": "🔁", "connect": "练习 = luyện tập, đúng chữ trong tiếng Việt.", "ex": "每天练习十分钟就够了。", "exVi": "Mỗi ngày luyện mười phút là đủ." },
-    { "zh": "问题", "pinyin": "wèn tí", "vi": "Câu hỏi; vấn đề", "pos": "noun", "img": "❔", "connect": "问题 = vấn đề, chữ vấn trong vấn đáp, chất vấn.", "ex": "我有一个问题。", "exVi": "Tôi có một câu hỏi." },
-    { "zh": "明白", "pinyin": "míng bai", "vi": "Hiểu rõ", "pos": "verb", "img": "💡", "connect": "明白 = minh bạch, sáng rõ như ban ngày thì tức là hiểu.", "ex": "老师说的我明白了。", "exVi": "Tôi hiểu điều cô giáo nói rồi." },
-    { "zh": "考试", "pinyin": "kǎo shì", "vi": "Kỳ thi, thi cử", "pos": "noun", "img": "📄", "connect": "考试 = khảo thí, chữ trong khảo sát, thí sinh.", "ex": "下星期有考试。", "exVi": "Tuần sau có kỳ thi." },
-    { "zh": "作业", "pinyin": "zuò yè", "vi": "Bài tập về nhà", "pos": "noun", "img": "📔", "connect": "作业 = tác nghiệp, việc phải làm. Chữ tác trong tác phẩm, sáng tác.", "ex": "我还没做完作业。", "exVi": "Tôi vẫn chưa làm xong bài tập." }
+    {
+      "zh": "大学",
+      "pinyin": "dà xué",
+      "vi": "Trường đại học",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "大学 = đại học, đúng chữ trong tiếng Việt.",
+      "ex": "我在河内的一所大学学习。",
+      "exVi": "Tôi học ở một trường đại học tại Hà Nội."
+    },
+    {
+      "zh": "同学",
+      "pinyin": "tóng xué",
+      "vi": "Bạn học",
+      "pos": "noun",
+      "img": "👫",
+      "connect": "同学 = đồng học, người cùng học với mình.",
+      "ex": "他是我的同学。",
+      "exVi": "Cậu ấy là bạn học của tôi."
+    },
+    {
+      "zh": "教室",
+      "pinyin": "jiào shì",
+      "vi": "Phòng học",
+      "pos": "noun",
+      "img": "🪟",
+      "connect": "教室 = giáo thất, chữ thất nghĩa là phòng, như văn phòng là biện công thất.",
+      "ex": "教室里有二十个人。",
+      "exVi": "Trong phòng học có hai mươi người."
+    },
+    {
+      "zh": "课",
+      "pinyin": "kè",
+      "vi": "Tiết học, bài học",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "课 = khoá, đúng chữ trong khoá học, giáo khoa.",
+      "ex": "我今天有三节课。",
+      "exVi": "Hôm nay tôi có ba tiết học."
+    },
+    {
+      "zh": "汉语",
+      "pinyin": "hàn yǔ",
+      "vi": "Tiếng Trung, Hán ngữ",
+      "pos": "noun",
+      "img": "🀄",
+      "connect": "汉语 = Hán ngữ, đúng chữ trong âm Hán Việt.",
+      "ex": "汉语的发音很重要。",
+      "exVi": "Phát âm tiếng Trung rất quan trọng."
+    },
+    {
+      "zh": "生词",
+      "pinyin": "shēng cí",
+      "vi": "Từ mới",
+      "pos": "noun",
+      "img": "🆕",
+      "connect": "生词 = sinh từ, chữ sinh nghĩa là lạ, chưa quen — từ còn lạ mặt.",
+      "ex": "这课有十五个生词。",
+      "exVi": "Bài này có mười lăm từ mới."
+    },
+    {
+      "zh": "语法",
+      "pinyin": "yǔ fǎ",
+      "vi": "Ngữ pháp",
+      "pos": "noun",
+      "img": "🧱",
+      "connect": "语法 = ngữ pháp, đúng chữ trong tiếng Việt.",
+      "ex": "汉语语法比英语简单。",
+      "exVi": "Ngữ pháp tiếng Trung đơn giản hơn tiếng Anh."
+    },
+    {
+      "zh": "练习",
+      "pinyin": "liàn xí",
+      "vi": "Luyện tập",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "练习 = luyện tập, đúng chữ trong tiếng Việt.",
+      "ex": "每天练习十分钟就够了。",
+      "exVi": "Mỗi ngày luyện mười phút là đủ."
+    },
+    {
+      "zh": "问题",
+      "pinyin": "wèn tí",
+      "vi": "Câu hỏi; vấn đề",
+      "pos": "noun",
+      "img": "❔",
+      "connect": "问题 = vấn đề, chữ vấn trong vấn đáp, chất vấn.",
+      "ex": "我有一个问题。",
+      "exVi": "Tôi có một câu hỏi."
+    },
+    {
+      "zh": "明白",
+      "pinyin": "míng bai",
+      "vi": "Hiểu rõ",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "明白 = minh bạch, sáng rõ như ban ngày thì tức là hiểu.",
+      "ex": "老师说的我明白了。",
+      "exVi": "Tôi hiểu điều cô giáo nói rồi."
+    },
+    {
+      "zh": "考试",
+      "pinyin": "kǎo shì",
+      "vi": "Kỳ thi, thi cử",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "考试 = khảo thí, chữ trong khảo sát, thí sinh.",
+      "ex": "下星期有考试。",
+      "exVi": "Tuần sau có kỳ thi."
+    },
+    {
+      "zh": "作业",
+      "pinyin": "zuò yè",
+      "vi": "Bài tập về nhà",
+      "pos": "noun",
+      "img": "📔",
+      "connect": "作业 = tác nghiệp, việc phải làm. Chữ tác trong tác phẩm, sáng tác.",
+      "ex": "我还没做完作业。",
+      "exVi": "Tôi vẫn chưa làm xong bài tập."
+    }
   ]
 }

@@ -1,0 +1,3222 @@
+{
+  "크다": {
+    "def": "부피나 면적이 보통보다 훨씬 넓거나 높습니다.",
+    "defVi": "부피나 면적이 보통보다 훨씬 넓거나 높습니다."
+  },
+  "작다": {
+    "def": "부피나 면적이 보통보다 좁거나 낮습니다.",
+    "defVi": "부피나 면적이 보통보다 좁거나 낮습니다."
+  },
+  "많다": {
+    "def": "수나 양이 기준보다 훨씬 넘칩니다.",
+    "defVi": "수나 양이 기준보다 훨씬 넘칩니다."
+  },
+  "적다": {
+    "def": "수나 양이 기준에 미치지 못하고 부족합니다.",
+    "defVi": "수나 양이 기준에 미치지 못하고 부족합니다."
+  },
+  "좋다": {
+    "def": "마음에 들거나 상태가 아주 훌륭합니다.",
+    "defVi": "마음에 들거나 상태가 아주 훌륭합니다."
+  },
+  "나쁘다": {
+    "def": "상태가 좋지 않거나 마음에 들지 않습니다.",
+    "defVi": "상태가 좋지 않거나 마음에 들지 않습니다."
+  },
+  "비싸다": {
+    "def": "물건을 살 때 내야 하는 돈이 매우 높습니다.",
+    "defVi": "물건을 살 때 내야 하는 돈이 매우 높습니다."
+  },
+  "싸다": {
+    "def": "물건을 살 때 내야 하는 돈이 부담스럽지 않습니다.",
+    "defVi": "물건을 살 때 내야 하는 돈이 부담스럽지 않습니다."
+  },
+  "빠르다": {
+    "def": "어떤 일이 진행되는 속도가 매우 신속합니다.",
+    "defVi": "어떤 일이 진행되는 속도가 매우 신속합니다."
+  },
+  "느리다": {
+    "def": "어떤 일이 진행되는 속도가 매우 더딥니다.",
+    "defVi": "어떤 일이 진행되는 속도가 매우 더딥니다."
+  },
+  "어렵다": {
+    "def": "어떤 일을 해결하거나 이해하기가 매우 힘듭니다.",
+    "defVi": "어떤 일을 해결하거나 이해하기가 매우 힘듭니다."
+  },
+  "쉽다": {
+    "def": "어떤 일을 해결하거나 이해하기가 매우 간단합니다.",
+    "defVi": "어떤 일을 해결하거나 이해하기가 매우 간단합니다."
+  },
+  "예쁘다": {
+    "def": "외모나 모습이 보기에 좋고 사랑스러운 상태입니다.",
+    "defVi": "Vẻ ngoài hoặc hình dáng trông rất ưa nhìn và đáng yêu."
+  },
+  "멋있다": {
+    "def": "옷차림이나 행동이 세련되고 사람들의 시선을 끌 만큼 훌륭합니다.",
+    "defVi": "Cách ăn mặc hoặc hành động rất sành điệu, thu hút và khiến người khác ngưỡng mộ."
+  },
+  "재미있다": {
+    "def": "어떤 일을 할 때 즐겁고 마음이 끌리는 기분이 듭니다.",
+    "defVi": "Cảm thấy vui vẻ, hào hứng và bị thu hút khi làm một việc gì đó."
+  },
+  "재미없다": {
+    "def": "흥미가 없고 지루해서 마음이 끌리지 않는 상태입니다.",
+    "defVi": "Không có hứng thú, cảm thấy tẻ nhạt và không muốn tiếp tục."
+  },
+  "맛없다": {
+    "def": "음식을 먹었을 때 입에 맞지 않고 즐거움을 주지 못합니다.",
+    "defVi": "Thức ăn không hợp khẩu vị hoặc không mang lại cảm giác ngon miệng."
+  },
+  "바쁘다": {
+    "def": "해야 할 일이 너무 많아서 쉴 틈이 없는 상태입니다.",
+    "defVi": "Có quá nhiều việc phải làm nên không có thời gian nghỉ ngơi."
+  },
+  "조용하다": {
+    "def": "주변에 소리가 거의 없고 평화로운 분위기입니다.",
+    "defVi": "Xung quanh không có tiếng động, tạo cảm giác yên bình và tĩnh lặng."
+  },
+  "시끄럽다": {
+    "def": "소리가 너무 커서 귀가 아프거나 정신이 없는 상태입니다.",
+    "defVi": "Âm thanh quá lớn khiến tai khó chịu hoặc làm người khác cảm thấy đau đầu."
+  },
+  "길다": {
+    "def": "한쪽 끝에서 다른 쪽 끝까지의 거리가 꽤 멉니다.",
+    "defVi": "Khoảng cách từ đầu này đến đầu kia của một vật khá xa."
+  },
+  "짧다": {
+    "def": "한쪽 끝에서 다른 쪽 끝까지의 거리가 얼마 되지 않습니다.",
+    "defVi": "Khoảng cách từ đầu này đến đầu kia của một vật rất hạn chế."
+  },
+  "새롭다": {
+    "def": "처음 접하거나 이전에 보지 못했던 신선한 느낌입니다.",
+    "defVi": "Cảm giác tươi mới vì lần đầu tiếp xúc hoặc chưa từng thấy trước đây."
+  },
+  "같다": {
+    "def": "두 대상의 모양이나 성질이 차이 없이 똑같은 상태입니다.",
+    "defVi": "Hai đối tượng có hình dáng hoặc tính chất y hệt nhau, không có sự khác biệt."
+  },
+  "아주": {
+    "def": "정도가 높거나 대단하다는 뜻입니다. 어떤 상태가 보통보다 훨씬 더 강할 때 사용합니다.",
+    "defVi": "Mức độ cao hoặc vượt trội. Dùng khi một trạng thái nào đó mạnh hơn mức bình thường rất nhiều."
+  },
+  "너무": {
+    "def": "기준보다 지나치게 많거나 심하다는 뜻입니다. 부정적인 상황에서 주로 사용합니다.",
+    "defVi": "Vượt quá mức cho phép hoặc quá đà. Thường dùng trong các tình huống tiêu cực."
+  },
+  "조금": {
+    "def": "양이나 정도가 적다는 뜻입니다. 전체에서 작은 일부분만을 나타냅니다.",
+    "defVi": "Số lượng hoặc mức độ ít. Chỉ một phần nhỏ trong tổng thể."
+  },
+  "많이": {
+    "def": "수량이나 정도가 크다는 뜻입니다. 어떤 행동을 여러 번 하거나 큰 규모로 할 때 사용합니다.",
+    "defVi": "Số lượng hoặc mức độ lớn. Dùng khi thực hiện hành động nhiều lần hoặc với quy mô lớn."
+  },
+  "빨리": {
+    "def": "시간이 얼마 걸리지 않게 행동하는 모습입니다. 서둘러서 움직일 때 사용합니다.",
+    "defVi": "Hành động không tốn nhiều thời gian. Dùng khi muốn hối thúc ai đó di chuyển hoặc làm việc gấp."
+  },
+  "천천히": {
+    "def": "급하지 않게 여유를 가지고 움직이는 모습입니다. 속도를 낮추어 행동할 때 사용합니다.",
+    "defVi": "Hành động thong thả, không vội vã. Dùng khi muốn giảm tốc độ làm việc hoặc di chuyển."
+  },
+  "항상": {
+    "def": "어떤 일이 빠짐없이 매번 일어나는 상태입니다. 예외 없이 계속되는 상황을 말합니다.",
+    "defVi": "Trạng thái sự việc xảy ra mọi lúc không sót lần nào. Chỉ tình huống diễn ra liên tục mà không có ngoại lệ."
+  },
+  "자주": {
+    "def": "어떤 일이 짧은 기간 동안 여러 번 반복되는 모습입니다. 일상에서 흔히 볼 수 있는 행동을 말합니다.",
+    "defVi": "Sự việc lặp đi lặp lại nhiều lần trong khoảng thời gian ngắn. Chỉ những hành động diễn ra phổ biến trong cuộc sống."
+  },
+  "가끔": {
+    "def": "어쩌다 한 번씩 일어나는 상태입니다. 규칙적이지 않고 드물게 발생하는 일을 말합니다.",
+    "defVi": "Trạng thái sự việc xảy ra thỉnh thoảng. Chỉ những việc không theo quy luật và ít khi xuất hiện."
+  },
+  "다시": {
+    "def": "이미 했던 일을 한 번 더 반복하는 모습입니다. 이전과 똑같은 행동을 또 할 때 사용합니다.",
+    "defVi": "Hành động lặp lại một việc đã làm một lần nữa. Dùng khi thực hiện lại hành động y hệt trước đó."
+  },
+  "먼저": {
+    "def": "다른 사람보다 앞서서 행동하는 모습입니다. 순서상 가장 앞선 위치를 말합니다.",
+    "defVi": "Hành động đi trước hoặc làm trước người khác. Chỉ vị trí đứng đầu trong thứ tự."
+  },
+  "같이": {
+    "def": "둘 이상의 사람이 함께 모여서 행동하는 모습입니다. 혼자가 아닌 여럿이 무언가를 할 때 사용합니다.",
+    "defVi": "Hành động hai người trở lên cùng làm với nhau. Dùng khi nhiều người thực hiện việc gì đó chứ không phải một mình."
+  },
+  "벌써": {
+    "def": "일이 생각보다 빠르게 끝났을 때 사용하는 표현입니다.",
+    "defVi": "Sự việc kết thúc nhanh hơn so với dự kiến ban đầu."
+  },
+  "아직": {
+    "def": "어떤 일이 끝나지 않았거나 상태가 계속될 때 사용합니다.",
+    "defVi": "Việc gì đó chưa xong hoặc trạng thái hiện tại vẫn tiếp tục."
+  },
+  "이미": {
+    "def": "어떤 일이 과거에 완료되었음을 나타낼 때 씁니다.",
+    "defVi": "Sự việc đã được hoàn thành từ trước đó."
+  },
+  "갑자기": {
+    "def": "예상하지 못한 상황이 아주 빠르게 발생할 때 사용합니다.",
+    "defVi": "Tình huống bất ngờ xảy ra một cách nhanh chóng mà không báo trước."
+  },
+  "특히": {
+    "def": "여러 가지 중에서 어떤 것을 강조하고 싶을 때 사용합니다.",
+    "defVi": "Dùng để nhấn mạnh một đối tượng cụ thể trong số nhiều thứ."
+  },
+  "거의": {
+    "def": "완전하지는 않지만 끝에 아주 가까운 상태를 말합니다.",
+    "defVi": "Trạng thái chưa hoàn toàn xong nhưng đã rất gần với kết thúc."
+  },
+  "전혀": {
+    "def": "부정적인 상황에서 어떤 것도 해당하지 않을 때 사용합니다.",
+    "defVi": "Dùng trong câu phủ định để chỉ việc gì đó không hề xảy ra chút nào."
+  },
+  "별로": {
+    "def": "마음이나 정도가 기대보다 적거나 낮을 때 사용합니다.",
+    "defVi": "Mức độ hoặc cảm xúc không nhiều như mong đợi."
+  },
+  "오히려": {
+    "def": "생각했던 것과 반대되는 결과가 나올 때 사용합니다.",
+    "defVi": "Kết quả xảy ra trái ngược hoàn toàn với những gì đã nghĩ."
+  },
+  "역시": {
+    "def": "생각했던 대로 결과가 같을 때 사용하는 말입니다.",
+    "defVi": "Đúng như dự đoán hoặc suy nghĩ ban đầu của bản thân."
+  },
+  "드디어": {
+    "def": "오랫동안 기다리던 일이 마침내 이루어졌을 때 사용합니다.",
+    "defVi": "Điều mình mong chờ từ lâu cuối cùng cũng đã thành hiện thực."
+  },
+  "점점": {
+    "def": "시간이 흐르면서 상태가 조금씩 변할 때 사용합니다.",
+    "defVi": "Trạng thái thay đổi từng chút một theo thời gian."
+  },
+  "동물": {
+    "def": "이것은 사람처럼 숨을 쉬고 움직이는 생명체입니다. 개나 고양이처럼 자연 속에서 사는 모든 생물을 말합니다.",
+    "defVi": "Giống như con người, đây là những sinh vật có thể hít thở và di chuyển. Từ này chỉ tất cả các thực thể sống trong tự nhiên như chó hay mèo."
+  },
+  "강아지": {
+    "def": "이것은 사람과 친하게 지내는 작은 집짐승입니다. 멍멍 소리를 내며 귀엽게 꼬리를 흔듭니다.",
+    "defVi": "Đây là loài vật nhỏ sống gần gũi với con người. Chúng thường sủa gâu gâu và vẫy đuôi rất đáng yêu."
+  },
+  "고양이": {
+    "def": "이것은 밤에도 눈이 밝고 쥐를 잡는 것을 좋아합니다. 야옹 소리를 내며 부드러운 털을 가지고 있습니다.",
+    "defVi": "Loài vật này có đôi mắt sáng trong đêm và rất thích bắt chuột. Chúng kêu meo meo và có bộ lông mềm mại."
+  },
+  "새": {
+    "def": "이것은 날개가 있어서 하늘을 날 수 있습니다. 알을 낳고 나무 위에 집을 짓습니다.",
+    "defVi": "Đây là loài vật có đôi cánh nên có thể bay lượn trên bầu trời. Chúng đẻ trứng và thường làm tổ trên cây."
+  },
+  "물고기": {
+    "def": "이것은 바다나 강 속에서 살며 지느러미로 헤엄칩니다. 물 밖으로 나오면 숨을 쉴 수 없습니다.",
+    "defVi": "Loài vật này sống dưới sông hoặc biển và dùng vây để bơi lội. Chúng không thể thở được nếu ở trên cạn."
+  },
+  "소": {
+    "def": "이것은 덩치가 크고 풀을 먹으며 삽니다. 우유를 주거나 농사일을 돕는 일을 합니다.",
+    "defVi": "Đây là loài vật có thân hình to lớn và thức ăn chủ yếu là cỏ. Chúng cung cấp sữa hoặc giúp con người làm việc đồng áng."
+  },
+  "돼지": {
+    "def": "이것은 코가 납작하고 꿀꿀 소리를 냅니다. 많이 먹고 잠을 자는 것을 좋아합니다.",
+    "defVi": "Loài vật này có chiếc mũi tẹt và thường phát ra tiếng ủn ỉn. Chúng rất thích ăn và ngủ."
+  },
+  "닭": {
+    "def": "이것은 아침에 일찍 일어나서 소리를 냅니다. 알을 낳고 다리가 두 개 있습니다.",
+    "defVi": "Loài vật này thường thức dậy sớm vào buổi sáng để cất tiếng gáy. Chúng đẻ trứng và có hai chân."
+  },
+  "말": {
+    "def": "이것은 다리가 길고 아주 빨리 달릴 수 있습니다. 사람이 등에 타고 이동하는 데 도움을 줍니다.",
+    "defVi": "Loài vật này có đôi chân dài và khả năng chạy rất nhanh. Con người thường cưỡi lên lưng chúng để di chuyển."
+  },
+  "나무": {
+    "def": "이것은 땅에 뿌리를 내리고 위로 자랍니다. 초록색 잎이 많고 산이나 공원에서 볼 수 있습니다.",
+    "defVi": "Đây là thực vật bám rễ sâu dưới đất và vươn cao lên. Chúng có nhiều lá xanh và thường thấy ở công viên hoặc trên núi."
+  },
+  "꽃": {
+    "def": "이것은 봄에 예쁜 색깔로 피어납니다. 향기가 좋아서 사람들이 정원에 많이 심습니다.",
+    "defVi": "Đây là thứ thường nở rộ với sắc màu rực rỡ vào mùa xuân. Vì có hương thơm dễ chịu nên mọi người thường trồng trong vườn."
+  },
+  "벌레": {
+    "def": "이것은 몸집이 아주 작고 다리가 여러 개 있습니다. 풀밭이나 집 안 구석에서 자주 보입니다.",
+    "defVi": "Đây là những sinh vật có kích thước rất nhỏ và nhiều chân. Chúng thường xuất hiện ở các bãi cỏ hoặc trong góc nhà."
+  },
+  "통장": {
+    "def": "이것은 은행에서 돈을 넣거나 뺄 때 사용하는 작은 책입니다. 거래 기록을 확인할 수 있습니다.",
+    "defVi": "Đây là cuốn sổ nhỏ dùng để theo dõi việc gửi hoặc rút tiền tại ngân hàng. Bạn có thể kiểm tra lịch sử giao dịch trong đó."
+  },
+  "계좌": {
+    "def": "은행에 돈을 보관하기 위해 만드는 고유한 번호입니다. 인터넷 뱅킹을 할 때 꼭 필요합니다.",
+    "defVi": "Đây là dãy số riêng biệt được tạo ra để lưu trữ tiền tại ngân hàng. Bạn bắt buộc phải có nó khi thực hiện giao dịch trực tuyến."
+  },
+  "신분증": {
+    "def": "이름과 사진이 들어 있어서 내가 누구인지 증명하는 카드입니다. 관공서나 공항에서 보여 줍니다.",
+    "defVi": "Đây là loại thẻ có chứa tên và ảnh để xác nhận danh tính của bạn. Bạn cần xuất trình nó tại các cơ quan nhà nước hoặc sân bay."
+  },
+  "서류": {
+    "def": "중요한 정보나 기록이 적혀 있는 종이 뭉치입니다. 일을 처리할 때 반드시 제출해야 합니다.",
+    "defVi": "Đây là tập giấy tờ ghi chép những thông tin hoặc hồ sơ quan trọng. Bạn cần phải nộp chúng khi làm các thủ tục hành chính."
+  },
+  "도장": {
+    "def": "이름이 새겨진 물건에 잉크를 묻혀서 종이에 찍습니다. 계약을 하거나 중요한 문서를 확인할 때 사용합니다.",
+    "defVi": "Đây là vật có khắc tên, được chấm mực rồi đóng lên giấy. Nó được dùng khi bạn ký kết hợp đồng hoặc xác nhận các văn bản quan trọng."
+  },
+  "주소": {
+    "def": "집이나 건물이 어디에 있는지 나타내는 위치 정보입니다. 우편물을 받을 때 정확하게 써야 합니다.",
+    "defVi": "Đây là thông tin vị trí cho biết nhà hoặc tòa nhà của bạn nằm ở đâu. Bạn cần viết chính xác thông tin này để nhận thư từ."
+  },
+  "서명": {
+    "def": "자신의 이름을 직접 손으로 쓰는 것입니다. 계약서나 카드 결제 시 본인 확인을 위해 합니다.",
+    "defVi": "Đây là hành động tự tay viết tên của chính mình. Bạn làm việc này để xác nhận bản thân khi ký hợp đồng hoặc thanh toán thẻ."
+  },
+  "신청하다": {
+    "def": "어떤 서비스나 물건을 받기 위해 필요한 내용을 적어서 제출하는 행동입니다. 허락을 받기 위한 첫 단계입니다.",
+    "defVi": "Đây là hành động điền thông tin và nộp đơn để được nhận một dịch vụ hoặc vật phẩm nào đó. Đây là bước đầu tiên để được cấp phép."
+  },
+  "송금": {
+    "def": "내 돈을 다른 사람의 은행 번호로 보내는 것입니다. 외국으로 돈을 보낼 때도 사용합니다.",
+    "defVi": "Đây là việc gửi tiền của mình vào số tài khoản của người khác. Bạn cũng dùng từ này khi muốn gửi tiền ra nước ngoài."
+  },
+  "수수료": {
+    "def": "은행이나 회사에서 일을 대신 해준 대가로 내는 추가적인 돈입니다. 서비스 이용 시 지불해야 합니다.",
+    "defVi": "Đây là khoản tiền phụ trội bạn phải trả cho ngân hàng hoặc công ty để cảm ơn họ đã thực hiện dịch vụ giúp mình."
+  },
+  "비자": {
+    "def": "다른 나라에 들어가기 위해 필요한 허가증입니다. 여권에 붙어 있으며 체류 기간이 정해져 있습니다.",
+    "defVi": "Đây là giấy phép cần thiết để bạn được phép nhập cảnh vào một quốc gia khác. Nó được dán vào hộ chiếu và có thời hạn lưu trú nhất định."
+  },
+  "등록": {
+    "def": "어떤 단체나 학교에 이름을 올리고 공식적으로 회원이 되는 것입니다. 자격을 얻기 위해 꼭 해야 하는 절차입니다.",
+    "defVi": "Đây là việc ghi tên vào một tổ chức hoặc trường học để trở thành thành viên chính thức. Đây là thủ tục bắt buộc để có được tư cách hợp lệ."
+  },
+  "몸": {
+    "def": "이것은 머리, 팔, 다리 등 사람이나 동물의 모든 부분을 합친 전체를 말한다. 건강을 지키기 위해 이것을 잘 관리해야 한다.",
+    "defVi": "Đây là toàn bộ các bộ phận của con người hoặc động vật gộp lại, bao gồm đầu, cánh tay và chi dưới. Chúng ta cần chăm sóc tốt phần này để giữ gìn sức khỏe."
+  },
+  "머리": {
+    "def": "이것은 사람 몸의 가장 윗부분에 있는 곳으로 눈, 코, 입이 있으며 생각할 수 있는 뇌가 들어 있다. 또한 이곳에서 자라는 검고 긴 털을 가리키기도 한다.",
+    "defVi": "Đây là phần trên cùng của cơ thể con người, nơi có mắt, mũi, miệng và chứa bộ não để suy nghĩ. Từ này cũng dùng để chỉ phần sợi mềm màu đen mọc ra từ bộ phận này."
+  },
+  "얼굴": {
+    "def": "이것은 머리의 앞부분으로 눈, 코, 입, 볼 등이 있는 곳이다. 사람을 만날 때 가장 먼저 보게 되며 감정이 잘 나타난다.",
+    "defVi": "Đây là phần phía trước của đầu, nơi có mắt, mũi, miệng và má. Đây là nơi đầu tiên chúng ta nhìn vào khi gặp một ai đó và là nơi thể hiện rõ cảm xúc của con người."
+  },
+  "눈": {
+    "def": "이것은 얼굴에 두 개가 있으며 세상의 사물과 색깔을 볼 수 있게 해 주는 기관이다. 졸릴 때 이것이 감기고 잠에서 깨면 이것을 뜬다.",
+    "defVi": "Đây là hai cơ quan trên khuôn mặt giúp chúng ta nhìn thấy vạn vật và màu sắc xung quanh. Bộ phận này sẽ khép lại khi buồn ngủ và mở ra khi thức dậy."
+  },
+  "코": {
+    "def": "이것은 얼굴의 한가운데에 튀어나와 있는 부분으로 숨을 쉬고 냄새를 맡는 역할을 한다. 감기에 걸리면 이것이 막히거나 물이 흐르기도 한다.",
+    "defVi": "Đây là bộ phận nhô lên ở ngay chính giữa khuôn mặt, có nhiệm vụ hít thở và nhận biết mùi hương. Khi bị cảm cúm, bộ phận này có thể bị nghẹt hoặc chảy nước."
+  },
+  "입": {
+    "def": "이것은 얼굴의 아랫부분에 있으며 음식을 먹고 말을 할 때 사용하는 곳이다. 안에는 붉은 혀와 하얀 이가 들어 있다.",
+    "defVi": "Đây là bộ phận nằm ở phần dưới của khuôn mặt, được dùng để ăn uống và nói chuyện. Bên trong bộ phận này có chứa chiếc lưỡi màu đỏ và những chiếc răng màu trắng."
+  },
+  "귀": {
+    "def": "이것은 머리의 양쪽 옆에 하나씩 있으며 소리를 들을 수 있게 해 주는 기관이다. 아름다운 음악이나 다른 사람의 목소리를 들을 때 사용한다.",
+    "defVi": "Đây là hai cơ quan nằm ở hai bên đầu giúp chúng ta nghe được âm thanh. Chúng ta sử dụng bộ phận này khi thưởng thức âm nhạc hoặc lắng nghe giọng nói của người khác."
+  },
+  "손": {
+    "def": "이것은 팔의 끝부분에 달린 곳으로 다섯 개의 ___ 있어 물건을 잡거나 글씨를 쓸 때 사용한다. 친구를 만나면 이것을 흔들거나 서로 맞잡아 인사한다.",
+    "defVi": "Đây là bộ phận ở cuối hai cánh tay, có năm ngón giúp chúng ta cầm nắm đồ vật hoặc viết chữ. Khi gặp bạn bè, chúng ta thường vẫy hoặc nắm lấy bộ phận này của nhau để chào hỏi."
+  },
+  "발": {
+    "def": "이것은 다리의 맨 아래 부분에 있으며 걸을 때 땅에 닿는 신체 부위입니다.",
+    "defVi": "Đây là bộ phận nằm ở dưới cùng của chân, giúp con người tiếp xúc với mặt đất khi di chuyển."
+  },
+  "다리": {
+    "def": "이것은 사람이나 동물의 몸 아래쪽에 길게 뻗어 있는 부분으로 서거나 걷고 달릴 때 사용한다. 바지를 입을 때 이 부분을 양쪽 구멍에 하나씩 넣는다.",
+    "defVi": "Đây là bộ phận dài nâng đỡ phía dưới cơ thể người hoặc động vật, giúp chúng ta đứng, đi bộ và chạy nhảy. Khi mặc quần, chúng ta sẽ xỏ bộ phận này vào hai ống quần."
+  },
+  "배": {
+    "def": "이것은 가슴과 다리 사이에 있는 몸의 앞부분으로 음식을 먹으면 이곳으로 들어간다. 많이 먹으면 이것이 나오고 ___ 때는 이것에서 소리가 나기도 한다.",
+    "defVi": "Đây là phần phía trước của cơ thể nằm giữa ngực và hai chi dưới, là nơi chứa thức ăn sau khi chúng ta ăn vào. Khi ăn quá no bộ phận này sẽ nhô to lên, còn khi đói thì nó có thể phát ra tiếng kêu."
+  },
+  "목": {
+    "def": "이것은 머리와 몸통을 연결하는 좁은 부분이며 음식을 삼키거나 소리를 내는 기관이 있는 곳이다. 감기에 걸려 이곳이 아프면 침을 삼키기 힘들고 말하기가 어렵다.",
+    "defVi": "Đây là phần hẹp nối liền giữa đầu và thân mình, nơi có các cơ quan giúp nuốt thức ăn và phát ra âm thanh. Khi bị cảm và đau ở bộ phận này, chúng ta sẽ thấy khó nuốt nước bọt và gặp khó khăn khi nói chuyện."
+  },
+  "어깨": {
+    "def": "이것은 목과 팔 사이에 있는 몸의 부분입니다. 물건을 멜 때나 가방을 걸칠 때 주로 사용합니다.",
+    "defVi": "Đây là bộ phận cơ thể nằm giữa cổ và cánh tay. Chúng ta thường dùng bộ phận này khi mang vác đồ đạc hoặc đeo ba lô."
+  },
+  "허리": {
+    "def": "이것은 가슴과 엉덩이 사이에 있는 몸의 중간 부분입니다. 바지를 입을 때 벨트를 매는 곳입니다.",
+    "defVi": "Đây là phần giữa của cơ thể nằm giữa ngực và hông. Đây là nơi chúng ta thắt thắt lưng khi mặc quần."
+  },
+  "무릎": {
+    "def": "이것은 다리 윗부분과 아랫부분이 만나는 중간 관절입니다. 다리를 굽히거나 펼 때 움직이는 둥근 부분입니다.",
+    "defVi": "Đây là khớp nối ở giữa phần đùi và phần bắp chân. Đây là phần tròn chuyển động khi chúng ta gập hoặc duỗi chân."
+  },
+  "발목": {
+    "def": "이것은 다리와 발을 연결하는 뼈 마디입니다. 걷거나 뛸 때 자주 움직이며 다치기 쉬운 부위입니다.",
+    "defVi": "Đây là khớp xương nối liền giữa cẳng chân và bàn chân. Bộ phận này thường xuyên chuyển động khi đi bộ hoặc chạy và rất dễ bị chấn thương."
+  },
+  "손가락": {
+    "def": "이것은 손끝에 길게 갈라져 있는 다섯 개의 부분입니다. 물건을 잡거나 글씨를 쓸 때 사용합니다.",
+    "defVi": "Đây là năm bộ phận thuôn dài ở đầu bàn tay. Chúng ta dùng chúng để cầm nắm đồ vật hoặc viết chữ."
+  },
+  "치아": {
+    "def": "이것은 입안에 있는 하얗고 단단한 조직입니다. 음식을 씹어 먹을 때 사용하며 건강하게 관리해야 합니다.",
+    "defVi": "Đây là những cấu trúc màu trắng và cứng nằm trong khoang miệng. Chúng được dùng để nhai thức ăn và cần được chăm sóc cẩn thận để luôn khỏe mạnh."
+  },
+  "피": {
+    "def": "이것은 몸 안을 돌며 산소와 영양분을 전달하는 빨간색 액체입니다. 상처가 나면 몸 밖으로 흘러나옵니다.",
+    "defVi": "Đây là chất lỏng màu đỏ lưu thông khắp cơ thể để vận chuyển oxy và chất dinh dưỡng. Chất lỏng này sẽ chảy ra ngoài khi chúng ta bị thương."
+  },
+  "살": {
+    "def": "이것은 사람의 몸을 감싸고 있는 부드러운 피부와 그 아래의 부드러운 부분입니다. 음식을 많이 먹으면 이것이 늘어나고 운동을 하면 줄어듭니다.",
+    "defVi": "Đây là lớp da mềm bao bọc cơ thể người và phần mô mềm bên dưới nó. Phần này sẽ dày lên khi ăn nhiều và giảm đi khi chúng ta tập thể dục."
+  },
+  "키": {
+    "def": "이것은 사람이 똑바로 섰을 때 발바닥부터 머리끝까지의 높이입니다. 보통 성장기 어린이들이 이것을 더 크게 만들기 위해 우유를 많이 마십니다.",
+    "defVi": "Đây là chiều cao tính từ lòng bàn chân lên đến đỉnh đầu khi một người đứng thẳng. Trẻ em trong độ tuổi phát triển thường uống nhiều sữa để cải thiện chỉ số này."
+  },
+  "몸무게": {
+    "def": "이것은 사람의 신체가 가진 무거운 정도를 나타내는 수치입니다. 기계 위에 올라가서 킬로그램 단위로 측정합니다.",
+    "defVi": "Đây là chỉ số thể hiện độ nặng nhẹ của cơ thể một người. Chỉ số này được đo bằng cách đứng lên cân với đơn vị tính là ki-lô-gam."
+  },
+  "숨": {
+    "def": "이것은 살아있는 생물이 코나 입으로 공기를 들이마시고 내쉬는 기운입니다. 달리기를 심하게 하면 이것이 가빠집니다.",
+    "defVi": "Đây là luồng không khí mà sinh vật sống hít vào và thở ra qua mũi hoặc miệng. Luồng khí này sẽ trở nên dồn dập khi chúng ta chạy bộ quá sức."
+  },
+  "근육": {
+    "def": "이것은 힘을 써서 몸을 움직이게 만드는 단단한 신체 조직입니다. 운동을 열심히 하면 이것이 커지고 힘이 세집니다.",
+    "defVi": "Đây là các mô cơ thể săn chắc giúp chúng ta tạo ra lực để vận động. Khi chăm chỉ tập luyện, bộ phận này sẽ phát triển to hơn và giúp cơ thể khỏe mạnh hơn."
+  },
+  "성격": {
+    "def": "이것은 한 사람이 가지고 있는 고유한 마음의 모습이나 행동 방식입니다. 사람들을 만날 때나 일을 할 때 그 사람의 특징이 어떻게 나타나는지 보여줍니다.",
+    "defVi": "Đây là những đặc điểm riêng biệt trong tâm hồn và cách hành xử của một người. Nó thể hiện qua cách một cá nhân ứng xử khi gặp gỡ mọi người hoặc khi làm việc."
+  },
+  "착하다": {
+    "def": "누군가의 마음이 따뜻하고 다른 사람을 도우며 나쁜 행동을 하지 않을 때 이렇습니다. 보통 부모님이나 선생님의 말씀을 잘 듣는 아이에게도 이 말을 씁니다.",
+    "defVi": "Một người có tấm lòng ấm áp, hay giúp đỡ người khác và không bao giờ làm điều xấu thì như thế này. Từ này cũng thường được dùng để chỉ những đứa trẻ biết nghe lời cha mẹ hay thầy cô."
+  },
+  "친절하다": {
+    "def": "누군가 다른 사람을 따뜻하게 맞이하고 부드러운 태도로 잘 대할 때 이렇습니다. 가게나 식당에서 일하는 사람들이 손님에게 좋은 서비스를 줄 때 자주 들을 수 있습니다.",
+    "defVi": "Ai đó đón tiếp người khác một cách ấm áp và đối xử bằng thái độ dịu dàng, lịch thiệp thì như thế này. Chúng ta thường thấy điều này ở những nhân viên cửa hàng hoặc nhà hàng khi phục vụ khách chu đáo."
+  },
+  "똑똑하다": {
+    "def": "어떤 사람이 머리가 좋아서 공부를 잘하거나 문제를 아주 빠르게 해결할 때 이렇습니다. 지식이 많고 이해력이 높은 사람을 설명할 때 사용합니다.",
+    "defVi": "Một người có đầu óc nhạy bén, học giỏi hoặc giải quyết các vấn đề rất nhanh chóng thì như thế này. Từ này dùng để mô tả người có nhiều kiến thức và khả năng tiếp thu cao."
+  },
+  "부지런하다": {
+    "def": "어떤 사람이 쉬지 않고 열심히 일하거나 공부하며 매일 아침 일찍 일어날 때 이렇습니다. 할 일을 미루지 않고 늘 스스로 움직이는 사람의 모습입니다.",
+    "defVi": "Một người luôn làm việc hoặc học tập hết mình không ngừng nghỉ, và thường thức dậy sớm mỗi ngày thì như thế này. Đây là hình ảnh của người không bao giờ trì hoãn công việc và luôn tự giác hành động."
+  },
+  "게으르다": {
+    "def": "어떤 사람이 해야 할 일을 하기 싫어하고 그저 눕거나 쉬고만 싶어 할 때 이렇습니다. 움직이는 것을 귀찮아해서 방을 청소하지 않거나 약속 시간에 늦기도 합니다.",
+    "defVi": "Một người không muốn làm những việc cần làm, chỉ muốn nằm hoặc nghỉ ngơi thì như thế này. Họ ngại vận động nên thường không dọn dẹp phòng hay thậm chí đi hẹn muộn."
+  },
+  "솔직하다": {
+    "def": "어떤 사람이 거짓말을 하지 않고 자신의 마음이나 사실을 있는 그대로 말할 때 이렇습니다. 숨기는 것이 없어서 다른 사람들에게 믿음을 줍니다.",
+    "defVi": "Một người không nói dối mà luôn bày tỏ suy nghĩ hoặc sự thật đúng như những gì vốn có thì như thế này. Họ không giấu giếm điều gì nên luôn tạo được lòng tin với người khác."
+  },
+  "활발하다": {
+    "def": "어떤 사람이 힘이 넘치고 행동이 빠르며 다른 사람들과 어울리는 것을 좋아할 때 이렇습니다. 보통 목소리가 크고 웃음이 많으며 조용히 있기보다 움직이는 것을 좋아합니다.",
+    "defVi": "Một người luôn tràn đầy năng lượng, nhanh nhẹn và thích giao lưu với mọi người xung quanh thì như thế này. Họ thường nói to, cười nhiều và thích vận động hơn là ngồi yên một chỗ."
+  },
+  "예의 바르다": {
+    "def": "어떤 사람이 다른 사람을 존중하며 상황에 맞는 올바른 행동과 말투를 사용할 때 이렇습니다. 특히 자신보다 나이가 많은 사람에게 고개를 숙여 인사하고 존댓말을 잘 씁니다.",
+    "defVi": "Một người luôn tôn trọng người khác, có hành vi và lời nói đúng mực trong mọi hoàn cảnh thì như thế này. Đặc biệt, họ luôn cúi đầu chào hỏi và dùng kính ngữ với những người lớn tuổi hơn mình."
+  },
+  "웃기다": {
+    "def": "어떤 사람이나 상황이 다른 사람들을 즐겁게 만들어 소리 내어 기쁜 표정을 짓게 할 때 이렇습니다. 이 능력이 있는 사람은 재미있는 이야기나 행동으로 주변을 밝게 만듭니다.",
+    "defVi": "Một người hoặc một tình huống làm cho người khác vui vẻ và bật ra những tiếng cười sảng khoái thì như thế này. Người có khả năng này thường làm cho bầu không khí xung quanh trở nên vui tươi bằng những câu chuyện hay hành động thú vị."
+  },
+  "인기": {
+    "def": "이것은 많은 사람들이 어떤 사람이나 물건을 아주 좋아하고 사랑하는 상태를 말합니다. 이것이 많은 가수는 콘서트 표가 금방 매진되고 길거리에서 모두가 알아봅니다.",
+    "defVi": "Đây là trạng thái một người hoặc một vật được rất nhiều người yêu mến và hâm mộ. Một ca sĩ nhận được điều này lớn lao thì vé ca nhạc sẽ bán hết sạch rất nhanh và đi đến đâu cũng có người nhận ra."
+  },
+  "자신감": {
+    "def": "이것은 어떤 일을 스스로 잘할 수 있다고 믿는 굳센 마음입니다. 이것이 가득한 사람은 새로운 도전을 두려워하지 않고 당당하게 행동합니다.",
+    "defVi": "Đây là niềm tin mạnh mẽ vào việc bản thân có thể tự mình hoàn thành tốt mọi việc. Người tràn đầy cảm xúc này sẽ không sợ hãi trước những thử thách mới mà luôn hành động một cách hiên ngang, quyết đoán."
+  },
+  "편의점": {
+    "def": "이곳은 24시간 동안 문을 열고 간단한 음식이나 음료를 파는 작은 가게입니다.",
+    "defVi": "Đây là một cửa hàng nhỏ mở cửa suốt ngày đêm, nơi bán các loại đồ ăn nhanh và nước uống."
+  },
+  "백화점": {
+    "def": "여러 종류의 옷과 물건을 한곳에서 팔며 규모가 매우 큰 쇼핑 공간입니다.",
+    "defVi": "Đây là một không gian mua sắm quy mô lớn, nơi bày bán đủ loại quần áo và hàng hóa tại cùng một địa điểm."
+  },
+  "우체국": {
+    "def": "편지나 택배를 다른 곳으로 보내거나 받을 때 이용하는 공공 기관입니다.",
+    "defVi": "Đây là cơ quan công cộng nơi bạn đến để gửi hoặc nhận thư từ và bưu phẩm."
+  },
+  "미용실": {
+    "def": "전문가에게 머리카락 모양을 바꾸거나 염색을 할 수 있는 장소입니다.",
+    "defVi": "Đây là nơi bạn có thể nhờ chuyên gia tạo kiểu hoặc nhuộm màu cho mái tóc của mình."
+  },
+  "세탁소": {
+    "def": "집에서 빨기 어려운 옷을 깨끗하게 씻거나 다림질을 해주는 곳입니다.",
+    "defVi": "Đây là nơi chuyên làm sạch hoặc ủi phẳng những bộ quần áo khó giặt tại nhà."
+  },
+  "도서관": {
+    "def": "수많은 책을 빌려 읽거나 조용히 앉아서 공부할 수 있는 건물입니다.",
+    "defVi": "Đây là tòa nhà nơi bạn có thể mượn sách để đọc hoặc ngồi học bài một cách yên tĩnh."
+  },
+  "공원": {
+    "def": "나무와 꽃이 많고 사람들이 산책하거나 운동하며 쉬는 넓은 야외 공간입니다.",
+    "defVi": "Đây là một không gian ngoài trời rộng rãi, có nhiều cây cối và hoa, nơi mọi người thường đi dạo hoặc tập thể dục."
+  },
+  "극장": {
+    "def": "큰 화면으로 새로운 영상 작품을 감상할 수 있는 시설입니다.",
+    "defVi": "Đây là cơ sở vật chất nơi bạn có thể thưởng thức các tác phẩm điện ảnh mới trên màn hình lớn."
+  },
+  "경찰서": {
+    "def": "범죄를 예방하고 사회의 질서를 지키는 사람들이 일하는 곳입니다.",
+    "defVi": "Đây là nơi làm việc của những người có nhiệm vụ ngăn chặn tội phạm và giữ gìn trật tự xã hội."
+  },
+  "아파트": {
+    "def": "많은 가구가 한 건물에 모여서 생활하는 높은 주거용 건축물입니다.",
+    "defVi": "Đây là một tòa nhà cao tầng dành cho nhiều hộ gia đình cùng sinh sống."
+  },
+  "엘리베이터": {
+    "def": "높은 건물에서 사람들을 태우고 위아래로 빠르게 이동시켜 주는 기계입니다.",
+    "defVi": "Đây là một loại máy móc giúp đưa mọi người di chuyển nhanh chóng lên xuống trong các tòa nhà cao tầng."
+  },
+  "주차장": {
+    "def": "운전자가 차를 타고 목적지에 도착한 뒤 차를 세워두는 공간입니다.",
+    "defVi": "Đây là không gian dành cho người lái xe để dừng đỗ phương tiện sau khi đến nơi."
+  },
+  "옷": {
+    "def": "이것은 몸을 보호하거나 예쁘게 보이기 위해 몸에 걸치는 물건입니다.",
+    "defVi": "Những thứ bạn khoác lên người để che chắn cơ thể hoặc làm đẹp."
+  },
+  "바지": {
+    "def": "이것은 다리에 두 개를 끼워서 아래쪽을 가리는 물건입니다.",
+    "defVi": "Thứ bạn xỏ hai chân vào để che phần thân dưới."
+  },
+  "치마": {
+    "def": "이것은 허리 아래로 길게 내려오며 다리를 감싸는 여성용 하의입니다.",
+    "defVi": "Trang phục dành cho nữ giới, có thiết kế phủ từ thắt lưng xuống dưới để che phần chân."
+  },
+  "셔츠": {
+    "def": "이것은 주로 단추가 달려 있고 상체를 덮는 얇은 상의입니다.",
+    "defVi": "Loại áo thường có hàng cúc phía trước dùng để che phần thân trên."
+  },
+  "신발": {
+    "def": "이것은 밖을 걸어 다닐 때 발을 보호하기 위해 발에 끼우는 물건입니다.",
+    "defVi": "Vật dụng bạn mang vào chân để bảo vệ bàn chân khi đi lại ngoài đường."
+  },
+  "양말": {
+    "def": "이것은 발을 따뜻하게 하고 땀을 흡수하기 위해 발에 먼저 끼우는 천입니다.",
+    "defVi": "Món đồ bằng vải dùng để xỏ vào chân trước khi đi giày nhằm giữ ấm và thấm mồ hôi."
+  },
+  "모자": {
+    "def": "이것은 햇빛이나 비를 피하기 위해 머리 위에 쓰는 물건입니다.",
+    "defVi": "Vật dụng dùng để đội lên đầu nhằm tránh nắng hoặc tránh mưa."
+  },
+  "가방": {
+    "def": "이것은 물건을 담아서 손으로 들거나 등에 메고 다니는 주머니입니다.",
+    "defVi": "Vật dụng dùng để đựng đồ đạc, có thể xách tay hoặc đeo trên lưng."
+  },
+  "안경": {
+    "def": "이것은 눈이 나쁜 사람이 더 잘 보기 위해 눈 앞에 쓰는 도구입니다.",
+    "defVi": "Dụng cụ đeo trước mắt giúp những người có thị lực kém nhìn rõ mọi vật hơn."
+  },
+  "시계": {
+    "def": "이것은 지금이 몇 시인지 알려주는 기계입니다.",
+    "defVi": "Thiết bị dùng để xem bây giờ là mấy giờ."
+  },
+  "입다": {
+    "def": "몸의 위쪽이나 전체를 덮는 물건을 몸에 걸치는 행동입니다.",
+    "defVi": "Hành động khoác các loại trang phục lên người để che thân."
+  },
+  "신다": {
+    "def": "발을 보호하는 물건을 발에 끼우는 행동입니다.",
+    "defVi": "Hành động xỏ chân vào các loại đồ dùng bảo vệ bàn chân."
+  },
+  "색깔": {
+    "def": "이것은 사물이나 옷을 볼 때 눈으로 느끼는 고유한 성질입니다. 무지개에는 일곱 가지 종류가 있습니다.",
+    "defVi": "Bạn nhìn thấy đặc điểm này trên đồ vật hoặc quần áo. Cầu vồng có bảy loại khác nhau."
+  },
+  "빨간색": {
+    "def": "사과나 불처럼 아주 뜨겁고 강렬한 느낌을 주는 빛깔입니다. 보통 사랑이나 정열을 나타낼 때 사용합니다.",
+    "defVi": "Đây là sắc độ của quả táo hoặc ngọn lửa, mang lại cảm giác nóng bỏng và mạnh mẽ. Nó thường tượng trưng cho tình yêu hoặc sự nhiệt huyết."
+  },
+  "파란색": {
+    "def": "맑은 하늘이나 깊은 바다를 볼 때 떠오르는 시원한 느낌의 빛깔입니다.",
+    "defVi": "Đây là sắc độ gợi cảm giác mát mẻ khi nhìn lên bầu trời trong xanh hoặc đại dương sâu thẳm."
+  },
+  "노란색": {
+    "def": "잘 익은 바나나나 해바라기 꽃잎에서 볼 수 있는 밝고 따뜻한 빛깔입니다.",
+    "defVi": "Đây là sắc độ tươi sáng và ấm áp, thường thấy ở quả chuối chín hoặc cánh hoa hướng dương."
+  },
+  "초록색": {
+    "def": "봄에 피어나는 새싹이나 산에 있는 나무 잎사귀에서 볼 수 있는 자연의 빛깔입니다.",
+    "defVi": "Đây là sắc độ của thiên nhiên, thường thấy ở những mầm non mùa xuân hoặc lá cây trên núi."
+  },
+  "하얀색": {
+    "def": "눈이나 우유처럼 아주 깨끗하고 밝은 느낌을 주는 빛깔입니다.",
+    "defVi": "Đây là sắc độ mang lại cảm giác tinh khiết và sáng sủa, giống như tuyết hoặc sữa."
+  },
+  "검은색": {
+    "def": "밤하늘이나 어두운 밤처럼 빛이 전혀 없는 상태의 빛깔입니다.",
+    "defVi": "Đây là sắc độ của bầu trời đêm hoặc những lúc tối om, không có chút ánh sáng nào."
+  },
+  "갈색": {
+    "def": "땅의 흙이나 나무 줄기에서 흔히 볼 수 있는 차분한 느낌의 빛깔입니다.",
+    "defVi": "Đây là sắc độ mang lại cảm giác trầm ổn, thường thấy ở đất hoặc thân cây."
+  },
+  "분홍색": {
+    "def": "예쁜 꽃이나 사탕에서 자주 볼 수 있는 부드럽고 사랑스러운 느낌의 빛깔입니다.",
+    "defVi": "Đây là sắc độ dịu dàng và đáng yêu, thường thấy ở những bông hoa xinh xắn hoặc kẹo ngọt."
+  },
+  "동그라미": {
+    "def": "시작점과 끝점이 만나서 만들어진 둥근 모양입니다. 굴리면 어디로든 잘 움직입니다.",
+    "defVi": "Đây là hình dáng tròn trịa được tạo thành khi điểm đầu và điểm cuối gặp nhau. Nó có thể lăn đi dễ dàng."
+  },
+  "네모": {
+    "def": "네 개의 변과 네 개의 각이 모두 똑같은 모양입니다. 상자나 책에서 자주 볼 수 있습니다.",
+    "defVi": "Đây là hình có bốn cạnh và bốn góc bằng nhau. Bạn thường thấy hình này ở những chiếc hộp hoặc quyển sách."
+  },
+  "밝다": {
+    "def": "햇빛이 많이 들어와서 어둡지 않고 환한 상태입니다.",
+    "defVi": "Trạng thái không tối tăm mà rực rỡ nhờ có nhiều ánh nắng chiếu vào."
+  },
+  "그래도": {
+    "def": "앞의 내용과 반대되는 상황이 생겨도 행동을 멈추지 않고 계속할 때 사용합니다.",
+    "defVi": "Dù tình huống trái ngược với điều đã nói trước đó xảy ra, bạn vẫn tiếp tục thực hiện hành động của mình."
+  },
+  "그러나": {
+    "def": "앞의 문장과 서로 다른 내용이 뒤에 이어질 때 쓰는 연결 표현입니다.",
+    "defVi": "Dùng để nối hai câu có nội dung trái ngược nhau trong văn viết."
+  },
+  "게다가": {
+    "def": "이미 알고 있는 내용에 좋은 점이나 나쁜 점을 더 보탤 때 사용합니다.",
+    "defVi": "Dùng khi muốn thêm một ưu điểm hoặc nhược điểm vào thông tin đã biết trước đó."
+  },
+  "대신": {
+    "def": "어떤 것을 하지 않고 다른 것으로 바꾸어 선택할 때 씁니다.",
+    "defVi": "Dùng khi bạn không chọn cái này mà lấy cái khác để thay thế."
+  },
+  "아니면": {
+    "def": "두 가지 중에서 하나를 골라야 할 때 사용하는 말입니다.",
+    "defVi": "Dùng khi cần chọn một trong hai phương án."
+  },
+  "즉": {
+    "def": "앞에서 말한 내용을 알기 쉽게 다시 풀어서 설명할 때 씁니다.",
+    "defVi": "Dùng để giải thích lại nội dung vừa nói một cách dễ hiểu hơn."
+  },
+  "결국": {
+    "def": "여러 가지 일이 있은 후에 마지막으로 어떤 결과가 나타날 때 사용합니다.",
+    "defVi": "Dùng để chỉ kết quả cuối cùng sau khi đã trải qua nhiều sự việc."
+  },
+  "사실": {
+    "def": "사람들이 알고 있는 것과 다르게 실제 상황을 말할 때 씁니다.",
+    "defVi": "Dùng khi muốn nói về tình hình thực tế khác với những gì mọi người đang nghĩ."
+  },
+  "어쨌든": {
+    "def": "앞의 상황이 어떻게 되었든지 상관없이 결론을 말할 때 사용합니다.",
+    "defVi": "Dùng để đưa ra kết luận mà không quan tâm đến những gì đã xảy ra trước đó."
+  },
+  "반면에": {
+    "def": "두 가지 대상을 비교하여 서로 다른 점을 나타낼 때 씁니다.",
+    "defVi": "Dùng để so sánh hai đối tượng và chỉ ra sự khác biệt giữa chúng."
+  },
+  "우선": {
+    "def": "다른 일보다 먼저 해야 할 때 사용하는 표현입니다.",
+    "defVi": "Dùng khi muốn thực hiện việc gì đó trước những việc khác."
+  },
+  "마지막으로": {
+    "def": "여러 가지 순서 중에서 가장 끝에 하는 일을 나타냅니다.",
+    "defVi": "Dùng để chỉ hành động được thực hiện ở vị trí cuối cùng trong một chuỗi sự việc."
+  },
+  "그리고": {
+    "def": "두 가지 이상의 행동이나 사실을 순서대로 연결할 때 사용합니다.",
+    "defVi": "Dùng để nối hai hành động hoặc sự việc theo thứ tự thời gian."
+  },
+  "그런데": {
+    "def": "앞에 말한 내용과 다른 상황이나 반대되는 이야기를 시작할 때 씁니다.",
+    "defVi": "Dùng khi muốn chuyển sang một tình huống khác hoặc kể chuyện trái ngược với nội dung vừa nói."
+  },
+  "하지만": {
+    "def": "앞의 내용과 반대되는 결과를 말할 때 사용하는 연결어입니다.",
+    "defVi": "Dùng để diễn tả kết quả trái ngược với nội dung đã nêu trước đó."
+  },
+  "그래서": {
+    "def": "앞의 상황이 원인이 되어 뒤의 결과가 나타날 때 사용합니다.",
+    "defVi": "Dùng khi sự việc phía trước là nguyên nhân dẫn đến kết quả ở phía sau."
+  },
+  "그러면": {
+    "def": "상대방의 말을 듣고 그에 따른 다음 행동이나 결정을 제안할 때 씁니다.",
+    "defVi": "Dùng để đưa ra đề nghị hoặc quyết định tiếp theo dựa trên lời nói của người đối diện."
+  },
+  "왜냐하면": {
+    "def": "어떤 결과에 대한 이유를 설명하기 시작할 때 사용하는 말입니다.",
+    "defVi": "Dùng để bắt đầu giải thích lý do cho một kết quả nào đó."
+  },
+  "또": {
+    "def": "이미 한 행동이나 일이 한 번 더 반복될 때 사용합니다.",
+    "defVi": "Dùng khi một hành động hoặc sự việc xảy ra thêm một lần nữa."
+  },
+  "그러니까": {
+    "def": "상대방이 한 말을 다시 정리하거나 강조해서 말할 때 씁니다.",
+    "defVi": "Dùng để tóm tắt lại hoặc nhấn mạnh ý kiến mà đối phương vừa nói."
+  },
+  "아마": {
+    "def": "확실하지 않지만 어떤 일이 일어날 가능성이 있을 때 사용합니다.",
+    "defVi": "Dùng khi không chắc chắn nhưng dự đoán một việc có khả năng xảy ra."
+  },
+  "만약": {
+    "def": "어떤 상황이 실제로 일어날지 가정할 때 사용하는 말입니다.",
+    "defVi": "Dùng để đặt ra một giả định về tình huống có thể xảy ra trong thực tế."
+  },
+  "물론": {
+    "def": "상대방의 의견에 대해 당연히 그렇다고 동의할 때 씁니다.",
+    "defVi": "Dùng để bày tỏ sự đồng ý một cách chắc chắn với ý kiến của người khác."
+  },
+  "예를 들면": {
+    "def": "어떤 내용을 더 쉽게 설명하기 위해 구체적인 대상을 하나 고를 때 사용합니다.",
+    "defVi": "Dùng để chọn ra một đối tượng cụ thể nhằm giải thích nội dung rõ ràng hơn."
+  },
+  "세수하다": {
+    "def": "아침에 일어나서 물로 얼굴을 깨끗하게 씻는 행동입니다.",
+    "defVi": "Sau khi thức dậy vào buổi sáng, bạn dùng nước để làm sạch khuôn mặt."
+  },
+  "이를 닦다": {
+    "def": "음식을 먹은 후에 치약과 도구를 사용해서 입안을 청결하게 만드는 것입니다.",
+    "defVi": "Sau khi ăn xong, bạn dùng kem và bàn chải để làm sạch khoang miệng."
+  },
+  "머리를 감다": {
+    "def": "물과 비누 같은 제품을 사용해서 두피와 머리카락의 먼지를 제거하는 것입니다.",
+    "defVi": "Bạn dùng nước và các sản phẩm làm sạch để loại bỏ bụi bẩn trên da đầu và tóc."
+  },
+  "화장하다": {
+    "def": "얼굴을 더 예쁘게 보이려고 색깔이 있는 제품을 피부에 바르는 행동입니다.",
+    "defVi": "Bạn thoa các loại mỹ phẩm có màu lên da để gương mặt trông xinh đẹp hơn."
+  },
+  "갈아입다": {
+    "def": "입고 있던 것을 벗고 다른 것으로 바꾸어 입는 것입니다.",
+    "defVi": "Bạn cởi bỏ bộ đồ đang mặc trên người và thay bằng một bộ khác."
+  },
+  "정리하다": {
+    "def": "어지러운 물건들을 제자리에 두고 깨끗하게 만드는 것입니다.",
+    "defVi": "Bạn đặt các đồ vật đang lộn xộn vào đúng vị trí để không gian trở nên ngăn nắp."
+  },
+  "낮잠": {
+    "def": "점심 식사 후에 잠깐 동안 눈을 붙이고 쉬는 짧은 휴식입니다.",
+    "defVi": "Một khoảng nghỉ ngơi ngắn bằng cách nhắm mắt ngủ vào thời điểm sau bữa trưa."
+  },
+  "늦잠": {
+    "def": "원래 일어나야 할 시간보다 더 오래 자는 것을 말합니다.",
+    "defVi": "Việc bạn ngủ quá giờ so với thời gian thức dậy thông thường."
+  },
+  "새벽": {
+    "def": "밤이 지나고 해가 뜨기 전의 아주 이른 시간입니다.",
+    "defVi": "Khoảng thời gian rất sớm khi đêm đã qua nhưng mặt trời chưa mọc."
+  },
+  "하루": {
+    "def": "아침부터 밤까지 이어지는 스물네 시간의 기간입니다.",
+    "defVi": "Khoảng thời gian kéo dài 24 tiếng từ sáng đến đêm."
+  },
+  "습관": {
+    "def": "오랫동안 반복해서 자연스럽게 몸에 익은 행동입니다.",
+    "defVi": "Những hành động được lặp đi lặp lại trong thời gian dài cho đến khi trở thành phản xạ tự nhiên."
+  },
+  "보통": {
+    "def": "특별한 일이 없을 때 언제나 하는 일반적인 상태를 의미합니다.",
+    "defVi": "Trạng thái diễn ra theo lối thông thường, không có gì đặc biệt xảy ra."
+  },
+  "위": {
+    "def": "물건이 다른 사물의 높은 곳에 놓여 있는 상태를 말합니다.",
+    "defVi": "Vị trí của một vật nằm ở phía cao hơn so với vật khác."
+  },
+  "아래": {
+    "def": "어떤 사물의 밑바닥이나 낮은 지점을 의미합니다.",
+    "defVi": "Vị trí thấp hơn hoặc nằm phía dưới một vật nào đó."
+  },
+  "안": {
+    "def": "어떤 공간의 내부를 가리키는 말입니다.",
+    "defVi": "Phần không gian nằm bên trong của một vật hoặc một nơi nào đó."
+  },
+  "밖": {
+    "def": "어떤 공간의 외부나 경계선 너머를 의미합니다.",
+    "defVi": "Phần không gian nằm phía bên ngoài hoặc không thuộc phạm vi bên trong."
+  },
+  "앞": {
+    "def": "얼굴이 향하고 있는 방향이나 먼저 있는 곳을 말합니다.",
+    "defVi": "Vị trí nằm ở phía đối diện hoặc hướng về phía trước mặt."
+  },
+  "뒤": {
+    "def": "등이 있는 방향이나 나중에 있는 곳을 의미합니다.",
+    "defVi": "Vị trí nằm ở phía sau lưng hoặc phía sau một vật khác."
+  },
+  "옆": {
+    "def": "어떤 사물의 오른쪽이나 왼쪽 부분을 말합니다.",
+    "defVi": "Vị trí nằm ngay sát bên cạnh hoặc kế bên một vật."
+  },
+  "왼쪽": {
+    "def": "심장이 있는 쪽의 방향을 의미합니다.",
+    "defVi": "Hướng nằm về phía tay trái của cơ thể."
+  },
+  "오른쪽": {
+    "def": "주로 글씨를 쓰거나 밥을 먹을 때 사용하는 손이 있는 방향입니다.",
+    "defVi": "Hướng nằm về phía tay phải, thường là tay thuận của nhiều người."
+  },
+  "가깝다": {
+    "def": "두 장소 사이의 거리가 짧은 상태입니다.",
+    "defVi": "Khoảng cách giữa hai nơi rất ngắn hoặc không xa."
+  },
+  "멀다": {
+    "def": "두 장소 사이의 거리가 길어서 가기 힘든 상태입니다.",
+    "defVi": "Khoảng cách giữa hai nơi rất dài, tốn nhiều thời gian để di chuyển."
+  },
+  "똑바로": {
+    "def": "방향을 바꾸지 않고 한 방향으로만 계속 가는 것을 말합니다.",
+    "defVi": "Hành động di chuyển theo một đường thẳng mà không rẽ sang hướng khác."
+  },
+  "기쁘다": {
+    "def": "마음이 아주 좋고 즐거운 상태입니다. 좋은 일이 생겼을 때 이런 마음이 듭니다.",
+    "defVi": "Tâm trạng cảm thấy rất tốt và phấn chấn. Đây là cảm xúc khi có chuyện tốt xảy ra."
+  },
+  "슬프다": {
+    "def": "마음이 아프고 눈물이 날 것 같은 상태입니다. 안 좋은 일이 있을 때 이런 마음이 듭니다.",
+    "defVi": "Cảm thấy đau lòng và muốn rơi nước mắt. Đây là cảm xúc khi gặp chuyện không may."
+  },
+  "화나다": {
+    "def": "누군가 잘못했거나 상황이 마음에 들지 않아서 얼굴이 빨개지고 소리를 지르고 싶은 상태입니다.",
+    "defVi": "Khi ai đó làm sai hoặc tình huống không như ý khiến bạn đỏ mặt và muốn quát tháo."
+  },
+  "무섭다": {
+    "def": "어둡거나 위험한 것을 보았을 때 몸이 떨리고 피하고 싶은 마음입니다.",
+    "defVi": "Cảm giác run rẩy và muốn tránh xa khi nhìn thấy thứ gì đó tối tăm hoặc nguy hiểm."
+  },
+  "피곤하다": {
+    "def": "일을 너무 많이 해서 몸과 마음이 힘든 상태입니다. 잠을 자고 싶고 쉬고 싶습니다.",
+    "defVi": "Cơ thể và tinh thần kiệt sức vì làm việc quá nhiều. Bạn chỉ muốn đi ngủ và nghỉ ngơi."
+  },
+  "행복하다": {
+    "def": "매우 만족스럽고 삶이 아름답다고 느끼는 상태입니다. 사랑하는 사람들과 함께 있을 때 이런 마음이 듭니다.",
+    "defVi": "Cảm thấy vô cùng thỏa mãn và thấy cuộc sống thật tươi đẹp. Đây là cảm giác khi được ở bên những người mình yêu thương."
+  },
+  "사랑하다": {
+    "def": "어떤 사람을 아주 소중하게 생각해서 항상 같이 있고 싶고 잘해주고 싶은 마음입니다.",
+    "defVi": "Cảm giác coi ai đó là vô cùng quý giá, luôn muốn ở bên cạnh và đối xử tốt với họ."
+  },
+  "좋아하다": {
+    "def": "어떤 대상에 마음이 끌려서 자주 보고 싶거나 자주 하고 싶은 상태입니다.",
+    "defVi": "Khi bạn cảm thấy bị thu hút bởi một thứ gì đó và muốn nhìn thấy hoặc thực hiện nó thường xuyên."
+  },
+  "싫어하다": {
+    "def": "어떤 것이 마음에 들지 않아서 멀리하고 싶거나 피하고 싶은 마음입니다.",
+    "defVi": "Cảm giác không ưng ý về một thứ gì đó nên muốn tránh xa hoặc không muốn tiếp xúc."
+  },
+  "걱정하다": {
+    "def": "앞으로 일어날 나쁜 일 때문에 마음이 편하지 않고 계속 생각하는 상태입니다.",
+    "defVi": "Tâm trạng không yên và cứ suy nghĩ mãi về những điều tồi tệ có thể xảy ra trong tương lai."
+  },
+  "놀라다": {
+    "def": "갑자기 예상하지 못한 일이 생겨서 눈이 커지고 심장이 빨리 뛰는 상태입니다.",
+    "defVi": "Khi có chuyện bất ngờ xảy ra khiến mắt mở to và tim đập nhanh."
+  },
+  "심심하다": {
+    "def": "할 일이 없어서 시간이 천천히 가고 재미가 없는 상태입니다.",
+    "defVi": "Khi không có việc gì để làm, cảm thấy thời gian trôi chậm chạp và chẳng có gì thú vị."
+  },
+  "생일": {
+    "def": "사람이 세상에 태어난 날을 매년 기억하고 기뻐하는 날입니다.",
+    "defVi": "Ngày mà một người chào đời, được tổ chức kỷ niệm hằng năm."
+  },
+  "결혼식": {
+    "def": "두 사람이 부부가 되기로 약속하며 하객들 앞에서 올리는 공식적인 의식입니다.",
+    "defVi": "Buổi lễ chính thức nơi hai người thề nguyện trở thành vợ chồng trước sự chứng kiến của khách mời."
+  },
+  "명절": {
+    "def": "오래전부터 전해 내려오는 관습에 따라 가족과 친척이 함께 모여 즐기는 특별한 날입니다.",
+    "defVi": "Những ngày đặc biệt trong năm mà gia đình và họ hàng sum họp theo phong tục truyền thống."
+  },
+  "설날": {
+    "def": "음력으로 한 해가 시작되는 첫 번째 날로 떡국을 먹으며 복을 기원합니다.",
+    "defVi": "Ngày đầu tiên của năm mới theo âm lịch, mọi người thường ăn canh bánh gạo để cầu chúc may mắn."
+  },
+  "추석": {
+    "def": "가을에 수확한 곡식으로 음식을 만들어 조상에게 감사하고 가족과 나누어 먹는 큰 행사입니다.",
+    "defVi": "Ngày lễ lớn vào mùa thu để tạ ơn tổ tiên bằng các món ăn làm từ ngũ cốc mới thu hoạch và sum vầy cùng gia đình."
+  },
+  "잔치": {
+    "def": "기쁜 일이 있을 때 사람들을 불러 음식을 대접하며 함께 즐겁게 보내는 큰 모임입니다.",
+    "defVi": "Một buổi tiệc lớn được tổ chức khi có chuyện vui, nơi chủ nhà mời khách đến dùng bữa và chung vui."
+  },
+  "초대장": {
+    "def": "어떤 행사에 와달라고 정중하게 부탁하는 내용을 적어서 보내는 종이입니다.",
+    "defVi": "Tấm thiệp hoặc giấy viết nội dung trân trọng gửi đến người khác để mời họ tham dự một sự kiện."
+  },
+  "축하하다": {
+    "def": "상대방에게 좋은 일이 생겼을 때 기쁜 마음을 표현하며 즐거움을 함께 나누는 행동입니다.",
+    "defVi": "Hành động bày tỏ niềm vui và chia sẻ hạnh phúc khi người khác đạt được thành công hoặc có chuyện tốt."
+  },
+  "선물": {
+    "def": "고마운 마음이나 사랑하는 마음을 전하기 위해 상대방에게 주는 물건입니다.",
+    "defVi": "Vật phẩm được trao đi để bày tỏ lòng biết ơn hoặc tình cảm yêu mến dành cho người khác."
+  },
+  "파티": {
+    "def": "사람들이 모여서 음악을 듣고 춤을 추거나 음식을 먹으며 자유롭게 즐기는 시간입니다.",
+    "defVi": "Một buổi gặp gỡ nơi mọi người cùng nghe nhạc, nhảy múa, ăn uống và tận hưởng thời gian vui vẻ."
+  },
+  "기념일": {
+    "def": "특별히 기억해야 할 중요한 사건이 있었던 날을 매년 다시 떠올리는 날입니다.",
+    "defVi": "Ngày được chọn để ghi nhớ và kỷ niệm những sự kiện quan trọng đã xảy ra trong quá khứ."
+  },
+  "모임": {
+    "def": "공통된 목적이나 관계를 가진 사람들이 한곳에 모여서 대화를 나누는 자리입니다.",
+    "defVi": "Một buổi gặp gỡ của những người có chung mục đích hoặc mối quan hệ để cùng trò chuyện."
+  },
+  "발표": {
+    "def": "많은 사람 앞에서 자신의 생각이나 조사한 내용을 이야기하는 시간입니다.",
+    "defVi": "Khoảng thời gian bạn đứng trước nhiều người để trình bày suy nghĩ hoặc thông tin đã tìm hiểu."
+  },
+  "점수": {
+    "def": "시험을 본 후에 얻는 숫자로 된 결과입니다.",
+    "defVi": "Kết quả bằng con số mà bạn nhận được sau khi làm bài kiểm tra."
+  },
+  "합격": {
+    "def": "시험이나 선발 과정에서 기준을 넘어서 통과하는 것입니다.",
+    "defVi": "Việc vượt qua các tiêu chuẩn trong một kỳ thi hoặc quá trình tuyển chọn."
+  },
+  "성적": {
+    "def": "학교에서 공부한 결과나 실력을 나타내는 기록입니다.",
+    "defVi": "Ghi chép phản ánh kết quả học tập hoặc năng lực của bạn tại trường."
+  },
+  "전공": {
+    "def": "대학교에서 가장 깊게 배우는 자신의 주된 분야입니다.",
+    "defVi": "Lĩnh vực chính mà bạn tập trung nghiên cứu sâu nhất khi học đại học."
+  },
+  "학기": {
+    "def": "학교에서 일 년을 나누어 수업을 진행하는 기간입니다.",
+    "defVi": "Khoảng thời gian trong năm được chia ra để tổ chức các buổi học tại trường."
+  },
+  "방학": {
+    "def": "수업이 없는 기간 동안 학생들이 쉬는 시간입니다.",
+    "defVi": "Khoảng thời gian nghỉ ngơi của học sinh khi không có tiết học."
+  },
+  "졸업": {
+    "def": "학교의 모든 과정을 다 마치고 과정을 끝내는 것입니다.",
+    "defVi": "Việc hoàn thành toàn bộ chương trình học và kết thúc quá trình đào tạo."
+  },
+  "입학": {
+    "def": "학교에 처음 들어가서 학생이 되는 것입니다.",
+    "defVi": "Việc bắt đầu vào trường và trở thành học sinh, sinh viên."
+  },
+  "장학금": {
+    "def": "공부를 잘하거나 경제적인 도움이 필요할 때 학교에서 주는 돈입니다.",
+    "defVi": "Số tiền nhà trường cấp cho bạn khi có thành tích học tập tốt hoặc cần hỗ trợ tài chính."
+  },
+  "대학교": {
+    "def": "고등학교를 마친 후에 더 높은 수준의 학문을 배우는 교육 기관입니다.",
+    "defVi": "Cơ sở giáo dục nơi bạn theo học các kiến thức chuyên sâu sau khi tốt nghiệp trung học phổ thông."
+  },
+  "강의": {
+    "def": "선생님이 학생들에게 지식을 전달하는 수업 시간입니다.",
+    "defVi": "Giờ học mà giáo viên truyền đạt kiến thức cho người học."
+  },
+  "사람": {
+    "def": "이 세상에 살고 있으며 생각하고 말을 할 수 있는 존재입니다. 동물과 다르게 도구를 사용하고 문화를 만듭니다.",
+    "defVi": "Đây là sinh vật sống trên thế giới này, có khả năng suy nghĩ và ngôn ngữ. Khác với động vật, họ biết sử dụng công cụ và tạo ra văn hóa."
+  },
+  "가족": {
+    "def": "한 집에서 함께 살며 피가 섞이거나 법적으로 연결된 공동체입니다. 보통 부모와 자녀 등으로 구성됩니다.",
+    "defVi": "Đây là một nhóm người cùng sống chung dưới một mái nhà, gắn kết với nhau bằng huyết thống hoặc pháp luật. Thông thường nhóm này bao gồm cha mẹ và con cái."
+  },
+  "친구": {
+    "def": "나이가 비슷하거나 마음이 잘 맞아서 가깝게 지내는 이웃입니다. 서로 돕고 슬픔이나 기쁨을 함께 나눕니다.",
+    "defVi": "Đây là người có độ tuổi gần bằng hoặc có tâm hồn đồng điệu nên rất thân thiết với ta. Họ luôn giúp đỡ và chia sẻ mọi niềm vui nỗi buồn cùng ta."
+  },
+  "어머니": {
+    "def": "나를 낳아 주시고 길러 주신 여성 부모를 높여 부르는 말입니다. 자식에게 가장 따뜻하고 사랑이 넘치는 존재입니다.",
+    "defVi": "Đây là cách gọi tôn kính dành cho người phụ nữ đã sinh thành và nuôi dưỡng ta. Đối với con cái, đây là người ấm áp và giàu lòng yêu thương nhất."
+  },
+  "아버지": {
+    "def": "나를 태어나게 하고 키워 주신 남성 부모를 높여 이르는 말입니다. 보통 한 집안의 가장 역할을 맡아 일하십니다.",
+    "defVi": "Đây là cách gọi tôn kính dành cho người đàn ông đã sinh ra và nuôi nấng ta. Người này thường gánh vác vai trò trụ cột và làm việc để lo cho cả nhà."
+  },
+  "형": {
+    "def": "남자가 자신보다 나이가 많은 남자 ___ 부를 때 쓰는 말입니다. 보통 같은 부모 밑에서 태어난 손윗사람을 의미합니다.",
+    "defVi": "Đây là từ một người nam dùng để gọi người anh em trai lớn tuổi hơn mình. Thông thường người này là người bề trên sinh ra từ cùng một cha mẹ."
+  },
+  "누나": {
+    "def": "남자가 자신보다 나이가 많은 여자 형제를 부를 때 사용하는 말입니다. 집안에서 남동생을 돌봐주기도 합니다.",
+    "defVi": "Đây là từ một người nam dùng để gọi người chị em gái lớn tuổi hơn mình. Trong nhà, người này thường hay chăm sóc cho em trai."
+  },
+  "오빠": {
+    "def": "여자가 자신보다 나이가 많은 남자 형제를 부르는 말입니다. 때로는 친하지 않아도 친근하게 부르는 남성에게 쓰기도 합니다.",
+    "defVi": "Đây là từ một người nữ dùng để gọi người anh em trai lớn tuổi hơn mình. Đôi khi từ này cũng được dùng để gọi một người nam thân thiết dù không có quan hệ ruột thịt."
+  },
+  "언니": {
+    "def": "여자가 자신보다 나이가 많은 여자 형제를 부를 때 쓰는 말입니다. 같은 성별의 손윗사람으로서 고민을 잘 들어줍니다.",
+    "defVi": "Đây là từ một người nữ dùng để gọi người chị em gái lớn tuổi hơn mình. Là người bề trên cùng giới tính, người này thường rất biết lắng nghe những tâm sự của em gái."
+  },
+  "동생": {
+    "def": "나보다 나이가 적은 형제나 자매를 이르는 말입니다. 성별에 따라 남성이나 여성 접두사를 붙여 구별하기도 합니다.",
+    "defVi": "Đây là từ dùng để chỉ người anh chị em có tuổi đời nhỏ hơn mình. Tùy theo giới tính, người ta có thể thêm tiền tố nam hoặc nữ vào trước để phân biệt rõ hơn."
+  },
+  "아이": {
+    "def": "아직 나이가 어려서 몸과 마음이 다 자라지 않은 어린 사람입니다. 보통 유치원이나 초등학교에 다닙니다.",
+    "defVi": "Đây là một người nhỏ tuổi, cơ thể và trí tuệ đều chưa phát triển hoàn thiện. Những đối tượng này thường đang đi học mẫu giáo hoặc tiểu học."
+  },
+  "선생님": {
+    "def": "학교나 학원에서 학생들에게 지식과 바른 행동을 가르치는 사람입니다. 존경의 의미를 담아 부르는 호칭입니다.",
+    "defVi": "Đây là người truyền đạt kiến thức và dạy dỗ những hành vi đúng đắn cho học sinh tại trường học hoặc trung tâm. Đây cũng là danh xưng thể hiện sự kính trọng đối với người dạy mình."
+  },
+  "그립다": {
+    "def": "어떤 사람이나 장소를 다시 보고 싶고 만나고 싶어 하는 마음이 드는 상태입니다.",
+    "defVi": "Trạng thái khi bạn rất muốn gặp lại một người hoặc trở về một nơi nào đó thân thương."
+  },
+  "부끄럽다": {
+    "def": "다른 사람들 앞에서 실수를 하거나 얼굴이 빨개질 정도로 창피함을 느끼는 상태입니다.",
+    "defVi": "Trạng thái khi bạn cảm thấy ngượng ngùng, đỏ mặt vì mắc lỗi hoặc do bị nhiều người chú ý."
+  },
+  "외롭다": {
+    "def": "주변에 아무도 없거나 나를 이해해 주는 사람이 없어서 쓸쓸한 마음이 드는 상태입니다.",
+    "defVi": "Trạng thái cảm thấy trống trải, buồn bã vì xung quanh không có ai hoặc không có ai thấu hiểu mình."
+  },
+  "지루하다": {
+    "def": "하는 일이 재미가 없고 시간이 너무 느리게 가는 것처럼 느껴지는 상태입니다.",
+    "defVi": "Trạng thái khi bạn cảm thấy việc mình đang làm không có gì thú vị và thời gian trôi qua thật chậm chạp."
+  },
+  "신나다": {
+    "def": "기쁘고 즐거운 일이 생겨서 기분이 매우 들뜨고 에너지가 넘치게 행동할 때 이 행동을 합니다.",
+    "defVi": "Bạn có biểu hiện này khi cảm thấy vô cùng vui sướng, hào hứng và tràn đầy năng lượng vì một sự việc tốt đẹp nào đó."
+  },
+  "설레다": {
+    "def": "기대하는 일이나 좋아하는 사람을 생각할 때 가슴이 두근거리고 기분이 좋아질 때 이 행동을 합니다.",
+    "defVi": "Bạn có cảm giác này khi tim đập rộn ràng và ngập tràn niềm vui khi nghĩ về một điều đang mong đợi hoặc một người mình thích."
+  },
+  "실망하다": {
+    "def": "기대했던 일이 생각대로 되지 않아서 마음이 슬프고 힘이 빠질 때 이 행동을 합니다.",
+    "defVi": "Bạn trải qua cảm xúc này khi một việc bạn mong đợi không diễn ra như ý muốn, khiến bạn buồn bã và hụt hẫng."
+  },
+  "후회하다": {
+    "def": "이전에 자신이 한 일이나 하지 않은 일에 대해 나중에 잘못했다고 생각하며 아쉬워할 때 이 행동을 합니다.",
+    "defVi": "Bạn làm điều này khi nghĩ lại về những việc mình đã làm hoặc chưa làm trong quá khứ và cảm thấy tiếc nuối, ước gì mình đã làm khác đi."
+  },
+  "부럽다": {
+    "def": "다른 사람이 가진 좋은 물건이나 능력을 나도 가지고 싶다고 생각하는 상태입니다.",
+    "defVi": "Trạng thái khi bạn nhìn thấy những thứ tốt đẹp hoặc tài năng của người khác và mong muốn bản thân cũng có được điều đó."
+  },
+  "미안하다": {
+    "def": "다른 사람에게 잘못을 하거나 피해를 주어서 마음이 편하지 않고 죄송함을 느끼는 상태입니다.",
+    "defVi": "Trạng thái khi bạn cảm thấy áy náy và có lỗi vì đã làm sai hoặc gây ảnh hưởng không tốt đến người khác."
+  },
+  "자랑스럽다": {
+    "def": "자신이나 가족이 이룬 훌륭한 일에 대해 큰 만족감과 기쁨을 느끼는 상태입니다.",
+    "defVi": "Trạng thái khi bạn cảm thấy vô cùng hài lòng và hãnh diện về những thành tựu hay việc tốt đẹp mà bản thân hoặc người thân đã đạt được."
+  },
+  "긴장하다": {
+    "def": "중요한 시험이나 발표를 앞두고 마음이 조마조마하고 몸이 굳어질 때 이 행동을 합니다.",
+    "defVi": "Bạn rơi vào trạng thái này khi cảm thấy bồn chồn lo lắng và người cứng đờ lại trước một sự kiện quan trọng như thi cử hay thuyết trình."
+  },
+  "밥": {
+    "def": "이것은 쌀을 끓여서 부드럽게 만든 음식이며, 한국 사람들이 매일 매끼 먹는 가장 기본적이고 중요한 음식입니다.",
+    "defVi": "Đây là món ăn được nấu chín từ gạo cho mềm, là món cơ bản và quan trọng nhất mà người Hàn Quốc ăn hằng ngày."
+  },
+  "물": {
+    "def": "이것은 색깔과 냄새가 없고 투명한 액체로, 사람들이 목이 마를 때 마시거나 씻을 때 사용합니다.",
+    "defVi": "Đây là chất lỏng trong suốt, không màu không mùi, dùng để uống khi khát hoặc dùng để tắm rửa, làm sạch mọi thứ."
+  },
+  "커피": {
+    "def": "이것은 갈색이나 검은색의 쓴맛이 나는 음료로, 잠을 깨기 위해 아침이나 오후에 자주 마십니다.",
+    "defVi": "Đây là loại đồ uống màu nâu hoặc đen có vị đắng, thường được uống vào buổi sáng hoặc buổi chiều để giúp tỉnh táo."
+  },
+  "김치": {
+    "def": "이것은 배추나 무를 고춧가루와 마늘 등으로 양념하여 발효시킨 한국의 전통 매운 채소 요리입니다.",
+    "defVi": "Đây là món rau muối cay truyền thống của Hàn Quốc, được làm bằng cách lên men cải thảo hoặc củ cải với ớt bột, tỏi và các gia vị khác."
+  },
+  "빵": {
+    "def": "이것은 밀가루에 효모 등을 섞어 반죽한 뒤 오븐에 구워서 만드는 음식으로, 아침 식사로 많이 먹습니다.",
+    "defVi": "Đây là món ăn được làm bằng cách nhào bột mì với men rồi nướng trong lò, thường được dùng nhiều vào bữa sáng."
+  },
+  "과일": {
+    "def": "이것은 나무나 식물에서 자라는 달콤하고 상큼한 열매로, 사과나 바나나 등이 여기에 속합니다.",
+    "defVi": "Đây là những quả ngọt và mọng nước mọc từ cây cối, ví dụ tiêu biểu như táo hoặc chuối."
+  },
+  "고기": {
+    "def": "이것은 소, 돼지, 닭 같은 동물의 몸에서 얻는 부분으로, 사람들이 구워 먹거나 국에 넣어 먹습니다.",
+    "defVi": "Đây là phần lấy từ thân thể của các loài động vật như bò, heo, gà, thường được nướng lên hoặc cho vào canh để ăn."
+  },
+  "돈": {
+    "def": "이것은 물건을 사거나 서비스를 이용할 때 가치를 지불하기 위해 사용하는 동전이나 종이 지폐입니다.",
+    "defVi": "Đây là những đồng xu hoặc tờ giấy bạc được sử dụng để thanh toán giá trị khi mua sắm hàng hóa hoặc sử dụng dịch vụ."
+  },
+  "얼마": {
+    "def": "이것은 가게에서 물건의 가격이나 가치가 어느 정도인지 물어볼 때 사용하는 말입니다.",
+    "defVi": "Đây là từ dùng khi muốn hỏi về giá cả hoặc giá trị của một món đồ nào đó trong cửa hàng."
+  },
+  "이거": {
+    "def": "말하는 사람에게 가까이 있는 물건이나 대상을 가리킬 때 사용하는 대명사입니다.",
+    "defVi": "Đây là đại từ dùng để chỉ vào một đồ vật hoặc đối tượng ở vị trí gần với người nói."
+  },
+  "주세요": {
+    "def": "상대방에게 어떤 물건을 나에게 건네달라고 정중하게 요청할 때 문장 끝에 쓰는 표현입니다.",
+    "defVi": "Đây là cụm từ đặt ở cuối câu khi muốn lịch sự yêu cầu đối phương đưa một món đồ nào đó sang phía mình."
+  },
+  "맛있어요": {
+    "def": "음식의 맛이 아주 좋아서 먹을 때 기분이 행복하고 즐거울 때 사용하는 표현입니다.",
+    "defVi": "Đây là từ dùng để diễn tả khi hương vị của thức ăn rất tuyệt vời, khiến chúng ta cảm thấy hạnh phúc và vui vẻ khi thưởng thức."
+  },
+  "사과": {
+    "def": "이것은 둥글고 빨간색이나 초록색을 띠는 과일입니다. 아삭아삭한 식감과 단맛이 특징이며 가을에 주로 수확합니다.",
+    "defVi": "Đây là một loại quả tròn, có màu đỏ hoặc xanh lá cây. Loại quả này nổi bật với độ giòn, vị ngọt và thường được thu hoạch vào mùa thu."
+  },
+  "바나나": {
+    "def": "이것은 길고 노란색을 띠는 부드러운 과일입니다. 껍질을 벗겨서 먹으며 달콤하고 부드러운 맛이 납니다.",
+    "defVi": "Đây là một loại quả dài, màu vàng và rất mềm. Chúng ta bóc vỏ khi ăn, quả có vị ngọt và kết cấu mềm mịn."
+  },
+  "딸기": {
+    "def": "이것은 빨간색의 작고 귀여운 과일로 겉에 작은 씨앗들이 많이 박혀 있습니다. 새콤달콤한 맛이 나며 주로 겨울과 봄에 많이 먹습니다.",
+    "defVi": "Đây là một loại quả nhỏ màu đỏ rất dễ thương, bên ngoài có bám nhiều hạt li ti. Quả có vị chua ngọt và thường được ăn nhiều vào mùa đông và mùa xuân."
+  },
+  "포도": {
+    "def": "이것은 보라색이나 초록색의 작은 알갱이들이 송이로 뭉쳐서 자라는 과일입니다. 달콤한 즙이 많아서 주스나 와인을 만드는 데도 쓰입니다.",
+    "defVi": "Đây là một loại quả gồm nhiều trái nhỏ màu tím hoặc xanh kết thành từng chùm. Loại quả này có nhiều nước ngọt bên trong và thường được dùng để làm nước ép hoặc rượu vang."
+  },
+  "수박": {
+    "def": "이것은 크고 둥글며 초록색 줄무늬 껍질을 가진 과일입니다. 안쪽은 빨갛고 물이 많아서 더운 여름에 시원하게 먹기 좋습니다.",
+    "defVi": "Đây là một loại quả to, tròn, có vỏ sọc màu xanh lá cây. Bên trong ruột màu đỏ, chứa nhiều nước và rất thích hợp để ăn giải nhiệt vào mùa hè nóng bức."
+  },
+  "오렌지": {
+    "def": "이것은 둥글고 주황색을 띠는 과일로 껍질이 다소 두껍습니다. 새콤달콤한 즙이 가득하며 비타민이 풍부해 주스로 많이 마십니다.",
+    "defVi": "Đây là một loại quả tròn có màu cam và lớp vỏ khá dày. Quả mọng nước, có vị chua ngọt và chứa nhiều vitamin nên thường được ép lấy nước uống."
+  },
+  "채소": {
+    "def": "이것은 밭에서 기르는 식물로 잎이나 줄기, 뿌리 등을 먹는 음식을 통틀어 부르는 말입니다. 비타민과 섬유질이 풍부하여 건강한 식단에 빠지지 않습니다.",
+    "defVi": "Đây là tên gọi chung cho các loại thực vật trồng ngoài vườn mà chúng ta ăn lá, thân hoặc rễ. Chúng rất giàu vitamin và chất xơ, luôn có mặt trong các bữa ăn lành mạnh."
+  },
+  "감자": {
+    "def": "이것은 땅속에서 자라는 둥근 모양의 구근 식물입니다. 껍질은 갈색이고 속은 노란빛을 띠며 삶거나 튀겨서 다양한 요리에 사용합니다.",
+    "defVi": "Đây là một loại củ tròn mọc dưới lòng đất. Lớp vỏ bên ngoài màu nâu, ruột bên trong màu vàng nhạt, thường được luộc hoặc chiên để chế biến thành nhiều món ăn khác nhau."
+  },
+  "양파": {
+    "def": "이것은 둥글고 매운맛이 나는 식재료로 껍질이 여러 겹으로 겹쳐 있습니다. 칼로 썰 때 눈물이 나게 만들지만 익히면 아주 단맛이 납니다.",
+    "defVi": "Đây là một loại nguyên liệu nấu ăn hình tròn, vị hăng và có nhiều lớp vỏ xếp chồng lên nhau. Khi dùng dao thái loại củ này sẽ dễ bị chảy nước mắt, nhưng khi nấu chín lại có vị rất ngọt."
+  },
+  "당근": {
+    "def": "이것은 주황색을 띠는 길쭉한 뿌리 식물로 아삭아삭한 식감이 특징입니다. 눈 건강에 좋은 영양소가 많으며 토끼가 좋아하는 음식으로 유명합니다.",
+    "defVi": "Đây là một loại củ dài màu cam nổi bật với độ giòn khi ăn. Loại củ này chứa nhiều dưỡng chất tốt cho mắt và nổi tiếng là món ăn yêu thích của loài thỏ."
+  },
+  "토마토": {
+    "def": "이것은 빨갛고 둥근 열매로 채소와 과일의 특징을 모두 가지고 있습니다. 주로 샐러드에 넣어 먹거나 소스를 만드는 데 널리 쓰입니다.",
+    "defVi": "Đây là một loại quả tròn màu đỏ, mang đặc điểm của cả rau lẫn trái cây. Loại quả này thường được ăn kèm trong món salad hoặc dùng để chế biến các loại sốt."
+  },
+  "상추": {
+    "def": "이것은 초록색의 넓은 잎을 가진 채소로 주로 고기를 싸서 먹을 때 사용합니다. 한국의 고기구이 문화에서 빼놓을 수 없는 대표적인 쌈 채소입니다.",
+    "defVi": "Đây là một loại rau lá xanh bản to, thường được dùng để cuốn thịt khi ăn. Đây là loại rau cuốn ăn kèm không thể thiếu trong văn hóa đồ nướng của người Hàn Quốc."
+  },
+  "안녕하세요": {
+    "def": "다른 사람을 처음 만나거나 아침에 만났을 때 예의를 갖추어 인사하는 말입니다.",
+    "defVi": "Đây là lời hỏi thăm lịch sự dùng khi gặp người khác lần đầu tiên hoặc vào buổi sáng."
+  },
+  "감사합니다": {
+    "def": "다른 사람이 나에게 도움을 주었거나 고마운 일을 했을 때 격식을 차려 마음을 표현하는 말입니다.",
+    "defVi": "Đây là lời bày tỏ lòng biết ơn một cách trang trọng khi người khác giúp đỡ hoặc làm điều gì đó tốt cho mình."
+  },
+  "죄송합니다": {
+    "def": "내가 실수했거나 다른 사람에게 피해를 주었을 때 정중하게 용서를 구하는 말입니다.",
+    "defVi": "Đây là lời tạ lỗi một cách lịch sự và trang trọng khi bản thân mắc lỗi hoặc gây ảnh hưởng đến người khác."
+  },
+  "네": {
+    "def": "다른 사람의 질문에 동의하거나 대답할 때 쓰는 공손한 말입니다.",
+    "defVi": "Đây là từ lịch sự dùng để đồng ý hoặc trả lời câu hỏi của người khác."
+  },
+  "아니요": {
+    "def": "다른 사람의 질문에 부정하거나 동의하지 않을 때 쓰는 공손한 말입니다.",
+    "defVi": "Đây là từ lịch sự dùng để phủ nhận hoặc không đồng ý với câu hỏi của người khác."
+  },
+  "안녕히 가세요": {
+    "def": "내가 머물러 있는 곳에서 떠나는 사람에게 잘 가라고 정중하게 인사하는 말입니다.",
+    "defVi": "Đây là lời chúc lên đường bình an một cách lịch sự dành cho người chuẩn bị rời đi khi bản thân là người ở lại."
+  },
+  "안녕히 계세요": {
+    "def": "내가 어떤 장소에서 떠날 때 그곳에 남아 있는 사람에게 정중하게 인사하는 말입니다.",
+    "defVi": "Đây là lời chúc ở lại bình an một cách lịch sự dành cho người ở lại khi bản thân là người rời đi."
+  },
+  "실례합니다": {
+    "def": "다른 사람에게 말을 걸거나 길을 비켜 달라고 할 때 예의를 갖추어 양해를 구하는 말입니다.",
+    "defVi": "Đây là lời nói lịch sự để mong người khác thông cảm khi mình muốn bắt chuyện hoặc nhờ nhường đường."
+  },
+  "반갑습니다": {
+    "def": "새로운 사람을 만나서 기쁘고 즐거운 마음을 정중하게 표현하는 말입니다.",
+    "defVi": "Đây là lời bày tỏ sự hân hoan một cách lịch sự khi được tiếp xúc với một người mới."
+  },
+  "괜찮아요": {
+    "def": "문제나 걱정거리가 없어서 마음이 놓이거나 상대방의 미안한 마음에 대해 배려할 때 쓰는 말입니다.",
+    "defVi": "Đây là câu nói dùng khi mọi chuyện vẫn tốt đẹp, không có gì đáng lo ngại hoặc để an ủi khi đối phương cảm thấy có lỗi."
+  },
+  "잘 부탁합니다": {
+    "def": "새로운 곳에서 일을 시작하거나 사람들을 만났을 때 앞으로 도움과 배려를 구하는 정중한 말입니다.",
+    "defVi": "Đây là lời nói lịch sự dùng khi bắt đầu công việc ở nơi mới hoặc khi mới gặp gỡ, nhằm mong nhận được sự hỗ trợ và chỉ bảo trong tương lai."
+  },
+  "이름": {
+    "def": "사람, 사물, 장소 등을 다른 것과 구별하여 부르기 위해 붙인 글자나 말입니다.",
+    "defVi": "Đây là danh xưng được đặt cho một người, sự vật hoặc địa điểm để gọi và phân biệt họ với những thứ khác."
+  },
+  "누구": {
+    "def": "가리키는 사람이 어떤 사람인지 모를 때 물어보는 질문용 단어입니다.",
+    "defVi": "Đây là từ dùng để hỏi về một người chưa rõ danh tính."
+  },
+  "준비하다": {
+    "def": "어떤 일을 하기 전에 필요한 물건을 미리 모으거나 계획을 세울 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi thu dọn đồ đạc cần thiết hoặc lập kế hoạch từ trước khi thực hiện một việc gì đó."
+  },
+  "도착하다": {
+    "def": "목적지에 이르게 되거나 가고자 했던 곳에 다다를 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi đi đến điểm đích hoặc chạm tới nơi mà mình muốn đến."
+  },
+  "출발하다": {
+    "def": "어떤 곳을 향하여 길을 떠나거나 가기 시작할 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi bắt đầu rời đi hoặc bắt đầu di chuyển hướng về một nơi nào đó."
+  },
+  "사용하다": {
+    "def": "어떤 목적을 위해 물건이나 도구를 쓸 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi dùng một đồ vật hoặc công cụ nào đó để phục vụ cho một mục đích nhất định."
+  },
+  "이야기하다": {
+    "def": "다른 사람과 말로 생각이나 의견을 주고받을 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi trao đổi suy nghĩ hoặc ý kiến với người khác bằng lời nói."
+  },
+  "소개하다": {
+    "def": "모르는 사람들에게 어떤 사람이나 사물을 잘 알 수 있도록 알려 줄 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi cho những người chưa biết rõ về một ai đó hoặc một sự vật nào đó được biết tường tận về họ hoặc nó."
+  },
+  "설명하다": {
+    "def": "다른 사람이 어떤 사실이나 내용을 잘 이해할 수 있도록 자세히 말해 줄 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi nói thật chi tiết để người khác có thể hiểu rõ về một sự thật hay nội dung nào đó."
+  },
+  "조심하다": {
+    "def": "위험하거나 나쁜 일이 생기지 않도록 마음을 쓰고 주의를 기울일 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi chú ý và để tâm để không xảy ra những việc nguy hiểm hoặc tồi tệ."
+  },
+  "결정하다": {
+    "def": "여러 가지 생각 중에서 하나를 선택하여 마음을 확실하게 정할 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi lựa chọn một phương án trong số nhiều suy nghĩ và xác định rõ ràng tâm trí của mình."
+  },
+  "초대하다": {
+    "def": "어떤 행사나 모임에 다른 사람을 오라고 정중하게 요청할 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi yêu cầu một cách lịch sự để người khác đến tham dự một sự kiện hay buổi gặp mặt nào đó."
+  },
+  "참가하다": {
+    "def": "어떤 모임이나 대회, 행사에 같이 들어가서 활동을 할 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi cùng bước vào và hoạt động trong một buổi tụ họp, cuộc thi hay sự kiện nào đó."
+  },
+  "신경 쓰다": {
+    "def": "어떤 일이나 사람에 대해 깊이 생각하거나 마음을 많이 보낼 때 이 행동을 합니다.",
+    "defVi": "Bạn làm hành động này khi suy nghĩ sâu sắc hoặc dành nhiều tâm tư cho một sự việc hay một người nào đó."
+  },
+  "아프다": {
+    "def": "몸의 어떤 곳이 불편하거나 힘들어서 기분이 좋지 않은 상태입니다.",
+    "defVi": "Cơ thể cảm thấy khó chịu hoặc mệt mỏi ở một bộ phận nào đó."
+  },
+  "약": {
+    "def": "몸이 좋지 않을 때 먹어서 병을 낫게 하는 물건입니다.",
+    "defVi": "Thứ dùng để uống khi cơ thể không khỏe nhằm giúp hồi phục."
+  },
+  "약국": {
+    "def": "몸이 안 좋을 때 필요한 물건을 사러 가는 곳입니다.",
+    "defVi": "Nơi bạn đến để mua những thứ cần thiết khi cơ thể không khỏe."
+  },
+  "감기": {
+    "def": "날씨가 추울 때 코가 막히거나 목이 따갑게 되는 흔한 병입니다.",
+    "defVi": "Một loại bệnh phổ biến khi thời tiết lạnh khiến bạn bị nghẹt mũi hoặc đau họng."
+  },
+  "열이 나다": {
+    "def": "몸의 온도가 평소보다 높아서 뜨겁게 느껴지는 상황입니다.",
+    "defVi": "Tình trạng nhiệt độ cơ thể cao hơn bình thường khiến bạn cảm thấy nóng."
+  },
+  "기침": {
+    "def": "목에 있는 불편한 공기를 밖으로 세게 내보내는 행동입니다.",
+    "defVi": "Hành động đẩy mạnh không khí từ cổ họng ra ngoài khi cảm thấy khó chịu."
+  },
+  "배탈": {
+    "def": "음식을 잘못 먹어서 속이 불편하고 화장실에 자주 가고 싶은 상태입니다.",
+    "defVi": "Tình trạng bụng khó chịu và muốn đi vệ sinh nhiều lần do ăn uống không hợp vệ sinh."
+  },
+  "다치다": {
+    "def": "운동이나 사고로 몸의 피부나 뼈에 문제가 생기는 것입니다.",
+    "defVi": "Việc da hoặc xương bị tổn thương do vận động mạnh hoặc gặp tai nạn."
+  },
+  "쉬다": {
+    "def": "하던 일을 멈추고 편안하게 누워 있거나 잠을 자는 것입니다.",
+    "defVi": "Dừng công việc lại để nằm nghỉ ngơi hoặc ngủ một giấc thoải mái."
+  },
+  "주사": {
+    "def": "병원에서 뾰족한 도구를 사용하여 몸 안으로 액체를 넣는 치료입니다.",
+    "defVi": "Phương pháp điều trị tại bệnh viện bằng cách dùng dụng cụ nhọn để đưa chất lỏng vào cơ thể."
+  },
+  "건강": {
+    "def": "몸과 마음이 아무런 문제 없이 튼튼한 상태를 말합니다.",
+    "defVi": "Trạng thái cơ thể và tinh thần đều khỏe mạnh, không gặp vấn đề gì."
+  },
+  "진료": {
+    "def": "의사 선생님을 만나서 몸 상태를 확인하고 치료 방법을 듣는 과정입니다.",
+    "defVi": "Quá trình gặp bác sĩ để kiểm tra tình trạng cơ thể và nghe tư vấn cách chữa trị."
+  },
+  "취미": {
+    "def": "이것은 여가 시간에 즐겁게 하는 활동입니다. 사람들이 좋아하는 일을 정기적으로 합니다.",
+    "defVi": "Đây là hoạt động bạn làm để giải trí trong thời gian rảnh rỗi. Mọi người thường thực hiện việc mình yêu thích một cách thường xuyên."
+  },
+  "음악": {
+    "def": "이것은 악기나 사람의 목소리로 만드는 아름다운 소리입니다. 귀로 들으면서 마음을 편하게 합니다.",
+    "defVi": "Đây là những âm thanh du dương được tạo ra từ nhạc cụ hoặc giọng hát. Bạn lắng nghe bằng tai để cảm thấy thư giãn tâm hồn."
+  },
+  "영화": {
+    "def": "이것은 카메라로 촬영한 이야기를 큰 화면으로 보여주는 영상물입니다. 극장에서 사람들과 같이 볼 수 있습니다.",
+    "defVi": "Đây là những câu chuyện được ghi hình lại và trình chiếu trên màn ảnh lớn. Bạn có thể đến rạp để xem cùng với nhiều người khác."
+  },
+  "노래": {
+    "def": "이것은 가사와 멜로디를 사용하여 목소리로 표현하는 예술입니다. 기분이 좋을 때 입으로 따라 부릅니다.",
+    "defVi": "Đây là hình thức nghệ thuật dùng giọng hát kết hợp với lời và giai điệu. Khi cảm thấy vui vẻ, bạn thường cất tiếng hát theo."
+  },
+  "게임": {
+    "def": "이것은 컴퓨터나 스마트폰으로 규칙에 따라 즐기는 놀이입니다. 승리하기 위해 여러 가지 전략을 사용합니다.",
+    "defVi": "Đây là trò chơi giải trí trên máy tính hoặc điện thoại dựa trên các quy tắc nhất định. Bạn cần dùng chiến thuật để giành chiến thắng."
+  },
+  "그림": {
+    "def": "이것은 종이나 캔버스 위에 붓과 물감으로 표현한 시각적인 예술 작품입니다. 풍경이나 사람의 모습을 담아냅니다.",
+    "defVi": "Đây là tác phẩm nghệ thuật thị giác được tạo ra bằng bút vẽ và màu trên giấy hoặc vải. Nó ghi lại hình ảnh của cảnh vật hoặc con người."
+  },
+  "춤": {
+    "def": "이것은 리듬에 맞추어 몸을 움직이는 활동입니다. 기분이 좋거나 축제 때 음악에 맞춰 몸을 흔듭니다.",
+    "defVi": "Đây là hoạt động vận động cơ thể theo nhịp điệu. Khi cảm thấy phấn khích hoặc trong các lễ hội, bạn thường lắc lư người theo giai điệu."
+  },
+  "독서": {
+    "def": "이것은 종이에 적힌 글자를 눈으로 보면서 내용을 이해하는 활동입니다. 지식을 얻거나 마음을 차분하게 합니다.",
+    "defVi": "Đây là việc dùng mắt để đọc các dòng chữ trên trang giấy nhằm hiểu nội dung. Hoạt động này giúp bạn trau dồi kiến thức hoặc làm tâm trí bình lặng."
+  },
+  "등산": {
+    "def": "이것은 높은 곳에 올라가기 위해 산을 걷는 활동입니다. 정상에 도착하면 기분이 아주 좋습니다.",
+    "defVi": "Đây là hoạt động đi bộ lên những nơi cao. Khi đặt chân đến đỉnh núi, bạn sẽ cảm thấy vô cùng sảng khoái."
+  },
+  "낚시": {
+    "def": "이것은 물가에서 도구를 사용하여 물속에 사는 생물을 잡는 활동입니다. 기다림의 시간이 필요합니다.",
+    "defVi": "Đây là hoạt động dùng dụng cụ để bắt các loài sinh vật dưới nước tại các bờ sông hoặc hồ. Nó đòi hỏi bạn phải kiên nhẫn chờ đợi."
+  },
+  "여가": {
+    "def": "이것은 일이나 공부를 하지 않는 자유로운 시간입니다. 이 시간에 자신이 하고 싶은 일을 합니다.",
+    "defVi": "Đây là khoảng thời gian tự do khi bạn không phải làm việc hay học tập. Bạn thường dùng thời gian này để làm những gì mình muốn."
+  },
+  "재미": {
+    "def": "이것은 어떤 활동을 할 때 느끼는 즐겁고 기쁜 감정입니다. 이것이 있으면 시간 가는 줄 모릅니다.",
+    "defVi": "Đây là cảm giác vui vẻ và thích thú khi thực hiện một việc gì đó. Khi có cảm giác này, bạn sẽ thấy thời gian trôi qua rất nhanh."
+  },
+  "방": {
+    "def": "이것은 집 안에 있는 공간입니다. 보통 벽으로 둘러싸여 있고 사람들이 잠을 자거나 휴식을 취하는 곳입니다.",
+    "defVi": "Đây là một không gian nằm trong nhà. Nơi này thường được bao quanh bởi các bức tường và là chỗ để mọi người ngủ hoặc nghỉ ngơi."
+  },
+  "부엌": {
+    "def": "이곳은 음식을 만드는 장소입니다. 가스레인지나 전자레인지 같은 기구들이 있습니다.",
+    "defVi": "Đây là nơi dùng để chế biến thức ăn. Tại đây thường có các thiết bị như bếp ga hoặc lò vi sóng."
+  },
+  "침대": {
+    "def": "이것은 밤에 잠을 잘 때 사용하는 가구입니다. 위에 푹신한 매트리스와 이불이 있습니다.",
+    "defVi": "Đây là món đồ nội thất được sử dụng khi ngủ vào ban đêm. Phía trên thường có đệm êm và chăn."
+  },
+  "책상": {
+    "def": "이것은 공부를 하거나 일을 할 때 사용하는 가구입니다. 위에 컴퓨터나 공책을 올려놓을 수 있습니다.",
+    "defVi": "Đây là món đồ nội thất dùng để học tập hoặc làm việc. Bạn có thể đặt máy tính hoặc vở lên trên mặt của nó."
+  },
+  "의자": {
+    "def": "이것은 사람이 앉을 수 있게 만든 가구입니다. 다리가 있고 등받이가 있는 경우가 많습니다.",
+    "defVi": "Đây là món đồ nội thất được tạo ra để con người ngồi lên. Nó thường có chân và phần tựa lưng."
+  },
+  "문": {
+    "def": "이것은 공간을 나누거나 밖으로 나갈 때 통과하는 것입니다. 이것을 밀거나 당겨서 열고 닫습니다.",
+    "defVi": "Đây là vật dùng để ngăn cách các không gian hoặc đi ra bên ngoài. Bạn đẩy hoặc kéo nó để mở và đóng lại."
+  },
+  "창문": {
+    "def": "이것은 벽에 있는 투명한 부분입니다. 이것을 통해 밖을 보거나 신선한 공기를 안으로 들어오게 합니다.",
+    "defVi": "Đây là phần trong suốt nằm trên tường. Thông qua nó, bạn có thể nhìn ra ngoài hoặc để không khí trong lành tràn vào bên trong."
+  },
+  "냉장고": {
+    "def": "이것은 음식을 차갑게 보관하는 가전제품입니다. 우유나 채소를 신선하게 유지할 수 있습니다.",
+    "defVi": "Đây là thiết bị điện gia dụng dùng để bảo quản thực phẩm ở nhiệt độ thấp. Nó giúp giữ cho sữa hoặc rau củ được tươi lâu."
+  },
+  "세탁기": {
+    "def": "이것은 더러워진 옷을 깨끗하게 만드는 가전제품입니다. 물과 세제를 넣고 작동시킵니다.",
+    "defVi": "Đây là thiết bị điện gia dụng dùng để làm sạch quần áo bẩn. Bạn cho nước và bột giặt vào rồi khởi động nó."
+  },
+  "청소하다": {
+    "def": "지저분한 곳을 깨끗하게 만드는 행동입니다. 먼지를 닦거나 물건을 제자리에 정리하는 것입니다.",
+    "defVi": "Đây là hành động làm cho một nơi bẩn thỉu trở nên sạch sẽ. Bạn lau bụi hoặc sắp xếp đồ đạc về đúng vị trí của nó."
+  },
+  "요리하다": {
+    "def": "여러 가지 재료를 사용하여 먹을 수 있는 음식을 만드는 행동입니다. 불을 사용하거나 기구를 이용합니다.",
+    "defVi": "Đây là hành động sử dụng nhiều nguyên liệu khác nhau để tạo ra món ăn có thể dùng được. Bạn sử dụng lửa hoặc các dụng cụ để thực hiện việc này."
+  },
+  "열쇠": {
+    "def": "이것은 잠긴 것을 열 때 사용하는 작은 금속 도구입니다. 보통 주머니나 가방에 넣고 다닙니다.",
+    "defVi": "Đây là một công cụ nhỏ bằng kim loại dùng để mở những thứ đang bị khóa. Mọi người thường bỏ nó vào túi hoặc ví để mang theo bên mình."
+  },
+  "저": {
+    "def": "말하는 사람이 자신을 낮추어 부르는 말입니다. 공손한 상황에서 사용합니다.",
+    "defVi": "Người nói dùng từ này để tự xưng một cách khiêm tốn. Thường dùng trong các tình huống cần sự lịch sự."
+  },
+  "제": {
+    "def": "말하는 사람의 것을 가리킬 때 쓰는 말입니다. 상대방에게 예의를 갖출 때 사용합니다.",
+    "defVi": "Dùng để chỉ vật thuộc về người nói. Thường dùng khi muốn tỏ thái độ tôn trọng với người nghe."
+  },
+  "씨": {
+    "def": "상대방의 이름 뒤에 붙여서 부르는 높임말입니다. 주로 비슷한 나이나 아랫사람에게 씁니다.",
+    "defVi": "Thêm vào sau tên của người khác để gọi một cách lịch sự. Thường dùng với người ngang hàng hoặc nhỏ tuổi hơn."
+  },
+  "님": {
+    "def": "상대방을 높여 부르기 위해 이름이나 직업 뒤에 붙이는 말입니다. 아주 정중한 표현입니다.",
+    "defVi": "Thêm vào sau tên hoặc chức vụ để thể hiện sự tôn trọng cao nhất đối với người đối diện."
+  },
+  "우리": {
+    "def": "말하는 사람이 포함된 여러 사람을 가리키는 말입니다. 가족이나 소속된 집단을 나타낼 때 씁니다.",
+    "defVi": "Dùng để chỉ một nhóm người có bao gồm cả người nói. Thường dùng để chỉ gia đình hoặc tập thể mà mình thuộc về."
+  },
+  "여러분": {
+    "def": "많은 사람을 한꺼번에 부를 때 쓰는 정중한 표현입니다. 발표나 인사할 때 자주 사용합니다.",
+    "defVi": "Cách gọi trang trọng khi muốn nhắc đến nhiều người cùng lúc. Thường dùng khi thuyết trình hoặc chào hỏi đám đông."
+  },
+  "손님": {
+    "def": "가게나 집에 방문한 사람을 높여 부르는 말입니다. 서비스를 받는 사람을 뜻합니다.",
+    "defVi": "Cách gọi tôn trọng dành cho người ghé thăm cửa hàng hoặc nhà riêng. Chỉ người đang sử dụng dịch vụ."
+  },
+  "성함": {
+    "def": "상대방의 이름을 높여서 부르는 말입니다. 처음 만난 사람에게 물어볼 때 사용합니다.",
+    "defVi": "Cách gọi tôn trọng dành cho tên của người khác. Dùng khi muốn hỏi thông tin này với người mới gặp."
+  },
+  "말씀": {
+    "def": "상대방이 하는 이야기를 높여서 부르는 말입니다. 예의를 갖추어 대화할 때 씁니다.",
+    "defVi": "Cách gọi tôn trọng dành cho lời nói của người khác. Dùng khi muốn giao tiếp một cách lịch sự."
+  },
+  "드리다": {
+    "def": "윗사람에게 물건을 주거나 행동을 할 때 쓰는 정중한 표현입니다.",
+    "defVi": "Cách nói lịch sự khi trao tặng vật phẩm hoặc thực hiện hành động nào đó cho người bề trên."
+  },
+  "드시다": {
+    "def": "음식을 먹거나 마시는 것을 높여서 표현하는 말입니다.",
+    "defVi": "Cách nói tôn trọng thay cho hành động ăn hoặc uống của người khác."
+  },
+  "계시다": {
+    "def": "어떤 장소에 머무는 것을 높여서 표현하는 말입니다.",
+    "defVi": "Cách nói tôn trọng thay cho hành động đang ở hoặc có mặt tại một địa điểm nào đó."
+  },
+  "원룸": {
+    "def": "This is a small living space where the bedroom, kitchen, and living area are all in one single room.",
+    "defVi": "Đây là kiểu căn hộ nhỏ mà phòng ngủ, bếp và chỗ sinh hoạt chung đều nằm gọn trong một không gian duy nhất."
+  },
+  "월세": {
+    "def": "This is the money you pay to the owner every thirty days to live in their property.",
+    "defVi": "Đây là số tiền bạn phải trả cho chủ nhà định kỳ mỗi tháng để được ở lại nơi đó."
+  },
+  "보증금": {
+    "def": "This is a large amount of money you give to the owner at the start, which you get back when you move out.",
+    "defVi": "Đây là khoản tiền lớn bạn đưa cho chủ nhà lúc bắt đầu thuê và sẽ được nhận lại khi bạn chuyển đi."
+  },
+  "집주인": {
+    "def": "This is the person who owns the building or the room that other people pay to live in.",
+    "defVi": "Đây là người sở hữu tòa nhà hoặc căn phòng mà người khác phải trả tiền để được sử dụng."
+  },
+  "이사하다": {
+    "def": "You do this when you move all your belongings from one place to another to live there instead.",
+    "defVi": "Bạn làm điều này khi mang toàn bộ đồ đạc của mình từ nơi ở cũ sang một nơi ở mới."
+  },
+  "관리비": {
+    "def": "This is the extra money you pay for services like cleaning, electricity in public areas, or security for the building.",
+    "defVi": "Đây là khoản phí phụ thêm bạn trả cho các dịch vụ như vệ sinh, điện hành lang hoặc bảo vệ tòa nhà."
+  },
+  "층": {
+    "def": "This is a level of a building that is built above or below the ground.",
+    "defVi": "Đây là một mặt phẳng nằm trong tòa nhà, được tính theo độ cao so với mặt đất."
+  },
+  "계단": {
+    "def": "This is a series of steps used to go up or down between different levels of a building.",
+    "defVi": "Đây là những bậc thang được dùng để đi lên hoặc đi xuống giữa các độ cao khác nhau trong tòa nhà."
+  },
+  "옥상": {
+    "def": "This is the flat top area of a building where you can go outside to see the view or dry clothes.",
+    "defVi": "Đây là phần mặt bằng phẳng nằm trên cùng của tòa nhà, nơi bạn có thể ra ngoài ngắm cảnh hoặc phơi đồ."
+  },
+  "지하": {
+    "def": "This is the part of a building that is located below the surface of the ground.",
+    "defVi": "Đây là phần không gian của tòa nhà nằm ở bên dưới mặt đất."
+  },
+  "마당": {
+    "def": "This is an open area of ground next to a house, often covered with grass or plants.",
+    "defVi": "Đây là khoảng đất trống nằm ngay cạnh ngôi nhà, thường được trồng cỏ hoặc hoa."
+  },
+  "벽": {
+    "def": "This is a flat, vertical structure that separates rooms or forms the outside of a building.",
+    "defVi": "Đây là cấu trúc thẳng đứng, phẳng, dùng để ngăn cách các phòng hoặc tạo nên lớp vỏ bao quanh tòa nhà."
+  },
+  "아름답다": {
+    "def": "눈으로 볼 때 모습이 아주 좋고 마음이 즐거워지는 상태입니다.",
+    "defVi": "Khi nhìn vào thấy hình ảnh rất bắt mắt và làm cho tâm hồn cảm thấy vui vẻ."
+  },
+  "눕다": {
+    "def": "몸을 바닥이나 침대 위에 수평으로 길게 두는 동작입니다.",
+    "defVi": "Hành động đặt cơ thể nằm ngang trên sàn nhà hoặc giường."
+  },
+  "줍다": {
+    "def": "바닥에 떨어진 물건을 손으로 들어 올리는 행동입니다.",
+    "defVi": "Hành động dùng tay nhấc một đồ vật đang rơi dưới đất lên."
+  },
+  "낫다": {
+    "def": "몸이 아픈 상태에서 건강한 상태로 다시 돌아오는 것입니다.",
+    "defVi": "Trạng thái cơ thể từ lúc bị đau ốm quay trở lại bình thường khỏe mạnh."
+  },
+  "짓다": {
+    "def": "집을 만들거나 아이에게 특별한 이름을 붙여 주는 일입니다.",
+    "defVi": "Việc tạo ra một ngôi nhà hoặc đặt một cái tên ý nghĩa cho một ai đó."
+  },
+  "붓다": {
+    "def": "액체를 그릇에 담거나 몸의 한 부분이 평소보다 크게 변하는 현상입니다.",
+    "defVi": "Hiện tượng đổ chất lỏng vào vật chứa hoặc một bộ phận trên cơ thể bị sưng to hơn bình thường."
+  },
+  "부르다": {
+    "def": "상대방의 이름을 말하거나 음악에 맞춰 소리를 내는 것입니다.",
+    "defVi": "Hành động gọi tên ai đó hoặc cất tiếng hát theo giai điệu âm nhạc."
+  },
+  "고르다": {
+    "def": "여러 가지 중에서 마음에 드는 것을 하나 선택하는 과정입니다.",
+    "defVi": "Quá trình lựa chọn một thứ mình ưng ý nhất trong số nhiều món đồ khác nhau."
+  },
+  "자르다": {
+    "def": "가위나 칼을 사용하여 물건을 두 개 이상의 조각으로 나누는 것입니다.",
+    "defVi": "Dùng kéo hoặc dao để chia một vật thành hai hay nhiều phần."
+  },
+  "흐르다": {
+    "def": "물이나 액체가 높은 곳에서 낮은 곳으로 계속 움직이는 것입니다.",
+    "defVi": "Nước hoặc chất lỏng liên tục di chuyển từ nơi cao xuống nơi thấp."
+  },
+  "그리다": {
+    "def": "연필이나 붓으로 종이 위에 어떤 모양이나 풍경을 표현하는 것입니다.",
+    "defVi": "Dùng bút chì hoặc cọ để thể hiện hình dáng hay phong cảnh lên mặt giấy."
+  },
+  "서두르다": {
+    "def": "시간이 부족하여 평소보다 훨씬 빠르게 행동하는 모습입니다.",
+    "defVi": "Vì thiếu thời gian nên phải làm mọi việc nhanh hơn mức bình thường."
+  },
+  "냄비": {
+    "def": "이것은 음식을 넣고 불 위에서 국이나 찌개를 만들 때 사용하는 금속 용기입니다.",
+    "defVi": "Đây là vật dụng bằng kim loại dùng để đựng thực phẩm và nấu canh hoặc các món hầm trên bếp."
+  },
+  "프라이팬": {
+    "def": "이것은 넓고 평평한 모양으로 불 위에서 음식을 볶거나 부칠 때 사용하는 도구입니다.",
+    "defVi": "Đây là dụng cụ có hình dạng phẳng và rộng, dùng để xào hoặc chiên thức ăn trên bếp."
+  },
+  "칼": {
+    "def": "이것은 날카로운 금속으로 되어 있어 식재료를 작게 자를 때 사용하는 주방 도구입니다.",
+    "defVi": "Đây là dụng cụ nhà bếp có lưỡi kim loại sắc bén, dùng để cắt nhỏ thực phẩm."
+  },
+  "도마": {
+    "def": "이것은 재료를 올려두고 날카로운 도구로 자를 때 바닥을 보호하기 위해 사용하는 판입니다.",
+    "defVi": "Đây là tấm kê dùng để đặt thực phẩm lên trên khi cắt bằng vật sắc nhọn nhằm bảo vệ mặt bàn."
+  },
+  "그릇": {
+    "def": "이것은 밥이나 국을 담아 식사할 때 사용하는 오목한 모양의 용기입니다.",
+    "defVi": "Đây là vật dụng có hình lòng sâu, dùng để đựng cơm hoặc canh khi ăn."
+  },
+  "접시": {
+    "def": "이것은 반찬이나 음식을 올려놓기 위해 사용하는 납작하고 둥근 모양의 도구입니다.",
+    "defVi": "Đây là vật dụng có hình tròn và phẳng, dùng để bày thức ăn hoặc món phụ lên trên."
+  },
+  "컵": {
+    "def": "이것은 물이나 음료수를 담아서 마실 때 사용하는 작은 용기입니다.",
+    "defVi": "Đây là vật dụng nhỏ dùng để đựng nước hoặc đồ uống khi muốn uống."
+  },
+  "소금": {
+    "def": "이것은 바닷물에서 얻는 하얀 가루이며 음식의 맛을 짜게 만들 때 사용합니다.",
+    "defVi": "Đây là loại bột màu trắng lấy từ nước biển, dùng để làm cho món ăn có vị mặn."
+  },
+  "설탕": {
+    "def": "이것은 사탕수수 등으로 만드는 하얀 가루이며 음식에 단맛을 낼 때 사용합니다.",
+    "defVi": "Đây là loại bột màu trắng làm từ cây mía, dùng để tạo vị ngọt cho món ăn."
+  },
+  "기름": {
+    "def": "이것은 식물이나 동물에서 얻는 액체이며 음식을 볶거나 튀길 때 사용합니다.",
+    "defVi": "Đây là chất lỏng chiết xuất từ thực vật hoặc động vật, dùng để xào hoặc chiên rán thực phẩm."
+  },
+  "굽다": {
+    "def": "이것은 불 위에서 음식을 직접 익혀서 맛을 내는 조리 방법입니다.",
+    "defVi": "Đây là cách chế biến làm chín thực phẩm trực tiếp trên lửa để tạo hương vị."
+  },
+  "끓이다": {
+    "def": "이것은 물이나 액체 음식을 높은 온도에서 보글보글하게 익히는 행동입니다.",
+    "defVi": "Đây là hành động làm cho nước hoặc món ăn dạng lỏng sôi lên ở nhiệt độ cao."
+  },
+  "봉지": {
+    "def": "이것은 물건을 담는 얇은 비닐 주머니입니다. 보통 과자나 설탕을 살 때 사용합니다.",
+    "defVi": "물건을 담는 얇은 비닐 주머니예요. 보통 과자나 설탕을 살 때 사용해요."
+  },
+  "팩": {
+    "def": "이것은 우유나 주스처럼 액체를 담는 작은 종이 상자 단위입니다.",
+    "defVi": "우유나 주스 같은 액체를 담는 작은 종이 상자 단위를 말해요."
+  },
+  "킬로": {
+    "def": "무게를 재는 단위입니다. 천 그램과 같은 양을 나타냅니다.",
+    "defVi": "무게를 재는 단위예요. 천 그램과 같은 양을 나타내요."
+  },
+  "그램": {
+    "def": "아주 가벼운 무게를 나타내는 작은 단위입니다.",
+    "defVi": "아주 가벼운 무게를 나타내는 작은 단위를 말해요."
+  },
+  "유통기한": {
+    "def": "음식이나 물건을 안전하게 먹거나 사용할 수 있는 마지막 날짜입니다.",
+    "defVi": "음식이나 물건을 안전하게 먹거나 사용할 수 있는 마지막 날짜예요."
+  },
+  "영업시간": {
+    "def": "가게나 식당이 손님을 맞이하기 위해 문을 여는 시간입니다.",
+    "defVi": "가게나 식당이 손님을 맞이하기 위해 문을 여는 시간을 말해요."
+  },
+  "계산대": {
+    "def": "가게에서 물건을 고른 뒤 돈을 지불하는 장소입니다.",
+    "defVi": "가게에서 물건을 고른 뒤 돈을 지불하는 장소예요."
+  },
+  "장바구니": {
+    "def": "시장에서 물건을 살 때 물건을 담아서 들고 다니는 도구입니다.",
+    "defVi": "시장에서 물건을 살 때 물건을 담아서 들고 다니는 도구예요."
+  },
+  "신선하다": {
+    "def": "음식이나 재료가 갓 따거나 만들어서 상태가 아주 좋고 깨끗한 것입니다.",
+    "defVi": "음식이나 재료가 갓 따거나 만들어서 상태가 아주 좋고 깨끗한 것을 말해요."
+  },
+  "상하다": {
+    "def": "음식이 오래되어 맛이 변하거나 먹을 수 없는 상태가 되는 것입니다.",
+    "defVi": "음식이 오래되어 맛이 변하거나 먹을 수 없는 상태가 되는 거예요."
+  },
+  "무료": {
+    "def": "물건을 사거나 서비스를 받을 때 돈을 전혀 내지 않는 것입니다.",
+    "defVi": "물건을 사거나 서비스를 받을 때 돈을 전혀 내지 않는 것을 뜻해요."
+  },
+  "반값": {
+    "def": "원래 가격에서 절반만 내는 것을 의미합니다.",
+    "defVi": "원래 가격에서 절반만 내는 것을 말해요."
+  },
+  "드라마": {
+    "def": "This is a long story made for television with many episodes. People enjoy watching these stories at home every week.",
+    "defVi": "Đây là một câu chuyện dài tập được sản xuất để chiếu trên truyền hình. Mọi người thường thích theo dõi các tập phim này tại nhà hàng tuần."
+  },
+  "가수": {
+    "def": "This is a person who makes music with their voice. They often perform songs on stage for many people.",
+    "defVi": "Đây là người dùng giọng hát của mình để tạo ra âm nhạc. Họ thường đứng trên sân khấu để trình diễn các bài hát cho khán giả."
+  },
+  "배우": {
+    "def": "This is a person who plays a character in a story. They work in movies or on stage to show different emotions.",
+    "defVi": "Đây là người hóa thân vào các nhân vật trong một câu chuyện. Họ làm việc trong các bộ phim hoặc trên sân khấu để thể hiện những cảm xúc khác nhau."
+  },
+  "공연": {
+    "def": "This is an event where people show their talent like music or dance to an audience. It usually happens in a big hall or theater.",
+    "defVi": "Đây là một sự kiện nơi mọi người thể hiện tài năng như ca hát hoặc nhảy múa trước khán giả. Nó thường diễn ra tại các hội trường lớn hoặc nhà hát."
+  },
+  "예매": {
+    "def": "You do this when you buy a ticket for a future event before it happens. It helps you make sure you have a seat.",
+    "defVi": "Bạn thực hiện việc này khi mua vé cho một sự kiện trong tương lai trước khi nó diễn ra. Điều này giúp bạn đảm bảo mình chắc chắn có chỗ ngồi."
+  },
+  "방송": {
+    "def": "This is the act of sending sounds or images through the air to televisions or radios. People watch or listen to these programs every day.",
+    "defVi": "Đây là việc truyền tải âm thanh hoặc hình ảnh qua sóng đến các thiết bị như tivi hoặc đài phát thanh. Mọi người xem hoặc nghe các nội dung này mỗi ngày."
+  },
+  "뉴스": {
+    "def": "This is information about important things happening in the world today. People watch it to know what is going on around them.",
+    "defVi": "Đây là những thông tin về các sự kiện quan trọng đang xảy ra trên thế giới hiện nay. Mọi người xem nó để biết những gì đang diễn ra xung quanh mình."
+  },
+  "채널": {
+    "def": "This is a specific number or name that you choose on your television to watch a certain program. You can change it to see different things.",
+    "defVi": "Đây là một số hoặc tên cụ thể mà bạn chọn trên tivi để xem một chương trình nhất định. Bạn có thể chuyển đổi nó để theo dõi các nội dung khác nhau."
+  },
+  "자막": {
+    "def": "These are written words at the bottom of the screen that show what people are saying. It helps you understand a foreign language.",
+    "defVi": "Đây là những dòng chữ hiện ở phía dưới màn hình để hiển thị nội dung lời thoại. Nó giúp bạn hiểu được những ngôn ngữ nước ngoài."
+  },
+  "감동": {
+    "def": "This is a strong feeling in your heart when you see something very beautiful or sad. It makes you want to cry or feel very happy.",
+    "defVi": "Đây là một cảm giác mạnh mẽ trong lòng khi bạn chứng kiến một điều gì đó rất đẹp đẽ hoặc buồn bã. Nó khiến bạn muốn rơi nước mắt hoặc cảm thấy vô cùng hạnh phúc."
+  },
+  "장면": {
+    "def": "This is a small part of a movie or a play that happens in one place at one time. It shows a specific action or conversation.",
+    "defVi": "Đây là một phần nhỏ của bộ phim hoặc vở kịch diễn ra tại một địa điểm và thời điểm nhất định. Nó thể hiện một hành động hoặc cuộc đối thoại cụ thể."
+  },
+  "웃음": {
+    "def": "This is the sound or look on your face when you find something very funny. It shows that you are happy and having a good time.",
+    "defVi": "Đây là âm thanh hoặc biểu cảm trên khuôn mặt khi bạn thấy một điều gì đó rất vui nhộn. Nó cho thấy bạn đang cảm thấy hạnh phúc và vui vẻ."
+  },
+  "강": {
+    "def": "이것은 긴 물줄기가 바다로 흘러가는 자연의 길입니다.",
+    "defVi": "Dòng nước chảy dài tự nhiên đổ ra biển."
+  },
+  "섬": {
+    "def": "이것은 사방이 모두 물로 둘러싸여 있는 작은 땅입니다.",
+    "defVi": "Vùng đất nhỏ được bao quanh bởi nước ở bốn phía."
+  },
+  "숲": {
+    "def": "이곳은 나무와 풀이 아주 많이 모여서 자라는 장소입니다.",
+    "defVi": "Nơi có rất nhiều cây cối và cỏ mọc tập trung với nhau."
+  },
+  "호수": {
+    "def": "이것은 육지 가운데에 있는 큰 물 웅덩이입니다.",
+    "defVi": "Vũng nước lớn nằm ở giữa đất liền."
+  },
+  "언덕": {
+    "def": "이것은 산보다 낮고 평지보다 조금 높은 땅의 모양입니다.",
+    "defVi": "Phần đất cao hơn mặt bằng chung nhưng thấp hơn núi."
+  },
+  "들판": {
+    "def": "이것은 나무가 거의 없고 아주 넓게 펼쳐진 평평한 땅입니다.",
+    "defVi": "Vùng đất bằng phẳng, rộng lớn và hầu như không có cây cối."
+  },
+  "경치": {
+    "def": "이것은 눈으로 볼 수 있는 자연의 아름다운 모습입니다.",
+    "defVi": "Vẻ đẹp của thiên nhiên mà mắt có thể nhìn thấy được."
+  },
+  "별": {
+    "def": "이것은 밤하늘에서 혼자 반짝이는 아주 작은 빛입니다.",
+    "defVi": "Những đốm sáng nhỏ lấp lánh trên bầu trời đêm."
+  },
+  "달": {
+    "def": "이것은 밤에 지구 주위를 돌며 은은한 빛을 내는 물체입니다.",
+    "defVi": "Vật thể tỏa ánh sáng dịu nhẹ, xoay quanh trái đất vào ban đêm."
+  },
+  "해": {
+    "def": "이것은 낮에 하늘 높이 떠서 세상에 따뜻한 빛을 줍니다.",
+    "defVi": "Vật thể tỏa ánh sáng ấm áp, xuất hiện trên bầu trời vào ban ngày."
+  },
+  "파도": {
+    "def": "이것은 바닷물이 바람 때문에 위아래로 움직이는 모습입니다.",
+    "defVi": "Hiện tượng nước biển chuyển động lên xuống do tác động của gió."
+  },
+  "모래": {
+    "def": "이것은 바닷가나 사막에 있는 아주 작은 돌가루입니다.",
+    "defVi": "Những hạt đá vụn li ti thường thấy ở bãi biển hoặc sa mạc."
+  },
+  "사무실": {
+    "def": "이곳은 사람들이 책상과 컴퓨터를 두고 매일 앉아서 일하는 공간입니다.",
+    "defVi": "Nơi mọi người ngồi làm việc hàng ngày với bàn ghế và máy tính."
+  },
+  "회사원": {
+    "def": "기업에 소속되어 매일 정해진 시간에 출근하고 업무를 수행하는 사람입니다.",
+    "defVi": "Người làm việc cho một tổ chức, hàng ngày đi làm đúng giờ và thực hiện các nhiệm vụ chuyên môn."
+  },
+  "부장님": {
+    "def": "조직 내에서 높은 위치에 있으며 아래 직원들을 관리하고 중요한 결정을 내리는 사람입니다.",
+    "defVi": "Người có vị trí cao trong tổ chức, chịu trách nhiệm quản lý nhân viên và đưa ra các quyết định quan trọng."
+  },
+  "팀": {
+    "def": "공통의 목표를 달성하기 위해 함께 모여 협력하는 사람들의 작은 집단입니다.",
+    "defVi": "Một nhóm nhỏ những người cùng nhau hợp tác để đạt được mục tiêu chung."
+  },
+  "프로젝트": {
+    "def": "특정한 결과를 얻기 위해 정해진 기간 동안 집중적으로 진행하는 계획된 일입니다.",
+    "defVi": "Một công việc được lên kế hoạch và thực hiện tập trung trong một khoảng thời gian nhất định để đạt kết quả cụ thể."
+  },
+  "마감": {
+    "def": "어떤 일을 끝내야 하는 마지막 시간이나 날짜를 의미합니다.",
+    "defVi": "Thời điểm hoặc ngày cuối cùng mà một công việc phải được hoàn thành."
+  },
+  "출장": {
+    "def": "업무를 보기 위해 자신이 원래 일하던 곳을 떠나 다른 지역이나 국가로 가는 것입니다.",
+    "defVi": "Việc rời khỏi nơi làm việc thường nhật để đi đến một địa phương hoặc quốc gia khác nhằm giải quyết công việc."
+  },
+  "휴가": {
+    "def": "일이나 공부를 잠시 멈추고 며칠 동안 쉬면서 재충전하는 시간입니다.",
+    "defVi": "Khoảng thời gian tạm dừng công việc hoặc học tập để nghỉ ngơi và hồi phục sức lực."
+  },
+  "월급": {
+    "def": "한 달 동안 열심히 일한 대가로 회사에서 받는 돈입니다.",
+    "defVi": "Số tiền nhận được từ công ty sau một tháng làm việc chăm chỉ."
+  },
+  "면접": {
+    "def": "직장을 얻기 위해 담당자를 직접 만나서 자신의 능력과 성격에 대해 이야기하는 자리입니다.",
+    "defVi": "Buổi gặp mặt trực tiếp với người tuyển dụng để trao đổi về năng lực và tính cách trước khi được nhận vào làm."
+  },
+  "이력서": {
+    "def": "자신의 이름과 학력 그리고 지금까지 해온 일들을 적어서 회사에 제출하는 문서입니다.",
+    "defVi": "Tài liệu ghi lại thông tin cá nhân, trình độ học vấn và kinh nghiệm làm việc để nộp cho nhà tuyển dụng."
+  },
+  "계약": {
+    "def": "두 사람이나 단체가 서로 약속을 지키기로 하고 종이에 적어 도장을 찍는 행위입니다.",
+    "defVi": "Việc hai bên cùng cam kết thực hiện một thỏa thuận và ghi lại bằng văn bản rồi đóng dấu xác nhận."
+  },
+  "배송": {
+    "def": "물건을 주문한 사람의 집까지 안전하게 가져다주는 일입니다.",
+    "defVi": "Việc mang hàng hóa đến tận nhà cho người đã đặt mua."
+  },
+  "반품": {
+    "def": "산 물건이 마음에 들지 않거나 문제가 있어서 다시 가게로 돌려보내는 행동입니다.",
+    "defVi": "Hành động gửi trả lại món đồ cho cửa hàng vì không ưng ý hoặc bị lỗi."
+  },
+  "후기": {
+    "def": "어떤 것을 직접 사용해 본 뒤에 느낀 점을 글로 적어 남기는 것입니다.",
+    "defVi": "Những dòng cảm nhận sau khi đã trực tiếp trải nghiệm một sản phẩm nào đó."
+  },
+  "결제": {
+    "def": "물건을 사기 위해 필요한 돈을 지불하는 과정입니다.",
+    "defVi": "Quá trình trả số tiền cần thiết để sở hữu món hàng."
+  },
+  "품절": {
+    "def": "가게에 준비된 모든 물건이 다 팔려서 더 이상 살 수 없는 상태입니다.",
+    "defVi": "Tình trạng tất cả hàng hóa đã bán sạch nên không thể mua thêm được nữa."
+  },
+  "재고": {
+    "def": "가게나 창고에 아직 팔리지 않고 남아 있는 물건들을 말합니다.",
+    "defVi": "Số lượng hàng hóa vẫn còn trong kho hoặc cửa hàng mà chưa có người mua."
+  },
+  "쿠폰": {
+    "def": "이것을 가지고 있으면 물건을 살 때 값을 조금 깎아주는 종이나 디지털 증서입니다.",
+    "defVi": "Một loại giấy tờ hoặc mã kỹ thuật số giúp bạn được giảm giá khi mua sắm."
+  },
+  "적립금": {
+    "def": "물건을 살 때마다 조금씩 모아두었다가 나중에 돈처럼 쓸 수 있는 점수입니다.",
+    "defVi": "Số điểm tích lũy được sau mỗi lần mua hàng để dùng như tiền mặt trong tương lai."
+  },
+  "회원": {
+    "def": "어떤 단체나 인터넷 서비스에 개인 정보를 등록하고 가입한 사람입니다.",
+    "defVi": "Người đã đăng ký thông tin cá nhân để trở thành người dùng chính thức của một dịch vụ hoặc tổ chức."
+  },
+  "사이트": {
+    "def": "인터넷에서 정보를 찾거나 물건을 사기 위해 접속하는 공간입니다.",
+    "defVi": "Nơi trên mạng mà bạn truy cập vào để tìm kiếm thông tin hoặc mua sắm."
+  },
+  "클릭하다": {
+    "def": "컴퓨터 마우스를 이용해 화면의 특정 부분을 눌러서 명령을 내리는 것입니다.",
+    "defVi": "Dùng chuột máy tính nhấn vào một vị trí trên màn hình để thực hiện lệnh."
+  },
+  "비교하다": {
+    "def": "두 가지 이상의 대상을 놓고 무엇이 더 좋거나 나은지 차이점을 살피는 것입니다.",
+    "defVi": "Đặt hai hoặc nhiều thứ cạnh nhau để xem cái nào tốt hơn hoặc khác biệt ra sao."
+  },
+  "첫째": {
+    "def": "순서를 셀 때 가장 먼저 오는 것이다.",
+    "defVi": "Khi đếm thứ tự, đây là vị trí đứng đầu tiên."
+  },
+  "둘째": {
+    "def": "순서를 셀 때 시작점에서 바로 다음으로 오는 것이다.",
+    "defVi": "Khi đếm thứ tự, đây là vị trí đứng ngay sau vị trí đầu tiên."
+  },
+  "셋째": {
+    "def": "순서를 셀 때 앞에서부터 세 번째에 위치하는 것이다.",
+    "defVi": "Khi đếm thứ tự, đây là vị trí đứng ngay sau vị trí thứ hai."
+  },
+  "번째": {
+    "def": "순서나 차례를 나타내기 위해 숫자 뒤에 붙이는 말이다.",
+    "defVi": "Từ dùng để gắn sau con số nhằm chỉ thứ tự hoặc lượt."
+  },
+  "미터": {
+    "def": "이것은 길이를 재는 기본 단위입니다. 보통 백 센티___와 같은 크기를 말합니다.",
+    "defVi": "đây là đơn vị cơ bản dùng để đo chiều dài. Nó tương đương với độ dài của một trăm xăng-ti-mét."
+  },
+  "센티미터": {
+    "def": "길이를 재는 단위로 일 미터의 백 분의 일이다.",
+    "defVi": "Đơn vị dùng để đo chiều dài, bằng một phần một trăm của một mét."
+  },
+  "킬로그램": {
+    "def": "무게를 재는 단위로 천 그램과 같다.",
+    "defVi": "Đơn vị dùng để đo trọng lượng, tương đương với một nghìn gam."
+  },
+  "온도": {
+    "def": "공기나 물이 얼마나 뜨겁거나 차가운지를 나타내는 수치이다.",
+    "defVi": "Con số biểu thị mức độ nóng hay lạnh của không khí hoặc nước."
+  },
+  "퍼센트": {
+    "def": "전체를 백으로 나누었을 때의 비율을 나타내는 단위이다.",
+    "defVi": "Đơn vị biểu thị tỷ lệ khi chia toàn bộ sự vật thành một trăm phần bằng nhau."
+  },
+  "반": {
+    "def": "어떤 전체를 똑같이 둘로 나누었을 때의 한쪽 부분이다.",
+    "defVi": "Một phần trong hai phần bằng nhau khi chia đôi một tổng thể."
+  },
+  "정도": {
+    "def": "정확하지는 않지만 대략적인 수량이나 수준을 말한다.",
+    "defVi": "Dùng để chỉ số lượng hoặc mức độ ước chừng, không chính xác tuyệt đối."
+  },
+  "쯤": {
+    "def": "정확한 시간이나 수량 뒤에 붙어 대략적인 범위를 나타낸다.",
+    "defVi": "Từ đứng sau thời gian hoặc số lượng để chỉ một phạm vi không cụ thể."
+  },
+  "은/는": {
+    "def": "This is a marker used to show what the speaker is talking about. It highlights the main topic of the sentence.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ ra chủ đề chính mà người nói đang nhắc đến trong câu."
+  },
+  "이/가": {
+    "def": "This is a marker used to identify the person or thing that performs an action. It helps to specify who or what is doing something.",
+    "defVi": "Đây là dấu hiệu dùng để xác định người hoặc vật thực hiện hành động, giúp làm rõ ai hoặc cái gì đang làm việc đó."
+  },
+  "을/를": {
+    "def": "This is a marker used to show the object that receives an action. It comes right after the noun that is being affected by a verb.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ đối tượng chịu tác động của hành động, đứng ngay sau danh từ bị động từ tác động vào."
+  },
+  "에": {
+    "def": "This is a marker used to indicate a specific place where someone stays or a point in time when something happens.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ một địa điểm cụ thể nơi ai đó đang ở hoặc một mốc thời gian khi sự việc diễn ra."
+  },
+  "에서": {
+    "def": "This is a marker used to show the location where an activity takes place. It indicates where someone performs a task.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ địa điểm nơi một hoạt động nào đó đang diễn ra, cho biết nơi ai đó thực hiện công việc."
+  },
+  "도": {
+    "def": "This is a marker used to show that something is in addition to what was already mentioned. It means that another person or thing shares the same status.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ sự thêm vào so với những gì đã nhắc tới trước đó, cho thấy một người hoặc vật khác cũng có trạng thái tương tự."
+  },
+  "만": {
+    "def": "This is a marker used to limit the amount or number of something. It shows that there is nothing else besides the mentioned item.",
+    "defVi": "Đây là dấu hiệu dùng để giới hạn số lượng hoặc mức độ, cho thấy không còn gì khác ngoài thứ vừa được nhắc đến."
+  },
+  "와/과": {
+    "def": "This is a connector used to link two nouns together in written language. It shows that two things are connected or grouped.",
+    "defVi": "Đây là từ nối dùng để kết hợp hai danh từ lại với nhau trong văn viết, cho thấy hai sự vật có mối liên hệ hoặc cùng nhóm."
+  },
+  "하고": {
+    "def": "This is a connector used to link two nouns together in spoken language. It is used when talking about things that go together.",
+    "defVi": "Đây là từ nối dùng để kết hợp hai danh từ lại với nhau trong văn nói, thường dùng khi nhắc đến những thứ đi cùng nhau."
+  },
+  "부터": {
+    "def": "This is a marker used to indicate the starting point of a period or an action. It shows when something begins.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ điểm bắt đầu của một khoảng thời gian hoặc một hành động, cho biết khi nào sự việc khởi đầu."
+  },
+  "까지": {
+    "def": "This is a marker used to indicate the final point of a period or a destination. It shows when or where something ends.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ điểm kết thúc của một khoảng thời gian hoặc một đích đến, cho biết khi nào hoặc nơi nào sự việc dừng lại."
+  },
+  "(으)로": {
+    "def": "This is a marker used to show the method, tool, or direction of an action. It explains how or in which way something is done.",
+    "defVi": "Đây là dấu hiệu dùng để chỉ phương tiện, công cụ hoặc hướng đi của hành động, giải thích cách thức thực hiện việc gì đó."
+  },
+  "여보세요": {
+    "def": "상대방과 대화를 시작할 때 전화기 너머로 하는 첫 인사입니다.",
+    "defVi": "Khi bắt đầu nói chuyện qua điện thoại, bạn dùng câu này để chào người ở đầu dây bên kia."
+  },
+  "통화": {
+    "def": "전화기를 사용하여 멀리 있는 사람과 목소리로 대화를 나누는 행동입니다.",
+    "defVi": "Hành động dùng điện thoại để trò chuyện trực tiếp với người ở xa."
+  },
+  "문자": {
+    "def": "전화기를 통해 글자를 적어서 상대방에게 보내는 짧은 소통 방식입니다.",
+    "defVi": "Cách giao tiếp ngắn gọn bằng cách viết chữ rồi gửi qua điện thoại."
+  },
+  "약속": {
+    "def": "특정한 시간과 장소에서 누군가를 만나기로 미리 정하는 것입니다.",
+    "defVi": "Việc ấn định trước thời gian và địa điểm để gặp gỡ ai đó."
+  },
+  "늦다": {
+    "def": "정해진 시간보다 더 지나서 도착하거나 행동하는 상태입니다.",
+    "defVi": "Trạng thái đến nơi hoặc thực hiện việc gì đó sau thời gian đã định."
+  },
+  "취소하다": {
+    "def": "이미 정해진 계획이나 예약을 없던 일로 만드는 행동입니다.",
+    "defVi": "Hành động làm cho kế hoạch hoặc việc đặt chỗ đã định trước trở nên vô hiệu."
+  },
+  "확인하다": {
+    "def": "내용이 맞는지 혹은 사실인지 다시 한번 자세히 살펴보는 것입니다.",
+    "defVi": "Việc xem xét kỹ lưỡng một lần nữa để xem thông tin có chính xác hay đúng sự thật không."
+  },
+  "연락하다": {
+    "def": "전화나 편지 등을 통해 상대방에게 소식을 전하거나 소통하는 것입니다.",
+    "defVi": "Việc truyền tin hoặc kết nối với người khác thông qua điện thoại, thư từ."
+  },
+  "바꾸다": {
+    "def": "전화를 받은 사람이 다른 사람에게 기기를 넘겨주는 것입니다.",
+    "defVi": "Hành động người đang cầm máy chuyển điện thoại cho người khác nghe."
+  },
+  "끊다": {
+    "def": "대화를 마치고 전화기 연결을 끝내는 행동입니다.",
+    "defVi": "Hành động kết thúc cuộc trò chuyện và ngắt kết nối điện thoại."
+  },
+  "잠깐만요": {
+    "def": "상대방에게 조금만 기다려 달라고 정중하게 부탁할 때 쓰는 말입니다.",
+    "defVi": "Lời nói lịch sự dùng để nhờ người khác chờ đợi mình trong chốc lát."
+  },
+  "다시 걸다": {
+    "def": "통화가 연결되지 않았거나 나중에 대화를 이어가기 위해 한 번 더 시도하는 것입니다.",
+    "defVi": "Việc thực hiện cuộc gọi thêm một lần nữa vì trước đó không kết nối được hoặc muốn nói chuyện sau."
+  },
+  "집": {
+    "def": "사람들이 가족과 함께 살면서 잠을 자고 쉬는 공간입니다.",
+    "defVi": "Nơi mọi người cùng gia đình sinh sống, ngủ nghỉ và thư giãn."
+  },
+  "학교": {
+    "def": "학생들이 모여서 선생님께 공부를 배우는 교육 기관입니다.",
+    "defVi": "Nơi học sinh tập trung để học kiến thức từ giáo viên."
+  },
+  "회사": {
+    "def": "사람들이 모여서 일을 하고 돈을 버는 경제적인 조직입니다.",
+    "defVi": "Tổ chức kinh tế nơi mọi người làm việc để kiếm tiền."
+  },
+  "병원": {
+    "def": "몸이 아플 때 의사에게 진찰을 받고 치료를 받는 곳입니다.",
+    "defVi": "Nơi bạn đến khám và điều trị khi cơ thể bị đau ốm."
+  },
+  "은행": {
+    "def": "돈을 안전하게 맡기거나 필요한 만큼 빌릴 수 있는 금융 기관입니다.",
+    "defVi": "Tổ chức tài chính giúp bạn gửi tiền an toàn hoặc vay mượn khi cần."
+  },
+  "시장": {
+    "def": "여러 상인이 모여서 신선한 채소나 생선 같은 물건을 파는 장소입니다.",
+    "defVi": "Địa điểm tập trung nhiều tiểu thương bán các loại hàng hóa như rau củ hoặc cá tươi."
+  },
+  "식당": {
+    "def": "돈을 내고 요리된 음식을 주문해서 먹을 수 있는 장소입니다.",
+    "defVi": "Nơi bạn trả tiền để gọi các món ăn đã được chế biến sẵn."
+  },
+  "카페": {
+    "def": "향기로운 차나 음료를 마시며 친구와 대화를 나누는 편안한 공간입니다.",
+    "defVi": "Không gian thoải mái để thưởng thức đồ uống và trò chuyện cùng bạn bè."
+  },
+  "화장실": {
+    "def": "사람이 생리적인 현상을 해결하기 위해 사용하는 위생적인 공간입니다.",
+    "defVi": "Khu vực vệ sinh được sử dụng để giải quyết nhu cầu cá nhân."
+  },
+  "역": {
+    "def": "기차나 지하철이 멈추고 승객이 타고 내리는 교통 시설입니다.",
+    "defVi": "Điểm dừng của tàu hỏa hoặc tàu điện ngầm để hành khách lên xuống."
+  },
+  "공항": {
+    "def": "비행기가 뜨고 내리며 사람들이 해외로 여행을 떠나는 곳입니다.",
+    "defVi": "Nơi máy bay cất cánh, hạ cánh và mọi người bắt đầu các chuyến du lịch nước ngoài."
+  },
+  "가게": {
+    "def": "물건을 직접 보고 골라서 돈을 지불하고 살 수 있는 작은 상점입니다.",
+    "defVi": "Cửa tiệm nhỏ nơi bạn có thể chọn lựa và trả tiền mua hàng hóa."
+  },
+  "우표": {
+    "def": "이것은 편지를 보낼 때 봉투 오른쪽 위에 붙이는 작은 종이입니다.",
+    "defVi": "Đây là mảnh giấy nhỏ dán ở góc trên bên phải phong bì khi bạn muốn gửi thư."
+  },
+  "소포": {
+    "def": "상자 안에 물건을 넣어서 멀리 있는 사람에게 전달하는 것입니다.",
+    "defVi": "Đây là vật phẩm được đóng gói trong hộp để chuyển đến cho người khác ở xa."
+  },
+  "등기": {
+    "def": "중요한 서류를 안전하게 전달하기 위해 우체국에서 기록을 남기고 보내는 방식입니다.",
+    "defVi": "Đây là hình thức gửi thư mà bưu điện sẽ ghi lại thông tin để đảm bảo tài liệu quan trọng được chuyển đến an toàn."
+  },
+  "택배": {
+    "def": "집까지 물건을 직접 가져다주는 서비스입니다.",
+    "defVi": "Đây là dịch vụ chuyển hàng đến tận nhà cho người nhận."
+  },
+  "배달": {
+    "def": "음식이나 물건을 주문한 사람의 집으로 가져다주는 행동입니다.",
+    "defVi": "Đây là hành động mang đồ ăn hoặc hàng hóa đến tận nơi cho người đã đặt hàng."
+  },
+  "신청서": {
+    "def": "어떤 일을 하거나 물건을 받기 위해 필요한 내용을 적는 종이입니다.",
+    "defVi": "Đây là tờ giấy dùng để điền thông tin khi bạn muốn đăng ký làm một việc gì đó hoặc yêu cầu nhận một thứ gì đó."
+  },
+  "접수": {
+    "def": "기관이나 회사에 서류를 내거나 일을 시작하도록 알리는 과정입니다.",
+    "defVi": "Đây là quá trình nộp hồ sơ hoặc thông báo để bắt đầu thực hiện một thủ tục tại cơ quan hay công ty."
+  },
+  "발급": {
+    "def": "관공서에서 증명서나 카드를 공식적으로 만들어 주는 것입니다.",
+    "defVi": "Đây là việc các cơ quan chức năng chính thức tạo ra và cấp cho bạn các loại giấy tờ hoặc thẻ."
+  },
+  "복사하다": {
+    "def": "기계를 사용해서 종이에 있는 글자나 그림을 똑같이 하나 더 만드는 것입니다.",
+    "defVi": "Đây là hành động dùng máy móc để tạo ra một bản sao y hệt văn bản hoặc hình ảnh từ tờ giấy gốc."
+  },
+  "보내다": {
+    "def": "물건이나 편지를 다른 곳에 있는 사람에게 전달하는 행동입니다.",
+    "defVi": "Đây là hành động chuyển đồ đạc hoặc thư từ đến cho một người ở nơi khác."
+  },
+  "무게": {
+    "def": "물건이 얼마나 무거운지 나타내는 정도입니다.",
+    "defVi": "Đây là thông số cho biết vật đó nặng bao nhiêu."
+  },
+  "요금": {
+    "def": "서비스를 이용하거나 물건을 살 때 지불해야 하는 돈입니다.",
+    "defVi": "Đây là số tiền bạn phải trả khi sử dụng một dịch vụ hoặc mua một món hàng."
+  },
+  "넷": {
+    "def": "이것은 숫자 3 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số ba."
+  },
+  "다섯": {
+    "def": "이것은 숫자 4 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số bốn."
+  },
+  "여섯": {
+    "def": "이것은 숫자 5 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số năm."
+  },
+  "일곱": {
+    "def": "이것은 숫자 6 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số sáu."
+  },
+  "여덟": {
+    "def": "이것은 숫자 7 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số bảy."
+  },
+  "아홉": {
+    "def": "이것은 숫자 8 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số tám."
+  },
+  "열": {
+    "def": "이것은 숫자 9 다음의 수입니다.",
+    "defVi": "Đây là con số đứng sau số chín."
+  },
+  "개": {
+    "def": "물건이나 사물의 수량을 셀 때 사용하는 단위입니다.",
+    "defVi": "Đây là đơn vị dùng để đếm số lượng đồ vật hoặc sự vật."
+  },
+  "명": {
+    "def": "사람의 수를 셀 때 사용하는 단위입니다.",
+    "defVi": "Đây là đơn vị dùng để đếm số lượng con người."
+  },
+  "마리": {
+    "def": "강아지나 고양이 같은 동물의 수를 셀 때 사용하는 단위입니다.",
+    "defVi": "Đây là đơn vị dùng để đếm số lượng các loài động vật như chó hoặc mèo."
+  },
+  "병": {
+    "def": "물이나 주스처럼 액체가 들어 있는 유리나 플라스틱 통의 수를 셀 때 사용하는 단위입니다.",
+    "defVi": "Đây là đơn vị dùng để đếm số lượng vật chứa chất lỏng như nước hoặc nước trái cây."
+  },
+  "잔": {
+    "def": "커피나 차를 담아서 마시는 그릇의 수를 셀 때 사용하는 단위입니다.",
+    "defVi": "Đây là đơn vị dùng để đếm số lượng vật dụng chứa đồ uống như cà phê hoặc trà."
+  },
+  "뭐": {
+    "def": "이것은 사물이나 행동의 이름을 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về tên gọi của một sự vật hoặc hành động nào đó."
+  },
+  "언제": {
+    "def": "시간이나 날짜를 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về thời gian hoặc ngày tháng của một sự việc."
+  },
+  "어디": {
+    "def": "장소나 위치를 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về địa điểm hoặc vị trí của một nơi nào đó."
+  },
+  "왜": {
+    "def": "어떤 일이 일어난 이유를 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về lý do tại sao một sự việc lại xảy ra."
+  },
+  "어떻게": {
+    "def": "행동하는 방법이나 상태를 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về cách thức thực hiện hoặc trạng thái của một việc."
+  },
+  "몇": {
+    "def": "수량을 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi về số lượng của sự vật."
+  },
+  "어느": {
+    "def": "여러 가지 중에서 하나를 선택할 때 사용하는 질문입니다.",
+    "defVi": "Dùng để hỏi khi cần chọn ra một trong số nhiều lựa chọn."
+  },
+  "무슨": {
+    "def": "명사 앞에 붙어서 그 대상의 종류를 물어볼 때 사용하는 질문입니다.",
+    "defVi": "Dùng trước danh từ để hỏi về chủng loại của đối tượng đó."
+  },
+  "그것": {
+    "def": "말하는 사람과 가까운 물건을 가리키는 말입니다.",
+    "defVi": "Dùng để chỉ vật ở gần phía người nghe."
+  },
+  "저것": {
+    "def": "말하는 사람과 듣는 사람 모두에게서 먼 물건을 가리키는 말입니다.",
+    "defVi": "Dùng để chỉ vật ở xa cả người nói lẫn người nghe."
+  },
+  "여기": {
+    "def": "말하는 사람이 지금 있는 장소를 가리키는 말입니다.",
+    "defVi": "Dùng để chỉ vị trí mà người nói đang đứng."
+  },
+  "저기": {
+    "def": "말하는 사람과 듣는 사람 모두에게서 먼 장소를 가리키는 말입니다.",
+    "defVi": "Dùng để chỉ một địa điểm ở xa cả người nói lẫn người nghe."
+  },
+  "메뉴": {
+    "def": "이것은 식당에서 먹을 수 있는 음식과 가격이 적혀 있는 종이입니다.",
+    "defVi": "Đây là tờ giấy ghi danh sách các món ăn và giá tiền tại quán."
+  },
+  "주문하다": {
+    "def": "식당에서 먹고 싶은 것을 직원에게 말하거나 고르는 행동입니다.",
+    "defVi": "Hành động chọn món và báo cho nhân viên biết bạn muốn ăn gì."
+  },
+  "국물": {
+    "def": "찌개나 탕 요리에 들어 있는 액체 부분입니다.",
+    "defVi": "Phần nước trong các món canh hoặc món hầm."
+  },
+  "반찬": {
+    "def": "밥과 함께 먹는 작은 그릇에 담긴 여러 가지 음식입니다.",
+    "defVi": "Các món ăn nhỏ được dọn kèm cùng với cơm."
+  },
+  "숟가락": {
+    "def": "국이나 밥을 떠서 먹을 때 사용하는 도구입니다.",
+    "defVi": "Dụng cụ dùng để múc cơm hoặc canh khi ăn."
+  },
+  "젓가락": {
+    "def": "음식을 집어서 입으로 가져갈 때 사용하는 긴 막대 모양의 도구입니다.",
+    "defVi": "Dụng cụ hình hai thanh dài dùng để gắp thức ăn."
+  },
+  "맵다": {
+    "def": "고추가 많이 들어간 음식을 먹을 때 입안이 뜨겁고 아픈 느낌입니다.",
+    "defVi": "Cảm giác nóng rát trong miệng khi ăn các món có nhiều ớt."
+  },
+  "짜다": {
+    "def": "소금이 너무 많이 들어가서 맛이 강한 상태입니다.",
+    "defVi": "Trạng thái món ăn có vị gắt do cho quá nhiều muối."
+  },
+  "달다": {
+    "def": "설탕이 들어가서 기분이 좋아지는 맛입니다.",
+    "defVi": "Vị của món ăn có đường, tạo cảm giác dễ chịu."
+  },
+  "배부르다": {
+    "def": "음식을 충분히 먹어서 더 이상 들어갈 공간이 없는 상태입니다.",
+    "defVi": "Trạng thái khi bạn đã ăn đủ và không thể ăn thêm được nữa."
+  },
+  "여기요": {
+    "def": "식당에서 직원을 부를 때 사용하는 말입니다.",
+    "defVi": "Lời nói dùng để gọi nhân viên phục vụ tại quán ăn."
+  },
+  "잘 먹겠습니다": {
+    "def": "식사를 시작하기 전에 감사한 마음으로 하는 인사입니다.",
+    "defVi": "Câu nói thể hiện sự biết ơn trước khi bắt đầu bữa ăn."
+  },
+  "사고": {
+    "def": "갑자기 나쁜 일이 생겨서 사람이 다치거나 물건이 망가지는 상황입니다.",
+    "defVi": "Một sự việc không may bất ngờ xảy ra khiến người bị thương hoặc đồ đạc bị hư hỏng."
+  },
+  "위험하다": {
+    "def": "몸이 다치거나 나쁜 일이 생길 가능성이 아주 높아서 조심해야 하는 상태입니다.",
+    "defVi": "Trạng thái có khả năng cao gây thương tích hoặc xảy ra chuyện xấu nên cần phải cẩn thận."
+  },
+  "안전하다": {
+    "def": "아무런 문제가 없고 몸이나 마음이 편안하게 보호받는 상태입니다.",
+    "defVi": "Trạng thái không có vấn đề gì xảy ra và cơ thể hay tinh thần đều được bảo vệ an ổn."
+  },
+  "구급차": {
+    "def": "몸이 아주 아픈 사람을 병원으로 빨리 데려가기 위해 사용하는 특수한 자동차입니다.",
+    "defVi": "Loại xe chuyên dụng dùng để đưa người bệnh nặng đến bệnh viện thật nhanh."
+  },
+  "소방서": {
+    "def": "불이 났을 때 사람들을 구하고 불을 끄는 일을 하는 사람들이 모여 있는 장소입니다.",
+    "defVi": "Nơi làm việc của những người chuyên đi dập lửa và cứu giúp mọi người khi có hỏa hoạn."
+  },
+  "도둑": {
+    "def": "남의 물건을 몰래 가져가는 나쁜 행동을 하는 사람입니다.",
+    "defVi": "Người có hành vi xấu là lén lút lấy đồ của người khác."
+  },
+  "잃어버리다": {
+    "def": "가지고 있던 물건을 어디에 두었는지 모르거나 찾을 수 없게 되는 상황입니다.",
+    "defVi": "Tình trạng không nhớ mình đã để đồ đạc ở đâu hoặc không thể tìm lại được nữa."
+  },
+  "신고하다": {
+    "def": "나쁜 일이 생겼을 때 경찰이나 관공서에 그 사실을 알리는 행동입니다.",
+    "defVi": "Hành động thông báo sự việc cho cảnh sát hoặc cơ quan chức năng khi có chuyện không hay xảy ra."
+  },
+  "다행이다": {
+    "def": "걱정했던 일이 좋게 끝나서 마음이 편안하고 기쁜 상태입니다.",
+    "defVi": "Trạng thái cảm thấy nhẹ nhõm và vui mừng vì một việc đáng lo ngại đã kết thúc tốt đẹp."
+  },
+  "비상구": {
+    "def": "불이 나거나 큰 문제가 생겼을 때 밖으로 빨리 나갈 수 있도록 만든 특별한 문입니다.",
+    "defVi": "Cánh cửa đặc biệt được thiết kế để mọi người có thể thoát ra ngoài nhanh chóng khi có hỏa hoạn hoặc sự cố lớn."
+  },
+  "응급실": {
+    "def": "병원에서 갑자기 크게 아픈 사람이 가장 먼저 가서 치료를 받는 곳입니다.",
+    "defVi": "Nơi đầu tiên trong bệnh viện tiếp nhận và chữa trị cho những người đột nhiên bị bệnh nặng."
+  },
+  "보험": {
+    "def": "나중에 혹시 모를 큰 병이나 사고에 대비해서 미리 돈을 내고 나중에 도움을 받는 제도입니다.",
+    "defVi": "Chế độ đóng tiền trước để nhận được sự hỗ trợ tài chính khi chẳng may gặp tai nạn hoặc bệnh tật nghiêm trọng sau này."
+  },
+  "수업": {
+    "def": "이것은 선생님이 학생들에게 지식을 전달하는 정해진 시간입니다.",
+    "defVi": "Đây là khoảng thời gian cố định mà giáo viên truyền đạt kiến thức cho học sinh."
+  },
+  "숙제": {
+    "def": "학교에서 공부한 내용을 집에서 스스로 연습하기 위해 하는 일입니다.",
+    "defVi": "Đây là công việc cần làm tại nhà để tự luyện tập những nội dung đã học ở trường."
+  },
+  "시험": {
+    "def": "자신의 실력을 확인하기 위해 정해진 문제를 풀고 점수를 받는 과정입니다.",
+    "defVi": "Đây là quá trình giải các bài tập được quy định để kiểm tra năng lực và lấy điểm số."
+  },
+  "책": {
+    "def": "종이에 글이나 그림을 인쇄하여 내용을 담은 물건입니다.",
+    "defVi": "Đây là vật dụng chứa nội dung bằng cách in chữ hoặc hình ảnh lên giấy."
+  },
+  "공책": {
+    "def": "중요한 내용을 잊어버리지 않도록 글씨를 적어두는 빈 종이 묶음입니다.",
+    "defVi": "Đây là tập giấy trắng dùng để viết lại những nội dung quan trọng nhằm tránh bị quên."
+  },
+  "연필": {
+    "def": "나무 안에 흑연 심을 넣어 글씨를 쓰거나 그림을 그릴 때 사용하는 도구입니다.",
+    "defVi": "Đây là dụng cụ có lõi than chì bên trong vỏ gỗ, dùng để viết chữ hoặc vẽ tranh."
+  },
+  "교실": {
+    "def": "학교 안에서 학생들이 모여서 함께 공부하는 공간입니다.",
+    "defVi": "Đây là không gian bên trong trường học nơi học sinh tập trung để cùng nhau học tập."
+  },
+  "질문": {
+    "def": "잘 모르는 것을 알기 위해 상대방에게 궁금한 내용을 물어보는 것입니다.",
+    "defVi": "Đây là việc hỏi đối phương về những điều mình chưa rõ để nắm bắt thông tin."
+  },
+  "대답": {
+    "def": "상대방의 물음에 대해 알고 있는 내용을 말이나 글로 표현하는 것입니다.",
+    "defVi": "Đây là việc diễn đạt những điều mình biết bằng lời nói hoặc văn bản để phản hồi lại người khác."
+  },
+  "배우다": {
+    "def": "새로운 지식이나 기술을 익히기 위해 노력하는 활동입니다.",
+    "defVi": "Đây là hoạt động nỗ lực để tiếp thu kiến thức hoặc kỹ năng mới."
+  },
+  "가르치다": {
+    "def": "자신이 알고 있는 지식을 다른 사람이 잘 이해할 수 있도록 설명해 주는 것입니다.",
+    "defVi": "Đây là việc giải thích kiến thức mình có để người khác có thể hiểu rõ."
+  },
+  "단어": {
+    "def": "언어를 구성하는 가장 작은 의미의 단위로 여러 개가 모여 문장을 만듭니다.",
+    "defVi": "Đây là đơn vị ý nghĩa nhỏ nhất cấu tạo nên ngôn ngữ, nhiều đơn vị này kết hợp lại sẽ tạo thành câu."
+  },
+  "가격": {
+    "def": "물건을 살 때 내야 하는 돈의 양입니다.",
+    "defVi": "Khi mua đồ, đây là số tiền bạn phải trả."
+  },
+  "카드": {
+    "def": "은행에서 만든 작은 플라스틱 조각으로 물건값을 낼 때 사용합니다.",
+    "defVi": "Một miếng nhựa nhỏ do ngân hàng phát hành dùng để thanh toán khi mua sắm."
+  },
+  "현금": {
+    "def": "종이나 동전 모양으로 만들어진 실제 돈입니다.",
+    "defVi": "Tiền thật được làm dưới dạng giấy hoặc kim loại."
+  },
+  "계산하다": {
+    "def": "물건을 산 뒤에 그에 맞는 돈을 내는 행동입니다.",
+    "defVi": "Hành động đưa tiền sau khi đã mua món đồ nào đó."
+  },
+  "영수증": {
+    "def": "물건을 산 기록이 적힌 작은 종이입니다.",
+    "defVi": "Một mảnh giấy nhỏ ghi lại thông tin về việc bạn đã mua món đồ đó."
+  },
+  "봉투": {
+    "def": "물건을 담아서 들고 가기 편하게 만든 종이나 비닐 주머니입니다.",
+    "defVi": "Một chiếc túi bằng giấy hoặc nilon dùng để đựng đồ cho dễ mang đi."
+  },
+  "할인": {
+    "def": "물건의 원래 값보다 더 적은 돈을 내고 사는 것입니다.",
+    "defVi": "Việc mua hàng với số tiền ít hơn so với mức giá ban đầu."
+  },
+  "교환": {
+    "def": "이미 산 물건이 마음에 들지 않아 다른 것으로 바꾸는 행위입니다.",
+    "defVi": "Hành động đổi món đồ đã mua lấy một món khác vì không ưng ý."
+  },
+  "환불": {
+    "def": "물건을 돌려주고 처음에 냈던 돈을 다시 받는 것입니다.",
+    "defVi": "Việc trả lại hàng và nhận lại số tiền mình đã bỏ ra ban đầu."
+  },
+  "사이즈": {
+    "def": "옷이나 신발이 얼마나 크거나 작은지를 나타내는 기준입니다.",
+    "defVi": "Tiêu chuẩn dùng để đo độ lớn hoặc nhỏ của quần áo, giày dép."
+  },
+  "포장": {
+    "def": "음식이나 물건을 밖으로 가져가기 위해 상자나 주머니에 넣는 것입니다.",
+    "defVi": "Việc cho đồ ăn hoặc hàng hóa vào hộp, túi để mang ra ngoài."
+  },
+  "깎아 주세요": {
+    "def": "물건을 파는 사람에게 값을 조금 낮춰달라고 부탁하는 말입니다.",
+    "defVi": "Lời nhờ người bán bớt chút tiền cho món hàng."
+  },
+  "일": {
+    "def": "이것은 숫자 0 다음의 첫 번째 수입니다.",
+    "defVi": "Đây là con số đứng đầu tiên sau số không."
+  },
+  "이": {
+    "def": "___ 첫 번째 수 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số đầu tiên."
+  },
+  "삼": {
+    "def": "이것은 숫자 2 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số hai."
+  },
+  "사": {
+    "def": "이것은 숫자 3 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số ba."
+  },
+  "오": {
+    "def": "이것은 숫자 4 다음에 ___ 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số bốn."
+  },
+  "육": {
+    "def": "이것은 숫자 5 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số năm."
+  },
+  "칠": {
+    "def": "이것은 숫자 6 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số sáu."
+  },
+  "팔": {
+    "def": "이것은 숫자 7 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số bảy."
+  },
+  "구": {
+    "def": "이것은 숫자 8 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số tám."
+  },
+  "십": {
+    "def": "이것은 숫자 9 다음에 오는 수입니다.",
+    "defVi": "Đây là con số đứng ngay sau số chín."
+  },
+  "백": {
+    "def": "이것은 10이 10개 모인 수입니다.",
+    "defVi": "Đây là con số được tạo thành từ mười lần mười."
+  },
+  "원": {
+    "def": "이것은 한국에서 물건을 살 때 사용하는 돈의 단위입니다.",
+    "defVi": "Đây là đơn vị tiền tệ được dùng để thanh toán khi mua sắm tại Hàn Quốc."
+  },
+  "이웃": {
+    "def": "This is a person who lives in a house or apartment next to yours.",
+    "defVi": "Người sống ở căn nhà hoặc căn hộ ngay cạnh nơi bạn ở."
+  },
+  "선배": {
+    "def": "This is a person who has more experience than you at the same school or workplace.",
+    "defVi": "Người có nhiều kinh nghiệm hơn bạn tại cùng một trường học hoặc nơi làm việc."
+  },
+  "후배": {
+    "def": "This is a person who has less experience than you at the same school or workplace.",
+    "defVi": "Người có ít kinh nghiệm hơn bạn tại cùng một trường học hoặc nơi làm việc."
+  },
+  "동창": {
+    "def": "This is a person who studied in the same school as you in the past.",
+    "defVi": "Người từng học chung trường với bạn trong quá khứ."
+  },
+  "친척": {
+    "def": "These are people who are connected to you by blood or marriage, such as aunts or cousins.",
+    "defVi": "Những người có cùng huyết thống hoặc quan hệ gia đình với bạn như cô dì chú bác."
+  },
+  "사이": {
+    "def": "This is the feeling or quality of the connection between two people.",
+    "defVi": "Mức độ thân thiết hoặc cảm giác trong mối quan hệ giữa hai người."
+  },
+  "소개팅": {
+    "def": "This is a meeting between two people who do not know each other, arranged by a mutual friend for romantic purposes.",
+    "defVi": "Một buổi gặp mặt giữa hai người lạ do bạn bè mai mối để tìm hiểu nhau."
+  },
+  "연애": {
+    "def": "This is the state of being in a romantic connection with another person.",
+    "defVi": "Trạng thái đang trong một mối quan hệ tình cảm với một người khác."
+  },
+  "애인": {
+    "def": "This is the person you are currently in a romantic relationship with.",
+    "defVi": "Người mà bạn đang có mối quan hệ tình cảm cùng."
+  },
+  "사귀다": {
+    "def": "You do this when you start a romantic connection or become close friends with someone.",
+    "defVi": "Hành động bắt đầu một mối quan hệ tình cảm hoặc trở nên thân thiết với ai đó."
+  },
+  "결혼하다": {
+    "def": "You do this when you legally become a husband and wife with your partner.",
+    "defVi": "Hành động chính thức trở thành vợ chồng về mặt pháp luật với đối phương."
+  },
+  "헤어지다": {
+    "def": "You do this when you end a romantic connection with your partner.",
+    "defVi": "Hành động chấm dứt mối quan hệ tình cảm với đối phương."
+  },
+  "운동": {
+    "def": "몸을 건강하게 만들기 위해서 여러 가지 동작을 하는 활동입니다.",
+    "defVi": "Hoạt động thực hiện các động tác khác nhau để giúp cơ thể khỏe mạnh hơn."
+  },
+  "축구": {
+    "def": "열한 명씩 두 팀이 발로 공을 차서 상대방의 골대에 넣는 스포츠입니다.",
+    "defVi": "Môn thể thao mà hai đội, mỗi đội mười một người, dùng chân đá bóng vào khung thành đối phương."
+  },
+  "야구": {
+    "def": "방망이로 공을 치고 정해진 구역을 돌아 점수를 얻는 스포츠입니다.",
+    "defVi": "Môn thể thao dùng gậy đánh bóng rồi chạy quanh các khu vực quy định để ghi điểm."
+  },
+  "농구": {
+    "def": "높은 곳에 있는 바구니 모양의 골대에 공을 던져 넣는 스포츠입니다.",
+    "defVi": "Môn thể thao ném bóng vào một cái rổ đặt ở trên cao."
+  },
+  "수영": {
+    "def": "물속에서 팔과 다리를 움직여 앞으로 나아가는 활동입니다.",
+    "defVi": "Hoạt động dùng tay và chân di chuyển dưới nước để tiến về phía trước."
+  },
+  "달리기": {
+    "def": "두 발을 빠르게 움직여서 앞으로 빨리 이동하는 것입니다.",
+    "defVi": "Việc di chuyển nhanh về phía trước bằng cách bước chân thật nhanh."
+  },
+  "요가": {
+    "def": "몸을 여러 모양으로 만들고 깊게 숨을 쉬면서 마음을 편안하게 하는 활동입니다.",
+    "defVi": "Hoạt động tạo các tư thế cơ thể khác nhau kết hợp hít thở sâu để giúp tâm trí thư thái."
+  },
+  "경기": {
+    "def": "두 팀이나 사람이 서로 실력을 겨루어 누가 더 잘하는지 확인하는 것입니다.",
+    "defVi": "Sự kiện hai đội hoặc hai người thi đấu với nhau để xem ai giỏi hơn."
+  },
+  "선수": {
+    "def": "스포츠 분야에서 실력이 뛰어나서 대회에 나가는 사람입니다.",
+    "defVi": "Người có kỹ năng giỏi trong lĩnh vực thể thao và tham gia các cuộc thi đấu."
+  },
+  "이기다": {
+    "def": "상대방보다 더 좋은 결과를 얻어서 승리하는 것입니다.",
+    "defVi": "Đạt được kết quả tốt hơn đối thủ để giành chiến thắng."
+  },
+  "지다": {
+    "def": "상대방보다 점수가 낮아서 결과가 좋지 않은 것입니다.",
+    "defVi": "Có điểm số thấp hơn đối thủ nên nhận kết quả không tốt."
+  },
+  "연습하다": {
+    "def": "어떤 일을 잘하기 위해서 반복해서 계속하는 것입니다.",
+    "defVi": "Việc lặp đi lặp lại một công việc nào đó để trở nên thành thạo hơn."
+  },
+  "배고프다": {
+    "def": "음식을 먹고 싶을 때 느끼는 상태입니다. 속이 비어서 기운이 없습니다.",
+    "defVi": "Trạng thái khi bạn muốn ăn vì dạ dày đang trống rỗng và cơ thể không có năng lượng."
+  },
+  "목마르다": {
+    "def": "물이나 음료수를 마시고 싶을 때 느끼는 상태입니다. 입안이 건조합니다.",
+    "defVi": "Trạng thái khi bạn muốn uống nước hoặc đồ uống vì cảm thấy khô miệng."
+  },
+  "졸리다": {
+    "def": "눈을 뜨기 어렵고 잠을 자고 싶을 때 느끼는 상태입니다.",
+    "defVi": "Trạng thái khi bạn cảm thấy khó mở mắt và muốn đi ngủ."
+  },
+  "힘들다": {
+    "def": "몸이나 마음이 지쳐서 일을 계속하기 어려울 때 사용하는 표현입니다.",
+    "defVi": "Cách diễn đạt khi cơ thể hoặc tinh thần kiệt sức khiến bạn khó tiếp tục công việc."
+  },
+  "편하다": {
+    "def": "몸이나 마음이 아무런 걱정 없이 좋고 안락한 상태입니다.",
+    "defVi": "Trạng thái cơ thể hoặc tâm trí cảm thấy dễ chịu, thư thái và không có lo âu."
+  },
+  "불편하다": {
+    "def": "몸이나 마음이 좋지 않아서 상황이 마음에 들지 않는 상태입니다.",
+    "defVi": "Trạng thái khi cơ thể hoặc tâm trí cảm thấy không ổn, khiến bạn không hài lòng với hoàn cảnh hiện tại."
+  },
+  "답답하다": {
+    "def": "공기가 부족하거나 마음대로 일이 되지 않아서 숨이 막히는 것 같은 느낌입니다.",
+    "defVi": "Cảm giác như bị nghẹt thở do thiếu không khí hoặc khi mọi việc không diễn ra như ý muốn."
+  },
+  "귀엽다": {
+    "def": "작고 예뻐서 사랑스러운 느낌을 주는 상태입니다.",
+    "defVi": "Trạng thái mang lại cảm giác đáng yêu vì nhỏ nhắn và xinh xắn."
+  },
+  "무겁다": {
+    "def": "물건을 들 때 힘이 많이 필요할 정도로 무게가 많이 나가는 상태입니다.",
+    "defVi": "Trạng thái khi một vật có trọng lượng lớn đến mức cần nhiều sức lực để nâng lên."
+  },
+  "가볍다": {
+    "def": "물건을 들 때 힘이 거의 들지 않을 정도로 무게가 적게 나가는 상태입니다.",
+    "defVi": "Trạng thái khi một vật có trọng lượng nhỏ đến mức hầu như không tốn sức để nâng lên."
+  },
+  "뜨겁다": {
+    "def": "손으로 만졌을 때 온도가 매우 높아서 깜짝 놀랄 정도의 상태입니다.",
+    "defVi": "Trạng thái khi nhiệt độ rất cao đến mức bạn sẽ giật mình nếu chạm tay vào."
+  },
+  "차갑다": {
+    "def": "손으로 만졌을 때 온도가 매우 낮아서 시원하거나 얼 것 같은 상태입니다.",
+    "defVi": "Trạng thái khi nhiệt độ rất thấp đến mức bạn cảm thấy mát lạnh hoặc như sắp đóng băng khi chạm vào."
+  },
+  "사거리": {
+    "def": "네 개의 길이 만나는 곳입니다.",
+    "defVi": "Nơi có bốn con đường gặp nhau."
+  },
+  "횡단보도": {
+    "def": "사람들이 안전하게 길을 넘어가기 위해 하얀 선이 그려진 곳입니다.",
+    "defVi": "Nơi có kẻ vạch trắng để người đi bộ sang đường an toàn."
+  },
+  "신호등": {
+    "def": "빨간색과 초록색 불로 차와 사람의 이동을 조절하는 기계입니다.",
+    "defVi": "Thiết bị dùng đèn đỏ và xanh để điều khiển xe cộ và người đi lại."
+  },
+  "육교": {
+    "def": "사람들이 차를 피해서 높은 곳으로 길을 넘어가도록 만든 다리입니다.",
+    "defVi": "Cây cầu được xây dựng trên cao để người đi bộ qua đường tránh xe cộ."
+  },
+  "정류장": {
+    "def": "사람들이 대중교통을 타거나 내리기 위해 기다리는 장소입니다.",
+    "defVi": "Nơi mọi người đứng đợi để lên hoặc xuống các phương tiện công cộng."
+  },
+  "갈아타다": {
+    "def": "목적지까지 가기 위해 타고 있던 것을 내리고 다른 것으로 바꾸어 타는 행동입니다.",
+    "defVi": "Hành động xuống xe này để chuyển sang xe khác nhằm đi đến đích."
+  },
+  "지나다": {
+    "def": "어떤 장소의 옆이나 앞을 거쳐서 앞으로 나아가는 것입니다.",
+    "defVi": "Đi ngang qua phía trước hoặc bên cạnh một địa điểm nào đó."
+  },
+  "건너다": {
+    "def": "길이나 강을 이쪽에서 저쪽으로 이동하는 것입니다.",
+    "defVi": "Di chuyển từ bên này sang bên kia của con đường hoặc dòng sông."
+  },
+  "돌아가다": {
+    "def": "왔던 길을 다시 거꾸로 가거나 다른 길로 우회하는 것입니다.",
+    "defVi": "Đi ngược lại con đường đã đến hoặc đi vòng qua một lối khác."
+  },
+  "근처": {
+    "def": "어떤 장소와 거리가 아주 가까운 주변 지역입니다.",
+    "defVi": "Khu vực xung quanh có khoảng cách rất gần với một địa điểm nào đó."
+  },
+  "방향": {
+    "def": "어디로 가야 하는지 알려주는 쪽이나 위치입니다.",
+    "defVi": "Phía hoặc vị trí cho biết bạn cần phải đi về đâu."
+  },
+  "골목": {
+    "def": "큰길에서 갈라져 나온 좁은 길입니다.",
+    "defVi": "Con đường nhỏ tách ra từ trục đường chính."
+  },
+  "시다": {
+    "def": "레몬이나 식초를 먹을 때 입안에서 강한 자극을 느끼는 맛입니다.",
+    "defVi": "Khi ăn chanh hoặc giấm, bạn sẽ cảm nhận được một vị kích thích mạnh mẽ trong khoang miệng."
+  },
+  "싱겁다": {
+    "def": "음식에 소금이나 간장 같은 양념이 충분히 들어가지 않아서 맛이 부족한 상태입니다.",
+    "defVi": "Trạng thái món ăn thiếu vị do không cho đủ muối hoặc nước tương."
+  },
+  "고소하다": {
+    "def": "깨나 견과류를 씹을 때 느껴지는 기분 좋고 향기로운 맛입니다.",
+    "defVi": "Hương vị thơm ngon, béo ngậy đặc trưng khi bạn nhai vừng hoặc các loại hạt."
+  },
+  "느끼하다": {
+    "def": "기름기가 너무 많은 음식을 먹어서 속이 거북하고 답답한 느낌입니다.",
+    "defVi": "Cảm giác đầy bụng, khó chịu khi ăn những món chứa quá nhiều dầu mỡ."
+  },
+  "볶다": {
+    "def": "프라이팬에 기름을 두르고 재료를 뜨거운 불 위에서 계속 저으며 익히는 요리 방법입니다.",
+    "defVi": "Cách nấu bằng việc cho dầu vào chảo, rồi đảo đều nguyên liệu trên lửa nóng cho đến khi chín."
+  },
+  "삶다": {
+    "def": "냄비에 물을 붓고 불 위에서 재료를 완전히 잠기게 하여 끓이는 조리법입니다.",
+    "defVi": "Cách chế biến bằng cách cho nguyên liệu vào nồi nước rồi đun sôi cho đến khi chín mềm."
+  },
+  "튀기다": {
+    "def": "뜨거운 기름 속에 재료를 완전히 넣어서 바삭하게 만드는 요리 과정입니다.",
+    "defVi": "Quá trình nấu nướng bằng cách thả nguyên liệu ngập vào dầu nóng để tạo độ giòn."
+  },
+  "찌다": {
+    "def": "물에서 나오는 뜨거운 수증기를 이용하여 재료를 부드럽게 만드는 방법입니다.",
+    "defVi": "Cách làm chín thức ăn bằng hơi nước nóng bốc lên."
+  },
+  "썰다": {
+    "def": "칼을 사용하여 재료를 작은 조각이나 얇은 모양으로 나누는 행동입니다.",
+    "defVi": "Hành động dùng dao để chia nguyên liệu thành những miếng nhỏ hoặc lát mỏng."
+  },
+  "섞다": {
+    "def": "두 가지 이상의 재료를 한곳에 넣고 골고루 합치는 과정입니다.",
+    "defVi": "Quá trình cho hai hay nhiều nguyên liệu vào cùng một chỗ rồi đảo đều cho hòa quyện vào nhau."
+  },
+  "맛보다": {
+    "def": "음식이 어떤지 알기 위해 조금 먹어 보는 행동입니다.",
+    "defVi": "Hành động ăn thử một chút để biết hương vị của món ăn như thế nào."
+  },
+  "익다": {
+    "def": "날것이었던 재료가 불을 만나서 먹기 좋게 변하는 상태입니다.",
+    "defVi": "Trạng thái nguyên liệu từ đồ sống chuyển sang chín nhờ nhiệt độ để có thể ăn được."
+  },
+  "휴대폰": {
+    "def": "This is a small device that you carry to talk or send text to other people anywhere.",
+    "defVi": "Đây là thiết bị nhỏ gọn giúp bạn gọi điện hoặc nhắn tin cho người khác ở bất cứ đâu."
+  },
+  "컴퓨터": {
+    "def": "This is an electronic machine used for working, studying, or playing games at home or in an office.",
+    "defVi": "Đây là thiết bị điện tử dùng để làm việc, học tập hoặc giải trí tại nhà hay văn phòng."
+  },
+  "인터넷": {
+    "def": "This is a global system that connects all machines to share information and news.",
+    "defVi": "Đây là hệ thống toàn cầu kết nối các thiết bị với nhau để chia sẻ thông tin và tin tức."
+  },
+  "이메일": {
+    "def": "This is a way to send letters or documents through a digital network.",
+    "defVi": "Đây là cách gửi thư hoặc tài liệu thông qua mạng kỹ thuật số."
+  },
+  "메시지": {
+    "def": "This is a short piece of writing sent from one person to another through a device.",
+    "defVi": "Đây là đoạn văn bản ngắn được gửi từ người này sang người khác thông qua thiết bị."
+  },
+  "사진": {
+    "def": "This is a still image created by a camera to remember a moment or a person.",
+    "defVi": "Đây là hình ảnh tĩnh được ghi lại bằng máy ảnh để lưu giữ khoảnh khắc hoặc chân dung."
+  },
+  "영상": {
+    "def": "This is a moving record of events that you can watch on a screen.",
+    "defVi": "Đây là những hình ảnh động ghi lại sự kiện mà bạn có thể xem trên màn hình."
+  },
+  "앱": {
+    "def": "This is a small program installed on a smart device to help you do specific tasks.",
+    "defVi": "Đây là một chương trình nhỏ được cài đặt trên thiết bị thông minh để giúp bạn thực hiện các tác vụ cụ thể."
+  },
+  "비밀번호": {
+    "def": "This is a secret set of numbers or letters used to protect your personal account.",
+    "defVi": "Đây là dãy số hoặc chữ cái bí mật dùng để bảo vệ tài khoản cá nhân của bạn."
+  },
+  "충전하다": {
+    "def": "You do this when your device has no energy left and needs to be connected to electricity.",
+    "defVi": "Bạn làm việc này khi thiết bị hết năng lượng và cần kết nối với nguồn điện."
+  },
+  "검색하다": {
+    "def": "You do this when you want to find specific information by using a web tool.",
+    "defVi": "Bạn làm việc này khi muốn tìm kiếm thông tin cụ thể bằng công cụ trên mạng."
+  },
+  "와이파이": {
+    "def": "This is a wireless technology that allows your devices to connect to the network without cables.",
+    "defVi": "Đây là công nghệ không dây cho phép các thiết bị của bạn kết nối mạng mà không cần dây cáp."
+  },
+  "화면": {
+    "def": "이것은 컴퓨터나 스마트폰에서 정보를 보여 주는 유리 부분입니다. 밝은 빛이 나오는 평평한 곳입니다.",
+    "defVi": "Máy tính hoặc điện thoại dùng phần mặt kính này để hiển thị hình ảnh. Đây là bề mặt phẳng phát ra ánh sáng."
+  },
+  "배터리": {
+    "def": "전자기기를 움직이게 하는 에너지원입니다. 이것이 다 되면 기기를 사용할 수 없습니다.",
+    "defVi": "Nguồn năng lượng giúp các thiết bị điện tử hoạt động. Khi thứ này cạn kiệt, bạn không thể dùng máy được nữa."
+  },
+  "알림": {
+    "def": "새로운 메시지나 소식이 왔을 때 소리나 진동으로 알려 주는 기능입니다. 중요한 내용을 사용자에게 전달합니다.",
+    "defVi": "Tính năng phát ra âm thanh hoặc rung để báo cho bạn biết khi có tin nhắn hay thông tin mới. Nó giúp truyền đạt những nội dung quan trọng đến người dùng."
+  },
+  "계정": {
+    "def": "웹사이트나 서비스에 들어가기 위해 필요한 개인의 고유한 이름과 비밀번호 조합입니다. 이것이 있어야 서비스를 이용할 수 있습니다.",
+    "defVi": "Tổ hợp tên người dùng và mật khẩu riêng biệt cần thiết để truy cập vào các trang web hoặc dịch vụ. Bạn cần có thứ này mới sử dụng được dịch vụ."
+  },
+  "로그인": {
+    "def": "자신의 정보를 확인하고 서비스를 시작하기 위해 시스템에 들어가는 과정입니다. 보통 아이디와 비밀번호를 입력합니다.",
+    "defVi": "Quá trình đi vào hệ thống để xác nhận thông tin cá nhân và bắt đầu sử dụng dịch vụ. Thường thì bạn sẽ nhập tên người dùng và mật khẩu."
+  },
+  "저장하다": {
+    "def": "중요한 자료나 사진을 나중에 다시 보기 위해 기기에 안전하게 보관하는 것입니다.",
+    "defVi": "Hành động cất giữ dữ liệu hoặc hình ảnh quan trọng vào thiết bị để sau này có thể xem lại."
+  },
+  "삭제하다": {
+    "def": "필요 없는 자료나 글을 기기에서 완전히 없애 버리는 행동입니다.",
+    "defVi": "Hành động loại bỏ hoàn toàn những dữ liệu hoặc bài viết không cần thiết ra khỏi thiết bị."
+  },
+  "설치하다": {
+    "def": "새로운 프로그램을 기기에서 바로 사용할 수 있도록 준비하는 과정입니다.",
+    "defVi": "Quá trình chuẩn bị để bạn có thể sử dụng ngay một chương trình mới trên thiết bị của mình."
+  },
+  "업데이트": {
+    "def": "기존의 프로그램을 더 좋은 상태로 바꾸거나 새로운 기능을 추가하는 작업입니다.",
+    "defVi": "Công việc cải tiến chương trình cũ lên trạng thái tốt hơn hoặc bổ sung thêm các tính năng mới."
+  },
+  "다운로드": {
+    "def": "인터넷에 있는 자료를 자신의 기기로 가져오는 것입니다.",
+    "defVi": "Việc lấy dữ liệu từ trên mạng về thiết bị của riêng mình."
+  },
+  "파일": {
+    "def": "컴퓨터에서 문서나 사진 등을 하나로 묶어 놓은 단위입니다. 이것을 다른 사람에게 보낼 수 있습니다.",
+    "defVi": "Đơn vị dùng để gom các văn bản hoặc hình ảnh lại thành một khối trên máy tính. Bạn có thể gửi thứ này cho người khác."
+  },
+  "링크": {
+    "def": "인터넷 주소를 클릭하면 다른 페이지로 바로 이동하게 해 주는 연결 통로입니다.",
+    "defVi": "Đường dẫn giúp bạn di chuyển ngay lập tức đến một trang khác khi nhấn vào địa chỉ internet đó."
+  },
+  "주말": {
+    "def": "이것은 토요일과 일요일을 말합니다. 사람들이 보통 쉬거나 놀러 가는 시간입니다.",
+    "defVi": "Thứ bảy và chủ nhật. Đây là khoảng thời gian mọi người thường nghỉ ngơi hoặc đi chơi."
+  },
+  "평일": {
+    "def": "월요일부터 금요일까지의 기간입니다. 보통 사람들이 학교에 가거나 일을 하는 시간입니다.",
+    "defVi": "Khoảng thời gian từ thứ hai đến thứ sáu. Đây là lúc mọi người thường đi học hoặc đi làm."
+  },
+  "다음 주": {
+    "def": "지금 있는 시간보다 뒤에 오는 칠 일 동안의 기간입니다.",
+    "defVi": "Khoảng thời gian bảy ngày tiếp theo tính từ thời điểm hiện tại."
+  },
+  "지난주": {
+    "def": "지금보다 바로 앞에 지나간 칠 일 동안의 기간입니다.",
+    "defVi": "Khoảng thời gian bảy ngày vừa mới trôi qua trước thời điểm hiện tại."
+  },
+  "매일": {
+    "def": "하루도 빠짐없이 날마다 반복되는 것을 의미합니다.",
+    "defVi": "Diễn ra lặp lại vào mỗi ngày mà không bỏ sót ngày nào."
+  },
+  "오전": {
+    "def": "해 뜨는 시간부터 정오까지의 시간입니다.",
+    "defVi": "Khoảng thời gian từ lúc mặt trời mọc cho đến giữa trưa."
+  },
+  "오후": {
+    "def": "정오부터 해가 지기 전까지의 시간입니다.",
+    "defVi": "Khoảng thời gian từ giữa trưa cho đến trước khi mặt trời lặn."
+  },
+  "밤": {
+    "def": "해가 지고 나서 다시 해가 뜰 때까지의 어두운 시간입니다.",
+    "defVi": "Khoảng thời gian tối trời từ lúc mặt trời lặn cho đến khi mặt trời mọc lại."
+  },
+  "올해": {
+    "def": "지금 우리가 살고 있는 현재의 일 년을 말합니다.",
+    "defVi": "Khoảng thời gian một năm mà chúng ta đang sống ở thời điểm hiện tại."
+  },
+  "작년": {
+    "def": "지금보다 바로 앞의 일 년 전 시간을 말합니다.",
+    "defVi": "Khoảng thời gian một năm ngay trước năm hiện tại."
+  },
+  "내년": {
+    "def": "지금보다 바로 뒤에 오는 일 년 후의 시간을 말합니다.",
+    "defVi": "Khoảng thời gian một năm ngay sau năm hiện tại."
+  },
+  "계절": {
+    "def": "일 년을 날씨의 변화에 따라 봄 여름 가을 겨울로 나눈 것입니다.",
+    "defVi": "Sự phân chia một năm thành xuân, hạ, thu, đông dựa trên sự thay đổi của thời tiết."
+  },
+  "오늘": {
+    "def": "현재 살고 있는 바로 이 날을 말합니다.",
+    "defVi": "Khoảng thời gian đang diễn ra ngay lúc này."
+  },
+  "내일": {
+    "def": "현재의 다음 날을 의미합니다.",
+    "defVi": "Khoảng thời gian sẽ đến ngay sau thời điểm hiện tại."
+  },
+  "어제": {
+    "def": "현재의 바로 앞 날을 의미합니다.",
+    "defVi": "Khoảng thời gian đã trôi qua ngay trước lúc này."
+  },
+  "지금": {
+    "def": "바로 이 순간을 나타내는 말입니다.",
+    "defVi": "Khoảng khắc ngay tại thời điểm này."
+  },
+  "아침": {
+    "def": "해가 뜨고 나서부터 정오가 되기 전까지의 기간입니다.",
+    "defVi": "Khoảng thời gian bắt đầu từ lúc mặt trời mọc cho đến trước buổi trưa."
+  },
+  "점심": {
+    "def": "하루의 중간에 먹는 식사 시간입니다.",
+    "defVi": "Khoảng thời gian dùng bữa ở giữa ngày."
+  },
+  "저녁": {
+    "def": "해가 지고 밤이 되기 전까지의 기간입니다.",
+    "defVi": "Khoảng thời gian từ lúc mặt trời lặn cho đến khi trời tối hẳn."
+  },
+  "시간": {
+    "def": "일이 일어나는 순서나 길이를 재는 단위입니다.",
+    "defVi": "Đơn vị dùng để đo lường độ dài hoặc thứ tự diễn ra của các sự kiện."
+  },
+  "하나": {
+    "def": "수량의 시작이며 가장 작은 자연수입니다.",
+    "defVi": "Số lượng khởi đầu và là con số tự nhiên nhỏ nhất."
+  },
+  "둘": {
+    "def": "수량의 시작에서 다음으로 이어지는 자연수입니다.",
+    "defVi": "Con số tự nhiên đứng ngay sau số đầu tiên."
+  },
+  "셋": {
+    "def": "수량의 시작에서 세 번째에 위치하는 자연수입니다.",
+    "defVi": "Con số tự nhiên đứng ở vị trí thứ ba trong dãy đếm."
+  },
+  "요일": {
+    "def": "일주일의 일곱 날을 구분하는 이름입니다.",
+    "defVi": "Tên gọi dùng để phân biệt các ngày trong một tuần."
+  },
+  "지하철": {
+    "def": "이것은 땅 아래로 다니는 빠르고 편리한 교통수단입니다.",
+    "defVi": "Đây là phương tiện giao thông đi lại nhanh chóng và tiện lợi ở phía dưới lòng đất."
+  },
+  "버스": {
+    "def": "많은 사람이 함께 타고 정해진 노선을 따라 움직이는 큰 차입니다.",
+    "defVi": "Đây là loại xe lớn chở được nhiều người cùng lúc và di chuyển theo một lộ trình cố định."
+  },
+  "택시": {
+    "def": "원하는 장소까지 직접 데려다주는 개인용 유료 교통수단입니다.",
+    "defVi": "Đây là phương tiện giao thông cá nhân có tính phí, đưa bạn đến tận nơi mình muốn."
+  },
+  "기차": {
+    "def": "긴 철길 위를 달리며 먼 도시까지 사람들을 실어 나르는 교통수단입니다.",
+    "defVi": "Đây là phương tiện di chuyển trên đường ray sắt dài để đưa mọi người đến các thành phố xa."
+  },
+  "자동차": {
+    "def": "보통 네 개의 바퀴가 있고 가족이나 친구와 함께 이동할 때 사용하는 개인 이동 수단입니다.",
+    "defVi": "Đây là phương tiện đi lại cá nhân thường có bốn bánh, dùng để di chuyển cùng gia đình hoặc bạn bè."
+  },
+  "자전거": {
+    "def": "두 개의 바퀴가 있고 사람이 직접 발로 페달을 밟아서 움직이는 이동 수단입니다.",
+    "defVi": "Đây là phương tiện di chuyển có hai bánh, vận hành bằng cách dùng chân đạp lên bàn đạp."
+  },
+  "비행기": {
+    "def": "하늘을 날아서 아주 먼 나라까지 빠르게 갈 수 있는 거대한 운송 수단입니다.",
+    "defVi": "Đây là phương tiện vận chuyển khổng lồ có thể bay trên bầu trời để đưa bạn đến những quốc gia xa xôi một cách nhanh chóng."
+  },
+  "타다": {
+    "def": "어떤 이동 수단 안으로 들어가서 목적지까지 이동하는 행동입니다.",
+    "defVi": "Bạn thực hiện hành động này khi bước vào một phương tiện nào đó để di chuyển đến nơi mình cần đến."
+  },
+  "내리다": {
+    "def": "목적지에 도착해서 이동 수단 밖으로 나오는 행동입니다.",
+    "defVi": "Bạn thực hiện hành động này khi đã đến nơi và bước ra khỏi phương tiện mình vừa sử dụng."
+  },
+  "표": {
+    "def": "어떤 시설을 이용하거나 이동 수단을 이용하기 위해 미리 구매하는 종이입니다.",
+    "defVi": "Đây là mảnh giấy bạn cần mua trước để có quyền sử dụng một dịch vụ hoặc phương tiện nào đó."
+  },
+  "길": {
+    "def": "사람이나 차가 목적지까지 가기 위해 다니는 땅 위의 공간입니다.",
+    "defVi": "Đây là không gian trên mặt đất mà con người hoặc xe cộ đi lại để đến được đích."
+  },
+  "운전하다": {
+    "def": "핸들을 잡고 이동 수단을 원하는 방향으로 움직이게 하는 행동입니다.",
+    "defVi": "Bạn thực hiện hành động này khi cầm vô lăng để điều khiển phương tiện di chuyển theo hướng mình muốn."
+  },
+  "여행": {
+    "def": "다른 지역이나 나라로 떠나서 즐겁게 시간을 보내는 활동입니다.",
+    "defVi": "Việc rời khỏi nơi mình sống để đến một vùng đất hoặc quốc gia khác nhằm mục đích giải trí."
+  },
+  "호텔": {
+    "def": "잠을 자거나 쉴 수 있는 시설을 갖춘 큰 건물입니다.",
+    "defVi": "Một tòa nhà lớn được trang bị đầy đủ tiện nghi để mọi người lưu trú hoặc nghỉ ngơi."
+  },
+  "예약": {
+    "def": "나중에 이용하기 위해 미리 자리를 확보하거나 약속을 하는 것입니다.",
+    "defVi": "Việc xác nhận trước một vị trí hoặc dịch vụ để sử dụng vào một thời điểm cụ thể trong tương lai."
+  },
+  "여권": {
+    "def": "외국에 나갈 때 자신의 신분을 증명하기 위해 반드시 필요한 작은 책자입니다.",
+    "defVi": "Cuốn sổ nhỏ bắt buộc phải có để chứng minh danh tính khi bạn đi ra nước ngoài."
+  },
+  "짐": {
+    "def": "이동할 때 가지고 다니는 옷이나 물건들을 담은 가방입니다.",
+    "defVi": "Những túi đồ chứa quần áo hoặc vật dụng cá nhân mà bạn mang theo khi di chuyển."
+  },
+  "환전": {
+    "def": "한 나라의 돈을 다른 나라의 돈으로 바꾸는 것입니다.",
+    "defVi": "Việc đổi đơn vị tiền tệ của quốc gia này sang đơn vị tiền tệ của quốc gia khác."
+  },
+  "지도": {
+    "def": "땅의 모양이나 위치를 종이에 그려서 길을 찾기 쉽게 만든 것입니다.",
+    "defVi": "Hình vẽ mô phỏng vị trí và địa hình trên giấy để giúp mọi người tìm đường đi dễ dàng hơn."
+  },
+  "관광": {
+    "def": "유명한 장소나 경치를 보러 다니는 활동입니다.",
+    "defVi": "Hoạt động đi đến những địa điểm nổi tiếng hoặc danh lam thắng cảnh để tham quan."
+  },
+  "구경하다": {
+    "def": "흥미로운 것을 눈으로 자세히 살펴보는 것입니다.",
+    "defVi": "Việc dùng mắt để quan sát kỹ lưỡng những thứ thú vị xung quanh."
+  },
+  "쉬는 날": {
+    "def": "일이나 공부를 하지 않고 편안하게 시간을 보내는 시간입니다.",
+    "defVi": "Khoảng thời gian không phải làm việc hay học tập mà dành để nghỉ ngơi thư giãn."
+  },
+  "사진 찍다": {
+    "def": "카메라를 사용하여 현재의 모습을 기록으로 남기는 것입니다.",
+    "defVi": "Việc sử dụng máy ảnh để lưu lại những khoảnh khắc hiện tại."
+  },
+  "길을 묻다": {
+    "def": "어디로 가야 할지 몰라서 다른 사람에게 방향을 물어보는 것입니다.",
+    "defVi": "Việc hỏi người khác về hướng đi khi bạn không biết phải đi đường nào để đến đích."
+  },
+  "출국": {
+    "def": "비행기를 타고 외국으로 나가는 일입니다.",
+    "defVi": "Việc rời khỏi đất nước hiện tại để đi sang quốc gia khác bằng đường hàng không."
+  },
+  "입국": {
+    "def": "다른 나라에서 비행기를 타고 내가 사는 나라로 들어오는 일입니다.",
+    "defVi": "Việc đi từ nước ngoài vào bên trong biên giới của một quốc gia."
+  },
+  "탑승": {
+    "def": "비행기나 배 안에 들어가는 행동입니다.",
+    "defVi": "Hành động bước vào bên trong phương tiện vận chuyển như máy bay hoặc tàu thủy."
+  },
+  "좌석": {
+    "def": "사람이 앉을 수 있는 의자입니다.",
+    "defVi": "Vị trí hoặc chiếc ghế dành cho một người ngồi."
+  },
+  "수하물": {
+    "def": "여행할 때 비행기 아래에 싣는 큰 가방입니다.",
+    "defVi": "Những kiện đồ đạc lớn mà hành khách gửi lại để vận chuyển trong khoang hành lý của máy bay."
+  },
+  "환승": {
+    "def": "목적지에 가기 위해 중간에 다른 비행기나 기차로 갈아타는 것입니다.",
+    "defVi": "Việc đổi sang một phương tiện khác giữa đường để tiếp tục hành trình đến đích cuối cùng."
+  },
+  "숙소": {
+    "def": "여행 중에 밤에 잠을 자고 쉬는 곳입니다.",
+    "defVi": "Nơi dừng chân để nghỉ ngơi và ngủ lại qua đêm trong suốt chuyến đi."
+  },
+  "체크인": {
+    "def": "호텔에 도착해서 방 열쇠를 받고 들어가는 것입니다.",
+    "defVi": "Thủ tục đăng ký để nhận chìa khóa và bắt đầu sử dụng phòng tại khách sạn."
+  },
+  "기념품": {
+    "def": "여행지에서 추억을 남기기 위해 사는 물건입니다.",
+    "defVi": "Món đồ được mua về để làm kỷ niệm hoặc tặng người thân sau chuyến du lịch."
+  },
+  "지역": {
+    "def": "어떤 넓은 땅의 일부분을 말합니다.",
+    "defVi": "Một khoảng không gian hoặc phạm vi địa lý cụ thể trên bản đồ."
+  },
+  "코스": {
+    "def": "여행할 때 가야 할 길이나 순서입니다.",
+    "defVi": "Lộ trình hoặc các điểm dừng chân đã được lên kế hoạch sẵn cho một chuyến tham quan."
+  },
+  "안내": {
+    "def": "모르는 사람에게 길이나 방법을 알려주는 것입니다.",
+    "defVi": "Việc chỉ dẫn hoặc cung cấp thông tin cần thiết cho người khác."
+  },
+  "가다": {
+    "def": "어떤 장소로 이동하는 행동입니다.",
+    "defVi": "Di chuyển từ nơi này đến một địa điểm khác."
+  },
+  "오다": {
+    "def": "어떤 사람이 내가 있는 곳으로 가까이 다가오는 것입니다.",
+    "defVi": "Một người nào đó di chuyển lại gần vị trí của mình."
+  },
+  "먹다": {
+    "def": "배를 채우기 위해 입으로 음식을 씹어서 삼키는 것입니다.",
+    "defVi": "Hành động nhai và nuốt thực phẩm để làm đầy dạ dày."
+  },
+  "마시다": {
+    "def": "목이 마를 때 물이나 음료를 입으로 넘기는 행동입니다.",
+    "defVi": "Hành động đưa chất lỏng vào cơ thể qua miệng khi cảm thấy khát."
+  },
+  "자다": {
+    "def": "밤에 눈을 감고 편안하게 쉬는 상태입니다.",
+    "defVi": "Trạng thái nhắm mắt nghỉ ngơi hoàn toàn vào ban đêm."
+  },
+  "보다": {
+    "def": "눈을 통해 주변의 사물이나 풍경을 확인하는 것입니다.",
+    "defVi": "Sử dụng đôi mắt để quan sát các sự vật hoặc cảnh vật xung quanh."
+  },
+  "듣다": {
+    "def": "귀를 통해 소리나 음악을 받아들이는 것입니다.",
+    "defVi": "Tiếp nhận âm thanh hoặc giai điệu thông qua đôi tai."
+  },
+  "말하다": {
+    "def": "입을 움직여 자신의 생각을 다른 사람에게 전달하는 것입니다.",
+    "defVi": "Sử dụng miệng để truyền đạt suy nghĩ của bản thân cho người khác."
+  },
+  "읽다": {
+    "def": "글자를 눈으로 확인하고 그 내용을 이해하는 것입니다.",
+    "defVi": "Nhìn vào các ký tự để hiểu nội dung được ghi lại."
+  },
+  "쓰다": {
+    "def": "펜이나 연필을 사용하여 종이에 글자를 남기는 것입니다.",
+    "defVi": "Dùng bút hoặc vật dụng tương tự để ghi lại ký tự lên giấy."
+  },
+  "사다": {
+    "def": "돈을 주고 필요한 물건을 자신의 것으로 만드는 것입니다.",
+    "defVi": "Dùng tiền để đổi lấy món đồ mình cần."
+  },
+  "공부하다": {
+    "def": "지식을 얻기 위해 책을 보거나 새로운 내용을 익히는 것입니다.",
+    "defVi": "Tiếp thu kiến thức mới bằng cách đọc sách hoặc tìm hiểu tài liệu."
+  },
+  "일어나다": {
+    "def": "잠에서 깨어 몸을 일으키는 행동입니다.",
+    "defVi": "Sau khi ngủ dậy, bạn dùng cơ thể để chuyển từ tư thế nằm sang tư thế thẳng."
+  },
+  "씻다": {
+    "def": "물과 비누를 사용하여 몸이나 물건의 더러운 부분을 깨끗하게 만드는 과정입니다.",
+    "defVi": "Dùng nước và xà phòng để làm sạch cơ thể hoặc đồ vật bị bẩn."
+  },
+  "앉다": {
+    "def": "엉덩이를 바닥이나 의자에 대고 몸을 편안하게 두는 동작입니다.",
+    "defVi": "Đặt phần dưới cơ thể lên ghế hoặc sàn nhà để nghỉ ngơi hoặc làm việc."
+  },
+  "서다": {
+    "def": "두 다리로 몸을 곧게 펴고 움직이지 않고 머무르는 상태입니다.",
+    "defVi": "Giữ cơ thể thẳng bằng hai chân tại một vị trí cố định."
+  },
+  "걷다": {
+    "def": "두 다리를 번갈아 움직여 천천히 앞으로 나아가는 활동입니다.",
+    "defVi": "Di chuyển chậm rãi bằng cách bước từng chân một."
+  },
+  "뛰다": {
+    "def": "아주 빠르게 움직이거나 발을 사용하여 위로 솟구치는 동작입니다.",
+    "defVi": "Di chuyển với tốc độ nhanh hoặc dùng lực chân để bật người lên cao."
+  },
+  "웃다": {
+    "def": "기쁘거나 재미있을 때 입가에 미소를 띠며 소리를 내는 표현입니다.",
+    "defVi": "Thể hiện sự vui vẻ bằng cách mỉm cười hoặc phát ra âm thanh vui tai."
+  },
+  "울다": {
+    "def": "슬프거나 아플 때 눈에서 물이 나오며 소리를 내는 행위입니다.",
+    "defVi": "Khi cảm thấy đau lòng hoặc buồn bã, nước mắt sẽ chảy ra kèm theo tiếng nức nở."
+  },
+  "열다": {
+    "def": "닫혀 있는 문이나 상자를 안쪽이나 바깥쪽으로 움직여 내부를 드러내는 일입니다.",
+    "defVi": "Tác động vào cửa hoặc nắp hộp để không gian bên trong thông ra ngoài."
+  },
+  "닫다": {
+    "def": "열려 있는 공간의 입구를 막아서 안과 밖을 구분하는 동작입니다.",
+    "defVi": "Khép cửa hoặc nắp lại để ngăn cách không gian bên trong với bên ngoài."
+  },
+  "주다": {
+    "def": "자신이 가진 물건을 다른 사람에게 건네는 행위입니다.",
+    "defVi": "Chuyển đồ vật mình đang sở hữu sang cho người khác."
+  },
+  "받다": {
+    "def": "다른 사람이 건네는 물건이나 마음을 자기 것으로 가져오는 행동입니다.",
+    "defVi": "Tiếp nhận món quà hoặc đồ vật mà người khác trao cho mình."
+  },
+  "알다": {
+    "def": "어떤 사실이나 정보를 머릿속에 가지고 있는 상태입니다.",
+    "defVi": "Thông tin hoặc sự thật nào đó đã nằm sẵn trong đầu bạn."
+  },
+  "모르다": {
+    "def": "어떤 사실이나 정보를 머릿속에 가지고 있지 않은 상태입니다.",
+    "defVi": "Bạn chưa nắm bắt được thông tin hoặc sự thật về một vấn đề nào đó."
+  },
+  "생각하다": {
+    "def": "머리를 써서 어떤 것에 대해 의견을 내거나 판단을 내리는 행동입니다.",
+    "defVi": "Dùng trí não để đưa ra ý kiến hoặc nhận định về một việc gì đó."
+  },
+  "기다리다": {
+    "def": "어떤 사람이나 일이 올 때까지 그 자리에서 머무르는 행동입니다.",
+    "defVi": "Dừng lại tại một chỗ để chờ đợi một người hoặc một việc sắp xảy ra."
+  },
+  "만나다": {
+    "def": "다른 사람과 얼굴을 보고 서로 인사를 나누거나 대화하는 행동입니다.",
+    "defVi": "Gặp gỡ trực tiếp để chào hỏi hoặc trò chuyện cùng ai đó."
+  },
+  "전화하다": {
+    "def": "기계를 사용하여 멀리 있는 사람과 목소리로 대화하는 행동입니다.",
+    "defVi": "Sử dụng thiết bị để nói chuyện với người ở xa bằng giọng nói."
+  },
+  "도와주다": {
+    "def": "어려운 상황에 처한 사람에게 힘을 보태어 일을 쉽게 해결하도록 하는 행동입니다.",
+    "defVi": "Góp sức để người khác giải quyết công việc dễ dàng hơn khi họ gặp khó khăn."
+  },
+  "시작하다": {
+    "def": "어떤 일의 첫 번째 단계를 여는 행동입니다.",
+    "defVi": "Thực hiện bước đầu tiên của một công việc nào đó."
+  },
+  "끝나다": {
+    "def": "어떤 일이 마지막 단계에 도달하여 더 이상 진행되지 않는 상태입니다.",
+    "defVi": "Một việc đã đi đến giai đoạn cuối và không còn tiếp diễn nữa."
+  },
+  "찾다": {
+    "def": "보이지 않는 물건이나 사람을 발견하기 위해 여기저기 살펴보는 행동입니다.",
+    "defVi": "Quan sát xung quanh để phát hiện ra vật hoặc người mà mình đang cần."
+  },
+  "있다": {
+    "def": "사람이나 물건이 어떤 장소에 머물거나 소유하고 있는 상태입니다.",
+    "defVi": "Người hoặc vật đang ở một địa điểm nào đó hoặc mình đang sở hữu thứ gì đó."
+  },
+  "없다": {
+    "def": "사람이나 물건이 어떤 장소에 머물지 않거나 소유하지 않은 상태입니다.",
+    "defVi": "Người hoặc vật không xuất hiện tại một nơi nào đó hoặc mình không sở hữu thứ gì đó."
+  },
+  "날씨": {
+    "def": "이것은 매일 밖에서 느껴지는 기온이나 상태입니다. 비가 오거나 맑은 것을 말합니다.",
+    "defVi": "Mỗi ngày khi ra ngoài, bạn cảm nhận được trạng thái này như nóng, lạnh hay có mưa."
+  },
+  "비": {
+    "def": "하늘에서 물방울이 아래로 떨어지는 자연 현상입니다. 이것이 내리면 땅이 젖습니다.",
+    "defVi": "Hiện tượng tự nhiên khi những giọt nước từ trên cao rơi xuống làm ướt mặt đất."
+  },
+  "눈이 오다": {
+    "def": "겨울에 하늘에서 하얗고 차가운 작은 조각들이 땅으로 내려옵니다. 이것이 쌓이면 온 세상이 하얗게 변합니다.",
+    "defVi": "Vào mùa đông, những bông trắng nhỏ li ti rơi xuống từ trên cao, phủ kín mọi thứ."
+  },
+  "바람": {
+    "def": "공기가 밖에서 빠르게 움직이는 것입니다. 이것이 불면 나무가 흔들리고 시원함을 느낍니다.",
+    "defVi": "Luồng không khí chuyển động nhanh ngoài trời khiến cây cối đung đưa và tạo cảm giác mát mẻ."
+  },
+  "하늘": {
+    "def": "땅 위에 있는 아주 넓고 높은 공간입니다. 낮에는 보통 파란색으로 보입니다.",
+    "defVi": "Không gian rộng lớn ở phía trên mặt đất, thường có màu xanh vào ban ngày."
+  },
+  "구름": {
+    "def": "하늘에 떠 있는 하얗거나 회색인 덩어리입니다. 이것이 많으면 햇빛을 가립니다.",
+    "defVi": "Những khối màu trắng hoặc xám lơ lửng trên cao, nếu xuất hiện nhiều sẽ che khuất ánh mặt trời."
+  },
+  "덥다": {
+    "def": "기온이 높아서 몸에 열이 많이 나는 상태입니다. 여름에 주로 느낍니다.",
+    "defVi": "Trạng thái khi nhiệt độ tăng cao khiến cơ thể cảm thấy nóng bức, thường gặp vào mùa hè."
+  },
+  "춥다": {
+    "def": "기온이 낮아서 몸이 떨리고 따뜻한 옷이 필요한 상태입니다. 겨울에 보통 이렇습니다.",
+    "defVi": "Trạng thái khi nhiệt độ xuống thấp khiến cơ thể run rẩy và cần mặc thêm đồ ấm."
+  },
+  "따뜻하다": {
+    "def": "너무 뜨겁지도 차갑지도 않아서 기분이 좋은 온도입니다. 봄에 자주 느낄 수 있습니다.",
+    "defVi": "Nhiệt độ dễ chịu, không quá nóng cũng không quá lạnh, thường thấy vào mùa xuân."
+  },
+  "시원하다": {
+    "def": "적당히 차가운 느낌이 들어서 기분이 상쾌한 상태입니다. 더울 때 이것을 찾습니다.",
+    "defVi": "Cảm giác mát mẻ, dễ chịu, rất thích hợp khi thời tiết oi bức."
+  },
+  "산": {
+    "def": "땅 위로 아주 높게 솟아 있는 자연 지형입니다. 정상에 올라가려면 걸어서 올라가야 합니다.",
+    "defVi": "Địa hình tự nhiên nhô cao lên mặt đất, muốn lên đến đỉnh bạn phải leo bộ."
+  },
+  "바다": {
+    "def": "지구의 아주 넓은 부분을 차지하는 짠 물입니다. 여름에 수영하러 많이 갑니다.",
+    "defVi": "Vùng nước mặn rộng lớn bao phủ phần lớn trái đất, nơi mọi người thường đến bơi lội vào mùa hè."
+  },
+  "일하다": {
+    "def": "돈을 벌기 위해 직장에서 여러 가지 업무를 수행하는 행동입니다.",
+    "defVi": "Hành động thực hiện các nhiệm vụ tại nơi làm việc để kiếm tiền."
+  },
+  "회의": {
+    "def": "여러 사람이 모여서 어떤 문제나 계획에 대해 함께 의견을 나누는 자리입니다.",
+    "defVi": "Buổi tập trung nhiều người để cùng thảo luận về một vấn đề hoặc kế hoạch nào đó."
+  },
+  "사장님": {
+    "def": "회사를 대표하고 운영하며 모든 사람을 관리하는 최고 책임자입니다.",
+    "defVi": "Người đứng đầu cao nhất, đại diện và điều hành mọi hoạt động của công ty."
+  },
+  "직원": {
+    "def": "회사에 소속되어 월급을 받으며 정해진 업무를 하는 사람입니다.",
+    "defVi": "Người thuộc biên chế công ty, nhận lương và thực hiện các công việc được giao."
+  },
+  "의사": {
+    "def": "아픈 사람을 진찰하고 약을 처방하여 건강을 치료하는 전문가입니다.",
+    "defVi": "Chuyên gia khám bệnh, kê đơn thuốc và chữa trị cho người bị ốm."
+  },
+  "학생": {
+    "def": "학교에 다니면서 새로운 지식과 기술을 배우는 사람입니다.",
+    "defVi": "Người đang theo học tại trường để tiếp thu kiến thức và kỹ năng mới."
+  },
+  "요리사": {
+    "def": "식당이나 호텔에서 전문적으로 음식을 만드는 사람입니다.",
+    "defVi": "Người làm công việc chế biến món ăn chuyên nghiệp tại nhà hàng hoặc khách sạn."
+  },
+  "경찰": {
+    "def": "사회의 질서를 지키고 범죄를 예방하며 시민을 보호하는 사람입니다.",
+    "defVi": "Người giữ gìn trật tự xã hội, ngăn chặn tội phạm và bảo vệ người dân."
+  },
+  "기사님": {
+    "def": "버스나 택시 등 교통수단을 직접 운전하여 사람들을 목적지까지 데려다주는 사람입니다.",
+    "defVi": "Người trực tiếp cầm lái các phương tiện giao thông như xe buýt hay taxi để đưa khách đến nơi cần đến."
+  },
+  "출근하다": {
+    "def": "아침에 정해진 시간에 자신의 사무실이나 공장으로 가는 것입니다.",
+    "defVi": "Hành động đi đến văn phòng hoặc nhà máy vào đúng giờ quy định mỗi sáng."
+  },
+  "퇴근하다": {
+    "def": "하루의 모든 업무를 마치고 집으로 돌아가는 것입니다.",
+    "defVi": "Hành động kết thúc mọi công việc trong ngày để trở về nhà."
+  },
+  "명함": {
+    "def": "이름과 연락처 그리고 소속된 곳이 적혀 있는 작은 종이입니다.",
+    "defVi": "Một tờ giấy nhỏ ghi thông tin cá nhân như tên, số điện thoại và nơi công tác."
+  },
+  "동료": {
+    "def": "같은 회사에서 함께 일하는 사람입니다.",
+    "defVi": "Những người cùng làm việc với bạn tại một công ty."
+  },
+  "상사": {
+    "def": "직장에서 나보다 높은 위치에 있는 사람입니다.",
+    "defVi": "Người có chức vụ cao hơn bạn ở nơi làm việc."
+  },
+  "신입": {
+    "def": "회사에 처음 들어와서 일을 시작한 사람입니다.",
+    "defVi": "Người mới bắt đầu công việc tại công ty."
+  },
+  "경력": {
+    "def": "과거에 했던 일이나 쌓아온 기술을 말합니다.",
+    "defVi": "Những công việc hoặc kỹ năng mà bạn đã tích lũy được trong quá khứ."
+  },
+  "계획": {
+    "def": "앞으로 할 일을 미리 생각하고 정하는 것입니다.",
+    "defVi": "Việc suy nghĩ và sắp xếp trước những gì bạn sẽ làm."
+  },
+  "보고서": {
+    "def": "회사 업무 내용을 종이에 적어서 위에 사람에게 보여주는 문서입니다.",
+    "defVi": "Văn bản ghi lại nội dung công việc để trình lên cấp trên."
+  },
+  "자료": {
+    "def": "공부나 일을 할 때 필요한 정보가 담긴 종이나 파일입니다.",
+    "defVi": "Giấy tờ hoặc tệp tin chứa thông tin cần thiết cho việc học tập hoặc công việc."
+  },
+  "일정": {
+    "def": "날짜별로 해야 할 일의 순서를 정해 놓은 것입니다.",
+    "defVi": "Thứ tự các công việc cần thực hiện theo từng ngày."
+  },
+  "담당": {
+    "def": "어떤 일을 맡아서 책임지고 처리하는 것입니다.",
+    "defVi": "Việc nhận trách nhiệm xử lý một công việc cụ thể."
+  },
+  "승진": {
+    "def": "직장에서 더 높은 직급으로 올라가는 것입니다.",
+    "defVi": "Việc được lên chức vụ cao hơn trong công ty."
+  },
+  "야근": {
+    "def": "해가 진 뒤에도 퇴근하지 않고 회사에서 더 일하는 것입니다.",
+    "defVi": "Việc tiếp tục làm việc tại công ty sau khi trời tối thay vì về nhà."
+  },
+  "회식": {
+    "def": "직장 사람들이 함께 모여서 음식을 먹으며 즐거운 시간을 보내는 모임입니다.",
+    "defVi": "Buổi tụ tập ăn uống của các thành viên trong công ty để gắn kết với nhau."
+  }
+}

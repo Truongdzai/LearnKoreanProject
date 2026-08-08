@@ -6,17 +6,125 @@
   "tone": "tone-f",
   "emoji": "🛍️",
   "words": [
-    { "zh": "东西", "pinyin": "dōng xi", "vi": "Đồ, thứ, món đồ", "pos": "noun", "img": "📦", "connect": "东 = đông + 西 = tây. Chợ xưa nằm ở hai đầu đông–tây thành, đi \"mua đông tây\" thành ra \"mua đồ\".", "ex": "我要去买东西。", "exVi": "Tôi phải đi mua đồ." },
-    { "zh": "衣服", "pinyin": "yī fu", "vi": "Quần áo", "pos": "noun", "img": "👕", "connect": "衣 = y (áo, như \"y phục\") + 服 = phục → đúng chữ \"y phục\".", "ex": "这件衣服多少钱？", "exVi": "Cái áo này bao nhiêu tiền?" },
-    { "zh": "书", "pinyin": "shū", "vi": "Sách", "pos": "noun", "img": "📗", "connect": "书 = thư, như \"thư viện\", \"thư pháp\".", "ex": "我在书店买书。", "exVi": "Tôi mua sách ở hiệu sách." },
-    { "zh": "桌子", "pinyin": "zhuō zi", "vi": "Cái bàn", "pos": "noun", "img": "🪑", "connect": "桌 = trác, có bộ 木 (gỗ) ở dưới — bàn xưa làm bằng gỗ.", "ex": "书在桌子上。", "exVi": "Quyển sách ở trên bàn." },
-    { "zh": "贵", "pinyin": "guì", "vi": "Đắt", "pos": "adj", "img": "💸", "connect": "贵 = quý, như \"quý giá\", \"cao quý\" — thứ quý thì đắt.", "ex": "太贵了，便宜一点儿吧。", "exVi": "Đắt quá, bớt chút đi." },
-    { "zh": "便宜", "pinyin": "pián yi", "vi": "Rẻ", "pos": "adj", "img": "🏷️", "connect": "便 = tiện + 宜 = nghi → \"tiện nghi\", nghĩa gốc là hợp túi tiền.", "ex": "这家店比较便宜。", "exVi": "Cửa hàng này rẻ hơn." },
-    { "zh": "车", "pinyin": "chē", "vi": "Xe", "pos": "noun", "img": "🚗", "connect": "车 = xa, như \"xe cộ\", \"xa lộ\". Chữ vẽ cái xe nhìn từ trên xuống.", "ex": "我坐车去上班。", "exVi": "Tôi đi xe đến chỗ làm." },
-    { "zh": "出租车", "pinyin": "chū zū chē", "vi": "Taxi", "pos": "noun", "img": "🚕", "connect": "出租 = xuất tô (cho thuê) + 车 (xe) → \"xe cho thuê\".", "ex": "我们打出租车去吧。", "exVi": "Mình bắt taxi đi nhé." },
-    { "zh": "飞机", "pinyin": "fēi jī", "vi": "Máy bay", "pos": "noun", "img": "✈️", "connect": "飞 = phi (bay, như \"phi công\") + 机 = cơ (máy) → \"phi cơ\", đúng từ Hán–Việt.", "ex": "飞机十点起飞。", "exVi": "Máy bay cất cánh lúc mười giờ." },
-    { "zh": "火车", "pinyin": "huǒ chē", "vi": "Tàu hoả", "pos": "noun", "img": "🚆", "connect": "火 = hoả (lửa) + 车 (xe) → \"xe lửa\", chính là cách người Việt vẫn gọi.", "ex": "坐火车去北京要八个小时。", "exVi": "Đi tàu tới Bắc Kinh mất tám tiếng." },
-    { "zh": "票", "pinyin": "piào", "vi": "Vé", "pos": "noun", "img": "🎫", "connect": "票 = phiếu, như \"phiếu bé ngoan\", \"đầu phiếu\".", "ex": "我买了两张票。", "exVi": "Tôi đã mua hai vé." },
-    { "zh": "坐", "pinyin": "zuò", "vi": "Ngồi, đi (bằng xe)", "pos": "verb", "img": "🪑", "connect": "坐 = toạ, như \"toạ độ\", \"toạ lạc\". Đi bằng phương tiện cũng dùng 坐 vì mình ngồi trên đó.", "ex": "请坐这儿。", "exVi": "Mời ngồi ở đây." }
+    {
+      "zh": "东西",
+      "pinyin": "dōng xi",
+      "vi": "Đồ, thứ, món đồ",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "东 = đông + 西 = tây. Chợ xưa nằm ở hai đầu đông–tây thành, đi \"mua đông tây\" thành ra \"mua đồ\".",
+      "ex": "我要去买东西。",
+      "exVi": "Tôi phải đi mua đồ."
+    },
+    {
+      "zh": "衣服",
+      "pinyin": "yī fu",
+      "vi": "Quần áo",
+      "pos": "noun",
+      "img": "👕",
+      "connect": "衣 = y (áo, như \"y phục\") + 服 = phục → đúng chữ \"y phục\".",
+      "ex": "这件衣服多少钱？",
+      "exVi": "Cái áo này bao nhiêu tiền?"
+    },
+    {
+      "zh": "书",
+      "pinyin": "shū",
+      "vi": "Sách",
+      "pos": "noun",
+      "img": "📗",
+      "connect": "书 = thư, như \"thư viện\", \"thư pháp\".",
+      "ex": "我在书店买书。",
+      "exVi": "Tôi mua sách ở hiệu sách."
+    },
+    {
+      "zh": "桌子",
+      "pinyin": "zhuō zi",
+      "vi": "Cái bàn",
+      "pos": "noun",
+      "img": "🪑",
+      "connect": "桌 = trác, có bộ 木 (gỗ) ở dưới — bàn xưa làm bằng gỗ.",
+      "ex": "书在桌子上。",
+      "exVi": "Quyển sách ở trên bàn."
+    },
+    {
+      "zh": "贵",
+      "pinyin": "guì",
+      "vi": "Đắt",
+      "pos": "adj",
+      "img": "💸",
+      "connect": "贵 = quý, như \"quý giá\", \"cao quý\" — thứ quý thì đắt.",
+      "ex": "太贵了，便宜一点儿吧。",
+      "exVi": "Đắt quá, bớt chút đi."
+    },
+    {
+      "zh": "便宜",
+      "pinyin": "pián yi",
+      "vi": "Rẻ",
+      "pos": "adj",
+      "img": "🏷️",
+      "connect": "便 = tiện + 宜 = nghi → \"tiện nghi\", nghĩa gốc là hợp túi tiền.",
+      "ex": "这家店比较便宜。",
+      "exVi": "Cửa hàng này rẻ hơn."
+    },
+    {
+      "zh": "车",
+      "pinyin": "chē",
+      "vi": "Xe",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "车 = xa, như \"xe cộ\", \"xa lộ\". Chữ vẽ cái xe nhìn từ trên xuống.",
+      "ex": "我坐车去上班。",
+      "exVi": "Tôi đi xe đến chỗ làm."
+    },
+    {
+      "zh": "出租车",
+      "pinyin": "chū zū chē",
+      "vi": "Taxi",
+      "pos": "noun",
+      "img": "🚕",
+      "connect": "出租 = xuất tô (cho thuê) + 车 (xe) → \"xe cho thuê\".",
+      "ex": "我们打出租车去吧。",
+      "exVi": "Mình bắt taxi đi nhé."
+    },
+    {
+      "zh": "飞机",
+      "pinyin": "fēi jī",
+      "vi": "Máy bay",
+      "pos": "noun",
+      "img": "✈️",
+      "connect": "飞 = phi (bay, như \"phi công\") + 机 = cơ (máy) → \"phi cơ\", đúng từ Hán–Việt.",
+      "ex": "飞机十点起飞。",
+      "exVi": "Máy bay cất cánh lúc mười giờ."
+    },
+    {
+      "zh": "火车",
+      "pinyin": "huǒ chē",
+      "vi": "Tàu hoả",
+      "pos": "noun",
+      "img": "🚆",
+      "connect": "火 = hoả (lửa) + 车 (xe) → \"xe lửa\", chính là cách người Việt vẫn gọi.",
+      "ex": "坐火车去北京要八个小时。",
+      "exVi": "Đi tàu tới Bắc Kinh mất tám tiếng."
+    },
+    {
+      "zh": "票",
+      "pinyin": "piào",
+      "vi": "Vé",
+      "pos": "noun",
+      "img": "🎫",
+      "connect": "票 = phiếu, như \"phiếu bé ngoan\", \"đầu phiếu\".",
+      "ex": "我买了两张票。",
+      "exVi": "Tôi đã mua hai vé."
+    },
+    {
+      "zh": "坐",
+      "pinyin": "zuò",
+      "vi": "Ngồi, đi (bằng xe)",
+      "pos": "verb",
+      "img": "🪑",
+      "connect": "坐 = toạ, như \"toạ độ\", \"toạ lạc\". Đi bằng phương tiện cũng dùng 坐 vì mình ngồi trên đó.",
+      "ex": "请坐这儿。",
+      "exVi": "Mời ngồi ở đây."
+    }
   ]
 }

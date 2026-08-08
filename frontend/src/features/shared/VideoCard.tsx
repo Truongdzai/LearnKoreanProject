@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { thumbUrl } from '@/data/videos'
 import Icon from '@/core/components/Icon'
 import type { Video } from '@/models/video.model'
@@ -10,13 +11,14 @@ interface Props {
   onToggleSave?: (v: Video) => void
   saveLabel?: string
   fit?: FitScore
+  rv?: CSSProperties
 }
 
 const FIT_LABEL: Record<string, string> = { fit: 'Vừa sức', easy: 'Dễ', hard: 'Hơi khó' }
 
-export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabel, fit }: Props) {
+export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabel, fit, rv }: Props) {
   return (
-    <div className="vcard" onClick={() => onPick(video)} title={video.title}>
+    <div className="vcard" data-rv={rv ? '' : undefined} style={rv} onClick={() => onPick(video)} title={video.title}>
       <div className={'thumb ' + video.tone}>
         <img
           src={thumbUrl(video.id)}

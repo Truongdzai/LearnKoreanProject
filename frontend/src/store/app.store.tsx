@@ -12,10 +12,9 @@ import {
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
   recordEventApi, setGoalApi, goalBonusApi, type EventType,
 } from '@/core/api/me.api'
-import { SAMPLE_LESSON } from '@/data/sampleLesson'
 import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
 import { META_DESC, PUBLIC_VIEWS, pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
-import { studyLang } from '@/core/constants/languages'
+import { studyLang, STUDY_LANGS, NATIVE_CODE } from '@/core/constants/languages'
 import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { pageview } from '@/core/analytics'
 import { announce } from '@/core/a11y'
@@ -71,11 +70,14 @@ function loadTheme(): ThemeMode {
 }
 
 function loadLang(): string {
-  try { return localStorage.getItem(LANG_KEY) || 'ko' } catch { return 'ko' }
+  try {
+    const saved = localStorage.getItem(LANG_KEY) || 'ko'
+    return STUDY_LANGS.some((l) => l.code === saved) ? saved : 'ko'
+  } catch { return 'ko' }
 }
 
 function loadNative(): string {
-  try { return localStorage.getItem(NATIVE_KEY) || 'vi' } catch { return 'vi' }
+  return NATIVE_CODE
 }
 
 async function applyNativeTranslation(d: Lesson, lang: string, native: string): Promise<Lesson> {
@@ -169,7 +171,6 @@ interface AppStore {
   status: string
   statusError: boolean
   loadLesson: (url: string, opts?: { lang?: string; video?: Video }) => Promise<void>
-  loadSample: () => void
 }
 
 const AppContext = createContext<AppStore | null>(null)
@@ -520,18 +521,6 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     }
   }, [recordEvent, learnLang, nativeLang, saveVideo])
 
-  const loadSample = useCallback(() => {
-    setStatusError(false)
-    setStatus('')
-    setLesson(SAMPLE_LESSON)
-    setView('learn')
-    if (nativeLang !== 'vi') {
-      applyNativeTranslation(SAMPLE_LESSON, learnLang, nativeLang).then((nd) => {
-        setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
-      })
-    }
-  }, [nativeLang, learnLang])
-
   const value: AppStore = {
     view, setView,
     theme, toggleTheme,
@@ -549,7 +538,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     saveVideo, removeVideo, addPath,
     claimQuest, dailyBonus, recordEvent,
     lookupOpen, openLookup, closeLookup, lookupSeed,
-    lesson, status, statusError, loadLesson, loadSample,
+    lesson, status, statusError, loadLesson,
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

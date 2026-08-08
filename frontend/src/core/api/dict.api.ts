@@ -11,3 +11,8 @@ export const defineWordRich = (word: string, lang = 'ko', native = 'vi') =>
 
 export const fetchPinyin = (words: string[]) =>
   apiClient.post<{ readings: Record<string, string> }>('/api/define/pinyin', { words })
+
+export interface IpaReading { ipa: string; ph: string }
+
+export const fetchIpa = (words: string[]) =>
+  apiClient.post<{ readings: Record<string, IpaReading> }>('/api/define/ipa', { words })

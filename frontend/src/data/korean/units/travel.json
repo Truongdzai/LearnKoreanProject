@@ -6,17 +6,125 @@
   "tone": "tone-e",
   "emoji": "🧳",
   "words": [
-    { "ko": "여행", "romaja": "yeohaeng", "vi": "Du lịch", "pos": "noun", "img": "🧳", "connect": "\"Yơ-heng\" chính là âm Hán \"lữ hành\".", "ex": "다음 달에 여행을 가요.", "exVi": "Tháng sau tôi đi du lịch." },
-    { "ko": "호텔", "romaja": "hotel", "vi": "Khách sạn", "pos": "noun", "img": "🏨", "connect": "\"Hô-thêl\" mượn từ \"hotel\".", "ex": "호텔을 예약했어요.", "exVi": "Tôi đã đặt khách sạn rồi." },
-    { "ko": "예약", "romaja": "yeyak", "vi": "Đặt trước", "pos": "noun", "img": "🗓️", "connect": "\"Yê-yak\" chính là âm Hán \"dự ước\".", "ex": "두 명 예약하고 싶어요.", "exVi": "Tôi muốn đặt chỗ cho hai người." },
-    { "ko": "여권", "romaja": "yeogwon", "vi": "Hộ chiếu", "pos": "noun", "img": "🛂", "connect": "\"Yơ-kuôn\" chính là âm Hán \"lữ quyền\".", "ex": "여권을 보여 주세요.", "exVi": "Xin cho xem hộ chiếu ạ." },
-    { "ko": "짐", "romaja": "jim", "vi": "Hành lý", "pos": "noun", "img": "🎒", "connect": "\"Chim\" — đống đồ nặng vác theo.", "ex": "짐이 너무 무거워요.", "exVi": "Hành lý nặng quá." },
-    { "ko": "환전", "romaja": "hwanjeon", "vi": "Đổi tiền", "pos": "noun", "img": "💱", "connect": "\"Hoan-chơn\" chính là âm Hán \"hoán tiền\".", "ex": "환전은 어디서 해요?", "exVi": "Đổi tiền ở đâu ạ?" },
-    { "ko": "지도", "romaja": "jido", "vi": "Bản đồ", "pos": "noun", "img": "🗺️", "connect": "\"Chi-đô\" chính là âm Hán \"địa đồ\".", "ex": "지도를 보고 찾아갔어요.", "exVi": "Tôi xem bản đồ rồi tìm tới nơi." },
-    { "ko": "관광", "romaja": "gwan-gwang", "vi": "Tham quan", "pos": "noun", "img": "📸", "connect": "\"Quan-quang\" chính là âm Hán \"quan quang\".", "ex": "서울 관광을 하고 싶어요.", "exVi": "Tôi muốn tham quan Seoul." },
-    { "ko": "구경하다", "romaja": "gugyeonghada", "vi": "Ngắm / Xem cho biết", "pos": "verb", "img": "👀", "connect": "\"Ku-kyơng\" — đi ngó nghiêng cho vui.", "ex": "시장을 구경했어요.", "exVi": "Tôi đã đi ngắm chợ." },
-    { "ko": "쉬는 날", "romaja": "swineun nal", "vi": "Ngày nghỉ", "pos": "noun", "img": "🏖️", "connect": "Từ 쉬다 (nghỉ) + 날 (ngày).", "ex": "쉬는 날에 뭐 해요?", "exVi": "Ngày nghỉ bạn làm gì?" },
-    { "ko": "사진 찍다", "romaja": "sajin jjikda", "vi": "Chụp ảnh", "pos": "verb", "img": "📷", "connect": "\"Cchik\" — bấm một cái là xong tấm ảnh.", "ex": "여기서 사진 찍어도 돼요?", "exVi": "Chụp ảnh ở đây có được không ạ?" },
-    { "ko": "길을 묻다", "romaja": "gireul mutda", "vi": "Hỏi đường", "pos": "verb", "img": "🧭", "connect": "Từ 길 (đường) + 묻다 (hỏi).", "ex": "길을 물어봐도 될까요?", "exVi": "Tôi hỏi đường một chút được không ạ?" }
+    {
+      "ko": "여행",
+      "romaja": "yeohaeng",
+      "vi": "Du lịch",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "\"Yơ-heng\" chính là âm Hán \"lữ hành\".",
+      "ex": "다음 달에 여행을 가요.",
+      "exVi": "Tháng sau tôi đi du lịch."
+    },
+    {
+      "ko": "호텔",
+      "romaja": "hotel",
+      "vi": "Khách sạn",
+      "pos": "noun",
+      "img": "🏨",
+      "connect": "\"Hô-thêl\" mượn từ \"hotel\".",
+      "ex": "호텔을 예약했어요.",
+      "exVi": "Tôi đã đặt khách sạn rồi."
+    },
+    {
+      "ko": "예약",
+      "romaja": "yeyak",
+      "vi": "Đặt trước",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "\"Yê-yak\" chính là âm Hán \"dự ước\".",
+      "ex": "두 명 예약하고 싶어요.",
+      "exVi": "Tôi muốn đặt chỗ cho hai người."
+    },
+    {
+      "ko": "여권",
+      "romaja": "yeogwon",
+      "vi": "Hộ chiếu",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "\"Yơ-kuôn\" chính là âm Hán \"lữ quyền\".",
+      "ex": "여권을 보여 주세요.",
+      "exVi": "Xin cho xem hộ chiếu ạ."
+    },
+    {
+      "ko": "짐",
+      "romaja": "jim",
+      "vi": "Hành lý",
+      "pos": "noun",
+      "img": "🎒",
+      "connect": "\"Chim\" — đống đồ nặng vác theo.",
+      "ex": "짐이 너무 무거워요.",
+      "exVi": "Hành lý nặng quá."
+    },
+    {
+      "ko": "환전",
+      "romaja": "hwanjeon",
+      "vi": "Đổi tiền",
+      "pos": "noun",
+      "img": "💱",
+      "connect": "\"Hoan-chơn\" chính là âm Hán \"hoán tiền\".",
+      "ex": "환전은 어디서 해요?",
+      "exVi": "Đổi tiền ở đâu ạ?"
+    },
+    {
+      "ko": "지도",
+      "romaja": "jido",
+      "vi": "Bản đồ",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "\"Chi-đô\" chính là âm Hán \"địa đồ\".",
+      "ex": "지도를 보고 찾아갔어요.",
+      "exVi": "Tôi xem bản đồ rồi tìm tới nơi."
+    },
+    {
+      "ko": "관광",
+      "romaja": "gwan-gwang",
+      "vi": "Tham quan",
+      "pos": "noun",
+      "img": "📸",
+      "connect": "\"Quan-quang\" chính là âm Hán \"quan quang\".",
+      "ex": "서울 관광을 하고 싶어요.",
+      "exVi": "Tôi muốn tham quan Seoul."
+    },
+    {
+      "ko": "구경하다",
+      "romaja": "gugyeonghada",
+      "vi": "Ngắm / Xem cho biết",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "\"Ku-kyơng\" — đi ngó nghiêng cho vui.",
+      "ex": "시장을 구경했어요.",
+      "exVi": "Tôi đã đi ngắm chợ."
+    },
+    {
+      "ko": "쉬는 날",
+      "romaja": "swineun nal",
+      "vi": "Ngày nghỉ",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "Từ 쉬다 (nghỉ) + 날 (ngày).",
+      "ex": "쉬는 날에 뭐 해요?",
+      "exVi": "Ngày nghỉ bạn làm gì?"
+    },
+    {
+      "ko": "사진 찍다",
+      "romaja": "sajin jjikda",
+      "vi": "Chụp ảnh",
+      "pos": "verb",
+      "img": "📷",
+      "connect": "\"Cchik\" — bấm một cái là xong tấm ảnh.",
+      "ex": "여기서 사진 찍어도 돼요?",
+      "exVi": "Chụp ảnh ở đây có được không ạ?"
+    },
+    {
+      "ko": "길을 묻다",
+      "romaja": "gireul mutda",
+      "vi": "Hỏi đường",
+      "pos": "verb",
+      "img": "🧭",
+      "connect": "Từ 길 (đường) + 묻다 (hỏi).",
+      "ex": "길을 물어봐도 될까요?",
+      "exVi": "Tôi hỏi đường một chút được không ạ?"
+    }
   ]
 }

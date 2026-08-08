@@ -1,10 +1,16 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import Icon from '@/core/components/Icon'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import Icon, { type IconName } from '@/core/components/Icon'
 import { speakEN, stopSpeak, englishVoiceStatus, koreanVoiceStatus, chineseVoiceStatus, onVoicesChanged, VOICE_HELP, VOICE_HELP_KO, VOICE_HELP_ZH } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useAppStore } from '@/store/app.store'
-import { PRON_GROUPS, PRON_PASS, pronWords, scoreSpoken, type PronGroup } from '@/data/englishPronunciation'
+import { PRON_GROUPS, PRON_PASS, pronWords, type PronGroup } from '@/data/englishPronunciation'
+import { MINIMAL_STEPS } from '@/data/pronMethod'
 import { usePronProgress } from '../progress'
+import { CTX, MicButton, ResultLine, SR_LANG, useReader } from './pron/reader'
+import MethodPanel from './pron/MethodPanel'
+import RecordStudio from './pron/RecordStudio'
+import RhythmBoard from './pron/RhythmBoard'
+import StressBoard from './pron/StressBoard'
+import VoicingTest from './pron/VoicingTest'
 
 interface Props {
   initialGroup?: string
@@ -13,16 +19,6 @@ interface Props {
   speak?: (text: string, rate?: number) => void
   intro?: string
 }
-
-interface LabCtx {
-  lang: string
-  speak: (text: string, rate?: number) => void
-  srLang: string
-}
-
-const CTX: LabCtx = { lang: 'en', speak: speakEN, srLang: 'en-US' }
-
-const SR_LANG: Record<string, string> = { ko: 'ko-KR', zh: 'zh-CN', en: 'en-US' }
 
 const VOICE_INFO: Record<string, { name: string; check: () => 'ready' | 'none' | 'unknown'; help: { os: string; how: string }[] }> = {
   ko: { name: 'tiếng Hàn', check: koreanVoiceStatus, help: VOICE_HELP_KO },
@@ -35,7 +31,7 @@ export default function PronunciationLab({
   lang = 'en',
   groups = PRON_GROUPS,
   speak = speakEN,
-  intro = 'Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Anh: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm.',
+  intro = 'Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Anh: nghe mẫu → phân biệt bằng tai → ghi âm hai bản để đối chiếu → tự chấm theo 5 tiêu chí.',
 }: Props) {
   CTX.lang = lang
   CTX.speak = speak
@@ -52,11 +48,18 @@ export default function PronunciationLab({
     if (record(g.id, pct)) recordEvent('pronounce', 3)
   }, [record, recordEvent])
 
+  const jump = useCallback((groupId: string) => {
+    if (!groups.some((g) => g.id === groupId)) return
+    stopSpeak()
+    setOpenId(groupId)
+  }, [groups])
+
   if (group) {
     return (
       <GroupView
         key={group.id}
         group={group}
+        lang={lang}
         best={pron.best[group.id]}
         onDone={(pct) => onDone(group, pct)}
         onBack={() => { stopSpeak(); setOpenId(null) }}
@@ -76,6 +79,8 @@ export default function PronunciationLab({
           </p>
         </div>
       </div>
+
+      <MethodPanel lang={lang} onJump={jump} />
 
       <VoiceNotice lang={lang} />
 
@@ -118,18 +123,39 @@ function VoiceNotice({ lang }: { lang: string }) {
   )
 }
 
-type Mode = 'practice' | 'ear' | 'test'
+type Mode = 'practice' | 'ear' | 'stress' | 'rhythm' | 'voicing' | 'studio' | 'test'
 
 interface ViewProps {
   group: PronGroup
+  lang: string
   best?: number
   onDone: (pct: number) => void
   onBack: () => void
 }
 
-function GroupView({ group, best, onDone, onBack }: ViewProps) {
+const MODE_META: Record<Mode, { label: string; icon: IconName }> = {
+  practice: { label: 'Nghe & đọc theo', icon: 'volume' },
+  ear: { label: 'Phân biệt bằng tai', icon: 'target' },
+  stress: { label: 'Đánh dấu trọng âm', icon: 'letters' },
+  rhythm: { label: 'Nhịp trọng âm câu', icon: 'chart' },
+  voicing: { label: 'Kiểm tra độ rung', icon: 'flame' },
+  studio: { label: 'Ghi âm & tự chấm', icon: 'mic' },
+  test: { label: 'Kiểm tra', icon: 'star' },
+}
+
+function modesOf(group: PronGroup): Mode[] {
+  const list: Mode[] = ['practice']
+  if (group.pairs?.length) list.push('ear')
+  if (group.syllables?.length || group.classPairs?.length) list.push('stress')
+  if (group.focus?.length) list.push('rhythm')
+  if (group.voicing?.length) list.push('voicing')
+  list.push('studio', 'test')
+  return list
+}
+
+function GroupView({ group, lang, best, onDone, onBack }: ViewProps) {
   const words = useMemo(() => pronWords(group), [group])
-  const hasPairs = !!group.pairs?.length
+  const modes = useMemo(() => modesOf(group), [group])
   const [mode, setMode] = useState<Mode>('practice')
 
   useEffect(() => () => stopSpeak(), [])
@@ -159,88 +185,20 @@ function GroupView({ group, best, onDone, onBack }: ViewProps) {
       </div>
 
       <div className="pron-modes">
-        <button className={'pron-mode' + (mode === 'practice' ? ' on' : '')} onClick={() => { stopSpeak(); setMode('practice') }}>
-          <Icon name="volume" size={15} /> Nghe & đọc theo
-        </button>
-        {hasPairs && (
-          <button className={'pron-mode' + (mode === 'ear' ? ' on' : '')} onClick={() => { stopSpeak(); setMode('ear') }}>
-            <Icon name="target" size={15} /> Phân biệt bằng tai
+        {modes.map((m) => (
+          <button key={m} className={'pron-mode' + (mode === m ? ' on' : '')} onClick={() => { stopSpeak(); setMode(m) }}>
+            <Icon name={MODE_META[m].icon} size={15} /> {MODE_META[m].label}
           </button>
-        )}
-        <button className={'pron-mode' + (mode === 'test' ? ' on' : '')} onClick={() => { stopSpeak(); setMode('test') }}>
-          <Icon name="mic" size={15} /> Kiểm tra
-        </button>
+        ))}
       </div>
 
       {mode === 'practice' && <PracticeBoard group={group} />}
       {mode === 'ear' && <EarTraining group={group} />}
+      {mode === 'stress' && <StressBoard group={group} />}
+      {mode === 'rhythm' && <RhythmBoard group={group} />}
+      {mode === 'voicing' && <VoicingTest group={group} />}
+      {mode === 'studio' && <RecordStudio key={group.id} group={group} lang={lang} />}
       {mode === 'test' && <PronTest key={group.id} group={group} words={words} onDone={onDone} />}
-    </div>
-  )
-}
-
-function useReader() {
-  const sr = useSpeechRecognition(CTX.srLang)
-  const [active, setActive] = useState<string | null>(null)
-  const [results, setResults] = useState<Record<string, { pct: number; heard: string }>>({})
-  const targetRef = useRef<Record<string, string>>({})
-  const startedRef = useRef(false)
-
-  useEffect(() => {
-    if (sr.listening) { startedRef.current = true; return }
-    if (!startedRef.current || !active) return
-    startedRef.current = false
-    const heard = sr.transcript.trim()
-    const pct = heard ? scoreSpoken(targetRef.current[active] ?? '', heard, CTX.lang) : 0
-    setResults((prev) => ({ ...prev, [active]: { pct, heard } }))
-    setActive(null)
-    sr.reset()
-  }, [sr.listening, sr.transcript, sr.reset, active])
-
-  const listen = useCallback((id: string, target: string) => {
-    if (sr.listening) { sr.stop(); return }
-    targetRef.current[id] = target
-    setResults((prev) => {
-      const next = { ...prev }
-      delete next[id]
-      return next
-    })
-    stopSpeak()
-    setActive(id)
-    sr.start()
-  }, [sr])
-
-  const clear = useCallback(() => { setResults({}); setActive(null) }, [])
-
-  return { sr, active, results, listen, clear }
-}
-
-function verdict(pct: number): { cls: string; text: string } {
-  if (pct >= 90) return { cls: 'great', text: 'Rất chuẩn!' }
-  if (pct >= PRON_PASS) return { cls: 'ok', text: 'Được rồi — đọc lại cho chắc nhé' }
-  return { cls: 'bad', text: 'Chưa rõ — nghe mẫu rồi thử lại' }
-}
-
-function MicButton({ id, target, reader }: { id: string; target: string; reader: ReturnType<typeof useReader> }) {
-  const { sr, active, listen } = reader
-  const on = active === id && sr.listening
-  if (!sr.supported) return null
-  return (
-    <button className={'pron-mic' + (on ? ' on' : '')} onClick={() => listen(id, target)} title="Đọc theo">
-      <Icon name="mic" size={15} />
-    </button>
-  )
-}
-
-function ResultLine({ id, reader }: { id: string; reader: ReturnType<typeof useReader> }) {
-  const r = reader.results[id]
-  if (reader.active === id && reader.sr.listening) return <div className="pron-res listening">Đang nghe… hãy đọc to và rõ</div>
-  if (!r) return null
-  const v = verdict(r.pct)
-  return (
-    <div className={'pron-res ' + v.cls}>
-      <b>{r.pct}% · {v.text}</b>
-      {r.heard ? <span>Máy nghe được: “{r.heard}”</span> : <span>Máy không nghe được gì.</span>}
     </div>
   )
 }
@@ -249,11 +207,34 @@ function PracticeBoard({ group }: { group: PronGroup }) {
   const reader = useReader()
   const pairs = group.pairs ?? []
   const words = group.words ?? []
+  const [blind, setBlind] = useState(pairs.length > 0)
 
   return (
     <div className="pron-board">
       {!reader.sr.supported && (
         <div className="pron-warn sm">Trình duyệt này chưa hỗ trợ nhận diện giọng nói — hãy dùng Chrome hoặc Edge để được chấm điểm. Bạn vẫn nghe mẫu bình thường.</div>
+      )}
+
+      {pairs.length > 0 && (
+        <div className="pron-drill">
+          <div className="pron-drill-head">
+            <b><Icon name="bulb" size={15} /> Năm bước luyện một cặp từ</b>
+            <button
+              type="button"
+              className={'sh2-switch' + (blind ? ' on' : '')}
+              role="switch"
+              aria-checked={blind}
+              onClick={() => setBlind((v) => !v)}
+              title="Bước 1 là nghe mà chưa nhìn phiên âm"
+            >
+              <span className="sh2-knob" />
+              <span>Ẩn phiên âm</span>
+            </button>
+          </div>
+          <ol className="pron-drill-steps">
+            {MINIMAL_STEPS.map((s, i) => <li key={i}>{s}</li>)}
+          </ol>
+        </div>
       )}
 
       {pairs.map((p, i) => (
@@ -264,7 +245,7 @@ function PracticeBoard({ group }: { group: PronGroup }) {
               <div key={side} className="pron-item">
                 <div className="pron-item-top">
                   <b lang={CTX.lang}>{w}</b>
-                  <span className="pron-ipa">{ipa}</span>
+                  <span className="pron-ipa">{blind ? '' : ipa}</span>
                   <button className="pron-play" onClick={() => CTX.speak(w, 0.85)} title="Nghe mẫu"><Icon name="volume" size={15} /></button>
                   <MicButton id={id} target={w} reader={reader} />
                 </div>

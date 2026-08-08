@@ -63,7 +63,33 @@ export interface AdminUsersPage {
   pageSize: number
 }
 
+export type SeriesMetric = 'active' | 'signups' | 'lessons' | 'reviews' | 'xp' | 'minutes'
+
+export type SeriesPoint = { d: string } & Record<SeriesMetric, number>
+
+export interface KpiDelta {
+  value: number
+  prev: number
+}
+
+export interface MixItem {
+  k: string
+  v: number
+}
+
+export interface AdminSeries {
+  days: number
+  from: string
+  to: string
+  points: SeriesPoint[]
+  kpi: Record<SeriesMetric, KpiDelta>
+  mix: Record<'plan' | 'provider' | 'videoLang' | 'feedback', MixItem[]>
+}
+
 export const fetchAdminStats = () => apiClient.get<AdminStats>('/api/admin/stats')
+
+export const fetchAdminSeries = (days = 30) =>
+  apiClient.get<AdminSeries>(`/api/admin/series?days=${days}`)
 
 export const fetchAdminCatalog = () => apiClient.get<AdminCatalog>('/api/admin/catalog')
 

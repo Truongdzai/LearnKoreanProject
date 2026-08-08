@@ -18,7 +18,7 @@
   ],
   "shortcuts": [
     { "name": "Ôn tập thẻ đến hạn", "short_name": "Ôn tập", "url": "/on-tap", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Kho video", "short_name": "Video", "url": "/kho-video", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Shadowing", "short_name": "Shadowing", "url": "/shadowing", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Gia sư AI", "short_name": "Gia sư", "url": "/gia-su-ai", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
   ]
 }

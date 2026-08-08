@@ -6,33 +6,285 @@
   "tone": "tone-b",
   "emoji": "😌",
   "words": [
-    { "en": "calm", "ipa": "/kɑːm/", "vi": "bình tĩnh", "pos": "adj", "img": "😌", "connect": "\"Cam\" — chữ \"l\" câm; giữ bình tĩnh.", "ex": "Stay calm and breathe.", "exVi": "Bình tĩnh và hít thở nào." },
-    { "en": "relaxed", "ipa": "/rɪˈlækst/", "vi": "thư thái", "pos": "adj", "img": "🧘", "connect": "relax (thư giãn) + ed.", "ex": "I feel relaxed on the beach.", "exVi": "Tôi thấy thư thái khi ở biển." },
-    { "en": "glad", "ipa": "/ɡlæd/", "vi": "vui, mừng", "pos": "adj", "img": "😊", "connect": "\"Glét\" — vui mừng.", "ex": "I'm glad to see you.", "exVi": "Tôi mừng khi gặp bạn." },
-    { "en": "upset", "ipa": "/ʌpˈset/", "vi": "buồn bực, khó chịu", "pos": "adj", "img": "😞", "connect": "up + set — tâm trạng đảo lộn.", "ex": "She was upset about the news.", "exVi": "Cô ấy buồn bực về tin đó." },
-    { "en": "scared", "ipa": "/skerd/", "vi": "sợ hãi", "pos": "adj", "img": "😨", "connect": "scare (làm sợ) + d.", "ex": "The child is scared of the dark.", "exVi": "Đứa bé sợ bóng tối." },
-    { "en": "jealous", "ipa": "/ˈdʒel.əs/", "vi": "ghen tị", "pos": "adj", "img": "😒", "connect": "\"Gie-lợs\" — ghen ăn tức ở.", "ex": "He is jealous of his brother.", "exVi": "Anh ta ghen tị với em trai." },
-    { "en": "curious", "ipa": "/ˈkjʊr.i.əs/", "vi": "tò mò", "pos": "adj", "img": "🤔", "connect": "\"Kiu-ri-ợs\" — hiếu kỳ.", "ex": "Kids are naturally curious.", "exVi": "Trẻ con vốn tò mò." },
-    { "en": "generous", "ipa": "/ˈdʒen.ɚ.əs/", "vi": "rộng lượng, hào phóng", "pos": "adj", "img": "🎁", "connect": "\"Gie-nờ-rợs\" — hay cho đi.", "ex": "She is very generous with her time.", "exVi": "Cô ấy rất hào phóng với thời gian của mình." },
-    { "en": "gentle", "ipa": "/ˈdʒen.t̬əl/", "vi": "dịu dàng, nhẹ nhàng", "pos": "adj", "img": "🕊️", "connect": "\"Gien-tồ\" — nhẹ nhàng như quý ông (gentleman).", "ex": "Be gentle with the baby.", "exVi": "Nhẹ nhàng với em bé nhé." },
-    { "en": "cruel", "ipa": "/ˈkruː.əl/", "vi": "độc ác, tàn nhẫn", "pos": "adj", "img": "😈", "connect": "\"Cru-ồ\" — ác độc.", "ex": "It's cruel to hurt animals.", "exVi": "Hành hạ động vật là tàn nhẫn." },
-    { "en": "mean", "ipa": "/miːn/", "vi": "xấu tính, keo kiệt", "pos": "adj", "img": "😠", "connect": "\"Mi-n\" — mean = xấu tính (cũng nghĩa \"có nghĩa là\").", "ex": "Don't be mean to your sister.", "exVi": "Đừng xấu tính với em gái." },
-    { "en": "selfish", "ipa": "/ˈsel.fɪʃ/", "vi": "ích kỷ", "pos": "adj", "img": "🙄", "connect": "self (bản thân) + ish — chỉ nghĩ cho mình.", "ex": "It's selfish to take it all.", "exVi": "Lấy hết là ích kỷ đấy." },
-    { "en": "clever", "ipa": "/ˈklev.ɚ/", "vi": "khôn ngoan, lanh lợi", "pos": "adj", "img": "🦊", "connect": "\"Kle-vờ\" — nhanh trí.", "ex": "What a clever idea!", "exVi": "Ý hay (khôn) đấy!" },
-    { "en": "wise", "ipa": "/waɪz/", "vi": "khôn ngoan, uyên bác", "pos": "adj", "img": "🦉", "connect": "\"Wai-z\" — khôn ngoan từng trải.", "ex": "My grandfather is a wise man.", "exVi": "Ông tôi là một người thông thái." },
-    { "en": "foolish", "ipa": "/ˈfuː.lɪʃ/", "vi": "ngốc nghếch, dại dột", "pos": "adj", "img": "🤪", "connect": "fool (kẻ ngốc) + ish.", "ex": "It was a foolish mistake.", "exVi": "Đó là một sai lầm ngốc nghếch." },
-    { "en": "silly", "ipa": "/ˈsɪl.i/", "vi": "ngớ ngẩn, ngốc", "pos": "adj", "img": "😜", "connect": "\"Si-li\" — hơi ngốc, buồn cười.", "ex": "Don't be silly!", "exVi": "Đừng có ngốc thế!" },
-    { "en": "cheerful", "ipa": "/ˈtʃɪr.fəl/", "vi": "vui vẻ, tươi tắn", "pos": "adj", "img": "😄", "connect": "cheer (cổ vũ) + ful.", "ex": "She has a cheerful smile.", "exVi": "Cô ấy có một nụ cười tươi tắn." },
-    { "en": "anxious", "ipa": "/ˈæŋk.ʃəs/", "vi": "lo lắng, bồn chồn", "pos": "adj", "img": "😰", "connect": "\"Eng-sờs\" — bồn chồn.", "ex": "I'm anxious about the exam.", "exVi": "Tôi lo lắng về kỳ thi." },
-    { "en": "comfortable", "ipa": "/ˈkʌm.fɚ.t̬ə.bəl/", "vi": "thoải mái, dễ chịu", "pos": "adj", "img": "🛋️", "connect": "comfort (sự dễ chịu) + able.", "ex": "This chair is very comfortable.", "exVi": "Cái ghế này rất thoải mái." },
-    { "en": "embarrassed", "ipa": "/ɪmˈber.əst/", "vi": "xấu hổ, ngượng", "pos": "adj", "img": "😳", "connect": "\"Im-be-rợst\" — đỏ mặt ngượng.", "ex": "He felt embarrassed on stage.", "exVi": "Anh ấy thấy ngượng khi lên sân khấu." },
-    { "en": "grateful", "ipa": "/ˈɡreɪt.fəl/", "vi": "biết ơn", "pos": "adj", "img": "🙏", "connect": "\"Grê-t-phồ\" — lòng biết ơn.", "ex": "I'm grateful for your help.", "exVi": "Tôi biết ơn sự giúp đỡ của bạn." },
-    { "en": "hopeful", "ipa": "/ˈhoʊp.fəl/", "vi": "đầy hy vọng", "pos": "adj", "img": "🌟", "connect": "hope (hy vọng) + ful.", "ex": "We are hopeful about the future.", "exVi": "Chúng tôi đầy hy vọng về tương lai." },
-    { "en": "disappointed", "ipa": "/ˌdɪs.əˈpɔɪn.t̬ɪd/", "vi": "thất vọng", "pos": "adj", "img": "😔", "connect": "dis + appoint — không như mong đợi.", "ex": "I was disappointed with the movie.", "exVi": "Tôi thất vọng với bộ phim." },
-    { "en": "annoyed", "ipa": "/əˈnɔɪd/", "vi": "bực mình", "pos": "adj", "img": "😤", "connect": "annoy (làm phiền) + ed.", "ex": "She was annoyed by the noise.", "exVi": "Cô ấy bực mình vì tiếng ồn." },
-    { "en": "sensitive", "ipa": "/ˈsen.sə.t̬ɪv/", "vi": "nhạy cảm", "pos": "adj", "img": "🥺", "connect": "sense (cảm giác) → sensitive.", "ex": "He is very sensitive to criticism.", "exVi": "Anh ấy rất nhạy cảm với lời chê." },
-    { "en": "strict", "ipa": "/strɪkt/", "vi": "nghiêm khắc", "pos": "adj", "img": "🧐", "connect": "\"Sờ-tríc-t\" — khó tính, nghiêm.", "ex": "My teacher is very strict.", "exVi": "Thầy giáo tôi rất nghiêm khắc." },
-    { "en": "fair", "ipa": "/fer/", "vi": "công bằng", "pos": "adj", "img": "⚖️", "connect": "\"Phe-a\" — chơi đẹp, công bằng.", "ex": "That's not fair!", "exVi": "Thế thì không công bằng!" },
-    { "en": "gloomy", "ipa": "/ˈɡluː.mi/", "vi": "ảm đạm, u ám", "pos": "adj", "img": "🌫️", "connect": "\"Glu-mi\" — buồn u ám.", "ex": "The weather is gloomy today.", "exVi": "Hôm nay thời tiết ảm đạm." }
+    {
+      "en": "calm",
+      "ipa": "/kɑːm/",
+      "vi": "bình tĩnh",
+      "pos": "adj",
+      "img": "😌",
+      "connect": "\"Cam\" — chữ \"l\" câm; giữ bình tĩnh.",
+      "ex": "Stay calm and breathe.",
+      "exVi": "Bình tĩnh và hít thở nào."
+    },
+    {
+      "en": "relaxed",
+      "ipa": "/rɪˈlækst/",
+      "vi": "thư thái",
+      "pos": "adj",
+      "img": "🧘",
+      "connect": "relax (thư giãn) + ed.",
+      "ex": "I feel relaxed on the beach.",
+      "exVi": "Tôi thấy thư thái khi ở biển."
+    },
+    {
+      "en": "glad",
+      "ipa": "/ɡlæd/",
+      "vi": "vui, mừng",
+      "pos": "adj",
+      "img": "😊",
+      "connect": "\"Glét\" — vui mừng.",
+      "ex": "I'm glad to see you.",
+      "exVi": "Tôi mừng khi gặp bạn."
+    },
+    {
+      "en": "upset",
+      "ipa": "/ʌpˈset/",
+      "vi": "buồn bực, khó chịu",
+      "pos": "adj",
+      "img": "😞",
+      "connect": "up + set — tâm trạng đảo lộn.",
+      "ex": "She was upset about the news.",
+      "exVi": "Cô ấy buồn bực về tin đó."
+    },
+    {
+      "en": "scared",
+      "ipa": "/skerd/",
+      "vi": "sợ hãi",
+      "pos": "adj",
+      "img": "😨",
+      "connect": "scare (làm sợ) + d.",
+      "ex": "The child is scared of the dark.",
+      "exVi": "Đứa bé sợ bóng tối."
+    },
+    {
+      "en": "jealous",
+      "ipa": "/ˈdʒel.əs/",
+      "vi": "ghen tị",
+      "pos": "adj",
+      "img": "😒",
+      "connect": "\"Gie-lợs\" — ghen ăn tức ở.",
+      "ex": "He is jealous of his brother.",
+      "exVi": "Anh ta ghen tị với em trai."
+    },
+    {
+      "en": "curious",
+      "ipa": "/ˈkjʊr.i.əs/",
+      "vi": "tò mò",
+      "pos": "adj",
+      "img": "🤔",
+      "connect": "\"Kiu-ri-ợs\" — hiếu kỳ.",
+      "ex": "Kids are naturally curious.",
+      "exVi": "Trẻ con vốn tò mò."
+    },
+    {
+      "en": "generous",
+      "ipa": "/ˈdʒen.ɚ.əs/",
+      "vi": "rộng lượng, hào phóng",
+      "pos": "adj",
+      "img": "🎁",
+      "connect": "\"Gie-nờ-rợs\" — hay cho đi.",
+      "ex": "She is very generous with her time.",
+      "exVi": "Cô ấy rất hào phóng với thời gian của mình."
+    },
+    {
+      "en": "gentle",
+      "ipa": "/ˈdʒen.t̬əl/",
+      "vi": "dịu dàng, nhẹ nhàng",
+      "pos": "adj",
+      "img": "🕊️",
+      "connect": "\"Gien-tồ\" — nhẹ nhàng như quý ông (gentleman).",
+      "ex": "Be gentle with the baby.",
+      "exVi": "Nhẹ nhàng với em bé nhé."
+    },
+    {
+      "en": "cruel",
+      "ipa": "/ˈkruː.əl/",
+      "vi": "độc ác, tàn nhẫn",
+      "pos": "adj",
+      "img": "😈",
+      "connect": "\"Cru-ồ\" — ác độc.",
+      "ex": "It's cruel to hurt animals.",
+      "exVi": "Hành hạ động vật là tàn nhẫn."
+    },
+    {
+      "en": "mean",
+      "ipa": "/miːn/",
+      "vi": "xấu tính, keo kiệt",
+      "pos": "adj",
+      "img": "😠",
+      "connect": "\"Mi-n\" — mean = xấu tính (cũng nghĩa \"có nghĩa là\").",
+      "ex": "Don't be mean to your sister.",
+      "exVi": "Đừng xấu tính với em gái."
+    },
+    {
+      "en": "selfish",
+      "ipa": "/ˈsel.fɪʃ/",
+      "vi": "ích kỷ",
+      "pos": "adj",
+      "img": "🙄",
+      "connect": "self (bản thân) + ish — chỉ nghĩ cho mình.",
+      "ex": "It's selfish to take it all.",
+      "exVi": "Lấy hết là ích kỷ đấy."
+    },
+    {
+      "en": "clever",
+      "ipa": "/ˈklev.ɚ/",
+      "vi": "khôn ngoan, lanh lợi",
+      "pos": "adj",
+      "img": "🦊",
+      "connect": "\"Kle-vờ\" — nhanh trí.",
+      "ex": "What a clever idea!",
+      "exVi": "Ý hay (khôn) đấy!"
+    },
+    {
+      "en": "wise",
+      "ipa": "/waɪz/",
+      "vi": "khôn ngoan, uyên bác",
+      "pos": "adj",
+      "img": "🦉",
+      "connect": "\"Wai-z\" — khôn ngoan từng trải.",
+      "ex": "My grandfather is a wise man.",
+      "exVi": "Ông tôi là một người thông thái."
+    },
+    {
+      "en": "foolish",
+      "ipa": "/ˈfuː.lɪʃ/",
+      "vi": "ngốc nghếch, dại dột",
+      "pos": "adj",
+      "img": "🤪",
+      "connect": "fool (kẻ ngốc) + ish.",
+      "ex": "It was a foolish mistake.",
+      "exVi": "Đó là một sai lầm ngốc nghếch."
+    },
+    {
+      "en": "silly",
+      "ipa": "/ˈsɪl.i/",
+      "vi": "ngớ ngẩn, ngốc",
+      "pos": "adj",
+      "img": "😜",
+      "connect": "\"Si-li\" — hơi ngốc, buồn cười.",
+      "ex": "Don't be silly!",
+      "exVi": "Đừng có ngốc thế!"
+    },
+    {
+      "en": "cheerful",
+      "ipa": "/ˈtʃɪr.fəl/",
+      "vi": "vui vẻ, tươi tắn",
+      "pos": "adj",
+      "img": "😄",
+      "connect": "cheer (cổ vũ) + ful.",
+      "ex": "She has a cheerful smile.",
+      "exVi": "Cô ấy có một nụ cười tươi tắn."
+    },
+    {
+      "en": "anxious",
+      "ipa": "/ˈæŋk.ʃəs/",
+      "vi": "lo lắng, bồn chồn",
+      "pos": "adj",
+      "img": "😰",
+      "connect": "\"Eng-sờs\" — bồn chồn.",
+      "ex": "I'm anxious about the exam.",
+      "exVi": "Tôi lo lắng về kỳ thi."
+    },
+    {
+      "en": "comfortable",
+      "ipa": "/ˈkʌm.fɚ.t̬ə.bəl/",
+      "vi": "thoải mái, dễ chịu",
+      "pos": "adj",
+      "img": "🛋️",
+      "connect": "comfort (sự dễ chịu) + able.",
+      "ex": "This chair is very comfortable.",
+      "exVi": "Cái ghế này rất thoải mái."
+    },
+    {
+      "en": "embarrassed",
+      "ipa": "/ɪmˈber.əst/",
+      "vi": "xấu hổ, ngượng",
+      "pos": "adj",
+      "img": "😳",
+      "connect": "\"Im-be-rợst\" — đỏ mặt ngượng.",
+      "ex": "He felt embarrassed on stage.",
+      "exVi": "Anh ấy thấy ngượng khi lên sân khấu."
+    },
+    {
+      "en": "grateful",
+      "ipa": "/ˈɡreɪt.fəl/",
+      "vi": "biết ơn",
+      "pos": "adj",
+      "img": "🙏",
+      "connect": "\"Grê-t-phồ\" — lòng biết ơn.",
+      "ex": "I'm grateful for your help.",
+      "exVi": "Tôi biết ơn sự giúp đỡ của bạn."
+    },
+    {
+      "en": "hopeful",
+      "ipa": "/ˈhoʊp.fəl/",
+      "vi": "đầy hy vọng",
+      "pos": "adj",
+      "img": "🌟",
+      "connect": "hope (hy vọng) + ful.",
+      "ex": "We are hopeful about the future.",
+      "exVi": "Chúng tôi đầy hy vọng về tương lai."
+    },
+    {
+      "en": "disappointed",
+      "ipa": "/ˌdɪs.əˈpɔɪn.t̬ɪd/",
+      "vi": "thất vọng",
+      "pos": "adj",
+      "img": "😔",
+      "connect": "dis + appoint — không như mong đợi.",
+      "ex": "I was disappointed with the movie.",
+      "exVi": "Tôi thất vọng với bộ phim."
+    },
+    {
+      "en": "annoyed",
+      "ipa": "/əˈnɔɪd/",
+      "vi": "bực mình",
+      "pos": "adj",
+      "img": "😤",
+      "connect": "annoy (làm phiền) + ed.",
+      "ex": "She was annoyed by the noise.",
+      "exVi": "Cô ấy bực mình vì tiếng ồn."
+    },
+    {
+      "en": "sensitive",
+      "ipa": "/ˈsen.sə.t̬ɪv/",
+      "vi": "nhạy cảm",
+      "pos": "adj",
+      "img": "🥺",
+      "connect": "sense (cảm giác) → sensitive.",
+      "ex": "He is very sensitive to criticism.",
+      "exVi": "Anh ấy rất nhạy cảm với lời chê."
+    },
+    {
+      "en": "strict",
+      "ipa": "/strɪkt/",
+      "vi": "nghiêm khắc",
+      "pos": "adj",
+      "img": "🧐",
+      "connect": "\"Sờ-tríc-t\" — khó tính, nghiêm.",
+      "ex": "My teacher is very strict.",
+      "exVi": "Thầy giáo tôi rất nghiêm khắc."
+    },
+    {
+      "en": "fair",
+      "ipa": "/fer/",
+      "vi": "công bằng",
+      "pos": "adj",
+      "img": "⚖️",
+      "connect": "\"Phe-a\" — chơi đẹp, công bằng.",
+      "ex": "That's not fair!",
+      "exVi": "Thế thì không công bằng!"
+    },
+    {
+      "en": "gloomy",
+      "ipa": "/ˈɡluː.mi/",
+      "vi": "ảm đạm, u ám",
+      "pos": "adj",
+      "img": "🌫️",
+      "connect": "\"Glu-mi\" — buồn u ám.",
+      "ex": "The weather is gloomy today.",
+      "exVi": "Hôm nay thời tiết ảm đạm."
+    }
   ]
 }

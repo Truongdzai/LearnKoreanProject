@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "👪",
   "words": [
-    { "ko": "사람", "romaja": "saram", "vi": "Người", "pos": "noun", "img": "🧍", "connect": "\"Sa-ram\" — nói về \"người ta\".", "ex": "그 사람은 친절해요.", "exVi": "Người đó tử tế." },
-    { "ko": "가족", "romaja": "gajok", "vi": "Gia đình", "pos": "noun", "img": "👪", "connect": "\"Ga-jok\" như \"gia\" đình.", "ex": "우리 가족은 네 명이에요.", "exVi": "Gia đình tôi có bốn người." },
-    { "ko": "친구", "romaja": "chingu", "vi": "Bạn (bè)", "pos": "noun", "img": "🧑‍🤝‍🧑", "connect": "\"Chin-gu\" — người bạn \"thân\".", "ex": "친구를 만나요.", "exVi": "Tôi gặp bạn." },
-    { "ko": "어머니", "romaja": "eomeoni", "vi": "Mẹ (trang trọng)", "pos": "noun", "img": "👩", "connect": "\"Ơ-mơ-ni\" — cách gọi mẹ lễ phép.", "ex": "어머니께서 요리하세요.", "exVi": "Mẹ tôi đang nấu ăn." },
-    { "ko": "아버지", "romaja": "abeoji", "vi": "Bố (trang trọng)", "pos": "noun", "img": "👨", "connect": "\"A-bơ-ji\" — cách gọi bố lễ phép.", "ex": "아버지는 회사에 가세요.", "exVi": "Bố tôi đi làm." },
-    { "ko": "형", "romaja": "hyeong", "vi": "Anh trai (em trai gọi)", "pos": "noun", "img": "👦", "connect": "Con trai gọi anh trai là \"hyơng\".", "ex": "형이 두 명 있어요.", "exVi": "Tôi có hai anh trai." },
-    { "ko": "누나", "romaja": "nuna", "vi": "Chị gái (em trai gọi)", "pos": "noun", "img": "👧", "connect": "Con trai gọi chị gái là \"nu-na\".", "ex": "누나가 선생님이에요.", "exVi": "Chị tôi là giáo viên." },
-    { "ko": "오빠", "romaja": "oppa", "vi": "Anh trai (em gái gọi)", "pos": "noun", "img": "🧑", "connect": "Con gái gọi anh trai là \"ốp-ba\".", "ex": "오빠가 도와줘요.", "exVi": "Anh trai giúp đỡ tôi." },
-    { "ko": "언니", "romaja": "eonni", "vi": "Chị gái (em gái gọi)", "pos": "noun", "img": "👩", "connect": "Con gái gọi chị gái là \"ơn-ni\".", "ex": "언니랑 쇼핑해요.", "exVi": "Tôi đi mua sắm với chị." },
-    { "ko": "동생", "romaja": "dongsaeng", "vi": "Em (trai/gái)", "pos": "noun", "img": "🧒", "connect": "\"Đong-seng\" — người sinh sau, nhỏ hơn.", "ex": "동생이 귀여워요.", "exVi": "Em tôi dễ thương." },
-    { "ko": "아이", "romaja": "ai", "vi": "Đứa trẻ / Em bé", "pos": "noun", "img": "🧒", "connect": "\"A-i\" — em bé nhỏ xíu.", "ex": "아이가 자고 있어요.", "exVi": "Đứa bé đang ngủ." },
-    { "ko": "선생님", "romaja": "seonsaengnim", "vi": "Giáo viên / Thầy cô", "pos": "noun", "img": "👩‍🏫", "connect": "\"Sơn-seng-nim\" — có \"-nim\" là kính ngữ.", "ex": "선생님, 질문이 있어요.", "exVi": "Thưa thầy/cô, em có câu hỏi." }
+    {
+      "ko": "사람",
+      "romaja": "saram",
+      "vi": "Người",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "\"Sa-ram\" — nói về \"người ta\".",
+      "ex": "그 사람은 친절해요.",
+      "exVi": "Người đó tử tế."
+    },
+    {
+      "ko": "가족",
+      "romaja": "gajok",
+      "vi": "Gia đình",
+      "pos": "noun",
+      "img": "👪",
+      "connect": "\"Ga-jok\" như \"gia\" đình.",
+      "ex": "우리 가족은 네 명이에요.",
+      "exVi": "Gia đình tôi có bốn người."
+    },
+    {
+      "ko": "친구",
+      "romaja": "chingu",
+      "vi": "Bạn (bè)",
+      "pos": "noun",
+      "img": "🧑‍🤝‍🧑",
+      "connect": "\"Chin-gu\" — người bạn \"thân\".",
+      "ex": "친구를 만나요.",
+      "exVi": "Tôi gặp bạn."
+    },
+    {
+      "ko": "어머니",
+      "romaja": "eomeoni",
+      "vi": "Mẹ (trang trọng)",
+      "pos": "noun",
+      "img": "👩",
+      "connect": "\"Ơ-mơ-ni\" — cách gọi mẹ lễ phép.",
+      "ex": "어머니께서 요리하세요.",
+      "exVi": "Mẹ tôi đang nấu ăn."
+    },
+    {
+      "ko": "아버지",
+      "romaja": "abeoji",
+      "vi": "Bố (trang trọng)",
+      "pos": "noun",
+      "img": "👨",
+      "connect": "\"A-bơ-ji\" — cách gọi bố lễ phép.",
+      "ex": "아버지는 회사에 가세요.",
+      "exVi": "Bố tôi đi làm."
+    },
+    {
+      "ko": "형",
+      "romaja": "hyeong",
+      "vi": "Anh trai (em trai gọi)",
+      "pos": "noun",
+      "img": "👦",
+      "connect": "Con trai gọi anh trai là \"hyơng\".",
+      "ex": "형이 두 명 있어요.",
+      "exVi": "Tôi có hai anh trai."
+    },
+    {
+      "ko": "누나",
+      "romaja": "nuna",
+      "vi": "Chị gái (em trai gọi)",
+      "pos": "noun",
+      "img": "👧",
+      "connect": "Con trai gọi chị gái là \"nu-na\".",
+      "ex": "누나가 선생님이에요.",
+      "exVi": "Chị tôi là giáo viên."
+    },
+    {
+      "ko": "오빠",
+      "romaja": "oppa",
+      "vi": "Anh trai (em gái gọi)",
+      "pos": "noun",
+      "img": "🧑",
+      "connect": "Con gái gọi anh trai là \"ốp-ba\".",
+      "ex": "오빠가 도와줘요.",
+      "exVi": "Anh trai giúp đỡ tôi."
+    },
+    {
+      "ko": "언니",
+      "romaja": "eonni",
+      "vi": "Chị gái (em gái gọi)",
+      "pos": "noun",
+      "img": "👩",
+      "connect": "Con gái gọi chị gái là \"ơn-ni\".",
+      "ex": "언니랑 쇼핑해요.",
+      "exVi": "Tôi đi mua sắm với chị."
+    },
+    {
+      "ko": "동생",
+      "romaja": "dongsaeng",
+      "vi": "Em (trai/gái)",
+      "pos": "noun",
+      "img": "🧒",
+      "connect": "\"Đong-seng\" — người sinh sau, nhỏ hơn.",
+      "ex": "동생이 귀여워요.",
+      "exVi": "Em tôi dễ thương."
+    },
+    {
+      "ko": "아이",
+      "romaja": "ai",
+      "vi": "Đứa trẻ / Em bé",
+      "pos": "noun",
+      "img": "🧒",
+      "connect": "\"A-i\" — em bé nhỏ xíu.",
+      "ex": "아이가 자고 있어요.",
+      "exVi": "Đứa bé đang ngủ."
+    },
+    {
+      "ko": "선생님",
+      "romaja": "seonsaengnim",
+      "vi": "Giáo viên / Thầy cô",
+      "pos": "noun",
+      "img": "👩‍🏫",
+      "connect": "\"Sơn-seng-nim\" — có \"-nim\" là kính ngữ.",
+      "ex": "선생님, 질문이 있어요.",
+      "exVi": "Thưa thầy/cô, em có câu hỏi."
+    }
   ]
 }

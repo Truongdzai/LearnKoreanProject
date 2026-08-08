@@ -6,17 +6,125 @@
   "tone": "tone-d",
   "emoji": "🧭",
   "words": [
-    { "ko": "위", "romaja": "wi", "vi": "Trên", "pos": "noun", "img": "⬆️", "connect": "\"Uy\" — ngước lên phía trên.", "ex": "책상 위에 책이 있어요.", "exVi": "Trên bàn có quyển sách." },
-    { "ko": "아래", "romaja": "arae", "vi": "Dưới", "pos": "noun", "img": "⬇️", "connect": "\"A-re\" — nhìn xuống dưới đất.", "ex": "의자 아래를 보세요.", "exVi": "Bạn nhìn xuống dưới ghế xem." },
-    { "ko": "안", "romaja": "an", "vi": "Trong", "pos": "noun", "img": "📦", "connect": "\"An\" — nằm gọn bên trong.", "ex": "가방 안에 지갑이 있어요.", "exVi": "Trong cặp có cái ví." },
-    { "ko": "밖", "romaja": "bak", "vi": "Ngoài", "pos": "noun", "img": "🚪", "connect": "\"Bak\" — bước ra khỏi cửa.", "ex": "밖에서 기다릴게요.", "exVi": "Tôi sẽ đợi ở bên ngoài." },
-    { "ko": "앞", "romaja": "ap", "vi": "Phía trước", "pos": "noun", "img": "▶️", "connect": "\"Áp\" — áp mặt về phía trước.", "ex": "학교 앞에서 만나요.", "exVi": "Gặp nhau ở trước cổng trường nhé." },
-    { "ko": "뒤", "romaja": "dwi", "vi": "Phía sau", "pos": "noun", "img": "◀️", "connect": "\"Đuy\" — quay lại phía sau lưng.", "ex": "제 뒤에 서 주세요.", "exVi": "Bạn đứng sau tôi nhé." },
-    { "ko": "옆", "romaja": "yeop", "vi": "Bên cạnh", "pos": "noun", "img": "↔️", "connect": "\"Yớp\" — nép sát một bên.", "ex": "은행 옆에 카페가 있어요.", "exVi": "Cạnh ngân hàng có quán cà phê." },
-    { "ko": "왼쪽", "romaja": "oenjjok", "vi": "Bên trái", "pos": "noun", "img": "⬅️", "connect": "\"Uên-cchôk\" — 쪽 nghĩa là phía.", "ex": "왼쪽으로 가세요.", "exVi": "Bạn đi về phía bên trái nhé." },
-    { "ko": "오른쪽", "romaja": "oreunjjok", "vi": "Bên phải", "pos": "noun", "img": "➡️", "connect": "Cũng đuôi 쪽 — cặp trái/phải học chung một lượt.", "ex": "오른쪽에 편의점이 보여요.", "exVi": "Bên phải thấy có cửa hàng tiện lợi." },
-    { "ko": "가깝다", "romaja": "gakkapda", "vi": "Gần", "pos": "adj", "img": "📍", "connect": "\"Ka-kkap\" — cách vài bước là tới.", "ex": "역이 집에서 가까워요.", "exVi": "Nhà ga gần nhà tôi." },
-    { "ko": "멀다", "romaja": "meolda", "vi": "Xa", "pos": "adj", "img": "🛣️", "connect": "\"Mơl\" — mờ tít tận đằng xa.", "ex": "학교가 좀 멀어요.", "exVi": "Trường hơi xa." },
-    { "ko": "똑바로", "romaja": "ttokbaro", "vi": "Đi thẳng", "pos": "adverb", "img": "⬆️", "connect": "\"Ttôk-ba-rô\" — thẳng băng không rẽ.", "ex": "여기서 똑바로 가세요.", "exVi": "Từ đây bạn đi thẳng nhé." }
+    {
+      "ko": "위",
+      "romaja": "wi",
+      "vi": "Trên",
+      "pos": "noun",
+      "img": "⬆️",
+      "connect": "\"Uy\" — ngước lên phía trên.",
+      "ex": "책상 위에 책이 있어요.",
+      "exVi": "Trên bàn có quyển sách."
+    },
+    {
+      "ko": "아래",
+      "romaja": "arae",
+      "vi": "Dưới",
+      "pos": "noun",
+      "img": "⬇️",
+      "connect": "\"A-re\" — nhìn xuống dưới đất.",
+      "ex": "의자 아래를 보세요.",
+      "exVi": "Bạn nhìn xuống dưới ghế xem."
+    },
+    {
+      "ko": "안",
+      "romaja": "an",
+      "vi": "Trong",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "\"An\" — nằm gọn bên trong.",
+      "ex": "가방 안에 지갑이 있어요.",
+      "exVi": "Trong cặp có cái ví."
+    },
+    {
+      "ko": "밖",
+      "romaja": "bak",
+      "vi": "Ngoài",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"Bak\" — bước ra khỏi cửa.",
+      "ex": "밖에서 기다릴게요.",
+      "exVi": "Tôi sẽ đợi ở bên ngoài."
+    },
+    {
+      "ko": "앞",
+      "romaja": "ap",
+      "vi": "Phía trước",
+      "pos": "noun",
+      "img": "▶️",
+      "connect": "\"Áp\" — áp mặt về phía trước.",
+      "ex": "학교 앞에서 만나요.",
+      "exVi": "Gặp nhau ở trước cổng trường nhé."
+    },
+    {
+      "ko": "뒤",
+      "romaja": "dwi",
+      "vi": "Phía sau",
+      "pos": "noun",
+      "img": "◀️",
+      "connect": "\"Đuy\" — quay lại phía sau lưng.",
+      "ex": "제 뒤에 서 주세요.",
+      "exVi": "Bạn đứng sau tôi nhé."
+    },
+    {
+      "ko": "옆",
+      "romaja": "yeop",
+      "vi": "Bên cạnh",
+      "pos": "noun",
+      "img": "↔️",
+      "connect": "\"Yớp\" — nép sát một bên.",
+      "ex": "은행 옆에 카페가 있어요.",
+      "exVi": "Cạnh ngân hàng có quán cà phê."
+    },
+    {
+      "ko": "왼쪽",
+      "romaja": "oenjjok",
+      "vi": "Bên trái",
+      "pos": "noun",
+      "img": "⬅️",
+      "connect": "\"Uên-cchôk\" — 쪽 nghĩa là phía.",
+      "ex": "왼쪽으로 가세요.",
+      "exVi": "Bạn đi về phía bên trái nhé."
+    },
+    {
+      "ko": "오른쪽",
+      "romaja": "oreunjjok",
+      "vi": "Bên phải",
+      "pos": "noun",
+      "img": "➡️",
+      "connect": "Cũng đuôi 쪽 — cặp trái/phải học chung một lượt.",
+      "ex": "오른쪽에 편의점이 보여요.",
+      "exVi": "Bên phải thấy có cửa hàng tiện lợi."
+    },
+    {
+      "ko": "가깝다",
+      "romaja": "gakkapda",
+      "vi": "Gần",
+      "pos": "adj",
+      "img": "📍",
+      "connect": "\"Ka-kkap\" — cách vài bước là tới.",
+      "ex": "역이 집에서 가까워요.",
+      "exVi": "Nhà ga gần nhà tôi."
+    },
+    {
+      "ko": "멀다",
+      "romaja": "meolda",
+      "vi": "Xa",
+      "pos": "adj",
+      "img": "🛣️",
+      "connect": "\"Mơl\" — mờ tít tận đằng xa.",
+      "ex": "학교가 좀 멀어요.",
+      "exVi": "Trường hơi xa."
+    },
+    {
+      "ko": "똑바로",
+      "romaja": "ttokbaro",
+      "vi": "Đi thẳng",
+      "pos": "adverb",
+      "img": "⬆️",
+      "connect": "\"Ttôk-ba-rô\" — thẳng băng không rẽ.",
+      "ex": "여기서 똑바로 가세요.",
+      "exVi": "Từ đây bạn đi thẳng nhé."
+    }
   ]
 }

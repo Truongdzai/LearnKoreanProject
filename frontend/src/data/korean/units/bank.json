@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "🏦",
   "words": [
-    { "ko": "통장", "romaja": "tongjang", "vi": "Sổ tài khoản ngân hàng", "pos": "noun", "img": "📗", "connect": "\"Thông-chang\" chính là âm Hán \"thông trướng\".", "ex": "통장을 만들고 싶어요.", "exVi": "Tôi muốn mở sổ tài khoản." },
-    { "ko": "계좌", "romaja": "gyejwa", "vi": "Tài khoản", "pos": "noun", "img": "🔢", "connect": "\"Kyê-choa\" chính là âm Hán \"kế toạ\".", "ex": "계좌 번호를 알려 주세요.", "exVi": "Cho tôi xin số tài khoản ạ." },
-    { "ko": "신분증", "romaja": "sinbunjeung", "vi": "Giấy tờ tuỳ thân", "pos": "noun", "img": "🪪", "connect": "\"Sin-bun-chưng\" chính là âm Hán \"thân phận chứng\".", "ex": "신분증을 보여 주세요.", "exVi": "Xin cho xem giấy tờ tuỳ thân ạ." },
-    { "ko": "서류", "romaja": "seoryu", "vi": "Hồ sơ / Giấy tờ", "pos": "noun", "img": "📄", "connect": "\"Sơ-ryu\" chính là âm Hán \"thư loại\".", "ex": "서류를 다 준비했어요.", "exVi": "Tôi đã chuẩn bị đủ hồ sơ." },
-    { "ko": "도장", "romaja": "dojang", "vi": "Con dấu cá nhân", "pos": "noun", "img": "🔏", "connect": "\"Đô-chang\" chính là âm Hán \"đồ chương\" — ở Hàn nhiều thủ tục vẫn cần dấu.", "ex": "여기에 도장을 찍어 주세요.", "exVi": "Bạn đóng dấu vào đây giúp tôi ạ." },
-    { "ko": "주소", "romaja": "juso", "vi": "Địa chỉ", "pos": "noun", "img": "🏠", "connect": "\"Chu-sô\" chính là âm Hán \"trú sở\".", "ex": "주소를 여기에 쓰세요.", "exVi": "Bạn viết địa chỉ vào đây nhé." },
-    { "ko": "서명", "romaja": "seomyeong", "vi": "Chữ ký", "pos": "noun", "img": "✍️", "connect": "\"Sơ-myơng\" chính là âm Hán \"thự danh\".", "ex": "여기에 서명해 주세요.", "exVi": "Bạn ký vào đây giúp tôi ạ." },
-    { "ko": "신청하다", "romaja": "sincheonghada", "vi": "Đăng ký / Nộp đơn", "pos": "verb", "img": "📝", "connect": "\"Sin-chơng\" chính là âm Hán \"thân thỉnh\".", "ex": "카드를 신청하려고 해요.", "exVi": "Tôi định đăng ký làm thẻ." },
-    { "ko": "송금", "romaja": "songgeum", "vi": "Chuyển tiền", "pos": "noun", "img": "💸", "connect": "\"Sông-kưm\" chính là âm Hán \"tống kim\".", "ex": "베트남으로 송금하고 싶어요.", "exVi": "Tôi muốn chuyển tiền về Việt Nam." },
-    { "ko": "수수료", "romaja": "susuryo", "vi": "Phí dịch vụ", "pos": "noun", "img": "🧾", "connect": "\"Su-su-ryô\" chính là âm Hán \"thủ số liệu\".", "ex": "수수료가 얼마예요?", "exVi": "Phí dịch vụ bao nhiêu ạ?" },
-    { "ko": "비자", "romaja": "bija", "vi": "Thị thực (visa)", "pos": "noun", "img": "🛂", "connect": "\"Bi-cha\" mượn từ \"visa\".", "ex": "비자를 연장해야 해요.", "exVi": "Tôi phải gia hạn visa." },
-    { "ko": "등록", "romaja": "deungnok", "vi": "Đăng ký (chính thức)", "pos": "noun", "img": "🗂️", "connect": "\"Đưng-nôk\" chính là âm Hán \"đăng lục\" — như 외국인 등록증 (thẻ cư trú).", "ex": "외국인 등록증이 나왔어요.", "exVi": "Thẻ đăng ký người nước ngoài đã có rồi." }
+    {
+      "ko": "통장",
+      "romaja": "tongjang",
+      "vi": "Sổ tài khoản ngân hàng",
+      "pos": "noun",
+      "img": "📗",
+      "connect": "\"Thông-chang\" chính là âm Hán \"thông trướng\".",
+      "ex": "통장을 만들고 싶어요.",
+      "exVi": "Tôi muốn mở sổ tài khoản."
+    },
+    {
+      "ko": "계좌",
+      "romaja": "gyejwa",
+      "vi": "Tài khoản",
+      "pos": "noun",
+      "img": "🔢",
+      "connect": "\"Kyê-choa\" chính là âm Hán \"kế toạ\".",
+      "ex": "계좌 번호를 알려 주세요.",
+      "exVi": "Cho tôi xin số tài khoản ạ."
+    },
+    {
+      "ko": "신분증",
+      "romaja": "sinbunjeung",
+      "vi": "Giấy tờ tuỳ thân",
+      "pos": "noun",
+      "img": "🪪",
+      "connect": "\"Sin-bun-chưng\" chính là âm Hán \"thân phận chứng\".",
+      "ex": "신분증을 보여 주세요.",
+      "exVi": "Xin cho xem giấy tờ tuỳ thân ạ."
+    },
+    {
+      "ko": "서류",
+      "romaja": "seoryu",
+      "vi": "Hồ sơ / Giấy tờ",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "\"Sơ-ryu\" chính là âm Hán \"thư loại\".",
+      "ex": "서류를 다 준비했어요.",
+      "exVi": "Tôi đã chuẩn bị đủ hồ sơ."
+    },
+    {
+      "ko": "도장",
+      "romaja": "dojang",
+      "vi": "Con dấu cá nhân",
+      "pos": "noun",
+      "img": "🔏",
+      "connect": "\"Đô-chang\" chính là âm Hán \"đồ chương\" — ở Hàn nhiều thủ tục vẫn cần dấu.",
+      "ex": "여기에 도장을 찍어 주세요.",
+      "exVi": "Bạn đóng dấu vào đây giúp tôi ạ."
+    },
+    {
+      "ko": "주소",
+      "romaja": "juso",
+      "vi": "Địa chỉ",
+      "pos": "noun",
+      "img": "🏠",
+      "connect": "\"Chu-sô\" chính là âm Hán \"trú sở\".",
+      "ex": "주소를 여기에 쓰세요.",
+      "exVi": "Bạn viết địa chỉ vào đây nhé."
+    },
+    {
+      "ko": "서명",
+      "romaja": "seomyeong",
+      "vi": "Chữ ký",
+      "pos": "noun",
+      "img": "✍️",
+      "connect": "\"Sơ-myơng\" chính là âm Hán \"thự danh\".",
+      "ex": "여기에 서명해 주세요.",
+      "exVi": "Bạn ký vào đây giúp tôi ạ."
+    },
+    {
+      "ko": "신청하다",
+      "romaja": "sincheonghada",
+      "vi": "Đăng ký / Nộp đơn",
+      "pos": "verb",
+      "img": "📝",
+      "connect": "\"Sin-chơng\" chính là âm Hán \"thân thỉnh\".",
+      "ex": "카드를 신청하려고 해요.",
+      "exVi": "Tôi định đăng ký làm thẻ."
+    },
+    {
+      "ko": "송금",
+      "romaja": "songgeum",
+      "vi": "Chuyển tiền",
+      "pos": "noun",
+      "img": "💸",
+      "connect": "\"Sông-kưm\" chính là âm Hán \"tống kim\".",
+      "ex": "베트남으로 송금하고 싶어요.",
+      "exVi": "Tôi muốn chuyển tiền về Việt Nam."
+    },
+    {
+      "ko": "수수료",
+      "romaja": "susuryo",
+      "vi": "Phí dịch vụ",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "\"Su-su-ryô\" chính là âm Hán \"thủ số liệu\".",
+      "ex": "수수료가 얼마예요?",
+      "exVi": "Phí dịch vụ bao nhiêu ạ?"
+    },
+    {
+      "ko": "비자",
+      "romaja": "bija",
+      "vi": "Thị thực (visa)",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "\"Bi-cha\" mượn từ \"visa\".",
+      "ex": "비자를 연장해야 해요.",
+      "exVi": "Tôi phải gia hạn visa."
+    },
+    {
+      "ko": "등록",
+      "romaja": "deungnok",
+      "vi": "Đăng ký (chính thức)",
+      "pos": "noun",
+      "img": "🗂️",
+      "connect": "\"Đưng-nôk\" chính là âm Hán \"đăng lục\" — như 외국인 등록증 (thẻ cư trú).",
+      "ex": "외국인 등록증이 나왔어요.",
+      "exVi": "Thẻ đăng ký người nước ngoài đã có rồi."
+    }
   ]
 }

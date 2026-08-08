@@ -57,7 +57,7 @@ export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz
         <div className="en-hero-badge"><Icon name="rocket" size={14} /> {boot ? 'Bootcamp 90 ngày' : 'Lộ trình 3 tháng'}</div>
         <h1>{boot ? 'Giỏi Tiếng Anh trong 90 ngày' : 'Nói được Tiếng Anh trong 3 tháng'}</h1>
         {boot ? (
-          <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 18 bài ngữ pháp, 12 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
+          <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 18 bài ngữ pháp, 13 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
         ) : (
           <p>Đi theo <b>Quy tắc 3C</b> và phương pháp <b>ICES</b>: học đúng từ cần học, nhớ bằng hình ảnh – liên tưởng – trải nghiệm – âm thanh, rồi củng cố bằng lặp lại ngắt quãng. Đủ 4 kỹ năng nghe – nói – đọc – viết ngay trong lộ trình.</p>
         )}
@@ -124,8 +124,8 @@ export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz
         <Icon name="mic" size={20} />
         <div>
           <b>Chữ S trong ICES — Sound.</b> Thuộc từ mà đọc sai thì người nghe vẫn không hiểu.
-          {' '}{PRON_GROUPS.length} nhóm âm người Việt hay sai (âm cuối, /θ/, ship–sheep, trọng âm, nối âm) đã có sẵn:
-          nghe mẫu, phân biệt bằng tai rồi đọc cho máy chấm.
+          {' '}{PRON_GROUPS.length} nhóm âm người Việt hay sai (âm cuối, /θ/, ship–sheep, trọng âm, nối âm, nhịp câu) đã có sẵn:
+          nghe mẫu, phân biệt bằng tai, ghi âm hai bản để đối chiếu rồi tự chấm theo 5 tiêu chí.
         </div>
         <button className="btn-primary sm" onClick={() => onPron()}><Icon name="volume" size={15} /> Luyện phát âm</button>
       </div>

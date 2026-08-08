@@ -6,31 +6,265 @@
   "tone": "tone-f",
   "emoji": "🔗",
   "words": [
-    { "en": "although", "ipa": "/ɑːlˈðoʊ/", "vi": "mặc dù", "pos": "prep", "img": "↔️", "connect": "although + mệnh đề: mặc dù... nhưng.", "ex": "Although it rained, we went out.", "exVi": "Mặc dù trời mưa, chúng tôi vẫn ra ngoài." },
-    { "en": "though", "ipa": "/ðoʊ/", "vi": "dù, tuy vậy", "pos": "prep", "img": "🤷", "connect": "như although; đứng cuối câu = \"tuy vậy\".", "ex": "It's hard. I like it, though.", "exVi": "Khó thật. Tuy vậy tôi vẫn thích." },
-    { "en": "despite", "ipa": "/dɪˈspaɪt/", "vi": "bất chấp", "pos": "prep", "img": "💪", "connect": "despite + DANH TỪ (không + mệnh đề).", "ex": "We played despite the rain.", "exVi": "Chúng tôi vẫn chơi bất chấp trời mưa." },
-    { "en": "unless", "ipa": "/ənˈles/", "vi": "trừ khi", "pos": "prep", "img": "🚫", "connect": "unless = if not — trừ khi.", "ex": "You'll be late unless you hurry.", "exVi": "Bạn sẽ muộn trừ khi nhanh chân lên." },
-    { "en": "whether", "ipa": "/ˈweð.ɚ/", "vi": "liệu... hay không", "pos": "prep", "img": "❓", "connect": "đồng âm weather; whether... or not.", "ex": "I don't know whether he'll come.", "exVi": "Tôi không biết liệu anh ấy có đến không." },
-    { "en": "while", "ipa": "/waɪl/", "vi": "trong khi", "pos": "prep", "img": "⏳", "connect": "hai việc xảy ra cùng lúc.", "ex": "She sang while cooking.", "exVi": "Cô ấy vừa nấu ăn vừa hát." },
-    { "en": "since", "ipa": "/sɪns/", "vi": "kể từ; bởi vì", "pos": "prep", "img": "📅", "connect": "since 2020 (từ đó tới nay); cũng nghĩa \"vì\".", "ex": "I've lived here since 2019.", "exVi": "Tôi sống ở đây từ năm 2019." },
-    { "en": "whereas", "ipa": "/werˈæz/", "vi": "trong khi (đối lập)", "pos": "prep", "img": "⚖️", "connect": "so sánh hai vế trái ngược.", "ex": "He's tall, whereas his brother is short.", "exVi": "Anh ấy cao, trong khi em trai lại thấp." },
-    { "en": "moreover", "ipa": "/mɔːrˈoʊ.vɚ/", "vi": "hơn nữa", "pos": "adverb", "img": "➕", "connect": "more + over — thêm ý mạnh hơn.", "ex": "The food is good; moreover, it's cheap.", "exVi": "Đồ ăn ngon; hơn nữa lại rẻ." },
-    { "en": "furthermore", "ipa": "/ˈfɜːr.ðɚ.mɔːr/", "vi": "thêm vào đó", "pos": "adverb", "img": "➕", "connect": "further + more — như moreover.", "ex": "Furthermore, the hotel has a pool.", "exVi": "Thêm vào đó, khách sạn còn có hồ bơi." },
-    { "en": "nevertheless", "ipa": "/ˌnev.ɚ.ðəˈles/", "vi": "tuy nhiên, dẫu vậy", "pos": "adverb", "img": "🔄", "connect": "never-the-less — dù vậy vẫn.", "ex": "It was raining; nevertheless, we went.", "exVi": "Trời mưa; dẫu vậy chúng tôi vẫn đi." },
-    { "en": "meanwhile", "ipa": "/ˈmiːn.waɪl/", "vi": "trong lúc đó", "pos": "adverb", "img": "⏲️", "connect": "mean + while — cùng thời gian đó.", "ex": "Cook the rice; meanwhile, cut the meat.", "exVi": "Nấu cơm; trong lúc đó thái thịt." },
-    { "en": "besides", "ipa": "/bɪˈsaɪdz/", "vi": "vả lại, ngoài ra", "pos": "adverb", "img": "🖐️", "connect": "beside (bên cạnh) + s — thêm lý do.", "ex": "I'm tired. Besides, it's late.", "exVi": "Tôi mệt rồi. Vả lại cũng muộn rồi." },
-    { "en": "anyway", "ipa": "/ˈen.i.weɪ/", "vi": "dù sao thì", "pos": "adverb", "img": "🤷", "connect": "any + way — dù sao đi nữa.", "ex": "Anyway, let's move on.", "exVi": "Dù sao thì, mình tiếp tục nào." },
-    { "en": "thus", "ipa": "/ðʌs/", "vi": "do vậy", "pos": "adverb", "img": "➡️", "connect": "trang trọng của \"so\".", "ex": "He didn't study; thus, he failed.", "exVi": "Cậu ấy không học; do vậy đã trượt." },
-    { "en": "overall", "ipa": "/ˌoʊ.vɚˈɑːl/", "vi": "nhìn tổng thể", "pos": "adverb", "img": "📊", "connect": "over + all — tính chung tất cả.", "ex": "Overall, the trip was great.", "exVi": "Nhìn chung chuyến đi rất tuyệt." },
-    { "en": "indeed", "ipa": "/ɪnˈdiːd/", "vi": "quả thật", "pos": "adverb", "img": "💯", "connect": "nhấn mạnh: đúng là vậy thật.", "ex": "It was indeed a great show.", "exVi": "Đó quả thật là một buổi diễn tuyệt vời." },
-    { "en": "actually", "ipa": "/ˈæk.tʃu.ə.li/", "vi": "thật ra", "pos": "adverb", "img": "💬", "connect": "actual (thực tế) + ly — nói lại cho đúng.", "ex": "Actually, I'm from Da Nang, not Hue.", "exVi": "Thật ra tôi quê Đà Nẵng, không phải Huế." },
-    { "en": "basically", "ipa": "/ˈbeɪ.sɪ.kli/", "vi": "về cơ bản", "pos": "adverb", "img": "🧱", "connect": "basic (cơ bản) + ally.", "ex": "Basically, we need more time.", "exVi": "Về cơ bản, chúng ta cần thêm thời gian." },
-    { "en": "luckily", "ipa": "/ˈlʌk.əl.i/", "vi": "may mắn thay", "pos": "adverb", "img": "🍀", "connect": "lucky (may) + ly.", "ex": "Luckily, nobody was hurt.", "exVi": "May mắn thay, không ai bị thương." },
-    { "en": "unfortunately", "ipa": "/ʌnˈfɔːr.tʃən.ət.li/", "vi": "tiếc là, không may", "pos": "adverb", "img": "😔", "connect": "un + fortunate (may mắn) + ly.", "ex": "Unfortunately, the shop was closed.", "exVi": "Tiếc là cửa hàng đã đóng cửa." },
-    { "en": "obviously", "ipa": "/ˈɑːb.vi.əs.li/", "vi": "rõ ràng là", "pos": "adverb", "img": "👁️", "connect": "obvious (hiển nhiên) + ly.", "ex": "Obviously, he was lying.", "exVi": "Rõ ràng là anh ta đang nói dối." },
-    { "en": "apparently", "ipa": "/əˈper.ənt.li/", "vi": "nghe nói là, có vẻ", "pos": "adverb", "img": "🗣️", "connect": "appear (có vẻ) → apparently.", "ex": "Apparently, they moved abroad.", "exVi": "Nghe nói là họ đã chuyển ra nước ngoài." },
-    { "en": "eventually", "ipa": "/ɪˈven.tʃu.ə.li/", "vi": "rốt cuộc, sau cùng", "pos": "adverb", "img": "🏁", "connect": "\"I-ven-chu-ờ-li\" — cuối cùng rồi cũng.", "ex": "Eventually, she said yes.", "exVi": "Rốt cuộc cô ấy cũng đồng ý." },
-    { "en": "gradually", "ipa": "/ˈɡrædʒ.u.ə.li/", "vi": "dần dần", "pos": "adverb", "img": "📈", "connect": "\"Grá-ju-ờ-li\" — từng chút một.", "ex": "The weather gradually got warmer.", "exVi": "Thời tiết ấm dần lên." },
-    { "en": "originally", "ipa": "/əˈrɪdʒ.ən.əl.i/", "vi": "ban đầu, vốn dĩ", "pos": "adverb", "img": "🌱", "connect": "origin (nguồn gốc) → originally.", "ex": "Originally, the plan was different.", "exVi": "Ban đầu kế hoạch vốn khác cơ." }
+    {
+      "en": "although",
+      "ipa": "/ɑːlˈðoʊ/",
+      "vi": "mặc dù",
+      "pos": "prep",
+      "img": "↔️",
+      "connect": "although + mệnh đề: mặc dù... nhưng.",
+      "ex": "Although it rained, we went out.",
+      "exVi": "Mặc dù trời mưa, chúng tôi vẫn ra ngoài."
+    },
+    {
+      "en": "though",
+      "ipa": "/ðoʊ/",
+      "vi": "dù, tuy vậy",
+      "pos": "prep",
+      "img": "🤷",
+      "connect": "như although; đứng cuối câu = \"tuy vậy\".",
+      "ex": "It's hard. I like it, though.",
+      "exVi": "Khó thật. Tuy vậy tôi vẫn thích."
+    },
+    {
+      "en": "despite",
+      "ipa": "/dɪˈspaɪt/",
+      "vi": "bất chấp",
+      "pos": "prep",
+      "img": "💪",
+      "connect": "despite + DANH TỪ (không + mệnh đề).",
+      "ex": "We played despite the rain.",
+      "exVi": "Chúng tôi vẫn chơi bất chấp trời mưa."
+    },
+    {
+      "en": "unless",
+      "ipa": "/ənˈles/",
+      "vi": "trừ khi",
+      "pos": "prep",
+      "img": "🚫",
+      "connect": "unless = if not — trừ khi.",
+      "ex": "You'll be late unless you hurry.",
+      "exVi": "Bạn sẽ muộn trừ khi nhanh chân lên."
+    },
+    {
+      "en": "whether",
+      "ipa": "/ˈweð.ɚ/",
+      "vi": "liệu... hay không",
+      "pos": "prep",
+      "img": "❓",
+      "connect": "đồng âm weather; whether... or not.",
+      "ex": "I don't know whether he'll come.",
+      "exVi": "Tôi không biết liệu anh ấy có đến không."
+    },
+    {
+      "en": "while",
+      "ipa": "/waɪl/",
+      "vi": "trong khi",
+      "pos": "prep",
+      "img": "⏳",
+      "connect": "hai việc xảy ra cùng lúc.",
+      "ex": "She sang while cooking.",
+      "exVi": "Cô ấy vừa nấu ăn vừa hát."
+    },
+    {
+      "en": "since",
+      "ipa": "/sɪns/",
+      "vi": "kể từ; bởi vì",
+      "pos": "prep",
+      "img": "📅",
+      "connect": "since 2020 (từ đó tới nay); cũng nghĩa \"vì\".",
+      "ex": "I've lived here since 2019.",
+      "exVi": "Tôi sống ở đây từ năm 2019."
+    },
+    {
+      "en": "whereas",
+      "ipa": "/werˈæz/",
+      "vi": "trong khi (đối lập)",
+      "pos": "prep",
+      "img": "⚖️",
+      "connect": "so sánh hai vế trái ngược.",
+      "ex": "He's tall, whereas his brother is short.",
+      "exVi": "Anh ấy cao, trong khi em trai lại thấp."
+    },
+    {
+      "en": "moreover",
+      "ipa": "/mɔːrˈoʊ.vɚ/",
+      "vi": "hơn nữa",
+      "pos": "adverb",
+      "img": "➕",
+      "connect": "more + over — thêm ý mạnh hơn.",
+      "ex": "The food is good; moreover, it's cheap.",
+      "exVi": "Đồ ăn ngon; hơn nữa lại rẻ."
+    },
+    {
+      "en": "furthermore",
+      "ipa": "/ˈfɜːr.ðɚ.mɔːr/",
+      "vi": "thêm vào đó",
+      "pos": "adverb",
+      "img": "➕",
+      "connect": "further + more — như moreover.",
+      "ex": "Furthermore, the hotel has a pool.",
+      "exVi": "Thêm vào đó, khách sạn còn có hồ bơi."
+    },
+    {
+      "en": "nevertheless",
+      "ipa": "/ˌnev.ɚ.ðəˈles/",
+      "vi": "tuy nhiên, dẫu vậy",
+      "pos": "adverb",
+      "img": "🔄",
+      "connect": "never-the-less — dù vậy vẫn.",
+      "ex": "It was raining; nevertheless, we went.",
+      "exVi": "Trời mưa; dẫu vậy chúng tôi vẫn đi."
+    },
+    {
+      "en": "meanwhile",
+      "ipa": "/ˈmiːn.waɪl/",
+      "vi": "trong lúc đó",
+      "pos": "adverb",
+      "img": "⏲️",
+      "connect": "mean + while — cùng thời gian đó.",
+      "ex": "Cook the rice; meanwhile, cut the meat.",
+      "exVi": "Nấu cơm; trong lúc đó thái thịt."
+    },
+    {
+      "en": "besides",
+      "ipa": "/bɪˈsaɪdz/",
+      "vi": "vả lại, ngoài ra",
+      "pos": "adverb",
+      "img": "🖐️",
+      "connect": "beside (bên cạnh) + s — thêm lý do.",
+      "ex": "I'm tired. Besides, it's late.",
+      "exVi": "Tôi mệt rồi. Vả lại cũng muộn rồi."
+    },
+    {
+      "en": "anyway",
+      "ipa": "/ˈen.i.weɪ/",
+      "vi": "dù sao thì",
+      "pos": "adverb",
+      "img": "🤷",
+      "connect": "any + way — dù sao đi nữa.",
+      "ex": "Anyway, let's move on.",
+      "exVi": "Dù sao thì, mình tiếp tục nào."
+    },
+    {
+      "en": "thus",
+      "ipa": "/ðʌs/",
+      "vi": "do vậy",
+      "pos": "adverb",
+      "img": "➡️",
+      "connect": "trang trọng của \"so\".",
+      "ex": "He didn't study; thus, he failed.",
+      "exVi": "Cậu ấy không học; do vậy đã trượt."
+    },
+    {
+      "en": "overall",
+      "ipa": "/ˌoʊ.vɚˈɑːl/",
+      "vi": "nhìn tổng thể",
+      "pos": "adverb",
+      "img": "📊",
+      "connect": "over + all — tính chung tất cả.",
+      "ex": "Overall, the trip was great.",
+      "exVi": "Nhìn chung chuyến đi rất tuyệt."
+    },
+    {
+      "en": "indeed",
+      "ipa": "/ɪnˈdiːd/",
+      "vi": "quả thật",
+      "pos": "adverb",
+      "img": "💯",
+      "connect": "nhấn mạnh: đúng là vậy thật.",
+      "ex": "It was indeed a great show.",
+      "exVi": "Đó quả thật là một buổi diễn tuyệt vời."
+    },
+    {
+      "en": "actually",
+      "ipa": "/ˈæk.tʃu.ə.li/",
+      "vi": "thật ra",
+      "pos": "adverb",
+      "img": "💬",
+      "connect": "actual (thực tế) + ly — nói lại cho đúng.",
+      "ex": "Actually, I'm from Da Nang, not Hue.",
+      "exVi": "Thật ra tôi quê Đà Nẵng, không phải Huế."
+    },
+    {
+      "en": "basically",
+      "ipa": "/ˈbeɪ.sɪ.kli/",
+      "vi": "về cơ bản",
+      "pos": "adverb",
+      "img": "🧱",
+      "connect": "basic (cơ bản) + ally.",
+      "ex": "Basically, we need more time.",
+      "exVi": "Về cơ bản, chúng ta cần thêm thời gian."
+    },
+    {
+      "en": "luckily",
+      "ipa": "/ˈlʌk.əl.i/",
+      "vi": "may mắn thay",
+      "pos": "adverb",
+      "img": "🍀",
+      "connect": "lucky (may) + ly.",
+      "ex": "Luckily, nobody was hurt.",
+      "exVi": "May mắn thay, không ai bị thương."
+    },
+    {
+      "en": "unfortunately",
+      "ipa": "/ʌnˈfɔːr.tʃən.ət.li/",
+      "vi": "tiếc là, không may",
+      "pos": "adverb",
+      "img": "😔",
+      "connect": "un + fortunate (may mắn) + ly.",
+      "ex": "Unfortunately, the shop was closed.",
+      "exVi": "Tiếc là cửa hàng đã đóng cửa."
+    },
+    {
+      "en": "obviously",
+      "ipa": "/ˈɑːb.vi.əs.li/",
+      "vi": "rõ ràng là",
+      "pos": "adverb",
+      "img": "👁️",
+      "connect": "obvious (hiển nhiên) + ly.",
+      "ex": "Obviously, he was lying.",
+      "exVi": "Rõ ràng là anh ta đang nói dối."
+    },
+    {
+      "en": "apparently",
+      "ipa": "/əˈper.ənt.li/",
+      "vi": "nghe nói là, có vẻ",
+      "pos": "adverb",
+      "img": "🗣️",
+      "connect": "appear (có vẻ) → apparently.",
+      "ex": "Apparently, they moved abroad.",
+      "exVi": "Nghe nói là họ đã chuyển ra nước ngoài."
+    },
+    {
+      "en": "eventually",
+      "ipa": "/ɪˈven.tʃu.ə.li/",
+      "vi": "rốt cuộc, sau cùng",
+      "pos": "adverb",
+      "img": "🏁",
+      "connect": "\"I-ven-chu-ờ-li\" — cuối cùng rồi cũng.",
+      "ex": "Eventually, she said yes.",
+      "exVi": "Rốt cuộc cô ấy cũng đồng ý."
+    },
+    {
+      "en": "gradually",
+      "ipa": "/ˈɡrædʒ.u.ə.li/",
+      "vi": "dần dần",
+      "pos": "adverb",
+      "img": "📈",
+      "connect": "\"Grá-ju-ờ-li\" — từng chút một.",
+      "ex": "The weather gradually got warmer.",
+      "exVi": "Thời tiết ấm dần lên."
+    },
+    {
+      "en": "originally",
+      "ipa": "/əˈrɪdʒ.ən.əl.i/",
+      "vi": "ban đầu, vốn dĩ",
+      "pos": "adverb",
+      "img": "🌱",
+      "connect": "origin (nguồn gốc) → originally.",
+      "ex": "Originally, the plan was different.",
+      "exVi": "Ban đầu kế hoạch vốn khác cơ."
+    }
   ]
 }

@@ -1,5 +1,9 @@
 const clean = (s: string) => s.replace(/[.,!?;:"'`()~…\-]/g, '').replace(/\s+/g, ' ').trim()
 
+export function jamoTokens(text: string): string[] {
+  return toJamo(text)
+}
+
 function toJamo(text: string): string[] {
   const out: string[] = []
   for (const ch of clean(text).replace(/\s/g, '')) {

@@ -1,4 +1,4 @@
-import type { EtsConv, EtsConvQuestion, EtsTest } from '@/data/english/toeic/etsTests'
+import type { EtsConv, EtsConvQuestion, EtsPassageSet, EtsTest } from '@/data/english/toeic/etsTests'
 import type { RunGroup, RunQuestion } from './engine'
 
 const WH = /^(who|what|where|when|why|which|how)\b/i
@@ -70,7 +70,8 @@ function convGroup(conv: EtsConv, part: 3 | 4, id: string): RunGroup {
     mp3: [conv.mp3],
     audio: conv.script,
     qStart: conv.ns[0],
-    needsGraphic,
+    img: conv.img,
+    needsGraphic: needsGraphic && !conv.img,
     questions: conv.questions.map((q, i) => ({
       key: `${id}-${i}`,
       text: q.q,
@@ -139,16 +140,58 @@ export function buildEtsListening(doc: EtsTest): EtsSection {
   return { groups, skipped: { part1: p1.length - withPhoto.length } }
 }
 
-export function buildEtsPart5(doc: EtsTest): RunGroup[] {
-  return doc.reading.p5.filter((item) => item.text && item.options.length === 4).map((item) => {
-    const question: RunQuestion = {
-      key: `${doc.id}-p5-${item.n}`,
+function part6Skill(text: string, options: string[]): string {
+  if (options.some((o) => o.split(/\s+/).length >= 6)) return 'sentence'
+  return part5Skill(options)
+}
+
+function part7Skill(text: string): string {
+  const low = text.toLowerCase()
+  if (low.includes('positions marked') || low.includes('following sentence best belong')) return 'r-insert'
+  if (low.includes('closest in meaning')) return 'r-vocab'
+  if (low.includes(' not ') || low.includes('except')) return 'r-nots'
+  if (low.includes('purpose') || low.includes('mainly about') || low.includes('what is the article')
+    || low.includes('why was') || low.includes('why did')) return 'r-main'
+  if (low.includes('suggest') || low.includes('imply') || low.includes('most likely')
+    || low.includes('probably')) return 'r-infer'
+  return 'r-detail'
+}
+
+function passageGroup(set: EtsPassageSet, part: 6 | 7, id: string): RunGroup {
+  return {
+    id,
+    part,
+    imgs: set.imgs,
+    qStart: set.ns[0],
+    shortPassage: set.short,
+    questions: set.questions.map((item) => ({
+      key: `${id}-${item.n}`,
+      num: item.n,
       text: item.text,
       options: item.options,
       answer: item.answer ?? 0,
-      skill: part5Skill(item.options),
+      skill: part === 6 ? part6Skill(item.text, item.options) : part7Skill(item.text),
       explain: item.explain || undefined,
-    }
-    return { id: `${doc.id}-p5-${item.n}`, part: 5, qStart: item.n, questions: [question] }
-  })
+    })),
+  }
+}
+
+export function buildEtsReading(doc: EtsTest): RunGroup[] {
+  const groups: RunGroup[] = doc.reading.p5
+    .filter((item) => item.text && item.options.length === 4)
+    .map((item) => {
+      const question: RunQuestion = {
+        key: `${doc.id}-p5-${item.n}`,
+        text: item.text,
+        options: item.options,
+        answer: item.answer ?? 0,
+        skill: part5Skill(item.options),
+        explain: item.explain || undefined,
+      }
+      return { id: `${doc.id}-p5-${item.n}`, part: 5, qStart: item.n, questions: [question] }
+    })
+
+  doc.reading.p6.forEach((set) => groups.push(passageGroup(set, 6, `${doc.id}-p6-${set.ns[0]}`)))
+  doc.reading.p7.forEach((set) => groups.push(passageGroup(set, 7, `${doc.id}-p7-${set.ns[0]}`)))
+  return groups
 }

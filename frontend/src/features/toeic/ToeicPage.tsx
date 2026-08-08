@@ -6,28 +6,31 @@ import { useAppStore } from '@/store/app.store'
 import { GRAMMAR_CAPSULES, SKILLS, TOEIC_TARGET, estimateScore, estimateScoreFull } from '@/data/toeicCore'
 import { useLearnedWords } from '../english/learned'
 import { buildFixedTest, buildFullTest, buildMiniTest, buildPartRun, buildReviewRun, buildWeakRun, rebuildTest, skillStats, weakestSkills, type RunGroup, type RunResult } from './engine'
-import { buildEtsListening, buildEtsPart5 } from './etsEngine'
-import { loadEtsTest } from '@/data/english/toeic/etsTests'
+import { buildEtsListening, buildEtsReading } from './etsEngine'
+import EtsDetail, { type EtsMode } from './components/EtsDetail'
+import { ETS_TESTS, loadEtsTest } from '@/data/english/toeic/etsTests'
 import type { RunGroup as EtsRunGroup } from './engine'
 import { clearRun, loadRun, saveRun, type RunProgress, type SavedRun } from './testSave'
 import { dueWrong, toeicDay, useActivitySince, useToeicState, type TaskCtx } from './state'
 import Runner from './components/Runner'
-import Roadmap60 from './components/Roadmap60'
+import Roadmap from './components/Roadmap'
 import { CapsuleList, CapsuleView } from './components/CapsuleView'
-import PartPractice from './components/PartPractice'
 import SkillReport from './components/SkillReport'
 import WrongBook from './components/WrongBook'
 import TestReview from './components/TestReview'
 import TestLibrary from './components/TestLibrary'
+import SpeakingLab from './components/SpeakingLab'
+import WritingLab from './components/WritingLab'
+import GuideBook from './components/GuideBook'
 
-type Tab = 'road' | 'grammar' | 'practice' | 'test' | 'report' | 'wrongbook'
+type Tab = 'road' | 'grammar' | 'test' | 'speaking' | 'writing' | 'report' | 'wrongbook' | 'guide'
 
 type Session =
   | { kind: 'practice'; part: number; n: number }
   | { kind: 'weak'; n: number }
   | { kind: 'test'; full?: boolean; fixed?: number }
   | { kind: 'review'; keys: string[] }
-  | { kind: 'ets'; test: number; section: 'listening' | 'p5' }
+  | { kind: 'ets'; test: number; parts: number[]; mode: EtsMode }
 
 interface SessionResult {
   session: Session
@@ -38,17 +41,19 @@ interface SessionResult {
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'road', label: 'Lộ trình 60 ngày', icon: 'map' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
-  { id: 'practice', label: 'Luyện theo Part', icon: 'target' },
   { id: 'test', label: 'Bộ đề & thi thử', icon: 'trophy' },
+  { id: 'speaking', label: 'Speaking', icon: 'mic' },
+  { id: 'writing', label: 'Writing', icon: 'note' },
   { id: 'wrongbook', label: 'Sổ tay câu sai', icon: 'book' },
   { id: 'report', label: 'Phân tích', icon: 'chart' },
+  { id: 'guide', label: 'Cẩm nang', icon: 'bulb' },
 ]
 const TAB_IDS = TABS.map((t) => t.id)
 
 const MINI_TEST_SECONDS = 30 * 60
 const FULL_SECTION_SECONDS = { listening: 45 * 60, reading: 75 * 60 }
 const ETS_LISTENING_SECONDS = 45 * 60
-const ETS_PART5_SECONDS = 12 * 60
+const ETS_READING_SECONDS = 75 * 60
 const MEDIA_MISSING = 'Máy này chưa có audio và ảnh của đề ETS (thư mục media/ không nằm trong git vì nặng 396 MB). '
   + 'Giải nén gói bằng: python tools/toeic_ets/bundle.py restore toeic-ets-bundle.zip'
 
@@ -63,7 +68,7 @@ async function mediaReady(url: string): Promise<boolean> {
 
 export default function ToeicPage() {
   const { recordEvent } = useAppStore()
-  const { state, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, recordFixedTest, grantDayReward, latestEstimate } = useToeicState()
+  const { state, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, tagWrong, recordSw, recordFixedTest, grantDayReward, latestEstimate } = useToeicState()
   const { learned } = useLearnedWords()
   const { activity, refresh } = useActivitySince(state.start)
 
@@ -75,9 +80,12 @@ export default function ToeicPage() {
   const [saved, setSaved] = useState<SavedRun | null>(loadRun)
   const [resumed, setResumed] = useState<SavedRun | null>(null)
   const [reviewing, setReviewing] = useState(false)
+  const [etsDetail, setEtsDetail] = useState<number | null>(null)
   const [etsGroups, setEtsGroups] = useState<EtsRunGroup[]>([])
   const [etsSkippedP1, setEtsSkippedP1] = useState(0)
   const [etsError, setEtsError] = useState<string | null>(null)
+  const [swJump, setSwJump] = useState<string[] | null>(null)
+  const [guideChapter, setGuideChapter] = useState<string | null>(null)
 
   const ctx: TaskCtx = { state, learned, activity }
   const day = toeicDay(state.start)
@@ -109,20 +117,19 @@ export default function ToeicPage() {
     loadEtsTest(session.test)
       .then(async (doc) => {
         if (!alive) return
-        if (session.section === 'listening') {
-          const built = buildEtsListening(doc)
-          const probe = built.groups[0]?.mp3?.[0]
-          if (probe && !(await mediaReady(probe))) {
-            if (alive) setEtsError(MEDIA_MISSING)
-            return
-          }
-          if (!alive) return
-          setEtsGroups(built.groups)
-          setEtsSkippedP1(built.skipped.part1)
-        } else {
-          setEtsGroups(buildEtsPart5(doc))
-          setEtsSkippedP1(0)
+        const want = new Set(session.parts)
+        const listening = session.parts.some((p) => p <= 4) ? buildEtsListening(doc) : null
+        const reading = session.parts.some((p) => p >= 5) ? buildEtsReading(doc) : []
+        const all = [...(listening?.groups ?? []), ...reading].filter((g) => want.has(g.part))
+        const probe = all.find((g) => g.mp3?.length)?.mp3?.[0]
+          ?? all.find((g) => g.imgs?.length)?.imgs?.[0]
+        if (probe && !(await mediaReady(probe))) {
+          if (alive) setEtsError(MEDIA_MISSING)
+          return
         }
+        if (!alive) return
+        setEtsGroups(all)
+        setEtsSkippedP1(want.has(1) ? listening?.skipped.part1 ?? 0 : 0)
       })
       .catch(() => { if (alive) setEtsError('Không tải được đề này. Thử lại sau nhé.') })
     return () => { alive = false }
@@ -188,7 +195,13 @@ export default function ToeicPage() {
   }
 
   if (session && session.kind === 'ets') {
-    const listening = session.section === 'listening'
+    const hasL = session.parts.some((p) => p <= 4)
+    const hasR = session.parts.some((p) => p >= 5)
+    const full = hasL && hasR
+    const exam = session.mode === 'exam'
+    const label = session.parts.length === 7
+      ? 'FULL TEST'
+      : `Part ${session.parts.join(', ')}`
     if (etsError || !groups.length) {
       return (
         <div className="toeic-page">
@@ -204,17 +217,18 @@ export default function ToeicPage() {
     }
     return (
       <div className="toeic-page">
-        {listening && etsSkippedP1 > 0 && (
+        {etsSkippedP1 > 0 && (
           <div className="tr-pace">
             📸 {etsSkippedP1} câu Part 1 của đề này chưa có ảnh nên đã được bỏ ra khỏi lượt thi.
           </div>
         )}
         <Runner
           groups={groups}
-          mode="test"
-          title={`ETS 2026 · Test ${session.test} · ${listening ? `Nghe ${groups.reduce((s, g) => s + g.questions.length, 0)} câu` : 'Part 5 · 30 câu'}`}
-          timerSec={listening ? ETS_LISTENING_SECONDS : ETS_PART5_SECONDS}
-          playOnce={listening}
+          mode={exam ? 'test' : 'practice'}
+          title={`ETS 2026 · Test ${session.test} · ${label} ${groups.reduce((s, g) => s + g.questions.length, 0)} câu`}
+          timerSec={!exam || full ? undefined : hasL ? ETS_LISTENING_SECONDS : ETS_READING_SECONDS}
+          sectionSec={exam && full ? FULL_SECTION_SECONDS : undefined}
+          playOnce={exam && hasL}
           onFinish={onFinish}
           onExit={() => setSession(null)}
         />
@@ -348,15 +362,17 @@ export default function ToeicPage() {
 
   const capsule = capsuleId ? GRAMMAR_CAPSULES.find((c) => c.id === capsuleId) : null
   const due = dueWrong(state.wrong)
+  const swDone = Object.keys(state.sw).length
 
   return (
     <div className="toeic-page">
       <div className="lesson-head">
-        <h2><Icon name="book" /> Luyện thi TOEIC · 60 ngày</h2>
+        <h2><Icon name="book" /> Luyện thi TOEIC · bốn kỹ năng</h2>
         <div className="meta">
-          Mục tiêu {TOEIC_TARGET}+ điểm (Nghe – Đọc)
+          Mục tiêu {TOEIC_TARGET}+ điểm (Nghe – Đọc) · thêm Speaking và Writing theo thang 0–200
           {state.start ? ` · Ngày ${day}/60` : ' · Chưa bắt đầu'}
           {latestEstimate ? ` · Ước lượng gần nhất: ${latestEstimate.total} điểm` : ''}
+          {swDone ? ` · 🎤✍️ ${swDone} câu Speaking/Writing đã luyện` : ''}
           {state.wrong.length ? ` · 📓 ${state.wrong.length} câu sai chờ ôn` : ''}
           {due.length ? ` · ⏰ ${due.length} câu đến hạn ôn hôm nay` : ''}
         </div>
@@ -374,7 +390,7 @@ export default function ToeicPage() {
 
       <div {...tabs.panel(tab)}>
       {tab === 'road' && (
-        <Roadmap60
+        <Roadmap
           state={state}
           ctx={ctx}
           latestEstimate={latestEstimate}
@@ -386,6 +402,9 @@ export default function ToeicPage() {
           onWeak={(n) => startSession({ kind: 'weak', n })}
           onMiniTest={() => startSession({ kind: 'test' })}
           onWrongbook={() => setTab('wrongbook')}
+          onSpeak={(ids) => { setSwJump(ids); setTab('speaking') }}
+          onWrite={(ids) => { setSwJump(ids); setTab('writing') }}
+          onGuide={(chapter) => { setGuideChapter(chapter); setTab('guide') }}
         />
       )}
 
@@ -400,11 +419,15 @@ export default function ToeicPage() {
         <CapsuleList scores={state.capsules} onOpen={setCapsuleId} />
       ))}
 
-      {tab === 'practice' && (
-        <PartPractice attempts={state.attempts} onStart={(part, n) => startSession({ kind: 'practice', part, n })} />
+      {tab === 'test' && etsDetail != null && (
+        <EtsDetail
+          item={ETS_TESTS.find((t) => t.test === etsDetail)!}
+          onBack={() => setEtsDetail(null)}
+          onStart={(parts, mode) => startSession({ kind: 'ets', test: etsDetail, parts, mode })}
+        />
       )}
 
-      {tab === 'test' && (
+      {tab === 'test' && etsDetail == null && (
         <TestLibrary
           tests={state.tests}
           saved={saved}
@@ -416,7 +439,25 @@ export default function ToeicPage() {
           onMini={() => startSession({ kind: 'test' })}
           onResume={resumeSaved}
           onDropSaved={dropSaved}
-          onEts={(test, section) => startSession({ kind: 'ets', test, section })}
+          onEtsOpen={setEtsDetail}
+        />
+      )}
+
+      {tab === 'speaking' && (
+        <SpeakingLab
+          sw={state.sw}
+          jump={swJump}
+          onJumpDone={() => setSwJump(null)}
+          onScore={(id, pct) => { recordSw(id, 'speak', pct); recordEvent('toeic', 1) }}
+        />
+      )}
+
+      {tab === 'writing' && (
+        <WritingLab
+          sw={state.sw}
+          jump={swJump}
+          onJumpDone={() => setSwJump(null)}
+          onScore={(id, pct) => { recordSw(id, 'write', pct); recordEvent('toeic', 1) }}
         />
       )}
 
@@ -425,8 +466,11 @@ export default function ToeicPage() {
           wrong={state.wrong}
           onReview={(keys) => startSession({ kind: 'review', keys })}
           onClear={() => clearWrong()}
+          onTag={tagWrong}
         />
       )}
+
+      {tab === 'guide' && <GuideBook initialChapter={guideChapter} />}
 
       {tab === 'report' && (
         <SkillReport

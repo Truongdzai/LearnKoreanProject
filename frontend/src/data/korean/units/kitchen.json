@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "🍳",
   "words": [
-    { "ko": "냄비", "romaja": "naembi", "vi": "Nồi", "pos": "noun", "img": "🍲", "connect": "\"Nem-bi\" — nồi canh kim chi sôi sùng sục.", "ex": "냄비에 물을 넣으세요.", "exVi": "Bạn cho nước vào nồi nhé." },
-    { "ko": "프라이팬", "romaja": "peuraipaen", "vi": "Chảo", "pos": "noun", "img": "🍳", "connect": "\"Pư-ra-i-pen\" mượn từ \"frying pan\".", "ex": "프라이팬에 계란을 구워요.", "exVi": "Tôi rán trứng trên chảo." },
-    { "ko": "칼", "romaja": "kal", "vi": "Dao", "pos": "noun", "img": "🔪", "connect": "\"Khal\" sắc gọn như một nhát dao.", "ex": "칼을 조심하세요.", "exVi": "Bạn cẩn thận con dao nhé." },
-    { "ko": "도마", "romaja": "doma", "vi": "Thớt", "pos": "noun", "img": "🪵", "connect": "\"Đô-ma\" — tấm gỗ kê để thái.", "ex": "도마 위에서 채소를 썰어요.", "exVi": "Tôi thái rau trên thớt." },
-    { "ko": "그릇", "romaja": "geureut", "vi": "Bát / Tô", "pos": "noun", "img": "🥣", "connect": "\"Kư-rứt\" — cái đựng cơm canh.", "ex": "밥그릇을 놓아 주세요.", "exVi": "Bạn đặt bát cơm ra giúp tôi nhé." },
-    { "ko": "접시", "romaja": "jeopsi", "vi": "Đĩa", "pos": "noun", "img": "🍽️", "connect": "\"Chớp-si\" chính là âm Hán \"điệp thị\".", "ex": "접시 하나 더 주세요.", "exVi": "Cho tôi thêm một cái đĩa ạ." },
-    { "ko": "컵", "romaja": "keop", "vi": "Cốc", "pos": "noun", "img": "🥛", "connect": "\"Khớp\" mượn từ \"cup\".", "ex": "컵에 물을 따라요.", "exVi": "Tôi rót nước ra cốc." },
-    { "ko": "소금", "romaja": "sogeum", "vi": "Muối", "pos": "noun", "img": "🧂", "connect": "\"Sô-kưm\" — vị mặn của biển.", "ex": "소금을 조금만 넣으세요.", "exVi": "Bạn cho một chút muối thôi nhé." },
-    { "ko": "설탕", "romaja": "seoltang", "vi": "Đường (gia vị ngọt)", "pos": "noun", "img": "🍬", "connect": "\"Sơl-thang\" chính là âm Hán \"tuyết đường\".", "ex": "설탕은 넣지 마세요.", "exVi": "Đừng cho đường vào ạ." },
-    { "ko": "기름", "romaja": "gireum", "vi": "Dầu ăn", "pos": "noun", "img": "🫗", "connect": "\"Ki-rưm\" — thứ làm chảo nóng bốc khói.", "ex": "기름을 조금 두르세요.", "exVi": "Bạn tráng một chút dầu nhé." },
-    { "ko": "굽다", "romaja": "gupda", "vi": "Nướng / Rán", "pos": "verb", "img": "🥩", "connect": "\"Kup\" — thịt nướng 고기를 굽다 kinh điển.", "ex": "고기를 구워 먹어요.", "exVi": "Chúng tôi nướng thịt rồi ăn." },
-    { "ko": "끓이다", "romaja": "kkeurida", "vi": "Nấu sôi / Nấu canh", "pos": "verb", "img": "♨️", "connect": "\"Kkư-ri\" — nghe như tiếng nước sôi ùng ục.", "ex": "라면을 끓일까요?", "exVi": "Hay là nấu mì gói nhé?" }
+    {
+      "ko": "냄비",
+      "romaja": "naembi",
+      "vi": "Nồi",
+      "pos": "noun",
+      "img": "🍲",
+      "connect": "\"Nem-bi\" — nồi canh kim chi sôi sùng sục.",
+      "ex": "냄비에 물을 넣으세요.",
+      "exVi": "Bạn cho nước vào nồi nhé."
+    },
+    {
+      "ko": "프라이팬",
+      "romaja": "peuraipaen",
+      "vi": "Chảo",
+      "pos": "noun",
+      "img": "🍳",
+      "connect": "\"Pư-ra-i-pen\" mượn từ \"frying pan\".",
+      "ex": "프라이팬에 계란을 구워요.",
+      "exVi": "Tôi rán trứng trên chảo."
+    },
+    {
+      "ko": "칼",
+      "romaja": "kal",
+      "vi": "Dao",
+      "pos": "noun",
+      "img": "🔪",
+      "connect": "\"Khal\" sắc gọn như một nhát dao.",
+      "ex": "칼을 조심하세요.",
+      "exVi": "Bạn cẩn thận con dao nhé."
+    },
+    {
+      "ko": "도마",
+      "romaja": "doma",
+      "vi": "Thớt",
+      "pos": "noun",
+      "img": "🪵",
+      "connect": "\"Đô-ma\" — tấm gỗ kê để thái.",
+      "ex": "도마 위에서 채소를 썰어요.",
+      "exVi": "Tôi thái rau trên thớt."
+    },
+    {
+      "ko": "그릇",
+      "romaja": "geureut",
+      "vi": "Bát / Tô",
+      "pos": "noun",
+      "img": "🥣",
+      "connect": "\"Kư-rứt\" — cái đựng cơm canh.",
+      "ex": "밥그릇을 놓아 주세요.",
+      "exVi": "Bạn đặt bát cơm ra giúp tôi nhé."
+    },
+    {
+      "ko": "접시",
+      "romaja": "jeopsi",
+      "vi": "Đĩa",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "\"Chớp-si\" chính là âm Hán \"điệp thị\".",
+      "ex": "접시 하나 더 주세요.",
+      "exVi": "Cho tôi thêm một cái đĩa ạ."
+    },
+    {
+      "ko": "컵",
+      "romaja": "keop",
+      "vi": "Cốc",
+      "pos": "noun",
+      "img": "🥛",
+      "connect": "\"Khớp\" mượn từ \"cup\".",
+      "ex": "컵에 물을 따라요.",
+      "exVi": "Tôi rót nước ra cốc."
+    },
+    {
+      "ko": "소금",
+      "romaja": "sogeum",
+      "vi": "Muối",
+      "pos": "noun",
+      "img": "🧂",
+      "connect": "\"Sô-kưm\" — vị mặn của biển.",
+      "ex": "소금을 조금만 넣으세요.",
+      "exVi": "Bạn cho một chút muối thôi nhé."
+    },
+    {
+      "ko": "설탕",
+      "romaja": "seoltang",
+      "vi": "Đường (gia vị ngọt)",
+      "pos": "noun",
+      "img": "🍬",
+      "connect": "\"Sơl-thang\" chính là âm Hán \"tuyết đường\".",
+      "ex": "설탕은 넣지 마세요.",
+      "exVi": "Đừng cho đường vào ạ."
+    },
+    {
+      "ko": "기름",
+      "romaja": "gireum",
+      "vi": "Dầu ăn",
+      "pos": "noun",
+      "img": "🫗",
+      "connect": "\"Ki-rưm\" — thứ làm chảo nóng bốc khói.",
+      "ex": "기름을 조금 두르세요.",
+      "exVi": "Bạn tráng một chút dầu nhé."
+    },
+    {
+      "ko": "굽다",
+      "romaja": "gupda",
+      "vi": "Nướng / Rán",
+      "pos": "verb",
+      "img": "🥩",
+      "connect": "\"Kup\" — thịt nướng 고기를 굽다 kinh điển.",
+      "ex": "고기를 구워 먹어요.",
+      "exVi": "Chúng tôi nướng thịt rồi ăn."
+    },
+    {
+      "ko": "끓이다",
+      "romaja": "kkeurida",
+      "vi": "Nấu sôi / Nấu canh",
+      "pos": "verb",
+      "img": "♨️",
+      "connect": "\"Kkư-ri\" — nghe như tiếng nước sôi ùng ục.",
+      "ex": "라면을 끓일까요?",
+      "exVi": "Hay là nấu mì gói nhé?"
+    }
   ]
 }

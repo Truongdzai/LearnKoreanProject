@@ -6,31 +6,265 @@
   "tone": "tone-a",
   "emoji": "📦",
   "words": [
-    { "en": "attitude", "ipa": "/ˈæt̬.ə.tuːd/", "vi": "thái độ", "pos": "noun", "img": "😤", "connect": "\"Á-tờ-tu-d\" — cách nhìn và ứng xử.", "ex": "She has a positive attitude.", "exVi": "Cô ấy có thái độ tích cực." },
-    { "en": "behavior", "ipa": "/bɪˈheɪ.vjɚ/", "vi": "hành vi, cách cư xử", "pos": "noun", "img": "🧍", "connect": "behave (cư xử) → behavior.", "ex": "His behavior surprised everyone.", "exVi": "Cách cư xử của anh ta làm mọi người ngạc nhiên." },
-    { "en": "benefit", "ipa": "/ˈben.ə.fɪt/", "vi": "lợi ích", "pos": "noun", "img": "🎁", "connect": "\"Be-nờ-phịt\" — cái lợi thu được.", "ex": "Exercise has many benefits.", "exVi": "Tập thể dục có nhiều lợi ích." },
-    { "en": "challenge", "ipa": "/ˈtʃæl.ɪndʒ/", "vi": "thử thách", "pos": "noun", "img": "🧗", "connect": "\"Che-lịnj\" — bài toán khó cần vượt.", "ex": "Learning Korean is a challenge.", "exVi": "Học tiếng Hàn là một thử thách." },
-    { "en": "character", "ipa": "/ˈker.ək.tɚ/", "vi": "tính cách; nhân vật", "pos": "noun", "img": "🎭", "connect": "\"Ke-rợc-tờ\" — bản tính / vai trong phim.", "ex": "Who is your favorite character?", "exVi": "Nhân vật bạn thích nhất là ai?" },
-    { "en": "comfort", "ipa": "/ˈkʌm.fɚt/", "vi": "sự thoải mái, an ủi", "pos": "noun", "img": "🛋️", "connect": "\"Căm-phợt\" — comfortable là tính từ.", "ex": "The hotel offers comfort and quiet.", "exVi": "Khách sạn mang lại sự thoải mái và yên tĩnh." },
-    { "en": "courage", "ipa": "/ˈkɜːr.ɪdʒ/", "vi": "lòng dũng cảm", "pos": "noun", "img": "🦁", "connect": "\"Cơ-rịj\" — encourage = tiếp dũng khí.", "ex": "It takes courage to speak up.", "exVi": "Cần dũng khí để dám lên tiếng." },
-    { "en": "crisis", "ipa": "/ˈkraɪ.sɪs/", "vi": "khủng hoảng", "pos": "noun", "img": "🌪️", "connect": "\"Krai-sịs\" — thời điểm nguy cấp.", "ex": "The company survived the crisis.", "exVi": "Công ty vượt qua cuộc khủng hoảng." },
-    { "en": "detail", "ipa": "/ˈdiː.teɪl/", "vi": "chi tiết", "pos": "noun", "img": "🔍", "connect": "\"Đi-tê-l\" — từng phần nhỏ.", "ex": "Tell me all the details.", "exVi": "Kể tôi nghe mọi chi tiết đi." },
-    { "en": "duty", "ipa": "/ˈduː.t̬i/", "vi": "nghĩa vụ, nhiệm vụ", "pos": "noun", "img": "🎖️", "connect": "\"Điu-ti\" — việc phải làm (on duty: đang trực).", "ex": "It's my duty to help them.", "exVi": "Giúp họ là nghĩa vụ của tôi." },
-    { "en": "effort", "ipa": "/ˈef.ɚt/", "vi": "nỗ lực", "pos": "noun", "img": "💪", "connect": "\"E-phợt\" — công sức bỏ ra.", "ex": "Success needs a lot of effort.", "exVi": "Thành công cần rất nhiều nỗ lực." },
-    { "en": "emotion", "ipa": "/ɪˈmoʊ.ʃən/", "vi": "cảm xúc", "pos": "noun", "img": "🎭", "connect": "\"I-mâu-sừn\" — vui buồn giận sợ.", "ex": "Music expresses emotions.", "exVi": "Âm nhạc thể hiện cảm xúc." },
-    { "en": "error", "ipa": "/ˈer.ɚ/", "vi": "lỗi", "pos": "noun", "img": "⚠️", "connect": "\"E-rờ\" — lỗi hệ thống, lỗi sai.", "ex": "The program shows an error.", "exVi": "Chương trình báo lỗi." },
-    { "en": "growth", "ipa": "/ɡroʊθ/", "vi": "sự tăng trưởng", "pos": "noun", "img": "📈", "connect": "grow (lớn) → growth.", "ex": "The city's growth is fast.", "exVi": "Tốc độ phát triển của thành phố rất nhanh." },
-    { "en": "honor", "ipa": "/ˈɑː.nɚ/", "vi": "vinh dự, danh dự", "pos": "noun", "img": "🎖️", "connect": "\"O-nờ\" — chữ \"h\" câm.", "ex": "It's an honor to meet you.", "exVi": "Thật vinh dự được gặp ngài." },
-    { "en": "image", "ipa": "/ˈɪm.ɪdʒ/", "vi": "hình ảnh", "pos": "noun", "img": "🖼️", "connect": "\"I-mịj\" — ảnh / hình tượng.", "ex": "The image is very clear.", "exVi": "Hình ảnh rất rõ nét." },
-    { "en": "impact", "ipa": "/ˈɪm.pækt/", "vi": "tác động mạnh", "pos": "noun", "img": "💥", "connect": "\"Im-péct\" — ảnh hưởng lớn.", "ex": "Phones have a big impact on life.", "exVi": "Điện thoại tác động lớn tới đời sống." },
-    { "en": "importance", "ipa": "/ɪmˈpɔːr.təns/", "vi": "tầm quan trọng", "pos": "noun", "img": "⭐", "connect": "important → importance.", "ex": "Never forget the importance of sleep.", "exVi": "Đừng quên tầm quan trọng của giấc ngủ." },
-    { "en": "instruction", "ipa": "/ɪnˈstrʌk.ʃən/", "vi": "hướng dẫn", "pos": "noun", "img": "📋", "connect": "\"In-strắc-sừn\" — làm theo chỉ dẫn.", "ex": "Read the instructions first.", "exVi": "Đọc hướng dẫn trước đã." },
-    { "en": "issue", "ipa": "/ˈɪʃ.uː/", "vi": "vấn đề", "pos": "noun", "img": "❗", "connect": "\"I-su\" — chuyện cần xử lý.", "ex": "We need to fix this issue.", "exVi": "Chúng ta cần xử lý vấn đề này." },
-    { "en": "lack", "ipa": "/læk/", "vi": "sự thiếu hụt", "pos": "noun", "img": "📉", "connect": "\"Lék\" — lack of sleep: thiếu ngủ.", "ex": "Lack of sleep makes you tired.", "exVi": "Thiếu ngủ khiến bạn mệt mỏi." },
-    { "en": "majority", "ipa": "/məˈdʒɔːr.ə.t̬i/", "vi": "đa số", "pos": "noun", "img": "📊", "connect": "major (lớn) → majority.", "ex": "The majority voted yes.", "exVi": "Đa số bỏ phiếu đồng ý." },
-    { "en": "meaning", "ipa": "/ˈmiː.nɪŋ/", "vi": "ý nghĩa", "pos": "noun", "img": "💡", "connect": "mean (có nghĩa) + ing.", "ex": "What's the meaning of this word?", "exVi": "Từ này có nghĩa là gì?" },
-    { "en": "mistake", "ipa": "/mɪˈsteɪk/", "vi": "lỗi lầm", "pos": "noun", "img": "❌", "connect": "\"Mi-sờ-tê-k\" — sai sót.", "ex": "Don't be afraid of mistakes.", "exVi": "Đừng sợ mắc lỗi." },
-    { "en": "mystery", "ipa": "/ˈmɪs.tɚ.i/", "vi": "điều bí ẩn", "pos": "noun", "img": "🕵️", "connect": "\"Mít-stờ-ri\" — chuyện chưa có lời giải.", "ex": "The case remains a mystery.", "exVi": "Vụ việc vẫn còn là bí ẩn." },
-    { "en": "option", "ipa": "/ˈɑːp.ʃən/", "vi": "phương án lựa chọn", "pos": "noun", "img": "🔘", "connect": "\"Óp-sừn\" — các lựa chọn A/B/C.", "ex": "You have two options.", "exVi": "Bạn có hai phương án." }
+    {
+      "en": "attitude",
+      "ipa": "/ˈæt̬.ə.tuːd/",
+      "vi": "thái độ",
+      "pos": "noun",
+      "img": "😤",
+      "connect": "\"Á-tờ-tu-d\" — cách nhìn và ứng xử.",
+      "ex": "She has a positive attitude.",
+      "exVi": "Cô ấy có thái độ tích cực."
+    },
+    {
+      "en": "behavior",
+      "ipa": "/bɪˈheɪ.vjɚ/",
+      "vi": "hành vi, cách cư xử",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "behave (cư xử) → behavior.",
+      "ex": "His behavior surprised everyone.",
+      "exVi": "Cách cư xử của anh ta làm mọi người ngạc nhiên."
+    },
+    {
+      "en": "benefit",
+      "ipa": "/ˈben.ə.fɪt/",
+      "vi": "lợi ích",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "\"Be-nờ-phịt\" — cái lợi thu được.",
+      "ex": "Exercise has many benefits.",
+      "exVi": "Tập thể dục có nhiều lợi ích."
+    },
+    {
+      "en": "challenge",
+      "ipa": "/ˈtʃæl.ɪndʒ/",
+      "vi": "thử thách",
+      "pos": "noun",
+      "img": "🧗",
+      "connect": "\"Che-lịnj\" — bài toán khó cần vượt.",
+      "ex": "Learning Korean is a challenge.",
+      "exVi": "Học tiếng Hàn là một thử thách."
+    },
+    {
+      "en": "character",
+      "ipa": "/ˈker.ək.tɚ/",
+      "vi": "tính cách; nhân vật",
+      "pos": "noun",
+      "img": "🎭",
+      "connect": "\"Ke-rợc-tờ\" — bản tính / vai trong phim.",
+      "ex": "Who is your favorite character?",
+      "exVi": "Nhân vật bạn thích nhất là ai?"
+    },
+    {
+      "en": "comfort",
+      "ipa": "/ˈkʌm.fɚt/",
+      "vi": "sự thoải mái, an ủi",
+      "pos": "noun",
+      "img": "🛋️",
+      "connect": "\"Căm-phợt\" — comfortable là tính từ.",
+      "ex": "The hotel offers comfort and quiet.",
+      "exVi": "Khách sạn mang lại sự thoải mái và yên tĩnh."
+    },
+    {
+      "en": "courage",
+      "ipa": "/ˈkɜːr.ɪdʒ/",
+      "vi": "lòng dũng cảm",
+      "pos": "noun",
+      "img": "🦁",
+      "connect": "\"Cơ-rịj\" — encourage = tiếp dũng khí.",
+      "ex": "It takes courage to speak up.",
+      "exVi": "Cần dũng khí để dám lên tiếng."
+    },
+    {
+      "en": "crisis",
+      "ipa": "/ˈkraɪ.sɪs/",
+      "vi": "khủng hoảng",
+      "pos": "noun",
+      "img": "🌪️",
+      "connect": "\"Krai-sịs\" — thời điểm nguy cấp.",
+      "ex": "The company survived the crisis.",
+      "exVi": "Công ty vượt qua cuộc khủng hoảng."
+    },
+    {
+      "en": "detail",
+      "ipa": "/ˈdiː.teɪl/",
+      "vi": "chi tiết",
+      "pos": "noun",
+      "img": "🔍",
+      "connect": "\"Đi-tê-l\" — từng phần nhỏ.",
+      "ex": "Tell me all the details.",
+      "exVi": "Kể tôi nghe mọi chi tiết đi."
+    },
+    {
+      "en": "duty",
+      "ipa": "/ˈduː.t̬i/",
+      "vi": "nghĩa vụ, nhiệm vụ",
+      "pos": "noun",
+      "img": "🎖️",
+      "connect": "\"Điu-ti\" — việc phải làm (on duty: đang trực).",
+      "ex": "It's my duty to help them.",
+      "exVi": "Giúp họ là nghĩa vụ của tôi."
+    },
+    {
+      "en": "effort",
+      "ipa": "/ˈef.ɚt/",
+      "vi": "nỗ lực",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"E-phợt\" — công sức bỏ ra.",
+      "ex": "Success needs a lot of effort.",
+      "exVi": "Thành công cần rất nhiều nỗ lực."
+    },
+    {
+      "en": "emotion",
+      "ipa": "/ɪˈmoʊ.ʃən/",
+      "vi": "cảm xúc",
+      "pos": "noun",
+      "img": "🎭",
+      "connect": "\"I-mâu-sừn\" — vui buồn giận sợ.",
+      "ex": "Music expresses emotions.",
+      "exVi": "Âm nhạc thể hiện cảm xúc."
+    },
+    {
+      "en": "error",
+      "ipa": "/ˈer.ɚ/",
+      "vi": "lỗi",
+      "pos": "noun",
+      "img": "⚠️",
+      "connect": "\"E-rờ\" — lỗi hệ thống, lỗi sai.",
+      "ex": "The program shows an error.",
+      "exVi": "Chương trình báo lỗi."
+    },
+    {
+      "en": "growth",
+      "ipa": "/ɡroʊθ/",
+      "vi": "sự tăng trưởng",
+      "pos": "noun",
+      "img": "📈",
+      "connect": "grow (lớn) → growth.",
+      "ex": "The city's growth is fast.",
+      "exVi": "Tốc độ phát triển của thành phố rất nhanh."
+    },
+    {
+      "en": "honor",
+      "ipa": "/ˈɑː.nɚ/",
+      "vi": "vinh dự, danh dự",
+      "pos": "noun",
+      "img": "🎖️",
+      "connect": "\"O-nờ\" — chữ \"h\" câm.",
+      "ex": "It's an honor to meet you.",
+      "exVi": "Thật vinh dự được gặp ngài."
+    },
+    {
+      "en": "image",
+      "ipa": "/ˈɪm.ɪdʒ/",
+      "vi": "hình ảnh",
+      "pos": "noun",
+      "img": "🖼️",
+      "connect": "\"I-mịj\" — ảnh / hình tượng.",
+      "ex": "The image is very clear.",
+      "exVi": "Hình ảnh rất rõ nét."
+    },
+    {
+      "en": "impact",
+      "ipa": "/ˈɪm.pækt/",
+      "vi": "tác động mạnh",
+      "pos": "noun",
+      "img": "💥",
+      "connect": "\"Im-péct\" — ảnh hưởng lớn.",
+      "ex": "Phones have a big impact on life.",
+      "exVi": "Điện thoại tác động lớn tới đời sống."
+    },
+    {
+      "en": "importance",
+      "ipa": "/ɪmˈpɔːr.təns/",
+      "vi": "tầm quan trọng",
+      "pos": "noun",
+      "img": "⭐",
+      "connect": "important → importance.",
+      "ex": "Never forget the importance of sleep.",
+      "exVi": "Đừng quên tầm quan trọng của giấc ngủ."
+    },
+    {
+      "en": "instruction",
+      "ipa": "/ɪnˈstrʌk.ʃən/",
+      "vi": "hướng dẫn",
+      "pos": "noun",
+      "img": "📋",
+      "connect": "\"In-strắc-sừn\" — làm theo chỉ dẫn.",
+      "ex": "Read the instructions first.",
+      "exVi": "Đọc hướng dẫn trước đã."
+    },
+    {
+      "en": "issue",
+      "ipa": "/ˈɪʃ.uː/",
+      "vi": "vấn đề",
+      "pos": "noun",
+      "img": "❗",
+      "connect": "\"I-su\" — chuyện cần xử lý.",
+      "ex": "We need to fix this issue.",
+      "exVi": "Chúng ta cần xử lý vấn đề này."
+    },
+    {
+      "en": "lack",
+      "ipa": "/læk/",
+      "vi": "sự thiếu hụt",
+      "pos": "noun",
+      "img": "📉",
+      "connect": "\"Lék\" — lack of sleep: thiếu ngủ.",
+      "ex": "Lack of sleep makes you tired.",
+      "exVi": "Thiếu ngủ khiến bạn mệt mỏi."
+    },
+    {
+      "en": "majority",
+      "ipa": "/məˈdʒɔːr.ə.t̬i/",
+      "vi": "đa số",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "major (lớn) → majority.",
+      "ex": "The majority voted yes.",
+      "exVi": "Đa số bỏ phiếu đồng ý."
+    },
+    {
+      "en": "meaning",
+      "ipa": "/ˈmiː.nɪŋ/",
+      "vi": "ý nghĩa",
+      "pos": "noun",
+      "img": "💡",
+      "connect": "mean (có nghĩa) + ing.",
+      "ex": "What's the meaning of this word?",
+      "exVi": "Từ này có nghĩa là gì?"
+    },
+    {
+      "en": "mistake",
+      "ipa": "/mɪˈsteɪk/",
+      "vi": "lỗi lầm",
+      "pos": "noun",
+      "img": "❌",
+      "connect": "\"Mi-sờ-tê-k\" — sai sót.",
+      "ex": "Don't be afraid of mistakes.",
+      "exVi": "Đừng sợ mắc lỗi."
+    },
+    {
+      "en": "mystery",
+      "ipa": "/ˈmɪs.tɚ.i/",
+      "vi": "điều bí ẩn",
+      "pos": "noun",
+      "img": "🕵️",
+      "connect": "\"Mít-stờ-ri\" — chuyện chưa có lời giải.",
+      "ex": "The case remains a mystery.",
+      "exVi": "Vụ việc vẫn còn là bí ẩn."
+    },
+    {
+      "en": "option",
+      "ipa": "/ˈɑːp.ʃən/",
+      "vi": "phương án lựa chọn",
+      "pos": "noun",
+      "img": "🔘",
+      "connect": "\"Óp-sừn\" — các lựa chọn A/B/C.",
+      "ex": "You have two options.",
+      "exVi": "Bạn có hai phương án."
+    }
   ]
 }

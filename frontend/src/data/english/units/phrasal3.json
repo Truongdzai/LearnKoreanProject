@@ -6,33 +6,285 @@
   "tone": "tone-e",
   "emoji": "🧷",
   "words": [
-    { "en": "end up", "ipa": "/end ʌp/", "vi": "rốt cuộc trở thành/ở", "pos": "phrase", "img": "🎯", "connect": "end (kết thúc) + up — cuối cùng \"rơi\" vào đâu.", "ex": "We ended up eating at home.", "exVi": "Rốt cuộc chúng tôi ăn ở nhà." },
-    { "en": "deal with", "ipa": "/diːl wɪð/", "vi": "xử lý, đối phó", "pos": "phrase", "img": "🧰", "connect": "deal (giải quyết) + with — đối mặt và xử lý.", "ex": "She deals with angry customers well.", "exVi": "Cô ấy xử lý khách hàng nóng tính rất khéo." },
-    { "en": "count on", "ipa": "/kaʊnt ɑːn/", "vi": "trông cậy vào", "pos": "phrase", "img": "🤞", "connect": "count (đếm) + on — \"tính\" luôn phần người đó vì tin chắc.", "ex": "You can count on me.", "exVi": "Bạn có thể trông cậy vào tôi." },
-    { "en": "put up with", "ipa": "/pʊt ʌp wɪð/", "vi": "chịu đựng", "pos": "phrase", "img": "😤", "connect": "put up (dựng lên) + with — gồng mình chịu.", "ex": "I can't put up with this noise.", "exVi": "Tôi không chịu nổi tiếng ồn này." },
-    { "en": "catch up", "ipa": "/kætʃ ʌp/", "vi": "bắt kịp; hàn huyên", "pos": "phrase", "img": "🏃", "connect": "catch (bắt) + up — đuổi kịp bài vở, bạn bè.", "ex": "Let's meet and catch up soon.", "exVi": "Sớm gặp nhau hàn huyên nhé." },
-    { "en": "come over", "ipa": "/kʌm ˈoʊ.vɚ/", "vi": "ghé nhà chơi", "pos": "phrase", "img": "🏠", "connect": "come (đến) + over (qua) — qua nhà tớ chơi.", "ex": "Come over for dinner tonight.", "exVi": "Tối nay ghé nhà mình ăn tối nhé." },
-    { "en": "dress up", "ipa": "/dres ʌp/", "vi": "ăn diện; hoá trang", "pos": "phrase", "img": "👗", "connect": "dress (mặc) + up (lên) — lên đồ thật đẹp.", "ex": "Everyone dressed up for the party.", "exVi": "Mọi người ăn diện đi dự tiệc." },
-    { "en": "blow up", "ipa": "/bloʊ ʌp/", "vi": "nổ tung; nổi giận", "pos": "phrase", "img": "💥", "connect": "blow (thổi) + up — bùng nổ.", "ex": "The balloon blew up loudly.", "exVi": "Quả bóng nổ tung một tiếng lớn." },
-    { "en": "call off", "ipa": "/kɑːl ɑːf/", "vi": "huỷ bỏ (kế hoạch)", "pos": "phrase", "img": "🚫", "connect": "call (gọi) + off (tắt) — gọi báo dẹp kế hoạch.", "ex": "They called off the picnic because of rain.", "exVi": "Họ huỷ buổi dã ngoại vì trời mưa." },
-    { "en": "fall apart", "ipa": "/fɑːl əˈpɑːrt/", "vi": "tan vỡ, rã rời", "pos": "phrase", "img": "🧩", "connect": "fall (rơi) + apart (rời ra) — vỡ thành từng mảnh.", "ex": "The old chair is falling apart.", "exVi": "Cái ghế cũ đang long ra từng mảnh." },
-    { "en": "get away", "ipa": "/ɡet əˈweɪ/", "vi": "thoát đi, đi nghỉ xa", "pos": "phrase", "img": "🏝️", "connect": "get + away (xa) — trốn khỏi thành phố ồn ào.", "ex": "We want to get away this weekend.", "exVi": "Cuối tuần này chúng tôi muốn đi nghỉ xa." },
-    { "en": "get back", "ipa": "/ɡet bæk/", "vi": "trở về; lấy lại", "pos": "phrase", "img": "↩️", "connect": "get + back (lại) — quay về hoặc đòi lại.", "ex": "What time did you get back home?", "exVi": "Mấy giờ bạn về đến nhà?" },
-    { "en": "give in", "ipa": "/ɡɪv ɪn/", "vi": "nhượng bộ, đầu hàng", "pos": "phrase", "img": "🏳️", "connect": "give (đưa) + in — chịu thua trước sức ép.", "ex": "The kids begged until Mom gave in.", "exVi": "Bọn trẻ nài nỉ đến khi mẹ nhượng bộ." },
-    { "en": "go ahead", "ipa": "/ɡoʊ əˈhed/", "vi": "cứ tự nhiên, tiến hành", "pos": "phrase", "img": "✅", "connect": "go (đi) + ahead (phía trước) — cứ làm tới đi.", "ex": "Go ahead, ask your question.", "exVi": "Cứ tự nhiên, hỏi đi." },
-    { "en": "go over", "ipa": "/ɡoʊ ˈoʊ.vɚ/", "vi": "xem lại, rà soát", "pos": "phrase", "img": "🔍", "connect": "go + over (qua khắp) — rà từ đầu đến cuối.", "ex": "Let's go over the plan again.", "exVi": "Mình rà lại kế hoạch lần nữa nhé." },
-    { "en": "hand in", "ipa": "/hænd ɪn/", "vi": "nộp (bài, đơn)", "pos": "phrase", "img": "📤", "connect": "hand (trao) + in (vào) — trao bài vào tay thầy cô.", "ex": "Hand in your homework by Friday.", "exVi": "Nộp bài tập trước thứ Sáu." },
-    { "en": "hand out", "ipa": "/hænd aʊt/", "vi": "phát ra, phân phát", "pos": "phrase", "img": "📥", "connect": "hand (trao) + out (ra) — phát từng tờ cho mọi người.", "ex": "The teacher handed out the tests.", "exVi": "Cô giáo phát đề kiểm tra." },
-    { "en": "keep up", "ipa": "/kiːp ʌp/", "vi": "theo kịp, duy trì", "pos": "phrase", "img": "🚴", "connect": "keep (giữ) + up — giữ vững tốc độ.", "ex": "Keep up the good work!", "exVi": "Cứ tiếp tục phát huy nhé!" },
-    { "en": "let down", "ipa": "/let daʊn/", "vi": "làm thất vọng", "pos": "phrase", "img": "😞", "connect": "let (để) + down (xuống) — để ai đó \"rơi\" hụt hẫng.", "ex": "I won't let you down.", "exVi": "Tôi sẽ không làm bạn thất vọng." },
-    { "en": "look into", "ipa": "/lʊk ˈɪn.tuː/", "vi": "điều tra, tìm hiểu", "pos": "phrase", "img": "🕵️", "connect": "look (nhìn) + into (vào trong) — soi sâu vào vấn đề.", "ex": "The police are looking into the case.", "exVi": "Cảnh sát đang điều tra vụ việc." },
-    { "en": "make up", "ipa": "/meɪk ʌp/", "vi": "bịa ra; làm hoà", "pos": "phrase", "img": "🤝", "connect": "make (tạo) + up — bịa chuyện, hoặc \"vá\" lại tình bạn.", "ex": "They argued but soon made up.", "exVi": "Họ cãi nhau nhưng sớm làm hoà." },
-    { "en": "pass away", "ipa": "/pæs əˈweɪ/", "vi": "qua đời (nói giảm)", "pos": "phrase", "img": "🕊️", "connect": "pass (đi qua) + away (xa) — cách nói nhẹ nhàng của die.", "ex": "His grandfather passed away last year.", "exVi": "Ông của anh ấy qua đời năm ngoái." },
-    { "en": "point out", "ipa": "/pɔɪnt aʊt/", "vi": "chỉ ra", "pos": "phrase", "img": "👉", "connect": "point (chỉ) + out (ra) — chỉ tận nơi cho thấy.", "ex": "She pointed out my mistake.", "exVi": "Cô ấy chỉ ra lỗi sai của tôi." },
-    { "en": "run away", "ipa": "/rʌn əˈweɪ/", "vi": "bỏ chạy, bỏ trốn", "pos": "phrase", "img": "🏃", "connect": "run (chạy) + away (xa) — chạy biến mất.", "ex": "The thief ran away quickly.", "exVi": "Tên trộm bỏ chạy rất nhanh." },
-    { "en": "settle down", "ipa": "/ˈset̬.əl daʊn/", "vi": "ổn định cuộc sống", "pos": "phrase", "img": "🏡", "connect": "settle (an cư) + down — dừng chân lập nghiệp.", "ex": "They settled down in a small town.", "exVi": "Họ ổn định cuộc sống ở một thị trấn nhỏ." },
-    { "en": "sort out", "ipa": "/sɔːrt aʊt/", "vi": "giải quyết, sắp xếp ổn thoả", "pos": "phrase", "img": "🗂️", "connect": "sort (phân loại) + out — gỡ rối đâu vào đấy.", "ex": "We need to sort out this problem.", "exVi": "Chúng ta cần giải quyết vấn đề này." },
-    { "en": "stay up", "ipa": "/steɪ ʌp/", "vi": "thức khuya", "pos": "phrase", "img": "🌙", "connect": "stay (ở) + up (dậy) — không chịu đi ngủ.", "ex": "Don't stay up too late.", "exVi": "Đừng thức khuya quá." },
-    { "en": "write down", "ipa": "/raɪt daʊn/", "vi": "ghi lại", "pos": "phrase", "img": "📝", "connect": "write (viết) + down (xuống) — chép xuống giấy kẻo quên.", "ex": "Write down my phone number.", "exVi": "Ghi lại số điện thoại của tôi nhé." }
+    {
+      "en": "end up",
+      "ipa": "/end ʌp/",
+      "vi": "rốt cuộc trở thành/ở",
+      "pos": "phrase",
+      "img": "🎯",
+      "connect": "end (kết thúc) + up — cuối cùng \"rơi\" vào đâu.",
+      "ex": "We ended up eating at home.",
+      "exVi": "Rốt cuộc chúng tôi ăn ở nhà."
+    },
+    {
+      "en": "deal with",
+      "ipa": "/diːl wɪð/",
+      "vi": "xử lý, đối phó",
+      "pos": "phrase",
+      "img": "🧰",
+      "connect": "deal (giải quyết) + with — đối mặt và xử lý.",
+      "ex": "She deals with angry customers well.",
+      "exVi": "Cô ấy xử lý khách hàng nóng tính rất khéo."
+    },
+    {
+      "en": "count on",
+      "ipa": "/kaʊnt ɑːn/",
+      "vi": "trông cậy vào",
+      "pos": "phrase",
+      "img": "🤞",
+      "connect": "count (đếm) + on — \"tính\" luôn phần người đó vì tin chắc.",
+      "ex": "You can count on me.",
+      "exVi": "Bạn có thể trông cậy vào tôi."
+    },
+    {
+      "en": "put up with",
+      "ipa": "/pʊt ʌp wɪð/",
+      "vi": "chịu đựng",
+      "pos": "phrase",
+      "img": "😤",
+      "connect": "put up (dựng lên) + with — gồng mình chịu.",
+      "ex": "I can't put up with this noise.",
+      "exVi": "Tôi không chịu nổi tiếng ồn này."
+    },
+    {
+      "en": "catch up",
+      "ipa": "/kætʃ ʌp/",
+      "vi": "bắt kịp; hàn huyên",
+      "pos": "phrase",
+      "img": "🏃",
+      "connect": "catch (bắt) + up — đuổi kịp bài vở, bạn bè.",
+      "ex": "Let's meet and catch up soon.",
+      "exVi": "Sớm gặp nhau hàn huyên nhé."
+    },
+    {
+      "en": "come over",
+      "ipa": "/kʌm ˈoʊ.vɚ/",
+      "vi": "ghé nhà chơi",
+      "pos": "phrase",
+      "img": "🏠",
+      "connect": "come (đến) + over (qua) — qua nhà tớ chơi.",
+      "ex": "Come over for dinner tonight.",
+      "exVi": "Tối nay ghé nhà mình ăn tối nhé."
+    },
+    {
+      "en": "dress up",
+      "ipa": "/dres ʌp/",
+      "vi": "ăn diện; hoá trang",
+      "pos": "phrase",
+      "img": "👗",
+      "connect": "dress (mặc) + up (lên) — lên đồ thật đẹp.",
+      "ex": "Everyone dressed up for the party.",
+      "exVi": "Mọi người ăn diện đi dự tiệc."
+    },
+    {
+      "en": "blow up",
+      "ipa": "/bloʊ ʌp/",
+      "vi": "nổ tung; nổi giận",
+      "pos": "phrase",
+      "img": "💥",
+      "connect": "blow (thổi) + up — bùng nổ.",
+      "ex": "The balloon blew up loudly.",
+      "exVi": "Quả bóng nổ tung một tiếng lớn."
+    },
+    {
+      "en": "call off",
+      "ipa": "/kɑːl ɑːf/",
+      "vi": "huỷ bỏ (kế hoạch)",
+      "pos": "phrase",
+      "img": "🚫",
+      "connect": "call (gọi) + off (tắt) — gọi báo dẹp kế hoạch.",
+      "ex": "They called off the picnic because of rain.",
+      "exVi": "Họ huỷ buổi dã ngoại vì trời mưa."
+    },
+    {
+      "en": "fall apart",
+      "ipa": "/fɑːl əˈpɑːrt/",
+      "vi": "tan vỡ, rã rời",
+      "pos": "phrase",
+      "img": "🧩",
+      "connect": "fall (rơi) + apart (rời ra) — vỡ thành từng mảnh.",
+      "ex": "The old chair is falling apart.",
+      "exVi": "Cái ghế cũ đang long ra từng mảnh."
+    },
+    {
+      "en": "get away",
+      "ipa": "/ɡet əˈweɪ/",
+      "vi": "thoát đi, đi nghỉ xa",
+      "pos": "phrase",
+      "img": "🏝️",
+      "connect": "get + away (xa) — trốn khỏi thành phố ồn ào.",
+      "ex": "We want to get away this weekend.",
+      "exVi": "Cuối tuần này chúng tôi muốn đi nghỉ xa."
+    },
+    {
+      "en": "get back",
+      "ipa": "/ɡet bæk/",
+      "vi": "trở về; lấy lại",
+      "pos": "phrase",
+      "img": "↩️",
+      "connect": "get + back (lại) — quay về hoặc đòi lại.",
+      "ex": "What time did you get back home?",
+      "exVi": "Mấy giờ bạn về đến nhà?"
+    },
+    {
+      "en": "give in",
+      "ipa": "/ɡɪv ɪn/",
+      "vi": "nhượng bộ, đầu hàng",
+      "pos": "phrase",
+      "img": "🏳️",
+      "connect": "give (đưa) + in — chịu thua trước sức ép.",
+      "ex": "The kids begged until Mom gave in.",
+      "exVi": "Bọn trẻ nài nỉ đến khi mẹ nhượng bộ."
+    },
+    {
+      "en": "go ahead",
+      "ipa": "/ɡoʊ əˈhed/",
+      "vi": "cứ tự nhiên, tiến hành",
+      "pos": "phrase",
+      "img": "✅",
+      "connect": "go (đi) + ahead (phía trước) — cứ làm tới đi.",
+      "ex": "Go ahead, ask your question.",
+      "exVi": "Cứ tự nhiên, hỏi đi."
+    },
+    {
+      "en": "go over",
+      "ipa": "/ɡoʊ ˈoʊ.vɚ/",
+      "vi": "xem lại, rà soát",
+      "pos": "phrase",
+      "img": "🔍",
+      "connect": "go + over (qua khắp) — rà từ đầu đến cuối.",
+      "ex": "Let's go over the plan again.",
+      "exVi": "Mình rà lại kế hoạch lần nữa nhé."
+    },
+    {
+      "en": "hand in",
+      "ipa": "/hænd ɪn/",
+      "vi": "nộp (bài, đơn)",
+      "pos": "phrase",
+      "img": "📤",
+      "connect": "hand (trao) + in (vào) — trao bài vào tay thầy cô.",
+      "ex": "Hand in your homework by Friday.",
+      "exVi": "Nộp bài tập trước thứ Sáu."
+    },
+    {
+      "en": "hand out",
+      "ipa": "/hænd aʊt/",
+      "vi": "phát ra, phân phát",
+      "pos": "phrase",
+      "img": "📥",
+      "connect": "hand (trao) + out (ra) — phát từng tờ cho mọi người.",
+      "ex": "The teacher handed out the tests.",
+      "exVi": "Cô giáo phát đề kiểm tra."
+    },
+    {
+      "en": "keep up",
+      "ipa": "/kiːp ʌp/",
+      "vi": "theo kịp, duy trì",
+      "pos": "phrase",
+      "img": "🚴",
+      "connect": "keep (giữ) + up — giữ vững tốc độ.",
+      "ex": "Keep up the good work!",
+      "exVi": "Cứ tiếp tục phát huy nhé!"
+    },
+    {
+      "en": "let down",
+      "ipa": "/let daʊn/",
+      "vi": "làm thất vọng",
+      "pos": "phrase",
+      "img": "😞",
+      "connect": "let (để) + down (xuống) — để ai đó \"rơi\" hụt hẫng.",
+      "ex": "I won't let you down.",
+      "exVi": "Tôi sẽ không làm bạn thất vọng."
+    },
+    {
+      "en": "look into",
+      "ipa": "/lʊk ˈɪn.tuː/",
+      "vi": "điều tra, tìm hiểu",
+      "pos": "phrase",
+      "img": "🕵️",
+      "connect": "look (nhìn) + into (vào trong) — soi sâu vào vấn đề.",
+      "ex": "The police are looking into the case.",
+      "exVi": "Cảnh sát đang điều tra vụ việc."
+    },
+    {
+      "en": "make up",
+      "ipa": "/meɪk ʌp/",
+      "vi": "bịa ra; làm hoà",
+      "pos": "phrase",
+      "img": "🤝",
+      "connect": "make (tạo) + up — bịa chuyện, hoặc \"vá\" lại tình bạn.",
+      "ex": "They argued but soon made up.",
+      "exVi": "Họ cãi nhau nhưng sớm làm hoà."
+    },
+    {
+      "en": "pass away",
+      "ipa": "/pæs əˈweɪ/",
+      "vi": "qua đời (nói giảm)",
+      "pos": "phrase",
+      "img": "🕊️",
+      "connect": "pass (đi qua) + away (xa) — cách nói nhẹ nhàng của die.",
+      "ex": "His grandfather passed away last year.",
+      "exVi": "Ông của anh ấy qua đời năm ngoái."
+    },
+    {
+      "en": "point out",
+      "ipa": "/pɔɪnt aʊt/",
+      "vi": "chỉ ra",
+      "pos": "phrase",
+      "img": "👉",
+      "connect": "point (chỉ) + out (ra) — chỉ tận nơi cho thấy.",
+      "ex": "She pointed out my mistake.",
+      "exVi": "Cô ấy chỉ ra lỗi sai của tôi."
+    },
+    {
+      "en": "run away",
+      "ipa": "/rʌn əˈweɪ/",
+      "vi": "bỏ chạy, bỏ trốn",
+      "pos": "phrase",
+      "img": "🏃",
+      "connect": "run (chạy) + away (xa) — chạy biến mất.",
+      "ex": "The thief ran away quickly.",
+      "exVi": "Tên trộm bỏ chạy rất nhanh."
+    },
+    {
+      "en": "settle down",
+      "ipa": "/ˈset̬.əl daʊn/",
+      "vi": "ổn định cuộc sống",
+      "pos": "phrase",
+      "img": "🏡",
+      "connect": "settle (an cư) + down — dừng chân lập nghiệp.",
+      "ex": "They settled down in a small town.",
+      "exVi": "Họ ổn định cuộc sống ở một thị trấn nhỏ."
+    },
+    {
+      "en": "sort out",
+      "ipa": "/sɔːrt aʊt/",
+      "vi": "giải quyết, sắp xếp ổn thoả",
+      "pos": "phrase",
+      "img": "🗂️",
+      "connect": "sort (phân loại) + out — gỡ rối đâu vào đấy.",
+      "ex": "We need to sort out this problem.",
+      "exVi": "Chúng ta cần giải quyết vấn đề này."
+    },
+    {
+      "en": "stay up",
+      "ipa": "/steɪ ʌp/",
+      "vi": "thức khuya",
+      "pos": "phrase",
+      "img": "🌙",
+      "connect": "stay (ở) + up (dậy) — không chịu đi ngủ.",
+      "ex": "Don't stay up too late.",
+      "exVi": "Đừng thức khuya quá."
+    },
+    {
+      "en": "write down",
+      "ipa": "/raɪt daʊn/",
+      "vi": "ghi lại",
+      "pos": "phrase",
+      "img": "📝",
+      "connect": "write (viết) + down (xuống) — chép xuống giấy kẻo quên.",
+      "ex": "Write down my phone number.",
+      "exVi": "Ghi lại số điện thoại của tôi nhé."
+    }
   ]
 }

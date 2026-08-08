@@ -6,17 +6,125 @@
   "tone": "tone-f",
   "emoji": "🧭",
   "words": [
-    { "zh": "路", "pinyin": "lù", "vi": "Đường", "pos": "noun", "img": "🛣️", "connect": "路 = lộ, đúng chữ trong lộ trình, đại lộ.", "ex": "这条路很长。", "exVi": "Con đường này rất dài." },
-    { "zh": "左", "pinyin": "zuǒ", "vi": "Bên trái", "pos": "noun", "img": "⬅️", "connect": "左 = tả, đúng chữ trong tả ngạn, phe tả.", "ex": "在左边的那家店。", "exVi": "Là cửa hàng phía bên trái đó." },
-    { "zh": "右", "pinyin": "yòu", "vi": "Bên phải", "pos": "noun", "img": "➡️", "connect": "右 = hữu, đúng chữ trong hữu ngạn, phe hữu.", "ex": "往右拐就到了。", "exVi": "Rẽ phải là tới nơi." },
-    { "zh": "中间", "pinyin": "zhōng jiān", "vi": "Ở giữa", "pos": "noun", "img": "🎯", "connect": "中间 = trung gian, đúng chữ trong tiếng Việt.", "ex": "银行在书店和饭馆中间。", "exVi": "Ngân hàng nằm giữa hiệu sách và quán ăn." },
-    { "zh": "对面", "pinyin": "duì miàn", "vi": "Đối diện", "pos": "noun", "img": "↕️", "connect": "对面 = đối diện, đúng chữ trong tiếng Việt.", "ex": "学校对面有一个公园。", "exVi": "Đối diện trường có một công viên." },
-    { "zh": "里面", "pinyin": "lǐ miàn", "vi": "Bên trong", "pos": "noun", "img": "📦", "connect": "里面 = lý diện, chữ lý trong nội lý, bên trong.", "ex": "钱在包里面。", "exVi": "Tiền ở trong túi." },
-    { "zh": "外面", "pinyin": "wài miàn", "vi": "Bên ngoài", "pos": "noun", "img": "🌳", "connect": "外面 = ngoại diện, chữ ngoại trong ngoại quốc, bên ngoài.", "ex": "外面有人等你。", "exVi": "Bên ngoài có người đợi bạn." },
-    { "zh": "旁边", "pinyin": "páng biān", "vi": "Bên cạnh", "pos": "noun", "img": "↔️", "connect": "旁边 = bàng biên, chữ bàng trong bàng quan (đứng bên ngoài mà nhìn).", "ex": "学校旁边有一家书店。", "exVi": "Bên cạnh trường có một hiệu sách." },
-    { "zh": "附近", "pinyin": "fù jìn", "vi": "Gần đây, quanh đây", "pos": "noun", "img": "📍", "connect": "附近 = phụ cận, đúng cụm vùng phụ cận trong tiếng Việt.", "ex": "附近有地铁站吗？", "exVi": "Gần đây có ga tàu điện ngầm không?" },
-    { "zh": "远", "pinyin": "yuǎn", "vi": "Xa", "pos": "adj", "img": "🔭", "connect": "远 = viễn, đúng chữ trong viễn thông, viễn cảnh.", "ex": "从这儿到机场远吗？", "exVi": "Từ đây tới sân bay có xa không?" },
-    { "zh": "近", "pinyin": "jìn", "vi": "Gần", "pos": "adj", "img": "🤏", "connect": "近 = cận, đúng chữ trong cận thị, lân cận.", "ex": "我家离公司很近。", "exVi": "Nhà tôi rất gần công ty." },
-    { "zh": "一直", "pinyin": "yì zhí", "vi": "Đi thẳng; luôn luôn", "pos": "adverb", "img": "🚶", "connect": "一直 = nhất trực, một mạch thẳng tiến, không rẽ ngang.", "ex": "一直走，然后往左拐。", "exVi": "Đi thẳng, sau đó rẽ trái." }
+    {
+      "zh": "路",
+      "pinyin": "lù",
+      "vi": "Đường",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "路 = lộ, đúng chữ trong lộ trình, đại lộ.",
+      "ex": "这条路很长。",
+      "exVi": "Con đường này rất dài."
+    },
+    {
+      "zh": "左",
+      "pinyin": "zuǒ",
+      "vi": "Bên trái",
+      "pos": "noun",
+      "img": "⬅️",
+      "connect": "左 = tả, đúng chữ trong tả ngạn, phe tả.",
+      "ex": "在左边的那家店。",
+      "exVi": "Là cửa hàng phía bên trái đó."
+    },
+    {
+      "zh": "右",
+      "pinyin": "yòu",
+      "vi": "Bên phải",
+      "pos": "noun",
+      "img": "➡️",
+      "connect": "右 = hữu, đúng chữ trong hữu ngạn, phe hữu.",
+      "ex": "往右拐就到了。",
+      "exVi": "Rẽ phải là tới nơi."
+    },
+    {
+      "zh": "中间",
+      "pinyin": "zhōng jiān",
+      "vi": "Ở giữa",
+      "pos": "noun",
+      "img": "🎯",
+      "connect": "中间 = trung gian, đúng chữ trong tiếng Việt.",
+      "ex": "银行在书店和饭馆中间。",
+      "exVi": "Ngân hàng nằm giữa hiệu sách và quán ăn."
+    },
+    {
+      "zh": "对面",
+      "pinyin": "duì miàn",
+      "vi": "Đối diện",
+      "pos": "noun",
+      "img": "↕️",
+      "connect": "对面 = đối diện, đúng chữ trong tiếng Việt.",
+      "ex": "学校对面有一个公园。",
+      "exVi": "Đối diện trường có một công viên."
+    },
+    {
+      "zh": "里面",
+      "pinyin": "lǐ miàn",
+      "vi": "Bên trong",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "里面 = lý diện, chữ lý trong nội lý, bên trong.",
+      "ex": "钱在包里面。",
+      "exVi": "Tiền ở trong túi."
+    },
+    {
+      "zh": "外面",
+      "pinyin": "wài miàn",
+      "vi": "Bên ngoài",
+      "pos": "noun",
+      "img": "🌳",
+      "connect": "外面 = ngoại diện, chữ ngoại trong ngoại quốc, bên ngoài.",
+      "ex": "外面有人等你。",
+      "exVi": "Bên ngoài có người đợi bạn."
+    },
+    {
+      "zh": "旁边",
+      "pinyin": "páng biān",
+      "vi": "Bên cạnh",
+      "pos": "noun",
+      "img": "↔️",
+      "connect": "旁边 = bàng biên, chữ bàng trong bàng quan (đứng bên ngoài mà nhìn).",
+      "ex": "学校旁边有一家书店。",
+      "exVi": "Bên cạnh trường có một hiệu sách."
+    },
+    {
+      "zh": "附近",
+      "pinyin": "fù jìn",
+      "vi": "Gần đây, quanh đây",
+      "pos": "noun",
+      "img": "📍",
+      "connect": "附近 = phụ cận, đúng cụm vùng phụ cận trong tiếng Việt.",
+      "ex": "附近有地铁站吗？",
+      "exVi": "Gần đây có ga tàu điện ngầm không?"
+    },
+    {
+      "zh": "远",
+      "pinyin": "yuǎn",
+      "vi": "Xa",
+      "pos": "adj",
+      "img": "🔭",
+      "connect": "远 = viễn, đúng chữ trong viễn thông, viễn cảnh.",
+      "ex": "从这儿到机场远吗？",
+      "exVi": "Từ đây tới sân bay có xa không?"
+    },
+    {
+      "zh": "近",
+      "pinyin": "jìn",
+      "vi": "Gần",
+      "pos": "adj",
+      "img": "🤏",
+      "connect": "近 = cận, đúng chữ trong cận thị, lân cận.",
+      "ex": "我家离公司很近。",
+      "exVi": "Nhà tôi rất gần công ty."
+    },
+    {
+      "zh": "一直",
+      "pinyin": "yì zhí",
+      "vi": "Đi thẳng; luôn luôn",
+      "pos": "adverb",
+      "img": "🚶",
+      "connect": "一直 = nhất trực, một mạch thẳng tiến, không rẽ ngang.",
+      "ex": "一直走，然后往左拐。",
+      "exVi": "Đi thẳng, sau đó rẽ trái."
+    }
   ]
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import ProgramOverview from './components/ProgramOverview'
-import IcesLearn from './components/IcesLearn'
+import VocabLab from './components/vocab/VocabLab'
 import GrammarLessons from './components/GrammarLessons'
 import PronunciationLab from './components/PronunciationLab'
 import VocabQuiz from './components/VocabQuiz'
@@ -73,7 +73,7 @@ const SPEC_BOOT: ExpectationSpec = {
     'Phỏng vấn xin việc cơ bản, họp ngắn có chuẩn bị trước',
     'Đọc báo phổ thông, email dài; viết email công việc và đoạn văn 150–200 từ',
     'TOEIC quanh 550–700 tuỳ nền xuất phát (đã qua trọn lộ trình 60 ngày + 2 lần thi thử)',
-    '3000 từ chủ động, 18 điểm ngữ pháp, 12 nhóm âm phát chuẩn',
+    '3000 từ chủ động, 18 điểm ngữ pháp, 13 nhóm âm phát chuẩn',
   ],
   cannot: [
     'Xem phim hài kịch đủ mọi giọng, nghe tiếng lóng dày đặc không phụ đề',
@@ -136,13 +136,13 @@ export default function EnglishPage() {
     setTab(t)
   }
 
-  const tabs = useTabs('en', TAB_IDS, tab, pickTab, 'Tiếng Anh 3 tháng')
+  const tabs = useTabs('en', TAB_IDS, tab, pickTab, 'Tiếng Anh giao tiếp')
 
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="globe" /> Tiếng Anh · 3 tháng</h2>
-        <div className="meta">Quy tắc 3C + phương pháp ICES + ôn tập ngắt quãng.</div>
+        <h2><Icon name="globe" /> Tiếng Anh giao tiếp</h2>
+        <div className="meta">Quy tắc 3C + phương pháp ICES + ôn tập ngắt quãng · giọng đọc US &amp; UK.</div>
       </div>
 
       <ViContentNote />
@@ -170,7 +170,7 @@ export default function EnglishPage() {
           onPron={openPron}
         />
       )}
-      {tab === 'learn' && <IcesLearn initialUnit={learnUnit} units={UNITS} />}
+      {tab === 'learn' && <VocabLab initialUnit={learnUnit} units={UNITS} title="Từ vựng tiếng Anh giao tiếp" />}
       {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
       {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
       {tab === 'quiz' && (weekQuiz ? (

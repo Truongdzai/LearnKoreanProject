@@ -6,33 +6,285 @@
   "tone": "tone-f",
   "emoji": "🌱",
   "words": [
-    { "en": "plant", "ipa": "/plænt/", "vi": "cây, trồng cây", "pos": "noun", "img": "🌱", "connect": "\"Plen-t\" — trồng cây xanh.", "ex": "Water the plant every day.", "exVi": "Tưới cây mỗi ngày." },
-    { "en": "leaf", "ipa": "/liːf/", "vi": "chiếc lá", "pos": "noun", "img": "🍃", "connect": "\"Li-f\" — số nhiều là leaves.", "ex": "A green leaf fell down.", "exVi": "Một chiếc lá xanh rơi xuống." },
-    { "en": "root", "ipa": "/ruːt/", "vi": "rễ cây", "pos": "noun", "img": "🌿", "connect": "\"Ru-t\" — gốc rễ dưới đất.", "ex": "The tree has deep roots.", "exVi": "Cây có bộ rễ sâu." },
-    { "en": "seed", "ipa": "/siːd/", "vi": "hạt giống", "pos": "noun", "img": "🌰", "connect": "\"Si-d\" — gieo hạt.", "ex": "Plant the seeds in spring.", "exVi": "Gieo hạt vào mùa xuân." },
-    { "en": "branch", "ipa": "/bræntʃ/", "vi": "cành cây", "pos": "noun", "img": "🌲", "connect": "\"Bren-ch\" — nhánh cây.", "ex": "A bird is sitting on the branch.", "exVi": "Một con chim đang đậu trên cành." },
-    { "en": "rose", "ipa": "/roʊz/", "vi": "hoa hồng", "pos": "noun", "img": "🌹", "connect": "\"Râu-z\" — bông hồng.", "ex": "He gave her a red rose.", "exVi": "Anh ấy tặng cô ấy một bông hồng đỏ." },
-    { "en": "tomato", "ipa": "/təˈmeɪ.t̬oʊ/", "vi": "cà chua", "pos": "noun", "img": "🍅", "connect": "\"Tờ-mê-tâu\" — cà chua đỏ mọng.", "ex": "Cut the tomato in half.", "exVi": "Bổ đôi quả cà chua." },
-    { "en": "potato", "ipa": "/pəˈteɪ.t̬oʊ/", "vi": "khoai tây", "pos": "noun", "img": "🥔", "connect": "\"Pờ-tê-tâu\" — khoai tây chiên.", "ex": "I love fried potatoes.", "exVi": "Tôi thích khoai tây chiên." },
-    { "en": "carrot", "ipa": "/ˈker.ət/", "vi": "cà rốt", "pos": "noun", "img": "🥕", "connect": "\"Ke-rợt\" — thỏ mê cà rốt.", "ex": "Rabbits love carrots.", "exVi": "Thỏ rất thích cà rốt." },
-    { "en": "onion", "ipa": "/ˈʌn.jən/", "vi": "củ hành", "pos": "noun", "img": "🧅", "connect": "\"Ắn-yừn\" — hành làm cay mắt.", "ex": "Onions make me cry.", "exVi": "Hành làm tôi chảy nước mắt." },
-    { "en": "garlic", "ipa": "/ˈɡɑːr.lɪk/", "vi": "tỏi", "pos": "noun", "img": "🧄", "connect": "\"Gác-líc\" — tỏi thơm.", "ex": "Add garlic for more flavor.", "exVi": "Cho thêm tỏi cho thơm." },
-    { "en": "cabbage", "ipa": "/ˈkæb.ɪdʒ/", "vi": "bắp cải", "pos": "noun", "img": "🥬", "connect": "\"Kem-bịj\" — cải cuộn tròn.", "ex": "Cabbage is great in soup.", "exVi": "Bắp cải nấu canh rất ngon." },
-    { "en": "corn", "ipa": "/kɔːrn/", "vi": "ngô, bắp", "pos": "noun", "img": "🌽", "connect": "\"Coóc-n\" — bắp ngô vàng.", "ex": "We ate grilled corn.", "exVi": "Chúng tôi ăn ngô nướng." },
-    { "en": "bean", "ipa": "/biːn/", "vi": "hạt đậu", "pos": "noun", "img": "🫘", "connect": "\"Bin\" — hạt đậu nhỏ.", "ex": "Green beans are very healthy.", "exVi": "Đậu que rất tốt cho sức khoẻ." },
-    { "en": "cucumber", "ipa": "/ˈkjuː.kʌm.bɚ/", "vi": "dưa chuột", "pos": "noun", "img": "🥒", "connect": "\"Kiu-kăm-bờ\" — dưa leo mát lành.", "ex": "Cucumber is cool and fresh.", "exVi": "Dưa chuột mát và tươi." },
-    { "en": "mushroom", "ipa": "/ˈmʌʃ.ruːm/", "vi": "nấm", "pos": "noun", "img": "🍄", "connect": "\"Mắt-s-rum\" — cây nấm.", "ex": "Don't eat wild mushrooms.", "exVi": "Đừng ăn nấm dại." },
-    { "en": "lemon", "ipa": "/ˈlem.ən/", "vi": "quả chanh vàng", "pos": "noun", "img": "🍋", "connect": "\"Le-mừn\" — chanh chua.", "ex": "Add some lemon juice.", "exVi": "Cho thêm một ít nước cốt chanh." },
-    { "en": "mango", "ipa": "/ˈmæŋ.ɡoʊ/", "vi": "quả xoài", "pos": "noun", "img": "🥭", "connect": "\"Meng-gâu\" — xoài chín ngọt.", "ex": "This mango is very sweet.", "exVi": "Quả xoài này ngọt lắm." },
-    { "en": "grape", "ipa": "/ɡreɪp/", "vi": "quả nho", "pos": "noun", "img": "🍇", "connect": "\"Grê-p\" — một chùm nho.", "ex": "She bought a bunch of grapes.", "exVi": "Cô ấy mua một chùm nho." },
-    { "en": "strawberry", "ipa": "/ˈstrɔː.ber.i/", "vi": "dâu tây", "pos": "noun", "img": "🍓", "connect": "straw (rơm) + berry (quả mọng).", "ex": "I like strawberry ice cream.", "exVi": "Tôi thích kem dâu tây." },
-    { "en": "watermelon", "ipa": "/ˈwɔː.t̬ɚ.mel.ən/", "vi": "dưa hấu", "pos": "noun", "img": "🍉", "connect": "water (nước) + melon (dưa).", "ex": "Watermelon is great in summer.", "exVi": "Dưa hấu tuyệt vời vào mùa hè." },
-    { "en": "pineapple", "ipa": "/ˈpaɪn.æp.əl/", "vi": "quả dứa, thơm", "pos": "noun", "img": "🍍", "connect": "pine (thông) + apple (táo).", "ex": "Pineapple is sweet and sour.", "exVi": "Dứa vừa ngọt vừa chua." },
-    { "en": "coconut", "ipa": "/ˈkoʊ.kə.nʌt/", "vi": "quả dừa", "pos": "noun", "img": "🥥", "connect": "\"Kâu-cừ-nắt\" — nước dừa mát.", "ex": "Drink fresh coconut water.", "exVi": "Uống nước dừa tươi đi." },
-    { "en": "wood", "ipa": "/wʊd/", "vi": "gỗ", "pos": "noun", "img": "🪵", "connect": "\"Wút\" — gỗ lấy từ cây.", "ex": "The table is made of wood.", "exVi": "Cái bàn làm bằng gỗ." },
-    { "en": "bush", "ipa": "/bʊʃ/", "vi": "bụi cây", "pos": "noun", "img": "🌳", "connect": "\"Bút-sh\" — bụi rậm thấp.", "ex": "A cat hid in the bush.", "exVi": "Một con mèo trốn trong bụi cây." },
-    { "en": "field", "ipa": "/fiːld/", "vi": "cánh đồng", "pos": "noun", "img": "🌾", "connect": "\"Fi-ld\" — đồng lúa mênh mông.", "ex": "The farmer works in the field.", "exVi": "Bác nông dân làm việc ngoài đồng." },
-    { "en": "farm", "ipa": "/fɑːrm/", "vi": "nông trại", "pos": "noun", "img": "🚜", "connect": "\"Phác-m\" — trang trại (farmer là chủ farm).", "ex": "They live on a small farm.", "exVi": "Họ sống ở một nông trại nhỏ." },
-    { "en": "harvest", "ipa": "/ˈhɑːr.vɪst/", "vi": "vụ mùa, thu hoạch", "pos": "noun", "img": "🌾", "connect": "\"Hác-vịst\" — mùa gặt hái.", "ex": "The rice harvest is in autumn.", "exVi": "Vụ gặt lúa vào mùa thu." }
+    {
+      "en": "plant",
+      "ipa": "/plænt/",
+      "vi": "cây, trồng cây",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "\"Plen-t\" — trồng cây xanh.",
+      "ex": "Water the plant every day.",
+      "exVi": "Tưới cây mỗi ngày."
+    },
+    {
+      "en": "leaf",
+      "ipa": "/liːf/",
+      "vi": "chiếc lá",
+      "pos": "noun",
+      "img": "🍃",
+      "connect": "\"Li-f\" — số nhiều là leaves.",
+      "ex": "A green leaf fell down.",
+      "exVi": "Một chiếc lá xanh rơi xuống."
+    },
+    {
+      "en": "root",
+      "ipa": "/ruːt/",
+      "vi": "rễ cây",
+      "pos": "noun",
+      "img": "🌿",
+      "connect": "\"Ru-t\" — gốc rễ dưới đất.",
+      "ex": "The tree has deep roots.",
+      "exVi": "Cây có bộ rễ sâu."
+    },
+    {
+      "en": "seed",
+      "ipa": "/siːd/",
+      "vi": "hạt giống",
+      "pos": "noun",
+      "img": "🌰",
+      "connect": "\"Si-d\" — gieo hạt.",
+      "ex": "Plant the seeds in spring.",
+      "exVi": "Gieo hạt vào mùa xuân."
+    },
+    {
+      "en": "branch",
+      "ipa": "/bræntʃ/",
+      "vi": "cành cây",
+      "pos": "noun",
+      "img": "🌲",
+      "connect": "\"Bren-ch\" — nhánh cây.",
+      "ex": "A bird is sitting on the branch.",
+      "exVi": "Một con chim đang đậu trên cành."
+    },
+    {
+      "en": "rose",
+      "ipa": "/roʊz/",
+      "vi": "hoa hồng",
+      "pos": "noun",
+      "img": "🌹",
+      "connect": "\"Râu-z\" — bông hồng.",
+      "ex": "He gave her a red rose.",
+      "exVi": "Anh ấy tặng cô ấy một bông hồng đỏ."
+    },
+    {
+      "en": "tomato",
+      "ipa": "/təˈmeɪ.t̬oʊ/",
+      "vi": "cà chua",
+      "pos": "noun",
+      "img": "🍅",
+      "connect": "\"Tờ-mê-tâu\" — cà chua đỏ mọng.",
+      "ex": "Cut the tomato in half.",
+      "exVi": "Bổ đôi quả cà chua."
+    },
+    {
+      "en": "potato",
+      "ipa": "/pəˈteɪ.t̬oʊ/",
+      "vi": "khoai tây",
+      "pos": "noun",
+      "img": "🥔",
+      "connect": "\"Pờ-tê-tâu\" — khoai tây chiên.",
+      "ex": "I love fried potatoes.",
+      "exVi": "Tôi thích khoai tây chiên."
+    },
+    {
+      "en": "carrot",
+      "ipa": "/ˈker.ət/",
+      "vi": "cà rốt",
+      "pos": "noun",
+      "img": "🥕",
+      "connect": "\"Ke-rợt\" — thỏ mê cà rốt.",
+      "ex": "Rabbits love carrots.",
+      "exVi": "Thỏ rất thích cà rốt."
+    },
+    {
+      "en": "onion",
+      "ipa": "/ˈʌn.jən/",
+      "vi": "củ hành",
+      "pos": "noun",
+      "img": "🧅",
+      "connect": "\"Ắn-yừn\" — hành làm cay mắt.",
+      "ex": "Onions make me cry.",
+      "exVi": "Hành làm tôi chảy nước mắt."
+    },
+    {
+      "en": "garlic",
+      "ipa": "/ˈɡɑːr.lɪk/",
+      "vi": "tỏi",
+      "pos": "noun",
+      "img": "🧄",
+      "connect": "\"Gác-líc\" — tỏi thơm.",
+      "ex": "Add garlic for more flavor.",
+      "exVi": "Cho thêm tỏi cho thơm."
+    },
+    {
+      "en": "cabbage",
+      "ipa": "/ˈkæb.ɪdʒ/",
+      "vi": "bắp cải",
+      "pos": "noun",
+      "img": "🥬",
+      "connect": "\"Kem-bịj\" — cải cuộn tròn.",
+      "ex": "Cabbage is great in soup.",
+      "exVi": "Bắp cải nấu canh rất ngon."
+    },
+    {
+      "en": "corn",
+      "ipa": "/kɔːrn/",
+      "vi": "ngô, bắp",
+      "pos": "noun",
+      "img": "🌽",
+      "connect": "\"Coóc-n\" — bắp ngô vàng.",
+      "ex": "We ate grilled corn.",
+      "exVi": "Chúng tôi ăn ngô nướng."
+    },
+    {
+      "en": "bean",
+      "ipa": "/biːn/",
+      "vi": "hạt đậu",
+      "pos": "noun",
+      "img": "🫘",
+      "connect": "\"Bin\" — hạt đậu nhỏ.",
+      "ex": "Green beans are very healthy.",
+      "exVi": "Đậu que rất tốt cho sức khoẻ."
+    },
+    {
+      "en": "cucumber",
+      "ipa": "/ˈkjuː.kʌm.bɚ/",
+      "vi": "dưa chuột",
+      "pos": "noun",
+      "img": "🥒",
+      "connect": "\"Kiu-kăm-bờ\" — dưa leo mát lành.",
+      "ex": "Cucumber is cool and fresh.",
+      "exVi": "Dưa chuột mát và tươi."
+    },
+    {
+      "en": "mushroom",
+      "ipa": "/ˈmʌʃ.ruːm/",
+      "vi": "nấm",
+      "pos": "noun",
+      "img": "🍄",
+      "connect": "\"Mắt-s-rum\" — cây nấm.",
+      "ex": "Don't eat wild mushrooms.",
+      "exVi": "Đừng ăn nấm dại."
+    },
+    {
+      "en": "lemon",
+      "ipa": "/ˈlem.ən/",
+      "vi": "quả chanh vàng",
+      "pos": "noun",
+      "img": "🍋",
+      "connect": "\"Le-mừn\" — chanh chua.",
+      "ex": "Add some lemon juice.",
+      "exVi": "Cho thêm một ít nước cốt chanh."
+    },
+    {
+      "en": "mango",
+      "ipa": "/ˈmæŋ.ɡoʊ/",
+      "vi": "quả xoài",
+      "pos": "noun",
+      "img": "🥭",
+      "connect": "\"Meng-gâu\" — xoài chín ngọt.",
+      "ex": "This mango is very sweet.",
+      "exVi": "Quả xoài này ngọt lắm."
+    },
+    {
+      "en": "grape",
+      "ipa": "/ɡreɪp/",
+      "vi": "quả nho",
+      "pos": "noun",
+      "img": "🍇",
+      "connect": "\"Grê-p\" — một chùm nho.",
+      "ex": "She bought a bunch of grapes.",
+      "exVi": "Cô ấy mua một chùm nho."
+    },
+    {
+      "en": "strawberry",
+      "ipa": "/ˈstrɔː.ber.i/",
+      "vi": "dâu tây",
+      "pos": "noun",
+      "img": "🍓",
+      "connect": "straw (rơm) + berry (quả mọng).",
+      "ex": "I like strawberry ice cream.",
+      "exVi": "Tôi thích kem dâu tây."
+    },
+    {
+      "en": "watermelon",
+      "ipa": "/ˈwɔː.t̬ɚ.mel.ən/",
+      "vi": "dưa hấu",
+      "pos": "noun",
+      "img": "🍉",
+      "connect": "water (nước) + melon (dưa).",
+      "ex": "Watermelon is great in summer.",
+      "exVi": "Dưa hấu tuyệt vời vào mùa hè."
+    },
+    {
+      "en": "pineapple",
+      "ipa": "/ˈpaɪn.æp.əl/",
+      "vi": "quả dứa, thơm",
+      "pos": "noun",
+      "img": "🍍",
+      "connect": "pine (thông) + apple (táo).",
+      "ex": "Pineapple is sweet and sour.",
+      "exVi": "Dứa vừa ngọt vừa chua."
+    },
+    {
+      "en": "coconut",
+      "ipa": "/ˈkoʊ.kə.nʌt/",
+      "vi": "quả dừa",
+      "pos": "noun",
+      "img": "🥥",
+      "connect": "\"Kâu-cừ-nắt\" — nước dừa mát.",
+      "ex": "Drink fresh coconut water.",
+      "exVi": "Uống nước dừa tươi đi."
+    },
+    {
+      "en": "wood",
+      "ipa": "/wʊd/",
+      "vi": "gỗ",
+      "pos": "noun",
+      "img": "🪵",
+      "connect": "\"Wút\" — gỗ lấy từ cây.",
+      "ex": "The table is made of wood.",
+      "exVi": "Cái bàn làm bằng gỗ."
+    },
+    {
+      "en": "bush",
+      "ipa": "/bʊʃ/",
+      "vi": "bụi cây",
+      "pos": "noun",
+      "img": "🌳",
+      "connect": "\"Bút-sh\" — bụi rậm thấp.",
+      "ex": "A cat hid in the bush.",
+      "exVi": "Một con mèo trốn trong bụi cây."
+    },
+    {
+      "en": "field",
+      "ipa": "/fiːld/",
+      "vi": "cánh đồng",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "\"Fi-ld\" — đồng lúa mênh mông.",
+      "ex": "The farmer works in the field.",
+      "exVi": "Bác nông dân làm việc ngoài đồng."
+    },
+    {
+      "en": "farm",
+      "ipa": "/fɑːrm/",
+      "vi": "nông trại",
+      "pos": "noun",
+      "img": "🚜",
+      "connect": "\"Phác-m\" — trang trại (farmer là chủ farm).",
+      "ex": "They live on a small farm.",
+      "exVi": "Họ sống ở một nông trại nhỏ."
+    },
+    {
+      "en": "harvest",
+      "ipa": "/ˈhɑːr.vɪst/",
+      "vi": "vụ mùa, thu hoạch",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "\"Hác-vịst\" — mùa gặt hái.",
+      "ex": "The rice harvest is in autumn.",
+      "exVi": "Vụ gặt lúa vào mùa thu."
+    }
   ]
 }

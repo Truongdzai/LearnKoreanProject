@@ -6,18 +6,135 @@
   "tone": "tone-a",
   "emoji": "👋",
   "words": [
-    { "ko": "안녕하세요", "romaja": "annyeonghaseyo", "vi": "Xin chào (lịch sự)", "pos": "phrase", "img": "👋", "connect": "\"An-nyơng\" nghe như \"an ninh\" — chào nhau chúc bình an.", "ex": "안녕하세요, 만나서 반갑습니다.", "exVi": "Xin chào, rất vui được gặp bạn." },
-    { "ko": "감사합니다", "romaja": "gamsahamnida", "vi": "Cảm ơn (trang trọng)", "pos": "phrase", "img": "🙏", "connect": "\"Cam-sa\" gợi chữ \"cảm\" ơn.", "ex": "도와주셔서 감사합니다.", "exVi": "Cảm ơn vì đã giúp đỡ." },
-    { "ko": "죄송합니다", "romaja": "joesonghamnida", "vi": "Xin lỗi (trang trọng)", "pos": "phrase", "img": "😔", "connect": "\"Chuê-song\" — lỡ sai thì cúi đầu xin lỗi.", "ex": "늦어서 죄송합니다.", "exVi": "Xin lỗi vì đã đến muộn." },
-    { "ko": "네", "romaja": "ne", "vi": "Vâng / Dạ", "pos": "phrase", "img": "✅", "connect": "\"Nê\" ngắn gọn — gật đầu đồng ý.", "ex": "네, 알겠습니다.", "exVi": "Vâng, tôi hiểu rồi." },
-    { "ko": "아니요", "romaja": "aniyo", "vi": "Không", "pos": "phrase", "img": "❌", "connect": "\"A-ni-yô\" — lắc đầu \"không phải\".", "ex": "아니요, 괜찮습니다.", "exVi": "Không, không sao đâu." },
-    { "ko": "안녕히 가세요", "romaja": "annyeonghi gaseyo", "vi": "Tạm biệt (nói với người ĐI)", "pos": "phrase", "img": "🚶", "connect": "\"가(ga)\" = đi — chúc người rời đi bình an.", "ex": "안녕히 가세요, 조심히 가세요.", "exVi": "Tạm biệt, đi cẩn thận nhé." },
-    { "ko": "안녕히 계세요", "romaja": "annyeonghi gyeseyo", "vi": "Tạm biệt (nói với người Ở LẠI)", "pos": "phrase", "img": "🏠", "connect": "\"계(gye)\" = ở lại — mình đi, chúc người ở lại bình an.", "ex": "먼저 갈게요, 안녕히 계세요.", "exVi": "Tôi đi trước, tạm biệt nhé." },
-    { "ko": "실례합니다", "romaja": "sillyehamnida", "vi": "Xin phép / Làm phiền", "pos": "phrase", "img": "🙇", "connect": "\"Sil-lê\" như \"xin lê\" bước qua — xin phép.", "ex": "실례합니다, 잠깐 지나갈게요.", "exVi": "Xin phép, tôi đi qua một chút." },
-    { "ko": "반갑습니다", "romaja": "bangapseumnida", "vi": "Rất vui được gặp", "pos": "phrase", "img": "😊", "connect": "\"Ban-gap\" như \"bạn gặp\" — vui khi gặp bạn.", "ex": "만나서 반갑습니다.", "exVi": "Rất vui được gặp bạn." },
-    { "ko": "괜찮아요", "romaja": "gwaenchanayo", "vi": "Không sao / Ổn mà", "pos": "phrase", "img": "👌", "connect": "\"Quen-cha-na\" — quen rồi thì chẳng sao.", "ex": "걱정 마세요, 괜찮아요.", "exVi": "Đừng lo, không sao đâu." },
-    { "ko": "잘 부탁합니다", "romaja": "jal butakhamnida", "vi": "Mong được giúp đỡ", "pos": "phrase", "img": "🤝", "connect": "\"Bu-tak\" gợi \"phụ tá\" — nhờ vả, giúp đỡ nhau.", "ex": "앞으로 잘 부탁합니다.", "exVi": "Từ nay mong được giúp đỡ." },
-    { "ko": "이름", "romaja": "ireum", "vi": "Tên", "pos": "noun", "img": "📛", "connect": "\"I-rưm\" — cái tên để gọi.", "ex": "이름이 뭐예요?", "exVi": "Tên bạn là gì?" },
-    { "ko": "누구", "romaja": "nugu", "vi": "Ai", "pos": "question", "img": "❓", "connect": "\"Nu-gu\" — hỏi \"ai đó?\".", "ex": "이 사람은 누구예요?", "exVi": "Người này là ai?" }
+    {
+      "ko": "안녕하세요",
+      "romaja": "annyeonghaseyo",
+      "vi": "Xin chào (lịch sự)",
+      "pos": "phrase",
+      "img": "👋",
+      "connect": "\"An-nyơng\" nghe như \"an ninh\" — chào nhau chúc bình an.",
+      "ex": "안녕하세요, 만나서 반갑습니다.",
+      "exVi": "Xin chào, rất vui được gặp bạn."
+    },
+    {
+      "ko": "감사합니다",
+      "romaja": "gamsahamnida",
+      "vi": "Cảm ơn (trang trọng)",
+      "pos": "phrase",
+      "img": "🙏",
+      "connect": "\"Cam-sa\" gợi chữ \"cảm\" ơn.",
+      "ex": "도와주셔서 감사합니다.",
+      "exVi": "Cảm ơn vì đã giúp đỡ."
+    },
+    {
+      "ko": "죄송합니다",
+      "romaja": "joesonghamnida",
+      "vi": "Xin lỗi (trang trọng)",
+      "pos": "phrase",
+      "img": "😔",
+      "connect": "\"Chuê-song\" — lỡ sai thì cúi đầu xin lỗi.",
+      "ex": "늦어서 죄송합니다.",
+      "exVi": "Xin lỗi vì đã đến muộn."
+    },
+    {
+      "ko": "네",
+      "romaja": "ne",
+      "vi": "Vâng / Dạ",
+      "pos": "phrase",
+      "img": "✅",
+      "connect": "\"Nê\" ngắn gọn — gật đầu đồng ý.",
+      "ex": "네, 알겠습니다.",
+      "exVi": "Vâng, tôi hiểu rồi."
+    },
+    {
+      "ko": "아니요",
+      "romaja": "aniyo",
+      "vi": "Không",
+      "pos": "phrase",
+      "img": "❌",
+      "connect": "\"A-ni-yô\" — lắc đầu \"không phải\".",
+      "ex": "아니요, 괜찮습니다.",
+      "exVi": "Không, không sao đâu."
+    },
+    {
+      "ko": "안녕히 가세요",
+      "romaja": "annyeonghi gaseyo",
+      "vi": "Tạm biệt (nói với người ĐI)",
+      "pos": "phrase",
+      "img": "🚶",
+      "connect": "\"가(ga)\" = đi — chúc người rời đi bình an.",
+      "ex": "안녕히 가세요, 조심히 가세요.",
+      "exVi": "Tạm biệt, đi cẩn thận nhé."
+    },
+    {
+      "ko": "안녕히 계세요",
+      "romaja": "annyeonghi gyeseyo",
+      "vi": "Tạm biệt (nói với người Ở LẠI)",
+      "pos": "phrase",
+      "img": "🏠",
+      "connect": "\"계(gye)\" = ở lại — mình đi, chúc người ở lại bình an.",
+      "ex": "먼저 갈게요, 안녕히 계세요.",
+      "exVi": "Tôi đi trước, tạm biệt nhé."
+    },
+    {
+      "ko": "실례합니다",
+      "romaja": "sillyehamnida",
+      "vi": "Xin phép / Làm phiền",
+      "pos": "phrase",
+      "img": "🙇",
+      "connect": "\"Sil-lê\" như \"xin lê\" bước qua — xin phép.",
+      "ex": "실례합니다, 잠깐 지나갈게요.",
+      "exVi": "Xin phép, tôi đi qua một chút."
+    },
+    {
+      "ko": "반갑습니다",
+      "romaja": "bangapseumnida",
+      "vi": "Rất vui được gặp",
+      "pos": "phrase",
+      "img": "😊",
+      "connect": "\"Ban-gap\" như \"bạn gặp\" — vui khi gặp bạn.",
+      "ex": "만나서 반갑습니다.",
+      "exVi": "Rất vui được gặp bạn."
+    },
+    {
+      "ko": "괜찮아요",
+      "romaja": "gwaenchanayo",
+      "vi": "Không sao / Ổn mà",
+      "pos": "phrase",
+      "img": "👌",
+      "connect": "\"Quen-cha-na\" — quen rồi thì chẳng sao.",
+      "ex": "걱정 마세요, 괜찮아요.",
+      "exVi": "Đừng lo, không sao đâu."
+    },
+    {
+      "ko": "잘 부탁합니다",
+      "romaja": "jal butakhamnida",
+      "vi": "Mong được giúp đỡ",
+      "pos": "phrase",
+      "img": "🤝",
+      "connect": "\"Bu-tak\" gợi \"phụ tá\" — nhờ vả, giúp đỡ nhau.",
+      "ex": "앞으로 잘 부탁합니다.",
+      "exVi": "Từ nay mong được giúp đỡ."
+    },
+    {
+      "ko": "이름",
+      "romaja": "ireum",
+      "vi": "Tên",
+      "pos": "noun",
+      "img": "📛",
+      "connect": "\"I-rưm\" — cái tên để gọi.",
+      "ex": "이름이 뭐예요?",
+      "exVi": "Tên bạn là gì?"
+    },
+    {
+      "ko": "누구",
+      "romaja": "nugu",
+      "vi": "Ai",
+      "pos": "question",
+      "img": "❓",
+      "connect": "\"Nu-gu\" — hỏi \"ai đó?\".",
+      "ex": "이 사람은 누구예요?",
+      "exVi": "Người này là ai?"
+    }
   ]
 }

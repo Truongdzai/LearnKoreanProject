@@ -58,33 +58,7 @@ const ZH: DayWord[] = [
   { term: '不好意思', sub: 'bù hǎoyìsi', vi: 'ngại quá / xin lỗi nhẹ', ex: '不好意思,请再说一遍。', exVi: 'Ngại quá, xin nói lại lần nữa ạ.' },
 ]
 
-const DE: DayWord[] = [
-  { term: 'Genau', sub: '/ɡəˈnaʊ/', vi: 'chính xác / đúng vậy', ex: 'Du meinst dieses Café? — Genau!', exVi: 'Ý cậu là quán cà phê này à? — Chính xác!' },
-  { term: 'Gemütlich', sub: '/ɡəˈmyːtlɪç/', vi: 'ấm cúng, dễ chịu', ex: 'Dein Zimmer ist sehr gemütlich.', exVi: 'Phòng của bạn ấm cúng thật.' },
-  { term: 'Feierabend', sub: '/ˈfaɪɐˌʔaːbn̩t/', vi: 'giờ tan làm (niềm vui cuối ngày)', ex: 'Endlich Feierabend!', exVi: 'Cuối cùng cũng được tan làm!' },
-  { term: 'Lecker', sub: '/ˈlɛkɐ/', vi: 'ngon', ex: 'Das Essen ist richtig lecker!', exVi: 'Đồ ăn ngon thật sự!' },
-  { term: 'Keine Ahnung', sub: '/ˈkaɪnə ˈaːnʊŋ/', vi: 'chịu, không biết', ex: 'Wo ist Max? — Keine Ahnung.', exVi: 'Max đâu rồi? — Chịu, không biết.' },
-  { term: 'Alles klar', sub: '/ˈaləs klaːɐ̯/', vi: 'ok, rõ rồi', ex: 'Wir treffen uns um acht. — Alles klar!', exVi: 'Mình gặp nhau lúc 8 giờ nhé. — Ok rõ rồi!' },
-  { term: 'Langsam bitte', sub: '/ˈlaŋzaːm ˈbɪtə/', vi: 'xin chậm lại', ex: 'Sprechen Sie bitte langsam.', exVi: 'Xin nói chậm lại ạ.' },
-  { term: 'Viel Erfolg', sub: '/fiːl ɛɐ̯ˈfɔlk/', vi: 'chúc thành công', ex: 'Morgen Prüfung? Viel Erfolg!', exVi: 'Mai thi à? Chúc thành công!' },
-  { term: 'Doch', sub: '/dɔx/', vi: 'có chứ (phủ định lại câu phủ định)', ex: 'Du kommst nicht? — Doch!', exVi: 'Cậu không đến à? — Có chứ!' },
-  { term: 'Mahlzeit', sub: '/ˈmaːlˌtsaɪt/', vi: 'chúc ngon miệng (chào giờ trưa)', ex: 'Mahlzeit! Was gibt es heute?', exVi: 'Chúc ngon miệng! Hôm nay có món gì thế?' },
-]
-
-const VI: DayWord[] = [
-  { term: 'ơi', sub: 'oi', vi: 'gọi ai đó thân mật (mẹ ơi, em ơi)', ex: 'Chị ơi, cho em xin cái menu!', exVi: '(Gọi nhân viên) Chị ơi, cho em xin thực đơn!' },
-  { term: 'nhé', sub: 'nhe', vi: 'thêm vào cuối câu cho thân thiện', ex: 'Mai gặp lại nhé!', exVi: 'Hẹn gặp lại ngày mai (thân mật).' },
-  { term: 'quá trời', sub: 'wa choi', vi: 'nhiều lắm / cực kỳ (miền Nam)', ex: 'Món này ngon quá trời!', exVi: 'Món này ngon cực kỳ!' },
-  { term: 'không sao đâu', sub: 'khong sao dau', vi: 'đừng lo, ổn mà', ex: 'Xin lỗi mình tới trễ. — Không sao đâu!', exVi: 'Trấn an người khác rằng mọi thứ ổn.' },
-  { term: 'từ từ', sub: 'tu tu', vi: 'chậm thôi, đừng vội', ex: 'Từ từ nói, mình nghe nè.', exVi: 'Bảo ai đó bình tĩnh nói chậm lại.' },
-  { term: 'cố lên', sub: 'co len', vi: 'cổ vũ ai đó', ex: 'Sắp thi rồi hả? Cố lên!', exVi: 'Động viên trước kỳ thi.' },
-  { term: 'dễ thương', sub: 'de thuong', vi: 'đáng yêu', ex: 'Con mèo này dễ thương ghê!', exVi: 'Khen con mèo đáng yêu.' },
-  { term: 'thoải mái', sub: 'thoai mai', vi: 'dễ chịu, tự nhiên', ex: 'Cứ tự nhiên, thoải mái đi!', exVi: 'Mời ai đó cứ tự nhiên như ở nhà.' },
-  { term: 'hết sảy', sub: 'het say', vi: 'tuyệt vời (khẩu ngữ)', ex: 'Chuyến đi hôm qua hết sảy luôn!', exVi: 'Khen chuyến đi rất tuyệt.' },
-  { term: 'ngon lành', sub: 'ngon lanh', vi: 'ổn áp, suôn sẻ', ex: 'Bài kiểm tra làm ngon lành!', exVi: 'Bài kiểm tra làm rất suôn sẻ.' },
-]
-
-const BY_LANG: Record<string, DayWord[]> = { ko: KO, en: EN, ja: JA, zh: ZH, de: DE, vi: VI }
+const BY_LANG: Record<string, DayWord[]> = { ko: KO, en: EN, ja: JA, zh: ZH }
 
 export function wordOfDay(lang: string, date = new Date()): DayWord {
   const list = BY_LANG[lang] || KO

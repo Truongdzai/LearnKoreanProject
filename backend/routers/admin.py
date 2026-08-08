@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel
 
 from .. import db
-from ..services import auth, accounts, audit, catalog, feedback, quota
+from ..services import analytics, auth, accounts, audit, catalog, feedback, quota
 
 router = APIRouter(prefix="/api/admin", tags=["Quản trị"])
 Admin = Depends(auth.get_admin)
@@ -70,6 +70,11 @@ def api_stats(admin: dict = Admin):
         }
     finally:
         conn.close()
+
+
+@router.get("/series")
+def api_series(days: int = 30, admin: dict = Admin):
+    return analytics.overview(days)
 
 
 def _has_dict(conn) -> bool:

@@ -6,32 +6,275 @@
   "tone": "tone-f",
   "emoji": "🧳",
   "words": [
-    { "en": "tour", "ipa": "/tʊr/", "vi": "chuyến tham quan", "pos": "noun", "img": "🚌", "connect": "\"Tua\" — đi tua du lịch.", "ex": "We took a city tour.", "exVi": "Chúng tôi đi một tua tham quan thành phố." },
-    { "en": "tourist", "ipa": "/ˈtʊr.ɪst/", "vi": "khách du lịch", "pos": "noun", "img": "📸", "connect": "tour + ist (người).", "ex": "Many tourists visit this beach.", "exVi": "Nhiều khách du lịch tới bãi biển này." },
-    { "en": "visa", "ipa": "/ˈviː.zə/", "vi": "thị thực", "pos": "noun", "img": "🛂", "connect": "\"Vi-zờ\" — giấy visa nhập cảnh.", "ex": "You need a visa to enter.", "exVi": "Bạn cần visa để nhập cảnh." },
-    { "en": "flight", "ipa": "/flaɪt/", "vi": "chuyến bay", "pos": "noun", "img": "✈️", "connect": "fly (bay) → flight.", "ex": "My flight leaves at noon.", "exVi": "Chuyến bay của tôi cất cánh lúc trưa." },
-    { "en": "departure", "ipa": "/dɪˈpɑːr.tʃɚ/", "vi": "sự khởi hành", "pos": "noun", "img": "🛫", "connect": "depart (rời đi) + ure.", "ex": "Check the departure time.", "exVi": "Kiểm tra giờ khởi hành đi." },
-    { "en": "arrival", "ipa": "/əˈraɪ.vəl/", "vi": "sự đến nơi", "pos": "noun", "img": "🛬", "connect": "arrive (đến) + al.", "ex": "The arrival gate is number five.", "exVi": "Cổng đến là số năm." },
-    { "en": "abroad", "ipa": "/əˈbrɔːd/", "vi": "ở nước ngoài", "pos": "adverb", "img": "🌍", "connect": "\"Ờ-brốd\" — ra nước ngoài.", "ex": "She studies abroad.", "exVi": "Cô ấy đi du học nước ngoài." },
-    { "en": "foreign", "ipa": "/ˈfɔːr.ən/", "vi": "thuộc nước ngoài", "pos": "adj", "img": "🌐", "connect": "\"Pho-rừn\" — chữ \"g\" câm.", "ex": "He speaks three foreign languages.", "exVi": "Anh ấy nói được ba thứ tiếng nước ngoài." },
-    { "en": "souvenir", "ipa": "/ˌsuː.vəˈnɪr/", "vi": "quà lưu niệm", "pos": "noun", "img": "🎁", "connect": "\"Su-vơ-nia\" — mua đồ lưu niệm.", "ex": "I bought a souvenir for my mom.", "exVi": "Tôi mua một món quà lưu niệm cho mẹ." },
-    { "en": "sightseeing", "ipa": "/ˈsaɪtˌsiː.ɪŋ/", "vi": "ngắm cảnh, tham quan", "pos": "noun", "img": "🗺️", "connect": "sight (cảnh) + seeing (ngắm).", "ex": "We went sightseeing all day.", "exVi": "Chúng tôi đi ngắm cảnh cả ngày." },
-    { "en": "reserve", "ipa": "/rɪˈzɜːrv/", "vi": "đặt trước", "pos": "verb", "img": "📝", "connect": "\"Rờ-zớv\" — đặt chỗ trước.", "ex": "I'd like to reserve a table.", "exVi": "Tôi muốn đặt trước một bàn." },
-    { "en": "booking", "ipa": "/ˈbʊk.ɪŋ/", "vi": "sự đặt chỗ", "pos": "noun", "img": "📔", "connect": "book (đặt) + ing.", "ex": "I made a hotel booking online.", "exVi": "Tôi đặt phòng khách sạn qua mạng." },
-    { "en": "guest", "ipa": "/ɡest/", "vi": "khách", "pos": "noun", "img": "🧳", "connect": "\"Ghét-st\" — khách trọ, khách mời.", "ex": "The hotel has many guests.", "exVi": "Khách sạn có rất nhiều khách." },
-    { "en": "reception", "ipa": "/rɪˈsep.ʃən/", "vi": "quầy lễ tân", "pos": "noun", "img": "🛎️", "connect": "receive (tiếp nhận) → reception.", "ex": "Ask at the reception desk.", "exVi": "Hỏi ở quầy lễ tân nhé." },
-    { "en": "pool", "ipa": "/puːl/", "vi": "hồ bơi", "pos": "noun", "img": "🏊", "connect": "\"Pu-l\" — bể bơi (swimming pool).", "ex": "The hotel has a nice pool.", "exVi": "Khách sạn có một hồ bơi đẹp." },
-    { "en": "resort", "ipa": "/rɪˈzɔːrt/", "vi": "khu nghỉ dưỡng", "pos": "noun", "img": "🏖️", "connect": "\"Rờ-zoóc-t\" — resort nghỉ mát.", "ex": "We stayed at a beach resort.", "exVi": "Chúng tôi ở một khu nghỉ dưỡng ven biển." },
-    { "en": "adventure", "ipa": "/ədˈven.tʃɚ/", "vi": "cuộc phiêu lưu", "pos": "noun", "img": "🧗", "connect": "\"Ợd-ven-chờ\" — chuyến phiêu lưu.", "ex": "The trip was a great adventure.", "exVi": "Chuyến đi là một cuộc phiêu lưu tuyệt vời." },
-    { "en": "destination", "ipa": "/ˌdes.təˈneɪ.ʃən/", "vi": "điểm đến", "pos": "noun", "img": "📍", "connect": "\"Đét-tờ-nê-sừn\" — nơi cần tới.", "ex": "Our destination is Da Nang.", "exVi": "Điểm đến của chúng tôi là Đà Nẵng." },
-    { "en": "currency", "ipa": "/ˈkɜːr.ən.si/", "vi": "tiền tệ", "pos": "noun", "img": "💱", "connect": "\"Cơ-rừn-si\" — đơn vị tiền của mỗi nước.", "ex": "What currency do they use?", "exVi": "Họ dùng loại tiền tệ nào?" },
-    { "en": "landmark", "ipa": "/ˈlænd.mɑːrk/", "vi": "địa danh nổi tiếng", "pos": "noun", "img": "🗽", "connect": "land (đất) + mark (dấu).", "ex": "The tower is a famous landmark.", "exVi": "Tháp đó là một địa danh nổi tiếng." },
-    { "en": "view", "ipa": "/vjuː/", "vi": "cảnh, tầm nhìn", "pos": "noun", "img": "🏞️", "connect": "\"Viu\" — ngắm view đẹp.", "ex": "The room has a sea view.", "exVi": "Căn phòng có view nhìn ra biển." },
-    { "en": "suitcase", "ipa": "/ˈsuːt.keɪs/", "vi": "va li", "pos": "noun", "img": "🧳", "connect": "suit (bộ đồ) + case (hộp).", "ex": "Pack your suitcase tonight.", "exVi": "Xếp va li của bạn tối nay đi." },
-    { "en": "brochure", "ipa": "/broʊˈʃʊr/", "vi": "tờ rơi, cẩm nang", "pos": "noun", "img": "📄", "connect": "\"Brâu-sua\" — tờ giới thiệu du lịch.", "ex": "Pick up a travel brochure.", "exVi": "Lấy một tờ cẩm nang du lịch đi." },
-    { "en": "explore", "ipa": "/ɪkˈsplɔːr/", "vi": "khám phá", "pos": "verb", "img": "🧭", "connect": "\"Ịc-sờ-plo\" — đi khám phá.", "ex": "Let's explore the old town.", "exVi": "Mình đi khám phá phố cổ đi." },
-    { "en": "postcard", "ipa": "/ˈpoʊst.kɑːrd/", "vi": "bưu thiếp", "pos": "noun", "img": "📮", "connect": "post (bưu điện) + card (thẻ).", "ex": "I sent you a postcard.", "exVi": "Tôi đã gửi cho bạn một tấm bưu thiếp." },
-    { "en": "lobby", "ipa": "/ˈlɑː.bi/", "vi": "sảnh khách sạn", "pos": "noun", "img": "🏨", "connect": "\"Ló-bi\" — sảnh chờ.", "ex": "Wait for me in the lobby.", "exVi": "Đợi tôi ở sảnh nhé." },
-    { "en": "vacation", "ipa": "/veɪˈkeɪ.ʃən/", "vi": "kỳ nghỉ", "pos": "noun", "img": "🌴", "connect": "\"Vê-kê-sừn\" — đi nghỉ mát.", "ex": "We're on vacation this week.", "exVi": "Tuần này chúng tôi đang đi nghỉ." }
+    {
+      "en": "tour",
+      "ipa": "/tʊr/",
+      "vi": "chuyến tham quan",
+      "pos": "noun",
+      "img": "🚌",
+      "connect": "\"Tua\" — đi tua du lịch.",
+      "ex": "We took a city tour.",
+      "exVi": "Chúng tôi đi một tua tham quan thành phố."
+    },
+    {
+      "en": "tourist",
+      "ipa": "/ˈtʊr.ɪst/",
+      "vi": "khách du lịch",
+      "pos": "noun",
+      "img": "📸",
+      "connect": "tour + ist (người).",
+      "ex": "Many tourists visit this beach.",
+      "exVi": "Nhiều khách du lịch tới bãi biển này."
+    },
+    {
+      "en": "visa",
+      "ipa": "/ˈviː.zə/",
+      "vi": "thị thực",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "\"Vi-zờ\" — giấy visa nhập cảnh.",
+      "ex": "You need a visa to enter.",
+      "exVi": "Bạn cần visa để nhập cảnh."
+    },
+    {
+      "en": "flight",
+      "ipa": "/flaɪt/",
+      "vi": "chuyến bay",
+      "pos": "noun",
+      "img": "✈️",
+      "connect": "fly (bay) → flight.",
+      "ex": "My flight leaves at noon.",
+      "exVi": "Chuyến bay của tôi cất cánh lúc trưa."
+    },
+    {
+      "en": "departure",
+      "ipa": "/dɪˈpɑːr.tʃɚ/",
+      "vi": "sự khởi hành",
+      "pos": "noun",
+      "img": "🛫",
+      "connect": "depart (rời đi) + ure.",
+      "ex": "Check the departure time.",
+      "exVi": "Kiểm tra giờ khởi hành đi."
+    },
+    {
+      "en": "arrival",
+      "ipa": "/əˈraɪ.vəl/",
+      "vi": "sự đến nơi",
+      "pos": "noun",
+      "img": "🛬",
+      "connect": "arrive (đến) + al.",
+      "ex": "The arrival gate is number five.",
+      "exVi": "Cổng đến là số năm."
+    },
+    {
+      "en": "abroad",
+      "ipa": "/əˈbrɔːd/",
+      "vi": "ở nước ngoài",
+      "pos": "adverb",
+      "img": "🌍",
+      "connect": "\"Ờ-brốd\" — ra nước ngoài.",
+      "ex": "She studies abroad.",
+      "exVi": "Cô ấy đi du học nước ngoài."
+    },
+    {
+      "en": "foreign",
+      "ipa": "/ˈfɔːr.ən/",
+      "vi": "thuộc nước ngoài",
+      "pos": "adj",
+      "img": "🌐",
+      "connect": "\"Pho-rừn\" — chữ \"g\" câm.",
+      "ex": "He speaks three foreign languages.",
+      "exVi": "Anh ấy nói được ba thứ tiếng nước ngoài."
+    },
+    {
+      "en": "souvenir",
+      "ipa": "/ˌsuː.vəˈnɪr/",
+      "vi": "quà lưu niệm",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "\"Su-vơ-nia\" — mua đồ lưu niệm.",
+      "ex": "I bought a souvenir for my mom.",
+      "exVi": "Tôi mua một món quà lưu niệm cho mẹ."
+    },
+    {
+      "en": "sightseeing",
+      "ipa": "/ˈsaɪtˌsiː.ɪŋ/",
+      "vi": "ngắm cảnh, tham quan",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "sight (cảnh) + seeing (ngắm).",
+      "ex": "We went sightseeing all day.",
+      "exVi": "Chúng tôi đi ngắm cảnh cả ngày."
+    },
+    {
+      "en": "reserve",
+      "ipa": "/rɪˈzɜːrv/",
+      "vi": "đặt trước",
+      "pos": "verb",
+      "img": "📝",
+      "connect": "\"Rờ-zớv\" — đặt chỗ trước.",
+      "ex": "I'd like to reserve a table.",
+      "exVi": "Tôi muốn đặt trước một bàn."
+    },
+    {
+      "en": "booking",
+      "ipa": "/ˈbʊk.ɪŋ/",
+      "vi": "sự đặt chỗ",
+      "pos": "noun",
+      "img": "📔",
+      "connect": "book (đặt) + ing.",
+      "ex": "I made a hotel booking online.",
+      "exVi": "Tôi đặt phòng khách sạn qua mạng."
+    },
+    {
+      "en": "guest",
+      "ipa": "/ɡest/",
+      "vi": "khách",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "\"Ghét-st\" — khách trọ, khách mời.",
+      "ex": "The hotel has many guests.",
+      "exVi": "Khách sạn có rất nhiều khách."
+    },
+    {
+      "en": "reception",
+      "ipa": "/rɪˈsep.ʃən/",
+      "vi": "quầy lễ tân",
+      "pos": "noun",
+      "img": "🛎️",
+      "connect": "receive (tiếp nhận) → reception.",
+      "ex": "Ask at the reception desk.",
+      "exVi": "Hỏi ở quầy lễ tân nhé."
+    },
+    {
+      "en": "pool",
+      "ipa": "/puːl/",
+      "vi": "hồ bơi",
+      "pos": "noun",
+      "img": "🏊",
+      "connect": "\"Pu-l\" — bể bơi (swimming pool).",
+      "ex": "The hotel has a nice pool.",
+      "exVi": "Khách sạn có một hồ bơi đẹp."
+    },
+    {
+      "en": "resort",
+      "ipa": "/rɪˈzɔːrt/",
+      "vi": "khu nghỉ dưỡng",
+      "pos": "noun",
+      "img": "🏖️",
+      "connect": "\"Rờ-zoóc-t\" — resort nghỉ mát.",
+      "ex": "We stayed at a beach resort.",
+      "exVi": "Chúng tôi ở một khu nghỉ dưỡng ven biển."
+    },
+    {
+      "en": "adventure",
+      "ipa": "/ədˈven.tʃɚ/",
+      "vi": "cuộc phiêu lưu",
+      "pos": "noun",
+      "img": "🧗",
+      "connect": "\"Ợd-ven-chờ\" — chuyến phiêu lưu.",
+      "ex": "The trip was a great adventure.",
+      "exVi": "Chuyến đi là một cuộc phiêu lưu tuyệt vời."
+    },
+    {
+      "en": "destination",
+      "ipa": "/ˌdes.təˈneɪ.ʃən/",
+      "vi": "điểm đến",
+      "pos": "noun",
+      "img": "📍",
+      "connect": "\"Đét-tờ-nê-sừn\" — nơi cần tới.",
+      "ex": "Our destination is Da Nang.",
+      "exVi": "Điểm đến của chúng tôi là Đà Nẵng."
+    },
+    {
+      "en": "currency",
+      "ipa": "/ˈkɜːr.ən.si/",
+      "vi": "tiền tệ",
+      "pos": "noun",
+      "img": "💱",
+      "connect": "\"Cơ-rừn-si\" — đơn vị tiền của mỗi nước.",
+      "ex": "What currency do they use?",
+      "exVi": "Họ dùng loại tiền tệ nào?"
+    },
+    {
+      "en": "landmark",
+      "ipa": "/ˈlænd.mɑːrk/",
+      "vi": "địa danh nổi tiếng",
+      "pos": "noun",
+      "img": "🗽",
+      "connect": "land (đất) + mark (dấu).",
+      "ex": "The tower is a famous landmark.",
+      "exVi": "Tháp đó là một địa danh nổi tiếng."
+    },
+    {
+      "en": "view",
+      "ipa": "/vjuː/",
+      "vi": "cảnh, tầm nhìn",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "\"Viu\" — ngắm view đẹp.",
+      "ex": "The room has a sea view.",
+      "exVi": "Căn phòng có view nhìn ra biển."
+    },
+    {
+      "en": "suitcase",
+      "ipa": "/ˈsuːt.keɪs/",
+      "vi": "va li",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "suit (bộ đồ) + case (hộp).",
+      "ex": "Pack your suitcase tonight.",
+      "exVi": "Xếp va li của bạn tối nay đi."
+    },
+    {
+      "en": "brochure",
+      "ipa": "/broʊˈʃʊr/",
+      "vi": "tờ rơi, cẩm nang",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "\"Brâu-sua\" — tờ giới thiệu du lịch.",
+      "ex": "Pick up a travel brochure.",
+      "exVi": "Lấy một tờ cẩm nang du lịch đi."
+    },
+    {
+      "en": "explore",
+      "ipa": "/ɪkˈsplɔːr/",
+      "vi": "khám phá",
+      "pos": "verb",
+      "img": "🧭",
+      "connect": "\"Ịc-sờ-plo\" — đi khám phá.",
+      "ex": "Let's explore the old town.",
+      "exVi": "Mình đi khám phá phố cổ đi."
+    },
+    {
+      "en": "postcard",
+      "ipa": "/ˈpoʊst.kɑːrd/",
+      "vi": "bưu thiếp",
+      "pos": "noun",
+      "img": "📮",
+      "connect": "post (bưu điện) + card (thẻ).",
+      "ex": "I sent you a postcard.",
+      "exVi": "Tôi đã gửi cho bạn một tấm bưu thiếp."
+    },
+    {
+      "en": "lobby",
+      "ipa": "/ˈlɑː.bi/",
+      "vi": "sảnh khách sạn",
+      "pos": "noun",
+      "img": "🏨",
+      "connect": "\"Ló-bi\" — sảnh chờ.",
+      "ex": "Wait for me in the lobby.",
+      "exVi": "Đợi tôi ở sảnh nhé."
+    },
+    {
+      "en": "vacation",
+      "ipa": "/veɪˈkeɪ.ʃən/",
+      "vi": "kỳ nghỉ",
+      "pos": "noun",
+      "img": "🌴",
+      "connect": "\"Vê-kê-sừn\" — đi nghỉ mát.",
+      "ex": "We're on vacation this week.",
+      "exVi": "Tuần này chúng tôi đang đi nghỉ."
+    }
   ]
 }

@@ -3,13 +3,13 @@ import type { AppView } from './enum'
 export const ROUTES: Record<AppView, string> = {
   home: '/',
   learn: '/hoc',
-  library: '/kho-video',
+  library: '/shadowing',
   myvideos: '/video-cua-toi',
   courses: '/khoa-hoc',
   path: '/lo-trinh',
   speaking: '/luyen-noi',
   tutor: '/gia-su-ai',
-  english: '/tieng-anh-3-thang',
+  english: '/tieng-anh-giao-tiep',
   toeic: '/luyen-thi-toeic',
   korean: '/tieng-han-3-thang',
   chinese: '/tieng-trung-3-thang',
@@ -82,8 +82,8 @@ export const PUBLIC_VIEWS: AppView[] = [
 
 export const META_DESC: Partial<Record<AppView, string>> = {
   home: 'Học tiếng Hàn, tiếng Anh qua chính video YouTube bạn thích: phụ đề song ngữ, bấm từ là tra nghĩa, lưu thẻ ôn tập SRS. Miễn phí.',
-  library: 'Kho video học ngoại ngữ đã kiểm chứng phụ đề: tiếng Hàn, tiếng Anh, Nhật, Trung, Đức, Việt — lọc theo trình độ và độ dài.',
-  english: 'Lộ trình tiếng Anh 90 ngày theo quy tắc 3C: 3000 từ tần suất cao, 18 bài ngữ pháp giao tiếp, 12 nhóm phát âm, tự tick theo tiến độ thật.',
+  library: 'Luyện Shadowing trên video thật: dán link YouTube hoặc chọn trong kho video đã kiểm chứng phụ đề tiếng Anh, Hàn, Trung, Nhật.',
+  english: 'Tiếng Anh giao tiếp theo quy tắc 3C: 3000 từ tần suất cao học kiểu flashcard có giọng US và UK, 18 bài ngữ pháp giao tiếp, 13 nhóm phát âm, tự tick theo tiến độ thật.',
   toeic: 'Luyện thi TOEIC: lộ trình 60 ngày, ngân hàng 504 câu đủ 7 Part, thi thử full test có đồng hồ và sổ tay câu sai.',
   korean: 'Lộ trình tiếng Hàn 90 ngày từ số 0: 805 từ lõi theo phương pháp ICES, 36 mẫu câu, 12 nhóm phát âm người Việt hay sai.',
   chinese: 'Học tiếng Trung từ số 0 cho người Việt: từ vựng lõi theo phương pháp ICES, mẹo nhớ bám âm Hán–Việt, phiên âm pinyin và lộ trình theo khung HSK.',

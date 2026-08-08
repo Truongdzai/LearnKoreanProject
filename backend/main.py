@@ -157,10 +157,10 @@ def google_site_verification(token: str):
 
 _PUBLIC_PATHS = [
     ("/", "1.0", "daily"),
-    ("/kho-video", "0.9", "daily"),
+    ("/shadowing", "0.9", "daily"),
     ("/tieng-han-3-thang", "0.9", "weekly"),
     ("/luyen-thi-topik", "0.9", "weekly"),
-    ("/tieng-anh-3-thang", "0.9", "weekly"),
+    ("/tieng-anh-giao-tiep", "0.9", "weekly"),
     ("/luyen-thi-toeic", "0.9", "weekly"),
     ("/tieng-trung-3-thang", "0.8", "weekly"),
     ("/luyen-thi-hsk", "0.8", "weekly"),

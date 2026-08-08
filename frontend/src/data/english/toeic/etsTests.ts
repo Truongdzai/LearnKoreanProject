@@ -7,6 +7,7 @@ export interface EtsIndexItem {
   listening: number
   part1: number
   part5: number
+  reading: number
 }
 
 export interface EtsPhoto {
@@ -43,6 +44,7 @@ export interface EtsConv {
   viScript: string
   questions: EtsConvQuestion[]
   mp3: string
+  img?: string
 }
 
 export interface EtsBlank {
@@ -53,12 +55,19 @@ export interface EtsBlank {
   explain: string
 }
 
+export interface EtsPassageSet {
+  ns: number[]
+  imgs: string[]
+  questions: EtsBlank[]
+  short?: number
+}
+
 export interface EtsTest {
   id: string
   test: number
   name: string
   listening: { p1: EtsPhoto[]; p2: EtsResponse[]; p3: EtsConv[]; p4: EtsConv[] }
-  reading: { p5: EtsBlank[] }
+  reading: { p5: EtsBlank[]; p6: EtsPassageSet[]; p7: EtsPassageSet[] }
 }
 
 const indexModule = import.meta.glob<{ default: EtsIndexItem[] }>('./ets/index.json', {

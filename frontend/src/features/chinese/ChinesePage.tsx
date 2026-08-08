@@ -3,7 +3,7 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { ZH_UNITS, ZH_ALL_WORDS } from '@/data/chineseCore'
 import { ZH_PRON_GROUPS } from '@/data/chinesePronunciation'
 import { speakZH } from '@/core/tts'
-import IcesLearn from '../english/components/IcesLearn'
+import VocabLab from '../english/components/vocab/VocabLab'
 import VocabQuiz from '../english/components/VocabQuiz'
 import PronunciationLab from '../english/components/PronunciationLab'
 import { recordWeekQuiz } from '../english/progress'
@@ -136,7 +136,14 @@ export default function ChinesePage() {
           <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
         )}
         {tab === 'learn' && (
-          <IcesLearn initialUnit={learnUnit} units={ZH_UNITS} speak={speakZH} sourceLabel="Chinese Core" lang="zh" />
+          <VocabLab
+            initialUnit={learnUnit}
+            units={ZH_UNITS}
+            speak={speakZH}
+            sourceLabel="Chinese Core"
+            lang="zh"
+            title="Từ vựng tiếng Trung"
+          />
         )}
         {tab === 'pron' && (
           <PronunciationLab
@@ -145,7 +152,7 @@ export default function ChinesePage() {
             lang="zh"
             groups={ZH_PRON_GROUPS}
             speak={speakZH}
-            intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Trung: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm."
+            intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Trung: nghe mẫu → phân biệt bằng tai → ghi âm hai bản để đối chiếu → tự chấm theo 5 tiêu chí."
           />
         )}
         {tab === 'quiz' && (weekQuiz ? (

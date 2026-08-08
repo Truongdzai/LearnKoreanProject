@@ -6,17 +6,125 @@
   "tone": "tone-d",
   "emoji": "🏠",
   "words": [
-    { "ko": "집", "romaja": "jip", "vi": "Nhà", "pos": "noun", "img": "🏠", "connect": "\"Chíp\" — về \"chip\" tổ ấm.", "ex": "집에 있어요.", "exVi": "Tôi ở nhà." },
-    { "ko": "학교", "romaja": "hakgyo", "vi": "Trường học", "pos": "noun", "img": "🏫", "connect": "\"Hak\" — nơi \"học\".", "ex": "학교가 커요.", "exVi": "Trường học to." },
-    { "ko": "회사", "romaja": "hoesa", "vi": "Công ty", "pos": "noun", "img": "🏢", "connect": "\"Huê-sa\" gợi \"hội xã\" — công ty.", "ex": "회사에 가요.", "exVi": "Tôi đi làm ở công ty." },
-    { "ko": "병원", "romaja": "byeongwon", "vi": "Bệnh viện", "pos": "noun", "img": "🏥", "connect": "\"Byơng\" — chữ \"bệnh\" viện.", "ex": "병원에서 기다려요.", "exVi": "Tôi chờ ở bệnh viện." },
-    { "ko": "은행", "romaja": "eunhaeng", "vi": "Ngân hàng", "pos": "noun", "img": "🏦", "connect": "\"Ưn-heng\" — nơi gửi tiền.", "ex": "은행에서 돈을 찾아요.", "exVi": "Tôi rút tiền ở ngân hàng." },
-    { "ko": "시장", "romaja": "sijang", "vi": "Chợ", "pos": "noun", "img": "🏪", "connect": "\"Si-chang\" gợi \"thị trường\".", "ex": "시장에서 과일을 사요.", "exVi": "Tôi mua trái cây ở chợ." },
-    { "ko": "식당", "romaja": "sikdang", "vi": "Quán ăn / Nhà hàng", "pos": "noun", "img": "🍴", "connect": "\"Sik-đang\" gợi \"thực đường\" — chỗ ăn.", "ex": "식당에서 밥을 먹어요.", "exVi": "Tôi ăn cơm ở quán." },
-    { "ko": "카페", "romaja": "kape", "vi": "Quán cà phê", "pos": "noun", "img": "☕", "connect": "\"Ka-pê\" — chính là \"cà phê\".", "ex": "카페에서 커피를 마셔요.", "exVi": "Tôi uống cà phê ở quán." },
-    { "ko": "화장실", "romaja": "hwajangsil", "vi": "Nhà vệ sinh", "pos": "noun", "img": "🚻", "connect": "\"Hoa-chang-sil\" — \"thất\" (phòng) hoá trang.", "ex": "화장실이 어디예요?", "exVi": "Nhà vệ sinh ở đâu?" },
-    { "ko": "역", "romaja": "yeok", "vi": "Ga tàu / Bến", "pos": "noun", "img": "🚉", "connect": "\"Yơk\" — chữ \"dịch\" (驛), ga tàu.", "ex": "역에서 만나요.", "exVi": "Gặp nhau ở ga." },
-    { "ko": "공항", "romaja": "gonghang", "vi": "Sân bay", "pos": "noun", "img": "✈️", "connect": "\"Gong-hang\" — \"hàng không\" đảo lại.", "ex": "공항에 도착했어요.", "exVi": "Tôi đến sân bay rồi." },
-    { "ko": "가게", "romaja": "gage", "vi": "Cửa hàng / Tiệm", "pos": "noun", "img": "🏬", "connect": "\"Ga-ghê\" — cửa \"kê\" hàng bán.", "ex": "가게에서 물을 샀어요.", "exVi": "Tôi mua nước ở cửa hàng." }
+    {
+      "ko": "집",
+      "romaja": "jip",
+      "vi": "Nhà",
+      "pos": "noun",
+      "img": "🏠",
+      "connect": "\"Chíp\" — về \"chip\" tổ ấm.",
+      "ex": "집에 있어요.",
+      "exVi": "Tôi ở nhà."
+    },
+    {
+      "ko": "학교",
+      "romaja": "hakgyo",
+      "vi": "Trường học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "\"Hak\" — nơi \"học\".",
+      "ex": "학교가 커요.",
+      "exVi": "Trường học to."
+    },
+    {
+      "ko": "회사",
+      "romaja": "hoesa",
+      "vi": "Công ty",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "\"Huê-sa\" gợi \"hội xã\" — công ty.",
+      "ex": "회사에 가요.",
+      "exVi": "Tôi đi làm ở công ty."
+    },
+    {
+      "ko": "병원",
+      "romaja": "byeongwon",
+      "vi": "Bệnh viện",
+      "pos": "noun",
+      "img": "🏥",
+      "connect": "\"Byơng\" — chữ \"bệnh\" viện.",
+      "ex": "병원에서 기다려요.",
+      "exVi": "Tôi chờ ở bệnh viện."
+    },
+    {
+      "ko": "은행",
+      "romaja": "eunhaeng",
+      "vi": "Ngân hàng",
+      "pos": "noun",
+      "img": "🏦",
+      "connect": "\"Ưn-heng\" — nơi gửi tiền.",
+      "ex": "은행에서 돈을 찾아요.",
+      "exVi": "Tôi rút tiền ở ngân hàng."
+    },
+    {
+      "ko": "시장",
+      "romaja": "sijang",
+      "vi": "Chợ",
+      "pos": "noun",
+      "img": "🏪",
+      "connect": "\"Si-chang\" gợi \"thị trường\".",
+      "ex": "시장에서 과일을 사요.",
+      "exVi": "Tôi mua trái cây ở chợ."
+    },
+    {
+      "ko": "식당",
+      "romaja": "sikdang",
+      "vi": "Quán ăn / Nhà hàng",
+      "pos": "noun",
+      "img": "🍴",
+      "connect": "\"Sik-đang\" gợi \"thực đường\" — chỗ ăn.",
+      "ex": "식당에서 밥을 먹어요.",
+      "exVi": "Tôi ăn cơm ở quán."
+    },
+    {
+      "ko": "카페",
+      "romaja": "kape",
+      "vi": "Quán cà phê",
+      "pos": "noun",
+      "img": "☕",
+      "connect": "\"Ka-pê\" — chính là \"cà phê\".",
+      "ex": "카페에서 커피를 마셔요.",
+      "exVi": "Tôi uống cà phê ở quán."
+    },
+    {
+      "ko": "화장실",
+      "romaja": "hwajangsil",
+      "vi": "Nhà vệ sinh",
+      "pos": "noun",
+      "img": "🚻",
+      "connect": "\"Hoa-chang-sil\" — \"thất\" (phòng) hoá trang.",
+      "ex": "화장실이 어디예요?",
+      "exVi": "Nhà vệ sinh ở đâu?"
+    },
+    {
+      "ko": "역",
+      "romaja": "yeok",
+      "vi": "Ga tàu / Bến",
+      "pos": "noun",
+      "img": "🚉",
+      "connect": "\"Yơk\" — chữ \"dịch\" (驛), ga tàu.",
+      "ex": "역에서 만나요.",
+      "exVi": "Gặp nhau ở ga."
+    },
+    {
+      "ko": "공항",
+      "romaja": "gonghang",
+      "vi": "Sân bay",
+      "pos": "noun",
+      "img": "✈️",
+      "connect": "\"Gong-hang\" — \"hàng không\" đảo lại.",
+      "ex": "공항에 도착했어요.",
+      "exVi": "Tôi đến sân bay rồi."
+    },
+    {
+      "ko": "가게",
+      "romaja": "gage",
+      "vi": "Cửa hàng / Tiệm",
+      "pos": "noun",
+      "img": "🏬",
+      "connect": "\"Ga-ghê\" — cửa \"kê\" hàng bán.",
+      "ex": "가게에서 물을 샀어요.",
+      "exVi": "Tôi mua nước ở cửa hàng."
+    }
   ]
 }

@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "🌤️",
   "words": [
-    { "ko": "날씨", "romaja": "nalssi", "vi": "Thời tiết", "pos": "noun", "img": "🌤️", "connect": "\"Nal\" = ngày — chuyện của ngày hôm nay.", "ex": "오늘 날씨가 좋아요.", "exVi": "Hôm nay thời tiết đẹp." },
-    { "ko": "비", "romaja": "bi", "vi": "Mưa", "pos": "noun", "img": "🌧️", "connect": "\"Bi\" ngắn như hạt mưa rơi lộp bộp.", "ex": "비가 많이 와요.", "exVi": "Mưa to lắm." },
-    { "ko": "눈이 오다", "romaja": "nuni oda", "vi": "Tuyết rơi", "pos": "phrase", "img": "❄️", "connect": "눈 (tuyết) viết y hệt 눈 (mắt) — nhìn câu mới biết nghĩa nào.", "ex": "겨울에 눈이 와요.", "exVi": "Mùa đông thì có tuyết rơi." },
-    { "ko": "바람", "romaja": "baram", "vi": "Gió", "pos": "noun", "img": "💨", "connect": "\"Ba-ram\" — gió ào ào thổi qua.", "ex": "바람이 시원해요.", "exVi": "Gió mát ghê." },
-    { "ko": "하늘", "romaja": "haneul", "vi": "Bầu trời", "pos": "noun", "img": "🌌", "connect": "\"Ha-nưl\" — ngước lên nhìn trời cao.", "ex": "하늘이 파래요.", "exVi": "Bầu trời xanh biếc." },
-    { "ko": "구름", "romaja": "gureum", "vi": "Mây", "pos": "noun", "img": "☁️", "connect": "\"Cu-rưm\" — cuộn tròn như đám mây.", "ex": "구름이 많이 꼈어요.", "exVi": "Trời nhiều mây." },
-    { "ko": "덥다", "romaja": "deopda", "vi": "Nóng (thời tiết)", "pos": "adj", "img": "🥵", "connect": "\"Đớp\" — trời hầm hập đè lên người.", "ex": "여름에는 정말 더워요.", "exVi": "Mùa hè thì nóng thật sự." },
-    { "ko": "춥다", "romaja": "chupda", "vi": "Lạnh (thời tiết)", "pos": "adj", "img": "🥶", "connect": "\"Chup\" — co người lại vì lạnh.", "ex": "밖이 너무 추워요.", "exVi": "Bên ngoài lạnh quá." },
-    { "ko": "따뜻하다", "romaja": "ttatteuthada", "vi": "Ấm áp", "pos": "adj", "img": "🌞", "connect": "\"Tta-tưt\" — nghe như tiếng lò sưởi tí tách.", "ex": "봄 날씨가 따뜻해요.", "exVi": "Thời tiết mùa xuân ấm áp." },
-    { "ko": "시원하다", "romaja": "siwonhada", "vi": "Mát mẻ / Sảng khoái", "pos": "adj", "img": "🍃", "connect": "\"Si-uôn\" — uống ngụm nước là thấy khoẻ.", "ex": "에어컨을 켜니까 시원해요.", "exVi": "Bật điều hoà lên nên mát rồi." },
-    { "ko": "산", "romaja": "san", "vi": "Núi", "pos": "noun", "img": "⛰️", "connect": "\"San\" chính là âm Hán \"sơn\" = núi.", "ex": "주말에 산에 가요.", "exVi": "Cuối tuần tôi đi leo núi." },
-    { "ko": "바다", "romaja": "bada", "vi": "Biển", "pos": "noun", "img": "🌊", "connect": "\"Ba-đa\" — sóng vỗ ba đào.", "ex": "여름에 바다에 가고 싶어요.", "exVi": "Mùa hè tôi muốn đi biển." }
+    {
+      "ko": "날씨",
+      "romaja": "nalssi",
+      "vi": "Thời tiết",
+      "pos": "noun",
+      "img": "🌤️",
+      "connect": "\"Nal\" = ngày — chuyện của ngày hôm nay.",
+      "ex": "오늘 날씨가 좋아요.",
+      "exVi": "Hôm nay thời tiết đẹp."
+    },
+    {
+      "ko": "비",
+      "romaja": "bi",
+      "vi": "Mưa",
+      "pos": "noun",
+      "img": "🌧️",
+      "connect": "\"Bi\" ngắn như hạt mưa rơi lộp bộp.",
+      "ex": "비가 많이 와요.",
+      "exVi": "Mưa to lắm."
+    },
+    {
+      "ko": "눈이 오다",
+      "romaja": "nuni oda",
+      "vi": "Tuyết rơi",
+      "pos": "phrase",
+      "img": "❄️",
+      "connect": "눈 (tuyết) viết y hệt 눈 (mắt) — nhìn câu mới biết nghĩa nào.",
+      "ex": "겨울에 눈이 와요.",
+      "exVi": "Mùa đông thì có tuyết rơi."
+    },
+    {
+      "ko": "바람",
+      "romaja": "baram",
+      "vi": "Gió",
+      "pos": "noun",
+      "img": "💨",
+      "connect": "\"Ba-ram\" — gió ào ào thổi qua.",
+      "ex": "바람이 시원해요.",
+      "exVi": "Gió mát ghê."
+    },
+    {
+      "ko": "하늘",
+      "romaja": "haneul",
+      "vi": "Bầu trời",
+      "pos": "noun",
+      "img": "🌌",
+      "connect": "\"Ha-nưl\" — ngước lên nhìn trời cao.",
+      "ex": "하늘이 파래요.",
+      "exVi": "Bầu trời xanh biếc."
+    },
+    {
+      "ko": "구름",
+      "romaja": "gureum",
+      "vi": "Mây",
+      "pos": "noun",
+      "img": "☁️",
+      "connect": "\"Cu-rưm\" — cuộn tròn như đám mây.",
+      "ex": "구름이 많이 꼈어요.",
+      "exVi": "Trời nhiều mây."
+    },
+    {
+      "ko": "덥다",
+      "romaja": "deopda",
+      "vi": "Nóng (thời tiết)",
+      "pos": "adj",
+      "img": "🥵",
+      "connect": "\"Đớp\" — trời hầm hập đè lên người.",
+      "ex": "여름에는 정말 더워요.",
+      "exVi": "Mùa hè thì nóng thật sự."
+    },
+    {
+      "ko": "춥다",
+      "romaja": "chupda",
+      "vi": "Lạnh (thời tiết)",
+      "pos": "adj",
+      "img": "🥶",
+      "connect": "\"Chup\" — co người lại vì lạnh.",
+      "ex": "밖이 너무 추워요.",
+      "exVi": "Bên ngoài lạnh quá."
+    },
+    {
+      "ko": "따뜻하다",
+      "romaja": "ttatteuthada",
+      "vi": "Ấm áp",
+      "pos": "adj",
+      "img": "🌞",
+      "connect": "\"Tta-tưt\" — nghe như tiếng lò sưởi tí tách.",
+      "ex": "봄 날씨가 따뜻해요.",
+      "exVi": "Thời tiết mùa xuân ấm áp."
+    },
+    {
+      "ko": "시원하다",
+      "romaja": "siwonhada",
+      "vi": "Mát mẻ / Sảng khoái",
+      "pos": "adj",
+      "img": "🍃",
+      "connect": "\"Si-uôn\" — uống ngụm nước là thấy khoẻ.",
+      "ex": "에어컨을 켜니까 시원해요.",
+      "exVi": "Bật điều hoà lên nên mát rồi."
+    },
+    {
+      "ko": "산",
+      "romaja": "san",
+      "vi": "Núi",
+      "pos": "noun",
+      "img": "⛰️",
+      "connect": "\"San\" chính là âm Hán \"sơn\" = núi.",
+      "ex": "주말에 산에 가요.",
+      "exVi": "Cuối tuần tôi đi leo núi."
+    },
+    {
+      "ko": "바다",
+      "romaja": "bada",
+      "vi": "Biển",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "\"Ba-đa\" — sóng vỗ ba đào.",
+      "ex": "여름에 바다에 가고 싶어요.",
+      "exVi": "Mùa hè tôi muốn đi biển."
+    }
   ]
 }

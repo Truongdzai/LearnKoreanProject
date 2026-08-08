@@ -85,6 +85,20 @@ export default function TestReview({ res, onBack, saveToWrongBook = true }: Prop
                   </div>
                 </details>
               )}
+              {g.img && (
+                <div className={g.part >= 3 ? 'tr-photo chart' : 'tr-photo'}>
+                  <img
+                    src={g.img}
+                    alt={g.part >= 3 ? 'Bảng/biểu đồ của nhóm câu hỏi' : 'Ảnh đề Part 1'}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              {g.imgs?.map((src, i) => (
+                <div key={src} className="tr-photo passage">
+                  <img src={src} alt={`Đoạn văn ${i + 1} của nhóm câu hỏi`} loading="lazy" />
+                </div>
+              ))}
               {g.graphic && (
                 <div className="tr-graphic" lang="en">
                   <b>{g.graphic.title}</b>

@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "🏥",
   "words": [
-    { "ko": "아프다", "romaja": "apeuda", "vi": "Đau / Ốm", "pos": "adj", "img": "🤒", "connect": "\"A-pư\" — kêu \"a\" một tiếng vì đau.", "ex": "어제부터 배가 아파요.", "exVi": "Tôi đau bụng từ hôm qua." },
-    { "ko": "약", "romaja": "yak", "vi": "Thuốc", "pos": "noun", "img": "💊", "connect": "\"Yak\" chính là âm Hán \"dược\".", "ex": "약을 하루에 세 번 드세요.", "exVi": "Bạn uống thuốc ba lần một ngày nhé." },
-    { "ko": "약국", "romaja": "yakguk", "vi": "Hiệu thuốc", "pos": "noun", "img": "🏪", "connect": "\"Yak-kuk\" chính là âm Hán \"dược cục\".", "ex": "약국이 병원 옆에 있어요.", "exVi": "Hiệu thuốc ở cạnh bệnh viện." },
-    { "ko": "감기", "romaja": "gamgi", "vi": "Cảm lạnh", "pos": "noun", "img": "🤧", "connect": "\"Kam-ki\" chính là âm Hán \"cảm khí\".", "ex": "감기에 걸렸어요.", "exVi": "Tôi bị cảm rồi." },
-    { "ko": "열이 나다", "romaja": "yeori nada", "vi": "Bị sốt", "pos": "verb", "img": "🌡️", "connect": "열 chính là âm Hán \"nhiệt\" (viết y hệt 열 = số mười) + 나다 = phát ra.", "ex": "어젯밤부터 열이 났어요.", "exVi": "Từ tối qua tôi đã bị sốt." },
-    { "ko": "기침", "romaja": "gichim", "vi": "Ho", "pos": "noun", "img": "😷", "connect": "\"Ki-chim\" nghe như tiếng ho khan.", "ex": "기침이 심해요.", "exVi": "Tôi ho nhiều lắm." },
-    { "ko": "배탈", "romaja": "baetal", "vi": "Đau bụng / Rối loạn tiêu hoá", "pos": "noun", "img": "🤢", "connect": "\"Be\" = bụng + \"thal\" = trục trặc → bụng có vấn đề.", "ex": "배탈이 나서 밥을 못 먹어요.", "exVi": "Tôi đau bụng nên không ăn được." },
-    { "ko": "다치다", "romaja": "dachida", "vi": "Bị thương", "pos": "verb", "img": "🩹", "connect": "\"Đa-chi\" — đau chỗ nào đó trên người.", "ex": "운동하다가 다쳤어요.", "exVi": "Tôi bị thương lúc tập thể thao." },
-    { "ko": "쉬다", "romaja": "swida", "vi": "Nghỉ ngơi", "pos": "verb", "img": "🛌", "connect": "\"Suy\" — thở ra một hơi cho khoẻ.", "ex": "오늘은 집에서 쉬세요.", "exVi": "Hôm nay bạn hãy ở nhà nghỉ ngơi nhé." },
-    { "ko": "주사", "romaja": "jusa", "vi": "Tiêm / Mũi tiêm", "pos": "noun", "img": "💉", "connect": "\"Chu-sa\" chính là âm Hán \"chú xạ\".", "ex": "주사를 맞아야 해요?", "exVi": "Tôi phải tiêm ạ?" },
-    { "ko": "건강", "romaja": "geongang", "vi": "Sức khoẻ", "pos": "noun", "img": "💪", "connect": "\"Kơn-kang\" chính là âm Hán \"kiện khang\".", "ex": "건강이 제일 중요해요.", "exVi": "Sức khoẻ là quan trọng nhất." },
-    { "ko": "진료", "romaja": "jillyo", "vi": "Khám bệnh", "pos": "noun", "img": "🩺", "connect": "\"Chin-ryô\" chính là âm Hán \"chẩn liệu\".", "ex": "진료 예약을 하고 싶어요.", "exVi": "Tôi muốn đặt lịch khám." }
+    {
+      "ko": "아프다",
+      "romaja": "apeuda",
+      "vi": "Đau / Ốm",
+      "pos": "adj",
+      "img": "🤒",
+      "connect": "\"A-pư\" — kêu \"a\" một tiếng vì đau.",
+      "ex": "어제부터 배가 아파요.",
+      "exVi": "Tôi đau bụng từ hôm qua."
+    },
+    {
+      "ko": "약",
+      "romaja": "yak",
+      "vi": "Thuốc",
+      "pos": "noun",
+      "img": "💊",
+      "connect": "\"Yak\" chính là âm Hán \"dược\".",
+      "ex": "약을 하루에 세 번 드세요.",
+      "exVi": "Bạn uống thuốc ba lần một ngày nhé."
+    },
+    {
+      "ko": "약국",
+      "romaja": "yakguk",
+      "vi": "Hiệu thuốc",
+      "pos": "noun",
+      "img": "🏪",
+      "connect": "\"Yak-kuk\" chính là âm Hán \"dược cục\".",
+      "ex": "약국이 병원 옆에 있어요.",
+      "exVi": "Hiệu thuốc ở cạnh bệnh viện."
+    },
+    {
+      "ko": "감기",
+      "romaja": "gamgi",
+      "vi": "Cảm lạnh",
+      "pos": "noun",
+      "img": "🤧",
+      "connect": "\"Kam-ki\" chính là âm Hán \"cảm khí\".",
+      "ex": "감기에 걸렸어요.",
+      "exVi": "Tôi bị cảm rồi."
+    },
+    {
+      "ko": "열이 나다",
+      "romaja": "yeori nada",
+      "vi": "Bị sốt",
+      "pos": "verb",
+      "img": "🌡️",
+      "connect": "열 chính là âm Hán \"nhiệt\" (viết y hệt 열 = số mười) + 나다 = phát ra.",
+      "ex": "어젯밤부터 열이 났어요.",
+      "exVi": "Từ tối qua tôi đã bị sốt."
+    },
+    {
+      "ko": "기침",
+      "romaja": "gichim",
+      "vi": "Ho",
+      "pos": "noun",
+      "img": "😷",
+      "connect": "\"Ki-chim\" nghe như tiếng ho khan.",
+      "ex": "기침이 심해요.",
+      "exVi": "Tôi ho nhiều lắm."
+    },
+    {
+      "ko": "배탈",
+      "romaja": "baetal",
+      "vi": "Đau bụng / Rối loạn tiêu hoá",
+      "pos": "noun",
+      "img": "🤢",
+      "connect": "\"Be\" = bụng + \"thal\" = trục trặc → bụng có vấn đề.",
+      "ex": "배탈이 나서 밥을 못 먹어요.",
+      "exVi": "Tôi đau bụng nên không ăn được."
+    },
+    {
+      "ko": "다치다",
+      "romaja": "dachida",
+      "vi": "Bị thương",
+      "pos": "verb",
+      "img": "🩹",
+      "connect": "\"Đa-chi\" — đau chỗ nào đó trên người.",
+      "ex": "운동하다가 다쳤어요.",
+      "exVi": "Tôi bị thương lúc tập thể thao."
+    },
+    {
+      "ko": "쉬다",
+      "romaja": "swida",
+      "vi": "Nghỉ ngơi",
+      "pos": "verb",
+      "img": "🛌",
+      "connect": "\"Suy\" — thở ra một hơi cho khoẻ.",
+      "ex": "오늘은 집에서 쉬세요.",
+      "exVi": "Hôm nay bạn hãy ở nhà nghỉ ngơi nhé."
+    },
+    {
+      "ko": "주사",
+      "romaja": "jusa",
+      "vi": "Tiêm / Mũi tiêm",
+      "pos": "noun",
+      "img": "💉",
+      "connect": "\"Chu-sa\" chính là âm Hán \"chú xạ\".",
+      "ex": "주사를 맞아야 해요?",
+      "exVi": "Tôi phải tiêm ạ?"
+    },
+    {
+      "ko": "건강",
+      "romaja": "geongang",
+      "vi": "Sức khoẻ",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"Kơn-kang\" chính là âm Hán \"kiện khang\".",
+      "ex": "건강이 제일 중요해요.",
+      "exVi": "Sức khoẻ là quan trọng nhất."
+    },
+    {
+      "ko": "진료",
+      "romaja": "jillyo",
+      "vi": "Khám bệnh",
+      "pos": "noun",
+      "img": "🩺",
+      "connect": "\"Chin-ryô\" chính là âm Hán \"chẩn liệu\".",
+      "ex": "진료 예약을 하고 싶어요.",
+      "exVi": "Tôi muốn đặt lịch khám."
+    }
   ]
 }

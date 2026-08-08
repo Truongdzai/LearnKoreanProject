@@ -97,14 +97,14 @@
       "exVi": "Bọn trẻ đến trường bằng xe buýt."
     },
     {
-      "en": "work",
-      "ipa": "/wɜːrk/",
-      "vi": "công việc",
+      "en": "thing",
+      "ipa": "/θɪŋ/",
+      "vi": "thứ, đồ vật, điều",
       "pos": "noun",
-      "img": "💼",
-      "connect": "Work hard — làm việc chăm chỉ.",
-      "ex": "I have a lot of work today.",
-      "exVi": "Hôm nay tôi có nhiều việc."
+      "img": "📦",
+      "connect": "\"Thing\" — lưỡi chạm răng /θ/, gọi tên mọi thứ chưa biết tên.",
+      "ex": "I have a few things to buy.",
+      "exVi": "Tôi có vài thứ cần mua."
     },
     {
       "en": "time",

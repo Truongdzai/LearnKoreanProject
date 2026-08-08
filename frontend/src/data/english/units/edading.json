@@ -6,31 +6,265 @@
   "tone": "tone-e",
   "emoji": "🎭",
   "words": [
-    { "en": "boring", "ipa": "/ˈbɔːr.ɪŋ/", "vi": "chán, gây chán", "pos": "adj", "img": "🥱", "connect": "-ING tả VẬT gây cảm giác: phim boring làm mình bored.", "ex": "The movie was so boring.", "exVi": "Bộ phim chán ơi là chán." },
-    { "en": "interesting", "ipa": "/ˈɪn.trɪ.stɪŋ/", "vi": "thú vị", "pos": "adj", "img": "✨", "connect": "-ING: cuốn sách interesting (tự nó thú vị).", "ex": "That's an interesting idea!", "exVi": "Ý tưởng đó thú vị đấy!" },
-    { "en": "interested", "ipa": "/ˈɪn.trɪ.stɪd/", "vi": "quan tâm, hứng thú", "pos": "adj", "img": "🤓", "connect": "-ED tả NGƯỜI có cảm giác: interested in + N.", "ex": "I'm interested in history.", "exVi": "Tôi hứng thú với lịch sử." },
-    { "en": "exciting", "ipa": "/ɪkˈsaɪ.t̬ɪŋ/", "vi": "hào hứng, gay cấn", "pos": "adj", "img": "🎢", "connect": "-ING: trận đấu exciting làm mình excited.", "ex": "The game was really exciting.", "exVi": "Trận đấu thật sự gay cấn." },
-    { "en": "tiring", "ipa": "/ˈtaɪ.rɪŋ/", "vi": "mệt mỏi (gây mệt)", "pos": "adj", "img": "😮‍💨", "connect": "-ING: chuyến đi tiring làm mình tired.", "ex": "It was a long, tiring day.", "exVi": "Một ngày dài mệt mỏi." },
-    { "en": "surprising", "ipa": "/sɚˈpraɪ.zɪŋ/", "vi": "đáng ngạc nhiên", "pos": "adj", "img": "😲", "connect": "-ING: tin surprising làm mình surprised.", "ex": "The result was surprising.", "exVi": "Kết quả thật đáng ngạc nhiên." },
-    { "en": "confused", "ipa": "/kənˈfjuːzd/", "vi": "bối rối", "pos": "adj", "img": "😵", "connect": "-ED tả người: mình confused vì đề confusing.", "ex": "I'm confused about the rules.", "exVi": "Tôi bối rối về luật chơi." },
-    { "en": "confusing", "ipa": "/kənˈfjuː.zɪŋ/", "vi": "khó hiểu, gây rối", "pos": "adj", "img": "🌀", "connect": "-ING tả vật: bản đồ confusing.", "ex": "The map is very confusing.", "exVi": "Cái bản đồ rất khó hiểu." },
-    { "en": "amazed", "ipa": "/əˈmeɪzd/", "vi": "kinh ngạc", "pos": "adj", "img": "😮", "connect": "-ED: mình amazed trước cảnh amazing.", "ex": "I was amazed by the view.", "exVi": "Tôi kinh ngạc trước khung cảnh." },
-    { "en": "amazing", "ipa": "/əˈmeɪ.zɪŋ/", "vi": "tuyệt vời, đáng kinh ngạc", "pos": "adj", "img": "🤩", "connect": "-ING: màn trình diễn amazing.", "ex": "The show was amazing!", "exVi": "Buổi diễn tuyệt vời quá!" },
-    { "en": "annoying", "ipa": "/əˈnɔɪ.ɪŋ/", "vi": "phiền phức, khó chịu", "pos": "adj", "img": "😒", "connect": "-ING: tiếng ồn annoying làm mình annoyed.", "ex": "That sound is so annoying.", "exVi": "Âm thanh đó khó chịu thật." },
-    { "en": "relaxing", "ipa": "/rɪˈlæk.sɪŋ/", "vi": "thư giãn (làm dịu)", "pos": "adj", "img": "🛀", "connect": "-ING: bản nhạc relaxing làm mình relaxed.", "ex": "This music is very relaxing.", "exVi": "Bản nhạc này rất thư giãn." },
-    { "en": "shocked", "ipa": "/ʃɑːkt/", "vi": "sốc, choáng", "pos": "adj", "img": "😱", "connect": "-ED: mình shocked vì tin shocking.", "ex": "We were shocked by the news.", "exVi": "Chúng tôi sốc vì tin đó." },
-    { "en": "shocking", "ipa": "/ˈʃɑː.kɪŋ/", "vi": "gây sốc", "pos": "adj", "img": "⚡", "connect": "-ING: tin tức shocking.", "ex": "The price increase was shocking.", "exVi": "Mức tăng giá thật gây sốc." },
-    { "en": "disappointing", "ipa": "/ˌdɪs.əˈpɔɪn.t̬ɪŋ/", "vi": "đáng thất vọng", "pos": "adj", "img": "📉", "connect": "-ING: kết quả disappointing làm mình disappointed.", "ex": "The ending was disappointing.", "exVi": "Cái kết thật đáng thất vọng." },
-    { "en": "frightened", "ipa": "/ˈfraɪ.tənd/", "vi": "hoảng sợ", "pos": "adj", "img": "😨", "connect": "-ED: mình frightened vì phim frightening.", "ex": "The child was frightened of the dog.", "exVi": "Đứa bé hoảng sợ con chó." },
-    { "en": "frightening", "ipa": "/ˈfraɪ.tən.ɪŋ/", "vi": "đáng sợ", "pos": "adj", "img": "👻", "connect": "-ING: bộ phim frightening.", "ex": "It was a frightening experience.", "exVi": "Đó là một trải nghiệm đáng sợ." },
-    { "en": "embarrassing", "ipa": "/ɪmˈber.ə.sɪŋ/", "vi": "gây xấu hổ", "pos": "adj", "img": "🙈", "connect": "-ING: tình huống embarrassing làm mình embarrassed.", "ex": "That was an embarrassing moment.", "exVi": "Đó là một khoảnh khắc xấu hổ." },
-    { "en": "satisfied", "ipa": "/ˈsæt̬.ɪs.faɪd/", "vi": "hài lòng", "pos": "adj", "img": "😊", "connect": "-ED: khách satisfied với dịch vụ satisfying.", "ex": "I'm satisfied with the service.", "exVi": "Tôi hài lòng với dịch vụ." },
-    { "en": "satisfying", "ipa": "/ˈsæt̬.ɪs.faɪ.ɪŋ/", "vi": "làm thoả mãn", "pos": "adj", "img": "🍽️", "connect": "-ING: bữa ăn satisfying.", "ex": "It was a satisfying meal.", "exVi": "Đó là một bữa ăn thoả mãn." },
-    { "en": "touching", "ipa": "/ˈtʌtʃ.ɪŋ/", "vi": "cảm động", "pos": "adj", "img": "🥹", "connect": "touch (chạm) — chạm tới trái tim.", "ex": "It was a touching story.", "exVi": "Đó là một câu chuyện cảm động." },
-    { "en": "charming", "ipa": "/ˈtʃɑːr.mɪŋ/", "vi": "quyến rũ, duyên dáng", "pos": "adj", "img": "😍", "connect": "charm (mê hoặc) + ing.", "ex": "He has a charming smile.", "exVi": "Anh ấy có nụ cười duyên." },
-    { "en": "entertaining", "ipa": "/ˌen.t̬ɚˈteɪ.nɪŋ/", "vi": "giải trí, vui", "pos": "adj", "img": "🎪", "connect": "entertain (giải trí) + ing.", "ex": "The show was very entertaining.", "exVi": "Chương trình rất giải trí." },
-    { "en": "refreshing", "ipa": "/rɪˈfreʃ.ɪŋ/", "vi": "sảng khoái, mát lành", "pos": "adj", "img": "🥤", "connect": "refresh (làm tươi mới) + ing.", "ex": "A refreshing glass of lemonade.", "exVi": "Một ly nước chanh mát lành." },
-    { "en": "stressed", "ipa": "/strest/", "vi": "căng thẳng (bị)", "pos": "adj", "img": "😫", "connect": "-ED: mình stressed vì công việc stressful.", "ex": "She feels stressed before exams.", "exVi": "Cô ấy căng thẳng trước kỳ thi." },
-    { "en": "stressful", "ipa": "/ˈstres.fəl/", "vi": "gây căng thẳng", "pos": "adj", "img": "🌡️", "connect": "stress + ful: công việc stressful.", "ex": "Moving house is stressful.", "exVi": "Chuyển nhà rất căng thẳng." }
+    {
+      "en": "boring",
+      "ipa": "/ˈbɔːr.ɪŋ/",
+      "vi": "chán, gây chán",
+      "pos": "adj",
+      "img": "🥱",
+      "connect": "-ING tả VẬT gây cảm giác: phim boring làm mình bored.",
+      "ex": "The movie was so boring.",
+      "exVi": "Bộ phim chán ơi là chán."
+    },
+    {
+      "en": "interesting",
+      "ipa": "/ˈɪn.trɪ.stɪŋ/",
+      "vi": "thú vị",
+      "pos": "adj",
+      "img": "✨",
+      "connect": "-ING: cuốn sách interesting (tự nó thú vị).",
+      "ex": "That's an interesting idea!",
+      "exVi": "Ý tưởng đó thú vị đấy!"
+    },
+    {
+      "en": "interested",
+      "ipa": "/ˈɪn.trɪ.stɪd/",
+      "vi": "quan tâm, hứng thú",
+      "pos": "adj",
+      "img": "🤓",
+      "connect": "-ED tả NGƯỜI có cảm giác: interested in + N.",
+      "ex": "I'm interested in history.",
+      "exVi": "Tôi hứng thú với lịch sử."
+    },
+    {
+      "en": "exciting",
+      "ipa": "/ɪkˈsaɪ.t̬ɪŋ/",
+      "vi": "hào hứng, gay cấn",
+      "pos": "adj",
+      "img": "🎢",
+      "connect": "-ING: trận đấu exciting làm mình excited.",
+      "ex": "The game was really exciting.",
+      "exVi": "Trận đấu thật sự gay cấn."
+    },
+    {
+      "en": "tiring",
+      "ipa": "/ˈtaɪ.rɪŋ/",
+      "vi": "mệt mỏi (gây mệt)",
+      "pos": "adj",
+      "img": "😮‍💨",
+      "connect": "-ING: chuyến đi tiring làm mình tired.",
+      "ex": "It was a long, tiring day.",
+      "exVi": "Một ngày dài mệt mỏi."
+    },
+    {
+      "en": "surprising",
+      "ipa": "/sɚˈpraɪ.zɪŋ/",
+      "vi": "đáng ngạc nhiên",
+      "pos": "adj",
+      "img": "😲",
+      "connect": "-ING: tin surprising làm mình surprised.",
+      "ex": "The result was surprising.",
+      "exVi": "Kết quả thật đáng ngạc nhiên."
+    },
+    {
+      "en": "confused",
+      "ipa": "/kənˈfjuːzd/",
+      "vi": "bối rối",
+      "pos": "adj",
+      "img": "😵",
+      "connect": "-ED tả người: mình confused vì đề confusing.",
+      "ex": "I'm confused about the rules.",
+      "exVi": "Tôi bối rối về luật chơi."
+    },
+    {
+      "en": "confusing",
+      "ipa": "/kənˈfjuː.zɪŋ/",
+      "vi": "khó hiểu, gây rối",
+      "pos": "adj",
+      "img": "🌀",
+      "connect": "-ING tả vật: bản đồ confusing.",
+      "ex": "The map is very confusing.",
+      "exVi": "Cái bản đồ rất khó hiểu."
+    },
+    {
+      "en": "amazed",
+      "ipa": "/əˈmeɪzd/",
+      "vi": "kinh ngạc",
+      "pos": "adj",
+      "img": "😮",
+      "connect": "-ED: mình amazed trước cảnh amazing.",
+      "ex": "I was amazed by the view.",
+      "exVi": "Tôi kinh ngạc trước khung cảnh."
+    },
+    {
+      "en": "amazing",
+      "ipa": "/əˈmeɪ.zɪŋ/",
+      "vi": "tuyệt vời, đáng kinh ngạc",
+      "pos": "adj",
+      "img": "🤩",
+      "connect": "-ING: màn trình diễn amazing.",
+      "ex": "The show was amazing!",
+      "exVi": "Buổi diễn tuyệt vời quá!"
+    },
+    {
+      "en": "annoying",
+      "ipa": "/əˈnɔɪ.ɪŋ/",
+      "vi": "phiền phức, khó chịu",
+      "pos": "adj",
+      "img": "😒",
+      "connect": "-ING: tiếng ồn annoying làm mình annoyed.",
+      "ex": "That sound is so annoying.",
+      "exVi": "Âm thanh đó khó chịu thật."
+    },
+    {
+      "en": "relaxing",
+      "ipa": "/rɪˈlæk.sɪŋ/",
+      "vi": "thư giãn (làm dịu)",
+      "pos": "adj",
+      "img": "🛀",
+      "connect": "-ING: bản nhạc relaxing làm mình relaxed.",
+      "ex": "This music is very relaxing.",
+      "exVi": "Bản nhạc này rất thư giãn."
+    },
+    {
+      "en": "shocked",
+      "ipa": "/ʃɑːkt/",
+      "vi": "sốc, choáng",
+      "pos": "adj",
+      "img": "😱",
+      "connect": "-ED: mình shocked vì tin shocking.",
+      "ex": "We were shocked by the news.",
+      "exVi": "Chúng tôi sốc vì tin đó."
+    },
+    {
+      "en": "shocking",
+      "ipa": "/ˈʃɑː.kɪŋ/",
+      "vi": "gây sốc",
+      "pos": "adj",
+      "img": "⚡",
+      "connect": "-ING: tin tức shocking.",
+      "ex": "The price increase was shocking.",
+      "exVi": "Mức tăng giá thật gây sốc."
+    },
+    {
+      "en": "disappointing",
+      "ipa": "/ˌdɪs.əˈpɔɪn.t̬ɪŋ/",
+      "vi": "đáng thất vọng",
+      "pos": "adj",
+      "img": "📉",
+      "connect": "-ING: kết quả disappointing làm mình disappointed.",
+      "ex": "The ending was disappointing.",
+      "exVi": "Cái kết thật đáng thất vọng."
+    },
+    {
+      "en": "frightened",
+      "ipa": "/ˈfraɪ.tənd/",
+      "vi": "hoảng sợ",
+      "pos": "adj",
+      "img": "😨",
+      "connect": "-ED: mình frightened vì phim frightening.",
+      "ex": "The child was frightened of the dog.",
+      "exVi": "Đứa bé hoảng sợ con chó."
+    },
+    {
+      "en": "frightening",
+      "ipa": "/ˈfraɪ.tən.ɪŋ/",
+      "vi": "đáng sợ",
+      "pos": "adj",
+      "img": "👻",
+      "connect": "-ING: bộ phim frightening.",
+      "ex": "It was a frightening experience.",
+      "exVi": "Đó là một trải nghiệm đáng sợ."
+    },
+    {
+      "en": "embarrassing",
+      "ipa": "/ɪmˈber.ə.sɪŋ/",
+      "vi": "gây xấu hổ",
+      "pos": "adj",
+      "img": "🙈",
+      "connect": "-ING: tình huống embarrassing làm mình embarrassed.",
+      "ex": "That was an embarrassing moment.",
+      "exVi": "Đó là một khoảnh khắc xấu hổ."
+    },
+    {
+      "en": "satisfied",
+      "ipa": "/ˈsæt̬.ɪs.faɪd/",
+      "vi": "hài lòng",
+      "pos": "adj",
+      "img": "😊",
+      "connect": "-ED: khách satisfied với dịch vụ satisfying.",
+      "ex": "I'm satisfied with the service.",
+      "exVi": "Tôi hài lòng với dịch vụ."
+    },
+    {
+      "en": "satisfying",
+      "ipa": "/ˈsæt̬.ɪs.faɪ.ɪŋ/",
+      "vi": "làm thoả mãn",
+      "pos": "adj",
+      "img": "🍽️",
+      "connect": "-ING: bữa ăn satisfying.",
+      "ex": "It was a satisfying meal.",
+      "exVi": "Đó là một bữa ăn thoả mãn."
+    },
+    {
+      "en": "touching",
+      "ipa": "/ˈtʌtʃ.ɪŋ/",
+      "vi": "cảm động",
+      "pos": "adj",
+      "img": "🥹",
+      "connect": "touch (chạm) — chạm tới trái tim.",
+      "ex": "It was a touching story.",
+      "exVi": "Đó là một câu chuyện cảm động."
+    },
+    {
+      "en": "charming",
+      "ipa": "/ˈtʃɑːr.mɪŋ/",
+      "vi": "quyến rũ, duyên dáng",
+      "pos": "adj",
+      "img": "😍",
+      "connect": "charm (mê hoặc) + ing.",
+      "ex": "He has a charming smile.",
+      "exVi": "Anh ấy có nụ cười duyên."
+    },
+    {
+      "en": "entertaining",
+      "ipa": "/ˌen.t̬ɚˈteɪ.nɪŋ/",
+      "vi": "giải trí, vui",
+      "pos": "adj",
+      "img": "🎪",
+      "connect": "entertain (giải trí) + ing.",
+      "ex": "The show was very entertaining.",
+      "exVi": "Chương trình rất giải trí."
+    },
+    {
+      "en": "refreshing",
+      "ipa": "/rɪˈfreʃ.ɪŋ/",
+      "vi": "sảng khoái, mát lành",
+      "pos": "adj",
+      "img": "🥤",
+      "connect": "refresh (làm tươi mới) + ing.",
+      "ex": "A refreshing glass of lemonade.",
+      "exVi": "Một ly nước chanh mát lành."
+    },
+    {
+      "en": "stressed",
+      "ipa": "/strest/",
+      "vi": "căng thẳng (bị)",
+      "pos": "adj",
+      "img": "😫",
+      "connect": "-ED: mình stressed vì công việc stressful.",
+      "ex": "She feels stressed before exams.",
+      "exVi": "Cô ấy căng thẳng trước kỳ thi."
+    },
+    {
+      "en": "stressful",
+      "ipa": "/ˈstres.fəl/",
+      "vi": "gây căng thẳng",
+      "pos": "adj",
+      "img": "🌡️",
+      "connect": "stress + ful: công việc stressful.",
+      "ex": "Moving house is stressful.",
+      "exVi": "Chuyển nhà rất căng thẳng."
+    }
   ]
 }

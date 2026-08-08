@@ -6,17 +6,125 @@
   "tone": "tone-d",
   "emoji": "🏹",
   "words": [
-    { "en": "battle", "ipa": "/ˈbæt̬.əl/", "vi": "trận đánh", "pos": "noun", "img": "⚔️", "connect": "\"Be-tồ\" — trận chiến lớn.", "ex": "The battle lasted three days.", "exVi": "Trận đánh kéo dài ba ngày." },
-    { "en": "weapon", "ipa": "/ˈwep.ən/", "vi": "vũ khí", "pos": "noun", "img": "🗡️", "connect": "\"We-pừn\" — đồ để chiến đấu.", "ex": "Soldiers carry weapons.", "exVi": "Lính mang theo vũ khí." },
-    { "en": "gun", "ipa": "/ɡʌn/", "vi": "khẩu súng", "pos": "noun", "img": "🔫", "connect": "\"Găn\" — súng đạn.", "ex": "The police officer has a gun.", "exVi": "Viên cảnh sát có một khẩu súng." },
-    { "en": "sword", "ipa": "/sɔːrd/", "vi": "thanh kiếm", "pos": "noun", "img": "⚔️", "connect": "\"So-d\" — chữ \"w\" câm; kiếm sắc.", "ex": "The knight drew his sword.", "exVi": "Hiệp sĩ rút thanh kiếm ra." },
-    { "en": "shield", "ipa": "/ʃiːld/", "vi": "cái khiên", "pos": "noun", "img": "🛡️", "connect": "\"Si-ld\" — khiên chắn đòn.", "ex": "The shield blocked the arrow.", "exVi": "Cái khiên chặn được mũi tên." },
-    { "en": "bomb", "ipa": "/bɑːm/", "vi": "quả bom", "pos": "noun", "img": "💣", "connect": "\"Bom\" — chữ \"b\" cuối câm.", "ex": "The bomb destroyed the bridge.", "exVi": "Quả bom phá huỷ cây cầu." },
-    { "en": "enemy", "ipa": "/ˈen.ə.mi/", "vi": "kẻ thù", "pos": "noun", "img": "😈", "connect": "\"E-nờ-mi\" — phe đối địch.", "ex": "They fought against the enemy.", "exVi": "Họ chiến đấu chống kẻ thù." },
-    { "en": "hero", "ipa": "/ˈhɪr.oʊ/", "vi": "anh hùng", "pos": "noun", "img": "🦸", "connect": "\"Hi-râu\" — người hùng.", "ex": "The firefighter is a real hero.", "exVi": "Người lính cứu hoả là anh hùng thực thụ." },
-    { "en": "victory", "ipa": "/ˈvɪk.tɚ.i/", "vi": "chiến thắng", "pos": "noun", "img": "🏆", "connect": "\"Vích-tờ-ri\" — dấu V chiến thắng.", "ex": "The team celebrated the victory.", "exVi": "Cả đội ăn mừng chiến thắng." },
-    { "en": "defeat", "ipa": "/dɪˈfiːt/", "vi": "thất bại; đánh bại", "pos": "noun", "img": "🏳️", "connect": "\"Đi-phi-t\" — thua trận / hạ đối thủ.", "ex": "They learned from the defeat.", "exVi": "Họ rút ra bài học từ thất bại." },
-    { "en": "empire", "ipa": "/ˈem.paɪr/", "vi": "đế chế", "pos": "noun", "img": "👑", "connect": "\"Em-pai-ơ\" — đế quốc rộng lớn.", "ex": "The Roman Empire was huge.", "exVi": "Đế chế La Mã rất rộng lớn." },
-    { "en": "kingdom", "ipa": "/ˈkɪŋ.dəm/", "vi": "vương quốc", "pos": "noun", "img": "🏰", "connect": "king (vua) + dom — xứ sở của vua.", "ex": "The kingdom lived in peace.", "exVi": "Vương quốc sống trong hoà bình." }
+    {
+      "en": "battle",
+      "ipa": "/ˈbæt̬.əl/",
+      "vi": "trận đánh",
+      "pos": "noun",
+      "img": "⚔️",
+      "connect": "\"Be-tồ\" — trận chiến lớn.",
+      "ex": "The battle lasted three days.",
+      "exVi": "Trận đánh kéo dài ba ngày."
+    },
+    {
+      "en": "weapon",
+      "ipa": "/ˈwep.ən/",
+      "vi": "vũ khí",
+      "pos": "noun",
+      "img": "🗡️",
+      "connect": "\"We-pừn\" — đồ để chiến đấu.",
+      "ex": "Soldiers carry weapons.",
+      "exVi": "Lính mang theo vũ khí."
+    },
+    {
+      "en": "gun",
+      "ipa": "/ɡʌn/",
+      "vi": "khẩu súng",
+      "pos": "noun",
+      "img": "🔫",
+      "connect": "\"Găn\" — súng đạn.",
+      "ex": "The police officer has a gun.",
+      "exVi": "Viên cảnh sát có một khẩu súng."
+    },
+    {
+      "en": "sword",
+      "ipa": "/sɔːrd/",
+      "vi": "thanh kiếm",
+      "pos": "noun",
+      "img": "⚔️",
+      "connect": "\"So-d\" — chữ \"w\" câm; kiếm sắc.",
+      "ex": "The knight drew his sword.",
+      "exVi": "Hiệp sĩ rút thanh kiếm ra."
+    },
+    {
+      "en": "shield",
+      "ipa": "/ʃiːld/",
+      "vi": "cái khiên",
+      "pos": "noun",
+      "img": "🛡️",
+      "connect": "\"Si-ld\" — khiên chắn đòn.",
+      "ex": "The shield blocked the arrow.",
+      "exVi": "Cái khiên chặn được mũi tên."
+    },
+    {
+      "en": "bomb",
+      "ipa": "/bɑːm/",
+      "vi": "quả bom",
+      "pos": "noun",
+      "img": "💣",
+      "connect": "\"Bom\" — chữ \"b\" cuối câm.",
+      "ex": "The bomb destroyed the bridge.",
+      "exVi": "Quả bom phá huỷ cây cầu."
+    },
+    {
+      "en": "enemy",
+      "ipa": "/ˈen.ə.mi/",
+      "vi": "kẻ thù",
+      "pos": "noun",
+      "img": "😈",
+      "connect": "\"E-nờ-mi\" — phe đối địch.",
+      "ex": "They fought against the enemy.",
+      "exVi": "Họ chiến đấu chống kẻ thù."
+    },
+    {
+      "en": "hero",
+      "ipa": "/ˈhɪr.oʊ/",
+      "vi": "anh hùng",
+      "pos": "noun",
+      "img": "🦸",
+      "connect": "\"Hi-râu\" — người hùng.",
+      "ex": "The firefighter is a real hero.",
+      "exVi": "Người lính cứu hoả là anh hùng thực thụ."
+    },
+    {
+      "en": "victory",
+      "ipa": "/ˈvɪk.tɚ.i/",
+      "vi": "chiến thắng",
+      "pos": "noun",
+      "img": "🏆",
+      "connect": "\"Vích-tờ-ri\" — dấu V chiến thắng.",
+      "ex": "The team celebrated the victory.",
+      "exVi": "Cả đội ăn mừng chiến thắng."
+    },
+    {
+      "en": "defeat",
+      "ipa": "/dɪˈfiːt/",
+      "vi": "thất bại; đánh bại",
+      "pos": "noun",
+      "img": "🏳️",
+      "connect": "\"Đi-phi-t\" — thua trận / hạ đối thủ.",
+      "ex": "They learned from the defeat.",
+      "exVi": "Họ rút ra bài học từ thất bại."
+    },
+    {
+      "en": "empire",
+      "ipa": "/ˈem.paɪr/",
+      "vi": "đế chế",
+      "pos": "noun",
+      "img": "👑",
+      "connect": "\"Em-pai-ơ\" — đế quốc rộng lớn.",
+      "ex": "The Roman Empire was huge.",
+      "exVi": "Đế chế La Mã rất rộng lớn."
+    },
+    {
+      "en": "kingdom",
+      "ipa": "/ˈkɪŋ.dəm/",
+      "vi": "vương quốc",
+      "pos": "noun",
+      "img": "🏰",
+      "connect": "king (vua) + dom — xứ sở của vua.",
+      "ex": "The kingdom lived in peace.",
+      "exVi": "Vương quốc sống trong hoà bình."
+    }
   ]
 }

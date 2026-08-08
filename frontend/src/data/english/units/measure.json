@@ -6,27 +6,225 @@
   "tone": "tone-d",
   "emoji": "📏",
   "words": [
-    { "en": "meter", "ipa": "/ˈmiː.t̬ɚ/", "vi": "mét", "pos": "noun", "img": "📏", "connect": "\"Mi-tờ\" — đơn vị đo chiều dài.", "ex": "The room is five meters long.", "exVi": "Căn phòng dài năm mét." },
-    { "en": "kilometer", "ipa": "/kɪˈlɑː.mə.t̬ɚ/", "vi": "ki-lô-mét", "pos": "noun", "img": "🛣️", "connect": "kilo (nghìn) + meter = 1000m.", "ex": "The beach is two kilometers away.", "exVi": "Bãi biển cách đây hai cây số." },
-    { "en": "centimeter", "ipa": "/ˈsen.t̬ə.miː.t̬ɚ/", "vi": "xăng-ti-mét", "pos": "noun", "img": "📐", "connect": "centi (1/100) + meter.", "ex": "The fish is 30 centimeters long.", "exVi": "Con cá dài 30 phân." },
-    { "en": "kilogram", "ipa": "/ˈkɪl.ə.ɡræm/", "vi": "ki-lô-gam", "pos": "noun", "img": "⚖️", "connect": "gọi tắt là kilo/kg.", "ex": "I bought two kilograms of rice.", "exVi": "Tôi mua hai cân gạo." },
-    { "en": "gram", "ipa": "/ɡræm/", "vi": "gam", "pos": "noun", "img": "🧂", "connect": "\"Grem\" — 1000 gram = 1kg.", "ex": "Add 50 grams of sugar.", "exVi": "Thêm 50 gam đường." },
-    { "en": "liter", "ipa": "/ˈliː.t̬ɚ/", "vi": "lít", "pos": "noun", "img": "🥛", "connect": "\"Li-tờ\" — đo chất lỏng.", "ex": "Drink two liters of water daily.", "exVi": "Uống hai lít nước mỗi ngày." },
-    { "en": "mile", "ipa": "/maɪl/", "vi": "dặm (~1,6 km)", "pos": "noun", "img": "🛤️", "connect": "\"Mai-l\" — Mỹ đo đường bằng dặm.", "ex": "The town is ten miles away.", "exVi": "Thị trấn cách đây mười dặm." },
-    { "en": "ton", "ipa": "/tʌn/", "vi": "tấn", "pos": "noun", "img": "🏗️", "connect": "\"Tăn\" — 1000 kg.", "ex": "The truck carries five tons.", "exVi": "Chiếc xe tải chở được năm tấn." },
-    { "en": "measure", "ipa": "/ˈmeʒ.ɚ/", "vi": "đo", "pos": "verb", "img": "📏", "connect": "\"Me-zhờ\" — đo đạc kích thước.", "ex": "Measure the table before buying.", "exVi": "Đo cái bàn trước khi mua nhé." },
-    { "en": "weigh", "ipa": "/weɪ/", "vi": "cân, nặng (bao nhiêu)", "pos": "verb", "img": "⚖️", "connect": "\"Wê\" — cụm \"gh\" câm; weight là danh từ.", "ex": "How much do you weigh?", "exVi": "Bạn nặng bao nhiêu cân?" },
-    { "en": "width", "ipa": "/wɪdθ/", "vi": "chiều rộng", "pos": "noun", "img": "↔️", "connect": "wide (rộng) → width.", "ex": "The width of the door is one meter.", "exVi": "Chiều rộng cửa là một mét." },
-    { "en": "length", "ipa": "/leŋθ/", "vi": "chiều dài", "pos": "noun", "img": "📏", "connect": "long (dài) → length.", "ex": "Measure the length of the room.", "exVi": "Đo chiều dài căn phòng." },
-    { "en": "depth", "ipa": "/depθ/", "vi": "chiều sâu", "pos": "noun", "img": "🌊", "connect": "deep (sâu) → depth.", "ex": "The pool has a depth of two meters.", "exVi": "Hồ bơi sâu hai mét." },
-    { "en": "scale", "ipa": "/skeɪl/", "vi": "cái cân; thang đo", "pos": "noun", "img": "⚖️", "connect": "\"Sờ-kê-l\" — đứng lên cân.", "ex": "Step on the scale, please.", "exVi": "Mời bạn đứng lên cân." },
-    { "en": "level", "ipa": "/ˈlev.əl/", "vi": "mức độ, cấp độ", "pos": "noun", "img": "📶", "connect": "\"Le-vồ\" — trình độ, mức.", "ex": "What's your English level?", "exVi": "Trình độ tiếng Anh của bạn thế nào?" },
-    { "en": "rate", "ipa": "/reɪt/", "vi": "tỉ lệ, mức giá", "pos": "noun", "img": "📊", "connect": "\"Rê-t\" — tốc độ/tỉ lệ/giá.", "ex": "The hotel has good rates.", "exVi": "Khách sạn có mức giá tốt." },
-    { "en": "huge", "ipa": "/hjuːdʒ/", "vi": "khổng lồ", "pos": "adj", "img": "🐘", "connect": "\"Hiu-jờ\" — to đùng.", "ex": "They live in a huge house.", "exVi": "Họ sống trong một ngôi nhà khổng lồ." },
-    { "en": "tiny", "ipa": "/ˈtaɪ.ni/", "vi": "bé xíu", "pos": "adj", "img": "🐜", "connect": "\"Tai-ni\" — nhỏ tí hon.", "ex": "The kitten is so tiny.", "exVi": "Chú mèo con bé xíu." },
-    { "en": "enormous", "ipa": "/ɪˈnɔːr.məs/", "vi": "to lớn kinh khủng", "pos": "adj", "img": "🏔️", "connect": "\"I-no-mợs\" — to hơn cả huge.", "ex": "An enormous wave hit the shore.", "exVi": "Một con sóng khổng lồ ập vào bờ." },
-    { "en": "giant", "ipa": "/ˈdʒaɪ.ənt/", "vi": "khổng lồ; người khổng lồ", "pos": "adj", "img": "🗿", "connect": "\"Giai-ừnt\" — gã khổng lồ trong cổ tích.", "ex": "A giant statue stands in the park.", "exVi": "Một bức tượng khổng lồ đứng trong công viên." },
-    { "en": "medium", "ipa": "/ˈmiː.di.əm/", "vi": "cỡ vừa, trung bình", "pos": "adj", "img": "🥤", "connect": "\"Mi-đi-ừm\" — size M.", "ex": "A medium coffee, please.", "exVi": "Cho một cà phê cỡ vừa." },
-    { "en": "spare", "ipa": "/sper/", "vi": "dự phòng, rảnh", "pos": "adj", "img": "🔧", "connect": "\"Sờ-pe\" — bánh xe dự phòng, giờ rảnh.", "ex": "Do you have a spare pen?", "exVi": "Bạn có cây bút dư nào không?" }
+    {
+      "en": "meter",
+      "ipa": "/ˈmiː.t̬ɚ/",
+      "vi": "mét",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "\"Mi-tờ\" — đơn vị đo chiều dài.",
+      "ex": "The room is five meters long.",
+      "exVi": "Căn phòng dài năm mét."
+    },
+    {
+      "en": "kilometer",
+      "ipa": "/kɪˈlɑː.mə.t̬ɚ/",
+      "vi": "ki-lô-mét",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "kilo (nghìn) + meter = 1000m.",
+      "ex": "The beach is two kilometers away.",
+      "exVi": "Bãi biển cách đây hai cây số."
+    },
+    {
+      "en": "centimeter",
+      "ipa": "/ˈsen.t̬ə.miː.t̬ɚ/",
+      "vi": "xăng-ti-mét",
+      "pos": "noun",
+      "img": "📐",
+      "connect": "centi (1/100) + meter.",
+      "ex": "The fish is 30 centimeters long.",
+      "exVi": "Con cá dài 30 phân."
+    },
+    {
+      "en": "kilogram",
+      "ipa": "/ˈkɪl.ə.ɡræm/",
+      "vi": "ki-lô-gam",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "gọi tắt là kilo/kg.",
+      "ex": "I bought two kilograms of rice.",
+      "exVi": "Tôi mua hai cân gạo."
+    },
+    {
+      "en": "gram",
+      "ipa": "/ɡræm/",
+      "vi": "gam",
+      "pos": "noun",
+      "img": "🧂",
+      "connect": "\"Grem\" — 1000 gram = 1kg.",
+      "ex": "Add 50 grams of sugar.",
+      "exVi": "Thêm 50 gam đường."
+    },
+    {
+      "en": "liter",
+      "ipa": "/ˈliː.t̬ɚ/",
+      "vi": "lít",
+      "pos": "noun",
+      "img": "🥛",
+      "connect": "\"Li-tờ\" — đo chất lỏng.",
+      "ex": "Drink two liters of water daily.",
+      "exVi": "Uống hai lít nước mỗi ngày."
+    },
+    {
+      "en": "mile",
+      "ipa": "/maɪl/",
+      "vi": "dặm (~1,6 km)",
+      "pos": "noun",
+      "img": "🛤️",
+      "connect": "\"Mai-l\" — Mỹ đo đường bằng dặm.",
+      "ex": "The town is ten miles away.",
+      "exVi": "Thị trấn cách đây mười dặm."
+    },
+    {
+      "en": "ton",
+      "ipa": "/tʌn/",
+      "vi": "tấn",
+      "pos": "noun",
+      "img": "🏗️",
+      "connect": "\"Tăn\" — 1000 kg.",
+      "ex": "The truck carries five tons.",
+      "exVi": "Chiếc xe tải chở được năm tấn."
+    },
+    {
+      "en": "measure",
+      "ipa": "/ˈmeʒ.ɚ/",
+      "vi": "đo",
+      "pos": "verb",
+      "img": "📏",
+      "connect": "\"Me-zhờ\" — đo đạc kích thước.",
+      "ex": "Measure the table before buying.",
+      "exVi": "Đo cái bàn trước khi mua nhé."
+    },
+    {
+      "en": "weigh",
+      "ipa": "/weɪ/",
+      "vi": "cân, nặng (bao nhiêu)",
+      "pos": "verb",
+      "img": "⚖️",
+      "connect": "\"Wê\" — cụm \"gh\" câm; weight là danh từ.",
+      "ex": "How much do you weigh?",
+      "exVi": "Bạn nặng bao nhiêu cân?"
+    },
+    {
+      "en": "width",
+      "ipa": "/wɪdθ/",
+      "vi": "chiều rộng",
+      "pos": "noun",
+      "img": "↔️",
+      "connect": "wide (rộng) → width.",
+      "ex": "The width of the door is one meter.",
+      "exVi": "Chiều rộng cửa là một mét."
+    },
+    {
+      "en": "length",
+      "ipa": "/leŋθ/",
+      "vi": "chiều dài",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "long (dài) → length.",
+      "ex": "Measure the length of the room.",
+      "exVi": "Đo chiều dài căn phòng."
+    },
+    {
+      "en": "depth",
+      "ipa": "/depθ/",
+      "vi": "chiều sâu",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "deep (sâu) → depth.",
+      "ex": "The pool has a depth of two meters.",
+      "exVi": "Hồ bơi sâu hai mét."
+    },
+    {
+      "en": "scale",
+      "ipa": "/skeɪl/",
+      "vi": "cái cân; thang đo",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "\"Sờ-kê-l\" — đứng lên cân.",
+      "ex": "Step on the scale, please.",
+      "exVi": "Mời bạn đứng lên cân."
+    },
+    {
+      "en": "level",
+      "ipa": "/ˈlev.əl/",
+      "vi": "mức độ, cấp độ",
+      "pos": "noun",
+      "img": "📶",
+      "connect": "\"Le-vồ\" — trình độ, mức.",
+      "ex": "What's your English level?",
+      "exVi": "Trình độ tiếng Anh của bạn thế nào?"
+    },
+    {
+      "en": "rate",
+      "ipa": "/reɪt/",
+      "vi": "tỉ lệ, mức giá",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "\"Rê-t\" — tốc độ/tỉ lệ/giá.",
+      "ex": "The hotel has good rates.",
+      "exVi": "Khách sạn có mức giá tốt."
+    },
+    {
+      "en": "huge",
+      "ipa": "/hjuːdʒ/",
+      "vi": "khổng lồ",
+      "pos": "adj",
+      "img": "🐘",
+      "connect": "\"Hiu-jờ\" — to đùng.",
+      "ex": "They live in a huge house.",
+      "exVi": "Họ sống trong một ngôi nhà khổng lồ."
+    },
+    {
+      "en": "tiny",
+      "ipa": "/ˈtaɪ.ni/",
+      "vi": "bé xíu",
+      "pos": "adj",
+      "img": "🐜",
+      "connect": "\"Tai-ni\" — nhỏ tí hon.",
+      "ex": "The kitten is so tiny.",
+      "exVi": "Chú mèo con bé xíu."
+    },
+    {
+      "en": "enormous",
+      "ipa": "/ɪˈnɔːr.məs/",
+      "vi": "to lớn kinh khủng",
+      "pos": "adj",
+      "img": "🏔️",
+      "connect": "\"I-no-mợs\" — to hơn cả huge.",
+      "ex": "An enormous wave hit the shore.",
+      "exVi": "Một con sóng khổng lồ ập vào bờ."
+    },
+    {
+      "en": "giant",
+      "ipa": "/ˈdʒaɪ.ənt/",
+      "vi": "khổng lồ; người khổng lồ",
+      "pos": "adj",
+      "img": "🗿",
+      "connect": "\"Giai-ừnt\" — gã khổng lồ trong cổ tích.",
+      "ex": "A giant statue stands in the park.",
+      "exVi": "Một bức tượng khổng lồ đứng trong công viên."
+    },
+    {
+      "en": "medium",
+      "ipa": "/ˈmiː.di.əm/",
+      "vi": "cỡ vừa, trung bình",
+      "pos": "adj",
+      "img": "🥤",
+      "connect": "\"Mi-đi-ừm\" — size M.",
+      "ex": "A medium coffee, please.",
+      "exVi": "Cho một cà phê cỡ vừa."
+    },
+    {
+      "en": "spare",
+      "ipa": "/sper/",
+      "vi": "dự phòng, rảnh",
+      "pos": "adj",
+      "img": "🔧",
+      "connect": "\"Sờ-pe\" — bánh xe dự phòng, giờ rảnh.",
+      "ex": "Do you have a spare pen?",
+      "exVi": "Bạn có cây bút dư nào không?"
+    }
   ]
 }

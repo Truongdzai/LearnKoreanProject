@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import UNIT_TERMS from '@/data/english/unitTerms.json'
 import {
-  TOEIC_60_DAYS, type ToeicDay, type ToeicTask,
+  TOEIC_DAYS, TOEIC_TOTAL_DAYS, type ToeicDay, type ToeicTask,
 } from '@/data/toeicCore'
 import { fetchActivityDaysApi } from '@/core/api/me.api'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
@@ -22,6 +22,15 @@ export interface WrongNote {
   part: number
   n: number
   t: string
+  cause?: string
+}
+
+export interface SwNote {
+  id: string
+  kind: 'speak' | 'write'
+  pct: number
+  n: number
+  t: string
 }
 
 export interface TestRecord {
@@ -39,6 +48,7 @@ export interface ToeicState {
   rewarded: number[]
   wrong: WrongNote[]
   tests: Record<string, TestRecord>
+  sw: Record<string, SwNote>
 }
 
 const LOCAL_KEY = 'vyling.toeic60'
@@ -56,11 +66,13 @@ function normalize(raw: unknown): ToeicState {
     rewarded: Array.isArray(p.rewarded) ? p.rewarded : [],
     wrong: Array.isArray(p.wrong) ? p.wrong.filter((w) => w && typeof w.key === 'string') : [],
     tests: p.tests && typeof p.tests === 'object' && !Array.isArray(p.tests) ? p.tests : {},
+    sw: p.sw && typeof p.sw === 'object' && !Array.isArray(p.sw) ? p.sw : {},
   }
 }
 
 function isEmpty(s: ToeicState): boolean {
   return !s.start && !s.done.length && !s.attempts.length && !Object.keys(s.capsules).length
+    && !Object.keys(s.sw ?? {}).length
 }
 
 function todayISO(): string {
@@ -81,7 +93,7 @@ export function dueWrong(wrong: WrongNote[], now = Date.now()): WrongNote[] {
 export function toeicDay(start: string | null): number {
   if (!start) return 0
   const ms = Date.now() - new Date(start + 'T00:00:00').getTime()
-  return Math.min(60, Math.max(1, Math.floor(ms / 86400000) + 1))
+  return Math.min(TOEIC_TOTAL_DAYS, Math.max(1, Math.floor(ms / 86400000) + 1))
 }
 
 
@@ -124,7 +136,7 @@ function answeredCount(attempts: ToeicAttempt[], mode: 'practice' | 'weak' | 're
 function cumulativeBefore(task: ToeicTask, filter: (t: ToeicTask) => boolean): { req: number; index: number } {
   let req = 0
   let index = 0
-  for (const day of TOEIC_60_DAYS) {
+  for (const day of TOEIC_DAYS) {
     for (const t of day.tasks) {
       if (!filter(t)) continue
       index += 1
@@ -139,6 +151,12 @@ export interface TaskCtx {
   state: ToeicState
   learned: Set<string>
   activity: ActivitySummary
+}
+
+export function swDone(task: ToeicTask, sw: Record<string, SwNote>): { have: number; need: number } {
+  const ids = task.swIds ?? []
+  const times = task.times ?? 1
+  return { have: ids.filter((id) => (sw[id]?.n ?? 0) >= times).length, need: ids.length }
 }
 
 export function vocabDone(task: ToeicTask, learned: Set<string>): { have: number; need: number } {
@@ -170,6 +188,13 @@ export function taskDone(task: ToeicTask, ctx: TaskCtx): boolean {
       const { req } = cumulativeBefore(task, (t) => t.kind === 'wrongbook')
       return answeredCount(state.attempts, 'review') >= req || state.done.includes(task.id)
     }
+    case 'speak':
+    case 'write': {
+      const { have, need } = swDone(task, state.sw)
+      return need > 0 && have >= need
+    }
+    case 'errorlog':
+      return state.wrong.filter((w) => w.cause).length >= (task.n ?? 5) || state.done.includes(task.id)
     case 'minitest': {
       const { index } = cumulativeBefore(task, (t) => t.kind === 'minitest')
       return state.attempts.filter((a) => a.mode === 'test').length >= index
@@ -225,7 +250,7 @@ export function useToeicState() {
       const byKey = new Map(p.wrong.filter((w) => !done.has(w.key)).map((w) => [w.key, w]))
       for (const it of items) {
         const prev = byKey.get(it.key)
-        byKey.set(it.key, { key: it.key, part: it.part, n: (prev?.n ?? 0) + 1, t: now })
+        byKey.set(it.key, { key: it.key, part: it.part, n: (prev?.n ?? 0) + 1, t: now, cause: prev?.cause })
       }
       return { ...p, wrong: [...byKey.values()].slice(-MAX_WRONG) }
     })
@@ -258,6 +283,26 @@ export function useToeicState() {
     })
   }, [mutate])
 
+  const tagWrong = useCallback((key: string, cause: string) => {
+    mutate((p) => ({
+      ...p,
+      wrong: p.wrong.map((w) => (w.key === key ? { ...w, cause: w.cause === cause ? undefined : cause } : w)),
+    }))
+  }, [mutate])
+
+  const recordSw = useCallback((id: string, kind: 'speak' | 'write', pct: number) => {
+    mutate((p) => {
+      const prev = p.sw[id]
+      return {
+        ...p,
+        sw: {
+          ...p.sw,
+          [id]: { id, kind, pct: Math.max(prev?.pct ?? 0, pct), n: (prev?.n ?? 0) + 1, t: todayISO() },
+        },
+      }
+    })
+  }, [mutate])
+
   const grantDayReward = useCallback((d: number) => {
     mutate((p) => (p.rewarded.includes(d) ? p : { ...p, rewarded: [...p.rewarded, d] }))
   }, [mutate])
@@ -270,5 +315,5 @@ export function useToeicState() {
     return null
   }, [state.attempts])
 
-  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, recordFixedTest, grantDayReward, latestEstimate }
+  return { state, loaded, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, tagWrong, recordSw, recordFixedTest, grantDayReward, latestEstimate }
 }

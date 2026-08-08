@@ -6,33 +6,285 @@
   "tone": "tone-a",
   "emoji": "⏳",
   "words": [
-    { "en": "noon", "ipa": "/nuːn/", "vi": "buổi trưa (12h)", "pos": "noun", "img": "🕛", "connect": "\"Nun\" — 12 giờ trưa.", "ex": "Let's meet at noon.", "exVi": "Mình gặp nhau lúc trưa nhé." },
-    { "en": "midnight", "ipa": "/ˈmɪd.naɪt/", "vi": "nửa đêm (12h)", "pos": "noun", "img": "🌙", "connect": "mid (giữa) + night (đêm).", "ex": "The party ended at midnight.", "exVi": "Bữa tiệc kết thúc lúc nửa đêm." },
-    { "en": "afternoon", "ipa": "/ˌæf.tɚˈnuːn/", "vi": "buổi chiều", "pos": "noun", "img": "🌇", "connect": "after (sau) + noon (trưa).", "ex": "See you this afternoon.", "exVi": "Hẹn gặp bạn chiều nay." },
-    { "en": "evening", "ipa": "/ˈiːv.nɪŋ/", "vi": "buổi tối (sớm)", "pos": "noun", "img": "🌆", "connect": "\"I-vờ-ning\" — chập tối.", "ex": "We eat dinner in the evening.", "exVi": "Chúng tôi ăn tối vào buổi tối." },
-    { "en": "dawn", "ipa": "/dɔːn/", "vi": "bình minh, rạng sáng", "pos": "noun", "img": "🌅", "connect": "\"Đon\" — trời hửng sáng.", "ex": "We woke up at dawn.", "exVi": "Chúng tôi dậy lúc rạng sáng." },
-    { "en": "dusk", "ipa": "/dʌsk/", "vi": "hoàng hôn, chạng vạng", "pos": "noun", "img": "🌄", "connect": "\"Đắt-k\" — lúc trời sẩm tối.", "ex": "Birds return home at dusk.", "exVi": "Chim bay về tổ lúc chạng vạng." },
-    { "en": "decade", "ipa": "/ˈdek.eɪd/", "vi": "thập kỷ (10 năm)", "pos": "noun", "img": "📆", "connect": "\"Đe-kê-d\" — 10 năm.", "ex": "They met a decade ago.", "exVi": "Họ gặp nhau cách đây một thập kỷ." },
-    { "en": "century", "ipa": "/ˈsen.tʃɚ.i/", "vi": "thế kỷ (100 năm)", "pos": "noun", "img": "🏛️", "connect": "\"Sen-chờ-ri\" — 100 năm.", "ex": "This castle is a century old.", "exVi": "Lâu đài này đã một thế kỷ tuổi." },
-    { "en": "moment", "ipa": "/ˈmoʊ.mənt/", "vi": "khoảnh khắc", "pos": "noun", "img": "⏱️", "connect": "\"Mâu-mừn\" — một lát, một khoảnh khắc.", "ex": "Wait a moment, please.", "exVi": "Vui lòng đợi một lát." },
-    { "en": "period", "ipa": "/ˈpɪr.i.əd/", "vi": "giai đoạn, thời kỳ", "pos": "noun", "img": "📅", "connect": "\"Pia-ri-ợd\" — một khoảng thời gian.", "ex": "It was a difficult period.", "exVi": "Đó là một giai đoạn khó khăn." },
-    { "en": "future", "ipa": "/ˈfjuː.tʃɚ/", "vi": "tương lai", "pos": "noun", "img": "🔮", "connect": "\"Phiu-chờ\" — thời gian sắp tới.", "ex": "Think about your future.", "exVi": "Hãy nghĩ về tương lai của bạn." },
-    { "en": "past", "ipa": "/pæst/", "vi": "quá khứ", "pos": "noun", "img": "🕰️", "connect": "\"Pát-st\" — chuyện đã qua.", "ex": "Don't worry about the past.", "exVi": "Đừng lo về quá khứ." },
-    { "en": "present", "ipa": "/ˈprez.ənt/", "vi": "hiện tại; món quà", "pos": "noun", "img": "🎁", "connect": "\"Pre-zừn\" — hiện tại (cũng là quà).", "ex": "Live in the present.", "exVi": "Hãy sống cho hiện tại." },
-    { "en": "calendar", "ipa": "/ˈkæl.ən.dɚ/", "vi": "lịch", "pos": "noun", "img": "📅", "connect": "\"Ke-lừn-đờ\" — tờ lịch.", "ex": "Mark it on the calendar.", "exVi": "Đánh dấu nó lên lịch đi." },
-    { "en": "alarm", "ipa": "/əˈlɑːrm/", "vi": "báo thức, chuông báo", "pos": "noun", "img": "⏰", "connect": "\"Ờ-lám\" — đồng hồ báo thức.", "ex": "I set an alarm for six.", "exVi": "Tôi đặt báo thức lúc sáu giờ." },
-    { "en": "daily", "ipa": "/ˈdeɪ.li/", "vi": "hằng ngày", "pos": "adj", "img": "📰", "connect": "day (ngày) + ly.", "ex": "Reading is a daily habit.", "exVi": "Đọc sách là thói quen hằng ngày." },
-    { "en": "weekly", "ipa": "/ˈwiːk.li/", "vi": "hằng tuần", "pos": "adj", "img": "🗓️", "connect": "week (tuần) + ly.", "ex": "We have a weekly meeting.", "exVi": "Chúng tôi họp hằng tuần." },
-    { "en": "monthly", "ipa": "/ˈmʌnθ.li/", "vi": "hằng tháng", "pos": "adj", "img": "📆", "connect": "month (tháng) + ly.", "ex": "I pay the rent monthly.", "exVi": "Tôi trả tiền thuê hằng tháng." },
-    { "en": "yearly", "ipa": "/ˈjɪr.li/", "vi": "hằng năm", "pos": "adj", "img": "🎊", "connect": "year (năm) + ly.", "ex": "The festival is a yearly event.", "exVi": "Lễ hội là sự kiện hằng năm." },
-    { "en": "recent", "ipa": "/ˈriː.sənt/", "vi": "gần đây", "pos": "adj", "img": "🆕", "connect": "\"Ri-sừn\" — mới xảy ra.", "ex": "In recent years, prices rose.", "exVi": "Những năm gần đây, giá cả tăng." },
-    { "en": "ancient", "ipa": "/ˈeɪn.ʃənt/", "vi": "cổ xưa", "pos": "adj", "img": "🏺", "connect": "\"Ên-sừn\" — xưa cũ.", "ex": "We visited an ancient temple.", "exVi": "Chúng tôi thăm một ngôi đền cổ." },
-    { "en": "modern", "ipa": "/ˈmɑː.dɚn/", "vi": "hiện đại", "pos": "adj", "img": "🏙️", "connect": "\"Mó-đờn\" — mới, tân tiến.", "ex": "This is a modern building.", "exVi": "Đây là một toà nhà hiện đại." },
-    { "en": "era", "ipa": "/ˈɪr.ə/", "vi": "kỷ nguyên, thời đại", "pos": "noun", "img": "🌌", "connect": "\"I-rờ\" — một thời đại.", "ex": "We live in a digital era.", "exVi": "Chúng ta sống trong kỷ nguyên số." },
-    { "en": "anniversary", "ipa": "/ˌæn.əˈvɜːr.sɚ.i/", "vi": "lễ kỷ niệm", "pos": "noun", "img": "💍", "connect": "annual (hằng năm) → anniversary.", "ex": "It's our wedding anniversary.", "exVi": "Hôm nay là kỷ niệm ngày cưới của chúng tôi." },
-    { "en": "tonight", "ipa": "/təˈnaɪt/", "vi": "tối nay", "pos": "adverb", "img": "🌃", "connect": "to + night — đêm nay.", "ex": "Let's watch a movie tonight.", "exVi": "Tối nay mình xem phim đi." },
-    { "en": "midday", "ipa": "/ˌmɪdˈdeɪ/", "vi": "giữa trưa", "pos": "noun", "img": "☀️", "connect": "mid (giữa) + day (ngày).", "ex": "The sun is hottest at midday.", "exVi": "Mặt trời nóng nhất vào giữa trưa." },
-    { "en": "someday", "ipa": "/ˈsʌm.deɪ/", "vi": "một ngày nào đó", "pos": "adverb", "img": "🌈", "connect": "some (nào đó) + day (ngày).", "ex": "Someday I'll travel the world.", "exVi": "Một ngày nào đó tôi sẽ đi vòng quanh thế giới." },
-    { "en": "nowadays", "ipa": "/ˈnaʊ.ə.deɪz/", "vi": "ngày nay", "pos": "adverb", "img": "📱", "connect": "now (bây giờ) + a + days.", "ex": "Nowadays, everyone has a phone.", "exVi": "Ngày nay ai cũng có điện thoại." }
+    {
+      "en": "noon",
+      "ipa": "/nuːn/",
+      "vi": "buổi trưa (12h)",
+      "pos": "noun",
+      "img": "🕛",
+      "connect": "\"Nun\" — 12 giờ trưa.",
+      "ex": "Let's meet at noon.",
+      "exVi": "Mình gặp nhau lúc trưa nhé."
+    },
+    {
+      "en": "midnight",
+      "ipa": "/ˈmɪd.naɪt/",
+      "vi": "nửa đêm (12h)",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "mid (giữa) + night (đêm).",
+      "ex": "The party ended at midnight.",
+      "exVi": "Bữa tiệc kết thúc lúc nửa đêm."
+    },
+    {
+      "en": "afternoon",
+      "ipa": "/ˌæf.tɚˈnuːn/",
+      "vi": "buổi chiều",
+      "pos": "noun",
+      "img": "🌇",
+      "connect": "after (sau) + noon (trưa).",
+      "ex": "See you this afternoon.",
+      "exVi": "Hẹn gặp bạn chiều nay."
+    },
+    {
+      "en": "evening",
+      "ipa": "/ˈiːv.nɪŋ/",
+      "vi": "buổi tối (sớm)",
+      "pos": "noun",
+      "img": "🌆",
+      "connect": "\"I-vờ-ning\" — chập tối.",
+      "ex": "We eat dinner in the evening.",
+      "exVi": "Chúng tôi ăn tối vào buổi tối."
+    },
+    {
+      "en": "dawn",
+      "ipa": "/dɔːn/",
+      "vi": "bình minh, rạng sáng",
+      "pos": "noun",
+      "img": "🌅",
+      "connect": "\"Đon\" — trời hửng sáng.",
+      "ex": "We woke up at dawn.",
+      "exVi": "Chúng tôi dậy lúc rạng sáng."
+    },
+    {
+      "en": "dusk",
+      "ipa": "/dʌsk/",
+      "vi": "hoàng hôn, chạng vạng",
+      "pos": "noun",
+      "img": "🌄",
+      "connect": "\"Đắt-k\" — lúc trời sẩm tối.",
+      "ex": "Birds return home at dusk.",
+      "exVi": "Chim bay về tổ lúc chạng vạng."
+    },
+    {
+      "en": "decade",
+      "ipa": "/ˈdek.eɪd/",
+      "vi": "thập kỷ (10 năm)",
+      "pos": "noun",
+      "img": "📆",
+      "connect": "\"Đe-kê-d\" — 10 năm.",
+      "ex": "They met a decade ago.",
+      "exVi": "Họ gặp nhau cách đây một thập kỷ."
+    },
+    {
+      "en": "century",
+      "ipa": "/ˈsen.tʃɚ.i/",
+      "vi": "thế kỷ (100 năm)",
+      "pos": "noun",
+      "img": "🏛️",
+      "connect": "\"Sen-chờ-ri\" — 100 năm.",
+      "ex": "This castle is a century old.",
+      "exVi": "Lâu đài này đã một thế kỷ tuổi."
+    },
+    {
+      "en": "moment",
+      "ipa": "/ˈmoʊ.mənt/",
+      "vi": "khoảnh khắc",
+      "pos": "noun",
+      "img": "⏱️",
+      "connect": "\"Mâu-mừn\" — một lát, một khoảnh khắc.",
+      "ex": "Wait a moment, please.",
+      "exVi": "Vui lòng đợi một lát."
+    },
+    {
+      "en": "period",
+      "ipa": "/ˈpɪr.i.əd/",
+      "vi": "giai đoạn, thời kỳ",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "\"Pia-ri-ợd\" — một khoảng thời gian.",
+      "ex": "It was a difficult period.",
+      "exVi": "Đó là một giai đoạn khó khăn."
+    },
+    {
+      "en": "future",
+      "ipa": "/ˈfjuː.tʃɚ/",
+      "vi": "tương lai",
+      "pos": "noun",
+      "img": "🔮",
+      "connect": "\"Phiu-chờ\" — thời gian sắp tới.",
+      "ex": "Think about your future.",
+      "exVi": "Hãy nghĩ về tương lai của bạn."
+    },
+    {
+      "en": "past",
+      "ipa": "/pæst/",
+      "vi": "quá khứ",
+      "pos": "noun",
+      "img": "🕰️",
+      "connect": "\"Pát-st\" — chuyện đã qua.",
+      "ex": "Don't worry about the past.",
+      "exVi": "Đừng lo về quá khứ."
+    },
+    {
+      "en": "present",
+      "ipa": "/ˈprez.ənt/",
+      "vi": "hiện tại; món quà",
+      "pos": "noun",
+      "img": "🎁",
+      "connect": "\"Pre-zừn\" — hiện tại (cũng là quà).",
+      "ex": "Live in the present.",
+      "exVi": "Hãy sống cho hiện tại."
+    },
+    {
+      "en": "calendar",
+      "ipa": "/ˈkæl.ən.dɚ/",
+      "vi": "lịch",
+      "pos": "noun",
+      "img": "📅",
+      "connect": "\"Ke-lừn-đờ\" — tờ lịch.",
+      "ex": "Mark it on the calendar.",
+      "exVi": "Đánh dấu nó lên lịch đi."
+    },
+    {
+      "en": "alarm",
+      "ipa": "/əˈlɑːrm/",
+      "vi": "báo thức, chuông báo",
+      "pos": "noun",
+      "img": "⏰",
+      "connect": "\"Ờ-lám\" — đồng hồ báo thức.",
+      "ex": "I set an alarm for six.",
+      "exVi": "Tôi đặt báo thức lúc sáu giờ."
+    },
+    {
+      "en": "daily",
+      "ipa": "/ˈdeɪ.li/",
+      "vi": "hằng ngày",
+      "pos": "adj",
+      "img": "📰",
+      "connect": "day (ngày) + ly.",
+      "ex": "Reading is a daily habit.",
+      "exVi": "Đọc sách là thói quen hằng ngày."
+    },
+    {
+      "en": "weekly",
+      "ipa": "/ˈwiːk.li/",
+      "vi": "hằng tuần",
+      "pos": "adj",
+      "img": "🗓️",
+      "connect": "week (tuần) + ly.",
+      "ex": "We have a weekly meeting.",
+      "exVi": "Chúng tôi họp hằng tuần."
+    },
+    {
+      "en": "monthly",
+      "ipa": "/ˈmʌnθ.li/",
+      "vi": "hằng tháng",
+      "pos": "adj",
+      "img": "📆",
+      "connect": "month (tháng) + ly.",
+      "ex": "I pay the rent monthly.",
+      "exVi": "Tôi trả tiền thuê hằng tháng."
+    },
+    {
+      "en": "yearly",
+      "ipa": "/ˈjɪr.li/",
+      "vi": "hằng năm",
+      "pos": "adj",
+      "img": "🎊",
+      "connect": "year (năm) + ly.",
+      "ex": "The festival is a yearly event.",
+      "exVi": "Lễ hội là sự kiện hằng năm."
+    },
+    {
+      "en": "recent",
+      "ipa": "/ˈriː.sənt/",
+      "vi": "gần đây",
+      "pos": "adj",
+      "img": "🆕",
+      "connect": "\"Ri-sừn\" — mới xảy ra.",
+      "ex": "In recent years, prices rose.",
+      "exVi": "Những năm gần đây, giá cả tăng."
+    },
+    {
+      "en": "ancient",
+      "ipa": "/ˈeɪn.ʃənt/",
+      "vi": "cổ xưa",
+      "pos": "adj",
+      "img": "🏺",
+      "connect": "\"Ên-sừn\" — xưa cũ.",
+      "ex": "We visited an ancient temple.",
+      "exVi": "Chúng tôi thăm một ngôi đền cổ."
+    },
+    {
+      "en": "modern",
+      "ipa": "/ˈmɑː.dɚn/",
+      "vi": "hiện đại",
+      "pos": "adj",
+      "img": "🏙️",
+      "connect": "\"Mó-đờn\" — mới, tân tiến.",
+      "ex": "This is a modern building.",
+      "exVi": "Đây là một toà nhà hiện đại."
+    },
+    {
+      "en": "era",
+      "ipa": "/ˈɪr.ə/",
+      "vi": "kỷ nguyên, thời đại",
+      "pos": "noun",
+      "img": "🌌",
+      "connect": "\"I-rờ\" — một thời đại.",
+      "ex": "We live in a digital era.",
+      "exVi": "Chúng ta sống trong kỷ nguyên số."
+    },
+    {
+      "en": "anniversary",
+      "ipa": "/ˌæn.əˈvɜːr.sɚ.i/",
+      "vi": "lễ kỷ niệm",
+      "pos": "noun",
+      "img": "💍",
+      "connect": "annual (hằng năm) → anniversary.",
+      "ex": "It's our wedding anniversary.",
+      "exVi": "Hôm nay là kỷ niệm ngày cưới của chúng tôi."
+    },
+    {
+      "en": "tonight",
+      "ipa": "/təˈnaɪt/",
+      "vi": "tối nay",
+      "pos": "adverb",
+      "img": "🌃",
+      "connect": "to + night — đêm nay.",
+      "ex": "Let's watch a movie tonight.",
+      "exVi": "Tối nay mình xem phim đi."
+    },
+    {
+      "en": "midday",
+      "ipa": "/ˌmɪdˈdeɪ/",
+      "vi": "giữa trưa",
+      "pos": "noun",
+      "img": "☀️",
+      "connect": "mid (giữa) + day (ngày).",
+      "ex": "The sun is hottest at midday.",
+      "exVi": "Mặt trời nóng nhất vào giữa trưa."
+    },
+    {
+      "en": "someday",
+      "ipa": "/ˈsʌm.deɪ/",
+      "vi": "một ngày nào đó",
+      "pos": "adverb",
+      "img": "🌈",
+      "connect": "some (nào đó) + day (ngày).",
+      "ex": "Someday I'll travel the world.",
+      "exVi": "Một ngày nào đó tôi sẽ đi vòng quanh thế giới."
+    },
+    {
+      "en": "nowadays",
+      "ipa": "/ˈnaʊ.ə.deɪz/",
+      "vi": "ngày nay",
+      "pos": "adverb",
+      "img": "📱",
+      "connect": "now (bây giờ) + a + days.",
+      "ex": "Nowadays, everyone has a phone.",
+      "exVi": "Ngày nay ai cũng có điện thoại."
+    }
   ]
 }

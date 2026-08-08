@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "🔢",
   "words": [
-    { "ko": "일", "romaja": "il", "vi": "Một (số Hán–Hàn)", "pos": "noun", "img": "1️⃣", "connect": "\"Il\" chính là âm Hán \"nhất\".", "ex": "일 층에서 기다릴게요.", "exVi": "Tôi sẽ đợi ở tầng một." },
-    { "ko": "이", "romaja": "i", "vi": "Hai", "pos": "noun", "img": "2️⃣", "connect": "\"I\" chính là âm Hán \"nhị\".", "ex": "이 번 버스를 타세요.", "exVi": "Hãy đi xe buýt số hai." },
-    { "ko": "삼", "romaja": "sam", "vi": "Ba", "pos": "noun", "img": "3️⃣", "connect": "\"Sam\" chính là âm Hán \"tam\".", "ex": "삼 개월 동안 배웠어요.", "exVi": "Tôi đã học trong ba tháng." },
-    { "ko": "사", "romaja": "sa", "vi": "Bốn", "pos": "noun", "img": "4️⃣", "connect": "\"Sa\" chính là âm Hán \"tứ\".", "ex": "사 층에 사무실이 있어요.", "exVi": "Văn phòng ở tầng bốn." },
-    { "ko": "오", "romaja": "o", "vi": "Năm", "pos": "noun", "img": "5️⃣", "connect": "\"Ô\" chính là âm Hán \"ngũ\".", "ex": "오 분만 기다려 주세요.", "exVi": "Xin đợi cho năm phút thôi ạ." },
-    { "ko": "육", "romaja": "yuk", "vi": "Sáu", "pos": "noun", "img": "6️⃣", "connect": "\"Yuk\" chính là âm Hán \"lục\".", "ex": "육 개월 후에 다시 만나요.", "exVi": "Sáu tháng sau gặp lại nhé." },
-    { "ko": "칠", "romaja": "chil", "vi": "Bảy", "pos": "noun", "img": "7️⃣", "connect": "\"Chil\" chính là âm Hán \"thất\".", "ex": "칠 월은 아주 더워요.", "exVi": "Tháng bảy nóng lắm." },
-    { "ko": "팔", "romaja": "pal", "vi": "Tám", "pos": "noun", "img": "8️⃣", "connect": "\"Pal\" chính là âm Hán \"bát\".", "ex": "팔 시에 시작합니다.", "exVi": "Bắt đầu lúc tám giờ ạ." },
-    { "ko": "구", "romaja": "gu", "vi": "Chín", "pos": "noun", "img": "9️⃣", "connect": "\"Ku\" chính là âm Hán \"cửu\".", "ex": "구 월에 학교가 시작해요.", "exVi": "Tháng chín thì trường học bắt đầu." },
-    { "ko": "십", "romaja": "sip", "vi": "Mười", "pos": "noun", "img": "🔟", "connect": "\"Síp\" chính là âm Hán \"thập\".", "ex": "십 분 후에 도착해요.", "exVi": "Mười phút nữa tôi tới nơi." },
-    { "ko": "백", "romaja": "baek", "vi": "Trăm", "pos": "noun", "img": "💯", "connect": "\"Bek\" chính là âm Hán \"bách\".", "ex": "백 명이 왔어요.", "exVi": "Có một trăm người đã đến." },
-    { "ko": "원", "romaja": "won", "vi": "Won (tiền Hàn)", "pos": "noun", "img": "💰", "connect": "\"Uôn\" — đơn vị tiền, luôn đi sau số Hán–Hàn.", "ex": "이건 오천 원이에요.", "exVi": "Cái này năm nghìn won." }
+    {
+      "ko": "일",
+      "romaja": "il",
+      "vi": "Một (số Hán–Hàn)",
+      "pos": "noun",
+      "img": "1️⃣",
+      "connect": "\"Il\" chính là âm Hán \"nhất\".",
+      "ex": "일 층에서 기다릴게요.",
+      "exVi": "Tôi sẽ đợi ở tầng một."
+    },
+    {
+      "ko": "이",
+      "romaja": "i",
+      "vi": "Hai",
+      "pos": "noun",
+      "img": "2️⃣",
+      "connect": "\"I\" chính là âm Hán \"nhị\".",
+      "ex": "이 번 버스를 타세요.",
+      "exVi": "Hãy đi xe buýt số hai."
+    },
+    {
+      "ko": "삼",
+      "romaja": "sam",
+      "vi": "Ba",
+      "pos": "noun",
+      "img": "3️⃣",
+      "connect": "\"Sam\" chính là âm Hán \"tam\".",
+      "ex": "삼 개월 동안 배웠어요.",
+      "exVi": "Tôi đã học trong ba tháng."
+    },
+    {
+      "ko": "사",
+      "romaja": "sa",
+      "vi": "Bốn",
+      "pos": "noun",
+      "img": "4️⃣",
+      "connect": "\"Sa\" chính là âm Hán \"tứ\".",
+      "ex": "사 층에 사무실이 있어요.",
+      "exVi": "Văn phòng ở tầng bốn."
+    },
+    {
+      "ko": "오",
+      "romaja": "o",
+      "vi": "Năm",
+      "pos": "noun",
+      "img": "5️⃣",
+      "connect": "\"Ô\" chính là âm Hán \"ngũ\".",
+      "ex": "오 분만 기다려 주세요.",
+      "exVi": "Xin đợi cho năm phút thôi ạ."
+    },
+    {
+      "ko": "육",
+      "romaja": "yuk",
+      "vi": "Sáu",
+      "pos": "noun",
+      "img": "6️⃣",
+      "connect": "\"Yuk\" chính là âm Hán \"lục\".",
+      "ex": "육 개월 후에 다시 만나요.",
+      "exVi": "Sáu tháng sau gặp lại nhé."
+    },
+    {
+      "ko": "칠",
+      "romaja": "chil",
+      "vi": "Bảy",
+      "pos": "noun",
+      "img": "7️⃣",
+      "connect": "\"Chil\" chính là âm Hán \"thất\".",
+      "ex": "칠 월은 아주 더워요.",
+      "exVi": "Tháng bảy nóng lắm."
+    },
+    {
+      "ko": "팔",
+      "romaja": "pal",
+      "vi": "Tám",
+      "pos": "noun",
+      "img": "8️⃣",
+      "connect": "\"Pal\" chính là âm Hán \"bát\".",
+      "ex": "팔 시에 시작합니다.",
+      "exVi": "Bắt đầu lúc tám giờ ạ."
+    },
+    {
+      "ko": "구",
+      "romaja": "gu",
+      "vi": "Chín",
+      "pos": "noun",
+      "img": "9️⃣",
+      "connect": "\"Ku\" chính là âm Hán \"cửu\".",
+      "ex": "구 월에 학교가 시작해요.",
+      "exVi": "Tháng chín thì trường học bắt đầu."
+    },
+    {
+      "ko": "십",
+      "romaja": "sip",
+      "vi": "Mười",
+      "pos": "noun",
+      "img": "🔟",
+      "connect": "\"Síp\" chính là âm Hán \"thập\".",
+      "ex": "십 분 후에 도착해요.",
+      "exVi": "Mười phút nữa tôi tới nơi."
+    },
+    {
+      "ko": "백",
+      "romaja": "baek",
+      "vi": "Trăm",
+      "pos": "noun",
+      "img": "💯",
+      "connect": "\"Bek\" chính là âm Hán \"bách\".",
+      "ex": "백 명이 왔어요.",
+      "exVi": "Có một trăm người đã đến."
+    },
+    {
+      "ko": "원",
+      "romaja": "won",
+      "vi": "Won (tiền Hàn)",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "\"Uôn\" — đơn vị tiền, luôn đi sau số Hán–Hàn.",
+      "ex": "이건 오천 원이에요.",
+      "exVi": "Cái này năm nghìn won."
+    }
   ]
 }

@@ -23,6 +23,7 @@ export interface RunQuestion {
   vi?: string
   trap?: string
   hideOptionText?: boolean
+  num?: number
 }
 
 export interface RunGroup {
@@ -31,6 +32,8 @@ export interface RunGroup {
   audio?: ScriptLine[]
   mp3?: string[]
   img?: string
+  imgs?: string[]
+  shortPassage?: number
   graphic?: ToeicGraphic
   passage?: string
   passageTitle?: string
@@ -84,6 +87,8 @@ export interface ReviewGroup {
   passage?: string
   passageTitle?: string
   audio?: ScriptLine[]
+  img?: string
+  imgs?: string[]
   graphic?: ToeicGraphic
   questions: ReviewQuestion[]
 }
@@ -640,7 +645,7 @@ export function scoreRun(groups: RunGroup[], answers: Record<string, number>): R
       partStats[g.part] = p
       reviewQs.push({
         key: q.key,
-        num: g.qStart != null ? g.qStart + qi : null,
+        num: q.num ?? (g.qStart != null ? g.qStart + qi : null),
         text: q.text,
         options: q.options,
         answer: q.answer,
@@ -658,6 +663,8 @@ export function scoreRun(groups: RunGroup[], answers: Record<string, number>): R
       passage: g.passage,
       passageTitle: g.passageTitle,
       audio: g.audio,
+      img: g.img,
+      imgs: g.imgs,
       graphic: g.graphic,
       questions: reviewQs,
     })

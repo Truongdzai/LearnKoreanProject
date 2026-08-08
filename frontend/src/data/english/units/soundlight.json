@@ -6,27 +6,225 @@
   "tone": "tone-b",
   "emoji": "🔦",
   "words": [
-    { "en": "sound", "ipa": "/saʊnd/", "vi": "âm thanh", "pos": "noun", "img": "🔊", "connect": "\"Sao-nd\" — mọi thứ tai nghe được.", "ex": "I heard a strange sound.", "exVi": "Tôi nghe thấy một âm thanh lạ." },
-    { "en": "noise", "ipa": "/nɔɪz/", "vi": "tiếng ồn", "pos": "noun", "img": "📢", "connect": "\"Noi-z\" — âm thanh khó chịu.", "ex": "The noise kept me awake.", "exVi": "Tiếng ồn làm tôi không ngủ được." },
-    { "en": "silence", "ipa": "/ˈsaɪ.ləns/", "vi": "sự im lặng", "pos": "noun", "img": "🤫", "connect": "\"Sai-lừn-s\" — không một tiếng động.", "ex": "Silence, please! The exam started.", "exVi": "Xin giữ im lặng! Bài thi bắt đầu rồi." },
-    { "en": "silent", "ipa": "/ˈsaɪ.lənt/", "vi": "im lặng, lặng thinh", "pos": "adj", "img": "🔇", "connect": "silence là danh từ, silent là tính từ.", "ex": "The room fell silent.", "exVi": "Căn phòng chìm vào im lặng." },
-    { "en": "noisy", "ipa": "/ˈnɔɪ.zi/", "vi": "ồn ào", "pos": "adj", "img": "🙉", "connect": "noise + y — đầy tiếng ồn.", "ex": "The street is too noisy.", "exVi": "Con phố ồn ào quá." },
-    { "en": "echo", "ipa": "/ˈek.oʊ/", "vi": "tiếng vọng", "pos": "noun", "img": "🏔️", "connect": "\"E-kâu\" — hét trong hang nghe vọng lại.", "ex": "We heard an echo in the cave.", "exVi": "Chúng tôi nghe tiếng vọng trong hang." },
-    { "en": "whistle", "ipa": "/ˈwɪs.əl/", "vi": "huýt sáo; cái còi", "pos": "verb", "img": "😗", "connect": "\"Wít-sồ\" — chữ \"t\" câm.", "ex": "He whistled a happy song.", "exVi": "Anh ấy huýt sáo một giai điệu vui." },
-    { "en": "flash", "ipa": "/flæʃ/", "vi": "tia loé sáng, đèn flash", "pos": "noun", "img": "📸", "connect": "\"Flét-sh\" — chớp sáng nhanh.", "ex": "A flash of lightning lit the sky.", "exVi": "Một tia chớp loé sáng bầu trời." },
-    { "en": "shine", "ipa": "/ʃaɪn/", "vi": "toả sáng, chiếu sáng", "pos": "verb", "img": "☀️", "connect": "\"Sai-n\" — shine → shone → shone.", "ex": "The stars shine at night.", "exVi": "Những ngôi sao toả sáng trong đêm." },
-    { "en": "glow", "ipa": "/ɡloʊ/", "vi": "phát sáng dịu", "pos": "verb", "img": "🏮", "connect": "\"Glâu\" — sáng ấm như than hồng.", "ex": "The lantern glowed softly.", "exVi": "Chiếc đèn lồng toả sáng dịu dàng." },
-    { "en": "spark", "ipa": "/spɑːrk/", "vi": "tia lửa", "pos": "noun", "img": "✨", "connect": "\"Sờ-pác\" — tia lửa bắn ra.", "ex": "Sparks flew from the fire.", "exVi": "Tia lửa bắn ra từ đống lửa." },
-    { "en": "flame", "ipa": "/fleɪm/", "vi": "ngọn lửa", "pos": "noun", "img": "🔥", "connect": "\"Flê-m\" — ngọn lửa cháy.", "ex": "The candle's flame danced.", "exVi": "Ngọn lửa nến lay động." },
-    { "en": "shadow", "ipa": "/ˈʃæd.oʊ/", "vi": "cái bóng", "pos": "noun", "img": "🌑", "connect": "\"Se-đâu\" — bóng đổ trên mặt đất.", "ex": "My shadow follows me.", "exVi": "Cái bóng theo tôi khắp nơi." },
-    { "en": "beam", "ipa": "/biːm/", "vi": "chùm sáng", "pos": "noun", "img": "🔦", "connect": "\"Bi-m\" — luồng sáng đèn pin.", "ex": "A beam of light came through.", "exVi": "Một chùm sáng xuyên qua." },
-    { "en": "ray", "ipa": "/reɪ/", "vi": "tia (nắng)", "pos": "noun", "img": "🌤️", "connect": "\"Rê\" — tia nắng xuyên mây.", "ex": "Rays of sunlight woke me up.", "exVi": "Những tia nắng đánh thức tôi." },
-    { "en": "reflection", "ipa": "/rɪˈflek.ʃən/", "vi": "hình phản chiếu", "pos": "noun", "img": "🪞", "connect": "reflect (phản chiếu) → reflection.", "ex": "She saw her reflection in the lake.", "exVi": "Cô ấy thấy bóng mình phản chiếu dưới hồ." },
-    { "en": "torch", "ipa": "/tɔːrtʃ/", "vi": "đuốc; đèn pin (Anh)", "pos": "noun", "img": "🔥", "connect": "\"To-ch\" — ngọn đuốc Olympic.", "ex": "He lit a torch in the dark.", "exVi": "Anh ấy thắp một ngọn đuốc trong bóng tối." },
-    { "en": "flashlight", "ipa": "/ˈflæʃ.laɪt/", "vi": "đèn pin", "pos": "noun", "img": "🔦", "connect": "flash + light — đèn cầm tay (Mỹ).", "ex": "Bring a flashlight when camping.", "exVi": "Đi cắm trại nhớ mang đèn pin." },
-    { "en": "sunrise", "ipa": "/ˈsʌn.raɪz/", "vi": "bình minh (mặt trời mọc)", "pos": "noun", "img": "🌅", "connect": "sun + rise (mọc lên).", "ex": "We watched the sunrise at the beach.", "exVi": "Chúng tôi ngắm bình minh trên biển." },
-    { "en": "sunset", "ipa": "/ˈsʌn.set/", "vi": "hoàng hôn (mặt trời lặn)", "pos": "noun", "img": "🌇", "connect": "sun + set (lặn xuống).", "ex": "The sunset turned the sky orange.", "exVi": "Hoàng hôn nhuộm cam cả bầu trời." },
-    { "en": "moonlight", "ipa": "/ˈmuːn.laɪt/", "vi": "ánh trăng", "pos": "noun", "img": "🌕", "connect": "moon (trăng) + light (ánh sáng).", "ex": "We walked in the moonlight.", "exVi": "Chúng tôi dạo bước dưới ánh trăng." },
-    { "en": "twinkle", "ipa": "/ˈtwɪŋ.kəl/", "vi": "lấp lánh", "pos": "verb", "img": "🌟", "connect": "\"Tuyn-cồ\" — Twinkle twinkle little star.", "ex": "Stars twinkle in the night sky.", "exVi": "Sao lấp lánh trên bầu trời đêm." }
+    {
+      "en": "sound",
+      "ipa": "/saʊnd/",
+      "vi": "âm thanh",
+      "pos": "noun",
+      "img": "🔊",
+      "connect": "\"Sao-nd\" — mọi thứ tai nghe được.",
+      "ex": "I heard a strange sound.",
+      "exVi": "Tôi nghe thấy một âm thanh lạ."
+    },
+    {
+      "en": "noise",
+      "ipa": "/nɔɪz/",
+      "vi": "tiếng ồn",
+      "pos": "noun",
+      "img": "📢",
+      "connect": "\"Noi-z\" — âm thanh khó chịu.",
+      "ex": "The noise kept me awake.",
+      "exVi": "Tiếng ồn làm tôi không ngủ được."
+    },
+    {
+      "en": "silence",
+      "ipa": "/ˈsaɪ.ləns/",
+      "vi": "sự im lặng",
+      "pos": "noun",
+      "img": "🤫",
+      "connect": "\"Sai-lừn-s\" — không một tiếng động.",
+      "ex": "Silence, please! The exam started.",
+      "exVi": "Xin giữ im lặng! Bài thi bắt đầu rồi."
+    },
+    {
+      "en": "silent",
+      "ipa": "/ˈsaɪ.lənt/",
+      "vi": "im lặng, lặng thinh",
+      "pos": "adj",
+      "img": "🔇",
+      "connect": "silence là danh từ, silent là tính từ.",
+      "ex": "The room fell silent.",
+      "exVi": "Căn phòng chìm vào im lặng."
+    },
+    {
+      "en": "noisy",
+      "ipa": "/ˈnɔɪ.zi/",
+      "vi": "ồn ào",
+      "pos": "adj",
+      "img": "🙉",
+      "connect": "noise + y — đầy tiếng ồn.",
+      "ex": "The street is too noisy.",
+      "exVi": "Con phố ồn ào quá."
+    },
+    {
+      "en": "echo",
+      "ipa": "/ˈek.oʊ/",
+      "vi": "tiếng vọng",
+      "pos": "noun",
+      "img": "🏔️",
+      "connect": "\"E-kâu\" — hét trong hang nghe vọng lại.",
+      "ex": "We heard an echo in the cave.",
+      "exVi": "Chúng tôi nghe tiếng vọng trong hang."
+    },
+    {
+      "en": "whistle",
+      "ipa": "/ˈwɪs.əl/",
+      "vi": "huýt sáo; cái còi",
+      "pos": "verb",
+      "img": "😗",
+      "connect": "\"Wít-sồ\" — chữ \"t\" câm.",
+      "ex": "He whistled a happy song.",
+      "exVi": "Anh ấy huýt sáo một giai điệu vui."
+    },
+    {
+      "en": "flash",
+      "ipa": "/flæʃ/",
+      "vi": "tia loé sáng, đèn flash",
+      "pos": "noun",
+      "img": "📸",
+      "connect": "\"Flét-sh\" — chớp sáng nhanh.",
+      "ex": "A flash of lightning lit the sky.",
+      "exVi": "Một tia chớp loé sáng bầu trời."
+    },
+    {
+      "en": "shine",
+      "ipa": "/ʃaɪn/",
+      "vi": "toả sáng, chiếu sáng",
+      "pos": "verb",
+      "img": "☀️",
+      "connect": "\"Sai-n\" — shine → shone → shone.",
+      "ex": "The stars shine at night.",
+      "exVi": "Những ngôi sao toả sáng trong đêm."
+    },
+    {
+      "en": "glow",
+      "ipa": "/ɡloʊ/",
+      "vi": "phát sáng dịu",
+      "pos": "verb",
+      "img": "🏮",
+      "connect": "\"Glâu\" — sáng ấm như than hồng.",
+      "ex": "The lantern glowed softly.",
+      "exVi": "Chiếc đèn lồng toả sáng dịu dàng."
+    },
+    {
+      "en": "spark",
+      "ipa": "/spɑːrk/",
+      "vi": "tia lửa",
+      "pos": "noun",
+      "img": "✨",
+      "connect": "\"Sờ-pác\" — tia lửa bắn ra.",
+      "ex": "Sparks flew from the fire.",
+      "exVi": "Tia lửa bắn ra từ đống lửa."
+    },
+    {
+      "en": "flame",
+      "ipa": "/fleɪm/",
+      "vi": "ngọn lửa",
+      "pos": "noun",
+      "img": "🔥",
+      "connect": "\"Flê-m\" — ngọn lửa cháy.",
+      "ex": "The candle's flame danced.",
+      "exVi": "Ngọn lửa nến lay động."
+    },
+    {
+      "en": "shadow",
+      "ipa": "/ˈʃæd.oʊ/",
+      "vi": "cái bóng",
+      "pos": "noun",
+      "img": "🌑",
+      "connect": "\"Se-đâu\" — bóng đổ trên mặt đất.",
+      "ex": "My shadow follows me.",
+      "exVi": "Cái bóng theo tôi khắp nơi."
+    },
+    {
+      "en": "beam",
+      "ipa": "/biːm/",
+      "vi": "chùm sáng",
+      "pos": "noun",
+      "img": "🔦",
+      "connect": "\"Bi-m\" — luồng sáng đèn pin.",
+      "ex": "A beam of light came through.",
+      "exVi": "Một chùm sáng xuyên qua."
+    },
+    {
+      "en": "ray",
+      "ipa": "/reɪ/",
+      "vi": "tia (nắng)",
+      "pos": "noun",
+      "img": "🌤️",
+      "connect": "\"Rê\" — tia nắng xuyên mây.",
+      "ex": "Rays of sunlight woke me up.",
+      "exVi": "Những tia nắng đánh thức tôi."
+    },
+    {
+      "en": "reflection",
+      "ipa": "/rɪˈflek.ʃən/",
+      "vi": "hình phản chiếu",
+      "pos": "noun",
+      "img": "🪞",
+      "connect": "reflect (phản chiếu) → reflection.",
+      "ex": "She saw her reflection in the lake.",
+      "exVi": "Cô ấy thấy bóng mình phản chiếu dưới hồ."
+    },
+    {
+      "en": "torch",
+      "ipa": "/tɔːrtʃ/",
+      "vi": "đuốc; đèn pin (Anh)",
+      "pos": "noun",
+      "img": "🔥",
+      "connect": "\"To-ch\" — ngọn đuốc Olympic.",
+      "ex": "He lit a torch in the dark.",
+      "exVi": "Anh ấy thắp một ngọn đuốc trong bóng tối."
+    },
+    {
+      "en": "flashlight",
+      "ipa": "/ˈflæʃ.laɪt/",
+      "vi": "đèn pin",
+      "pos": "noun",
+      "img": "🔦",
+      "connect": "flash + light — đèn cầm tay (Mỹ).",
+      "ex": "Bring a flashlight when camping.",
+      "exVi": "Đi cắm trại nhớ mang đèn pin."
+    },
+    {
+      "en": "sunrise",
+      "ipa": "/ˈsʌn.raɪz/",
+      "vi": "bình minh (mặt trời mọc)",
+      "pos": "noun",
+      "img": "🌅",
+      "connect": "sun + rise (mọc lên).",
+      "ex": "We watched the sunrise at the beach.",
+      "exVi": "Chúng tôi ngắm bình minh trên biển."
+    },
+    {
+      "en": "sunset",
+      "ipa": "/ˈsʌn.set/",
+      "vi": "hoàng hôn (mặt trời lặn)",
+      "pos": "noun",
+      "img": "🌇",
+      "connect": "sun + set (lặn xuống).",
+      "ex": "The sunset turned the sky orange.",
+      "exVi": "Hoàng hôn nhuộm cam cả bầu trời."
+    },
+    {
+      "en": "moonlight",
+      "ipa": "/ˈmuːn.laɪt/",
+      "vi": "ánh trăng",
+      "pos": "noun",
+      "img": "🌕",
+      "connect": "moon (trăng) + light (ánh sáng).",
+      "ex": "We walked in the moonlight.",
+      "exVi": "Chúng tôi dạo bước dưới ánh trăng."
+    },
+    {
+      "en": "twinkle",
+      "ipa": "/ˈtwɪŋ.kəl/",
+      "vi": "lấp lánh",
+      "pos": "verb",
+      "img": "🌟",
+      "connect": "\"Tuyn-cồ\" — Twinkle twinkle little star.",
+      "ex": "Stars twinkle in the night sky.",
+      "exVi": "Sao lấp lánh trên bầu trời đêm."
+    }
   ]
 }

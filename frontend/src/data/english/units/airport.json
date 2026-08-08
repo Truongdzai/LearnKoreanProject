@@ -6,31 +6,265 @@
   "tone": "tone-d",
   "emoji": "✈️",
   "words": [
-    { "en": "airline", "ipa": "/ˈer.laɪn/", "vi": "hãng hàng không", "pos": "noun", "img": "🛫", "connect": "air (không khí) + line (tuyến) — hãng bay.", "ex": "Which airline are you flying with?", "exVi": "Bạn bay với hãng hàng không nào?" },
-    { "en": "terminal", "ipa": "/ˈtɝː.mə.nəl/", "vi": "nhà ga sân bay", "pos": "noun", "img": "🏢", "connect": "\"Tơ-mi-nồl\" — ga T1, T2 ở Nội Bài.", "ex": "International flights leave from Terminal 2.", "exVi": "Chuyến bay quốc tế khởi hành từ nhà ga T2." },
-    { "en": "runway", "ipa": "/ˈrʌn.weɪ/", "vi": "đường băng", "pos": "noun", "img": "🛬", "connect": "run (chạy) + way (đường) — máy bay chạy đà cất cánh.", "ex": "The plane is on the runway.", "exVi": "Máy bay đang ở trên đường băng." },
-    { "en": "boarding", "ipa": "/ˈbɔːr.dɪŋ/", "vi": "việc lên máy bay", "pos": "noun", "img": "🚶", "connect": "board (lên tàu xe) + ing — giờ lên máy bay.", "ex": "Boarding starts at gate 12.", "exVi": "Việc lên máy bay bắt đầu ở cửa 12." },
-    { "en": "boarding pass", "ipa": "/ˈbɔːr.dɪŋ pæs/", "vi": "thẻ lên máy bay", "pos": "noun", "img": "🎫", "connect": "boarding (lên máy bay) + pass (thẻ) — vé qua cửa.", "ex": "Show your boarding pass, please.", "exVi": "Vui lòng xuất trình thẻ lên máy bay." },
-    { "en": "landing", "ipa": "/ˈlæn.dɪŋ/", "vi": "việc hạ cánh", "pos": "noun", "img": "🛬", "connect": "land (đáp đất) + ing — bánh xe chạm đường băng.", "ex": "The landing was very smooth.", "exVi": "Cú hạ cánh rất êm." },
-    { "en": "customs", "ipa": "/ˈkʌs.təmz/", "vi": "hải quan", "pos": "noun", "img": "🛃", "connect": "\"Kắtx-từm-z\" — cửa kiểm tra hành lý xuất nhập cảnh.", "ex": "We went through customs quickly.", "exVi": "Chúng tôi qua hải quan rất nhanh." },
-    { "en": "immigration", "ipa": "/ˌɪm.əˈɡreɪ.ʃən/", "vi": "cửa xuất nhập cảnh", "pos": "noun", "img": "🛂", "connect": "\"Im-mi-grêy-sừn\" — nơi đóng dấu hộ chiếu.", "ex": "There was a long line at immigration.", "exVi": "Hàng chờ ở cửa nhập cảnh rất dài." },
-    { "en": "baggage", "ipa": "/ˈbæɡ.ɪdʒ/", "vi": "hành lý", "pos": "noun", "img": "🧳", "connect": "bag (túi) + gage — cả đống túi đồ đi xa.", "ex": "Pick up your baggage at belt 5.", "exVi": "Lấy hành lý ở băng chuyền số 5." },
-    { "en": "aisle", "ipa": "/aɪl/", "vi": "lối đi giữa (ghế)", "pos": "noun", "img": "🚶", "connect": "\"Ai-l\" (s câm) — ghế aisle là ghế sát lối đi.", "ex": "I'd like an aisle seat, please.", "exVi": "Cho tôi ghế sát lối đi nhé." },
-    { "en": "window seat", "ipa": "/ˈwɪn.doʊ siːt/", "vi": "ghế cạnh cửa sổ", "pos": "noun", "img": "🪟", "connect": "window (cửa sổ) + seat (ghế) — ngồi ngắm mây.", "ex": "She always books a window seat.", "exVi": "Cô ấy luôn đặt ghế cạnh cửa sổ." },
-    { "en": "seatbelt", "ipa": "/ˈsiːt.belt/", "vi": "dây an toàn", "pos": "noun", "img": "🔗", "connect": "seat (ghế) + belt (thắt lưng) — thắt vào khi cất cánh.", "ex": "Please fasten your seatbelt.", "exVi": "Vui lòng thắt dây an toàn." },
-    { "en": "crew", "ipa": "/kruː/", "vi": "phi hành đoàn, đội", "pos": "noun", "img": "👨‍✈️", "connect": "\"Kru\" — cả ê-kíp trên máy bay.", "ex": "The cabin crew served drinks.", "exVi": "Phi hành đoàn phục vụ đồ uống." },
-    { "en": "flight attendant", "ipa": "/ˈflaɪt əˌten.dənt/", "vi": "tiếp viên hàng không", "pos": "noun", "img": "🙋", "connect": "flight (chuyến bay) + attendant (người phục vụ).", "ex": "The flight attendant smiled warmly.", "exVi": "Cô tiếp viên hàng không mỉm cười thân thiện." },
-    { "en": "transit", "ipa": "/ˈtræn.zɪt/", "vi": "quá cảnh", "pos": "noun", "img": "🔁", "connect": "\"Tren-dít\" — dừng ở sân bay giữa chặng.", "ex": "We are in transit in Singapore.", "exVi": "Chúng tôi quá cảnh ở Singapore." },
-    { "en": "layover", "ipa": "/ˈleɪˌoʊ.vɚ/", "vi": "thời gian chờ nối chuyến", "pos": "noun", "img": "⏳", "connect": "lay (nằm) + over — nằm chờ vài tiếng ở sân bay.", "ex": "We have a four-hour layover in Bangkok.", "exVi": "Chúng tôi chờ nối chuyến bốn tiếng ở Bangkok." },
-    { "en": "connecting flight", "ipa": "/kəˈnek.tɪŋ flaɪt/", "vi": "chuyến bay nối chuyến", "pos": "noun", "img": "🔀", "connect": "connect (nối) + flight (chuyến bay) — bay tiếp chặng hai.", "ex": "I missed my connecting flight.", "exVi": "Tôi lỡ chuyến bay nối chuyến." },
-    { "en": "overseas", "ipa": "/ˌoʊ.vɚˈsiːz/", "vi": "ở nước ngoài", "pos": "adverb", "img": "🌏", "connect": "over (qua) + seas (biển) — vượt biển ra nước ngoài.", "ex": "Her son studies overseas.", "exVi": "Con trai cô ấy du học nước ngoài." },
-    { "en": "duty-free", "ipa": "/ˌduː.t̬iˈfriː/", "vi": "miễn thuế", "pos": "adj", "img": "🛍️", "connect": "duty (thuế) + free (miễn) — mua sắm miễn thuế ở sân bay.", "ex": "She bought perfume at the duty-free shop.", "exVi": "Cô ấy mua nước hoa ở cửa hàng miễn thuế." },
-    { "en": "jet lag", "ipa": "/ˈdʒet læɡ/", "vi": "mệt do lệch múi giờ", "pos": "noun", "img": "🥱", "connect": "jet (máy bay) + lag (trễ) — người còn ở múi giờ cũ.", "ex": "I had jet lag for two days.", "exVi": "Tôi bị lệch múi giờ mất hai ngày." },
-    { "en": "turbulence", "ipa": "/ˈtɝː.bjə.ləns/", "vi": "nhiễu động không khí", "pos": "noun", "img": "🌪️", "connect": "\"Tơ-biu-lừn-x\" — máy bay rung lắc giữa mây.", "ex": "The plane shook because of turbulence.", "exVi": "Máy bay rung lắc vì nhiễu động." },
-    { "en": "cockpit", "ipa": "/ˈkɑːk.pɪt/", "vi": "buồng lái", "pos": "noun", "img": "🕹️", "connect": "\"Kok-pít\" — nơi phi công ngồi đầy nút bấm.", "ex": "Only pilots may enter the cockpit.", "exVi": "Chỉ phi công được vào buồng lái." },
-    { "en": "cabin", "ipa": "/ˈkæb.ɪn/", "vi": "khoang hành khách", "pos": "noun", "img": "💺", "connect": "\"Ke-bin\" — khoang ngồi của hành khách.", "ex": "The cabin lights were turned off.", "exVi": "Đèn khoang hành khách được tắt." },
-    { "en": "altitude", "ipa": "/ˈæl.tə.tuːd/", "vi": "độ cao", "pos": "noun", "img": "🏔️", "connect": "\"An-tờ-tiud\" — bay ở độ cao 10.000 mét.", "ex": "We are flying at a high altitude.", "exVi": "Chúng ta đang bay ở độ cao lớn." },
-    { "en": "life jacket", "ipa": "/ˈlaɪf ˌdʒæk.ɪt/", "vi": "áo phao", "pos": "noun", "img": "🦺", "connect": "life (mạng sống) + jacket (áo) — áo cứu mạng dưới ghế.", "ex": "The life jacket is under your seat.", "exVi": "Áo phao ở dưới ghế của bạn." },
-    { "en": "announcement", "ipa": "/əˈnaʊns.mənt/", "vi": "thông báo (loa)", "pos": "noun", "img": "📢", "connect": "announce (thông báo) + ment — tiếng loa vang khắp ga.", "ex": "Listen to the boarding announcement.", "exVi": "Hãy nghe thông báo lên máy bay." }
+    {
+      "en": "airline",
+      "ipa": "/ˈer.laɪn/",
+      "vi": "hãng hàng không",
+      "pos": "noun",
+      "img": "🛫",
+      "connect": "air (không khí) + line (tuyến) — hãng bay.",
+      "ex": "Which airline are you flying with?",
+      "exVi": "Bạn bay với hãng hàng không nào?"
+    },
+    {
+      "en": "terminal",
+      "ipa": "/ˈtɝː.mə.nəl/",
+      "vi": "nhà ga sân bay",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "\"Tơ-mi-nồl\" — ga T1, T2 ở Nội Bài.",
+      "ex": "International flights leave from Terminal 2.",
+      "exVi": "Chuyến bay quốc tế khởi hành từ nhà ga T2."
+    },
+    {
+      "en": "runway",
+      "ipa": "/ˈrʌn.weɪ/",
+      "vi": "đường băng",
+      "pos": "noun",
+      "img": "🛬",
+      "connect": "run (chạy) + way (đường) — máy bay chạy đà cất cánh.",
+      "ex": "The plane is on the runway.",
+      "exVi": "Máy bay đang ở trên đường băng."
+    },
+    {
+      "en": "boarding",
+      "ipa": "/ˈbɔːr.dɪŋ/",
+      "vi": "việc lên máy bay",
+      "pos": "noun",
+      "img": "🚶",
+      "connect": "board (lên tàu xe) + ing — giờ lên máy bay.",
+      "ex": "Boarding starts at gate 12.",
+      "exVi": "Việc lên máy bay bắt đầu ở cửa 12."
+    },
+    {
+      "en": "boarding pass",
+      "ipa": "/ˈbɔːr.dɪŋ pæs/",
+      "vi": "thẻ lên máy bay",
+      "pos": "noun",
+      "img": "🎫",
+      "connect": "boarding (lên máy bay) + pass (thẻ) — vé qua cửa.",
+      "ex": "Show your boarding pass, please.",
+      "exVi": "Vui lòng xuất trình thẻ lên máy bay."
+    },
+    {
+      "en": "landing",
+      "ipa": "/ˈlæn.dɪŋ/",
+      "vi": "việc hạ cánh",
+      "pos": "noun",
+      "img": "🛬",
+      "connect": "land (đáp đất) + ing — bánh xe chạm đường băng.",
+      "ex": "The landing was very smooth.",
+      "exVi": "Cú hạ cánh rất êm."
+    },
+    {
+      "en": "customs",
+      "ipa": "/ˈkʌs.təmz/",
+      "vi": "hải quan",
+      "pos": "noun",
+      "img": "🛃",
+      "connect": "\"Kắtx-từm-z\" — cửa kiểm tra hành lý xuất nhập cảnh.",
+      "ex": "We went through customs quickly.",
+      "exVi": "Chúng tôi qua hải quan rất nhanh."
+    },
+    {
+      "en": "immigration",
+      "ipa": "/ˌɪm.əˈɡreɪ.ʃən/",
+      "vi": "cửa xuất nhập cảnh",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "\"Im-mi-grêy-sừn\" — nơi đóng dấu hộ chiếu.",
+      "ex": "There was a long line at immigration.",
+      "exVi": "Hàng chờ ở cửa nhập cảnh rất dài."
+    },
+    {
+      "en": "baggage",
+      "ipa": "/ˈbæɡ.ɪdʒ/",
+      "vi": "hành lý",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "bag (túi) + gage — cả đống túi đồ đi xa.",
+      "ex": "Pick up your baggage at belt 5.",
+      "exVi": "Lấy hành lý ở băng chuyền số 5."
+    },
+    {
+      "en": "aisle",
+      "ipa": "/aɪl/",
+      "vi": "lối đi giữa (ghế)",
+      "pos": "noun",
+      "img": "🚶",
+      "connect": "\"Ai-l\" (s câm) — ghế aisle là ghế sát lối đi.",
+      "ex": "I'd like an aisle seat, please.",
+      "exVi": "Cho tôi ghế sát lối đi nhé."
+    },
+    {
+      "en": "window seat",
+      "ipa": "/ˈwɪn.doʊ siːt/",
+      "vi": "ghế cạnh cửa sổ",
+      "pos": "noun",
+      "img": "🪟",
+      "connect": "window (cửa sổ) + seat (ghế) — ngồi ngắm mây.",
+      "ex": "She always books a window seat.",
+      "exVi": "Cô ấy luôn đặt ghế cạnh cửa sổ."
+    },
+    {
+      "en": "seatbelt",
+      "ipa": "/ˈsiːt.belt/",
+      "vi": "dây an toàn",
+      "pos": "noun",
+      "img": "🔗",
+      "connect": "seat (ghế) + belt (thắt lưng) — thắt vào khi cất cánh.",
+      "ex": "Please fasten your seatbelt.",
+      "exVi": "Vui lòng thắt dây an toàn."
+    },
+    {
+      "en": "crew",
+      "ipa": "/kruː/",
+      "vi": "phi hành đoàn, đội",
+      "pos": "noun",
+      "img": "👨‍✈️",
+      "connect": "\"Kru\" — cả ê-kíp trên máy bay.",
+      "ex": "The cabin crew served drinks.",
+      "exVi": "Phi hành đoàn phục vụ đồ uống."
+    },
+    {
+      "en": "flight attendant",
+      "ipa": "/ˈflaɪt əˌten.dənt/",
+      "vi": "tiếp viên hàng không",
+      "pos": "noun",
+      "img": "🙋",
+      "connect": "flight (chuyến bay) + attendant (người phục vụ).",
+      "ex": "The flight attendant smiled warmly.",
+      "exVi": "Cô tiếp viên hàng không mỉm cười thân thiện."
+    },
+    {
+      "en": "transit",
+      "ipa": "/ˈtræn.zɪt/",
+      "vi": "quá cảnh",
+      "pos": "noun",
+      "img": "🔁",
+      "connect": "\"Tren-dít\" — dừng ở sân bay giữa chặng.",
+      "ex": "We are in transit in Singapore.",
+      "exVi": "Chúng tôi quá cảnh ở Singapore."
+    },
+    {
+      "en": "layover",
+      "ipa": "/ˈleɪˌoʊ.vɚ/",
+      "vi": "thời gian chờ nối chuyến",
+      "pos": "noun",
+      "img": "⏳",
+      "connect": "lay (nằm) + over — nằm chờ vài tiếng ở sân bay.",
+      "ex": "We have a four-hour layover in Bangkok.",
+      "exVi": "Chúng tôi chờ nối chuyến bốn tiếng ở Bangkok."
+    },
+    {
+      "en": "connecting flight",
+      "ipa": "/kəˈnek.tɪŋ flaɪt/",
+      "vi": "chuyến bay nối chuyến",
+      "pos": "noun",
+      "img": "🔀",
+      "connect": "connect (nối) + flight (chuyến bay) — bay tiếp chặng hai.",
+      "ex": "I missed my connecting flight.",
+      "exVi": "Tôi lỡ chuyến bay nối chuyến."
+    },
+    {
+      "en": "overseas",
+      "ipa": "/ˌoʊ.vɚˈsiːz/",
+      "vi": "ở nước ngoài",
+      "pos": "adverb",
+      "img": "🌏",
+      "connect": "over (qua) + seas (biển) — vượt biển ra nước ngoài.",
+      "ex": "Her son studies overseas.",
+      "exVi": "Con trai cô ấy du học nước ngoài."
+    },
+    {
+      "en": "duty-free",
+      "ipa": "/ˌduː.t̬iˈfriː/",
+      "vi": "miễn thuế",
+      "pos": "adj",
+      "img": "🛍️",
+      "connect": "duty (thuế) + free (miễn) — mua sắm miễn thuế ở sân bay.",
+      "ex": "She bought perfume at the duty-free shop.",
+      "exVi": "Cô ấy mua nước hoa ở cửa hàng miễn thuế."
+    },
+    {
+      "en": "jet lag",
+      "ipa": "/ˈdʒet læɡ/",
+      "vi": "mệt do lệch múi giờ",
+      "pos": "noun",
+      "img": "🥱",
+      "connect": "jet (máy bay) + lag (trễ) — người còn ở múi giờ cũ.",
+      "ex": "I had jet lag for two days.",
+      "exVi": "Tôi bị lệch múi giờ mất hai ngày."
+    },
+    {
+      "en": "turbulence",
+      "ipa": "/ˈtɝː.bjə.ləns/",
+      "vi": "nhiễu động không khí",
+      "pos": "noun",
+      "img": "🌪️",
+      "connect": "\"Tơ-biu-lừn-x\" — máy bay rung lắc giữa mây.",
+      "ex": "The plane shook because of turbulence.",
+      "exVi": "Máy bay rung lắc vì nhiễu động."
+    },
+    {
+      "en": "cockpit",
+      "ipa": "/ˈkɑːk.pɪt/",
+      "vi": "buồng lái",
+      "pos": "noun",
+      "img": "🕹️",
+      "connect": "\"Kok-pít\" — nơi phi công ngồi đầy nút bấm.",
+      "ex": "Only pilots may enter the cockpit.",
+      "exVi": "Chỉ phi công được vào buồng lái."
+    },
+    {
+      "en": "cabin",
+      "ipa": "/ˈkæb.ɪn/",
+      "vi": "khoang hành khách",
+      "pos": "noun",
+      "img": "💺",
+      "connect": "\"Ke-bin\" — khoang ngồi của hành khách.",
+      "ex": "The cabin lights were turned off.",
+      "exVi": "Đèn khoang hành khách được tắt."
+    },
+    {
+      "en": "altitude",
+      "ipa": "/ˈæl.tə.tuːd/",
+      "vi": "độ cao",
+      "pos": "noun",
+      "img": "🏔️",
+      "connect": "\"An-tờ-tiud\" — bay ở độ cao 10.000 mét.",
+      "ex": "We are flying at a high altitude.",
+      "exVi": "Chúng ta đang bay ở độ cao lớn."
+    },
+    {
+      "en": "life jacket",
+      "ipa": "/ˈlaɪf ˌdʒæk.ɪt/",
+      "vi": "áo phao",
+      "pos": "noun",
+      "img": "🦺",
+      "connect": "life (mạng sống) + jacket (áo) — áo cứu mạng dưới ghế.",
+      "ex": "The life jacket is under your seat.",
+      "exVi": "Áo phao ở dưới ghế của bạn."
+    },
+    {
+      "en": "announcement",
+      "ipa": "/əˈnaʊns.mənt/",
+      "vi": "thông báo (loa)",
+      "pos": "noun",
+      "img": "📢",
+      "connect": "announce (thông báo) + ment — tiếng loa vang khắp ga.",
+      "ex": "Listen to the boarding announcement.",
+      "exVi": "Hãy nghe thông báo lên máy bay."
+    }
   ]
 }

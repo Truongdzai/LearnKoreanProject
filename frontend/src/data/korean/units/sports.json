@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "⚽",
   "words": [
-    { "ko": "운동", "romaja": "undong", "vi": "Thể dục / Vận động", "pos": "noun", "img": "🏃", "connect": "\"Un-đông\" chính là âm Hán \"vận động\".", "ex": "매일 아침에 운동해요.", "exVi": "Sáng nào tôi cũng tập thể dục." },
-    { "ko": "축구", "romaja": "chukgu", "vi": "Bóng đá", "pos": "noun", "img": "⚽", "connect": "\"Chuk-ku\" chính là âm Hán \"xúc cầu\".", "ex": "친구들과 축구를 해요.", "exVi": "Tôi đá bóng với đám bạn." },
-    { "ko": "야구", "romaja": "yagu", "vi": "Bóng chày", "pos": "noun", "img": "⚾", "connect": "\"Ya-ku\" chính là âm Hán \"dã cầu\" — môn được xem nhiều nhất ở Hàn.", "ex": "야구 경기를 보러 갔어요.", "exVi": "Tôi đã đi xem trận bóng chày." },
-    { "ko": "농구", "romaja": "nonggu", "vi": "Bóng rổ", "pos": "noun", "img": "🏀", "connect": "\"Nông-ku\" chính là âm Hán \"lung cầu\" — cùng đuôi 구 = cầu.", "ex": "농구를 잘하세요?", "exVi": "Bạn chơi bóng rổ giỏi không?" },
-    { "ko": "수영", "romaja": "suyeong", "vi": "Bơi lội", "pos": "noun", "img": "🏊", "connect": "\"Su-yơng\" chính là âm Hán \"thuỷ vịnh\".", "ex": "여름에 수영을 배웠어요.", "exVi": "Mùa hè tôi đã học bơi." },
-    { "ko": "달리기", "romaja": "dalligi", "vi": "Chạy bộ", "pos": "noun", "img": "👟", "connect": "달리다 = chạy → việc chạy.", "ex": "아침 달리기가 좋아요.", "exVi": "Chạy bộ buổi sáng rất tốt." },
-    { "ko": "요가", "romaja": "yoga", "vi": "Yoga", "pos": "noun", "img": "🧘", "connect": "\"Yô-ga\" mượn từ \"yoga\".", "ex": "요가를 시작했어요.", "exVi": "Tôi đã bắt đầu tập yoga." },
-    { "ko": "경기", "romaja": "gyeonggi", "vi": "Trận đấu", "pos": "noun", "img": "🏟️", "connect": "\"Kyơng-ki\" chính là âm Hán \"cạnh kỹ\".", "ex": "경기가 몇 시에 시작해요?", "exVi": "Trận đấu mấy giờ bắt đầu ạ?" },
-    { "ko": "선수", "romaja": "seonsu", "vi": "Vận động viên", "pos": "noun", "img": "🏅", "connect": "\"Sơn-su\" chính là âm Hán \"tuyển thủ\".", "ex": "그 선수는 아주 유명해요.", "exVi": "Vận động viên đó rất nổi tiếng." },
-    { "ko": "이기다", "romaja": "igida", "vi": "Thắng", "pos": "verb", "img": "🥇", "connect": "\"I-ghi\" — giơ tay ăn mừng chiến thắng.", "ex": "우리 팀이 이겼어요!", "exVi": "Đội chúng tôi đã thắng!" },
-    { "ko": "지다", "romaja": "jida", "vi": "Thua", "pos": "verb", "img": "😞", "connect": "Ngược với 이기다 — cúi đầu vì thua.", "ex": "아쉽게 졌어요.", "exVi": "Tiếc là đã thua mất." },
-    { "ko": "연습하다", "romaja": "yeonseuphada", "vi": "Luyện tập", "pos": "verb", "img": "🔁", "connect": "\"Yơn-sưp\" chính là âm Hán \"luyện tập\".", "ex": "매일 한국어를 연습해요.", "exVi": "Ngày nào tôi cũng luyện tiếng Hàn." }
+    {
+      "ko": "운동",
+      "romaja": "undong",
+      "vi": "Thể dục / Vận động",
+      "pos": "noun",
+      "img": "🏃",
+      "connect": "\"Un-đông\" chính là âm Hán \"vận động\".",
+      "ex": "매일 아침에 운동해요.",
+      "exVi": "Sáng nào tôi cũng tập thể dục."
+    },
+    {
+      "ko": "축구",
+      "romaja": "chukgu",
+      "vi": "Bóng đá",
+      "pos": "noun",
+      "img": "⚽",
+      "connect": "\"Chuk-ku\" chính là âm Hán \"xúc cầu\".",
+      "ex": "친구들과 축구를 해요.",
+      "exVi": "Tôi đá bóng với đám bạn."
+    },
+    {
+      "ko": "야구",
+      "romaja": "yagu",
+      "vi": "Bóng chày",
+      "pos": "noun",
+      "img": "⚾",
+      "connect": "\"Ya-ku\" chính là âm Hán \"dã cầu\" — môn được xem nhiều nhất ở Hàn.",
+      "ex": "야구 경기를 보러 갔어요.",
+      "exVi": "Tôi đã đi xem trận bóng chày."
+    },
+    {
+      "ko": "농구",
+      "romaja": "nonggu",
+      "vi": "Bóng rổ",
+      "pos": "noun",
+      "img": "🏀",
+      "connect": "\"Nông-ku\" chính là âm Hán \"lung cầu\" — cùng đuôi 구 = cầu.",
+      "ex": "농구를 잘하세요?",
+      "exVi": "Bạn chơi bóng rổ giỏi không?"
+    },
+    {
+      "ko": "수영",
+      "romaja": "suyeong",
+      "vi": "Bơi lội",
+      "pos": "noun",
+      "img": "🏊",
+      "connect": "\"Su-yơng\" chính là âm Hán \"thuỷ vịnh\".",
+      "ex": "여름에 수영을 배웠어요.",
+      "exVi": "Mùa hè tôi đã học bơi."
+    },
+    {
+      "ko": "달리기",
+      "romaja": "dalligi",
+      "vi": "Chạy bộ",
+      "pos": "noun",
+      "img": "👟",
+      "connect": "달리다 = chạy → việc chạy.",
+      "ex": "아침 달리기가 좋아요.",
+      "exVi": "Chạy bộ buổi sáng rất tốt."
+    },
+    {
+      "ko": "요가",
+      "romaja": "yoga",
+      "vi": "Yoga",
+      "pos": "noun",
+      "img": "🧘",
+      "connect": "\"Yô-ga\" mượn từ \"yoga\".",
+      "ex": "요가를 시작했어요.",
+      "exVi": "Tôi đã bắt đầu tập yoga."
+    },
+    {
+      "ko": "경기",
+      "romaja": "gyeonggi",
+      "vi": "Trận đấu",
+      "pos": "noun",
+      "img": "🏟️",
+      "connect": "\"Kyơng-ki\" chính là âm Hán \"cạnh kỹ\".",
+      "ex": "경기가 몇 시에 시작해요?",
+      "exVi": "Trận đấu mấy giờ bắt đầu ạ?"
+    },
+    {
+      "ko": "선수",
+      "romaja": "seonsu",
+      "vi": "Vận động viên",
+      "pos": "noun",
+      "img": "🏅",
+      "connect": "\"Sơn-su\" chính là âm Hán \"tuyển thủ\".",
+      "ex": "그 선수는 아주 유명해요.",
+      "exVi": "Vận động viên đó rất nổi tiếng."
+    },
+    {
+      "ko": "이기다",
+      "romaja": "igida",
+      "vi": "Thắng",
+      "pos": "verb",
+      "img": "🥇",
+      "connect": "\"I-ghi\" — giơ tay ăn mừng chiến thắng.",
+      "ex": "우리 팀이 이겼어요!",
+      "exVi": "Đội chúng tôi đã thắng!"
+    },
+    {
+      "ko": "지다",
+      "romaja": "jida",
+      "vi": "Thua",
+      "pos": "verb",
+      "img": "😞",
+      "connect": "Ngược với 이기다 — cúi đầu vì thua.",
+      "ex": "아쉽게 졌어요.",
+      "exVi": "Tiếc là đã thua mất."
+    },
+    {
+      "ko": "연습하다",
+      "romaja": "yeonseuphada",
+      "vi": "Luyện tập",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "\"Yơn-sưp\" chính là âm Hán \"luyện tập\".",
+      "ex": "매일 한국어를 연습해요.",
+      "exVi": "Ngày nào tôi cũng luyện tiếng Hàn."
+    }
   ]
 }

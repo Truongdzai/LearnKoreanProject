@@ -6,16 +6,115 @@
   "tone": "tone-b",
   "emoji": "🕊️",
   "words": [
-    { "en": "god", "ipa": "/ɡɑːd/", "vi": "thần, Chúa", "pos": "noun", "img": "✨", "connect": "\"Gód\" — đấng tối cao (Oh my God!).", "ex": "They believe in God.", "exVi": "Họ tin vào Chúa." },
-    { "en": "pray", "ipa": "/preɪ/", "vi": "cầu nguyện", "pos": "verb", "img": "🙏", "connect": "\"Prê\" — chắp tay cầu khấn.", "ex": "She prays every morning.", "exVi": "Sáng nào cô ấy cũng cầu nguyện." },
-    { "en": "prayer", "ipa": "/prer/", "vi": "lời cầu nguyện", "pos": "noun", "img": "📿", "connect": "pray + er — bài khấn.", "ex": "He said a short prayer.", "exVi": "Anh ấy đọc một lời cầu nguyện ngắn." },
-    { "en": "spirit", "ipa": "/ˈspɪr.ɪt/", "vi": "tinh thần, linh hồn", "pos": "noun", "img": "💫", "connect": "\"Spi-rịt\" — tinh thần đồng đội (team spirit).", "ex": "The team has great spirit.", "exVi": "Đội có tinh thần tuyệt vời." },
-    { "en": "soul", "ipa": "/soʊl/", "vi": "linh hồn, tâm hồn", "pos": "noun", "img": "🕯️", "connect": "\"Sâu-l\" — soulmate: bạn tâm giao.", "ex": "Music feeds the soul.", "exVi": "Âm nhạc nuôi dưỡng tâm hồn." },
-    { "en": "heaven", "ipa": "/ˈhev.ən/", "vi": "thiên đường", "pos": "noun", "img": "☁️", "connect": "\"He-vừn\" — chốn bồng lai.", "ex": "The beach felt like heaven.", "exVi": "Bãi biển đẹp như thiên đường." },
-    { "en": "angel", "ipa": "/ˈeɪn.dʒəl/", "vi": "thiên thần", "pos": "noun", "img": "👼", "connect": "\"Ên-giồ\" — thiên thần có cánh.", "ex": "The baby looks like an angel.", "exVi": "Em bé trông như thiên thần." },
-    { "en": "ghost", "ipa": "/ɡoʊst/", "vi": "con ma", "pos": "noun", "img": "👻", "connect": "\"Gâu-st\" — chữ \"h\" câm; chuyện ma.", "ex": "Do you believe in ghosts?", "exVi": "Bạn có tin có ma không?" },
-    { "en": "monk", "ipa": "/mʌŋk/", "vi": "nhà sư", "pos": "noun", "img": "🧘", "connect": "\"Măng-k\" — sư thầy trong chùa.", "ex": "The monk lives in the temple.", "exVi": "Nhà sư sống trong chùa." },
-    { "en": "faith", "ipa": "/feɪθ/", "vi": "niềm tin, đức tin", "pos": "noun", "img": "🙏", "connect": "\"Phê-th\" — faithful là chung thuỷ.", "ex": "Have faith in yourself.", "exVi": "Hãy có niềm tin vào chính mình." },
-    { "en": "bless", "ipa": "/bles/", "vi": "ban phước", "pos": "verb", "img": "✨", "connect": "\"Blét-s\" — Bless you! (khi ai hắt hơi).", "ex": "Bless you! Are you catching a cold?", "exVi": "Cầu chúc cho bạn! Bạn bị cảm à?" }
+    {
+      "en": "god",
+      "ipa": "/ɡɑːd/",
+      "vi": "thần, Chúa",
+      "pos": "noun",
+      "img": "✨",
+      "connect": "\"Gód\" — đấng tối cao (Oh my God!).",
+      "ex": "They believe in God.",
+      "exVi": "Họ tin vào Chúa."
+    },
+    {
+      "en": "pray",
+      "ipa": "/preɪ/",
+      "vi": "cầu nguyện",
+      "pos": "verb",
+      "img": "🙏",
+      "connect": "\"Prê\" — chắp tay cầu khấn.",
+      "ex": "She prays every morning.",
+      "exVi": "Sáng nào cô ấy cũng cầu nguyện."
+    },
+    {
+      "en": "prayer",
+      "ipa": "/prer/",
+      "vi": "lời cầu nguyện",
+      "pos": "noun",
+      "img": "📿",
+      "connect": "pray + er — bài khấn.",
+      "ex": "He said a short prayer.",
+      "exVi": "Anh ấy đọc một lời cầu nguyện ngắn."
+    },
+    {
+      "en": "spirit",
+      "ipa": "/ˈspɪr.ɪt/",
+      "vi": "tinh thần, linh hồn",
+      "pos": "noun",
+      "img": "💫",
+      "connect": "\"Spi-rịt\" — tinh thần đồng đội (team spirit).",
+      "ex": "The team has great spirit.",
+      "exVi": "Đội có tinh thần tuyệt vời."
+    },
+    {
+      "en": "soul",
+      "ipa": "/soʊl/",
+      "vi": "linh hồn, tâm hồn",
+      "pos": "noun",
+      "img": "🕯️",
+      "connect": "\"Sâu-l\" — soulmate: bạn tâm giao.",
+      "ex": "Music feeds the soul.",
+      "exVi": "Âm nhạc nuôi dưỡng tâm hồn."
+    },
+    {
+      "en": "heaven",
+      "ipa": "/ˈhev.ən/",
+      "vi": "thiên đường",
+      "pos": "noun",
+      "img": "☁️",
+      "connect": "\"He-vừn\" — chốn bồng lai.",
+      "ex": "The beach felt like heaven.",
+      "exVi": "Bãi biển đẹp như thiên đường."
+    },
+    {
+      "en": "angel",
+      "ipa": "/ˈeɪn.dʒəl/",
+      "vi": "thiên thần",
+      "pos": "noun",
+      "img": "👼",
+      "connect": "\"Ên-giồ\" — thiên thần có cánh.",
+      "ex": "The baby looks like an angel.",
+      "exVi": "Em bé trông như thiên thần."
+    },
+    {
+      "en": "ghost",
+      "ipa": "/ɡoʊst/",
+      "vi": "con ma",
+      "pos": "noun",
+      "img": "👻",
+      "connect": "\"Gâu-st\" — chữ \"h\" câm; chuyện ma.",
+      "ex": "Do you believe in ghosts?",
+      "exVi": "Bạn có tin có ma không?"
+    },
+    {
+      "en": "monk",
+      "ipa": "/mʌŋk/",
+      "vi": "nhà sư",
+      "pos": "noun",
+      "img": "🧘",
+      "connect": "\"Măng-k\" — sư thầy trong chùa.",
+      "ex": "The monk lives in the temple.",
+      "exVi": "Nhà sư sống trong chùa."
+    },
+    {
+      "en": "faith",
+      "ipa": "/feɪθ/",
+      "vi": "niềm tin, đức tin",
+      "pos": "noun",
+      "img": "🙏",
+      "connect": "\"Phê-th\" — faithful là chung thuỷ.",
+      "ex": "Have faith in yourself.",
+      "exVi": "Hãy có niềm tin vào chính mình."
+    },
+    {
+      "en": "bless",
+      "ipa": "/bles/",
+      "vi": "ban phước",
+      "pos": "verb",
+      "img": "✨",
+      "connect": "\"Blét-s\" — Bless you! (khi ai hắt hơi).",
+      "ex": "Bless you! Are you catching a cold?",
+      "exVi": "Cầu chúc cho bạn! Bạn bị cảm à?"
+    }
   ]
 }

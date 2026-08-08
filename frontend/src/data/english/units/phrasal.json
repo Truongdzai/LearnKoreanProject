@@ -6,33 +6,285 @@
   "tone": "tone-f",
   "emoji": "🔗",
   "words": [
-    { "en": "get up", "ipa": "/ɡet ʌp/", "vi": "thức dậy, ra khỏi giường", "pos": "phrase", "img": "🛏️", "connect": "get (dậy) + up (lên) — bật dậy khỏi giường.", "ex": "I get up at six every day.", "exVi": "Ngày nào tôi cũng dậy lúc sáu giờ." },
-    { "en": "wake up", "ipa": "/weɪk ʌp/", "vi": "tỉnh giấc", "pos": "phrase", "img": "⏰", "connect": "wake (tỉnh) + up — mở mắt tỉnh dậy.", "ex": "Wake up! You're late!", "exVi": "Dậy đi! Muộn rồi đấy!" },
-    { "en": "turn on", "ipa": "/tɜːrn ɑːn/", "vi": "bật (đèn, máy)", "pos": "phrase", "img": "💡", "connect": "turn + on — bật công tắc lên.", "ex": "Turn on the light, please.", "exVi": "Bật đèn lên giúp nhé." },
-    { "en": "turn off", "ipa": "/tɜːrn ɔːf/", "vi": "tắt (đèn, máy)", "pos": "phrase", "img": "🔌", "connect": "turn + off — ngắt đi.", "ex": "Turn off the TV before bed.", "exVi": "Tắt tivi trước khi ngủ." },
-    { "en": "put on", "ipa": "/pʊt ɑːn/", "vi": "mặc, đội vào", "pos": "phrase", "img": "👕", "connect": "put (đặt) + on (lên người).", "ex": "Put on your coat; it's cold.", "exVi": "Mặc áo khoác vào, trời lạnh đấy." },
-    { "en": "take off", "ipa": "/teɪk ɔːf/", "vi": "cởi ra; (máy bay) cất cánh", "pos": "phrase", "img": "🛫", "connect": "take + off — bỏ ra khỏi người / rời mặt đất.", "ex": "Take off your shoes here.", "exVi": "Cởi giày ở đây nhé." },
-    { "en": "look for", "ipa": "/lʊk fɔːr/", "vi": "tìm kiếm", "pos": "phrase", "img": "🔍", "connect": "look (nhìn) + for (cho cái gì) — đi tìm.", "ex": "I'm looking for my keys.", "exVi": "Tôi đang tìm chìa khoá." },
-    { "en": "look after", "ipa": "/lʊk ˈæf.tɚ/", "vi": "chăm sóc, trông nom", "pos": "phrase", "img": "🤱", "connect": "look (nhìn) + after — để mắt chăm nom.", "ex": "She looks after her little brother.", "exVi": "Cô ấy trông em trai." },
-    { "en": "give up", "ipa": "/ɡɪv ʌp/", "vi": "bỏ cuộc, từ bỏ", "pos": "phrase", "img": "🏳️", "connect": "give (đưa) + up — buông xuôi.", "ex": "Never give up on your dreams.", "exVi": "Đừng bao giờ từ bỏ ước mơ." },
-    { "en": "find out", "ipa": "/faɪnd aʊt/", "vi": "tìm ra, phát hiện", "pos": "phrase", "img": "🕵️", "connect": "find (tìm) + out — lần ra sự thật.", "ex": "I found out the truth yesterday.", "exVi": "Hôm qua tôi đã phát hiện ra sự thật." },
-    { "en": "come back", "ipa": "/kʌm bæk/", "vi": "quay lại, trở về", "pos": "phrase", "img": "🔙", "connect": "come (đến) + back (lại).", "ex": "Come back soon!", "exVi": "Sớm quay lại nhé!" },
-    { "en": "go out", "ipa": "/ɡoʊ aʊt/", "vi": "ra ngoài, đi chơi", "pos": "phrase", "img": "🚶", "connect": "go (đi) + out (ra ngoài).", "ex": "Let's go out for dinner.", "exVi": "Mình ra ngoài ăn tối đi." },
-    { "en": "pick up", "ipa": "/pɪk ʌp/", "vi": "nhặt lên; đón (ai)", "pos": "phrase", "img": "🚗", "connect": "pick (nhặt) + up — nhặt lên / đón người.", "ex": "I'll pick you up at seven.", "exVi": "Bảy giờ tôi sẽ đón bạn." },
-    { "en": "throw away", "ipa": "/θroʊ əˈweɪ/", "vi": "vứt đi", "pos": "phrase", "img": "🗑️", "connect": "throw (ném) + away (đi xa).", "ex": "Throw away the old newspapers.", "exVi": "Vứt đống báo cũ đi." },
-    { "en": "sit down", "ipa": "/sɪt daʊn/", "vi": "ngồi xuống", "pos": "phrase", "img": "🪑", "connect": "sit (ngồi) + down (xuống).", "ex": "Please sit down and relax.", "exVi": "Mời ngồi xuống nghỉ ngơi." },
-    { "en": "stand up", "ipa": "/stænd ʌp/", "vi": "đứng dậy", "pos": "phrase", "img": "🧍", "connect": "stand (đứng) + up (lên).", "ex": "Stand up when the teacher comes in.", "exVi": "Đứng dậy khi cô giáo vào lớp." },
-    { "en": "get off", "ipa": "/ɡet ɔːf/", "vi": "xuống (xe, tàu)", "pos": "phrase", "img": "🚌", "connect": "get + off — rời khỏi xe.", "ex": "Get off at the next stop.", "exVi": "Xuống ở bến tiếp theo nhé." },
-    { "en": "run out", "ipa": "/rʌn aʊt/", "vi": "hết, cạn kiệt", "pos": "phrase", "img": "⛽", "connect": "run + out — chạy tới cạn.", "ex": "We ran out of milk.", "exVi": "Nhà mình hết sữa rồi." },
-    { "en": "break down", "ipa": "/breɪk daʊn/", "vi": "hỏng (máy, xe)", "pos": "phrase", "img": "🚗", "connect": "break (hỏng) + down — chết máy.", "ex": "The car broke down on the highway.", "exVi": "Chiếc xe chết máy trên cao tốc." },
-    { "en": "fill in", "ipa": "/fɪl ɪn/", "vi": "điền vào (mẫu đơn)", "pos": "phrase", "img": "📝", "connect": "fill (điền) + in (vào).", "ex": "Fill in your name and address.", "exVi": "Điền tên và địa chỉ của bạn vào." },
-    { "en": "hang up", "ipa": "/hæŋ ʌp/", "vi": "cúp máy; treo lên", "pos": "phrase", "img": "📞", "connect": "hang (treo) + up — gác máy điện thoại.", "ex": "Don't hang up! I need to tell you something.", "exVi": "Đừng cúp máy! Tôi cần nói với bạn một chuyện." },
-    { "en": "log in", "ipa": "/lɔːɡ ɪn/", "vi": "đăng nhập", "pos": "phrase", "img": "💻", "connect": "log + in — vào tài khoản.", "ex": "Log in with your password.", "exVi": "Đăng nhập bằng mật khẩu của bạn." },
-    { "en": "calm down", "ipa": "/kɑːm daʊn/", "vi": "bình tĩnh lại", "pos": "phrase", "img": "😮‍💨", "connect": "calm (bình tĩnh) + down — hạ hoả.", "ex": "Calm down and tell me what happened.", "exVi": "Bình tĩnh lại rồi kể tôi nghe chuyện gì." },
-    { "en": "show up", "ipa": "/ʃoʊ ʌp/", "vi": "xuất hiện, có mặt", "pos": "phrase", "img": "🚪", "connect": "show + up — ló mặt tới.", "ex": "He didn't show up at the party.", "exVi": "Anh ấy không xuất hiện ở bữa tiệc." },
-    { "en": "work out", "ipa": "/wɜːrk aʊt/", "vi": "tập thể dục; suôn sẻ", "pos": "phrase", "img": "🏋️", "connect": "work + out — tập gym / mọi việc ổn thoả.", "ex": "I work out three times a week.", "exVi": "Tôi tập thể dục ba lần mỗi tuần." },
-    { "en": "put off", "ipa": "/pʊt ɔːf/", "vi": "hoãn lại", "pos": "phrase", "img": "📅", "connect": "put + off — dời sang lúc khác.", "ex": "Don't put off your homework.", "exVi": "Đừng trì hoãn bài tập về nhà." },
-    { "en": "set up", "ipa": "/set ʌp/", "vi": "thiết lập, dựng lên", "pos": "phrase", "img": "🛠️", "connect": "set + up — cài đặt, lập nên.", "ex": "They set up a new company.", "exVi": "Họ lập một công ty mới." },
-    { "en": "grow up", "ipa": "/ɡroʊ ʌp/", "vi": "lớn lên, trưởng thành", "pos": "phrase", "img": "🧒", "connect": "grow (lớn) + up — trưởng thành.", "ex": "I grew up in a small village.", "exVi": "Tôi lớn lên ở một ngôi làng nhỏ." }
+    {
+      "en": "get up",
+      "ipa": "/ɡet ʌp/",
+      "vi": "thức dậy, ra khỏi giường",
+      "pos": "phrase",
+      "img": "🛏️",
+      "connect": "get (dậy) + up (lên) — bật dậy khỏi giường.",
+      "ex": "I get up at six every day.",
+      "exVi": "Ngày nào tôi cũng dậy lúc sáu giờ."
+    },
+    {
+      "en": "wake up",
+      "ipa": "/weɪk ʌp/",
+      "vi": "tỉnh giấc",
+      "pos": "phrase",
+      "img": "⏰",
+      "connect": "wake (tỉnh) + up — mở mắt tỉnh dậy.",
+      "ex": "Wake up! You're late!",
+      "exVi": "Dậy đi! Muộn rồi đấy!"
+    },
+    {
+      "en": "turn on",
+      "ipa": "/tɜːrn ɑːn/",
+      "vi": "bật (đèn, máy)",
+      "pos": "phrase",
+      "img": "💡",
+      "connect": "turn + on — bật công tắc lên.",
+      "ex": "Turn on the light, please.",
+      "exVi": "Bật đèn lên giúp nhé."
+    },
+    {
+      "en": "turn off",
+      "ipa": "/tɜːrn ɔːf/",
+      "vi": "tắt (đèn, máy)",
+      "pos": "phrase",
+      "img": "🔌",
+      "connect": "turn + off — ngắt đi.",
+      "ex": "Turn off the TV before bed.",
+      "exVi": "Tắt tivi trước khi ngủ."
+    },
+    {
+      "en": "put on",
+      "ipa": "/pʊt ɑːn/",
+      "vi": "mặc, đội vào",
+      "pos": "phrase",
+      "img": "👕",
+      "connect": "put (đặt) + on (lên người).",
+      "ex": "Put on your coat; it's cold.",
+      "exVi": "Mặc áo khoác vào, trời lạnh đấy."
+    },
+    {
+      "en": "take off",
+      "ipa": "/teɪk ɔːf/",
+      "vi": "cởi ra; (máy bay) cất cánh",
+      "pos": "phrase",
+      "img": "🛫",
+      "connect": "take + off — bỏ ra khỏi người / rời mặt đất.",
+      "ex": "Take off your shoes here.",
+      "exVi": "Cởi giày ở đây nhé."
+    },
+    {
+      "en": "look for",
+      "ipa": "/lʊk fɔːr/",
+      "vi": "tìm kiếm",
+      "pos": "phrase",
+      "img": "🔍",
+      "connect": "look (nhìn) + for (cho cái gì) — đi tìm.",
+      "ex": "I'm looking for my keys.",
+      "exVi": "Tôi đang tìm chìa khoá."
+    },
+    {
+      "en": "look after",
+      "ipa": "/lʊk ˈæf.tɚ/",
+      "vi": "chăm sóc, trông nom",
+      "pos": "phrase",
+      "img": "🤱",
+      "connect": "look (nhìn) + after — để mắt chăm nom.",
+      "ex": "She looks after her little brother.",
+      "exVi": "Cô ấy trông em trai."
+    },
+    {
+      "en": "give up",
+      "ipa": "/ɡɪv ʌp/",
+      "vi": "bỏ cuộc, từ bỏ",
+      "pos": "phrase",
+      "img": "🏳️",
+      "connect": "give (đưa) + up — buông xuôi.",
+      "ex": "Never give up on your dreams.",
+      "exVi": "Đừng bao giờ từ bỏ ước mơ."
+    },
+    {
+      "en": "find out",
+      "ipa": "/faɪnd aʊt/",
+      "vi": "tìm ra, phát hiện",
+      "pos": "phrase",
+      "img": "🕵️",
+      "connect": "find (tìm) + out — lần ra sự thật.",
+      "ex": "I found out the truth yesterday.",
+      "exVi": "Hôm qua tôi đã phát hiện ra sự thật."
+    },
+    {
+      "en": "come back",
+      "ipa": "/kʌm bæk/",
+      "vi": "quay lại, trở về",
+      "pos": "phrase",
+      "img": "🔙",
+      "connect": "come (đến) + back (lại).",
+      "ex": "Come back soon!",
+      "exVi": "Sớm quay lại nhé!"
+    },
+    {
+      "en": "go out",
+      "ipa": "/ɡoʊ aʊt/",
+      "vi": "ra ngoài, đi chơi",
+      "pos": "phrase",
+      "img": "🚶",
+      "connect": "go (đi) + out (ra ngoài).",
+      "ex": "Let's go out for dinner.",
+      "exVi": "Mình ra ngoài ăn tối đi."
+    },
+    {
+      "en": "pick up",
+      "ipa": "/pɪk ʌp/",
+      "vi": "nhặt lên; đón (ai)",
+      "pos": "phrase",
+      "img": "🚗",
+      "connect": "pick (nhặt) + up — nhặt lên / đón người.",
+      "ex": "I'll pick you up at seven.",
+      "exVi": "Bảy giờ tôi sẽ đón bạn."
+    },
+    {
+      "en": "throw away",
+      "ipa": "/θroʊ əˈweɪ/",
+      "vi": "vứt đi",
+      "pos": "phrase",
+      "img": "🗑️",
+      "connect": "throw (ném) + away (đi xa).",
+      "ex": "Throw away the old newspapers.",
+      "exVi": "Vứt đống báo cũ đi."
+    },
+    {
+      "en": "sit down",
+      "ipa": "/sɪt daʊn/",
+      "vi": "ngồi xuống",
+      "pos": "phrase",
+      "img": "🪑",
+      "connect": "sit (ngồi) + down (xuống).",
+      "ex": "Please sit down and relax.",
+      "exVi": "Mời ngồi xuống nghỉ ngơi."
+    },
+    {
+      "en": "stand up",
+      "ipa": "/stænd ʌp/",
+      "vi": "đứng dậy",
+      "pos": "phrase",
+      "img": "🧍",
+      "connect": "stand (đứng) + up (lên).",
+      "ex": "Stand up when the teacher comes in.",
+      "exVi": "Đứng dậy khi cô giáo vào lớp."
+    },
+    {
+      "en": "get off",
+      "ipa": "/ɡet ɔːf/",
+      "vi": "xuống (xe, tàu)",
+      "pos": "phrase",
+      "img": "🚌",
+      "connect": "get + off — rời khỏi xe.",
+      "ex": "Get off at the next stop.",
+      "exVi": "Xuống ở bến tiếp theo nhé."
+    },
+    {
+      "en": "run out",
+      "ipa": "/rʌn aʊt/",
+      "vi": "hết, cạn kiệt",
+      "pos": "phrase",
+      "img": "⛽",
+      "connect": "run + out — chạy tới cạn.",
+      "ex": "We ran out of milk.",
+      "exVi": "Nhà mình hết sữa rồi."
+    },
+    {
+      "en": "break down",
+      "ipa": "/breɪk daʊn/",
+      "vi": "hỏng (máy, xe)",
+      "pos": "phrase",
+      "img": "🚗",
+      "connect": "break (hỏng) + down — chết máy.",
+      "ex": "The car broke down on the highway.",
+      "exVi": "Chiếc xe chết máy trên cao tốc."
+    },
+    {
+      "en": "fill in",
+      "ipa": "/fɪl ɪn/",
+      "vi": "điền vào (mẫu đơn)",
+      "pos": "phrase",
+      "img": "📝",
+      "connect": "fill (điền) + in (vào).",
+      "ex": "Fill in your name and address.",
+      "exVi": "Điền tên và địa chỉ của bạn vào."
+    },
+    {
+      "en": "hang up",
+      "ipa": "/hæŋ ʌp/",
+      "vi": "cúp máy; treo lên",
+      "pos": "phrase",
+      "img": "📞",
+      "connect": "hang (treo) + up — gác máy điện thoại.",
+      "ex": "Don't hang up! I need to tell you something.",
+      "exVi": "Đừng cúp máy! Tôi cần nói với bạn một chuyện."
+    },
+    {
+      "en": "log in",
+      "ipa": "/lɔːɡ ɪn/",
+      "vi": "đăng nhập",
+      "pos": "phrase",
+      "img": "💻",
+      "connect": "log + in — vào tài khoản.",
+      "ex": "Log in with your password.",
+      "exVi": "Đăng nhập bằng mật khẩu của bạn."
+    },
+    {
+      "en": "calm down",
+      "ipa": "/kɑːm daʊn/",
+      "vi": "bình tĩnh lại",
+      "pos": "phrase",
+      "img": "😮‍💨",
+      "connect": "calm (bình tĩnh) + down — hạ hoả.",
+      "ex": "Calm down and tell me what happened.",
+      "exVi": "Bình tĩnh lại rồi kể tôi nghe chuyện gì."
+    },
+    {
+      "en": "show up",
+      "ipa": "/ʃoʊ ʌp/",
+      "vi": "xuất hiện, có mặt",
+      "pos": "phrase",
+      "img": "🚪",
+      "connect": "show + up — ló mặt tới.",
+      "ex": "He didn't show up at the party.",
+      "exVi": "Anh ấy không xuất hiện ở bữa tiệc."
+    },
+    {
+      "en": "work out",
+      "ipa": "/wɜːrk aʊt/",
+      "vi": "tập thể dục; suôn sẻ",
+      "pos": "phrase",
+      "img": "🏋️",
+      "connect": "work + out — tập gym / mọi việc ổn thoả.",
+      "ex": "I work out three times a week.",
+      "exVi": "Tôi tập thể dục ba lần mỗi tuần."
+    },
+    {
+      "en": "put off",
+      "ipa": "/pʊt ɔːf/",
+      "vi": "hoãn lại",
+      "pos": "phrase",
+      "img": "📅",
+      "connect": "put + off — dời sang lúc khác.",
+      "ex": "Don't put off your homework.",
+      "exVi": "Đừng trì hoãn bài tập về nhà."
+    },
+    {
+      "en": "set up",
+      "ipa": "/set ʌp/",
+      "vi": "thiết lập, dựng lên",
+      "pos": "phrase",
+      "img": "🛠️",
+      "connect": "set + up — cài đặt, lập nên.",
+      "ex": "They set up a new company.",
+      "exVi": "Họ lập một công ty mới."
+    },
+    {
+      "en": "grow up",
+      "ipa": "/ɡroʊ ʌp/",
+      "vi": "lớn lên, trưởng thành",
+      "pos": "phrase",
+      "img": "🧒",
+      "connect": "grow (lớn) + up — trưởng thành.",
+      "ex": "I grew up in a small village.",
+      "exVi": "Tôi lớn lên ở một ngôi làng nhỏ."
+    }
   ]
 }

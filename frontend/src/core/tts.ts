@@ -1,11 +1,16 @@
 import type { ScriptLine } from '@/data/toeicCore'
 
 
+export type Accent = 'us' | 'uk'
+
 let voiceM: SpeechSynthesisVoice | null = null
 let voiceW: SpeechSynthesisVoice | null = null
 const listeners = new Set<() => void>()
+const accentCache: Partial<Record<Accent, SpeechSynthesisVoice | null>> = {}
 
 function refreshVoices(): void {
+  delete accentCache.us
+  delete accentCache.uk
   try {
     const all = speechSynthesis.getVoices().filter((v) => v.lang.toLowerCase().startsWith('en'))
     if (!all.length) { voiceM = null; voiceW = null; return }
@@ -95,6 +100,71 @@ export function speakEN(text: string, rate = 0.95): void {
   speakScript([{ s: 'W', text }], { rate })
 }
 
+
+const ACCENT_LANG: Record<Accent, string> = { us: 'en-US', uk: 'en-GB' }
+
+const NICE_US = /aria|jenny|guy|davis|ana|michelle|roger|steffan|samantha|ava|allison|nicole|zira|david|mark/i
+const NICE_UK = /sonia|ryan|libby|abbi|alfie|bella|elliot|ethan|hollie|maisie|noah|oliver|thomas|kate|serena|daniel|hazel|george|arthur/i
+const HI_FI = /natural|neural|online|premium|enhanced|siri|google/i
+
+function accentScore(v: SpeechSynthesisVoice, accent: Accent): number {
+  const lang = v.lang.replace('_', '-').toLowerCase()
+  const want = ACCENT_LANG[accent].toLowerCase()
+  let n = 0
+  if (lang === want) n += 100
+  else if (accent === 'uk' && /^en-(gb|ie|au|nz|za|in)/.test(lang)) n += 40
+  else if (accent === 'us' && /^en-(us|ca)/.test(lang)) n += 40
+  else if (lang.startsWith('en')) n += 5
+  else return -1
+  if (HI_FI.test(v.name)) n += 35
+  if (!v.localService) n += 12
+  if ((accent === 'us' ? NICE_US : NICE_UK).test(v.name)) n += 18
+  return n
+}
+
+function accentVoice(accent: Accent): SpeechSynthesisVoice | null {
+  if (accentCache[accent] !== undefined) return accentCache[accent] ?? null
+  let best: SpeechSynthesisVoice | null = null
+  let bestScore = 0
+  try {
+    for (const v of speechSynthesis.getVoices()) {
+      const s = accentScore(v, accent)
+      if (s > bestScore) { bestScore = s; best = v }
+    }
+  } catch {
+    best = null
+  }
+  accentCache[accent] = best
+  return best
+}
+
+export function accentStatus(accent: Accent): 'exact' | 'fallback' | 'none' {
+  const v = accentVoice(accent)
+  if (!v) return 'none'
+  return v.lang.replace('_', '-').toLowerCase() === ACCENT_LANG[accent].toLowerCase() ? 'exact' : 'fallback'
+}
+
+export function accentVoiceName(accent: Accent): string {
+  return accentVoice(accent)?.name ?? ''
+}
+
+export function speakAccent(text: string, accent: Accent, rate = 0.92): boolean {
+  const voice = accentVoice(accent)
+  if (!voice) return false
+  try {
+    speechSynthesis.cancel()
+    const u = new SpeechSynthesisUtterance(text)
+    u.voice = voice
+    u.lang = voice.lang || ACCENT_LANG[accent]
+    u.rate = rate
+    u.pitch = 1
+    speechSynthesis.speak(u)
+    return true
+  } catch {
+    return false
+  }
+}
+
 export function speakLang(text: string, lang: string, rate = 0.95): void {
   try {
     const pre = lang.slice(0, 2).toLowerCase()
@@ -106,6 +176,27 @@ export function speakLang(text: string, lang: string, rate = 0.95): void {
     u.voice = voice
     u.rate = rate
     speechSynthesis.speak(u)
+  } catch {
+  }
+}
+
+export function speakFocus(parts: string[], at: number, lang = 'en-US', rate = 0.95): void {
+  try {
+    const pre = lang.slice(0, 2).toLowerCase()
+    const voice = speechSynthesis.getVoices().find((v) => v.lang.toLowerCase().startsWith(pre))
+    if (!voice) return
+    speechSynthesis.cancel()
+    const chunks = [parts.slice(0, at).join(' '), parts[at] ?? '', parts.slice(at + 1).join(' ')]
+    chunks.forEach((text, i) => {
+      if (!text.trim()) return
+      const u = new SpeechSynthesisUtterance(text)
+      u.lang = lang
+      u.voice = voice
+      u.rate = i === 1 ? rate * 0.75 : rate * 1.1
+      u.pitch = i === 1 ? 1.35 : 0.92
+      u.volume = i === 1 ? 1 : 0.7
+      speechSynthesis.speak(u)
+    })
   } catch {
   }
 }

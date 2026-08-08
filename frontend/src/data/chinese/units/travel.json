@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "🧳",
   "words": [
-    { "zh": "机场", "pinyin": "jī chǎng", "vi": "Sân bay", "pos": "noun", "img": "🛫", "connect": "机场 = cơ trường, sân của máy bay. Chữ trường trong quảng trường, sân vận động.", "ex": "我去机场接朋友。", "exVi": "Tôi ra sân bay đón bạn." },
-    { "zh": "护照", "pinyin": "hù zhào", "vi": "Hộ chiếu", "pos": "noun", "img": "🛂", "connect": "护照 = hộ chiếu, đúng chữ trong tiếng Việt.", "ex": "请出示您的护照。", "exVi": "Xin vui lòng xuất trình hộ chiếu." },
-    { "zh": "签证", "pinyin": "qiān zhèng", "vi": "Thị thực, visa", "pos": "noun", "img": "📑", "connect": "签证 = thiêm chứng, chữ chứng trong chứng nhận, giấy chứng.", "ex": "我的签证下个月到期。", "exVi": "Visa của tôi tháng sau hết hạn." },
-    { "zh": "宾馆", "pinyin": "bīn guǎn", "vi": "Khách sạn", "pos": "noun", "img": "🏨", "connect": "宾馆 = tân quán, chữ tân trong tân khách (khách quý) — quán trọ cho khách.", "ex": "我住在火车站附近的宾馆。", "exVi": "Tôi ở khách sạn gần ga tàu." },
-    { "zh": "房卡", "pinyin": "fáng kǎ", "vi": "Thẻ phòng", "pos": "noun", "img": "🔑", "connect": "房卡 = phòng ca, chữ ca phiên âm từ card — thẻ mở cửa phòng.", "ex": "我的房卡丢了。", "exVi": "Tôi làm mất thẻ phòng rồi." },
-    { "zh": "行李", "pinyin": "xíng li", "vi": "Hành lý", "pos": "noun", "img": "🧳", "connect": "行李 = hành lý, đúng chữ trong tiếng Việt.", "ex": "我的行李很重。", "exVi": "Hành lý của tôi rất nặng." },
-    { "zh": "地图", "pinyin": "dì tú", "vi": "Bản đồ", "pos": "noun", "img": "🗺️", "connect": "地图 = địa đồ, hình vẽ mặt đất. Chữ đồ trong đồ hoạ, bản đồ.", "ex": "手机上有地图。", "exVi": "Trên điện thoại có bản đồ." },
-    { "zh": "出发", "pinyin": "chū fā", "vi": "Xuất phát, khởi hành", "pos": "verb", "img": "🚩", "connect": "出发 = xuất phát, đúng chữ trong tiếng Việt.", "ex": "我们明天早上出发。", "exVi": "Sáng mai chúng ta xuất phát." },
-    { "zh": "到", "pinyin": "dào", "vi": "Đến, tới", "pos": "verb", "img": "🏁", "connect": "到 = đáo, chữ trong chu đáo, đáo hạn (đến hạn).", "ex": "火车几点到？", "exVi": "Mấy giờ tàu tới nơi?" },
-    { "zh": "预订", "pinyin": "yù dìng", "vi": "Đặt trước", "pos": "verb", "img": "📅", "connect": "预订 = dự đính, chữ dự trong dự báo, dự kiến — định trước.", "ex": "我预订了一个房间。", "exVi": "Tôi đã đặt trước một phòng." },
-    { "zh": "安全", "pinyin": "ān quán", "vi": "An toàn", "pos": "adj", "img": "🛡️", "connect": "安全 = an toàn, đúng chữ trong tiếng Việt.", "ex": "这里晚上很安全。", "exVi": "Buổi tối ở đây rất an toàn." },
-    { "zh": "帮忙", "pinyin": "bāng máng", "vi": "Giúp đỡ", "pos": "verb", "img": "🤝", "connect": "帮忙 = bang mang, đỡ hộ lúc bận. Chữ bang trong bang trợ, giúp sức.", "ex": "请帮我一个忙。", "exVi": "Xin giúp tôi một việc." }
+    {
+      "zh": "机场",
+      "pinyin": "jī chǎng",
+      "vi": "Sân bay",
+      "pos": "noun",
+      "img": "🛫",
+      "connect": "机场 = cơ trường, sân của máy bay. Chữ trường trong quảng trường, sân vận động.",
+      "ex": "我去机场接朋友。",
+      "exVi": "Tôi ra sân bay đón bạn."
+    },
+    {
+      "zh": "护照",
+      "pinyin": "hù zhào",
+      "vi": "Hộ chiếu",
+      "pos": "noun",
+      "img": "🛂",
+      "connect": "护照 = hộ chiếu, đúng chữ trong tiếng Việt.",
+      "ex": "请出示您的护照。",
+      "exVi": "Xin vui lòng xuất trình hộ chiếu."
+    },
+    {
+      "zh": "签证",
+      "pinyin": "qiān zhèng",
+      "vi": "Thị thực, visa",
+      "pos": "noun",
+      "img": "📑",
+      "connect": "签证 = thiêm chứng, chữ chứng trong chứng nhận, giấy chứng.",
+      "ex": "我的签证下个月到期。",
+      "exVi": "Visa của tôi tháng sau hết hạn."
+    },
+    {
+      "zh": "宾馆",
+      "pinyin": "bīn guǎn",
+      "vi": "Khách sạn",
+      "pos": "noun",
+      "img": "🏨",
+      "connect": "宾馆 = tân quán, chữ tân trong tân khách (khách quý) — quán trọ cho khách.",
+      "ex": "我住在火车站附近的宾馆。",
+      "exVi": "Tôi ở khách sạn gần ga tàu."
+    },
+    {
+      "zh": "房卡",
+      "pinyin": "fáng kǎ",
+      "vi": "Thẻ phòng",
+      "pos": "noun",
+      "img": "🔑",
+      "connect": "房卡 = phòng ca, chữ ca phiên âm từ card — thẻ mở cửa phòng.",
+      "ex": "我的房卡丢了。",
+      "exVi": "Tôi làm mất thẻ phòng rồi."
+    },
+    {
+      "zh": "行李",
+      "pinyin": "xíng li",
+      "vi": "Hành lý",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "行李 = hành lý, đúng chữ trong tiếng Việt.",
+      "ex": "我的行李很重。",
+      "exVi": "Hành lý của tôi rất nặng."
+    },
+    {
+      "zh": "地图",
+      "pinyin": "dì tú",
+      "vi": "Bản đồ",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "地图 = địa đồ, hình vẽ mặt đất. Chữ đồ trong đồ hoạ, bản đồ.",
+      "ex": "手机上有地图。",
+      "exVi": "Trên điện thoại có bản đồ."
+    },
+    {
+      "zh": "出发",
+      "pinyin": "chū fā",
+      "vi": "Xuất phát, khởi hành",
+      "pos": "verb",
+      "img": "🚩",
+      "connect": "出发 = xuất phát, đúng chữ trong tiếng Việt.",
+      "ex": "我们明天早上出发。",
+      "exVi": "Sáng mai chúng ta xuất phát."
+    },
+    {
+      "zh": "到",
+      "pinyin": "dào",
+      "vi": "Đến, tới",
+      "pos": "verb",
+      "img": "🏁",
+      "connect": "到 = đáo, chữ trong chu đáo, đáo hạn (đến hạn).",
+      "ex": "火车几点到？",
+      "exVi": "Mấy giờ tàu tới nơi?"
+    },
+    {
+      "zh": "预订",
+      "pinyin": "yù dìng",
+      "vi": "Đặt trước",
+      "pos": "verb",
+      "img": "📅",
+      "connect": "预订 = dự đính, chữ dự trong dự báo, dự kiến — định trước.",
+      "ex": "我预订了一个房间。",
+      "exVi": "Tôi đã đặt trước một phòng."
+    },
+    {
+      "zh": "安全",
+      "pinyin": "ān quán",
+      "vi": "An toàn",
+      "pos": "adj",
+      "img": "🛡️",
+      "connect": "安全 = an toàn, đúng chữ trong tiếng Việt.",
+      "ex": "这里晚上很安全。",
+      "exVi": "Buổi tối ở đây rất an toàn."
+    },
+    {
+      "zh": "帮忙",
+      "pinyin": "bāng máng",
+      "vi": "Giúp đỡ",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "帮忙 = bang mang, đỡ hộ lúc bận. Chữ bang trong bang trợ, giúp sức.",
+      "ex": "请帮我一个忙。",
+      "exVi": "Xin giúp tôi một việc."
+    }
   ]
 }

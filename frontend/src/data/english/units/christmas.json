@@ -6,31 +6,265 @@
   "tone": "tone-a",
   "emoji": "🎄",
   "words": [
-    { "en": "christmas", "ipa": "/ˈkrɪs.məs/", "vi": "lễ Giáng sinh", "pos": "noun", "img": "🎄", "connect": "\"Krít-x-mợs\" — Noel, cây thông và quà.", "ex": "We decorate a tree at Christmas.", "exVi": "Chúng tôi trang trí cây thông vào dịp Giáng sinh." },
-    { "en": "carol", "ipa": "/ˈker.əl/", "vi": "bài hát mừng Giáng sinh", "pos": "noun", "img": "🎶", "connect": "\"Ke-rồl\" — dàn đồng ca hát đêm Noel.", "ex": "Children sing carols in December.", "exVi": "Trẻ em hát những bài mừng Giáng sinh vào tháng 12." },
-    { "en": "reindeer", "ipa": "/ˈreɪn.dɪr/", "vi": "tuần lộc", "pos": "noun", "img": "🦌", "connect": "\"Rêin-đia\" — tuần lộc kéo xe ông già Noel.", "ex": "The reindeer pull Santa's sleigh.", "exVi": "Đàn tuần lộc kéo xe trượt của ông già Noel." },
-    { "en": "sleigh", "ipa": "/sleɪ/", "vi": "xe trượt tuyết", "pos": "noun", "img": "🛷", "connect": "\"Sờ-lây\" — xe trượt lướt trên tuyết.", "ex": "Santa rides a sleigh at night.", "exVi": "Ông già Noel cưỡi xe trượt tuyết trong đêm." },
-    { "en": "elf", "ipa": "/elf/", "vi": "chú lùn, yêu tinh nhỏ", "pos": "noun", "img": "🧝", "connect": "\"Eo-f\" — chú lùn gói quà trong xưởng Noel.", "ex": "The elves make toys for Santa.", "exVi": "Các chú lùn làm đồ chơi cho ông già Noel." },
-    { "en": "ornament", "ipa": "/ˈɔːr.nə.mənt/", "vi": "đồ trang trí (cây thông)", "pos": "noun", "img": "🎐", "connect": "\"Oó-nờ-mừnt\" — quả cầu treo lấp lánh.", "ex": "She hung ornaments on the tree.", "exVi": "Cô ấy treo đồ trang trí lên cây thông." },
-    { "en": "wreath", "ipa": "/riːθ/", "vi": "vòng nguyệt quế treo cửa", "pos": "noun", "img": "🎍", "connect": "\"Ri-th\" — vòng lá tròn treo trước cửa Noel.", "ex": "There is a wreath on the door.", "exVi": "Có một vòng nguyệt quế trên cánh cửa." },
-    { "en": "stocking", "ipa": "/ˈstɑː.kɪŋ/", "vi": "tất đựng quà Noel", "pos": "noun", "img": "🧦", "connect": "\"Stó-kinh\" — chiếc tất to treo chờ quà.", "ex": "The gifts are inside the stocking.", "exVi": "Quà nằm trong chiếc tất Noel." },
-    { "en": "snowman", "ipa": "/ˈsnoʊ.mæn/", "vi": "người tuyết", "pos": "noun", "img": "⛄", "connect": "snow (tuyết) + man (người) — người tuyết mũi cà rốt.", "ex": "The kids built a snowman.", "exVi": "Bọn trẻ đắp một người tuyết." },
-    { "en": "snowflake", "ipa": "/ˈsnoʊ.fleɪk/", "vi": "bông tuyết", "pos": "noun", "img": "❄️", "connect": "snow (tuyết) + flake (mảnh) — bông tuyết sáu cánh.", "ex": "Each snowflake is different.", "exVi": "Mỗi bông tuyết đều khác nhau." },
-    { "en": "jingle", "ipa": "/ˈdʒɪŋ.ɡəl/", "vi": "tiếng chuông leng keng", "pos": "noun", "img": "🔔", "connect": "\"Jing-gồl\" — Jingle Bells leng keng.", "ex": "I hear the jingle of bells.", "exVi": "Tôi nghe tiếng chuông leng keng." },
-    { "en": "eve", "ipa": "/iːv/", "vi": "đêm trước lễ", "pos": "noun", "img": "🌙", "connect": "\"I-v\" — Christmas Eve là đêm 24/12.", "ex": "We have dinner on New Year's Eve.", "exVi": "Chúng tôi ăn tối vào đêm giao thừa." },
-    { "en": "turkey", "ipa": "/ˈtɝː.ki/", "vi": "gà tây", "pos": "noun", "img": "🦃", "connect": "\"Tơ-ki\" — gà tây nướng trên bàn tiệc.", "ex": "They eat turkey at Christmas dinner.", "exVi": "Họ ăn gà tây trong bữa tối Giáng sinh." },
-    { "en": "pumpkin", "ipa": "/ˈpʌmp.kɪn/", "vi": "quả bí ngô", "pos": "noun", "img": "🎃", "connect": "\"Păm-kin\" — bí ngô khoét mặt Halloween.", "ex": "We carved a pumpkin for Halloween.", "exVi": "Chúng tôi khoét một quả bí ngô cho Halloween." },
-    { "en": "halloween", "ipa": "/ˌhæl.oʊˈiːn/", "vi": "lễ hội hoá trang Halloween", "pos": "noun", "img": "👻", "connect": "\"Ha-lô-uyn\" — đêm hoá trang xin kẹo.", "ex": "Kids wear costumes on Halloween.", "exVi": "Trẻ em mặc đồ hoá trang vào Halloween." },
-    { "en": "witch", "ipa": "/wɪtʃ/", "vi": "phù thuỷ", "pos": "noun", "img": "🧙", "connect": "\"Uých\" — phù thuỷ cưỡi chổi bay.", "ex": "The witch flies on a broom.", "exVi": "Phù thuỷ bay trên cây chổi." },
-    { "en": "vampire", "ipa": "/ˈvæm.paɪr/", "vi": "ma cà rồng", "pos": "noun", "img": "🧛", "connect": "\"Vem-pai-ơ\" — ma cà rồng sợ ánh nắng.", "ex": "He dressed as a vampire.", "exVi": "Anh ấy hoá trang thành ma cà rồng." },
-    { "en": "zombie", "ipa": "/ˈzɑːm.bi/", "vi": "thây ma, xác sống", "pos": "noun", "img": "🧟", "connect": "\"Dom-bi\" — xác sống đi lảo đảo.", "ex": "The movie is about zombies.", "exVi": "Bộ phim nói về thây ma." },
-    { "en": "gingerbread", "ipa": "/ˈdʒɪn.dʒɚ.bred/", "vi": "bánh gừng", "pos": "noun", "img": "🍪", "connect": "ginger (gừng) + bread (bánh) — bánh gừng hình người.", "ex": "Grandma baked gingerbread men.", "exVi": "Bà nướng những chiếc bánh gừng hình người." },
-    { "en": "easter", "ipa": "/ˈiː.stɚ/", "vi": "lễ Phục sinh", "pos": "noun", "img": "🥚", "connect": "\"I-x-tơ\" — lễ trứng và thỏ mùa xuân.", "ex": "We paint eggs at Easter.", "exVi": "Chúng tôi vẽ trứng vào lễ Phục sinh." },
-    { "en": "bunny", "ipa": "/ˈbʌn.i/", "vi": "thỏ con", "pos": "noun", "img": "🐰", "connect": "\"Bân-ni\" — thỏ Phục sinh mang trứng.", "ex": "The Easter bunny hides the eggs.", "exVi": "Thỏ Phục sinh giấu những quả trứng." },
-    { "en": "countdown", "ipa": "/ˈkaʊnt.daʊn/", "vi": "đếm ngược", "pos": "noun", "img": "🕛", "connect": "count (đếm) + down (xuống) — 3, 2, 1 giao thừa!", "ex": "The countdown to midnight began.", "exVi": "Màn đếm ngược tới nửa đêm bắt đầu." },
-    { "en": "resolution", "ipa": "/ˌrez.əˈluː.ʃən/", "vi": "quyết tâm năm mới", "pos": "noun", "img": "📝", "connect": "\"Re-dờ-lu-sừn\" — lời hứa đầu năm với chính mình.", "ex": "My resolution is to exercise more.", "exVi": "Quyết tâm năm mới của tôi là tập thể dục nhiều hơn." },
-    { "en": "fireplace", "ipa": "/ˈfaɪr.pleɪs/", "vi": "lò sưởi", "pos": "noun", "img": "🔥", "connect": "fire (lửa) + place (chỗ) — ngồi bên lò sưởi đêm đông.", "ex": "The family sat by the fireplace.", "exVi": "Cả nhà ngồi bên lò sưởi." },
-    { "en": "decorate", "ipa": "/ˈdek.ə.reɪt/", "vi": "trang trí", "pos": "verb", "img": "✨", "connect": "\"Đe-cờ-rêit\" — treo đèn, kết hoa cho đẹp.", "ex": "We decorate the house for Tet.", "exVi": "Chúng tôi trang trí nhà cửa đón Tết." },
-    { "en": "candy cane", "ipa": "/ˈkæn.di keɪn/", "vi": "kẹo gậy bạc hà", "pos": "noun", "img": "🍬", "connect": "candy (kẹo) + cane (gậy) — kẹo sọc đỏ trắng hình gậy.", "ex": "She gave me a candy cane.", "exVi": "Cô ấy cho tôi một chiếc kẹo gậy." }
+    {
+      "en": "christmas",
+      "ipa": "/ˈkrɪs.məs/",
+      "vi": "lễ Giáng sinh",
+      "pos": "noun",
+      "img": "🎄",
+      "connect": "\"Krít-x-mợs\" — Noel, cây thông và quà.",
+      "ex": "We decorate a tree at Christmas.",
+      "exVi": "Chúng tôi trang trí cây thông vào dịp Giáng sinh."
+    },
+    {
+      "en": "carol",
+      "ipa": "/ˈker.əl/",
+      "vi": "bài hát mừng Giáng sinh",
+      "pos": "noun",
+      "img": "🎶",
+      "connect": "\"Ke-rồl\" — dàn đồng ca hát đêm Noel.",
+      "ex": "Children sing carols in December.",
+      "exVi": "Trẻ em hát những bài mừng Giáng sinh vào tháng 12."
+    },
+    {
+      "en": "reindeer",
+      "ipa": "/ˈreɪn.dɪr/",
+      "vi": "tuần lộc",
+      "pos": "noun",
+      "img": "🦌",
+      "connect": "\"Rêin-đia\" — tuần lộc kéo xe ông già Noel.",
+      "ex": "The reindeer pull Santa's sleigh.",
+      "exVi": "Đàn tuần lộc kéo xe trượt của ông già Noel."
+    },
+    {
+      "en": "sleigh",
+      "ipa": "/sleɪ/",
+      "vi": "xe trượt tuyết",
+      "pos": "noun",
+      "img": "🛷",
+      "connect": "\"Sờ-lây\" — xe trượt lướt trên tuyết.",
+      "ex": "Santa rides a sleigh at night.",
+      "exVi": "Ông già Noel cưỡi xe trượt tuyết trong đêm."
+    },
+    {
+      "en": "elf",
+      "ipa": "/elf/",
+      "vi": "chú lùn, yêu tinh nhỏ",
+      "pos": "noun",
+      "img": "🧝",
+      "connect": "\"Eo-f\" — chú lùn gói quà trong xưởng Noel.",
+      "ex": "The elves make toys for Santa.",
+      "exVi": "Các chú lùn làm đồ chơi cho ông già Noel."
+    },
+    {
+      "en": "ornament",
+      "ipa": "/ˈɔːr.nə.mənt/",
+      "vi": "đồ trang trí (cây thông)",
+      "pos": "noun",
+      "img": "🎐",
+      "connect": "\"Oó-nờ-mừnt\" — quả cầu treo lấp lánh.",
+      "ex": "She hung ornaments on the tree.",
+      "exVi": "Cô ấy treo đồ trang trí lên cây thông."
+    },
+    {
+      "en": "wreath",
+      "ipa": "/riːθ/",
+      "vi": "vòng nguyệt quế treo cửa",
+      "pos": "noun",
+      "img": "🎍",
+      "connect": "\"Ri-th\" — vòng lá tròn treo trước cửa Noel.",
+      "ex": "There is a wreath on the door.",
+      "exVi": "Có một vòng nguyệt quế trên cánh cửa."
+    },
+    {
+      "en": "stocking",
+      "ipa": "/ˈstɑː.kɪŋ/",
+      "vi": "tất đựng quà Noel",
+      "pos": "noun",
+      "img": "🧦",
+      "connect": "\"Stó-kinh\" — chiếc tất to treo chờ quà.",
+      "ex": "The gifts are inside the stocking.",
+      "exVi": "Quà nằm trong chiếc tất Noel."
+    },
+    {
+      "en": "snowman",
+      "ipa": "/ˈsnoʊ.mæn/",
+      "vi": "người tuyết",
+      "pos": "noun",
+      "img": "⛄",
+      "connect": "snow (tuyết) + man (người) — người tuyết mũi cà rốt.",
+      "ex": "The kids built a snowman.",
+      "exVi": "Bọn trẻ đắp một người tuyết."
+    },
+    {
+      "en": "snowflake",
+      "ipa": "/ˈsnoʊ.fleɪk/",
+      "vi": "bông tuyết",
+      "pos": "noun",
+      "img": "❄️",
+      "connect": "snow (tuyết) + flake (mảnh) — bông tuyết sáu cánh.",
+      "ex": "Each snowflake is different.",
+      "exVi": "Mỗi bông tuyết đều khác nhau."
+    },
+    {
+      "en": "jingle",
+      "ipa": "/ˈdʒɪŋ.ɡəl/",
+      "vi": "tiếng chuông leng keng",
+      "pos": "noun",
+      "img": "🔔",
+      "connect": "\"Jing-gồl\" — Jingle Bells leng keng.",
+      "ex": "I hear the jingle of bells.",
+      "exVi": "Tôi nghe tiếng chuông leng keng."
+    },
+    {
+      "en": "eve",
+      "ipa": "/iːv/",
+      "vi": "đêm trước lễ",
+      "pos": "noun",
+      "img": "🌙",
+      "connect": "\"I-v\" — Christmas Eve là đêm 24/12.",
+      "ex": "We have dinner on New Year's Eve.",
+      "exVi": "Chúng tôi ăn tối vào đêm giao thừa."
+    },
+    {
+      "en": "turkey",
+      "ipa": "/ˈtɝː.ki/",
+      "vi": "gà tây",
+      "pos": "noun",
+      "img": "🦃",
+      "connect": "\"Tơ-ki\" — gà tây nướng trên bàn tiệc.",
+      "ex": "They eat turkey at Christmas dinner.",
+      "exVi": "Họ ăn gà tây trong bữa tối Giáng sinh."
+    },
+    {
+      "en": "pumpkin",
+      "ipa": "/ˈpʌmp.kɪn/",
+      "vi": "quả bí ngô",
+      "pos": "noun",
+      "img": "🎃",
+      "connect": "\"Păm-kin\" — bí ngô khoét mặt Halloween.",
+      "ex": "We carved a pumpkin for Halloween.",
+      "exVi": "Chúng tôi khoét một quả bí ngô cho Halloween."
+    },
+    {
+      "en": "halloween",
+      "ipa": "/ˌhæl.oʊˈiːn/",
+      "vi": "lễ hội hoá trang Halloween",
+      "pos": "noun",
+      "img": "👻",
+      "connect": "\"Ha-lô-uyn\" — đêm hoá trang xin kẹo.",
+      "ex": "Kids wear costumes on Halloween.",
+      "exVi": "Trẻ em mặc đồ hoá trang vào Halloween."
+    },
+    {
+      "en": "witch",
+      "ipa": "/wɪtʃ/",
+      "vi": "phù thuỷ",
+      "pos": "noun",
+      "img": "🧙",
+      "connect": "\"Uých\" — phù thuỷ cưỡi chổi bay.",
+      "ex": "The witch flies on a broom.",
+      "exVi": "Phù thuỷ bay trên cây chổi."
+    },
+    {
+      "en": "vampire",
+      "ipa": "/ˈvæm.paɪr/",
+      "vi": "ma cà rồng",
+      "pos": "noun",
+      "img": "🧛",
+      "connect": "\"Vem-pai-ơ\" — ma cà rồng sợ ánh nắng.",
+      "ex": "He dressed as a vampire.",
+      "exVi": "Anh ấy hoá trang thành ma cà rồng."
+    },
+    {
+      "en": "zombie",
+      "ipa": "/ˈzɑːm.bi/",
+      "vi": "thây ma, xác sống",
+      "pos": "noun",
+      "img": "🧟",
+      "connect": "\"Dom-bi\" — xác sống đi lảo đảo.",
+      "ex": "The movie is about zombies.",
+      "exVi": "Bộ phim nói về thây ma."
+    },
+    {
+      "en": "gingerbread",
+      "ipa": "/ˈdʒɪn.dʒɚ.bred/",
+      "vi": "bánh gừng",
+      "pos": "noun",
+      "img": "🍪",
+      "connect": "ginger (gừng) + bread (bánh) — bánh gừng hình người.",
+      "ex": "Grandma baked gingerbread men.",
+      "exVi": "Bà nướng những chiếc bánh gừng hình người."
+    },
+    {
+      "en": "easter",
+      "ipa": "/ˈiː.stɚ/",
+      "vi": "lễ Phục sinh",
+      "pos": "noun",
+      "img": "🥚",
+      "connect": "\"I-x-tơ\" — lễ trứng và thỏ mùa xuân.",
+      "ex": "We paint eggs at Easter.",
+      "exVi": "Chúng tôi vẽ trứng vào lễ Phục sinh."
+    },
+    {
+      "en": "bunny",
+      "ipa": "/ˈbʌn.i/",
+      "vi": "thỏ con",
+      "pos": "noun",
+      "img": "🐰",
+      "connect": "\"Bân-ni\" — thỏ Phục sinh mang trứng.",
+      "ex": "The Easter bunny hides the eggs.",
+      "exVi": "Thỏ Phục sinh giấu những quả trứng."
+    },
+    {
+      "en": "countdown",
+      "ipa": "/ˈkaʊnt.daʊn/",
+      "vi": "đếm ngược",
+      "pos": "noun",
+      "img": "🕛",
+      "connect": "count (đếm) + down (xuống) — 3, 2, 1 giao thừa!",
+      "ex": "The countdown to midnight began.",
+      "exVi": "Màn đếm ngược tới nửa đêm bắt đầu."
+    },
+    {
+      "en": "resolution",
+      "ipa": "/ˌrez.əˈluː.ʃən/",
+      "vi": "quyết tâm năm mới",
+      "pos": "noun",
+      "img": "📝",
+      "connect": "\"Re-dờ-lu-sừn\" — lời hứa đầu năm với chính mình.",
+      "ex": "My resolution is to exercise more.",
+      "exVi": "Quyết tâm năm mới của tôi là tập thể dục nhiều hơn."
+    },
+    {
+      "en": "fireplace",
+      "ipa": "/ˈfaɪr.pleɪs/",
+      "vi": "lò sưởi",
+      "pos": "noun",
+      "img": "🔥",
+      "connect": "fire (lửa) + place (chỗ) — ngồi bên lò sưởi đêm đông.",
+      "ex": "The family sat by the fireplace.",
+      "exVi": "Cả nhà ngồi bên lò sưởi."
+    },
+    {
+      "en": "decorate",
+      "ipa": "/ˈdek.ə.reɪt/",
+      "vi": "trang trí",
+      "pos": "verb",
+      "img": "✨",
+      "connect": "\"Đe-cờ-rêit\" — treo đèn, kết hoa cho đẹp.",
+      "ex": "We decorate the house for Tet.",
+      "exVi": "Chúng tôi trang trí nhà cửa đón Tết."
+    },
+    {
+      "en": "candy cane",
+      "ipa": "/ˈkæn.di keɪn/",
+      "vi": "kẹo gậy bạc hà",
+      "pos": "noun",
+      "img": "🍬",
+      "connect": "candy (kẹo) + cane (gậy) — kẹo sọc đỏ trắng hình gậy.",
+      "ex": "She gave me a candy cane.",
+      "exVi": "Cô ấy cho tôi một chiếc kẹo gậy."
+    }
   ]
 }

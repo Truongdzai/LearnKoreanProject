@@ -269,6 +269,18 @@ const ICONS = {
   'chevron-down': <path d="M6 9l6 6 6-6" />,
   'chevron-up': <path d="M18 15l-6-6-6 6" />,
   'chevron-left': <path d="M15 6l-6 6 6 6" />,
+  refresh: (
+    <>
+      <path d="M20 11a8 8 0 1 0-.9 4.6" />
+      <path d="M20 5v6h-6" />
+    </>
+  ),
+  keyboard: (
+    <>
+      <rect x="2.5" y="6" width="19" height="12" rx="2" />
+      <path d="M6.5 9.5h.01M10 9.5h.01M13.5 9.5h.01M17 9.5h.01M6.5 13h.01M10 13h.01M13.5 13h.01M17 13h.01M8.5 16.2h7" />
+    </>
+  ),
   eye: (
     <>
       <path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" />

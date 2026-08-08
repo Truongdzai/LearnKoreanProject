@@ -1,5 +1,6 @@
 import re
 
+import clean
 from layout import doc_rows
 from lc import LETTERS, flat, split_options
 from pdftext import rc_pdf
@@ -97,14 +98,15 @@ def parse_questions(doc: ReadingDoc, numbers: list[int]) -> list[dict]:
         chunk = english.get(n)
         if chunk is None:
             continue
-        stem, options = split_options(chunk, 4)
+        stem, options = clean.split_paren(re.sub(r"\s+", " ", chunk))
+        stem, options = clean.tidy(stem, options)
         side = vietnamese.get(n, "")
         out.append({
             "n": n,
             "text": normalise_blank(stem),
             "options": options,
             "answer": answer_from(side),
-            "explain": re.sub(r"^\s*(=>|\(?[A-D]\)?)\s*", "", side).strip(),
+            "explain": clean.cut_explain(re.sub(r"^\s*(=>|\(?[A-D]\)?)\s*", "", side)),
         })
     return out
 

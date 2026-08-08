@@ -6,31 +6,265 @@
   "tone": "tone-e",
   "emoji": "🚜",
   "words": [
-    { "en": "barn", "ipa": "/bɑːrn/", "vi": "nhà kho nông trại, chuồng", "pos": "noun", "img": "🏚️", "connect": "\"Ban\" — kho đỏ chứa rơm và gia súc.", "ex": "The cows sleep in the barn.", "exVi": "Đàn bò ngủ trong chuồng." },
-    { "en": "tractor", "ipa": "/ˈtræk.tɚ/", "vi": "máy kéo", "pos": "noun", "img": "🚜", "connect": "\"Trắc-tơ\" — máy kéo cày ruộng.", "ex": "The farmer drives a tractor.", "exVi": "Bác nông dân lái máy kéo." },
-    { "en": "hay", "ipa": "/heɪ/", "vi": "cỏ khô", "pos": "noun", "img": "🌾", "connect": "\"Hây\" — đống cỏ khô cho bò ăn.", "ex": "The horse is eating hay.", "exVi": "Con ngựa đang ăn cỏ khô." },
-    { "en": "wheat", "ipa": "/wiːt/", "vi": "lúa mì", "pos": "noun", "img": "🌾", "connect": "\"Uýt\" — cánh đồng lúa mì vàng óng.", "ex": "Bread is made from wheat.", "exVi": "Bánh mì làm từ lúa mì." },
-    { "en": "buffalo", "ipa": "/ˈbʌf.ə.loʊ/", "vi": "con trâu", "pos": "noun", "img": "🐃", "connect": "\"Bấp-phờ-lâu\" — con trâu đi trước cái cày.", "ex": "The buffalo works in the rice field.", "exVi": "Con trâu làm việc trên ruộng lúa." },
-    { "en": "rooster", "ipa": "/ˈruː.stɚ/", "vi": "gà trống", "pos": "noun", "img": "🐓", "connect": "\"Ru-x-tơ\" — gà trống gáy ò ó o.", "ex": "The rooster crows every morning.", "exVi": "Gà trống gáy mỗi sáng." },
-    { "en": "hen", "ipa": "/hen/", "vi": "gà mái", "pos": "noun", "img": "🐔", "connect": "\"Hen\" — gà mái đẻ trứng.", "ex": "The hen laid three eggs.", "exVi": "Con gà mái đẻ ba quả trứng." },
-    { "en": "chick", "ipa": "/tʃɪk/", "vi": "gà con", "pos": "noun", "img": "🐤", "connect": "\"Chích\" — gà con chiêm chiếp.", "ex": "The chicks follow their mother.", "exVi": "Đàn gà con theo mẹ." },
-    { "en": "lamb", "ipa": "/læm/", "vi": "cừu con", "pos": "noun", "img": "🐑", "connect": "\"Lem\" (b câm) — cừu non trắng muốt.", "ex": "A lamb was born last night.", "exVi": "Một chú cừu con chào đời đêm qua." },
-    { "en": "donkey", "ipa": "/ˈdɑːŋ.ki/", "vi": "con lừa", "pos": "noun", "img": "🫏", "connect": "\"Đông-ki\" — lừa chở đồ lên núi.", "ex": "The donkey carries heavy bags.", "exVi": "Con lừa chở những bao nặng." },
-    { "en": "goose", "ipa": "/ɡuːs/", "vi": "con ngỗng", "pos": "noun", "img": "🪿", "connect": "\"Gu-x\" — ngỗng kêu quàng quạc giữ nhà.", "ex": "The goose chased the boy.", "exVi": "Con ngỗng rượt cậu bé." },
-    { "en": "scarecrow", "ipa": "/ˈsker.kroʊ/", "vi": "bù nhìn rơm", "pos": "noun", "img": "🎃", "connect": "scare (doạ) + crow (quạ) — hình nộm doạ quạ.", "ex": "A scarecrow stands in the field.", "exVi": "Một bù nhìn rơm đứng giữa ruộng." },
-    { "en": "plow", "ipa": "/plaʊ/", "vi": "cái cày; cày ruộng", "pos": "verb", "img": "🚜", "connect": "\"Pờ-lao\" — lật đất trước khi gieo.", "ex": "Farmers plow the field in spring.", "exVi": "Nông dân cày ruộng vào mùa xuân." },
-    { "en": "fertilizer", "ipa": "/ˈfɝː.t̬əl.aɪ.zɚ/", "vi": "phân bón", "pos": "noun", "img": "🧪", "connect": "\"Phơ-tờ-lai-dơ\" — bón cho cây tốt.", "ex": "This fertilizer helps plants grow.", "exVi": "Loại phân bón này giúp cây lớn nhanh." },
-    { "en": "orchard", "ipa": "/ˈɔːr.tʃɚd/", "vi": "vườn cây ăn quả", "pos": "noun", "img": "🍎", "connect": "\"O-chợd\" — vườn táo trĩu quả.", "ex": "They picked apples in the orchard.", "exVi": "Họ hái táo trong vườn cây." },
-    { "en": "cattle", "ipa": "/ˈkæt̬.əl/", "vi": "gia súc (trâu bò)", "pos": "noun", "img": "🐄", "connect": "\"Ke-tồl\" — đàn bò thả trên đồng.", "ex": "The cattle graze on the hill.", "exVi": "Đàn gia súc gặm cỏ trên đồi." },
-    { "en": "herd", "ipa": "/hɝːd/", "vi": "bầy, đàn (thú lớn)", "pos": "noun", "img": "🐂", "connect": "\"Hớd\" — cả đàn đi cùng nhau.", "ex": "A herd of elephants crossed the road.", "exVi": "Một đàn voi băng qua đường." },
-    { "en": "flock", "ipa": "/flɑːk/", "vi": "đàn (chim, cừu)", "pos": "noun", "img": "🐑", "connect": "\"Phờ-lóc\" — đàn cừu, đàn chim bay.", "ex": "A flock of birds flew south.", "exVi": "Một đàn chim bay về phương nam." },
-    { "en": "shepherd", "ipa": "/ˈʃep.ɚd/", "vi": "người chăn cừu", "pos": "noun", "img": "🧑‍🌾", "connect": "\"Sé-pợd\" — người dắt đàn cừu và chú chó.", "ex": "The shepherd watches his sheep.", "exVi": "Người chăn cừu trông đàn cừu của mình." },
-    { "en": "stable", "ipa": "/ˈsteɪ.bəl/", "vi": "chuồng ngựa", "pos": "noun", "img": "🐎", "connect": "\"Stêy-bồl\" — ngựa nghỉ trong chuồng.", "ex": "The horses are in the stable.", "exVi": "Những con ngựa đang ở trong chuồng." },
-    { "en": "pasture", "ipa": "/ˈpæs.tʃɚ/", "vi": "đồng cỏ chăn thả", "pos": "noun", "img": "🌿", "connect": "\"Pát-x-chơ\" — bãi cỏ xanh cho bò gặm.", "ex": "The sheep are out in the pasture.", "exVi": "Đàn cừu đang ở ngoài đồng cỏ." },
-    { "en": "mill", "ipa": "/mɪl/", "vi": "nhà máy xay", "pos": "noun", "img": "🏭", "connect": "\"Miu\" — xay lúa thành bột.", "ex": "The old mill grinds wheat into flour.", "exVi": "Nhà máy xay cũ nghiền lúa mì thành bột." },
-    { "en": "windmill", "ipa": "/ˈwɪnd.mɪl/", "vi": "cối xay gió", "pos": "noun", "img": "🌬️", "connect": "wind (gió) + mill (cối xay) — cánh quạt khổng lồ Hà Lan.", "ex": "Windmills turn slowly in the wind.", "exVi": "Những cối xay gió quay chầm chậm trong gió." },
-    { "en": "crop", "ipa": "/krɑːp/", "vi": "vụ mùa, cây trồng", "pos": "noun", "img": "🌽", "connect": "\"Króp\" — vụ mùa bội thu.", "ex": "Rice is the main crop here.", "exVi": "Lúa là cây trồng chính ở đây." },
-    { "en": "grain", "ipa": "/ɡreɪn/", "vi": "hạt ngũ cốc", "pos": "noun", "img": "🌾", "connect": "\"Grêin\" — hạt gạo, hạt lúa mì.", "ex": "The birds eat grain in the yard.", "exVi": "Đàn chim mổ hạt ngoài sân." },
-    { "en": "seedling", "ipa": "/ˈsiːd.lɪŋ/", "vi": "cây con, mạ non", "pos": "noun", "img": "🌱", "connect": "seed (hạt) + ling (bé) — mầm cây bé xíu.", "ex": "We planted tomato seedlings.", "exVi": "Chúng tôi trồng cây cà chua con." }
+    {
+      "en": "barn",
+      "ipa": "/bɑːrn/",
+      "vi": "nhà kho nông trại, chuồng",
+      "pos": "noun",
+      "img": "🏚️",
+      "connect": "\"Ban\" — kho đỏ chứa rơm và gia súc.",
+      "ex": "The cows sleep in the barn.",
+      "exVi": "Đàn bò ngủ trong chuồng."
+    },
+    {
+      "en": "tractor",
+      "ipa": "/ˈtræk.tɚ/",
+      "vi": "máy kéo",
+      "pos": "noun",
+      "img": "🚜",
+      "connect": "\"Trắc-tơ\" — máy kéo cày ruộng.",
+      "ex": "The farmer drives a tractor.",
+      "exVi": "Bác nông dân lái máy kéo."
+    },
+    {
+      "en": "hay",
+      "ipa": "/heɪ/",
+      "vi": "cỏ khô",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "\"Hây\" — đống cỏ khô cho bò ăn.",
+      "ex": "The horse is eating hay.",
+      "exVi": "Con ngựa đang ăn cỏ khô."
+    },
+    {
+      "en": "wheat",
+      "ipa": "/wiːt/",
+      "vi": "lúa mì",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "\"Uýt\" — cánh đồng lúa mì vàng óng.",
+      "ex": "Bread is made from wheat.",
+      "exVi": "Bánh mì làm từ lúa mì."
+    },
+    {
+      "en": "buffalo",
+      "ipa": "/ˈbʌf.ə.loʊ/",
+      "vi": "con trâu",
+      "pos": "noun",
+      "img": "🐃",
+      "connect": "\"Bấp-phờ-lâu\" — con trâu đi trước cái cày.",
+      "ex": "The buffalo works in the rice field.",
+      "exVi": "Con trâu làm việc trên ruộng lúa."
+    },
+    {
+      "en": "rooster",
+      "ipa": "/ˈruː.stɚ/",
+      "vi": "gà trống",
+      "pos": "noun",
+      "img": "🐓",
+      "connect": "\"Ru-x-tơ\" — gà trống gáy ò ó o.",
+      "ex": "The rooster crows every morning.",
+      "exVi": "Gà trống gáy mỗi sáng."
+    },
+    {
+      "en": "hen",
+      "ipa": "/hen/",
+      "vi": "gà mái",
+      "pos": "noun",
+      "img": "🐔",
+      "connect": "\"Hen\" — gà mái đẻ trứng.",
+      "ex": "The hen laid three eggs.",
+      "exVi": "Con gà mái đẻ ba quả trứng."
+    },
+    {
+      "en": "chick",
+      "ipa": "/tʃɪk/",
+      "vi": "gà con",
+      "pos": "noun",
+      "img": "🐤",
+      "connect": "\"Chích\" — gà con chiêm chiếp.",
+      "ex": "The chicks follow their mother.",
+      "exVi": "Đàn gà con theo mẹ."
+    },
+    {
+      "en": "lamb",
+      "ipa": "/læm/",
+      "vi": "cừu con",
+      "pos": "noun",
+      "img": "🐑",
+      "connect": "\"Lem\" (b câm) — cừu non trắng muốt.",
+      "ex": "A lamb was born last night.",
+      "exVi": "Một chú cừu con chào đời đêm qua."
+    },
+    {
+      "en": "donkey",
+      "ipa": "/ˈdɑːŋ.ki/",
+      "vi": "con lừa",
+      "pos": "noun",
+      "img": "🫏",
+      "connect": "\"Đông-ki\" — lừa chở đồ lên núi.",
+      "ex": "The donkey carries heavy bags.",
+      "exVi": "Con lừa chở những bao nặng."
+    },
+    {
+      "en": "goose",
+      "ipa": "/ɡuːs/",
+      "vi": "con ngỗng",
+      "pos": "noun",
+      "img": "🪿",
+      "connect": "\"Gu-x\" — ngỗng kêu quàng quạc giữ nhà.",
+      "ex": "The goose chased the boy.",
+      "exVi": "Con ngỗng rượt cậu bé."
+    },
+    {
+      "en": "scarecrow",
+      "ipa": "/ˈsker.kroʊ/",
+      "vi": "bù nhìn rơm",
+      "pos": "noun",
+      "img": "🎃",
+      "connect": "scare (doạ) + crow (quạ) — hình nộm doạ quạ.",
+      "ex": "A scarecrow stands in the field.",
+      "exVi": "Một bù nhìn rơm đứng giữa ruộng."
+    },
+    {
+      "en": "plow",
+      "ipa": "/plaʊ/",
+      "vi": "cái cày; cày ruộng",
+      "pos": "verb",
+      "img": "🚜",
+      "connect": "\"Pờ-lao\" — lật đất trước khi gieo.",
+      "ex": "Farmers plow the field in spring.",
+      "exVi": "Nông dân cày ruộng vào mùa xuân."
+    },
+    {
+      "en": "fertilizer",
+      "ipa": "/ˈfɝː.t̬əl.aɪ.zɚ/",
+      "vi": "phân bón",
+      "pos": "noun",
+      "img": "🧪",
+      "connect": "\"Phơ-tờ-lai-dơ\" — bón cho cây tốt.",
+      "ex": "This fertilizer helps plants grow.",
+      "exVi": "Loại phân bón này giúp cây lớn nhanh."
+    },
+    {
+      "en": "orchard",
+      "ipa": "/ˈɔːr.tʃɚd/",
+      "vi": "vườn cây ăn quả",
+      "pos": "noun",
+      "img": "🍎",
+      "connect": "\"O-chợd\" — vườn táo trĩu quả.",
+      "ex": "They picked apples in the orchard.",
+      "exVi": "Họ hái táo trong vườn cây."
+    },
+    {
+      "en": "cattle",
+      "ipa": "/ˈkæt̬.əl/",
+      "vi": "gia súc (trâu bò)",
+      "pos": "noun",
+      "img": "🐄",
+      "connect": "\"Ke-tồl\" — đàn bò thả trên đồng.",
+      "ex": "The cattle graze on the hill.",
+      "exVi": "Đàn gia súc gặm cỏ trên đồi."
+    },
+    {
+      "en": "herd",
+      "ipa": "/hɝːd/",
+      "vi": "bầy, đàn (thú lớn)",
+      "pos": "noun",
+      "img": "🐂",
+      "connect": "\"Hớd\" — cả đàn đi cùng nhau.",
+      "ex": "A herd of elephants crossed the road.",
+      "exVi": "Một đàn voi băng qua đường."
+    },
+    {
+      "en": "flock",
+      "ipa": "/flɑːk/",
+      "vi": "đàn (chim, cừu)",
+      "pos": "noun",
+      "img": "🐑",
+      "connect": "\"Phờ-lóc\" — đàn cừu, đàn chim bay.",
+      "ex": "A flock of birds flew south.",
+      "exVi": "Một đàn chim bay về phương nam."
+    },
+    {
+      "en": "shepherd",
+      "ipa": "/ˈʃep.ɚd/",
+      "vi": "người chăn cừu",
+      "pos": "noun",
+      "img": "🧑‍🌾",
+      "connect": "\"Sé-pợd\" — người dắt đàn cừu và chú chó.",
+      "ex": "The shepherd watches his sheep.",
+      "exVi": "Người chăn cừu trông đàn cừu của mình."
+    },
+    {
+      "en": "stable",
+      "ipa": "/ˈsteɪ.bəl/",
+      "vi": "chuồng ngựa",
+      "pos": "noun",
+      "img": "🐎",
+      "connect": "\"Stêy-bồl\" — ngựa nghỉ trong chuồng.",
+      "ex": "The horses are in the stable.",
+      "exVi": "Những con ngựa đang ở trong chuồng."
+    },
+    {
+      "en": "pasture",
+      "ipa": "/ˈpæs.tʃɚ/",
+      "vi": "đồng cỏ chăn thả",
+      "pos": "noun",
+      "img": "🌿",
+      "connect": "\"Pát-x-chơ\" — bãi cỏ xanh cho bò gặm.",
+      "ex": "The sheep are out in the pasture.",
+      "exVi": "Đàn cừu đang ở ngoài đồng cỏ."
+    },
+    {
+      "en": "mill",
+      "ipa": "/mɪl/",
+      "vi": "nhà máy xay",
+      "pos": "noun",
+      "img": "🏭",
+      "connect": "\"Miu\" — xay lúa thành bột.",
+      "ex": "The old mill grinds wheat into flour.",
+      "exVi": "Nhà máy xay cũ nghiền lúa mì thành bột."
+    },
+    {
+      "en": "windmill",
+      "ipa": "/ˈwɪnd.mɪl/",
+      "vi": "cối xay gió",
+      "pos": "noun",
+      "img": "🌬️",
+      "connect": "wind (gió) + mill (cối xay) — cánh quạt khổng lồ Hà Lan.",
+      "ex": "Windmills turn slowly in the wind.",
+      "exVi": "Những cối xay gió quay chầm chậm trong gió."
+    },
+    {
+      "en": "crop",
+      "ipa": "/krɑːp/",
+      "vi": "vụ mùa, cây trồng",
+      "pos": "noun",
+      "img": "🌽",
+      "connect": "\"Króp\" — vụ mùa bội thu.",
+      "ex": "Rice is the main crop here.",
+      "exVi": "Lúa là cây trồng chính ở đây."
+    },
+    {
+      "en": "grain",
+      "ipa": "/ɡreɪn/",
+      "vi": "hạt ngũ cốc",
+      "pos": "noun",
+      "img": "🌾",
+      "connect": "\"Grêin\" — hạt gạo, hạt lúa mì.",
+      "ex": "The birds eat grain in the yard.",
+      "exVi": "Đàn chim mổ hạt ngoài sân."
+    },
+    {
+      "en": "seedling",
+      "ipa": "/ˈsiːd.lɪŋ/",
+      "vi": "cây con, mạ non",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "seed (hạt) + ling (bé) — mầm cây bé xíu.",
+      "ex": "We planted tomato seedlings.",
+      "exVi": "Chúng tôi trồng cây cà chua con."
+    }
   ]
 }

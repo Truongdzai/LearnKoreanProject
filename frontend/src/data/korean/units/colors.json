@@ -6,17 +6,125 @@
   "tone": "tone-f",
   "emoji": "🎨",
   "words": [
-    { "ko": "색깔", "romaja": "saekkkal", "vi": "Màu sắc", "pos": "noun", "img": "🌈", "connect": "\"Sek\" chính là âm Hán \"sắc\".", "ex": "무슨 색깔을 좋아해요?", "exVi": "Bạn thích màu gì?" },
-    { "ko": "빨간색", "romaja": "ppalgansaek", "vi": "Màu đỏ", "pos": "noun", "img": "🔴", "connect": "\"Ppal-gan\" — đỏ rực như ớt Hàn.", "ex": "빨간색 가방을 샀어요.", "exVi": "Tôi đã mua cái túi màu đỏ." },
-    { "ko": "파란색", "romaja": "paransaek", "vi": "Màu xanh dương", "pos": "noun", "img": "🔵", "connect": "\"Pha-ran\" — xanh như bầu trời 하늘.", "ex": "하늘이 파란색이에요.", "exVi": "Bầu trời màu xanh dương." },
-    { "ko": "노란색", "romaja": "noransaek", "vi": "Màu vàng", "pos": "noun", "img": "🟡", "connect": "\"Nô-ran\" — vàng như nắng.", "ex": "노란색 우산을 쓰고 있어요.", "exVi": "Tôi đang che cái ô màu vàng." },
-    { "ko": "초록색", "romaja": "chorongsaek", "vi": "Màu xanh lá", "pos": "noun", "img": "🟢", "connect": "\"Chô-rôk\" chính là âm Hán \"thảo lục\".", "ex": "초록색 신호에 건너세요.", "exVi": "Hãy sang đường khi đèn xanh." },
-    { "ko": "하얀색", "romaja": "hayansaek", "vi": "Màu trắng", "pos": "noun", "img": "⚪", "connect": "\"Ha-yan\" — trắng như tuyết 눈.", "ex": "하얀색 셔츠가 깔끔해요.", "exVi": "Áo sơ mi trắng trông gọn gàng." },
-    { "ko": "검은색", "romaja": "geomeunsaek", "vi": "Màu đen", "pos": "noun", "img": "⚫", "connect": "\"Kơm-ưn\" — tối om như đêm.", "ex": "검은색 옷을 자주 입어요.", "exVi": "Tôi hay mặc đồ màu đen." },
-    { "ko": "갈색", "romaja": "galsaek", "vi": "Màu nâu", "pos": "noun", "img": "🟤", "connect": "\"Kal-sek\" chính là âm Hán \"cát sắc\".", "ex": "갈색 구두가 마음에 들어요.", "exVi": "Tôi ưng đôi giày da màu nâu." },
-    { "ko": "분홍색", "romaja": "bunhongsaek", "vi": "Màu hồng", "pos": "noun", "img": "🩷", "connect": "\"Bun-hông\" chính là âm Hán \"phấn hồng\".", "ex": "분홍색 꽃이 예뻐요.", "exVi": "Bông hoa màu hồng đẹp quá." },
-    { "ko": "동그라미", "romaja": "donggeurami", "vi": "Hình tròn", "pos": "noun", "img": "⭕", "connect": "\"Đông-gư-ra-mi\" — tròn xoe như vòng tròn.", "ex": "정답에 동그라미를 하세요.", "exVi": "Hãy khoanh tròn đáp án đúng." },
-    { "ko": "네모", "romaja": "nemo", "vi": "Hình vuông", "pos": "noun", "img": "⬛", "connect": "\"Nê\" = bốn + \"mô\" = góc → bốn góc.", "ex": "네모난 상자를 주세요.", "exVi": "Cho tôi cái hộp vuông ạ." },
-    { "ko": "밝다", "romaja": "bakda", "vi": "Sáng", "pos": "adj", "img": "💡", "connect": "\"Bak\" — bật đèn lên là sáng bừng.", "ex": "방이 아주 밝아요.", "exVi": "Căn phòng rất sáng." }
+    {
+      "ko": "색깔",
+      "romaja": "saekkkal",
+      "vi": "Màu sắc",
+      "pos": "noun",
+      "img": "🌈",
+      "connect": "\"Sek\" chính là âm Hán \"sắc\".",
+      "ex": "무슨 색깔을 좋아해요?",
+      "exVi": "Bạn thích màu gì?"
+    },
+    {
+      "ko": "빨간색",
+      "romaja": "ppalgansaek",
+      "vi": "Màu đỏ",
+      "pos": "noun",
+      "img": "🔴",
+      "connect": "\"Ppal-gan\" — đỏ rực như ớt Hàn.",
+      "ex": "빨간색 가방을 샀어요.",
+      "exVi": "Tôi đã mua cái túi màu đỏ."
+    },
+    {
+      "ko": "파란색",
+      "romaja": "paransaek",
+      "vi": "Màu xanh dương",
+      "pos": "noun",
+      "img": "🔵",
+      "connect": "\"Pha-ran\" — xanh như bầu trời 하늘.",
+      "ex": "하늘이 파란색이에요.",
+      "exVi": "Bầu trời màu xanh dương."
+    },
+    {
+      "ko": "노란색",
+      "romaja": "noransaek",
+      "vi": "Màu vàng",
+      "pos": "noun",
+      "img": "🟡",
+      "connect": "\"Nô-ran\" — vàng như nắng.",
+      "ex": "노란색 우산을 쓰고 있어요.",
+      "exVi": "Tôi đang che cái ô màu vàng."
+    },
+    {
+      "ko": "초록색",
+      "romaja": "chorongsaek",
+      "vi": "Màu xanh lá",
+      "pos": "noun",
+      "img": "🟢",
+      "connect": "\"Chô-rôk\" chính là âm Hán \"thảo lục\".",
+      "ex": "초록색 신호에 건너세요.",
+      "exVi": "Hãy sang đường khi đèn xanh."
+    },
+    {
+      "ko": "하얀색",
+      "romaja": "hayansaek",
+      "vi": "Màu trắng",
+      "pos": "noun",
+      "img": "⚪",
+      "connect": "\"Ha-yan\" — trắng như tuyết 눈.",
+      "ex": "하얀색 셔츠가 깔끔해요.",
+      "exVi": "Áo sơ mi trắng trông gọn gàng."
+    },
+    {
+      "ko": "검은색",
+      "romaja": "geomeunsaek",
+      "vi": "Màu đen",
+      "pos": "noun",
+      "img": "⚫",
+      "connect": "\"Kơm-ưn\" — tối om như đêm.",
+      "ex": "검은색 옷을 자주 입어요.",
+      "exVi": "Tôi hay mặc đồ màu đen."
+    },
+    {
+      "ko": "갈색",
+      "romaja": "galsaek",
+      "vi": "Màu nâu",
+      "pos": "noun",
+      "img": "🟤",
+      "connect": "\"Kal-sek\" chính là âm Hán \"cát sắc\".",
+      "ex": "갈색 구두가 마음에 들어요.",
+      "exVi": "Tôi ưng đôi giày da màu nâu."
+    },
+    {
+      "ko": "분홍색",
+      "romaja": "bunhongsaek",
+      "vi": "Màu hồng",
+      "pos": "noun",
+      "img": "🩷",
+      "connect": "\"Bun-hông\" chính là âm Hán \"phấn hồng\".",
+      "ex": "분홍색 꽃이 예뻐요.",
+      "exVi": "Bông hoa màu hồng đẹp quá."
+    },
+    {
+      "ko": "동그라미",
+      "romaja": "donggeurami",
+      "vi": "Hình tròn",
+      "pos": "noun",
+      "img": "⭕",
+      "connect": "\"Đông-gư-ra-mi\" — tròn xoe như vòng tròn.",
+      "ex": "정답에 동그라미를 하세요.",
+      "exVi": "Hãy khoanh tròn đáp án đúng."
+    },
+    {
+      "ko": "네모",
+      "romaja": "nemo",
+      "vi": "Hình vuông",
+      "pos": "noun",
+      "img": "⬛",
+      "connect": "\"Nê\" = bốn + \"mô\" = góc → bốn góc.",
+      "ex": "네모난 상자를 주세요.",
+      "exVi": "Cho tôi cái hộp vuông ạ."
+    },
+    {
+      "ko": "밝다",
+      "romaja": "bakda",
+      "vi": "Sáng",
+      "pos": "adj",
+      "img": "💡",
+      "connect": "\"Bak\" — bật đèn lên là sáng bừng.",
+      "ex": "방이 아주 밝아요.",
+      "exVi": "Căn phòng rất sáng."
+    }
   ]
 }

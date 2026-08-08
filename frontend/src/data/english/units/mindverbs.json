@@ -6,32 +6,275 @@
   "tone": "tone-b",
   "emoji": "🧠",
   "words": [
-    { "en": "believe", "ipa": "/bɪˈliːv/", "vi": "tin, tin tưởng", "pos": "verb", "img": "🙏", "connect": "\"Bi-li-v\" — tin vào điều gì.", "ex": "I believe you can do it.", "exVi": "Tôi tin bạn làm được." },
-    { "en": "hope", "ipa": "/hoʊp/", "vi": "hy vọng", "pos": "verb", "img": "🌟", "connect": "\"Hâu-p\" — mong điều tốt đẹp.", "ex": "I hope you feel better soon.", "exVi": "Mong bạn sớm khoẻ lại." },
-    { "en": "wish", "ipa": "/wɪʃ/", "vi": "ước", "pos": "verb", "img": "🌠", "connect": "\"Uých\" — ước một điều ước.", "ex": "I wish I could fly.", "exVi": "Ước gì tôi biết bay." },
-    { "en": "decide", "ipa": "/dɪˈsaɪd/", "vi": "quyết định", "pos": "verb", "img": "⚖️", "connect": "\"Đi-sai-d\" — chốt phương án.", "ex": "She decided to study abroad.", "exVi": "Cô ấy quyết định đi du học." },
-    { "en": "expect", "ipa": "/ɪkˈspekt/", "vi": "mong đợi, cho rằng", "pos": "verb", "img": "⏳", "connect": "\"Ịc-sờ-péct\" — trông đợi điều sẽ xảy ra.", "ex": "I expect he will come soon.", "exVi": "Tôi đoán anh ấy sắp đến." },
-    { "en": "imagine", "ipa": "/ɪˈmædʒ.ɪn/", "vi": "tưởng tượng", "pos": "verb", "img": "💭", "connect": "\"I-má-jin\" — hình dung trong đầu (image).", "ex": "Imagine you are on a beach.", "exVi": "Hãy tưởng tượng bạn đang ở bãi biển." },
-    { "en": "guess", "ipa": "/ɡes/", "vi": "đoán", "pos": "verb", "img": "🎲", "connect": "\"Ghét-s\" — đoán mò.", "ex": "Guess how old I am!", "exVi": "Đoán xem tôi bao nhiêu tuổi!" },
-    { "en": "doubt", "ipa": "/daʊt/", "vi": "nghi ngờ", "pos": "verb", "img": "🤨", "connect": "\"Đao-t\" — chữ \"b\" câm; bán tín bán nghi.", "ex": "I doubt that story is true.", "exVi": "Tôi nghi câu chuyện đó không có thật." },
-    { "en": "realize", "ipa": "/ˈriː.ə.laɪz/", "vi": "nhận ra", "pos": "verb", "img": "💡", "connect": "\"Ri-ờ-lai-z\" — chợt hiểu ra.", "ex": "I realized I was wrong.", "exVi": "Tôi nhận ra mình đã sai." },
-    { "en": "notice", "ipa": "/ˈnoʊ.t̬ɪs/", "vi": "để ý thấy", "pos": "verb", "img": "👀", "connect": "\"Nâu-tịs\" — chú ý thấy điều gì.", "ex": "Did you notice her new haircut?", "exVi": "Bạn có để ý kiểu tóc mới của cô ấy không?" },
-    { "en": "recognize", "ipa": "/ˈrek.əɡ.naɪz/", "vi": "nhận ra (người/vật quen)", "pos": "verb", "img": "🫡", "connect": "\"Re-cợg-nai-z\" — nhìn là nhận ra ngay.", "ex": "I didn't recognize you with glasses!", "exVi": "Đeo kính vào tôi không nhận ra bạn luôn!" },
-    { "en": "suppose", "ipa": "/səˈpoʊz/", "vi": "cho là, đoán là", "pos": "verb", "img": "🤔", "connect": "\"Sờ-pâu-z\" — I suppose so: chắc là vậy.", "ex": "I suppose you're right.", "exVi": "Tôi cho là bạn đúng." },
-    { "en": "consider", "ipa": "/kənˈsɪd.ɚ/", "vi": "cân nhắc", "pos": "verb", "img": "🧮", "connect": "\"Cợn-sí-đờ\" — suy đi tính lại.", "ex": "Consider all options first.", "exVi": "Cân nhắc mọi lựa chọn trước đã." },
-    { "en": "compare", "ipa": "/kəmˈper/", "vi": "so sánh", "pos": "verb", "img": "⚖️", "connect": "\"Cợm-pe\" — đặt cạnh nhau mà so.", "ex": "Compare the two prices.", "exVi": "So sánh hai mức giá xem." },
-    { "en": "prefer", "ipa": "/prɪˈfɜːr/", "vi": "thích hơn", "pos": "verb", "img": "❤️", "connect": "\"Pri-phơ\" — chuộng cái này hơn cái kia.", "ex": "I prefer tea to coffee.", "exVi": "Tôi thích trà hơn cà phê." },
-    { "en": "seem", "ipa": "/siːm/", "vi": "có vẻ", "pos": "verb", "img": "🎭", "connect": "\"Si-m\" — trông có vẻ như.", "ex": "You seem tired today.", "exVi": "Hôm nay trông bạn có vẻ mệt." },
-    { "en": "appear", "ipa": "/əˈpɪr/", "vi": "xuất hiện; có vẻ", "pos": "verb", "img": "✨", "connect": "\"Ờ-pia\" — hiện ra.", "ex": "A rainbow appeared in the sky.", "exVi": "Cầu vồng hiện ra trên bầu trời." },
-    { "en": "matter", "ipa": "/ˈmæt̬.ɚ/", "vi": "quan trọng, thành vấn đề", "pos": "verb", "img": "❗", "connect": "\"Má-tờ\" — It doesn't matter: không sao.", "ex": "Money doesn't matter to her.", "exVi": "Tiền không quan trọng với cô ấy." },
-    { "en": "deserve", "ipa": "/dɪˈzɜːrv/", "vi": "xứng đáng", "pos": "verb", "img": "🏅", "connect": "\"Đi-zơv\" — xứng đáng được nhận.", "ex": "You deserve a good rest.", "exVi": "Bạn xứng đáng được nghỉ ngơi." },
-    { "en": "trust", "ipa": "/trʌst/", "vi": "tin cậy", "pos": "verb", "img": "🤝", "connect": "\"Trắt-st\" — đặt niềm tin.", "ex": "I trust my best friend.", "exVi": "Tôi tin cậy bạn thân của mình." },
-    { "en": "respect", "ipa": "/rɪˈspekt/", "vi": "tôn trọng", "pos": "verb", "img": "🙇", "connect": "\"Ri-sờ-péct\" — kính trọng.", "ex": "Respect other people's opinions.", "exVi": "Hãy tôn trọng ý kiến người khác." },
-    { "en": "admire", "ipa": "/ədˈmaɪr/", "vi": "ngưỡng mộ", "pos": "verb", "img": "🤩", "connect": "\"Ợd-mai-ơ\" — thán phục ai đó.", "ex": "I admire her courage.", "exVi": "Tôi ngưỡng mộ lòng dũng cảm của cô ấy." },
-    { "en": "miss", "ipa": "/mɪs/", "vi": "nhớ (ai); lỡ (chuyến)", "pos": "verb", "img": "🥺", "connect": "\"Mít-s\" — nhớ nhung / lỡ tàu xe.", "ex": "I miss my family so much.", "exVi": "Tôi nhớ gia đình lắm." },
-    { "en": "care", "ipa": "/ker/", "vi": "quan tâm", "pos": "verb", "img": "💗", "connect": "\"Ke-a\" — care about: quan tâm tới.", "ex": "She cares about her students.", "exVi": "Cô ấy quan tâm tới học trò." },
-    { "en": "mind", "ipa": "/maɪnd/", "vi": "phiền, bận tâm", "pos": "verb", "img": "🙅", "connect": "\"Mai-nd\" — Do you mind...? Bạn có phiền không?", "ex": "Do you mind if I open the window?", "exVi": "Bạn có phiền không nếu tôi mở cửa sổ?" },
-    { "en": "wonder", "ipa": "/ˈwʌn.dɚ/", "vi": "tự hỏi", "pos": "verb", "img": "🤔", "connect": "\"Wăn-đờ\" — thắc mắc trong đầu.", "ex": "I wonder where she went.", "exVi": "Tôi tự hỏi cô ấy đã đi đâu." },
-    { "en": "worry", "ipa": "/ˈwɜːr.i/", "vi": "lo lắng", "pos": "verb", "img": "😟", "connect": "\"Wơ-ri\" — Don't worry: đừng lo.", "ex": "Don't worry about the test.", "exVi": "Đừng lo về bài kiểm tra." }
+    {
+      "en": "believe",
+      "ipa": "/bɪˈliːv/",
+      "vi": "tin, tin tưởng",
+      "pos": "verb",
+      "img": "🙏",
+      "connect": "\"Bi-li-v\" — tin vào điều gì.",
+      "ex": "I believe you can do it.",
+      "exVi": "Tôi tin bạn làm được."
+    },
+    {
+      "en": "hope",
+      "ipa": "/hoʊp/",
+      "vi": "hy vọng",
+      "pos": "verb",
+      "img": "🌟",
+      "connect": "\"Hâu-p\" — mong điều tốt đẹp.",
+      "ex": "I hope you feel better soon.",
+      "exVi": "Mong bạn sớm khoẻ lại."
+    },
+    {
+      "en": "wish",
+      "ipa": "/wɪʃ/",
+      "vi": "ước",
+      "pos": "verb",
+      "img": "🌠",
+      "connect": "\"Uých\" — ước một điều ước.",
+      "ex": "I wish I could fly.",
+      "exVi": "Ước gì tôi biết bay."
+    },
+    {
+      "en": "decide",
+      "ipa": "/dɪˈsaɪd/",
+      "vi": "quyết định",
+      "pos": "verb",
+      "img": "⚖️",
+      "connect": "\"Đi-sai-d\" — chốt phương án.",
+      "ex": "She decided to study abroad.",
+      "exVi": "Cô ấy quyết định đi du học."
+    },
+    {
+      "en": "expect",
+      "ipa": "/ɪkˈspekt/",
+      "vi": "mong đợi, cho rằng",
+      "pos": "verb",
+      "img": "⏳",
+      "connect": "\"Ịc-sờ-péct\" — trông đợi điều sẽ xảy ra.",
+      "ex": "I expect he will come soon.",
+      "exVi": "Tôi đoán anh ấy sắp đến."
+    },
+    {
+      "en": "imagine",
+      "ipa": "/ɪˈmædʒ.ɪn/",
+      "vi": "tưởng tượng",
+      "pos": "verb",
+      "img": "💭",
+      "connect": "\"I-má-jin\" — hình dung trong đầu (image).",
+      "ex": "Imagine you are on a beach.",
+      "exVi": "Hãy tưởng tượng bạn đang ở bãi biển."
+    },
+    {
+      "en": "guess",
+      "ipa": "/ɡes/",
+      "vi": "đoán",
+      "pos": "verb",
+      "img": "🎲",
+      "connect": "\"Ghét-s\" — đoán mò.",
+      "ex": "Guess how old I am!",
+      "exVi": "Đoán xem tôi bao nhiêu tuổi!"
+    },
+    {
+      "en": "doubt",
+      "ipa": "/daʊt/",
+      "vi": "nghi ngờ",
+      "pos": "verb",
+      "img": "🤨",
+      "connect": "\"Đao-t\" — chữ \"b\" câm; bán tín bán nghi.",
+      "ex": "I doubt that story is true.",
+      "exVi": "Tôi nghi câu chuyện đó không có thật."
+    },
+    {
+      "en": "realize",
+      "ipa": "/ˈriː.ə.laɪz/",
+      "vi": "nhận ra",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "\"Ri-ờ-lai-z\" — chợt hiểu ra.",
+      "ex": "I realized I was wrong.",
+      "exVi": "Tôi nhận ra mình đã sai."
+    },
+    {
+      "en": "notice",
+      "ipa": "/ˈnoʊ.t̬ɪs/",
+      "vi": "để ý thấy",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "\"Nâu-tịs\" — chú ý thấy điều gì.",
+      "ex": "Did you notice her new haircut?",
+      "exVi": "Bạn có để ý kiểu tóc mới của cô ấy không?"
+    },
+    {
+      "en": "recognize",
+      "ipa": "/ˈrek.əɡ.naɪz/",
+      "vi": "nhận ra (người/vật quen)",
+      "pos": "verb",
+      "img": "🫡",
+      "connect": "\"Re-cợg-nai-z\" — nhìn là nhận ra ngay.",
+      "ex": "I didn't recognize you with glasses!",
+      "exVi": "Đeo kính vào tôi không nhận ra bạn luôn!"
+    },
+    {
+      "en": "suppose",
+      "ipa": "/səˈpoʊz/",
+      "vi": "cho là, đoán là",
+      "pos": "verb",
+      "img": "🤔",
+      "connect": "\"Sờ-pâu-z\" — I suppose so: chắc là vậy.",
+      "ex": "I suppose you're right.",
+      "exVi": "Tôi cho là bạn đúng."
+    },
+    {
+      "en": "consider",
+      "ipa": "/kənˈsɪd.ɚ/",
+      "vi": "cân nhắc",
+      "pos": "verb",
+      "img": "🧮",
+      "connect": "\"Cợn-sí-đờ\" — suy đi tính lại.",
+      "ex": "Consider all options first.",
+      "exVi": "Cân nhắc mọi lựa chọn trước đã."
+    },
+    {
+      "en": "compare",
+      "ipa": "/kəmˈper/",
+      "vi": "so sánh",
+      "pos": "verb",
+      "img": "⚖️",
+      "connect": "\"Cợm-pe\" — đặt cạnh nhau mà so.",
+      "ex": "Compare the two prices.",
+      "exVi": "So sánh hai mức giá xem."
+    },
+    {
+      "en": "prefer",
+      "ipa": "/prɪˈfɜːr/",
+      "vi": "thích hơn",
+      "pos": "verb",
+      "img": "❤️",
+      "connect": "\"Pri-phơ\" — chuộng cái này hơn cái kia.",
+      "ex": "I prefer tea to coffee.",
+      "exVi": "Tôi thích trà hơn cà phê."
+    },
+    {
+      "en": "seem",
+      "ipa": "/siːm/",
+      "vi": "có vẻ",
+      "pos": "verb",
+      "img": "🎭",
+      "connect": "\"Si-m\" — trông có vẻ như.",
+      "ex": "You seem tired today.",
+      "exVi": "Hôm nay trông bạn có vẻ mệt."
+    },
+    {
+      "en": "appear",
+      "ipa": "/əˈpɪr/",
+      "vi": "xuất hiện; có vẻ",
+      "pos": "verb",
+      "img": "✨",
+      "connect": "\"Ờ-pia\" — hiện ra.",
+      "ex": "A rainbow appeared in the sky.",
+      "exVi": "Cầu vồng hiện ra trên bầu trời."
+    },
+    {
+      "en": "matter",
+      "ipa": "/ˈmæt̬.ɚ/",
+      "vi": "quan trọng, thành vấn đề",
+      "pos": "verb",
+      "img": "❗",
+      "connect": "\"Má-tờ\" — It doesn't matter: không sao.",
+      "ex": "Money doesn't matter to her.",
+      "exVi": "Tiền không quan trọng với cô ấy."
+    },
+    {
+      "en": "deserve",
+      "ipa": "/dɪˈzɜːrv/",
+      "vi": "xứng đáng",
+      "pos": "verb",
+      "img": "🏅",
+      "connect": "\"Đi-zơv\" — xứng đáng được nhận.",
+      "ex": "You deserve a good rest.",
+      "exVi": "Bạn xứng đáng được nghỉ ngơi."
+    },
+    {
+      "en": "trust",
+      "ipa": "/trʌst/",
+      "vi": "tin cậy",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "\"Trắt-st\" — đặt niềm tin.",
+      "ex": "I trust my best friend.",
+      "exVi": "Tôi tin cậy bạn thân của mình."
+    },
+    {
+      "en": "respect",
+      "ipa": "/rɪˈspekt/",
+      "vi": "tôn trọng",
+      "pos": "verb",
+      "img": "🙇",
+      "connect": "\"Ri-sờ-péct\" — kính trọng.",
+      "ex": "Respect other people's opinions.",
+      "exVi": "Hãy tôn trọng ý kiến người khác."
+    },
+    {
+      "en": "admire",
+      "ipa": "/ədˈmaɪr/",
+      "vi": "ngưỡng mộ",
+      "pos": "verb",
+      "img": "🤩",
+      "connect": "\"Ợd-mai-ơ\" — thán phục ai đó.",
+      "ex": "I admire her courage.",
+      "exVi": "Tôi ngưỡng mộ lòng dũng cảm của cô ấy."
+    },
+    {
+      "en": "miss",
+      "ipa": "/mɪs/",
+      "vi": "nhớ (ai); lỡ (chuyến)",
+      "pos": "verb",
+      "img": "🥺",
+      "connect": "\"Mít-s\" — nhớ nhung / lỡ tàu xe.",
+      "ex": "I miss my family so much.",
+      "exVi": "Tôi nhớ gia đình lắm."
+    },
+    {
+      "en": "care",
+      "ipa": "/ker/",
+      "vi": "quan tâm",
+      "pos": "verb",
+      "img": "💗",
+      "connect": "\"Ke-a\" — care about: quan tâm tới.",
+      "ex": "She cares about her students.",
+      "exVi": "Cô ấy quan tâm tới học trò."
+    },
+    {
+      "en": "mind",
+      "ipa": "/maɪnd/",
+      "vi": "phiền, bận tâm",
+      "pos": "verb",
+      "img": "🙅",
+      "connect": "\"Mai-nd\" — Do you mind...? Bạn có phiền không?",
+      "ex": "Do you mind if I open the window?",
+      "exVi": "Bạn có phiền không nếu tôi mở cửa sổ?"
+    },
+    {
+      "en": "wonder",
+      "ipa": "/ˈwʌn.dɚ/",
+      "vi": "tự hỏi",
+      "pos": "verb",
+      "img": "🤔",
+      "connect": "\"Wăn-đờ\" — thắc mắc trong đầu.",
+      "ex": "I wonder where she went.",
+      "exVi": "Tôi tự hỏi cô ấy đã đi đâu."
+    },
+    {
+      "en": "worry",
+      "ipa": "/ˈwɜːr.i/",
+      "vi": "lo lắng",
+      "pos": "verb",
+      "img": "😟",
+      "connect": "\"Wơ-ri\" — Don't worry: đừng lo.",
+      "ex": "Don't worry about the test.",
+      "exVi": "Đừng lo về bài kiểm tra."
+    }
   ]
 }

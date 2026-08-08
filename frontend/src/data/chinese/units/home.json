@@ -6,17 +6,125 @@
   "tone": "tone-c",
   "emoji": "🛋️",
   "words": [
-    { "zh": "房子", "pinyin": "fáng zi", "vi": "Ngôi nhà, căn nhà", "pos": "noun", "img": "🏡", "connect": "房 = phòng, chữ trong phòng ốc, thư phòng.", "ex": "这个房子很新。", "exVi": "Căn nhà này rất mới." },
-    { "zh": "房间", "pinyin": "fáng jiān", "vi": "Căn phòng", "pos": "noun", "img": "🚪", "connect": "房间 = phòng gian, khoảng không gian trong nhà. Chữ gian trong không gian, thời gian.", "ex": "我的房间在二楼。", "exVi": "Phòng của tôi ở tầng hai." },
-    { "zh": "门", "pinyin": "mén", "vi": "Cửa", "pos": "noun", "img": "🚪", "connect": "门 = môn, chữ trong môn đăng hộ đối, gia môn. Chữ vẽ đúng hai cánh cửa.", "ex": "请关门。", "exVi": "Xin hãy đóng cửa." },
-    { "zh": "窗户", "pinyin": "chuāng hu", "vi": "Cửa sổ", "pos": "noun", "img": "🪟", "connect": "窗户 = song hộ, chữ song trong song cửa sổ của tiếng Việt.", "ex": "打开窗户吧，太热了。", "exVi": "Mở cửa sổ ra đi, nóng quá." },
-    { "zh": "空调", "pinyin": "kōng tiáo", "vi": "Máy điều hoà", "pos": "noun", "img": "❄️", "connect": "空调 = không điều, máy điều hoà không khí — đúng cách gọi tắt trong tiếng Việt.", "ex": "请把空调打开。", "exVi": "Xin hãy bật điều hoà lên." },
-    { "zh": "椅子", "pinyin": "yǐ zi", "vi": "Cái ghế", "pos": "noun", "img": "🪑", "connect": "椅 = ỷ, có bộ 木 (mộc = gỗ) bên trái — đồ gỗ để tựa vào.", "ex": "这把椅子很舒服。", "exVi": "Cái ghế này rất êm." },
-    { "zh": "床", "pinyin": "chuáng", "vi": "Giường", "pos": "noun", "img": "🛏️", "connect": "床 = sàng, chữ trong long sàng (giường vua).", "ex": "我每天七点起床。", "exVi": "Ngày nào tôi cũng dậy lúc bảy giờ." },
-    { "zh": "厨房", "pinyin": "chú fáng", "vi": "Nhà bếp", "pos": "noun", "img": "🍳", "connect": "厨房 = trù phòng, chữ trù trong đầu bếp là trù sư.", "ex": "妈妈在厨房里。", "exVi": "Mẹ đang ở trong bếp." },
-    { "zh": "洗手间", "pinyin": "xǐ shǒu jiān", "vi": "Nhà vệ sinh", "pos": "noun", "img": "🚻", "connect": "洗手间 = tẩy thủ gian, gian phòng để rửa tay — cách nói lịch sự.", "ex": "请问洗手间在哪儿？", "exVi": "Cho hỏi nhà vệ sinh ở đâu ạ?" },
-    { "zh": "电视", "pinyin": "diàn shì", "vi": "Tivi", "pos": "noun", "img": "📺", "connect": "电视 = điện thị, cái nhìn bằng điện. Chữ thị trong thị giác, thị lực.", "ex": "他在看电视。", "exVi": "Anh ấy đang xem tivi." },
-    { "zh": "灯", "pinyin": "dēng", "vi": "Đèn", "pos": "noun", "img": "💡", "connect": "灯 = đăng, chữ trong đăng lồng, hoa đăng. Có bộ 火 (hoả = lửa) bên trái.", "ex": "别忘了关灯。", "exVi": "Đừng quên tắt đèn." },
-    { "zh": "干净", "pinyin": "gān jìng", "vi": "Sạch sẽ", "pos": "adj", "img": "🧼", "connect": "干净 = can tịnh, chữ tịnh trong thanh tịnh, tinh khiết.", "ex": "房间很干净。", "exVi": "Căn phòng rất sạch sẽ." }
+    {
+      "zh": "房子",
+      "pinyin": "fáng zi",
+      "vi": "Ngôi nhà, căn nhà",
+      "pos": "noun",
+      "img": "🏡",
+      "connect": "房 = phòng, chữ trong phòng ốc, thư phòng.",
+      "ex": "这个房子很新。",
+      "exVi": "Căn nhà này rất mới."
+    },
+    {
+      "zh": "房间",
+      "pinyin": "fáng jiān",
+      "vi": "Căn phòng",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "房间 = phòng gian, khoảng không gian trong nhà. Chữ gian trong không gian, thời gian.",
+      "ex": "我的房间在二楼。",
+      "exVi": "Phòng của tôi ở tầng hai."
+    },
+    {
+      "zh": "门",
+      "pinyin": "mén",
+      "vi": "Cửa",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "门 = môn, chữ trong môn đăng hộ đối, gia môn. Chữ vẽ đúng hai cánh cửa.",
+      "ex": "请关门。",
+      "exVi": "Xin hãy đóng cửa."
+    },
+    {
+      "zh": "窗户",
+      "pinyin": "chuāng hu",
+      "vi": "Cửa sổ",
+      "pos": "noun",
+      "img": "🪟",
+      "connect": "窗户 = song hộ, chữ song trong song cửa sổ của tiếng Việt.",
+      "ex": "打开窗户吧，太热了。",
+      "exVi": "Mở cửa sổ ra đi, nóng quá."
+    },
+    {
+      "zh": "空调",
+      "pinyin": "kōng tiáo",
+      "vi": "Máy điều hoà",
+      "pos": "noun",
+      "img": "❄️",
+      "connect": "空调 = không điều, máy điều hoà không khí — đúng cách gọi tắt trong tiếng Việt.",
+      "ex": "请把空调打开。",
+      "exVi": "Xin hãy bật điều hoà lên."
+    },
+    {
+      "zh": "椅子",
+      "pinyin": "yǐ zi",
+      "vi": "Cái ghế",
+      "pos": "noun",
+      "img": "🪑",
+      "connect": "椅 = ỷ, có bộ 木 (mộc = gỗ) bên trái — đồ gỗ để tựa vào.",
+      "ex": "这把椅子很舒服。",
+      "exVi": "Cái ghế này rất êm."
+    },
+    {
+      "zh": "床",
+      "pinyin": "chuáng",
+      "vi": "Giường",
+      "pos": "noun",
+      "img": "🛏️",
+      "connect": "床 = sàng, chữ trong long sàng (giường vua).",
+      "ex": "我每天七点起床。",
+      "exVi": "Ngày nào tôi cũng dậy lúc bảy giờ."
+    },
+    {
+      "zh": "厨房",
+      "pinyin": "chú fáng",
+      "vi": "Nhà bếp",
+      "pos": "noun",
+      "img": "🍳",
+      "connect": "厨房 = trù phòng, chữ trù trong đầu bếp là trù sư.",
+      "ex": "妈妈在厨房里。",
+      "exVi": "Mẹ đang ở trong bếp."
+    },
+    {
+      "zh": "洗手间",
+      "pinyin": "xǐ shǒu jiān",
+      "vi": "Nhà vệ sinh",
+      "pos": "noun",
+      "img": "🚻",
+      "connect": "洗手间 = tẩy thủ gian, gian phòng để rửa tay — cách nói lịch sự.",
+      "ex": "请问洗手间在哪儿？",
+      "exVi": "Cho hỏi nhà vệ sinh ở đâu ạ?"
+    },
+    {
+      "zh": "电视",
+      "pinyin": "diàn shì",
+      "vi": "Tivi",
+      "pos": "noun",
+      "img": "📺",
+      "connect": "电视 = điện thị, cái nhìn bằng điện. Chữ thị trong thị giác, thị lực.",
+      "ex": "他在看电视。",
+      "exVi": "Anh ấy đang xem tivi."
+    },
+    {
+      "zh": "灯",
+      "pinyin": "dēng",
+      "vi": "Đèn",
+      "pos": "noun",
+      "img": "💡",
+      "connect": "灯 = đăng, chữ trong đăng lồng, hoa đăng. Có bộ 火 (hoả = lửa) bên trái.",
+      "ex": "别忘了关灯。",
+      "exVi": "Đừng quên tắt đèn."
+    },
+    {
+      "zh": "干净",
+      "pinyin": "gān jìng",
+      "vi": "Sạch sẽ",
+      "pos": "adj",
+      "img": "🧼",
+      "connect": "干净 = can tịnh, chữ tịnh trong thanh tịnh, tinh khiết.",
+      "ex": "房间很干净。",
+      "exVi": "Căn phòng rất sạch sẽ."
+    }
   ]
 }

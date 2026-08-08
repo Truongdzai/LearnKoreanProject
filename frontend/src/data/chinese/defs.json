@@ -1,0 +1,1296 @@
+{
+  "好": {
+    "def": "形容一个人或者东西质量很高，让人感觉很舒服。",
+    "defVi": "Chỉ người hoặc vật có chất lượng cao, khiến người khác cảm thấy hài lòng."
+  },
+  "大": {
+    "def": "形容物体的体积或者面积超过一般标准，占用的空间很多。",
+    "defVi": "Chỉ vật có kích thước hoặc diện tích vượt mức bình thường, chiếm nhiều không gian."
+  },
+  "小": {
+    "def": "形容物体的体积或者面积低于一般标准，占用的空间很少。",
+    "defVi": "Chỉ vật có kích thước hoặc diện tích dưới mức bình thường, chiếm rất ít không gian."
+  },
+  "多": {
+    "def": "形容数量超过了平均水平，或者在某个地方存在着非常可观的数目。",
+    "defVi": "Chỉ số lượng vượt mức trung bình, hoặc ở một nơi nào đó có số lượng rất đáng kể."
+  },
+  "少": {
+    "def": "形容数量没有达到平均水平，或者在某个地方几乎看不见。",
+    "defVi": "Chỉ số lượng không đạt mức trung bình, hoặc ở một nơi nào đó gần như không thấy xuất hiện."
+  },
+  "热": {
+    "def": "当气温或者物体的温度很高时，人会感觉到身体发烫。",
+    "defVi": "Khi nhiệt độ không khí hoặc đồ vật tăng cao, khiến cơ thể cảm thấy nóng bức."
+  },
+  "冷": {
+    "def": "当气温或者物体的温度很低时，人会感觉到身体发抖。",
+    "defVi": "Khi nhiệt độ không khí hoặc đồ vật xuống thấp, khiến cơ thể cảm thấy run rẩy."
+  },
+  "高兴": {
+    "def": "当一个人遇到顺心的事情时，心里会感到非常愉快和满足。",
+    "defVi": "Khi gặp chuyện vừa ý, trong lòng cảm thấy vô cùng vui vẻ và thỏa mãn."
+  },
+  "漂亮": {
+    "def": "形容人或者东西的外观非常吸引人，让人看了觉得很赏心悦目。",
+    "defVi": "Chỉ vẻ ngoài của người hoặc vật rất thu hút, khiến người nhìn cảm thấy đẹp mắt."
+  },
+  "新": {
+    "def": "形容刚刚制造出来或者刚刚购买，还没有被使用过的状态。",
+    "defVi": "Chỉ trạng thái vừa mới sản xuất hoặc mới mua, chưa từng qua sử dụng."
+  },
+  "忙": {
+    "def": "形容一个人有很多事情需要处理，没有空闲的时间休息。",
+    "defVi": "Chỉ trạng thái một người có quá nhiều việc phải giải quyết, không có thời gian rảnh để nghỉ ngơi."
+  },
+  "累": {
+    "def": "形容在进行长时间的劳动或运动后，身体感到没有力气。",
+    "defVi": "Chỉ cảm giác cơ thể mất hết sức lực sau khi làm việc hoặc vận động trong thời gian dài."
+  },
+  "身体": {
+    "def": "这是人最重要的部分，包括骨头、皮肤和血液。如果它很强壮，人就不容易感到累。",
+    "defVi": "Đây là phần quan trọng nhất của con người, bao gồm xương, da và máu. Nếu phần này khỏe mạnh, bạn sẽ không dễ cảm thấy mệt mỏi."
+  },
+  "头": {
+    "def": "这是人最上面的部分，里面有大脑。人们通常用它来思考问题。",
+    "defVi": "Đây là phần cao nhất trên cơ thể con người, bên trong chứa não bộ. Mọi người thường dùng nó để suy nghĩ."
+  },
+  "眼睛": {
+    "def": "这是脸上的两个圆圆的器官。人们用它们来看清楚周围的世界。",
+    "defVi": "Đây là hai cơ quan hình tròn trên khuôn mặt. Mọi người dùng chúng để nhìn rõ thế giới xung quanh."
+  },
+  "嘴": {
+    "def": "这是脸上的一个器官，用来吃东西和说话。它位于鼻子的下面。",
+    "defVi": "Đây là một bộ phận trên khuôn mặt dùng để ăn uống và trò chuyện. Nó nằm ngay dưới mũi."
+  },
+  "手": {
+    "def": "这是人身体的一部分，位于胳膊的末端。人们用它来拿东西、写字或者做各种工作。",
+    "defVi": "Đây là một bộ phận trên cơ thể người, nằm ở cuối cánh tay. Mọi người dùng nó để cầm nắm đồ vật, viết lách hoặc thực hiện các công việc khác nhau."
+  },
+  "脚": {
+    "def": "这是人最下面的部分，用来走路或站立。如果没有它们，人就不能移动。",
+    "defVi": "Đây là phần thấp nhất của cơ thể, dùng để đi lại hoặc đứng vững. Nếu không có chúng, con người không thể di chuyển."
+  },
+  "疼": {
+    "def": "当身体某个地方受伤或不舒服时，你会感觉到这种不好的感觉。",
+    "defVi": "Khi một bộ phận trên cơ thể bị tổn thương hoặc khó chịu, bạn sẽ cảm nhận được cảm giác không tốt này."
+  },
+  "生病": {
+    "def": "当人的状态不好，觉得浑身无力或者发烧时，就是处于这种状况。",
+    "defVi": "Khi trạng thái của một người không tốt, cảm thấy toàn thân mệt mỏi hoặc bị sốt, đó là lúc họ đang ở trong tình trạng này."
+  },
+  "医生": {
+    "def": "这是在医院工作的人。他们专门帮助人们检查和治疗各种不舒服的状况。",
+    "defVi": "Đây là người làm việc tại bệnh viện. Họ chuyên giúp mọi người kiểm tra và chữa trị các tình trạng khó chịu khác nhau."
+  },
+  "感冒": {
+    "def": "这是一种常见的状况，人会流鼻涕、咳嗽或者觉得冷。通常是因为天气变化或者被传染了。",
+    "defVi": "Đây là một tình trạng phổ biến khiến người ta bị sổ mũi, ho hoặc cảm thấy lạnh. Thường là do thời tiết thay đổi hoặc bị lây nhiễm."
+  },
+  "药": {
+    "def": "这是为了让身体恢复健康而吃下的东西。它们通常是液体或者小颗粒状。",
+    "defVi": "Đây là thứ được dùng để giúp cơ thể hồi phục sức khỏe. Chúng thường ở dạng lỏng hoặc những viên nhỏ."
+  },
+  "休息": {
+    "def": "当你觉得很累的时候，停止工作或活动，坐下来或者睡一会儿。",
+    "defVi": "Khi bạn cảm thấy rất mệt, hãy dừng công việc hoặc các hoạt động lại, ngồi xuống hoặc ngủ một chút."
+  },
+  "裙子": {
+    "def": "这是一种女性常穿的服装，它从腰部向下覆盖腿部。通常在天气暖和的时候使用。",
+    "defVi": "Đây là loại trang phục dành cho phái nữ, bao phủ từ phần eo xuống chân. Thường được sử dụng khi thời tiết ấm áp."
+  },
+  "穿": {
+    "def": "这是把衣服、裤子或者鞋子覆盖在身体上的动作。目的是为了保暖或者装饰自己。",
+    "defVi": "Đây là hành động khoác áo, quần hoặc mang giày lên cơ thể. Mục đích là để giữ ấm hoặc làm đẹp cho bản thân."
+  },
+  "裤子": {
+    "def": "这是一种覆盖下半身的服装，通常有两个管状部分分别套住双腿。人们在日常生活中经常使用它。",
+    "defVi": "Đây là loại trang phục che phần thân dưới, thường có hai ống để xỏ chân vào. Mọi người sử dụng nó hàng ngày."
+  },
+  "鞋": {
+    "def": "这是人们出门时套在脚上的物品。它能保护脚部不受地面伤害。",
+    "defVi": "Đây là vật dụng được xỏ vào chân khi ra ngoài. Nó giúp bảo vệ bàn chân khỏi những tác động từ mặt đất."
+  },
+  "帽子": {
+    "def": "这是一种戴在头上的物品。它可以用来挡住阳光或者在冬天保持头部温暖。",
+    "defVi": "Đây là vật dụng được đội lên đầu. Nó có thể dùng để che nắng hoặc giữ ấm cho đầu vào mùa đông."
+  },
+  "颜色": {
+    "def": "这是物体反射光线后呈现出的不同视觉特征。比如天空看起来是那种样子，草地又是另一种样子。",
+    "defVi": "Đây là đặc điểm thị giác khác nhau của vật thể khi phản chiếu ánh sáng. Ví dụ như bầu trời trông như thế này, còn bãi cỏ lại trông như thế kia."
+  },
+  "红": {
+    "def": "这是一种像火或者熟透的苹果那样的视觉效果。在中国文化中，它常代表喜庆和好运。",
+    "defVi": "Đây là hiệu ứng thị giác giống như lửa hoặc quả táo chín. Trong văn hóa Trung Hoa, nó thường đại diện cho sự vui vẻ và may mắn."
+  },
+  "白": {
+    "def": "这是一种像雪或者牛奶一样的视觉效果。它通常被认为是最纯净的视觉特征。",
+    "defVi": "Đây là hiệu ứng thị giác giống như tuyết hoặc sữa. Nó thường được coi là đặc điểm thị giác thuần khiết nhất."
+  },
+  "黑": {
+    "def": "这是一种完全没有光线时看到的视觉效果。它通常与夜晚或者煤炭的视觉特征相同。",
+    "defVi": "Đây là hiệu ứng thị giác khi hoàn toàn không có ánh sáng. Nó thường giống với đặc điểm thị giác của ban đêm hoặc than đá."
+  },
+  "蓝": {
+    "def": "这是一种像晴朗的天空或者深海一样的视觉效果。它给人一种冷静和广阔的感觉。",
+    "defVi": "Đây là hiệu ứng thị giác giống như bầu trời quang đãng hoặc đại dương sâu thẳm. Nó mang lại cảm giác bình tĩnh và bao la."
+  },
+  "长": {
+    "def": "当物体从一端到另一端的距离很大时，我们就用这个词来形容。它表示空间跨度大。",
+    "defVi": "Khi khoảng cách từ đầu này đến đầu kia của vật thể rất lớn, chúng ta dùng từ này để mô tả. Nó thể hiện khoảng cách không gian lớn."
+  },
+  "短": {
+    "def": "当物体从一端到另一端的距离很小时，我们就用这个词来形容。它表示空间跨度小。",
+    "defVi": "Khi khoảng cách từ đầu này đến đầu kia của vật thể rất nhỏ, chúng ta dùng từ này để mô tả. Nó thể hiện khoảng cách không gian nhỏ."
+  },
+  "很": {
+    "def": "表示程度高，放在形容词前面使用。",
+    "defVi": "Dùng để chỉ mức độ cao, đặt trước tính từ."
+  },
+  "太": {
+    "def": "表示程度超过了正常的范围，通常带有感叹的语气。",
+    "defVi": "Chỉ mức độ vượt quá giới hạn bình thường, thường mang sắc thái cảm thán."
+  },
+  "都": {
+    "def": "指全部人或事物没有例外。",
+    "defVi": "Chỉ tất cả mọi người hoặc mọi vật mà không có ngoại lệ."
+  },
+  "也": {
+    "def": "表示同样的情况或动作再次发生。",
+    "defVi": "Chỉ một tình huống hoặc hành động tương tự xảy ra lần nữa."
+  },
+  "和": {
+    "def": "连接两个名词，表示并列的关系。",
+    "defVi": "Dùng để nối hai danh từ, thể hiện mối quan hệ liệt kê cùng nhau."
+  },
+  "的": {
+    "def": "这是一个助词，放在人或事物后面，表示所属关系。",
+    "defVi": "Đây là một trợ từ đặt sau người hoặc vật để chỉ sự sở hữu."
+  },
+  "了": {
+    "def": "放在动词后面，表示动作已经完成。",
+    "defVi": "Đặt sau động từ để chỉ hành động đã hoàn tất."
+  },
+  "没": {
+    "def": "用于动词之前，表示动作尚未发生或者某种状态不存在。常用来否定过去或现在的经历。",
+    "defVi": "Dùng trước động từ để chỉ một việc gì đó chưa xảy ra hoặc một trạng thái không tồn tại. Thường dùng để phủ định các trải nghiệm trong quá khứ hoặc hiện tại."
+  },
+  "很多": {
+    "def": "指数量非常大，超过了平均水平。",
+    "defVi": "Chỉ số lượng cực kỳ lớn, vượt trên mức trung bình."
+  },
+  "一点儿": {
+    "def": "指数量非常少，或者程度很轻。",
+    "defVi": "Chỉ số lượng rất ít hoặc mức độ rất nhẹ."
+  },
+  "这": {
+    "def": "指代离说话人距离近的人或事物。",
+    "defVi": "Dùng để chỉ người hoặc vật ở gần người nói."
+  },
+  "还": {
+    "def": "表示动作继续进行或者状态没有改变。",
+    "defVi": "Chỉ hành động vẫn đang tiếp diễn hoặc trạng thái chưa thay đổi."
+  },
+  "起床": {
+    "def": "你从床上站起来，开始新的一天。",
+    "defVi": "Hành động rời khỏi giường sau khi đã nghỉ ngơi xong để bắt đầu ngày mới."
+  },
+  "睡觉": {
+    "def": "你闭上眼睛，躺在床上休息，直到第二天早上。",
+    "defVi": "Hành động nhắm mắt nằm nghỉ trên giường cho đến sáng hôm sau."
+  },
+  "工作": {
+    "def": "你每天去办公室或者工厂，为了赚钱而做的事情。",
+    "defVi": "Việc bạn làm hàng ngày tại văn phòng hoặc công ty để kiếm tiền."
+  },
+  "学习": {
+    "def": "你通过看书或听老师讲课，获得新的知识或技能。",
+    "defVi": "Hành động tiếp thu kiến thức hoặc kỹ năng mới thông qua việc đọc sách hoặc nghe giảng."
+  },
+  "读": {
+    "def": "你看着书本上的文字，用眼睛看并理解它们的意思。",
+    "defVi": "Hành động nhìn vào các con chữ trên trang sách để hiểu nội dung."
+  },
+  "写": {
+    "def": "你用笔在纸上画出文字或符号。",
+    "defVi": "Hành động dùng bút để ghi lại các ký tự hoặc chữ viết lên giấy."
+  },
+  "打电话": {
+    "def": "你使用手机和远方的朋友进行语言交流。",
+    "defVi": "Việc sử dụng thiết bị cầm tay để trò chuyện với người ở xa."
+  },
+  "认识": {
+    "def": "你见过某人，记得他的样子，并且知道他是谁。",
+    "defVi": "Hành động đã gặp gỡ, nhớ mặt và biết rõ danh tính của một ai đó."
+  },
+  "喜欢": {
+    "def": "你对某人或某物感觉很好，想要经常见到它。",
+    "defVi": "Cảm giác yêu mến, thấy hứng thú và muốn được tiếp xúc thường xuyên với một người hoặc một thứ gì đó."
+  },
+  "想": {
+    "def": "你心里希望得到某样东西，或者在脑海里回忆某个人。",
+    "defVi": "Cảm giác mong muốn có được thứ gì đó hoặc hoài niệm về một người nào đó trong tâm trí."
+  },
+  "会": {
+    "def": "你通过练习，掌握了某种技能，比如开车或游泳。",
+    "defVi": "Việc bạn đã thông thạo một kỹ năng nào đó nhờ quá trình rèn luyện."
+  },
+  "能": {
+    "def": "表示具备某种条件或者拥有某种技术，使得某人可以完成某项任务。",
+    "defVi": "Chỉ việc có đủ điều kiện hoặc kỹ năng để thực hiện một hành động nào đó."
+  },
+  "路": {
+    "def": "这是一个人们走或者开车经过的地方。它连接着不同的城市或者建筑。",
+    "defVi": "Đây là nơi mọi người đi bộ hoặc lái xe qua lại. Nó nối liền các thành phố hoặc tòa nhà với nhau."
+  },
+  "左": {
+    "def": "这是相对于右边的方位。当你伸出双手时，这是你心脏所在的那一侧。",
+    "defVi": "Đây là hướng ngược lại với bên phải. Khi bạn giang hai tay ra, đây là phía có trái tim của bạn."
+  },
+  "右": {
+    "def": "这是相对于左边的方位。大多数人习惯用这一侧的手来写字或拿东西。",
+    "defVi": "Đây là hướng ngược lại với bên trái. Hầu hết mọi người thường dùng tay phía này để viết hoặc cầm nắm đồ vật."
+  },
+  "中间": {
+    "def": "这是两个物体之间的位置。它处于两个事物相等的距离处。",
+    "defVi": "Đây là vị trí nằm giữa hai vật. Nó ở khoảng cách bằng nhau so với hai thứ đó."
+  },
+  "对面": {
+    "def": "这是指在某个位置的正前方，中间隔着一条路或者一段距离的地方。",
+    "defVi": "Đây là vị trí nằm ngay phía trước mặt, ngăn cách bởi một con đường hoặc một khoảng cách nhất định."
+  },
+  "里面": {
+    "def": "这是指一个物体的内部空间。东西被包裹或者装在其中。",
+    "defVi": "Đây là không gian bên trong của một vật thể. Đồ đạc được đặt hoặc chứa đựng ở phía trong đó."
+  },
+  "外面": {
+    "def": "这是指一个物体的外部空间。它不在封闭的区域之内。",
+    "defVi": "Đây là không gian bên ngoài của một vật thể. Nó không nằm trong khu vực bị đóng kín."
+  },
+  "旁边": {
+    "def": "这是指紧挨着某个物体的位置。它就在某物的侧面。",
+    "defVi": "Đây là vị trí nằm sát ngay cạnh một vật nào đó. Nó nằm ở phía bên cạnh."
+  },
+  "附近": {
+    "def": "这是指距离某地很近的区域。在这个范围内，你可以很快到达目的地。",
+    "defVi": "Đây là khu vực nằm ở khoảng cách rất gần với một nơi nào đó. Bạn có thể đến đích rất nhanh chóng từ đây."
+  },
+  "远": {
+    "def": "当两个地方之间的距离很大时，我们这样形容。你需要花很多时间才能到达目的地。",
+    "defVi": "Khi khoảng cách giữa hai nơi rất lớn, chúng ta dùng từ này. Bạn cần tốn nhiều thời gian mới có thể đến nơi."
+  },
+  "近": {
+    "def": "当两个地方之间的距离很小时，我们这样形容。你可以很快到达目的地。",
+    "defVi": "Khi khoảng cách giữa hai nơi rất ngắn, chúng ta dùng từ này. Bạn có thể đến nơi rất nhanh."
+  },
+  "一直": {
+    "def": "当你沿着同一个方向不转弯地前进时，你会这样做。这也可以表示动作持续不断地发生。",
+    "defVi": "Khi bạn đi theo một hướng duy nhất mà không rẽ, bạn đang làm hành động này. Nó cũng có nghĩa là một việc gì đó cứ tiếp diễn liên tục."
+  },
+  "家人": {
+    "def": "这是指和你住在一起或者有血缘关系的那些人。大家通常互相关心并生活在一起。",
+    "defVi": "Những người cùng chung sống hoặc có quan hệ máu mủ với bạn. Mọi người thường yêu thương và gắn bó với nhau."
+  },
+  "哥哥": {
+    "def": "这是指比你出生早的男性同胞。他通常会保护并照顾年纪较小的弟妹。",
+    "defVi": "Người nam giới sinh ra trước bạn trong cùng một gia đình. Người này thường che chở và chăm sóc cho các em."
+  },
+  "姐姐": {
+    "def": "这是指比你出生早的女性同胞。她通常在生活中给年纪较小的弟妹提供帮助。",
+    "defVi": "Người nữ giới sinh ra trước bạn trong cùng một gia đình. Người này thường giúp đỡ và chỉ bảo cho các em."
+  },
+  "弟弟": {
+    "def": "这是指比你出生晚的男性同胞。他通常需要年纪较大的兄姐照顾。",
+    "defVi": "Người nam giới sinh ra sau bạn trong cùng một gia đình. Người này thường được các anh chị lớn hơn chăm sóc."
+  },
+  "妹妹": {
+    "def": "这是指比你出生晚的女性同胞。她通常是家里年纪最小的女孩。",
+    "defVi": "Người nữ giới sinh ra sau bạn trong cùng một gia đình. Đây thường là cô bé nhỏ tuổi nhất trong nhà."
+  },
+  "孩子": {
+    "def": "这是指年纪还很小的人。他们通常由父母抚养长大。",
+    "defVi": "Những người còn nhỏ tuổi. Họ thường được cha mẹ nuôi dưỡng và dạy dỗ cho đến khi trưởng thành."
+  },
+  "爷爷": {
+    "def": "这是指你父亲的父亲。他通常年纪很大，非常有经验。",
+    "defVi": "Cha của bố bạn. Người này thường đã lớn tuổi và có nhiều kinh nghiệm sống."
+  },
+  "奶奶": {
+    "def": "这是指你父亲的母亲。她通常会给晚辈做很多好吃的饭菜。",
+    "defVi": "Mẹ của bố bạn. Người này thường nấu những món ăn ngon cho con cháu."
+  },
+  "丈夫": {
+    "def": "这是指一个女性在法律上认可的男性伴侣。两人通过仪式共同生活。",
+    "defVi": "Người nam giới đã đăng ký kết hôn với một người phụ nữ. Hai người cùng nhau xây dựng cuộc sống gia đình."
+  },
+  "妻子": {
+    "def": "这是指一个男性在法律上认可的女性伴侣。两人共同组建一个家庭。",
+    "defVi": "Người phụ nữ đã đăng ký kết hôn với một người đàn ông. Hai người cùng nhau vun đắp tổ ấm."
+  },
+  "结婚": {
+    "def": "你做这个动作是指和心爱的人举行仪式，从此成为法律上的伴侣。这是人生中非常重要的一步。",
+    "defVi": "Hành động tổ chức lễ cưới với người mình yêu để trở thành bạn đời hợp pháp. Đây là một cột mốc quan trọng trong đời người."
+  },
+  "亲戚": {
+    "def": "这是指除了核心成员之外，通过血缘或婚姻关系连接在一起的人。大家通常在节日时聚在一起。",
+    "defVi": "Những người có quan hệ huyết thống hoặc thông gia với bạn. Mọi người thường tụ họp với nhau vào các dịp lễ tết."
+  },
+  "饭": {
+    "def": "这是人们每天都要吃的主食或者一天的正餐。吃饱了以后，人就不会觉得饿了。",
+    "defVi": "Đây là món chính hoặc bữa ăn trong ngày mà mọi người cần dùng. Sau khi ăn xong, bạn sẽ không còn cảm thấy đói nữa."
+  },
+  "菜": {
+    "def": "这是放在盘子里，和主食一起吃的东西。它可以是各种植物或者肉类经过烹饪后的成品。",
+    "defVi": "Đây là những món được bày trên đĩa để ăn kèm với món chính. Nó có thể là các loại rau củ hoặc thịt đã qua chế biến."
+  },
+  "水": {
+    "def": "这是一种透明的液体，没有颜色也没有味道。所有的人和动物每天都需要喝它才能生存。",
+    "defVi": "Đây là chất lỏng trong suốt, không màu, không mùi. Mọi người và động vật đều cần uống thứ này hàng ngày để duy trì sự sống."
+  },
+  "茶": {
+    "def": "这是一种用植物叶子泡出来的热饮。很多人喜欢在休息的时候喝它，它有一种特别的香味。",
+    "defVi": "Đây là loại đồ uống nóng được pha từ lá của một loại cây. Nhiều người thích thưởng thức nó khi nghỉ ngơi vì nó có mùi thơm đặc trưng."
+  },
+  "水果": {
+    "def": "这是从树上或者植物上长出来的甜甜的食物。它们有很多种颜色，吃起来对身体很健康。",
+    "defVi": "Đây là loại thực phẩm có vị ngọt, mọc ra từ cây cối. Chúng có nhiều màu sắc khác nhau và rất tốt cho sức khỏe."
+  },
+  "苹果": {
+    "def": "这是一种圆圆的、红红的或者绿绿的常见食物。它的皮很薄，吃起来脆脆的，很有营养。",
+    "defVi": "Đây là loại thực phẩm hình tròn, thường có màu đỏ hoặc xanh. Vỏ của nó rất mỏng, ăn vào thấy giòn và rất bổ dưỡng."
+  },
+  "米饭": {
+    "def": "这是由一种白色的小颗粒煮成的食物。它是很多亚洲人每天必不可少的主食。",
+    "defVi": "Đây là món ăn được nấu từ những hạt nhỏ màu trắng. Nó là món chính không thể thiếu hàng ngày của nhiều người châu Á."
+  },
+  "面条": {
+    "def": "这是一种长长的、软软的食物，通常是用小麦粉做成的。人们喜欢把它放在汤里煮着吃。",
+    "defVi": "Đây là loại thực phẩm có sợi dài, mềm, thường làm từ bột mì. Mọi người thường thích cho nó vào nước dùng để nấu chín."
+  },
+  "鸡蛋": {
+    "def": "这是母鸡生出来的圆形物体。它的外面有一个硬硬的壳，里面有黄色的部分，是很好的营养来源。",
+    "defVi": "Đây là vật hình tròn do gà mái đẻ ra. Bên ngoài có lớp vỏ cứng, bên trong có lòng đỏ, là nguồn cung cấp dinh dưỡng rất tốt."
+  },
+  "好吃": {
+    "def": "当一种食物的味道让你非常喜欢，让你想一直吃下去的时候，就可以这样形容它。",
+    "defVi": "Khi hương vị của một món ăn khiến bạn rất thích và muốn ăn mãi không thôi, bạn có thể dùng từ này để miêu tả."
+  },
+  "饭馆": {
+    "def": "这是一个公共场所，你可以在这里付钱买到做好的食物并坐在那里享用。",
+    "defVi": "Đây là nơi công cộng mà bạn có thể trả tiền để mua những món ăn đã được chế biến sẵn và ngồi lại thưởng thức."
+  },
+  "杯子": {
+    "def": "这是一个圆柱形的容器，专门用来装饮料或者液体。它的上面通常有一个开口，方便人喝里面的东西。",
+    "defVi": "Đây là vật dụng hình trụ, được dùng chuyên để đựng đồ uống hoặc chất lỏng. Phía trên thường có miệng để người dùng dễ dàng uống."
+  },
+  "你好": {
+    "def": "这是人们见面时常用的问候语。它表达了对他人的友好。",
+    "defVi": "Đây là lời chào hỏi thông dụng khi gặp gỡ mọi người. Nó thể hiện sự thân thiện với đối phương."
+  },
+  "您好": {
+    "def": "这是对长辈或者地位较高的人表示尊敬的问候方式。它比普通的问候语更正式。",
+    "defVi": "Đây là cách chào hỏi thể hiện sự tôn trọng đối với người lớn tuổi hoặc người có địa vị cao hơn. Nó trang trọng hơn lời chào thông thường."
+  },
+  "谢谢": {
+    "def": "当你收到礼物或者得到别人的帮助时，可以用这个词表达心里的感激。",
+    "defVi": "Khi bạn nhận được quà hoặc sự giúp đỡ từ người khác, hãy dùng từ này để bày tỏ lòng biết ơn."
+  },
+  "不客气": {
+    "def": "当别人向你表达感激时，你可以用这句话来回答。它表示这只是小事，不用在意。",
+    "defVi": "Khi có người cảm ơn bạn, hãy dùng câu này để đáp lại. Nó có nghĩa là việc nhỏ thôi, không cần bận tâm."
+  },
+  "对不起": {
+    "def": "当你做错了事情或者给别人带来了麻烦时，可以用这个词来表达歉意。",
+    "defVi": "Khi bạn làm sai điều gì đó hoặc gây phiền phức cho người khác, hãy dùng từ này để nói lời xin lỗi."
+  },
+  "没关系": {
+    "def": "当别人向你表达歉意时，你可以用这句话来回应。它表示你并不介意刚才发生的事情。",
+    "defVi": "Khi có người xin lỗi bạn, hãy dùng câu này để trả lời. Nó có nghĩa là bạn không để bụng chuyện vừa xảy ra."
+  },
+  "再见": {
+    "def": "这是在离开或者结束对话时说的告别语。它表示希望以后还有机会见面。",
+    "defVi": "Đây là lời chào lúc ra về hoặc kết thúc cuộc trò chuyện. Nó thể hiện hy vọng sẽ có dịp gặp lại nhau."
+  },
+  "请": {
+    "def": "当你希望别人做某事时，在动词前面加上这个词，会让你的语气变得更有礼貌。",
+    "defVi": "Khi bạn muốn nhờ ai đó làm gì, hãy thêm từ này vào trước động từ để lời nói trở nên lịch sự hơn."
+  },
+  "是": {
+    "def": "这个词用来连接两个事物，表示它们具有相同的身份或属性。",
+    "defVi": "Từ này dùng để nối hai sự vật, khẳng định chúng có cùng danh tính hoặc đặc điểm."
+  },
+  "不": {
+    "def": "这个词放在动词或形容词前面，用来表示否定或者拒绝的意思。",
+    "defVi": "Từ này đặt trước động từ hoặc tính từ để biểu thị ý phủ định hoặc từ chối."
+  },
+  "叫": {
+    "def": "当你介绍自己或者询问别人如何称呼时，会用到这个动词。",
+    "defVi": "Khi bạn giới thiệu bản thân hoặc hỏi cách xưng hô của người khác, bạn sẽ dùng đến động từ này."
+  },
+  "名字": {
+    "def": "这是父母给孩子起的一个特定的称呼，用来区分每一个人。",
+    "defVi": "Đây là cách gọi riêng biệt mà cha mẹ đặt cho con cái để phân biệt mỗi cá nhân với nhau."
+  },
+  "爱好": {
+    "def": "这是人们在空闲时间里最喜欢做的事情。每个人都有自己不同的选择。",
+    "defVi": "Đây là việc mà mọi người thích làm nhất trong thời gian rảnh rỗi. Mỗi người đều có những lựa chọn riêng cho mình."
+  },
+  "兴趣": {
+    "def": "这是对某件事物感到好奇并想多了解的感觉。当你觉得某事很棒时就会有这种心理。",
+    "defVi": "Đây là cảm giác tò mò và muốn tìm hiểu thêm về một điều gì đó. Khi bạn thấy một việc gì đó rất hay ho thì bạn sẽ có cảm giác này."
+  },
+  "音乐": {
+    "def": "这是由好听的声音组成的艺术。人们常常通过这种方式来放松心情。",
+    "defVi": "Đây là nghệ thuật được tạo nên từ những âm thanh dễ nghe. Mọi người thường dùng cách này để thư giãn tinh thần."
+  },
+  "唱歌": {
+    "def": "你用嘴巴发出好听的声音来表达感情。这通常需要配合旋律一起进行。",
+    "defVi": "Bạn dùng miệng phát ra những âm thanh hay để thể hiện cảm xúc. Việc này thường cần kết hợp với giai điệu."
+  },
+  "跳舞": {
+    "def": "你随着节奏移动身体。这是一种通过肢体动作来表现美感的活动。",
+    "defVi": "Bạn di chuyển cơ thể theo nhịp điệu. Đây là hoạt động thể hiện vẻ đẹp thông qua các động tác cơ thể."
+  },
+  "电影": {
+    "def": "这是在屏幕上播放的故事。人们通常去专门的地方买票观看。",
+    "defVi": "Đây là những câu chuyện được chiếu trên màn hình. Mọi người thường đến những nơi chuyên biệt để mua vé xem."
+  },
+  "运动": {
+    "def": "这是通过身体活动来让身体更强壮。很多人通过这种方式来保持健康。",
+    "defVi": "Đây là việc dùng các hoạt động thể chất để cơ thể khỏe mạnh hơn. Nhiều người duy trì sức khỏe bằng cách này."
+  },
+  "游泳": {
+    "def": "你通过在水里移动身体来前进。这通常在池塘或大海中进行。",
+    "defVi": "Bạn di chuyển cơ thể dưới nước để tiến về phía trước. Việc này thường được thực hiện ở hồ bơi hoặc ngoài biển."
+  },
+  "旅游": {
+    "def": "你离开自己住的地方去别处看风景。这能让你看到很多不一样的东西。",
+    "defVi": "Bạn rời khỏi nơi mình đang sống để đến những vùng đất khác ngắm cảnh. Việc này giúp bạn thấy được nhiều điều mới lạ."
+  },
+  "拍照": {
+    "def": "你使用机器把美丽的瞬间留住。这样以后就能随时看到当时的画面。",
+    "defVi": "Bạn sử dụng máy móc để lưu giữ lại những khoảnh khắc đẹp. Như vậy sau này bạn có thể xem lại hình ảnh lúc đó bất cứ khi nào."
+  },
+  "玩": {
+    "def": "你做一些让自己开心的活动。这通常是在没有工作压力的时候进行。",
+    "defVi": "Bạn thực hiện những hoạt động khiến bản thân cảm thấy vui vẻ. Việc này thường diễn ra khi không có áp lực công việc."
+  },
+  "有意思": {
+    "def": "当某件事物能带给你快乐或让你觉得很特别时，它就是这样的。人们通常喜欢接触这类事物。",
+    "defVi": "Khi một sự vật nào đó mang lại niềm vui hoặc khiến bạn thấy rất đặc biệt thì nó chính là như vậy. Mọi người thường thích tiếp xúc với những điều này."
+  },
+  "房子": {
+    "def": "这是一个人们居住的建筑物，通常有屋顶和墙壁。",
+    "defVi": "Đây là nơi ở của con người, thường có mái che và các bức tường bao quanh."
+  },
+  "房间": {
+    "def": "这是建筑物内部被墙壁隔开的小空间。",
+    "defVi": "Đây là một không gian nhỏ bên trong tòa nhà được ngăn cách bởi các bức tường."
+  },
+  "门": {
+    "def": "这是一个可以移动的板子，人们通过它进出建筑物或空间。",
+    "defVi": "Đây là một tấm ván có thể di chuyển được, giúp mọi người đi ra hoặc đi vào một không gian nào đó."
+  },
+  "窗户": {
+    "def": "这是墙上的一个开口，用来让光线和空气进入室内。",
+    "defVi": "Đây là một lỗ hổng trên tường, giúp ánh sáng và không khí tràn vào bên trong."
+  },
+  "空调": {
+    "def": "这是一种电器，可以让室内变得凉快或者温暖。",
+    "defVi": "Đây là một loại thiết bị điện giúp làm mát hoặc làm ấm không gian bên trong."
+  },
+  "椅子": {
+    "def": "这是一种家具，专门供人坐下来休息。",
+    "defVi": "Đây là một loại đồ đạc được thiết kế riêng để con người ngồi nghỉ ngơi."
+  },
+  "床": {
+    "def": "这是人们晚上睡觉时躺在上面的家具。",
+    "defVi": "Đây là món đồ nội thất mà mọi người nằm lên khi ngủ vào ban đêm."
+  },
+  "厨房": {
+    "def": "这是家里专门用来准备食物和做饭的地方。",
+    "defVi": "Đây là khu vực trong nhà dành riêng cho việc chuẩn bị thực phẩm và nấu nướng."
+  },
+  "洗手间": {
+    "def": "这是家里或者公共场所专门用来洗漱和解决个人卫生问题的地方。",
+    "defVi": "Đây là nơi trong nhà hoặc nơi công cộng được dùng để vệ sinh cá nhân và rửa tay."
+  },
+  "电视": {
+    "def": "这是一种电器，人们通过它观看新闻、电影或者各种节目。",
+    "defVi": "Đây là một thiết bị điện tử giúp mọi người xem tin tức, phim ảnh hoặc các chương trình giải trí."
+  },
+  "灯": {
+    "def": "这是一种能发出光亮的设备，在晚上或者黑暗的地方使用。",
+    "defVi": "Đây là một thiết bị phát ra ánh sáng, thường được dùng vào ban đêm hoặc những nơi tối tăm."
+  },
+  "干净": {
+    "def": "某种东西没有灰尘或者污垢，看起来非常整洁。",
+    "defVi": "Trạng thái của một vật không có bụi bẩn hay vết bẩn, trông rất gọn gàng."
+  },
+  "本": {
+    "def": "这是用来计算装订成册的纸质读物或记录工具的量词。在书店购买这类物品时经常会用到它。",
+    "defVi": "Đây là từ dùng để đếm các vật phẩm làm bằng giấy được đóng thành tập như sách hoặc vở. Bạn thường dùng từ này khi đi mua các loại tài liệu đọc hoặc dụng cụ ghi chép tại cửa hàng."
+  },
+  "杯": {
+    "def": "这是用来计算装在容器里的饮料的量词。",
+    "defVi": "Đây là từ dùng để đếm lượng đồ uống đựng trong cốc."
+  },
+  "件": {
+    "def": "这是用来计算衣服或者事情的量词。",
+    "defVi": "Đây là từ dùng để đếm quần áo hoặc các công việc."
+  },
+  "条": {
+    "def": "这是用来计算长形物体的量词，比如鱼或者裤子。",
+    "defVi": "Đây là từ dùng để đếm các vật có hình dáng dài như cá hoặc quần."
+  },
+  "张": {
+    "def": "这是用来计算平整物体的量词，比如纸或者照片。",
+    "defVi": "Đây là từ dùng để đếm các vật có bề mặt phẳng như giấy hoặc ảnh."
+  },
+  "只": {
+    "def": "这是用来计算小型动物的量词，比如猫或者狗。",
+    "defVi": "Đây là từ dùng để đếm các loài động vật nhỏ như mèo hoặc chó."
+  },
+  "双": {
+    "def": "这是用来计算成对出现的物体的量词，比如鞋子或者筷子。",
+    "defVi": "Đây là từ dùng để đếm những vật đi theo cặp như giày hoặc đũa."
+  },
+  "位": {
+    "def": "这是用来礼貌地计算人的量词。",
+    "defVi": "Đây là từ dùng để đếm người một cách lịch sự."
+  },
+  "辆": {
+    "def": "这是用来计算交通工具的量词，比如汽车或者自行车。",
+    "defVi": "Đây là từ dùng để đếm các loại phương tiện giao thông như ô tô hoặc xe đạp."
+  },
+  "瓶": {
+    "def": "这是用来计算装在玻璃或塑料容器里的液体的量词。",
+    "defVi": "Đây là từ dùng để đếm lượng chất lỏng đựng trong chai thủy tinh hoặc nhựa."
+  },
+  "碗": {
+    "def": "这是用来计算盛放在圆形容器里的食物的量词。",
+    "defVi": "Đây là từ dùng để đếm lượng thức ăn đựng trong bát."
+  },
+  "些": {
+    "def": "这表示数量不多，用来指代不确定的少量物体。",
+    "defVi": "Từ này chỉ một số lượng không cụ thể, dùng để nói về một vài vật gì đó."
+  },
+  "银行": {
+    "def": "这是一个专门保管、借出或者处理各种货币的地方。人们常去那里办理财务业务。",
+    "defVi": "Đây là nơi chuyên cất giữ, cho vay hoặc xử lý các loại tiền tệ. Mọi người thường đến đó để giải quyết các công việc tài chính."
+  },
+  "现金": {
+    "def": "这是纸质或者金属制成的流通货币。人们在购物时可以直接使用它进行交易。",
+    "defVi": "Đây là loại tiền tệ bằng giấy hoặc kim loại đang lưu thông. Mọi người có thể dùng trực tiếp để mua sắm."
+  },
+  "付钱": {
+    "def": "当你购买商品或享受服务时，你需要把自己的货币交给对方。这是完成交易的必要步骤。",
+    "defVi": "Khi bạn mua hàng hoặc sử dụng dịch vụ, bạn cần đưa số tiền tương ứng cho người bán. Đây là bước cần thiết để hoàn tất giao dịch."
+  },
+  "找钱": {
+    "def": "当你给出的数额超过了商品的价格时，对方会把多余的部分退还给你。这是买卖过程中的常见行为。",
+    "defVi": "Khi bạn đưa số tiền nhiều hơn giá trị món hàng, người bán sẽ trả lại phần dư cho bạn. Đây là hành động thường thấy khi mua bán."
+  },
+  "换钱": {
+    "def": "当你拥有某种货币但需要另一种国家的货币时，你可以进行这种操作。这通常在专门的机构完成。",
+    "defVi": "Khi bạn có loại tiền này nhưng lại cần tiền của quốc gia khác, bạn thực hiện việc này. Nó thường được thực hiện tại các địa điểm chuyên biệt."
+  },
+  "存钱": {
+    "def": "你把暂时不用的货币放在安全的地方保管，以便以后使用。这是一种积累财富的好习惯。",
+    "defVi": "Bạn cất giữ số tiền chưa dùng đến vào nơi an toàn để sau này sử dụng. Đây là thói quen tốt để tích lũy tài sản."
+  },
+  "卡": {
+    "def": "这是一块小小的塑料片，上面记录着你的个人账户信息。在商店里，你可以用它代替纸币来完成消费。",
+    "defVi": "Đây là một miếng nhựa nhỏ ghi lại thông tin tài khoản cá nhân của bạn. Ở cửa hàng, bạn có thể dùng nó thay cho tiền giấy để thanh toán."
+  },
+  "密码": {
+    "def": "这是一串只有你自己知道的数字或字母组合。在操作个人账户时，你需要输入它来证明身份。",
+    "defVi": "Đây là một chuỗi số hoặc chữ cái mà chỉ mình bạn biết. Khi thao tác với tài khoản cá nhân, bạn cần nhập nó để xác nhận danh tính."
+  },
+  "支付宝": {
+    "def": "这是一个手机上的软件，通过扫描二维码即可完成交易。它是现代生活中非常流行的电子支付工具。",
+    "defVi": "Đây là một ứng dụng trên điện thoại, cho phép thanh toán bằng cách quét mã QR. Nó là công cụ thanh toán điện tử rất phổ biến trong cuộc sống hiện đại."
+  },
+  "发票": {
+    "def": "这是一份证明你已经购买了某样东西的凭证。上面详细记录了购买的日期、名称和具体金额。",
+    "defVi": "Đây là giấy tờ chứng minh bạn đã mua một món đồ nào đó. Trên đó ghi chi tiết ngày mua, tên hàng hóa và số tiền cụ thể."
+  },
+  "免费": {
+    "def": "当你获得某样东西时，不需要花费任何货币。这代表你可以直接获取而无需任何代价。",
+    "defVi": "Khi bạn nhận được thứ gì đó mà không phải tốn bất kỳ khoản tiền nào. Điều này có nghĩa là bạn có thể lấy nó mà không cần trả giá."
+  },
+  "一共": {
+    "def": "这是把所有部分加起来得到的最终数量。它常用于询问或总结多项开支的最终结果。",
+    "defVi": "Đây là con số cuối cùng sau khi cộng tất cả các phần lại với nhau. Nó thường dùng để hỏi hoặc tổng kết kết quả cuối cùng của nhiều khoản chi phí."
+  },
+  "一": {
+    "def": "这是最小的正整数。",
+    "defVi": "Đây là số nguyên dương nhỏ nhất."
+  },
+  "二": {
+    "def": "这是在第一之后的数字。",
+    "defVi": "Đây là con số đứng ngay sau số đầu tiên."
+  },
+  "三": {
+    "def": "这是比二多一个的数字。",
+    "defVi": "Đây là con số nhiều hơn số hai một đơn vị."
+  },
+  "四": {
+    "def": "这是在三之后的数字。",
+    "defVi": "Đây là con số đứng ngay sau số ba."
+  },
+  "五": {
+    "def": "这是在四之后的数字。",
+    "defVi": "Đây là con số đứng ngay sau số bốn."
+  },
+  "十": {
+    "def": "这是五加五得到的数字。",
+    "defVi": "Đây là kết quả của phép tính năm cộng năm."
+  },
+  "百": {
+    "def": "这是十个十加在一起的数字。",
+    "defVi": "Đây là kết quả của mười lần mười cộng lại."
+  },
+  "个": {
+    "defVi": "Đây là từ chỉ đơn vị phổ biến nhất, dùng để đếm số lượng người hoặc các sự vật thông thường."
+  },
+  "岁": {
+    "def": "这是一个用来表示人出生后过了多少年的单位。",
+    "defVi": "Đây là đơn vị dùng để chỉ số năm kể từ khi một người được sinh ra."
+  },
+  "多少": {
+    "def": "这是一个用来询问数量的词。",
+    "defVi": "Đây là từ dùng để hỏi về số lượng."
+  },
+  "钱": {
+    "def": "这是人们买东西时用来交换的纸币或硬币。",
+    "defVi": "Đây là những tờ giấy hoặc đồng kim loại mà mọi người dùng để trao đổi khi mua sắm."
+  },
+  "块": {
+    "def": "这是口语中表示货币价值的单位。",
+    "defVi": "Đây là đơn vị dùng để chỉ giá trị của vật phẩm trong giao tiếp hàng ngày."
+  },
+  "要": {
+    "def": "这是表达某种愿望或计划的动词。当一个人非常渴望得到某物或打算做某事时使用。",
+    "defVi": "Đây là động từ dùng để diễn tả mong muốn hoặc dự định. Bạn dùng nó khi khao khát có thứ gì đó hoặc định thực hiện một hành động nào đó."
+  },
+  "可以": {
+    "def": "这是表示许可或能力的词。当某人被允许做某事或者有能力完成某事时使用。",
+    "defVi": "Đây là từ dùng để chỉ sự cho phép hoặc khả năng. Bạn dùng nó khi ai đó được phép làm gì hoặc có đủ năng lực để thực hiện việc đó."
+  },
+  "应该": {
+    "def": "这是表示建议或责任的词。当某人做某事是正确或合适的时候使用。",
+    "defVi": "Đây là từ dùng để đưa ra lời khuyên hoặc chỉ trách nhiệm. Bạn dùng nó khi việc ai đó làm là đúng đắn hoặc phù hợp."
+  },
+  "因为": {
+    "def": "这是用来解释原因的连词。当你想说明某事发生的原由时使用。",
+    "defVi": "Đây là liên từ dùng để giải thích nguyên nhân. Bạn dùng nó khi muốn nêu lý do tại sao một sự việc lại xảy ra."
+  },
+  "所以": {
+    "def": "这是用来引出结果的连词。当你想说明某事发生后的影响或结论时使用。",
+    "defVi": "Đây là liên từ dùng để dẫn dắt kết quả. Bạn dùng nó khi muốn nêu lên hệ quả hoặc kết luận sau một sự việc."
+  },
+  "但是": {
+    "def": "这是表示转折的连词。当你想连接两个意思相反或不同的句子时使用。",
+    "defVi": "Đây là liên từ dùng để diễn tả sự đối lập. Bạn dùng nó khi muốn nối hai câu có ý nghĩa trái ngược hoặc khác biệt nhau."
+  },
+  "如果": {
+    "def": "这是表示假设的连词。当你想说明某种情况在未来可能发生时使用。",
+    "defVi": "Đây là liên từ dùng để đặt giả thuyết. Bạn dùng nó khi muốn nêu lên một tình huống có thể xảy ra trong tương lai."
+  },
+  "已经": {
+    "def": "这是表示动作完成的副词。当某事在现在之前就完成了时使用。",
+    "defVi": "Đây là phó từ chỉ sự hoàn tất. Bạn dùng nó khi một hành động nào đó đã kết thúc trước thời điểm hiện tại."
+  },
+  "正在": {
+    "def": "这是表示动作持续的副词。当某事在此时此刻进行中时使用。",
+    "defVi": "Đây là phó từ chỉ sự tiếp diễn. Bạn dùng nó khi một hành động đang được thực hiện ngay tại thời điểm nói."
+  },
+  "就": {
+    "def": "这是表示时间早或动作迅速的副词。当某事发生得比预期更快时使用。",
+    "defVi": "Đây là phó từ chỉ thời gian sớm hoặc hành động nhanh chóng. Bạn dùng nó khi một việc xảy ra sớm hơn dự kiến."
+  },
+  "才": {
+    "def": "这是表示时间晚或动作缓慢的副词。当某事发生得比预期更慢时使用。",
+    "defVi": "Đây là phó từ chỉ thời gian muộn hoặc hành động chậm chạp. Bạn dùng nó khi một việc xảy ra trễ hơn so với mong đợi."
+  },
+  "比": {
+    "def": "这是一个用来表示两者之间程度或数量存在差异的词。通常放在两个需要进行评价的对象中间。",
+    "defVi": "Đây là từ dùng để chỉ sự chênh lệch về mức độ hoặc số lượng giữa hai đối tượng. Nó thường được đặt giữa hai vật hoặc người cần đem ra đối chiếu."
+  },
+  "我": {
+    "def": "这是说话的人用来称呼自己的代词。",
+    "defVi": "Đại từ dùng để chỉ chính bản thân người đang nói."
+  },
+  "你": {
+    "def": "这是说话的人用来称呼听话人的代词。",
+    "defVi": "Đại từ dùng để chỉ người đang đối thoại với mình."
+  },
+  "他": {
+    "def": "这是指代除说话人和听话人之外的男性第三方的代词。",
+    "defVi": "Đại từ dùng để chỉ một người nam giới không có mặt trong cuộc hội thoại."
+  },
+  "她": {
+    "def": "这是指代除说话人和听话人之外的女性第三方的代词。",
+    "defVi": "Đại từ dùng để chỉ một người nữ giới không có mặt trong cuộc hội thoại."
+  },
+  "们": {
+    "def": "这是一个放在人称代词后面，表示数量超过一个的后缀。",
+    "defVi": "Hậu tố đặt sau đại từ nhân xưng để chỉ số lượng từ hai người trở lên."
+  },
+  "爸爸": {
+    "def": "这是指生下自己的男性长辈。",
+    "defVi": "Người đàn ông đã sinh ra mình."
+  },
+  "妈妈": {
+    "def": "这是指生下自己的女性长辈。",
+    "defVi": "Người phụ nữ đã sinh ra mình."
+  },
+  "儿子": {
+    "def": "这是指父母所生的男性后代。",
+    "defVi": "Người con có giới tính nam của cha mẹ."
+  },
+  "女儿": {
+    "def": "这是指父母所生的女性后代。",
+    "defVi": "Người con có giới tính nữ của cha mẹ."
+  },
+  "朋友": {
+    "def": "这是指彼此感情很好，经常在一起玩耍或交流的人。",
+    "defVi": "Người có mối quan hệ thân thiết, thường xuyên trò chuyện và chơi cùng nhau."
+  },
+  "老师": {
+    "def": "这是指在学校里负责传授知识和技能的人。",
+    "defVi": "Người làm công việc truyền đạt kiến thức và kỹ năng tại trường học."
+  },
+  "学生": {
+    "def": "这是指在学校里学习知识的人。",
+    "defVi": "Người đang học tập kiến thức tại các cơ sở giáo dục."
+  },
+  "家": {
+    "def": "这是一个人们共同生活的地方，里面住着父母和孩子。",
+    "defVi": "Đây là nơi mọi người cùng chung sống, bao gồm cha mẹ và con cái."
+  },
+  "学校": {
+    "def": "这是一个学生每天去学习知识和参加各种活动的地方。",
+    "defVi": "Đây là nơi học sinh đến mỗi ngày để tiếp thu kiến thức và tham gia các hoạt động."
+  },
+  "商店": {
+    "def": "这是一个人们可以购买食物、衣服或者其他生活用品的场所。",
+    "defVi": "Đây là nơi mọi người có thể mua thực phẩm, quần áo hoặc các vật dụng sinh hoạt khác."
+  },
+  "医院": {
+    "def": "这是一个当人们身体不舒服或者受伤时，去寻找医生帮助的地方。",
+    "defVi": "Đây là nơi mọi người đến tìm sự giúp đỡ của bác sĩ khi cảm thấy không khỏe hoặc bị thương."
+  },
+  "中国": {
+    "def": "这是一个位于亚洲东部，拥有悠久历史和灿烂文化的巨大国家。",
+    "defVi": "Đây là một quốc gia rộng lớn nằm ở phía đông châu Á, có lịch sử lâu đời và nền văn hóa rực rỡ."
+  },
+  "北京": {
+    "def": "这是一个拥有很多名胜古迹，并且是该国政治和文化中心的著名大城市。",
+    "defVi": "Đây là một thành phố lớn nổi tiếng, nơi có nhiều di tích lịch sử và là trung tâm chính trị, văn hóa của quốc gia đó."
+  },
+  "在": {
+    "def": "当你想表达某个人或者某样东西位于某个具体位置时，会用到这个词。",
+    "defVi": "Khi bạn muốn diễn tả một người hoặc một vật đang nằm tại một vị trí cụ thể nào đó."
+  },
+  "里": {
+    "def": "当某样东西被放置于一个容器或者一个空间的内部时，可以用这个词来描述。",
+    "defVi": "Khi một vật được đặt bên trong một cái hộp hoặc một không gian nào đó."
+  },
+  "上": {
+    "def": "当某样东西位于另一个物体的表面，并且接触到它的时候，可以用这个词。",
+    "defVi": "Khi một vật nằm trên bề mặt của một vật khác và tiếp xúc với nó."
+  },
+  "下": {
+    "def": "当某样东西位于另一个物体的底部或者地面位置时，可以用这个词。",
+    "defVi": "Khi một vật nằm ở phía dưới đáy hoặc ở vị trí thấp hơn một vật khác."
+  },
+  "前面": {
+    "def": "当你面对某样东西，它正对着你的那个方向就是这个位置。",
+    "defVi": "Khi bạn đối diện với một vật, hướng ngay trước mặt bạn chính là vị trí này."
+  },
+  "后面": {
+    "def": "当你背对着某样东西，它位于你身体背后的那个方向。",
+    "defVi": "Khi bạn quay lưng lại với một vật, nó nằm ở hướng phía sau lưng bạn."
+  },
+  "什么": {
+    "def": "这是一个用来询问事物名称的词。",
+    "defVi": "Dùng để hỏi về tên gọi hoặc bản chất của một sự vật, sự việc."
+  },
+  "谁": {
+    "def": "这是一个用来询问人的身份的词。",
+    "defVi": "Dùng để hỏi về danh tính của một người nào đó."
+  },
+  "哪儿": {
+    "def": "这是一个用来询问地点的词。",
+    "defVi": "Dùng để hỏi về vị trí hoặc nơi chốn."
+  },
+  "什么时候": {
+    "def": "这是一个用来询问具体时间的词。",
+    "defVi": "Dùng để hỏi về thời điểm diễn ra một sự việc."
+  },
+  "怎么": {
+    "def": "这是一个用来询问方式或方法的词。",
+    "defVi": "Dùng để hỏi về cách thức thực hiện một hành động."
+  },
+  "为什么": {
+    "def": "这是一个用来询问原因的词。",
+    "defVi": "Dùng để hỏi về lý do dẫn đến một kết quả hoặc sự việc."
+  },
+  "几": {
+    "def": "这是一个用来询问十以内数字的词。",
+    "defVi": "Dùng để hỏi về số lượng nhỏ, thường là dưới mười."
+  },
+  "哪": {
+    "def": "这是一个用来在多个选项中进行选择的词。",
+    "defVi": "Dùng để hỏi về sự lựa chọn trong một nhóm đối tượng cụ thể."
+  },
+  "吗": {
+    "def": "这是一个放在句子末尾表示疑问的语气词，通常用于是非问句。",
+    "defVi": "Đặt cuối câu để tạo thành câu hỏi có hoặc không."
+  },
+  "呢": {
+    "def": "这是一个放在句子末尾，用来反问对方情况的语气词。",
+    "defVi": "Đặt cuối câu để hỏi ngược lại ý kiến hoặc tình trạng của người đối diện."
+  },
+  "好吗": {
+    "def": "这是一个放在句子末尾，用来征求对方意见或建议的短语。",
+    "defVi": "Dùng cuối câu để hỏi xem người nghe có đồng ý với đề nghị của mình hay không."
+  },
+  "怎么样": {
+    "def": "这是一个用来询问情况、性质或意见的词。",
+    "defVi": "Dùng để hỏi về cảm nhận, đánh giá hoặc tình trạng của một sự vật, sự việc."
+  },
+  "汤": {
+    "def": "这是用肉、蔬菜或鱼加水煮成的液体食物。人们通常在吃饭时先喝一点。",
+    "defVi": "Đây là món ăn dạng lỏng được nấu từ thịt, rau hoặc cá với nước. Mọi người thường húp một chút trước khi dùng bữa chính."
+  },
+  "服务员": {
+    "def": "这是在餐厅里工作的人。他们的工作是帮客人拿食物和清理桌子。",
+    "defVi": "Đây là người làm việc tại nhà hàng. Công việc của họ là mang thức ăn cho khách và dọn dẹp bàn ghế."
+  },
+  "菜单": {
+    "def": "这是一张纸或一个小本子。上面写着餐厅里所有的食物和价格，方便客人选择想吃的东西。",
+    "defVi": "Đây là một tờ giấy hoặc cuốn sổ nhỏ. Trên đó liệt kê tất cả các món ăn và giá cả để khách hàng dễ dàng lựa chọn."
+  },
+  "点菜": {
+    "def": "这是在餐厅里告诉工作人员你想吃什么。你通常会看着纸上的名字来做决定。",
+    "defVi": "Đây là hành động báo cho nhân viên biết bạn muốn ăn gì. Bạn thường nhìn vào danh sách món ăn để đưa ra quyết định."
+  },
+  "好喝": {
+    "def": "当液体进入嘴里感觉很舒服时，人们会这样形容它。它常用来评价果汁或咖啡。",
+    "defVi": "Khi chất lỏng đi vào miệng mang lại cảm giác dễ chịu, người ta dùng từ này để mô tả. Nó thường dùng để đánh giá nước trái cây hoặc cà phê."
+  },
+  "辣": {
+    "def": "这是一种强烈的口感。当你吃某些东西时，舌头会感到热热的或痛痛的。",
+    "defVi": "Đây là một loại cảm giác mạnh. Khi ăn một số thứ, lưỡi bạn sẽ thấy nóng rát hoặc đau."
+  },
+  "甜": {
+    "def": "这是一种让人喜欢的口感。糖果或蜂蜜通常都有这种感觉。",
+    "defVi": "Đây là một loại hương vị dễ chịu. Kẹo hoặc mật ong thường mang lại cảm giác này."
+  },
+  "筷子": {
+    "def": "这是一对长长的木头或塑料棍子。在亚洲国家，人们用它们把食物送到嘴里。",
+    "defVi": "Đây là một đôi que dài bằng gỗ hoặc nhựa. Ở các nước châu Á, người ta dùng chúng để gắp thức ăn đưa vào miệng."
+  },
+  "打包": {
+    "def": "当你吃不完餐厅里的食物时，你会请人把剩下的东西装进盒子里带走。",
+    "defVi": "Khi bạn không ăn hết thức ăn tại nhà hàng, bạn sẽ nhờ người ta bỏ phần còn lại vào hộp để mang về."
+  },
+  "买单": {
+    "def": "这是在吃完饭后交给餐厅钱的行为。你必须付钱才能离开。",
+    "defVi": "Đây là hành động trả tiền cho nhà hàng sau khi dùng bữa xong. Bạn phải thanh toán thì mới được rời đi."
+  },
+  "饱": {
+    "def": "当你吃了很多东西，肚子感觉装不下了，身体就会有这种状态。",
+    "defVi": "Khi bạn đã ăn rất nhiều và cảm thấy bụng không thể chứa thêm được nữa, cơ thể sẽ ở trạng thái này."
+  },
+  "味道": {
+    "def": "这是通过舌头和鼻子感受到的食物特征。它决定了你觉得东西是香的还是难吃的。",
+    "defVi": "Đây là đặc điểm của thức ăn được cảm nhận qua lưỡi và mũi. Nó quyết định việc bạn thấy món đó thơm ngon hay khó ăn."
+  },
+  "大学": {
+    "def": "这是一个高等教育机构，学生在这里学习专业知识并获得学位。",
+    "defVi": "Đây là nơi đào tạo bậc cao, nơi người học nghiên cứu chuyên môn để lấy bằng cấp."
+  },
+  "同学": {
+    "def": "这是和你一起在同一个地方学习的人。",
+    "defVi": "Đây là người cùng học chung với bạn tại một nơi."
+  },
+  "教室": {
+    "def": "这是一个专门用来上课的空间，里面通常有桌椅和黑板。",
+    "defVi": "Đây là không gian dành riêng cho việc học, thường có bàn ghế và bảng đen."
+  },
+  "课": {
+    "def": "这是老师教学生知识的一段时间。",
+    "defVi": "Đây là khoảng thời gian mà giáo viên truyền đạt kiến thức cho người học."
+  },
+  "汉语": {
+    "def": "这是中国使用的主要交流工具。",
+    "defVi": "Đây là công cụ giao tiếp chính được sử dụng tại Trung Quốc."
+  },
+  "生词": {
+    "def": "这是你在书本里看到的还不认识的词汇。",
+    "defVi": "Đây là những từ vựng bạn bắt gặp trong sách mà bản thân chưa biết."
+  },
+  "语法": {
+    "def": "这是语言中关于句子结构和词语组合的规则。",
+    "defVi": "Đây là các quy tắc về cấu trúc câu và cách kết hợp từ ngữ trong một ngôn ngữ."
+  },
+  "练习": {
+    "def": "你为了掌握某种技能而重复做某事。",
+    "defVi": "Bạn thực hiện việc này lặp đi lặp lại để thành thạo một kỹ năng nào đó."
+  },
+  "问题": {
+    "def": "这是当你对某事不清楚时，向别人提出的询问。",
+    "defVi": "Đây là lời hỏi thăm hoặc thắc mắc gửi đến người khác khi bạn chưa rõ về điều gì đó."
+  },
+  "明白": {
+    "def": "你通过思考后清楚地知道了某事的含义。",
+    "defVi": "Bạn nắm bắt và thông suốt ý nghĩa của sự việc sau khi đã suy nghĩ kỹ."
+  },
+  "考试": {
+    "def": "这是用来检查学生学习成果的一种正式评估方式。",
+    "defVi": "Đây là hình thức kiểm tra chính thức để đánh giá kết quả học tập của người học."
+  },
+  "作业": {
+    "def": "这是老师让学生在课后完成的任务。",
+    "defVi": "Đây là nhiệm vụ mà giáo viên giao cho người học phải hoàn thành sau giờ học."
+  },
+  "东西": {
+    "def": "这是人们日常生活中使用的各种物品。你可以把它们买回家或者放在包里。",
+    "defVi": "Đây là những vật dụng thường ngày mà con người sử dụng. Bạn có thể mua chúng về nhà hoặc bỏ vào trong túi."
+  },
+  "衣服": {
+    "def": "这是人们穿在身体外面用来保暖或装饰的物品。通常由布料制作而成。",
+    "defVi": "Đây là những món đồ con người mặc bên ngoài cơ thể để giữ ấm hoặc làm đẹp. Chúng thường được làm từ vải."
+  },
+  "书": {
+    "def": "这是由很多纸张装订在一起的物品，上面印有文字和图片供人阅读学习。",
+    "defVi": "Đây là vật dụng gồm nhiều tờ giấy đóng lại với nhau, trên đó in chữ và hình ảnh để mọi người đọc và học tập."
+  },
+  "桌子": {
+    "def": "这是一种家具，有一个平坦的表面和几条腿，人们常在上面放东西或写字。",
+    "defVi": "Đây là một loại đồ nội thất có bề mặt phẳng và vài cái chân, mọi người thường đặt đồ đạc lên trên hoặc dùng để viết lách."
+  },
+  "贵": {
+    "def": "当一件商品需要花费很多钱才能买到时，就是这种情况。",
+    "defVi": "Khi một món hàng cần phải tốn rất nhiều tiền mới mua được thì đó là trường hợp này."
+  },
+  "便宜": {
+    "def": "当一件商品花费的钱很少，不需要很多钱就能买到时，就是这种情况。",
+    "defVi": "Khi một món hàng tốn rất ít tiền, không cần nhiều tiền là có thể mua được thì đó là trường hợp này."
+  },
+  "车": {
+    "def": "这是一种有轮子的交通工具，可以帮助人们快速从一个地方移动到另一个地方。",
+    "defVi": "Đây là một loại phương tiện giao thông có bánh, giúp con người di chuyển nhanh chóng từ nơi này sang nơi khác."
+  },
+  "出租车": {
+    "def": "这是一种专门载客的交通工具，乘客付钱后，司机就会把你送到想去的地方。",
+    "defVi": "Đây là loại phương tiện chuyên chở khách, sau khi hành khách trả tiền, tài xế sẽ đưa bạn đến nơi muốn đến."
+  },
+  "飞机": {
+    "def": "这是一种在天空飞行的交通工具，可以载很多人快速跨越很远的距离。",
+    "defVi": "Đây là loại phương tiện bay trên bầu trời, có thể chở nhiều người vượt qua khoảng cách xa một cách nhanh chóng."
+  },
+  "火车": {
+    "def": "这是一种在铁轨上运行的交通工具，通常很长，可以运送很多乘客或货物。",
+    "defVi": "Đây là loại phương tiện chạy trên đường ray, thường rất dài và có thể chở nhiều hành khách hoặc hàng hóa."
+  },
+  "票": {
+    "def": "这是一种纸质或电子证明，拥有它才能进入某个场所或乘坐某种交通工具。",
+    "defVi": "Đây là một loại giấy tờ hoặc bằng chứng điện tử, có nó thì bạn mới được vào một địa điểm nào đó hoặc sử dụng phương tiện giao thông."
+  },
+  "坐": {
+    "def": "当你让身体的重心放在椅子或凳子上，或者使用交通工具移动时，就是这个动作。",
+    "defVi": "Khi bạn đặt trọng tâm cơ thể lên ghế hoặc băng ghế, hoặc sử dụng phương tiện giao thông để di chuyển thì chính là hành động này."
+  },
+  "今天": {
+    "def": "这是我们生活的这一天。",
+    "defVi": "Khoảng thời gian 24 giờ mà chúng ta đang trải qua lúc này."
+  },
+  "明天": {
+    "def": "这是紧接在当前这一天之后的那一天。",
+    "defVi": "Khoảng thời gian 24 giờ sẽ đến ngay sau khi kết thúc 24 giờ hiện tại."
+  },
+  "昨天": {
+    "def": "这是紧接在当前这一天之前的那一天。",
+    "defVi": "Khoảng thời gian 24 giờ vừa mới trôi qua ngay trước lúc này."
+  },
+  "现在": {
+    "def": "这是此时此刻的时间。",
+    "defVi": "Thời điểm ngay lúc này, không sớm hơn cũng không muộn hơn."
+  },
+  "年": {
+    "def": "这是地球绕太阳转一圈所需要的时间，包含十二个不同的时期。",
+    "defVi": "Khoảng thời gian gồm mười hai tháng, tương ứng với một vòng quay của Trái Đất quanh Mặt Trời."
+  },
+  "月": {
+    "def": "这是组成一整段时光的十二个部分之一，也是夜空中发光的圆形物体。",
+    "defVi": "Một phần mười hai của một vòng quay Trái Đất, hoặc là vật thể sáng bạc trên bầu trời đêm."
+  },
+  "日": {
+    "def": "这是计算时间的基本单位，也是白天照亮大地的巨大火球。",
+    "defVi": "Đơn vị cơ bản để đếm thời gian, hoặc là khối cầu lửa khổng lồ tỏa sáng vào ban ngày."
+  },
+  "星期": {
+    "def": "这是由七个连续的时期组成的一段时间。",
+    "defVi": "Khoảng thời gian kéo dài bảy ngày liên tiếp."
+  },
+  "点": {
+    "def": "这是用来表示时间刻度的单位，通常在钟表上显示。",
+    "defVi": "Đơn vị dùng để đếm thời gian trên mặt đồng hồ."
+  },
+  "分钟": {
+    "def": "这是时间单位，六十个这样的单位加起来就是一小时。",
+    "defVi": "Đơn vị thời gian nhỏ hơn giờ, cần sáu mươi đơn vị này để tạo thành một giờ."
+  },
+  "上午": {
+    "def": "这是从太阳升起到中午之前的那段时间。",
+    "defVi": "Khoảng thời gian bắt đầu từ lúc mặt trời mọc cho đến trước khi đến giờ nghỉ trưa."
+  },
+  "下午": {
+    "def": "这是从中午过后到太阳落山之前的那段时间。",
+    "defVi": "Khoảng thời gian sau giờ nghỉ trưa cho đến trước khi trời tối."
+  },
+  "公共汽车": {
+    "def": "这是一种大型的交通工具，可以在城市里载很多人去不同的地方。",
+    "defVi": "Đây là một loại phương tiện giao thông công cộng cỡ lớn, có thể chở nhiều người đi lại trong thành phố."
+  },
+  "地铁": {
+    "def": "这是一种在城市地底下运行的快速交通工具，能避开地面的交通拥挤。",
+    "defVi": "Đây là loại phương tiện di chuyển tốc độ cao chạy dưới lòng đất, giúp tránh tình trạng ùn tắc giao thông trên mặt đường."
+  },
+  "高铁": {
+    "def": "这是一种在城市之间运行的非常快的火车，主要用于长途旅行。",
+    "defVi": "Đây là loại tàu hỏa chạy với tốc độ rất nhanh giữa các thành phố, thường dùng cho những chuyến đi xa."
+  },
+  "自行车": {
+    "def": "这是一种有两个轮子的交通工具，需要人用力踩踏板才能前进。",
+    "defVi": "Đây là phương tiện có hai bánh, người dùng cần dùng sức chân đạp vào bàn đạp để di chuyển."
+  },
+  "摩托车": {
+    "def": "这是一种有两个轮子并使用燃油或电力驱动的交通工具，在很多亚洲国家很常见。",
+    "defVi": "Đây là phương tiện có hai bánh chạy bằng xăng hoặc điện, rất phổ biến tại nhiều quốc gia châu Á."
+  },
+  "骑": {
+    "def": "当你坐在有两个轮子的交通工具上，并用双脚控制它前进时，就是在做这个动作。",
+    "defVi": "Bạn thực hiện hành động này khi ngồi trên một phương tiện có hai bánh và dùng chân điều khiển nó tiến về phía trước."
+  },
+  "开车": {
+    "def": "当你坐在有四个轮子的交通工具里，通过控制方向盘来移动它时，就是在做这个动作。",
+    "defVi": "Bạn thực hiện hành động này khi ngồi trong một phương tiện có bốn bánh và điều khiển vô lăng để di chuyển nó."
+  },
+  "打车": {
+    "def": "当你想要去某个地方，但没有私人交通工具，于是付钱请别人载你过去时，就是在做这个动作。",
+    "defVi": "Bạn thực hiện hành động này khi muốn đến một nơi nào đó nhưng không có phương tiện cá nhân, nên trả tiền để thuê người khác chở đi."
+  },
+  "堵车": {
+    "def": "当很多交通工具在路上排成很长的队，无法快速移动时，就会发生这种情况。",
+    "defVi": "Tình trạng này xảy ra khi có quá nhiều phương tiện xếp hàng dài trên đường và không thể di chuyển nhanh được."
+  },
+  "红绿灯": {
+    "def": "这是一种安装在路口的设备，通过显示不同颜色的光来指挥交通，告诉人们何时该走或停。",
+    "defVi": "Đây là thiết bị đặt tại các ngã tư, dùng các màu sắc khác nhau để điều tiết giao thông, báo hiệu cho người đi đường biết khi nào được đi hoặc phải dừng lại."
+  },
+  "站": {
+    "def": "这是人们在等待交通工具或者下车的地方。",
+    "defVi": "Đây là nơi mọi người đợi phương tiện công cộng hoặc là điểm dừng để khách xuống xe."
+  },
+  "路上": {
+    "def": "这是指你从一个地方去另一个地方的过程中，所经过的空间。",
+    "defVi": "Đây là khoảng không gian hoặc thời gian mà bạn trải qua trong quá trình di chuyển từ nơi này đến nơi khác."
+  },
+  "机场": {
+    "def": "这是一个有很多飞机起飞和降落的地方，人们在这里坐飞机去远方。",
+    "defVi": "Đây là nơi có nhiều máy bay cất cánh và hạ cánh, nơi mọi người đến để đi máy bay đến những nơi xa."
+  },
+  "护照": {
+    "def": "这是一本由国家发给公民的小册子，出国旅行时必须随身携带以证明身份。",
+    "defVi": "Đây là một cuốn sổ nhỏ do quốc gia cấp cho công dân, bắt buộc phải mang theo khi đi nước ngoài để chứng minh danh tính."
+  },
+  "签证": {
+    "def": "这是政府在个人证件上盖的印章，允许持有人进入该国并在那里停留一段时间。",
+    "defVi": "Đây là con dấu của chính phủ đóng trên giấy tờ cá nhân, cho phép người sở hữu được nhập cảnh và lưu trú tại quốc gia đó trong một khoảng thời gian."
+  },
+  "宾馆": {
+    "def": "这是一个提供床位和房间给游客过夜的地方，通常需要付费。",
+    "defVi": "Đây là nơi cung cấp giường ngủ và phòng ở cho du khách qua đêm, thường là phải trả phí."
+  },
+  "房卡": {
+    "def": "这是一张塑料小片，用来打开住宿地点的门。",
+    "defVi": "Đây là một mảnh nhựa nhỏ dùng để mở cửa phòng tại nơi lưu trú."
+  },
+  "行李": {
+    "def": "这是人们在旅行时携带的箱子或包，里面装着衣服和生活用品。",
+    "defVi": "Đây là những chiếc vali hoặc túi xách mà mọi người mang theo khi đi du lịch, bên trong đựng quần áo và đồ dùng cá nhân."
+  },
+  "地图": {
+    "def": "这是一张画着道路、城市和国家的纸或电子图片，用来告诉人们怎么走。",
+    "defVi": "Đây là một tờ giấy hoặc hình ảnh điện tử vẽ các con đường, thành phố và quốc gia, dùng để chỉ đường cho mọi người."
+  },
+  "出发": {
+    "def": "你做这个动作表示开始一段旅程，离开现在所在的地点。",
+    "defVi": "Bạn thực hiện hành động này khi bắt đầu một chuyến đi và rời khỏi nơi hiện tại."
+  },
+  "到": {
+    "def": "你做这个动作表示经过一段路程后，终于抵达了目的地。",
+    "defVi": "Bạn thực hiện hành động này khi sau một quãng đường di chuyển, cuối cùng đã đặt chân tới nơi cần đến."
+  },
+  "预订": {
+    "def": "你做这个动作表示提前联系商家，把某个位置或服务留给自己。",
+    "defVi": "Bạn thực hiện hành động này khi liên hệ trước với người bán để giữ chỗ hoặc dịch vụ cho riêng mình."
+  },
+  "安全": {
+    "def": "某种情况是这样的，当你处于这种状态时，不会受到伤害或遇到危险。",
+    "defVi": "Một tình huống được gọi là như vậy khi bạn ở trong trạng thái không bị tổn thương hoặc gặp nguy hiểm."
+  },
+  "帮忙": {
+    "def": "你做这个动作表示在别人遇到困难时，提供一些力量或资源来解决问题。",
+    "defVi": "Bạn thực hiện hành động này khi thấy người khác gặp khó khăn và cung cấp sức lực hoặc tài nguyên để giải quyết vấn đề đó."
+  },
+  "有": {
+    "defVi": "Đây là việc một người hoặc một nơi sở hữu một món đồ nào đó hoặc tồn tại một mối quan hệ nhất định. Bạn dùng từ này khi muốn nói mình đang cầm hoặc mang theo thứ gì đó bên người."
+  },
+  "去": {
+    "def": "你从现在的地方向另一个目的地移动。比如你离开家前往工作的地方。",
+    "defVi": "Bạn di chuyển từ nơi hiện tại đến một địa điểm khác. Ví dụ như bạn rời nhà để tới chỗ làm."
+  },
+  "来": {
+    "def": "某人或某物向你所在的位置移动。比如朋友从远处向你靠近。",
+    "defVi": "Một người hoặc một vật di chuyển về phía vị trí của bạn. Ví dụ như bạn bè từ xa tiến lại gần bạn."
+  },
+  "吃": {
+    "def": "你把食物放进嘴里并咽下去。这是为了让身体获得能量。",
+    "defVi": "Bạn đưa thức ăn vào miệng và nuốt xuống. Việc này giúp cơ thể nạp năng lượng."
+  },
+  "喝": {
+    "def": "你把水或者其他液体放进嘴里并咽下去。当你觉得口渴时会这样做。",
+    "defVi": "Bạn đưa nước hoặc chất lỏng vào miệng và nuốt xuống. Bạn làm điều này khi cảm thấy khát."
+  },
+  "看": {
+    "def": "你用眼睛注视某物或某人。比如你盯着电视屏幕上的画面。",
+    "defVi": "Bạn dùng mắt để quan sát một vật hoặc một người nào đó. Ví dụ như bạn đang dán mắt vào hình ảnh trên màn hình tivi."
+  },
+  "听": {
+    "def": "你用耳朵接收声音。比如你通过这种方式感受音乐的旋律。",
+    "defVi": "Bạn dùng tai để tiếp nhận âm thanh. Ví dụ như bạn cảm nhận giai điệu âm nhạc bằng cách này."
+  },
+  "说": {
+    "def": "你通过嘴巴发出声音来表达想法。这是人们交流的主要方式。",
+    "defVi": "Bạn phát ra âm thanh từ miệng để bày tỏ suy nghĩ. Đây là cách chính để mọi người giao tiếp với nhau."
+  },
+  "做": {
+    "def": "你为了完成某项任务而付出行动。比如你在办公室里处理文件。",
+    "defVi": "Bạn thực hiện hành động để hoàn thành một công việc nào đó. Ví dụ như bạn đang xử lý giấy tờ tại văn phòng."
+  },
+  "买": {
+    "def": "你支付金钱以获得某样商品的所有权。比如你在商店里付钱拿走一件衬衫。",
+    "defVi": "Bạn trả tiền để sở hữu một món hàng. Ví dụ như bạn đưa tiền tại cửa hàng để lấy một chiếc áo."
+  },
+  "住": {
+    "def": "你长期停留在一个固定的地方。比如你把家安在某个城市里。",
+    "defVi": "Bạn dừng chân lâu dài tại một nơi cố định. Ví dụ như bạn chọn một thành phố để an cư."
+  },
+  "回": {
+    "def": "这表示从现在所在的地方去往原来的地方。比如工作结束之后去往自己的住所。",
+    "defVi": "Chỉ hành động di chuyển từ nơi đang đứng để đi ngược lại nơi mình từng ở. Ví dụ như sau khi xong việc thì đi về nhà của mình."
+  },
+  "天气": {
+    "def": "这是指大自然在某一个时间的状态，比如热、冷或者有阳光。人们每天出门前都会关注它。",
+    "defVi": "Trạng thái của tự nhiên tại một thời điểm nhất định, chẳng hạn như nóng, lạnh hoặc có nắng. Mọi người thường xem thông tin này trước khi ra ngoài."
+  },
+  "暖和": {
+    "def": "当温度不高也不低，让人感觉很舒服的时候。在这种状态下，你不需要穿厚重的外套。",
+    "defVi": "Trạng thái nhiệt độ không quá cao cũng không quá thấp, tạo cảm giác dễ chịu. Khi ở trạng thái này, bạn không cần mặc áo khoác dày."
+  },
+  "凉快": {
+    "def": "当温度比热的时候低，让人感觉很舒服。在夏天，人们喜欢待在这样的地方。",
+    "defVi": "Trạng thái nhiệt độ thấp hơn khi nóng, tạo cảm giác thoải mái. Vào mùa hè, mọi người thích ở những nơi như thế này."
+  },
+  "下雨": {
+    "def": "当水滴从云层中落到地面。这时候你需要带伞才能出门。",
+    "defVi": "Hiện tượng những giọt nước từ trên mây rơi xuống mặt đất. Lúc này bạn cần mang theo ô nếu muốn ra ngoài."
+  },
+  "下雪": {
+    "def": "当白色的冰晶从空中飘落到地面。这时候大地会变成一片白色。",
+    "defVi": "Hiện tượng những tinh thể băng màu trắng từ trên không trung rơi xuống mặt đất. Lúc này mặt đất sẽ phủ một màu trắng xóa."
+  },
+  "风": {
+    "def": "这是空气在地面上的水平流动。当它很大时，树木会摇晃。",
+    "defVi": "Sự chuyển động của không khí theo chiều ngang trên mặt đất. Khi nó thổi mạnh, cây cối sẽ đung đưa."
+  },
+  "晴天": {
+    "def": "当天空没有云，太阳照耀的时候。在这种日子里，你可以看到蓝蓝的天空。",
+    "defVi": "Ngày mà bầu trời không có mây và mặt trời tỏa sáng. Vào những ngày này, bạn có thể nhìn thấy bầu trời trong xanh."
+  },
+  "阴天": {
+    "def": "当云层遮住了太阳，天空看起来灰蒙蒙的。这时候光线比较暗。",
+    "defVi": "Ngày mà mây che khuất mặt trời khiến bầu trời trông xám xịt. Lúc này ánh sáng khá tối."
+  },
+  "春天": {
+    "def": "这是每年的第一个阶段，万物开始生长，花朵开放。它在冬天之后。",
+    "defVi": "Giai đoạn đầu tiên trong năm, khi vạn vật bắt đầu sinh sôi nảy nở và hoa bắt đầu khoe sắc. Nó đến sau mùa lạnh nhất."
+  },
+  "夏天": {
+    "def": "这是一年中最热的阶段。人们喜欢在这个时候去海边游泳。",
+    "defVi": "Giai đoạn nóng nhất trong năm. Mọi người thường thích đi bơi ở biển vào thời gian này."
+  },
+  "秋天": {
+    "def": "这是在夏天之后、冬天之前的阶段。这时候树叶会变黄并掉落。",
+    "defVi": "Giai đoạn sau mùa nóng và trước mùa lạnh. Lúc này lá cây bắt đầu ngả vàng và rụng xuống."
+  },
+  "冬天": {
+    "def": "这是一年中最冷的阶段。人们需要穿上厚厚的衣服来保暖。",
+    "defVi": "Giai đoạn lạnh nhất trong năm. Mọi người cần mặc quần áo dày để giữ ấm."
+  },
+  "经理": {
+    "def": "这是负责管理部门或团队的人。他们通常负责安排工作并指导下属完成任务。",
+    "defVi": "Người chịu trách nhiệm điều hành một bộ phận hoặc nhóm. Họ thường phân chia công việc và hướng dẫn nhân viên hoàn thành nhiệm vụ."
+  },
+  "公司": {
+    "def": "这是一个有很多员工一起工作的地方。人们在这里生产产品或提供各种服务以赚取利润。",
+    "defVi": "Nơi có nhiều nhân viên cùng làm việc. Mọi người ở đây tạo ra sản phẩm hoặc cung cấp các dịch vụ để kiếm lợi nhuận."
+  },
+  "老板": {
+    "def": "这是拥有企业或机构的人。他们负责支付员工报酬并决定整体的发展方向。",
+    "defVi": "Người sở hữu doanh nghiệp hoặc tổ chức. Họ là người trả lương cho nhân viên và quyết định hướng đi chung."
+  },
+  "同事": {
+    "def": "这是和你一起在同一个地方工作的人。你们通常会互相帮助完成日常的任务。",
+    "defVi": "Những người làm cùng một nơi với bạn. Các bạn thường hỗ trợ lẫn nhau để hoàn thành công việc hàng ngày."
+  },
+  "会议": {
+    "def": "这是人们聚在一起讨论问题或计划事情的活动。大家通常会坐在桌子旁交流想法。",
+    "defVi": "Hoạt động mọi người tập trung lại để thảo luận vấn đề hoặc lên kế hoạch. Mọi người thường ngồi quanh bàn để trao đổi ý kiến."
+  },
+  "办公室": {
+    "def": "这是一个专门用于处理文件和进行行政工作的房间。里面通常摆放着桌子、椅子和各种办公设备。",
+    "defVi": "Căn phòng chuyên dùng để xử lý giấy tờ và làm việc hành chính. Bên trong thường có bàn ghế và các thiết bị làm việc."
+  },
+  "电脑": {
+    "def": "这是一种可以快速处理数据和信息的电子设备。人们用它来上网、写文档或玩游戏。",
+    "defVi": "Thiết bị điện tử có khả năng xử lý dữ liệu và thông tin nhanh chóng. Người ta dùng nó để lướt web, soạn thảo văn bản hoặc giải trí."
+  },
+  "手机": {
+    "def": "这是一种可以随身携带的通讯工具。你可以用它给别人打电话、发信息或者上网。",
+    "defVi": "Công cụ liên lạc có thể mang theo bên người. Bạn có thể dùng nó để gọi điện, nhắn tin hoặc truy cập internet."
+  },
+  "加班": {
+    "def": "你做这件事当你在规定的时间之后继续留在单位处理事务。通常是因为工作量太大而无法在正常时间内完成。",
+    "defVi": "Hành động bạn tiếp tục ở lại nơi làm việc sau giờ quy định. Thường là do khối lượng công việc quá nhiều nên không thể xong trong giờ hành chính."
+  },
+  "上班": {
+    "def": "你做这件事当你每天早上准时到达工作地点开始处理事务。这是你每天开启职业活动的时间。",
+    "defVi": "Hành động bạn đến nơi làm việc đúng giờ mỗi sáng để bắt đầu công việc. Đây là lúc bạn bắt đầu hoạt động nghề nghiệp hàng ngày."
+  },
+  "下班": {
+    "def": "你做这件事当你结束了一天的所有事务并准备离开单位回家。这意味着你当天的职责已经完成。",
+    "defVi": "Hành động bạn kết thúc mọi việc trong ngày và chuẩn bị rời khỏi nơi làm việc để về nhà. Điều này có nghĩa là trách nhiệm trong ngày của bạn đã xong."
+  },
+  "工资": {
+    "def": "这是单位每月定期支付给员工的报酬。这是你通过付出劳动而获得的金钱回报。",
+    "defVi": "Khoản thù lao mà nơi làm việc trả định kỳ hàng tháng cho nhân viên. Đây là số tiền bạn nhận được sau khi đã bỏ công sức lao động."
+  }
+}

@@ -3,7 +3,11 @@ import shutil
 import sys
 from pathlib import Path
 
+import clean
+import fixes
 import photos
+import rc67
+import rcscan
 from answer_keys import reading_key
 from lc import LETTERS, parse_listening
 from pdftext import ROOT, audio_dir
@@ -37,9 +41,61 @@ def copy_audio(test: int) -> tuple[int, list[str]]:
         copied += 1
     return copied, missing
 
+def scrub_listening(listening: dict) -> list[int]:
+    touched = []
+
+    def fix(n: int, seq: list[str]) -> None:
+        for i, opt in enumerate(seq):
+            if not clean.vi_spans(opt):
+                continue
+            out = clean.clean_option(opt)
+            if out:
+                seq[i] = out
+                touched.append(n)
+
+    for item in listening["p1"]:
+        fix(item["n"], item["statements"])
+    for item in listening["p2"]:
+        fix(item["n"], item["options"])
+    for part in ("p3", "p4"):
+        for group in listening[part]:
+            for item in group["questions"]:
+                fix(item["n"], item["options"])
+    return sorted(set(touched))
+
 def usable_p5(item: dict) -> bool:
 
-    return bool(item["text"]) and len(item["options"]) == 4 and item["answer"] is not None
+    return bool(item["text"]) and clean.usable(item["text"], item["options"])
+
+def build_parts67(test: int, key: dict[int, str], folder: str) -> tuple[list, list, list, list]:
+    data = rc67.collect(test)
+    rc67.save(data["sets"], MEDIA_OUT / f"t{test:02d}", folder)
+    patch = fixes.reading_patch(test)
+    for item in data["sets"]:
+        have = {q["n"] for q in item["questions"]}
+        item["questions"].extend(patch[n] for n in item["ns"] if n in patch and n not in have)
+        item["questions"].sort(key=lambda q: q["n"])
+    p6, p7, short = [], [], []
+    for item in data["sets"]:
+        start = item["ns"][0]
+        imgs = item["imgs"]
+        missing = item["shortPassage"]
+        if missing and start in rcscan.SET_PAGES:
+            scanned = rcscan.save(test, start, MEDIA_OUT / f"t{test:02d}", folder)
+            if scanned:
+                imgs, missing = scanned, 0
+        if not imgs or not item["questions"]:
+            continue
+        for q in item["questions"]:
+            q["answer"] = LETTERS.index(key[q["n"]])
+        block = {"ns": item["ns"], "imgs": imgs, "questions": item["questions"]}
+        if missing:
+            block["short"] = missing
+            short.append(start)
+        (p6 if item["part"] == 6 else p7).append(block)
+    kept = {q["n"] for block in p6 + p7 for q in block["questions"]}
+    dropped = [n for n in range(131, 201) if n not in kept]
+    return p6, p7, short, dropped
 
 def build(test: int, with_audio: bool = True, with_photos: bool = True) -> dict:
     listening = parse_listening(test)
@@ -48,6 +104,10 @@ def build(test: int, with_audio: bool = True, with_photos: bool = True) -> dict:
     folder = f"{MEDIA_BASE}/t{test:02d}"
 
     key = reading_key(test)
+    patch = fixes.reading_patch(test)
+    by_num = {q["n"]: q for q in reading["p5"]}
+    by_num.update({n: q for n, q in patch.items() if n < 131})
+    reading["p5"] = [by_num[n] for n in sorted(by_num)]
     disputed = []
     for q in reading["p5"]:
         if q["answer"] is not None and LETTERS[q["answer"]] != key[q["n"]]:
@@ -56,12 +116,17 @@ def build(test: int, with_audio: bool = True, with_photos: bool = True) -> dict:
 
     p5 = [q for q in reading["p5"] if usable_p5(q)]
     dropped = [q["n"] for q in reading["p5"] if not usable_p5(q)]
+    p6, p7, short, missing67 = build_parts67(test, key, folder)
 
     for item in listening["p1"] + listening["p2"]:
         item["mp3"] = f"{base}-{item['n']:02d}.mp3"
     for group in listening["p3"] + listening["p4"]:
         first = group["ns"][0]
         group["mp3"] = f"{base}-{first}-{first + 2}.mp3"
+        if (MEDIA_OUT / f"t{test:02d}" / f"g-{first}.webp").is_file():
+            group["img"] = f"{folder}/g-{first}.webp"
+    fixes.apply_listening(test, listening)
+    scrub_listening(listening)
 
     if with_photos:
         names = photos.extract(test, MEDIA_OUT / f"t{test:02d}")
@@ -77,12 +142,13 @@ def build(test: int, with_audio: bool = True, with_photos: bool = True) -> dict:
         "test": test,
         "name": f"ETS 2026 · Test {test}",
         "listening": listening,
-        "reading": {"p5": p5},
+        "reading": {"p5": p5, "p6": p6, "p7": p7},
         "gaps": {
-            "readingMissing": sorted(set(reading["missing"] + dropped)),
+            "readingMissing": sorted(n for n in set(reading["missing"] + dropped) if n < 131),
             "audioMissing": missing,
             "keyDisputed": disputed,
-            "parts67": "chưa nhập",
+            "parts67Missing": missing67,
+            "parts67Short": short,
         },
     }
 
@@ -94,28 +160,39 @@ def counts(doc: dict) -> dict:
         "p3": sum(len(g["questions"]) for g in lis["p3"]),
         "p4": sum(len(g["questions"]) for g in lis["p4"]),
         "p5": len(doc["reading"]["p5"]),
+        "p6": sum(len(g["questions"]) for g in doc["reading"]["p6"]),
+        "p7": sum(len(g["questions"]) for g in doc["reading"]["p7"]),
+    }
+
+def index_row(doc: dict) -> dict:
+    c = counts(doc)
+    return {
+        "id": doc["id"],
+        "test": doc["test"],
+        "name": doc["name"],
+        "listening": c["p1"] + c["p2"] + c["p3"] + c["p4"],
+        "part1": c["p1"],
+        "part5": c["p5"],
+        "reading": c["p5"] + c["p6"] + c["p7"],
     }
 
 def main(tests: list[int], with_audio: bool = True, with_photos: bool = True) -> None:
     DATA_OUT.mkdir(parents=True, exist_ok=True)
-    index = []
+    index: dict[int, dict] = {}
     for test in tests:
         doc = build(test, with_audio, with_photos)
-        path = DATA_OUT / f"t{test:02d}.json"
-        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
-        c = counts(doc)
-        index.append({
-            "id": doc["id"],
-            "test": test,
-            "name": doc["name"],
-            "listening": c["p1"] + c["p2"] + c["p3"] + c["p4"],
-            "part1": c["p1"],
-            "part5": c["p5"],
-        })
-        print(f"test {test}: {c} -> {path.name} ({path.stat().st_size // 1024} KB)")
+        out = DATA_OUT / f"t{test:02d}.json"
+        out.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+        index[test] = index_row(doc)
+        print(f"test {test}: {counts(doc)} -> {out.name} ({out.stat().st_size // 1024} KB)")
+
+    for path in sorted(DATA_OUT.glob("t*.json")):
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        index.setdefault(doc["test"], index_row(doc))
+    rows = [index[k] for k in sorted(index)]
     (DATA_OUT / "index.json").write_text(
-        json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"index.json: {len(index)} tests")
+        json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"index.json: {len(rows)} tests")
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("-")]

@@ -6,33 +6,285 @@
   "tone": "tone-b",
   "emoji": "💻",
   "words": [
-    { "en": "browser", "ipa": "/ˈbraʊ.zɚ/", "vi": "trình duyệt web", "pos": "noun", "img": "🌐", "connect": "\"Brao-dơ\" — Chrome, Safari đều là browser.", "ex": "Open the link in your browser.", "exVi": "Mở đường dẫn trong trình duyệt của bạn." },
-    { "en": "server", "ipa": "/ˈsɝː.vɚ/", "vi": "máy chủ", "pos": "noun", "img": "🖥️", "connect": "\"Sơ-vơ\" — máy chủ phục vụ cả website.", "ex": "The server is down right now.", "exVi": "Máy chủ đang bị sập." },
-    { "en": "database", "ipa": "/ˈdeɪ.t̬ə.beɪs/", "vi": "cơ sở dữ liệu", "pos": "noun", "img": "🗄️", "connect": "data (dữ liệu) + base (nền) — kho chứa dữ liệu.", "ex": "The names are stored in a database.", "exVi": "Tên được lưu trong cơ sở dữ liệu." },
-    { "en": "spreadsheet", "ipa": "/ˈspred.ʃiːt/", "vi": "bảng tính (Excel)", "pos": "noun", "img": "📊", "connect": "spread (trải) + sheet (tờ) — bảng ô trải rộng.", "ex": "I track my budget in a spreadsheet.", "exVi": "Tôi theo dõi chi tiêu bằng bảng tính." },
-    { "en": "cursor", "ipa": "/ˈkɝː.sɚ/", "vi": "con trỏ chuột", "pos": "noun", "img": "🖱️", "connect": "\"Cơ-sơ\" — mũi tên chạy theo tay bạn.", "ex": "Move the cursor to the button.", "exVi": "Di con trỏ tới cái nút." },
-    { "en": "monitor", "ipa": "/ˈmɑː.nə.t̬ɚ/", "vi": "màn hình máy tính", "pos": "noun", "img": "🖥️", "connect": "\"Mo-ni-tơ\" — màn hình để mắt \"canh chừng\".", "ex": "He bought a bigger monitor.", "exVi": "Anh ấy mua một màn hình to hơn." },
-    { "en": "hardware", "ipa": "/ˈhɑːrd.wer/", "vi": "phần cứng", "pos": "noun", "img": "🔩", "connect": "hard (cứng) + ware (đồ) — máy móc sờ được, ngược với software.", "ex": "The shop repairs computer hardware.", "exVi": "Cửa hàng sửa phần cứng máy tính." },
-    { "en": "virus", "ipa": "/ˈvaɪ.rəs/", "vi": "vi-rút (máy tính)", "pos": "noun", "img": "🦠", "connect": "\"Vai-rợs\" — vi-rút làm máy chậm, mất dữ liệu.", "ex": "A virus deleted all my files.", "exVi": "Một con vi-rút xoá hết tệp của tôi." },
-    { "en": "hacker", "ipa": "/ˈhæk.ɚ/", "vi": "tin tặc", "pos": "noun", "img": "🕵️", "connect": "\"Hắc-cơ\" — kẻ đột nhập hệ thống.", "ex": "Hackers stole the passwords.", "exVi": "Tin tặc đánh cắp mật khẩu." },
-    { "en": "update", "ipa": "/ʌpˈdeɪt/", "vi": "cập nhật", "pos": "verb", "img": "🔄", "connect": "up (lên) + date (ngày) — đưa lên bản mới nhất.", "ex": "Please update the app.", "exVi": "Hãy cập nhật ứng dụng." },
-    { "en": "upgrade", "ipa": "/ʌpˈɡreɪd/", "vi": "nâng cấp", "pos": "verb", "img": "⬆️", "connect": "up (lên) + grade (hạng) — lên đời máy.", "ex": "I upgraded my phone last week.", "exVi": "Tuần trước tôi nâng cấp điện thoại." },
-    { "en": "delete", "ipa": "/dɪˈliːt/", "vi": "xoá", "pos": "verb", "img": "🗑️", "connect": "\"Đi-lít\" — phím Delete xoá sạch.", "ex": "Don't delete that photo!", "exVi": "Đừng xoá tấm ảnh đó!" },
-    { "en": "restart", "ipa": "/ˌriːˈstɑːrt/", "vi": "khởi động lại", "pos": "verb", "img": "🔁", "connect": "re (lại) + start (khởi động) — tắt đi bật lại là hết bệnh.", "ex": "Restart the computer and try again.", "exVi": "Khởi động lại máy tính rồi thử lại." },
-    { "en": "shortcut", "ipa": "/ˈʃɔːrt.kʌt/", "vi": "phím tắt, lối tắt", "pos": "noun", "img": "⌨️", "connect": "short (ngắn) + cut (cắt) — Ctrl+C là shortcut.", "ex": "Ctrl+S is a useful shortcut.", "exVi": "Ctrl+S là một phím tắt hữu ích." },
-    { "en": "icon", "ipa": "/ˈaɪ.kɑːn/", "vi": "biểu tượng", "pos": "noun", "img": "🔷", "connect": "\"Ai-con\" — hình nhỏ đại diện ứng dụng.", "ex": "Tap the icon to open the app.", "exVi": "Chạm vào biểu tượng để mở ứng dụng." },
-    { "en": "spam", "ipa": "/spæm/", "vi": "thư rác", "pos": "noun", "img": "📧", "connect": "\"Sờ-pem\" — hộp thư đầy quảng cáo rác.", "ex": "The email went to my spam folder.", "exVi": "Email rơi vào thư mục thư rác." },
-    { "en": "storage", "ipa": "/ˈstɔːr.ɪdʒ/", "vi": "bộ nhớ lưu trữ", "pos": "noun", "img": "💾", "connect": "\"Sto-rịdж\" — store (cất) → chỗ cất dữ liệu.", "ex": "My phone is out of storage.", "exVi": "Điện thoại của tôi hết bộ nhớ." },
-    { "en": "processor", "ipa": "/ˈprɑː.ses.ɚ/", "vi": "bộ vi xử lý", "pos": "noun", "img": "⚙️", "connect": "\"Pro-se-sơ\" — bộ não của máy tính.", "ex": "A fast processor makes games smooth.", "exVi": "Bộ xử lý nhanh giúp chơi game mượt." },
-    { "en": "algorithm", "ipa": "/ˈæl.ɡə.rɪ.ðəm/", "vi": "thuật toán", "pos": "noun", "img": "🧮", "connect": "\"An-gờ-ri-thừm\" — công thức máy tính quyết định.", "ex": "The algorithm suggests new videos.", "exVi": "Thuật toán gợi ý video mới." },
-    { "en": "chip", "ipa": "/tʃɪp/", "vi": "con chip, vi mạch", "pos": "noun", "img": "🔲", "connect": "\"Chíp\" — con chip bé xíu chạy cả máy.", "ex": "This chip is faster than the old one.", "exVi": "Con chip này nhanh hơn con cũ." },
-    { "en": "bluetooth", "ipa": "/ˈbluː.tuːθ/", "vi": "kết nối bluetooth", "pos": "noun", "img": "📶", "connect": "blue (xanh) + tooth (răng) — \"răng xanh\" kết nối không dây.", "ex": "Connect the speaker via Bluetooth.", "exVi": "Kết nối loa qua Bluetooth." },
-    { "en": "headset", "ipa": "/ˈhed.set/", "vi": "tai nghe có mic", "pos": "noun", "img": "🎧", "connect": "head (đầu) + set (bộ) — bộ đeo đầu để họp online.", "ex": "He wears a headset in meetings.", "exVi": "Anh ấy đeo tai nghe khi họp." },
-    { "en": "drone", "ipa": "/droʊn/", "vi": "máy bay không người lái", "pos": "noun", "img": "🛸", "connect": "\"Đrôn\" — flycam vo ve trên trời.", "ex": "The drone filmed the festival.", "exVi": "Chiếc drone quay phim lễ hội." },
-    { "en": "artificial intelligence", "ipa": "/ˌɑːr.t̬ə.fɪʃ.əl ɪnˈtel.ə.dʒəns/", "vi": "trí tuệ nhân tạo (AI)", "pos": "noun", "img": "🤖", "connect": "artificial (nhân tạo) + intelligence (trí tuệ) — AI.", "ex": "Artificial intelligence can translate speech.", "exVi": "Trí tuệ nhân tạo có thể dịch lời nói." },
-    { "en": "streaming", "ipa": "/ˈstriː.mɪŋ/", "vi": "phát trực tuyến", "pos": "noun", "img": "📡", "connect": "stream (dòng chảy) — phim \"chảy\" thẳng về máy.", "ex": "Streaming movies needs fast wifi.", "exVi": "Xem phim trực tuyến cần wifi nhanh." },
-    { "en": "podcast", "ipa": "/ˈpɑːd.kæst/", "vi": "chương trình radio trên mạng", "pos": "noun", "img": "🎙️", "connect": "\"Pót-ca-x-t\" — nghe podcast luyện tiếng Anh.", "ex": "I listen to podcasts on the bus.", "exVi": "Tôi nghe podcast trên xe buýt." },
-    { "en": "blog", "ipa": "/blɑːɡ/", "vi": "trang nhật ký mạng", "pos": "noun", "img": "✍️", "connect": "\"Blóc\" — viết blog chia sẻ chuyện đời.", "ex": "She writes a travel blog.", "exVi": "Cô ấy viết blog du lịch." },
-    { "en": "wireless", "ipa": "/ˈwaɪr.ləs/", "vi": "không dây", "pos": "adj", "img": "📡", "connect": "wire (dây) + less (không) — sạc không dây, tai nghe không dây.", "ex": "These wireless earphones are tiny.", "exVi": "Cặp tai nghe không dây này bé xíu." }
+    {
+      "en": "browser",
+      "ipa": "/ˈbraʊ.zɚ/",
+      "vi": "trình duyệt web",
+      "pos": "noun",
+      "img": "🌐",
+      "connect": "\"Brao-dơ\" — Chrome, Safari đều là browser.",
+      "ex": "Open the link in your browser.",
+      "exVi": "Mở đường dẫn trong trình duyệt của bạn."
+    },
+    {
+      "en": "server",
+      "ipa": "/ˈsɝː.vɚ/",
+      "vi": "máy chủ",
+      "pos": "noun",
+      "img": "🖥️",
+      "connect": "\"Sơ-vơ\" — máy chủ phục vụ cả website.",
+      "ex": "The server is down right now.",
+      "exVi": "Máy chủ đang bị sập."
+    },
+    {
+      "en": "database",
+      "ipa": "/ˈdeɪ.t̬ə.beɪs/",
+      "vi": "cơ sở dữ liệu",
+      "pos": "noun",
+      "img": "🗄️",
+      "connect": "data (dữ liệu) + base (nền) — kho chứa dữ liệu.",
+      "ex": "The names are stored in a database.",
+      "exVi": "Tên được lưu trong cơ sở dữ liệu."
+    },
+    {
+      "en": "spreadsheet",
+      "ipa": "/ˈspred.ʃiːt/",
+      "vi": "bảng tính (Excel)",
+      "pos": "noun",
+      "img": "📊",
+      "connect": "spread (trải) + sheet (tờ) — bảng ô trải rộng.",
+      "ex": "I track my budget in a spreadsheet.",
+      "exVi": "Tôi theo dõi chi tiêu bằng bảng tính."
+    },
+    {
+      "en": "cursor",
+      "ipa": "/ˈkɝː.sɚ/",
+      "vi": "con trỏ chuột",
+      "pos": "noun",
+      "img": "🖱️",
+      "connect": "\"Cơ-sơ\" — mũi tên chạy theo tay bạn.",
+      "ex": "Move the cursor to the button.",
+      "exVi": "Di con trỏ tới cái nút."
+    },
+    {
+      "en": "monitor",
+      "ipa": "/ˈmɑː.nə.t̬ɚ/",
+      "vi": "màn hình máy tính",
+      "pos": "noun",
+      "img": "🖥️",
+      "connect": "\"Mo-ni-tơ\" — màn hình để mắt \"canh chừng\".",
+      "ex": "He bought a bigger monitor.",
+      "exVi": "Anh ấy mua một màn hình to hơn."
+    },
+    {
+      "en": "hardware",
+      "ipa": "/ˈhɑːrd.wer/",
+      "vi": "phần cứng",
+      "pos": "noun",
+      "img": "🔩",
+      "connect": "hard (cứng) + ware (đồ) — máy móc sờ được, ngược với software.",
+      "ex": "The shop repairs computer hardware.",
+      "exVi": "Cửa hàng sửa phần cứng máy tính."
+    },
+    {
+      "en": "virus",
+      "ipa": "/ˈvaɪ.rəs/",
+      "vi": "vi-rút (máy tính)",
+      "pos": "noun",
+      "img": "🦠",
+      "connect": "\"Vai-rợs\" — vi-rút làm máy chậm, mất dữ liệu.",
+      "ex": "A virus deleted all my files.",
+      "exVi": "Một con vi-rút xoá hết tệp của tôi."
+    },
+    {
+      "en": "hacker",
+      "ipa": "/ˈhæk.ɚ/",
+      "vi": "tin tặc",
+      "pos": "noun",
+      "img": "🕵️",
+      "connect": "\"Hắc-cơ\" — kẻ đột nhập hệ thống.",
+      "ex": "Hackers stole the passwords.",
+      "exVi": "Tin tặc đánh cắp mật khẩu."
+    },
+    {
+      "en": "update",
+      "ipa": "/ʌpˈdeɪt/",
+      "vi": "cập nhật",
+      "pos": "verb",
+      "img": "🔄",
+      "connect": "up (lên) + date (ngày) — đưa lên bản mới nhất.",
+      "ex": "Please update the app.",
+      "exVi": "Hãy cập nhật ứng dụng."
+    },
+    {
+      "en": "upgrade",
+      "ipa": "/ʌpˈɡreɪd/",
+      "vi": "nâng cấp",
+      "pos": "verb",
+      "img": "⬆️",
+      "connect": "up (lên) + grade (hạng) — lên đời máy.",
+      "ex": "I upgraded my phone last week.",
+      "exVi": "Tuần trước tôi nâng cấp điện thoại."
+    },
+    {
+      "en": "delete",
+      "ipa": "/dɪˈliːt/",
+      "vi": "xoá",
+      "pos": "verb",
+      "img": "🗑️",
+      "connect": "\"Đi-lít\" — phím Delete xoá sạch.",
+      "ex": "Don't delete that photo!",
+      "exVi": "Đừng xoá tấm ảnh đó!"
+    },
+    {
+      "en": "restart",
+      "ipa": "/ˌriːˈstɑːrt/",
+      "vi": "khởi động lại",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "re (lại) + start (khởi động) — tắt đi bật lại là hết bệnh.",
+      "ex": "Restart the computer and try again.",
+      "exVi": "Khởi động lại máy tính rồi thử lại."
+    },
+    {
+      "en": "shortcut",
+      "ipa": "/ˈʃɔːrt.kʌt/",
+      "vi": "phím tắt, lối tắt",
+      "pos": "noun",
+      "img": "⌨️",
+      "connect": "short (ngắn) + cut (cắt) — Ctrl+C là shortcut.",
+      "ex": "Ctrl+S is a useful shortcut.",
+      "exVi": "Ctrl+S là một phím tắt hữu ích."
+    },
+    {
+      "en": "icon",
+      "ipa": "/ˈaɪ.kɑːn/",
+      "vi": "biểu tượng",
+      "pos": "noun",
+      "img": "🔷",
+      "connect": "\"Ai-con\" — hình nhỏ đại diện ứng dụng.",
+      "ex": "Tap the icon to open the app.",
+      "exVi": "Chạm vào biểu tượng để mở ứng dụng."
+    },
+    {
+      "en": "spam",
+      "ipa": "/spæm/",
+      "vi": "thư rác",
+      "pos": "noun",
+      "img": "📧",
+      "connect": "\"Sờ-pem\" — hộp thư đầy quảng cáo rác.",
+      "ex": "The email went to my spam folder.",
+      "exVi": "Email rơi vào thư mục thư rác."
+    },
+    {
+      "en": "storage",
+      "ipa": "/ˈstɔːr.ɪdʒ/",
+      "vi": "bộ nhớ lưu trữ",
+      "pos": "noun",
+      "img": "💾",
+      "connect": "\"Sto-rịdж\" — store (cất) → chỗ cất dữ liệu.",
+      "ex": "My phone is out of storage.",
+      "exVi": "Điện thoại của tôi hết bộ nhớ."
+    },
+    {
+      "en": "processor",
+      "ipa": "/ˈprɑː.ses.ɚ/",
+      "vi": "bộ vi xử lý",
+      "pos": "noun",
+      "img": "⚙️",
+      "connect": "\"Pro-se-sơ\" — bộ não của máy tính.",
+      "ex": "A fast processor makes games smooth.",
+      "exVi": "Bộ xử lý nhanh giúp chơi game mượt."
+    },
+    {
+      "en": "algorithm",
+      "ipa": "/ˈæl.ɡə.rɪ.ðəm/",
+      "vi": "thuật toán",
+      "pos": "noun",
+      "img": "🧮",
+      "connect": "\"An-gờ-ri-thừm\" — công thức máy tính quyết định.",
+      "ex": "The algorithm suggests new videos.",
+      "exVi": "Thuật toán gợi ý video mới."
+    },
+    {
+      "en": "chip",
+      "ipa": "/tʃɪp/",
+      "vi": "con chip, vi mạch",
+      "pos": "noun",
+      "img": "🔲",
+      "connect": "\"Chíp\" — con chip bé xíu chạy cả máy.",
+      "ex": "This chip is faster than the old one.",
+      "exVi": "Con chip này nhanh hơn con cũ."
+    },
+    {
+      "en": "bluetooth",
+      "ipa": "/ˈbluː.tuːθ/",
+      "vi": "kết nối bluetooth",
+      "pos": "noun",
+      "img": "📶",
+      "connect": "blue (xanh) + tooth (răng) — \"răng xanh\" kết nối không dây.",
+      "ex": "Connect the speaker via Bluetooth.",
+      "exVi": "Kết nối loa qua Bluetooth."
+    },
+    {
+      "en": "headset",
+      "ipa": "/ˈhed.set/",
+      "vi": "tai nghe có mic",
+      "pos": "noun",
+      "img": "🎧",
+      "connect": "head (đầu) + set (bộ) — bộ đeo đầu để họp online.",
+      "ex": "He wears a headset in meetings.",
+      "exVi": "Anh ấy đeo tai nghe khi họp."
+    },
+    {
+      "en": "drone",
+      "ipa": "/droʊn/",
+      "vi": "máy bay không người lái",
+      "pos": "noun",
+      "img": "🛸",
+      "connect": "\"Đrôn\" — flycam vo ve trên trời.",
+      "ex": "The drone filmed the festival.",
+      "exVi": "Chiếc drone quay phim lễ hội."
+    },
+    {
+      "en": "artificial intelligence",
+      "ipa": "/ˌɑːr.t̬ə.fɪʃ.əl ɪnˈtel.ə.dʒəns/",
+      "vi": "trí tuệ nhân tạo (AI)",
+      "pos": "noun",
+      "img": "🤖",
+      "connect": "artificial (nhân tạo) + intelligence (trí tuệ) — AI.",
+      "ex": "Artificial intelligence can translate speech.",
+      "exVi": "Trí tuệ nhân tạo có thể dịch lời nói."
+    },
+    {
+      "en": "streaming",
+      "ipa": "/ˈstriː.mɪŋ/",
+      "vi": "phát trực tuyến",
+      "pos": "noun",
+      "img": "📡",
+      "connect": "stream (dòng chảy) — phim \"chảy\" thẳng về máy.",
+      "ex": "Streaming movies needs fast wifi.",
+      "exVi": "Xem phim trực tuyến cần wifi nhanh."
+    },
+    {
+      "en": "podcast",
+      "ipa": "/ˈpɑːd.kæst/",
+      "vi": "chương trình radio trên mạng",
+      "pos": "noun",
+      "img": "🎙️",
+      "connect": "\"Pót-ca-x-t\" — nghe podcast luyện tiếng Anh.",
+      "ex": "I listen to podcasts on the bus.",
+      "exVi": "Tôi nghe podcast trên xe buýt."
+    },
+    {
+      "en": "blog",
+      "ipa": "/blɑːɡ/",
+      "vi": "trang nhật ký mạng",
+      "pos": "noun",
+      "img": "✍️",
+      "connect": "\"Blóc\" — viết blog chia sẻ chuyện đời.",
+      "ex": "She writes a travel blog.",
+      "exVi": "Cô ấy viết blog du lịch."
+    },
+    {
+      "en": "wireless",
+      "ipa": "/ˈwaɪr.ləs/",
+      "vi": "không dây",
+      "pos": "adj",
+      "img": "📡",
+      "connect": "wire (dây) + less (không) — sạc không dây, tai nghe không dây.",
+      "ex": "These wireless earphones are tiny.",
+      "exVi": "Cặp tai nghe không dây này bé xíu."
+    }
   ]
 }

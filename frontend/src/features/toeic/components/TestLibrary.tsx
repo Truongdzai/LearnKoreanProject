@@ -16,7 +16,7 @@ interface Props {
   onMini: () => void
   onResume: () => void
   onDropSaved: () => void
-  onEts: (test: number, section: 'listening' | 'p5') => void
+  onEtsOpen: (test: number) => void
 }
 
 const STRUCTURE: { sec: string; time: string; rows: [string, string, number][] }[] = [
@@ -88,15 +88,7 @@ export default function TestLibrary(props: Props) {
         <div className="tt-lib">
           <div className="tt-lib-head">
             <div>
-              <h3><Icon name="volume" size={17} /> Đề thật ETS 2026 — {ETS_TESTS.length} đề</h3>
-              <p>
-                Đề gốc kèm <b>audio thật của đĩa thi</b> và <b>ảnh Part 1 quét từ sách</b>, không phải
-                giọng máy. Mỗi đề chạy <b>trọn phần Nghe Part 1–4 ({ETS_TESTS[0].listening} câu, 45 phút)</b> và
-                <b> Part 5 ({ETS_TESTS[0].part5} câu)</b>; có transcript và bản dịch tiếng Việt khi xem lại.
-              </p>
-              <p className="tt-note">
-                Đang nhập tiếp: Part 6 và Part 7 (đoạn văn nằm dạng ảnh trong sách quét, chưa cắt xong).
-              </p>
+              <h3><Icon name="volume" size={17} /> ETS TOEIC 2026</h3>
             </div>
           </div>
 
@@ -107,13 +99,12 @@ export default function TestLibrary(props: Props) {
                   <span className="tt-item-no">Test {t.test}</span>
                   <span className="tt-item-tag">ETS 2026</span>
                 </div>
-                <div className="tt-item-meta">{t.listening} câu Nghe · {t.part5} câu Part 5</div>
-                <div className="tt-item-actions">
-                  <button className="btn-primary sm" onClick={() => props.onEts(t.test, 'listening')}>
-                    <Icon name="volume" size={14} /> Vào phần Nghe
-                  </button>
-                  <button className="btn-ghost sm" onClick={() => props.onEts(t.test, 'p5')}>
-                    <Icon name="target" size={14} /> Part 5
+                <div className="tt-item-meta">
+                  200 câu · 120 phút · {t.listening} Nghe + {t.reading ?? t.part5} Đọc
+                </div>
+                <div className="tt-item-actions ets">
+                  <button className="btn-primary sm" onClick={() => props.onEtsOpen(t.test)}>
+                    <Icon name="arrow-right" size={14} /> Xem chi tiết
                   </button>
                 </div>
               </div>
@@ -125,12 +116,7 @@ export default function TestLibrary(props: Props) {
       <div className="tt-lib">
         <div className="tt-lib-head">
           <div>
-            <h3><Icon name="trophy" size={17} /> Bộ đề TOEIC — {FIXED_TEST_COUNT} đề chuẩn</h3>
-            <p>
-              Mỗi đề <b>200 câu · Nghe 45′ + Đọc 75′</b>, cố định — làm lại lần nào cũng đúng đề đó nên so được điểm
-              giữa các lần. {FIXED_TEST_COUNT} đề <b>không dùng chung câu hỏi nào</b>; số đề sẽ tăng khi ngân hàng
-              (hiện {BANK_SIZE} câu) lớn thêm.
-            </p>
+            <h3><Icon name="trophy" size={17} /> VyLing TOEIC</h3>
           </div>
         </div>
 

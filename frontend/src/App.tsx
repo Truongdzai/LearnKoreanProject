@@ -42,6 +42,7 @@ const LingoRadarPage = lazyPage(() => import('@/features/lingo/LingoRadarPage'))
 const AdminPage = lazyPage(() => import('@/features/admin/AdminPage'))
 const PetWidget = lazyPage(() => import('@/features/pet/PetWidget'))
 const LandingPage = lazyPage(() => import('@/features/landing/LandingPage'))
+const LandingTopbar = lazyPage(() => import('@/features/landing/components/LandingTopbar'))
 const HelpPage = lazyPage(() => import('@/features/pages/PublicPages').then((m) => ({ default: m.HelpPage })))
 const AboutPage = lazyPage(() => import('@/features/pages/PublicPages').then((m) => ({ default: m.AboutPage })))
 const ContactPage = lazyPage(() => import('@/features/pages/PublicPages').then((m) => ({ default: m.ContactPage })))
@@ -55,12 +56,28 @@ export default function App() {
   const { isAdmin, isAuthed } = useAuth()
   const [navOpen, setNavOpen] = useState(false)
 
+  if (view === 'admin' && isAdmin) {
+    return (
+      <>
+        <a className="skip-link" href="#main">{t('a11y.skip')}</a>
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          <AdminPage />
+        </Suspense>
+        <ChangePasswordModal />
+      </>
+    )
+  }
+
+  const isLanding = view === 'home' && !isAuthed
+
   return (
     <div className="app">
       <a className="skip-link" href="#main">{t('a11y.skip')}</a>
-      <Sidebar open={navOpen} onClose={() => setNavOpen(false)} />
+      {!isLanding && <Sidebar open={navOpen} onClose={() => setNavOpen(false)} />}
       <div className="main">
-        <Topbar navOpen={navOpen} onMenu={() => setNavOpen(true)} />
+        {isLanding
+          ? <Suspense fallback={<div className="lp-top" />}><LandingTopbar /></Suspense>
+          : <Topbar navOpen={navOpen} onMenu={() => setNavOpen(true)} />}
         <div className="content">
           <VerifyEmailBanner />
           <main id="main" tabIndex={-1} aria-label={t('a11y.main')}>
@@ -95,7 +112,7 @@ export default function App() {
             {view === 'lingo' && <LingoRadarPage />}
             {view === 'dashboard' && <DashboardPage />}
             {view === 'pricing' && <PricingPage />}
-            {view === 'admin' && (isAdmin ? <AdminPage /> : <NoAccess />)}
+            {view === 'admin' && <NoAccess />}
           </Suspense>
           </main>
           <Footer />

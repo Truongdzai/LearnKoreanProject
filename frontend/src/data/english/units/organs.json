@@ -6,25 +6,205 @@
   "tone": "tone-d",
   "emoji": "🫁",
   "words": [
-    { "en": "lung", "ipa": "/lʌŋ/", "vi": "lá phổi", "pos": "noun", "img": "🫁", "connect": "\"Lăng\" — phổi để thở.", "ex": "Smoking damages your lungs.", "exVi": "Hút thuốc tàn phá lá phổi." },
-    { "en": "liver", "ipa": "/ˈlɪv.ɚ/", "vi": "gan", "pos": "noun", "img": "🫀", "connect": "\"Li-vờ\" — gan lọc độc.", "ex": "Alcohol harms the liver.", "exVi": "Rượu làm hại gan." },
-    { "en": "kidney", "ipa": "/ˈkɪd.ni/", "vi": "thận", "pos": "noun", "img": "🫘", "connect": "\"Kíd-ni\" — hai quả thận hình hạt đậu.", "ex": "We have two kidneys.", "exVi": "Chúng ta có hai quả thận." },
-    { "en": "rib", "ipa": "/rɪb/", "vi": "xương sườn", "pos": "noun", "img": "🦴", "connect": "\"Ríp\" — sườn bao quanh ngực.", "ex": "He broke a rib in the fall.", "exVi": "Anh ấy gãy một xương sườn khi ngã." },
-    { "en": "spine", "ipa": "/spaɪn/", "vi": "cột sống", "pos": "noun", "img": "🦴", "connect": "\"Sờ-pai-n\" — xương sống lưng.", "ex": "Sit straight to protect your spine.", "exVi": "Ngồi thẳng để bảo vệ cột sống." },
-    { "en": "vein", "ipa": "/veɪn/", "vi": "tĩnh mạch, mạch máu", "pos": "noun", "img": "🩸", "connect": "\"Vê-n\" — đường máu xanh dưới da.", "ex": "Blood flows through the veins.", "exVi": "Máu chảy trong các mạch máu." },
-    { "en": "nerve", "ipa": "/nɜːrv/", "vi": "dây thần kinh", "pos": "noun", "img": "⚡", "connect": "\"Nơv\" — nervous là căng thẳng.", "ex": "Nerves carry signals to the brain.", "exVi": "Dây thần kinh truyền tín hiệu tới não." },
-    { "en": "joint", "ipa": "/dʒɔɪnt/", "vi": "khớp xương", "pos": "noun", "img": "🦵", "connect": "\"Gioi-nt\" — chỗ nối hai xương.", "ex": "My joints ache in cold weather.", "exVi": "Trời lạnh là khớp tôi đau nhức." },
-    { "en": "jaw", "ipa": "/dʒɑː/", "vi": "hàm", "pos": "noun", "img": "🦷", "connect": "\"Gio\" — hàm nhai.", "ex": "His jaw dropped in surprise.", "exVi": "Anh ấy há hốc mồm vì ngạc nhiên." },
-    { "en": "cheek", "ipa": "/tʃiːk/", "vi": "má", "pos": "noun", "img": "😊", "connect": "\"Chi-k\" — đôi má hồng.", "ex": "The baby has chubby cheeks.", "exVi": "Em bé có đôi má phúng phính." },
-    { "en": "chin", "ipa": "/tʃɪn/", "vi": "cằm", "pos": "noun", "img": "🧔", "connect": "\"Chin\" — cằm dưới miệng.", "ex": "He rested his chin on his hand.", "exVi": "Anh ấy chống cằm lên tay." },
-    { "en": "forehead", "ipa": "/ˈfɔːr.hed/", "vi": "trán", "pos": "noun", "img": "🙆", "connect": "fore (trước) + head (đầu).", "ex": "She kissed the baby's forehead.", "exVi": "Cô ấy hôn lên trán em bé." },
-    { "en": "eyebrow", "ipa": "/ˈaɪ.braʊ/", "vi": "lông mày", "pos": "noun", "img": "🤨", "connect": "eye (mắt) + brow — nhướng mày.", "ex": "He raised an eyebrow.", "exVi": "Anh ấy nhướng một bên mày." },
-    { "en": "eyelash", "ipa": "/ˈaɪ.læʃ/", "vi": "lông mi", "pos": "noun", "img": "👁️", "connect": "eye + lash — hàng mi cong.", "ex": "She has long eyelashes.", "exVi": "Cô ấy có hàng mi dài." },
-    { "en": "palm", "ipa": "/pɑːm/", "vi": "lòng bàn tay", "pos": "noun", "img": "🖐️", "connect": "\"Pam\" — chữ \"l\" câm (cũng là cây cọ).", "ex": "He held the coin in his palm.", "exVi": "Anh ấy giữ đồng xu trong lòng bàn tay." },
-    { "en": "thumb", "ipa": "/θʌm/", "vi": "ngón tay cái", "pos": "noun", "img": "👍", "connect": "\"Thăm\" — chữ \"b\" câm; giơ ngón cái là khen.", "ex": "The baby sucks its thumb.", "exVi": "Em bé mút ngón tay cái." },
-    { "en": "heel", "ipa": "/hiːl/", "vi": "gót chân", "pos": "noun", "img": "🦶", "connect": "\"Hi-l\" — giày cao gót là high heels.", "ex": "My heel hurts from walking.", "exVi": "Đi bộ nhiều nên gót chân tôi đau." },
-    { "en": "waist", "ipa": "/weɪst/", "vi": "eo", "pos": "noun", "img": "🩳", "connect": "\"Wê-st\" — đồng âm waste (lãng phí).", "ex": "She wears a belt around her waist.", "exVi": "Cô ấy đeo thắt lưng quanh eo." },
-    { "en": "hip", "ipa": "/hɪp/", "vi": "hông", "pos": "noun", "img": "🕺", "connect": "\"Híp\" — lắc hông theo nhạc.", "ex": "Put your hands on your hips.", "exVi": "Chống hai tay lên hông." },
-    { "en": "belly", "ipa": "/ˈbel.i/", "vi": "bụng (thân mật)", "pos": "noun", "img": "🤰", "connect": "\"Be-li\" — bụng bự (belly fat).", "ex": "The baby has a round belly.", "exVi": "Em bé có cái bụng tròn xoe." }
+    {
+      "en": "lung",
+      "ipa": "/lʌŋ/",
+      "vi": "lá phổi",
+      "pos": "noun",
+      "img": "🫁",
+      "connect": "\"Lăng\" — phổi để thở.",
+      "ex": "Smoking damages your lungs.",
+      "exVi": "Hút thuốc tàn phá lá phổi."
+    },
+    {
+      "en": "liver",
+      "ipa": "/ˈlɪv.ɚ/",
+      "vi": "gan",
+      "pos": "noun",
+      "img": "🫀",
+      "connect": "\"Li-vờ\" — gan lọc độc.",
+      "ex": "Alcohol harms the liver.",
+      "exVi": "Rượu làm hại gan."
+    },
+    {
+      "en": "kidney",
+      "ipa": "/ˈkɪd.ni/",
+      "vi": "thận",
+      "pos": "noun",
+      "img": "🫘",
+      "connect": "\"Kíd-ni\" — hai quả thận hình hạt đậu.",
+      "ex": "We have two kidneys.",
+      "exVi": "Chúng ta có hai quả thận."
+    },
+    {
+      "en": "rib",
+      "ipa": "/rɪb/",
+      "vi": "xương sườn",
+      "pos": "noun",
+      "img": "🦴",
+      "connect": "\"Ríp\" — sườn bao quanh ngực.",
+      "ex": "He broke a rib in the fall.",
+      "exVi": "Anh ấy gãy một xương sườn khi ngã."
+    },
+    {
+      "en": "spine",
+      "ipa": "/spaɪn/",
+      "vi": "cột sống",
+      "pos": "noun",
+      "img": "🦴",
+      "connect": "\"Sờ-pai-n\" — xương sống lưng.",
+      "ex": "Sit straight to protect your spine.",
+      "exVi": "Ngồi thẳng để bảo vệ cột sống."
+    },
+    {
+      "en": "vein",
+      "ipa": "/veɪn/",
+      "vi": "tĩnh mạch, mạch máu",
+      "pos": "noun",
+      "img": "🩸",
+      "connect": "\"Vê-n\" — đường máu xanh dưới da.",
+      "ex": "Blood flows through the veins.",
+      "exVi": "Máu chảy trong các mạch máu."
+    },
+    {
+      "en": "nerve",
+      "ipa": "/nɜːrv/",
+      "vi": "dây thần kinh",
+      "pos": "noun",
+      "img": "⚡",
+      "connect": "\"Nơv\" — nervous là căng thẳng.",
+      "ex": "Nerves carry signals to the brain.",
+      "exVi": "Dây thần kinh truyền tín hiệu tới não."
+    },
+    {
+      "en": "joint",
+      "ipa": "/dʒɔɪnt/",
+      "vi": "khớp xương",
+      "pos": "noun",
+      "img": "🦵",
+      "connect": "\"Gioi-nt\" — chỗ nối hai xương.",
+      "ex": "My joints ache in cold weather.",
+      "exVi": "Trời lạnh là khớp tôi đau nhức."
+    },
+    {
+      "en": "jaw",
+      "ipa": "/dʒɑː/",
+      "vi": "hàm",
+      "pos": "noun",
+      "img": "🦷",
+      "connect": "\"Gio\" — hàm nhai.",
+      "ex": "His jaw dropped in surprise.",
+      "exVi": "Anh ấy há hốc mồm vì ngạc nhiên."
+    },
+    {
+      "en": "cheek",
+      "ipa": "/tʃiːk/",
+      "vi": "má",
+      "pos": "noun",
+      "img": "😊",
+      "connect": "\"Chi-k\" — đôi má hồng.",
+      "ex": "The baby has chubby cheeks.",
+      "exVi": "Em bé có đôi má phúng phính."
+    },
+    {
+      "en": "chin",
+      "ipa": "/tʃɪn/",
+      "vi": "cằm",
+      "pos": "noun",
+      "img": "🧔",
+      "connect": "\"Chin\" — cằm dưới miệng.",
+      "ex": "He rested his chin on his hand.",
+      "exVi": "Anh ấy chống cằm lên tay."
+    },
+    {
+      "en": "forehead",
+      "ipa": "/ˈfɔːr.hed/",
+      "vi": "trán",
+      "pos": "noun",
+      "img": "🙆",
+      "connect": "fore (trước) + head (đầu).",
+      "ex": "She kissed the baby's forehead.",
+      "exVi": "Cô ấy hôn lên trán em bé."
+    },
+    {
+      "en": "eyebrow",
+      "ipa": "/ˈaɪ.braʊ/",
+      "vi": "lông mày",
+      "pos": "noun",
+      "img": "🤨",
+      "connect": "eye (mắt) + brow — nhướng mày.",
+      "ex": "He raised an eyebrow.",
+      "exVi": "Anh ấy nhướng một bên mày."
+    },
+    {
+      "en": "eyelash",
+      "ipa": "/ˈaɪ.læʃ/",
+      "vi": "lông mi",
+      "pos": "noun",
+      "img": "👁️",
+      "connect": "eye + lash — hàng mi cong.",
+      "ex": "She has long eyelashes.",
+      "exVi": "Cô ấy có hàng mi dài."
+    },
+    {
+      "en": "palm",
+      "ipa": "/pɑːm/",
+      "vi": "lòng bàn tay",
+      "pos": "noun",
+      "img": "🖐️",
+      "connect": "\"Pam\" — chữ \"l\" câm (cũng là cây cọ).",
+      "ex": "He held the coin in his palm.",
+      "exVi": "Anh ấy giữ đồng xu trong lòng bàn tay."
+    },
+    {
+      "en": "thumb",
+      "ipa": "/θʌm/",
+      "vi": "ngón tay cái",
+      "pos": "noun",
+      "img": "👍",
+      "connect": "\"Thăm\" — chữ \"b\" câm; giơ ngón cái là khen.",
+      "ex": "The baby sucks its thumb.",
+      "exVi": "Em bé mút ngón tay cái."
+    },
+    {
+      "en": "heel",
+      "ipa": "/hiːl/",
+      "vi": "gót chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "\"Hi-l\" — giày cao gót là high heels.",
+      "ex": "My heel hurts from walking.",
+      "exVi": "Đi bộ nhiều nên gót chân tôi đau."
+    },
+    {
+      "en": "waist",
+      "ipa": "/weɪst/",
+      "vi": "eo",
+      "pos": "noun",
+      "img": "🩳",
+      "connect": "\"Wê-st\" — đồng âm waste (lãng phí).",
+      "ex": "She wears a belt around her waist.",
+      "exVi": "Cô ấy đeo thắt lưng quanh eo."
+    },
+    {
+      "en": "hip",
+      "ipa": "/hɪp/",
+      "vi": "hông",
+      "pos": "noun",
+      "img": "🕺",
+      "connect": "\"Híp\" — lắc hông theo nhạc.",
+      "ex": "Put your hands on your hips.",
+      "exVi": "Chống hai tay lên hông."
+    },
+    {
+      "en": "belly",
+      "ipa": "/ˈbel.i/",
+      "vi": "bụng (thân mật)",
+      "pos": "noun",
+      "img": "🤰",
+      "connect": "\"Be-li\" — bụng bự (belly fat).",
+      "ex": "The baby has a round belly.",
+      "exVi": "Em bé có cái bụng tròn xoe."
+    }
   ]
 }

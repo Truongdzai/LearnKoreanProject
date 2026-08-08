@@ -6,29 +6,245 @@
   "tone": "tone-c",
   "emoji": "🎚️",
   "words": [
-    { "en": "absolutely", "ipa": "/ˌæb.səˈluːt.li/", "vi": "hoàn toàn, chắc chắn rồi", "pos": "adverb", "img": "💯", "connect": "\"Áp-sờ-lut-li\" — đồng ý 100%.", "ex": "Absolutely! I agree with you.", "exVi": "Chắc chắn rồi! Tôi đồng ý với bạn." },
-    { "en": "definitely", "ipa": "/ˈdef.ən.ət.li/", "vi": "chắc chắn, nhất định", "pos": "adverb", "img": "✔️", "connect": "\"Đe-phi-nợt-li\" — không còn nghi ngờ gì.", "ex": "I will definitely come to your party.", "exVi": "Tôi nhất định sẽ đến bữa tiệc của bạn." },
-    { "en": "particularly", "ipa": "/pɚˈtɪk.jə.lɚ.li/", "vi": "đặc biệt là", "pos": "adverb", "img": "🎯", "connect": "\"Pờ-tích-kiu-lờ-li\" — nhấn riêng một thứ nổi bật.", "ex": "I love fruit, particularly mango.", "exVi": "Tôi thích trái cây, đặc biệt là xoài." },
-    { "en": "generally", "ipa": "/ˈdʒen.ɚ.əl.i/", "vi": "nhìn chung", "pos": "adverb", "img": "🌍", "connect": "general (chung) + ly — xét về tổng thể.", "ex": "Generally, the weather here is warm.", "exVi": "Nhìn chung thời tiết ở đây ấm áp." },
-    { "en": "mainly", "ipa": "/ˈmeɪn.li/", "vi": "chủ yếu là", "pos": "adverb", "img": "🥇", "connect": "main (chính) + ly — phần lớn thuộc về.", "ex": "The class is mainly beginners.", "exVi": "Lớp học chủ yếu là người mới." },
-    { "en": "normally", "ipa": "/ˈnɔːr.mə.li/", "vi": "thường thì", "pos": "adverb", "img": "📆", "connect": "normal (bình thường) + ly — theo lệ thường.", "ex": "I normally get up at six.", "exVi": "Thường thì tôi dậy lúc 6 giờ." },
-    { "en": "occasionally", "ipa": "/əˈkeɪ.ʒən.əl.i/", "vi": "thỉnh thoảng", "pos": "adverb", "img": "🌦️", "connect": "occasion (dịp) + ally — lâu lâu mới một lần.", "ex": "We occasionally eat out.", "exVi": "Thỉnh thoảng chúng tôi ăn ngoài." },
-    { "en": "rarely", "ipa": "/ˈrer.li/", "vi": "hiếm khi", "pos": "adverb", "img": "🦄", "connect": "rare (hiếm) + ly — gần như không mấy khi.", "ex": "He rarely watches TV.", "exVi": "Anh ấy hiếm khi xem TV." },
-    { "en": "seldom", "ipa": "/ˈsel.dəm/", "vi": "ít khi", "pos": "adverb", "img": "🌘", "connect": "\"Xeo-đừm\" — anh em với rarely.", "ex": "She seldom complains.", "exVi": "Cô ấy ít khi phàn nàn." },
-    { "en": "frequently", "ipa": "/ˈfriː.kwənt.li/", "vi": "thường xuyên", "pos": "adverb", "img": "🔁", "connect": "\"Phri-quừnt-li\" — lặp đi lặp lại dày đặc.", "ex": "Buses run frequently here.", "exVi": "Xe buýt chạy thường xuyên ở đây." },
-    { "en": "constantly", "ipa": "/ˈkɑːn.stənt.li/", "vi": "liên tục", "pos": "adverb", "img": "♾️", "connect": "constant (không đổi) + ly — không lúc nào ngừng.", "ex": "My phone rings constantly.", "exVi": "Điện thoại tôi reo liên tục." },
-    { "en": "currently", "ipa": "/ˈkɝː.ənt.li/", "vi": "hiện tại", "pos": "adverb", "img": "🕐", "connect": "current (hiện thời) + ly — ngay lúc này.", "ex": "She is currently living in Hue.", "exVi": "Hiện tại cô ấy đang sống ở Huế." },
-    { "en": "lately", "ipa": "/ˈleɪt.li/", "vi": "dạo gần đây", "pos": "adverb", "img": "🗓️", "connect": "late (muộn) + ly — khoảng thời gian vừa qua.", "ex": "Have you seen him lately?", "exVi": "Dạo gần đây bạn có gặp anh ấy không?" },
-    { "en": "afterward", "ipa": "/ˈæf.tɚ.wɚd/", "vi": "sau đó", "pos": "adverb", "img": "➡️", "connect": "after (sau) + ward (hướng) — chuyện xảy ra kế tiếp.", "ex": "We watched a movie and ate afterward.", "exVi": "Chúng tôi xem phim rồi sau đó đi ăn." },
-    { "en": "altogether", "ipa": "/ˌɑːl.təˈɡeð.ɚ/", "vi": "tổng cộng; hoàn toàn", "pos": "adverb", "img": "🧮", "connect": "all (tất cả) + together (cùng) — gộp hết lại.", "ex": "That's 200,000 dong altogether.", "exVi": "Tổng cộng là 200 nghìn đồng." },
-    { "en": "anymore", "ipa": "/ˌen.iˈmɔːr/", "vi": "(không) còn nữa", "pos": "adverb", "img": "🚪", "connect": "any + more — dùng trong câu phủ định: hết rồi.", "ex": "He doesn't live here anymore.", "exVi": "Anh ấy không còn sống ở đây nữa." },
-    { "en": "somehow", "ipa": "/ˈsʌm.haʊ/", "vi": "bằng cách nào đó", "pos": "adverb", "img": "✨", "connect": "some + how (cách nào đó) — chẳng hiểu sao vẫn xong.", "ex": "Somehow we found the way home.", "exVi": "Bằng cách nào đó chúng tôi tìm được đường về." },
-    { "en": "somewhat", "ipa": "/ˈsʌm.wʌt/", "vi": "phần nào, hơi", "pos": "adverb", "img": "🌗", "connect": "some + what — ở mức lưng chừng.", "ex": "The test was somewhat difficult.", "exVi": "Bài kiểm tra hơi khó một chút." },
-    { "en": "roughly", "ipa": "/ˈrʌf.li/", "vi": "khoảng chừng", "pos": "adverb", "img": "📏", "connect": "rough (thô) + ly — con số ước chừng chưa chính xác.", "ex": "The trip takes roughly two hours.", "exVi": "Chuyến đi mất khoảng chừng hai tiếng." },
-    { "en": "approximately", "ipa": "/əˈprɑːk.sə.mət.li/", "vi": "xấp xỉ", "pos": "adverb", "img": "≈", "connect": "\"Ờ-próc-si-mợt-li\" — dấu ≈ trong toán.", "ex": "The bridge is approximately one kilometer long.", "exVi": "Cây cầu dài xấp xỉ một cây số." },
-    { "en": "barely", "ipa": "/ˈber.li/", "vi": "vừa mới đủ, suýt không", "pos": "adverb", "img": "🤏", "connect": "bare (trơ trụi) + ly — sát mép giới hạn.", "ex": "I barely caught the bus.", "exVi": "Tôi suýt nữa thì lỡ chuyến xe buýt." },
-    { "en": "properly", "ipa": "/ˈprɑː.pɚ.li/", "vi": "đúng cách", "pos": "adverb", "img": "✅", "connect": "proper (đúng đắn) + ly — làm cho ra làm.", "ex": "Wash your hands properly.", "exVi": "Hãy rửa tay đúng cách." },
-    { "en": "truly", "ipa": "/ˈtruː.li/", "vi": "thật sự", "pos": "adverb", "img": "💖", "connect": "true (thật) + ly — từ tận đáy lòng.", "ex": "I'm truly sorry for the mistake.", "exVi": "Tôi thật sự xin lỗi vì sai sót." },
-    { "en": "fairly", "ipa": "/ˈfer.li/", "vi": "khá là; công bằng", "pos": "adverb", "img": "🙂", "connect": "fair (khá/công bằng) + ly — fairly good là khá tốt.", "ex": "The room is fairly big.", "exVi": "Căn phòng khá là rộng." }
+    {
+      "en": "absolutely",
+      "ipa": "/ˌæb.səˈluːt.li/",
+      "vi": "hoàn toàn, chắc chắn rồi",
+      "pos": "adverb",
+      "img": "💯",
+      "connect": "\"Áp-sờ-lut-li\" — đồng ý 100%.",
+      "ex": "Absolutely! I agree with you.",
+      "exVi": "Chắc chắn rồi! Tôi đồng ý với bạn."
+    },
+    {
+      "en": "definitely",
+      "ipa": "/ˈdef.ən.ət.li/",
+      "vi": "chắc chắn, nhất định",
+      "pos": "adverb",
+      "img": "✔️",
+      "connect": "\"Đe-phi-nợt-li\" — không còn nghi ngờ gì.",
+      "ex": "I will definitely come to your party.",
+      "exVi": "Tôi nhất định sẽ đến bữa tiệc của bạn."
+    },
+    {
+      "en": "particularly",
+      "ipa": "/pɚˈtɪk.jə.lɚ.li/",
+      "vi": "đặc biệt là",
+      "pos": "adverb",
+      "img": "🎯",
+      "connect": "\"Pờ-tích-kiu-lờ-li\" — nhấn riêng một thứ nổi bật.",
+      "ex": "I love fruit, particularly mango.",
+      "exVi": "Tôi thích trái cây, đặc biệt là xoài."
+    },
+    {
+      "en": "generally",
+      "ipa": "/ˈdʒen.ɚ.əl.i/",
+      "vi": "nhìn chung",
+      "pos": "adverb",
+      "img": "🌍",
+      "connect": "general (chung) + ly — xét về tổng thể.",
+      "ex": "Generally, the weather here is warm.",
+      "exVi": "Nhìn chung thời tiết ở đây ấm áp."
+    },
+    {
+      "en": "mainly",
+      "ipa": "/ˈmeɪn.li/",
+      "vi": "chủ yếu là",
+      "pos": "adverb",
+      "img": "🥇",
+      "connect": "main (chính) + ly — phần lớn thuộc về.",
+      "ex": "The class is mainly beginners.",
+      "exVi": "Lớp học chủ yếu là người mới."
+    },
+    {
+      "en": "normally",
+      "ipa": "/ˈnɔːr.mə.li/",
+      "vi": "thường thì",
+      "pos": "adverb",
+      "img": "📆",
+      "connect": "normal (bình thường) + ly — theo lệ thường.",
+      "ex": "I normally get up at six.",
+      "exVi": "Thường thì tôi dậy lúc 6 giờ."
+    },
+    {
+      "en": "occasionally",
+      "ipa": "/əˈkeɪ.ʒən.əl.i/",
+      "vi": "thỉnh thoảng",
+      "pos": "adverb",
+      "img": "🌦️",
+      "connect": "occasion (dịp) + ally — lâu lâu mới một lần.",
+      "ex": "We occasionally eat out.",
+      "exVi": "Thỉnh thoảng chúng tôi ăn ngoài."
+    },
+    {
+      "en": "rarely",
+      "ipa": "/ˈrer.li/",
+      "vi": "hiếm khi",
+      "pos": "adverb",
+      "img": "🦄",
+      "connect": "rare (hiếm) + ly — gần như không mấy khi.",
+      "ex": "He rarely watches TV.",
+      "exVi": "Anh ấy hiếm khi xem TV."
+    },
+    {
+      "en": "seldom",
+      "ipa": "/ˈsel.dəm/",
+      "vi": "ít khi",
+      "pos": "adverb",
+      "img": "🌘",
+      "connect": "\"Xeo-đừm\" — anh em với rarely.",
+      "ex": "She seldom complains.",
+      "exVi": "Cô ấy ít khi phàn nàn."
+    },
+    {
+      "en": "frequently",
+      "ipa": "/ˈfriː.kwənt.li/",
+      "vi": "thường xuyên",
+      "pos": "adverb",
+      "img": "🔁",
+      "connect": "\"Phri-quừnt-li\" — lặp đi lặp lại dày đặc.",
+      "ex": "Buses run frequently here.",
+      "exVi": "Xe buýt chạy thường xuyên ở đây."
+    },
+    {
+      "en": "constantly",
+      "ipa": "/ˈkɑːn.stənt.li/",
+      "vi": "liên tục",
+      "pos": "adverb",
+      "img": "♾️",
+      "connect": "constant (không đổi) + ly — không lúc nào ngừng.",
+      "ex": "My phone rings constantly.",
+      "exVi": "Điện thoại tôi reo liên tục."
+    },
+    {
+      "en": "currently",
+      "ipa": "/ˈkɝː.ənt.li/",
+      "vi": "hiện tại",
+      "pos": "adverb",
+      "img": "🕐",
+      "connect": "current (hiện thời) + ly — ngay lúc này.",
+      "ex": "She is currently living in Hue.",
+      "exVi": "Hiện tại cô ấy đang sống ở Huế."
+    },
+    {
+      "en": "lately",
+      "ipa": "/ˈleɪt.li/",
+      "vi": "dạo gần đây",
+      "pos": "adverb",
+      "img": "🗓️",
+      "connect": "late (muộn) + ly — khoảng thời gian vừa qua.",
+      "ex": "Have you seen him lately?",
+      "exVi": "Dạo gần đây bạn có gặp anh ấy không?"
+    },
+    {
+      "en": "afterward",
+      "ipa": "/ˈæf.tɚ.wɚd/",
+      "vi": "sau đó",
+      "pos": "adverb",
+      "img": "➡️",
+      "connect": "after (sau) + ward (hướng) — chuyện xảy ra kế tiếp.",
+      "ex": "We watched a movie and ate afterward.",
+      "exVi": "Chúng tôi xem phim rồi sau đó đi ăn."
+    },
+    {
+      "en": "altogether",
+      "ipa": "/ˌɑːl.təˈɡeð.ɚ/",
+      "vi": "tổng cộng; hoàn toàn",
+      "pos": "adverb",
+      "img": "🧮",
+      "connect": "all (tất cả) + together (cùng) — gộp hết lại.",
+      "ex": "That's 200,000 dong altogether.",
+      "exVi": "Tổng cộng là 200 nghìn đồng."
+    },
+    {
+      "en": "anymore",
+      "ipa": "/ˌen.iˈmɔːr/",
+      "vi": "(không) còn nữa",
+      "pos": "adverb",
+      "img": "🚪",
+      "connect": "any + more — dùng trong câu phủ định: hết rồi.",
+      "ex": "He doesn't live here anymore.",
+      "exVi": "Anh ấy không còn sống ở đây nữa."
+    },
+    {
+      "en": "somehow",
+      "ipa": "/ˈsʌm.haʊ/",
+      "vi": "bằng cách nào đó",
+      "pos": "adverb",
+      "img": "✨",
+      "connect": "some + how (cách nào đó) — chẳng hiểu sao vẫn xong.",
+      "ex": "Somehow we found the way home.",
+      "exVi": "Bằng cách nào đó chúng tôi tìm được đường về."
+    },
+    {
+      "en": "somewhat",
+      "ipa": "/ˈsʌm.wʌt/",
+      "vi": "phần nào, hơi",
+      "pos": "adverb",
+      "img": "🌗",
+      "connect": "some + what — ở mức lưng chừng.",
+      "ex": "The test was somewhat difficult.",
+      "exVi": "Bài kiểm tra hơi khó một chút."
+    },
+    {
+      "en": "roughly",
+      "ipa": "/ˈrʌf.li/",
+      "vi": "khoảng chừng",
+      "pos": "adverb",
+      "img": "📏",
+      "connect": "rough (thô) + ly — con số ước chừng chưa chính xác.",
+      "ex": "The trip takes roughly two hours.",
+      "exVi": "Chuyến đi mất khoảng chừng hai tiếng."
+    },
+    {
+      "en": "approximately",
+      "ipa": "/əˈprɑːk.sə.mət.li/",
+      "vi": "xấp xỉ",
+      "pos": "adverb",
+      "img": "≈",
+      "connect": "\"Ờ-próc-si-mợt-li\" — dấu ≈ trong toán.",
+      "ex": "The bridge is approximately one kilometer long.",
+      "exVi": "Cây cầu dài xấp xỉ một cây số."
+    },
+    {
+      "en": "barely",
+      "ipa": "/ˈber.li/",
+      "vi": "vừa mới đủ, suýt không",
+      "pos": "adverb",
+      "img": "🤏",
+      "connect": "bare (trơ trụi) + ly — sát mép giới hạn.",
+      "ex": "I barely caught the bus.",
+      "exVi": "Tôi suýt nữa thì lỡ chuyến xe buýt."
+    },
+    {
+      "en": "properly",
+      "ipa": "/ˈprɑː.pɚ.li/",
+      "vi": "đúng cách",
+      "pos": "adverb",
+      "img": "✅",
+      "connect": "proper (đúng đắn) + ly — làm cho ra làm.",
+      "ex": "Wash your hands properly.",
+      "exVi": "Hãy rửa tay đúng cách."
+    },
+    {
+      "en": "truly",
+      "ipa": "/ˈtruː.li/",
+      "vi": "thật sự",
+      "pos": "adverb",
+      "img": "💖",
+      "connect": "true (thật) + ly — từ tận đáy lòng.",
+      "ex": "I'm truly sorry for the mistake.",
+      "exVi": "Tôi thật sự xin lỗi vì sai sót."
+    },
+    {
+      "en": "fairly",
+      "ipa": "/ˈfer.li/",
+      "vi": "khá là; công bằng",
+      "pos": "adverb",
+      "img": "🙂",
+      "connect": "fair (khá/công bằng) + ly — fairly good là khá tốt.",
+      "ex": "The room is fairly big.",
+      "exVi": "Căn phòng khá là rộng."
+    }
   ]
 }
