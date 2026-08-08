@@ -6,31 +6,265 @@
   "tone": "tone-d",
   "emoji": "🚦",
   "words": [
-    { "en": "tire", "ipa": "/taɪr/", "vi": "lốp xe", "pos": "noun", "img": "🛞", "connect": "\"Tai-ơ\" — lốp xẹp thì phải bơm.", "ex": "The car has a flat tire.", "exVi": "Chiếc xe bị xẹp lốp." },
-    { "en": "windshield", "ipa": "/ˈwɪnd.ʃiːld/", "vi": "kính chắn gió", "pos": "noun", "img": "🚗", "connect": "wind (gió) + shield (khiên) — tấm khiên chắn gió trước xe.", "ex": "Rain covered the windshield.", "exVi": "Mưa phủ kín kính chắn gió." },
-    { "en": "headlight", "ipa": "/ˈhed.laɪt/", "vi": "đèn pha", "pos": "noun", "img": "💡", "connect": "head (đầu) + light (đèn) — đèn đầu xe.", "ex": "Turn on your headlights at night.", "exVi": "Bật đèn pha khi trời tối." },
-    { "en": "gear", "ipa": "/ɡɪr/", "vi": "số xe; bánh răng", "pos": "noun", "img": "⚙️", "connect": "\"Ghia\" — vào số, sang số.", "ex": "Change gear when you go uphill.", "exVi": "Sang số khi lên dốc." },
-    { "en": "gas station", "ipa": "/ˈɡæs ˌsteɪ.ʃən/", "vi": "trạm xăng", "pos": "noun", "img": "⛽", "connect": "gas (xăng) + station (trạm) — ghé đổ đầy bình.", "ex": "We stopped at a gas station.", "exVi": "Chúng tôi dừng ở trạm xăng." },
-    { "en": "parking lot", "ipa": "/ˈpɑːr.kɪŋ lɑːt/", "vi": "bãi đỗ xe", "pos": "noun", "img": "🅿️", "connect": "parking (đỗ xe) + lot (khu đất) — biển chữ P.", "ex": "The parking lot is full.", "exVi": "Bãi đỗ xe đã kín chỗ." },
-    { "en": "traffic light", "ipa": "/ˈtræf.ɪk laɪt/", "vi": "đèn giao thông", "pos": "noun", "img": "🚥", "connect": "traffic (giao thông) + light (đèn) — xanh đi đỏ dừng.", "ex": "Stop when the traffic light is red.", "exVi": "Dừng lại khi đèn giao thông màu đỏ." },
-    { "en": "traffic jam", "ipa": "/ˈtræf.ɪk dʒæm/", "vi": "kẹt xe", "pos": "noun", "img": "🚗", "connect": "jam (mứt đặc) — xe dính chặt như mứt.", "ex": "I was late because of a traffic jam.", "exVi": "Tôi muộn vì kẹt xe." },
-    { "en": "speed limit", "ipa": "/ˈspiːd ˌlɪm.ɪt/", "vi": "giới hạn tốc độ", "pos": "noun", "img": "🚸", "connect": "speed (tốc độ) + limit (giới hạn) — biển 60km/h.", "ex": "The speed limit here is 50 km/h.", "exVi": "Giới hạn tốc độ ở đây là 50 km/h." },
-    { "en": "reverse", "ipa": "/rɪˈvɝːs/", "vi": "lùi xe; đảo ngược", "pos": "verb", "img": "🔙", "connect": "\"Ri-vơs\" — cài số lùi, đi ngược lại.", "ex": "He reversed into the parking space.", "exVi": "Anh ấy lùi xe vào chỗ đỗ." },
-    { "en": "overtake", "ipa": "/ˌoʊ.vɚˈteɪk/", "vi": "vượt xe", "pos": "verb", "img": "🏎️", "connect": "over (qua) + take — vọt lên trước xe khác.", "ex": "Don't overtake on this narrow road.", "exVi": "Đừng vượt xe trên đường hẹp này." },
-    { "en": "crash", "ipa": "/kræʃ/", "vi": "vụ đâm xe; đâm", "pos": "noun", "img": "💥", "connect": "\"Krét-sh\" — tiếng rầm khi va chạm.", "ex": "Two cars crashed at the corner.", "exVi": "Hai chiếc ô tô đâm nhau ở góc đường." },
-    { "en": "pedestrian", "ipa": "/pəˈdes.tri.ən/", "vi": "người đi bộ", "pos": "noun", "img": "🚶", "connect": "\"Pờ-đét-tri-ừn\" — người qua đường trên vạch kẻ.", "ex": "Watch out for pedestrians.", "exVi": "Chú ý người đi bộ." },
-    { "en": "crosswalk", "ipa": "/ˈkrɑːs.wɑːk/", "vi": "vạch sang đường", "pos": "noun", "img": "🦓", "connect": "cross (băng qua) + walk (đi) — vạch kẻ trắng như ngựa vằn.", "ex": "Cross the street at the crosswalk.", "exVi": "Hãy sang đường tại vạch kẻ." },
-    { "en": "roundabout", "ipa": "/ˈraʊn.də.baʊt/", "vi": "vòng xuyến", "pos": "noun", "img": "🔄", "connect": "round (vòng) + about — chạy vòng quanh đảo tròn.", "ex": "Turn right at the roundabout.", "exVi": "Rẽ phải ở vòng xuyến." },
-    { "en": "intersection", "ipa": "/ˌɪn.t̬ɚˈsek.ʃən/", "vi": "ngã tư, giao lộ", "pos": "noun", "img": "➕", "connect": "\"In-tơ-xéc-sừn\" — hai đường cắt nhau.", "ex": "The school is near the intersection.", "exVi": "Ngôi trường ở gần ngã tư." },
-    { "en": "steering wheel", "ipa": "/ˈstɪr.ɪŋ wiːl/", "vi": "vô lăng", "pos": "noun", "img": "🎡", "connect": "steer (lái) + wheel (bánh) — vòng tròn cầm lái.", "ex": "Keep both hands on the steering wheel.", "exVi": "Giữ cả hai tay trên vô lăng." },
-    { "en": "honk", "ipa": "/hɑːŋk/", "vi": "bấm còi", "pos": "verb", "img": "📢", "connect": "\"Hong-k\" — tiếng còi pin pin.", "ex": "Don't honk near the hospital.", "exVi": "Đừng bấm còi gần bệnh viện." },
-    { "en": "toll", "ipa": "/toʊl/", "vi": "phí cầu đường", "pos": "noun", "img": "💳", "connect": "\"Tôul\" — trạm thu phí trên cao tốc.", "ex": "We paid the toll on the highway.", "exVi": "Chúng tôi trả phí trên đường cao tốc." },
-    { "en": "van", "ipa": "/væn/", "vi": "xe tải nhỏ, xe van", "pos": "noun", "img": "🚐", "connect": "\"Ven\" — xe thùng chở hàng, chở khách.", "ex": "The van delivers goods every day.", "exVi": "Chiếc xe van giao hàng mỗi ngày." },
-    { "en": "scooter", "ipa": "/ˈskuː.t̬ɚ/", "vi": "xe tay ga", "pos": "noun", "img": "🛵", "connect": "\"Sku-tơ\" — xe ga chạy khắp phố Việt Nam.", "ex": "She rides a scooter to work.", "exVi": "Cô ấy đi xe tay ga đi làm." },
-    { "en": "ferry", "ipa": "/ˈfer.i/", "vi": "phà", "pos": "noun", "img": "⛴️", "connect": "\"Phe-ri\" — phà chở người và xe qua sông.", "ex": "We took a ferry to the island.", "exVi": "Chúng tôi đi phà ra đảo." },
-    { "en": "yacht", "ipa": "/jɑːt/", "vi": "du thuyền", "pos": "noun", "img": "🛥️", "connect": "\"Giót\" (ch câm) — thuyền sang của giới nhà giàu.", "ex": "The yacht sailed along the bay.", "exVi": "Chiếc du thuyền lướt dọc vịnh." },
-    { "en": "cruise", "ipa": "/kruːz/", "vi": "chuyến du ngoạn tàu biển", "pos": "noun", "img": "🚢", "connect": "\"Kru-z\" — nghỉ dưỡng trên tàu lớn.", "ex": "They went on a cruise to Ha Long.", "exVi": "Họ đi du thuyền ở Hạ Long." },
-    { "en": "tram", "ipa": "/træm/", "vi": "tàu điện mặt đất", "pos": "noun", "img": "🚋", "connect": "\"Trem\" — tàu điện chạy giữa phố cổ châu Âu.", "ex": "The tram passes the old town.", "exVi": "Tàu điện chạy ngang khu phố cổ." },
-    { "en": "helicopter", "ipa": "/ˈhel.əˌkɑːp.tɚ/", "vi": "trực thăng", "pos": "noun", "img": "🚁", "connect": "\"He-li-cóp-tơ\" — cánh quạt xoay trên đầu.", "ex": "A helicopter landed on the roof.", "exVi": "Một chiếc trực thăng đáp xuống nóc nhà." }
+    {
+      "en": "tire",
+      "ipa": "/taɪr/",
+      "vi": "lốp xe",
+      "pos": "noun",
+      "img": "🛞",
+      "connect": "\"Tai-ơ\" — lốp xẹp thì phải bơm.",
+      "ex": "The car has a flat tire.",
+      "exVi": "Chiếc xe bị xẹp lốp."
+    },
+    {
+      "en": "windshield",
+      "ipa": "/ˈwɪnd.ʃiːld/",
+      "vi": "kính chắn gió",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "wind (gió) + shield (khiên) — tấm khiên chắn gió trước xe.",
+      "ex": "Rain covered the windshield.",
+      "exVi": "Mưa phủ kín kính chắn gió."
+    },
+    {
+      "en": "headlight",
+      "ipa": "/ˈhed.laɪt/",
+      "vi": "đèn pha",
+      "pos": "noun",
+      "img": "💡",
+      "connect": "head (đầu) + light (đèn) — đèn đầu xe.",
+      "ex": "Turn on your headlights at night.",
+      "exVi": "Bật đèn pha khi trời tối."
+    },
+    {
+      "en": "gear",
+      "ipa": "/ɡɪr/",
+      "vi": "số xe; bánh răng",
+      "pos": "noun",
+      "img": "⚙️",
+      "connect": "\"Ghia\" — vào số, sang số.",
+      "ex": "Change gear when you go uphill.",
+      "exVi": "Sang số khi lên dốc."
+    },
+    {
+      "en": "gas station",
+      "ipa": "/ˈɡæs ˌsteɪ.ʃən/",
+      "vi": "trạm xăng",
+      "pos": "noun",
+      "img": "⛽",
+      "connect": "gas (xăng) + station (trạm) — ghé đổ đầy bình.",
+      "ex": "We stopped at a gas station.",
+      "exVi": "Chúng tôi dừng ở trạm xăng."
+    },
+    {
+      "en": "parking lot",
+      "ipa": "/ˈpɑːr.kɪŋ lɑːt/",
+      "vi": "bãi đỗ xe",
+      "pos": "noun",
+      "img": "🅿️",
+      "connect": "parking (đỗ xe) + lot (khu đất) — biển chữ P.",
+      "ex": "The parking lot is full.",
+      "exVi": "Bãi đỗ xe đã kín chỗ."
+    },
+    {
+      "en": "traffic light",
+      "ipa": "/ˈtræf.ɪk laɪt/",
+      "vi": "đèn giao thông",
+      "pos": "noun",
+      "img": "🚥",
+      "connect": "traffic (giao thông) + light (đèn) — xanh đi đỏ dừng.",
+      "ex": "Stop when the traffic light is red.",
+      "exVi": "Dừng lại khi đèn giao thông màu đỏ."
+    },
+    {
+      "en": "traffic jam",
+      "ipa": "/ˈtræf.ɪk dʒæm/",
+      "vi": "kẹt xe",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "jam (mứt đặc) — xe dính chặt như mứt.",
+      "ex": "I was late because of a traffic jam.",
+      "exVi": "Tôi muộn vì kẹt xe."
+    },
+    {
+      "en": "speed limit",
+      "ipa": "/ˈspiːd ˌlɪm.ɪt/",
+      "vi": "giới hạn tốc độ",
+      "pos": "noun",
+      "img": "🚸",
+      "connect": "speed (tốc độ) + limit (giới hạn) — biển 60km/h.",
+      "ex": "The speed limit here is 50 km/h.",
+      "exVi": "Giới hạn tốc độ ở đây là 50 km/h."
+    },
+    {
+      "en": "reverse",
+      "ipa": "/rɪˈvɝːs/",
+      "vi": "lùi xe; đảo ngược",
+      "pos": "verb",
+      "img": "🔙",
+      "connect": "\"Ri-vơs\" — cài số lùi, đi ngược lại.",
+      "ex": "He reversed into the parking space.",
+      "exVi": "Anh ấy lùi xe vào chỗ đỗ."
+    },
+    {
+      "en": "overtake",
+      "ipa": "/ˌoʊ.vɚˈteɪk/",
+      "vi": "vượt xe",
+      "pos": "verb",
+      "img": "🏎️",
+      "connect": "over (qua) + take — vọt lên trước xe khác.",
+      "ex": "Don't overtake on this narrow road.",
+      "exVi": "Đừng vượt xe trên đường hẹp này."
+    },
+    {
+      "en": "crash",
+      "ipa": "/kræʃ/",
+      "vi": "vụ đâm xe; đâm",
+      "pos": "noun",
+      "img": "💥",
+      "connect": "\"Krét-sh\" — tiếng rầm khi va chạm.",
+      "ex": "Two cars crashed at the corner.",
+      "exVi": "Hai chiếc ô tô đâm nhau ở góc đường."
+    },
+    {
+      "en": "pedestrian",
+      "ipa": "/pəˈdes.tri.ən/",
+      "vi": "người đi bộ",
+      "pos": "noun",
+      "img": "🚶",
+      "connect": "\"Pờ-đét-tri-ừn\" — người qua đường trên vạch kẻ.",
+      "ex": "Watch out for pedestrians.",
+      "exVi": "Chú ý người đi bộ."
+    },
+    {
+      "en": "crosswalk",
+      "ipa": "/ˈkrɑːs.wɑːk/",
+      "vi": "vạch sang đường",
+      "pos": "noun",
+      "img": "🦓",
+      "connect": "cross (băng qua) + walk (đi) — vạch kẻ trắng như ngựa vằn.",
+      "ex": "Cross the street at the crosswalk.",
+      "exVi": "Hãy sang đường tại vạch kẻ."
+    },
+    {
+      "en": "roundabout",
+      "ipa": "/ˈraʊn.də.baʊt/",
+      "vi": "vòng xuyến",
+      "pos": "noun",
+      "img": "🔄",
+      "connect": "round (vòng) + about — chạy vòng quanh đảo tròn.",
+      "ex": "Turn right at the roundabout.",
+      "exVi": "Rẽ phải ở vòng xuyến."
+    },
+    {
+      "en": "intersection",
+      "ipa": "/ˌɪn.t̬ɚˈsek.ʃən/",
+      "vi": "ngã tư, giao lộ",
+      "pos": "noun",
+      "img": "➕",
+      "connect": "\"In-tơ-xéc-sừn\" — hai đường cắt nhau.",
+      "ex": "The school is near the intersection.",
+      "exVi": "Ngôi trường ở gần ngã tư."
+    },
+    {
+      "en": "steering wheel",
+      "ipa": "/ˈstɪr.ɪŋ wiːl/",
+      "vi": "vô lăng",
+      "pos": "noun",
+      "img": "🎡",
+      "connect": "steer (lái) + wheel (bánh) — vòng tròn cầm lái.",
+      "ex": "Keep both hands on the steering wheel.",
+      "exVi": "Giữ cả hai tay trên vô lăng."
+    },
+    {
+      "en": "honk",
+      "ipa": "/hɑːŋk/",
+      "vi": "bấm còi",
+      "pos": "verb",
+      "img": "📢",
+      "connect": "\"Hong-k\" — tiếng còi pin pin.",
+      "ex": "Don't honk near the hospital.",
+      "exVi": "Đừng bấm còi gần bệnh viện."
+    },
+    {
+      "en": "toll",
+      "ipa": "/toʊl/",
+      "vi": "phí cầu đường",
+      "pos": "noun",
+      "img": "💳",
+      "connect": "\"Tôul\" — trạm thu phí trên cao tốc.",
+      "ex": "We paid the toll on the highway.",
+      "exVi": "Chúng tôi trả phí trên đường cao tốc."
+    },
+    {
+      "en": "van",
+      "ipa": "/væn/",
+      "vi": "xe tải nhỏ, xe van",
+      "pos": "noun",
+      "img": "🚐",
+      "connect": "\"Ven\" — xe thùng chở hàng, chở khách.",
+      "ex": "The van delivers goods every day.",
+      "exVi": "Chiếc xe van giao hàng mỗi ngày."
+    },
+    {
+      "en": "scooter",
+      "ipa": "/ˈskuː.t̬ɚ/",
+      "vi": "xe tay ga",
+      "pos": "noun",
+      "img": "🛵",
+      "connect": "\"Sku-tơ\" — xe ga chạy khắp phố Việt Nam.",
+      "ex": "She rides a scooter to work.",
+      "exVi": "Cô ấy đi xe tay ga đi làm."
+    },
+    {
+      "en": "ferry",
+      "ipa": "/ˈfer.i/",
+      "vi": "phà",
+      "pos": "noun",
+      "img": "⛴️",
+      "connect": "\"Phe-ri\" — phà chở người và xe qua sông.",
+      "ex": "We took a ferry to the island.",
+      "exVi": "Chúng tôi đi phà ra đảo."
+    },
+    {
+      "en": "yacht",
+      "ipa": "/jɑːt/",
+      "vi": "du thuyền",
+      "pos": "noun",
+      "img": "🛥️",
+      "connect": "\"Giót\" (ch câm) — thuyền sang của giới nhà giàu.",
+      "ex": "The yacht sailed along the bay.",
+      "exVi": "Chiếc du thuyền lướt dọc vịnh."
+    },
+    {
+      "en": "cruise",
+      "ipa": "/kruːz/",
+      "vi": "chuyến du ngoạn tàu biển",
+      "pos": "noun",
+      "img": "🚢",
+      "connect": "\"Kru-z\" — nghỉ dưỡng trên tàu lớn.",
+      "ex": "They went on a cruise to Ha Long.",
+      "exVi": "Họ đi du thuyền ở Hạ Long."
+    },
+    {
+      "en": "tram",
+      "ipa": "/træm/",
+      "vi": "tàu điện mặt đất",
+      "pos": "noun",
+      "img": "🚋",
+      "connect": "\"Trem\" — tàu điện chạy giữa phố cổ châu Âu.",
+      "ex": "The tram passes the old town.",
+      "exVi": "Tàu điện chạy ngang khu phố cổ."
+    },
+    {
+      "en": "helicopter",
+      "ipa": "/ˈhel.əˌkɑːp.tɚ/",
+      "vi": "trực thăng",
+      "pos": "noun",
+      "img": "🚁",
+      "connect": "\"He-li-cóp-tơ\" — cánh quạt xoay trên đầu.",
+      "ex": "A helicopter landed on the roof.",
+      "exVi": "Một chiếc trực thăng đáp xuống nóc nhà."
+    }
   ]
 }

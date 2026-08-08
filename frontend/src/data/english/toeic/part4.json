@@ -13,34 +13,34 @@
       {
         "q": "Where most likely is this announcement being made?",
         "options": [
-          "On an airplane",
-          "At a train station",
+          "In a hotel lobby",
           "On a ferry",
-          "In a hotel lobby"
+          "At a train station",
+          "On an airplane"
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What is the cause of the delay?",
         "options": [
-          "Bad weather",
+          "A late crew member",
           "A technical problem",
-          "Runway traffic",
-          "A late crew member"
+          "Bad weather",
+          "Runway traffic"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What will passengers receive shortly?",
         "options": [
           "Meal vouchers",
-          "Free drinks",
+          "Headphones",
           "New boarding passes",
-          "Headphones"
+          "Free drinks"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -59,12 +59,12 @@
       {
         "q": "Why is the woman calling?",
         "options": [
-          "To reschedule a repair",
           "To say a car is ready",
-          "To order a spare part",
-          "To confirm an address"
+          "To confirm an address",
+          "To reschedule a repair",
+          "To order a spare part"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-purpose"
       },
       {
@@ -81,12 +81,12 @@
       {
         "q": "What is the listener asked to bring?",
         "options": [
-          "A credit card",
-          "A driver's license",
           "A claim ticket",
-          "The old air filter"
+          "The old air filter",
+          "A credit card",
+          "A driver's license"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -105,34 +105,34 @@
       {
         "q": "What will happen starting Monday?",
         "options": [
-          "A new cafeteria will open.",
           "A parking lot will be closed.",
           "Employee badges will be reissued.",
-          "A staff meeting will be moved."
+          "A staff meeting will be moved.",
+          "A new cafeteria will open."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "How long is the work expected to take?",
         "options": [
-          "Two days",
           "One week",
-          "Two weeks",
-          "One month"
+          "Two days",
+          "One month",
+          "Two weeks"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "What will employees receive during the construction?",
         "options": [
-          "Free coffee",
           "A parking refund",
-          "Gift cards",
-          "Taxi vouchers"
+          "Free coffee",
+          "Taxi vouchers",
+          "Gift cards"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -151,32 +151,32 @@
       {
         "q": "What type of products is being advertised?",
         "options": [
-          "Office furniture",
           "Kitchen appliances",
-          "Garden tools",
-          "Bedroom sets"
+          "Bedroom sets",
+          "Office furniture",
+          "Garden tools"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-purpose"
       },
       {
         "q": "How can customers get free delivery and installation?",
         "options": [
-          "By ordering online",
-          "By visiting on Sunday",
           "By spending over $500",
-          "By joining a membership"
+          "By joining a membership",
+          "By ordering online",
+          "By visiting on Sunday"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "When does the sale end?",
         "options": [
-          "Saturday at noon",
-          "Sunday at 9 P.M.",
           "Friday evening",
-          "Monday morning"
+          "Sunday at 9 P.M.",
+          "Monday morning",
+          "Saturday at noon"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -197,10 +197,10 @@
       {
         "q": "Who most likely is the speaker?",
         "options": [
-          "A factory manager",
-          "A tour guide",
           "A chocolate chef",
-          "A safety inspector"
+          "A tour guide",
+          "A safety inspector",
+          "A factory manager"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -208,23 +208,23 @@
       {
         "q": "What is NOT allowed on the production line?",
         "options": [
+          "Taking photos",
           "Talking",
           "Eating",
-          "Taking photos",
           "Walking"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What can visitors do at the end of the tour?",
         "options": [
-          "Buy discounted gifts",
           "Meet the factory owner",
-          "Taste some chocolates",
-          "Watch a video"
+          "Buy discounted gifts",
+          "Watch a video",
+          "Taste some chocolates"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -243,10 +243,10 @@
       {
         "q": "What is causing delays on the Harbor Bridge?",
         "options": [
-          "A traffic accident",
-          "Lane closures for repairs",
           "A public event",
-          "Heavy rain"
+          "Lane closures for repairs",
+          "Heavy rain",
+          "A traffic accident"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -256,21 +256,21 @@
         "options": [
           "Working from home",
           "Leaving after lunch",
-          "Using the Riverside Tunnel",
-          "Taking the bus"
+          "Taking the bus",
+          "Using the Riverside Tunnel"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "According to the speaker, when will it start raining heavily?",
         "options": [
-          "In the morning",
-          "Around noon",
           "In the late afternoon",
+          "Around noon",
+          "In the morning",
           "At midnight"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -291,8 +291,8 @@
         "options": [
           "A new office location",
           "A permanent flexible work program",
-          "A change in salary policy",
-          "An employee survey"
+          "An employee survey",
+          "A change in salary policy"
         ],
         "answer": 1,
         "skill": "l-main"
@@ -300,23 +300,23 @@
       {
         "q": "What must employees do by Friday of each previous week?",
         "options": [
-          "Submit a productivity report",
-          "Talk to their supervisor",
           "Book in-office days in an app",
-          "Update their equipment"
+          "Update their equipment",
+          "Talk to their supervisor",
+          "Submit a productivity report"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "Why does the speaker mention the employee survey?",
         "options": [
+          "To criticize the trial period",
           "To explain why the program will continue",
-          "To ask for more responses",
           "To announce survey winners",
-          "To criticize the trial period"
+          "To ask for more responses"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -335,34 +335,34 @@
       {
         "q": "What has changed about the 9:15 express?",
         "options": [
+          "Its final destination",
           "Its departure time",
           "Its departure platform",
-          "Its final destination",
           "Its ticket price"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "Where is platform seven located?",
         "options": [
           "Next to the ticket office",
-          "Near the north exit",
+          "Under the main hall",
           "Beside platform two",
-          "Under the main hall"
+          "Near the north exit"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "Who should passengers contact for luggage assistance?",
         "options": [
-          "The train conductor",
-          "Staff in red vests",
           "The coffee kiosk clerk",
-          "Platform security"
+          "Platform security",
+          "Staff in red vests",
+          "The train conductor"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       }
     ]
@@ -381,31 +381,31 @@
       {
         "q": "What is being advertised?",
         "options": [
-          "A translation service",
-          "An online writing course",
           "A recruitment agency",
-          "A grammar textbook"
+          "A grammar textbook",
+          "A translation service",
+          "An online writing course"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What do listeners get by using the code?",
         "options": [
-          "A free textbook",
           "A personal laptop",
-          "A discount and a free session",
-          "A job interview"
+          "A job interview",
+          "A free textbook",
+          "A discount and a free session"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "Why does the speaker mention the placement quiz?",
         "options": [
           "To encourage listeners to start right away",
-          "To warn about a difficult exam",
           "To explain the refund policy",
+          "To warn about a difficult exam",
           "To introduce a new coach"
         ],
         "answer": 0,
@@ -427,34 +427,34 @@
       {
         "q": "What is the purpose of the talk?",
         "options": [
+          "To celebrate a retirement",
           "To introduce a new client",
-          "To present an employee award",
           "To announce a website redesign",
-          "To celebrate a retirement"
+          "To present an employee award"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What problem did Amara help solve?",
         "options": [
-          "A canceled launch event",
           "A crashed website",
           "A missing payment",
+          "A canceled launch event",
           "A staffing shortage"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "What will most likely happen next?",
         "options": [
+          "A new award will be announced.",
           "The client will give a speech.",
-          "Amara will speak to the audience.",
           "The team will join a video call.",
-          "A new award will be announced."
+          "Amara will speak to the audience."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-infer"
       }
     ]
@@ -473,34 +473,34 @@
       {
         "q": "Why is the speaker calling?",
         "options": [
-          "To cancel an order",
           "To question a detail in an order",
+          "To request a payment",
           "To announce a new supplier",
-          "To request a payment"
+          "To cancel an order"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-purpose"
       },
       {
         "q": "What does the speaker suspect about the order?",
         "options": [
-          "It lists the wrong cartridge model.",
-          "It exceeds the budget.",
           "It was submitted twice.",
-          "It is missing a signature."
+          "It exceeds the budget.",
+          "It is missing a signature.",
+          "It lists the wrong cartridge model."
         ],
-        "answer": 0,
+        "answer": 3,
         "skill": "l-infer"
       },
       {
         "q": "What will happen if the listener does not call back by 3:00?",
         "options": [
           "The order will be canceled.",
-          "The order will be held until the next day.",
           "The wrong items will be shipped.",
-          "A manager will be contacted."
+          "A manager will be contacted.",
+          "The order will be held until the next day."
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -519,10 +519,10 @@
       {
         "q": "What is happening in the bakery section?",
         "options": [
-          "A cooking class",
+          "A charity sale",
           "A product tasting",
           "A photography session",
-          "A charity sale"
+          "A cooking class"
         ],
         "answer": 1,
         "skill": "l-detail"
@@ -530,21 +530,21 @@
       {
         "q": "What comes with each loaf of bread?",
         "options": [
-          "A free drink",
           "A recipe card",
-          "A discount coupon",
-          "A loyalty stamp"
+          "A loyalty stamp",
+          "A free drink",
+          "A discount coupon"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
         "q": "Why are some checkout lanes closed?",
         "options": [
           "Registers are being upgraded.",
-          "Staff are on break.",
           "The store is closing early.",
-          "A spill is being cleaned."
+          "A spill is being cleaned.",
+          "Staff are on break."
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -565,10 +565,10 @@
       {
         "q": "What type of event is taking place?",
         "options": [
-          "A job interview",
-          "An online training session",
           "A press conference",
-          "A product launch"
+          "An online training session",
+          "A product launch",
+          "A job interview"
         ],
         "answer": 1,
         "skill": "l-purpose"
@@ -576,12 +576,12 @@
       {
         "q": "How should participants ask questions?",
         "options": [
-          "By unmuting anytime",
           "By raising their hands",
-          "By using the chat window",
-          "By emailing afterward"
+          "By unmuting anytime",
+          "By emailing afterward",
+          "By using the chat window"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       },
       {
@@ -622,23 +622,23 @@
       {
         "q": "Where should passengers find the shuttle buses?",
         "options": [
-          "On the lower level",
           "Outside the north entrance",
           "At the airport terminal",
+          "On the lower level",
           "Next to the ticket machines"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What are passengers with early flights asked to do?",
         "options": [
+          "Wait until Monday",
           "Buy a new ticket",
           "Board the first bus",
-          "Talk to a station agent",
-          "Wait until Monday"
+          "Talk to a station agent"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -657,21 +657,21 @@
       {
         "q": "Why is the speaker calling?",
         "options": [
-          "To confirm a payment",
-          "To reschedule an appointment",
           "To recommend a specialist",
-          "To announce new office hours"
+          "To announce new office hours",
+          "To confirm a payment",
+          "To reschedule an appointment"
         ],
-        "answer": 1,
+        "answer": 3,
         "skill": "l-purpose"
       },
       {
         "q": "What reason is given for the change?",
         "options": [
+          "The equipment is being repaired.",
           "The office is being renovated.",
-          "The patient requested a later time.",
           "The dentist will be at a conference.",
-          "The equipment is being repaired."
+          "The patient requested a later time."
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -680,9 +680,9 @@
         "q": "What is the listener asked to bring?",
         "options": [
           "An insurance card",
-          "A referral letter",
+          "A printed receipt",
           "Previous X-rays",
-          "A printed receipt"
+          "A referral letter"
         ],
         "answer": 0,
         "skill": "l-detail"
@@ -704,9 +704,9 @@
         "q": "Where most likely are the listeners?",
         "options": [
           "At a glass factory",
-          "At an art museum",
           "At a hardware store",
-          "At a cooking school"
+          "At a cooking school",
+          "At an art museum"
         ],
         "answer": 0,
         "skill": "l-purpose"
@@ -714,23 +714,23 @@
       {
         "q": "What are listeners told they may not do in the blowing studio?",
         "options": [
+          "Touch the equipment",
           "Speak to the artisans",
           "Take photographs",
-          "Wear safety glasses",
-          "Touch the equipment"
+          "Wear safety glasses"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will listeners receive at the end of the tour?",
         "options": [
-          "A free glass sample",
           "A printed brochure",
-          "A shop discount",
-          "A certificate of attendance"
+          "A certificate of attendance",
+          "A free glass sample",
+          "A shop discount"
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -750,20 +750,20 @@
         "q": "What is the main topic of the report?",
         "options": [
           "A weather warning",
-          "A bridge construction project",
           "A new ferry company",
+          "A bridge construction project",
           "A market opening"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-main"
       },
       {
         "q": "What does the speaker say officials recommend?",
         "options": [
-          "Leaving home before six o'clock",
           "Using an alternate bridge",
+          "Working from home",
           "Taking the ferry",
-          "Working from home"
+          "Leaving home before six o'clock"
         ],
         "answer": 2,
         "skill": "l-detail"
@@ -772,9 +772,9 @@
         "q": "What is suggested about the farmers market?",
         "options": [
           "It had a successful summer.",
-          "It will move to a new location.",
+          "It will close during construction.",
           "It has raised its fees.",
-          "It will close during construction."
+          "It will move to a new location."
         ],
         "answer": 0,
         "skill": "l-infer"
@@ -795,34 +795,34 @@
       {
         "q": "What service is being advertised?",
         "options": [
+          "An insurance agency",
           "A moving company",
-          "A furniture store",
           "A storage facility",
-          "An insurance agency"
+          "A furniture store"
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-purpose"
       },
       {
         "q": "What does the speaker emphasize about the price?",
         "options": [
           "It is charged by the hour.",
-          "It includes no unexpected fees.",
           "It is lower than competitors'.",
+          "It includes no unexpected fees.",
           "It can be paid in installments."
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What is offered to customers who book this month?",
         "options": [
+          "Complimentary packing materials",
           "A free extra crew member",
           "A half-price weekend rate",
-          "Complimentary packing materials",
           "An additional month of storage"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-detail"
       }
     ]
@@ -841,34 +841,34 @@
       {
         "q": "What is the purpose of the talk?",
         "options": [
-          "To welcome a new employee",
           "To honor a retiring colleague",
-          "To introduce a software system",
-          "To announce an office move"
+          "To announce an office move",
+          "To welcome a new employee",
+          "To introduce a software system"
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-purpose"
       },
       {
         "q": "What does the speaker say Carmen is best remembered for?",
         "options": [
-          "Training new employees",
-          "Managing the budget",
+          "Opening a new branch",
           "Designing the break room",
-          "Opening a new branch"
+          "Training new employees",
+          "Managing the budget"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What will listeners most likely do next?",
         "options": [
-          "Tour the office",
           "Watch a presentation",
           "Share personal stories",
-          "Sign a contract"
+          "Sign a contract",
+          "Tour the office"
         ],
-        "answer": 2,
+        "answer": 1,
         "skill": "l-infer"
       }
     ]
@@ -912,9 +912,9 @@
       {
         "q": "Why was one session moved?",
         "options": [
-          "The room needs repairs.",
-          "More people registered than expected.",
           "The speaker arrived late.",
+          "More people registered than expected.",
+          "The room needs repairs.",
           "The programme was printed incorrectly."
         ],
         "answer": 1,
@@ -934,9 +934,9 @@
       {
         "q": "What does the speaker say about badges?",
         "options": [
-          "They must be exchanged at the desk.",
-          "They will be scanned at the auditorium.",
           "They are needed only for coffee.",
+          "They will be scanned at the auditorium.",
+          "They must be exchanged at the desk.",
           "They should be returned after the forum."
         ],
         "answer": 1,
@@ -994,23 +994,23 @@
       {
         "q": "What does the speaker say about tickets?",
         "options": [
-          "They must be exchanged online.",
           "They will be valid on the new date.",
           "They have all been refunded.",
-          "They can be bought at the gate only."
+          "They can be bought at the gate only.",
+          "They must be exchanged online."
         ],
-        "answer": 1,
+        "answer": 0,
         "skill": "l-detail"
       },
       {
         "q": "Why are visitors asked to use the park-and-ride?",
         "options": [
-          "The riverside car park will be closed.",
-          "Parking fees have increased.",
           "The road to the park is under repair.",
-          "The stadium is closer to the stalls."
+          "The riverside car park will be closed.",
+          "The stadium is closer to the stalls.",
+          "Parking fees have increased."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       }
     ]
@@ -1065,23 +1065,23 @@
       {
         "q": "What is the reason for the delay?",
         "options": [
+          "A closed runway",
           "Bad weather",
           "A technical inspection",
-          "A missing crew member",
-          "A closed runway"
+          "A missing crew member"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What can passengers get at the transfer desk?",
         "options": [
-          "A free rebooking",
+          "A boarding pass reprint",
           "A cash refund",
-          "A hotel room",
-          "A boarding pass reprint"
+          "A free rebooking",
+          "A hotel room"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-detail"
       }
     ]
@@ -1136,23 +1136,23 @@
       {
         "q": "What must the listener do before Thursday?",
         "options": [
+          "Collect the ticket",
           "Pay the balance",
           "Request an upgrade",
-          "Collect the ticket",
           "Confirm her address"
         ],
-        "answer": 1,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "Why should guests arrive before six thirty?",
         "options": [
-          "Parking fills up quickly.",
           "Dinner is served early.",
-          "The hall doors close during the speech.",
-          "Tickets are checked only once."
+          "Parking fills up quickly.",
+          "Tickets are checked only once.",
+          "The hall doors close during the speech."
         ],
-        "answer": 2,
+        "answer": 3,
         "skill": "l-detail"
       }
     ]
@@ -1207,23 +1207,23 @@
       {
         "q": "What does the speaker say about the start of the year?",
         "options": [
-          "The website was being rebuilt.",
-          "A key supplier was changed.",
           "Prices were increased.",
-          "The team was short-staffed."
+          "The website was being rebuilt.",
+          "The team was short-staffed.",
+          "A key supplier was changed."
         ],
-        "answer": 0,
+        "answer": 1,
         "skill": "l-detail"
       },
       {
         "q": "What does the speaker propose?",
         "options": [
-          "Ending the autumn campaign",
-          "Raising prices next year",
           "Funding free shipping from the campaign budget",
-          "Running another separate experiment"
+          "Raising prices next year",
+          "Running another separate experiment",
+          "Ending the autumn campaign"
         ],
-        "answer": 2,
+        "answer": 0,
         "skill": "l-infer"
       }
     ]
@@ -1267,32 +1267,1333 @@
       {
         "q": "Look at the graphic. Which service date will change?",
         "options": [
-          "5 March",
           "12 March",
           "19 March",
-          "26 March"
+          "26 March",
+          "5 March"
         ],
-        "answer": 3,
+        "answer": 2,
         "skill": "l-graphic"
       },
       {
         "q": "What are listeners asked to do today?",
         "options": [
-          "Use the other cutting machine",
+          "Work an extra shift",
           "Stop production entirely",
-          "Report faults to the engineer",
-          "Work an extra shift"
+          "Use the other cutting machine",
+          "Report faults to the engineer"
         ],
-        "answer": 0,
+        "answer": 2,
         "skill": "l-detail"
       },
       {
         "q": "What should listeners do about an urgent job?",
         "options": [
+          "Send it to another factory",
           "Start the machine carefully",
           "Speak to a shift leader",
-          "Leave it until tomorrow",
-          "Send it to another factory"
+          "Leave it until tomorrow"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-26",
+    "title": "Tin nhắn thoại: linh kiện về trễ",
+    "kind": "voicemail",
+    "script": [
+      {
+        "s": "W",
+        "text": "Hello, this is Renata Halloran from Ardmore Components calling for Mr. Okada. I'm ringing about order 4471, the replacement motors for your packing line. Two of the six shipped this morning and should reach you Thursday. The other four are held up because our supplier changed the housing design and we're waiting on the new mounting brackets — realistically that's another ten days. I know your line is running at half capacity, so here's what I can offer: we have four refurbished units of the previous model in our warehouse. They're fully tested, they fit your existing frame, and I can send them tomorrow at no charge as a loan until the new ones arrive. If that helps, call me back on 555-0148 before four o'clock today and I'll put them on tonight's truck."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the speaker calling?",
+        "options": [
+          "To arrange a factory visit",
+          "To confirm a payment",
+          "To explain a partial shipment",
+          "To cancel an order"
+        ],
+        "answer": 2,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What caused the delay?",
+        "options": [
+          "A strike at the port",
+          "A change to a part's design",
+          "Bad weather",
+          "A mistake in the order form"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker offer to do?",
+        "options": [
+          "Send older units on loan",
+          "Reduce the price by half",
+          "Refund the full amount",
+          "Visit the plant on Thursday"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-27",
+    "title": "Bản tin phát thanh: giao thông và thời tiết",
+    "kind": "broadcast",
+    "script": [
+      {
+        "s": "M",
+        "text": "You're listening to Kestrel FM, and it's seven twenty on Wednesday morning. Traffic first: the Eastbridge tunnel is down to one lane after an overnight repair ran long, and drivers heading into the city are reporting delays of about twenty-five minutes. The crew expects to clear the site by nine, so if your journey can wait an hour, it probably should. Buses on routes 14 and 22 are being diverted along Quarry Road and will not stop at the hospital this morning. Now the weather: dry and bright until midday, then a band of heavy rain moving in from the west that should last through the evening rush. Tomorrow looks calmer and a few degrees warmer. Coming up after the news, our monthly small-business slot — this week, how three local cafes share a single delivery driver."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is causing the traffic delays?",
+        "options": [
+          "A traffic accident",
+          "Heavy rain",
+          "Repair work that is not finished",
+          "A public event"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker suggest listeners do?",
+        "options": [
+          "Travel later in the morning",
+          "Carry an umbrella before noon",
+          "Avoid the hospital area all day",
+          "Take the bus instead of driving"
+        ],
+        "answer": 0,
+        "skill": "l-infer"
+      },
+      {
+        "q": "What will be discussed later in the program?",
+        "options": [
+          "A weather forecast for the week",
+          "A new tunnel project",
+          "Changes to bus routes",
+          "How local businesses cooperate"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-28",
+    "title": "Bài nói: hướng dẫn tình nguyện viên bảo tàng",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "W",
+        "text": "Welcome, everyone, and thank you for giving us your Saturday mornings. I'm Priscilla Vaughan, the volunteer coordinator here at the Maritime Museum. Before we walk the galleries, three practical things. First, your badge: it gets you through the staff door on Anchor Street and it also gets you a free hot drink in the cafe on the days you work, so please don't leave it at home. Second, questions from visitors. You are not expected to know everything — nobody does. If you're unsure, say so and walk the visitor to the information desk; that's far better than guessing. Third, the shift book. Sign in when you arrive and out when you leave, because our insurance depends on it. Now, the most common question we get is about the wreck exhibit on level two, so that's where we'll start the tour. Follow me and please stay together — the lift only takes six."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Who most likely are the listeners?",
+        "options": [
+          "Journalists",
+          "New volunteers",
+          "Museum visitors",
+          "Building contractors"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the speaker say the listeners should do if they cannot answer a question?",
+        "options": [
+          "Take the visitor to the information desk",
+          "Look it up on a phone",
+          "Give their best guess",
+          "Ask another volunteer"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will the listeners do next?",
+        "options": [
+          "Have a drink in the cafe",
+          "Collect their badges",
+          "Sign the shift book",
+          "Go to an exhibit on level two"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-29",
+    "title": "Thông báo trong siêu thị",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "M",
+        "text": "Attention shoppers, and good afternoon. A quick note about changes in store this week. From tomorrow, the bakery counter moves from the back wall to the front of the store, next to the flowers, so you'll smell it on the way in — which is, I'm told, entirely deliberate. The space at the back becomes a chilled ready-meals section opening on Friday. While the shelves are being fitted, aisle nine is closed and pasta and rice have moved temporarily to the end of aisle six. Our staff are wearing green lanyards this week specifically to help you find things, so please do stop them. Finally, checkout six is now a returns and click-and-collect desk only. If you're paying for shopping, please use lanes one to five or the self-service machines by the exit. Thank you for shopping with us."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the main purpose of the announcement?",
+        "options": [
+          "To announce a hiring event",
+          "To explain a new payment method",
+          "To describe changes to the store layout",
+          "To advertise weekly discounts"
+        ],
+        "answer": 2,
+        "skill": "l-main"
+      },
+      {
+        "q": "Where can shoppers currently find pasta?",
+        "options": [
+          "At the end of aisle six",
+          "In aisle nine",
+          "By the bakery counter",
+          "Next to the flowers"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is indicated about checkout six?",
+        "options": [
+          "It is only for staff.",
+          "It is closed this week.",
+          "It no longer takes payments for shopping.",
+          "It has been replaced by a machine."
+        ],
+        "answer": 2,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p4-30",
+    "title": "Giới thiệu tham quan nhà máy",
+    "kind": "tour",
+    "script": [
+      {
+        "s": "W",
+        "text": "Good morning and welcome to the Thornbury bottling plant. I'm Adaeze, and I'll be with you for the next ninety minutes. A word on safety before we go through: the vests and glasses in the basket by the door are compulsory beyond this point, and please keep inside the green walkways at all times — forklifts have right of way over people, always. Photographs are fine everywhere except the filling hall, where the equipment is still under a supplier agreement. Our route today goes syrup room, filling hall, labelling, then the warehouse, and we finish in the tasting room, where you'll try three drinks that aren't on sale anywhere yet. It gets loud in the filling hall, so I'll stop talking there and pick up the explanation afterwards. If you can't hear me at any point, wave — I'd much rather repeat myself than have you miss half the tour."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What are the listeners required to do?",
+        "options": [
+          "Leave their bags at the door",
+          "Sign a supplier agreement",
+          "Wear protective equipment",
+          "Stay silent during the tour"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Where are photographs not allowed?",
+        "options": [
+          "In the tasting room",
+          "In the syrup room",
+          "In the warehouse",
+          "In the filling hall"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why does the speaker say she will stop talking in one area?",
+        "options": [
+          "The equipment is very noisy.",
+          "Visitors must concentrate.",
+          "Another guide takes over.",
+          "The area is confidential."
+        ],
+        "answer": 0,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p4-31",
+    "title": "Cửa hàng đóng sớm để kiểm kê",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "W",
+        "text": "Attention shoppers. Please note that the store will close at six o'clock this evening, two hours earlier than usual, so that our staff can complete the annual inventory count. The registers will stop accepting new customers at five forty-five. We will reopen at our normal time of nine tomorrow morning, and everything in the seasonal aisle will be marked down a further twenty percent. We apologise for any inconvenience and thank you for shopping with us."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why will the store close early?",
+        "options": [
+          "For repairs",
+          "For a private event",
+          "For an inventory count",
+          "For a staff meeting"
+        ],
+        "answer": 2,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What will happen at five forty-five?",
+        "options": [
+          "A sale will begin",
+          "Staff will start counting",
+          "The doors will be locked",
+          "The registers will stop taking new customers"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will happen tomorrow?",
+        "options": [
+          "The store will open late",
+          "Prices in one section will be reduced",
+          "A new product line will arrive",
+          "Extra staff will be hired"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-32",
+    "title": "Tin nhắn thoại dời lịch hẹn nha khoa",
+    "kind": "voicemail",
+    "script": [
+      {
+        "s": "W",
+        "text": "Hello, this is Nadia calling from Brightwater Dental for Mr. Osei. You have a cleaning booked with Doctor Falk for Wednesday the twelfth at four o'clock. Unfortunately Doctor Falk will be out of the office that week, so we need to move your appointment. We have openings on Monday the tenth at nine in the morning, or Friday the fourteenth at two. Please call us back at five five five, oh one four eight and let us know which suits you. If we don't hear from you by Tuesday we'll release those slots to other patients."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the appointment being changed?",
+        "options": [
+          "Equipment is being replaced",
+          "The dentist will be away",
+          "The office is closing",
+          "The patient asked to change it"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What is the listener asked to do?",
+        "options": [
+          "Bring insurance details",
+          "Arrive early",
+          "Return the call",
+          "Complete a form online"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will happen if the listener does not respond by Tuesday?",
+        "options": [
+          "The times will be offered to other patients",
+          "The appointment will be cancelled entirely",
+          "A fee will be charged",
+          "A letter will be posted"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-33",
+    "title": "Mở đầu chuyến tham quan bảo tàng hàng hải",
+    "kind": "tour",
+    "script": [
+      {
+        "s": "M",
+        "text": "Good morning and welcome to the Halvorsen Maritime Museum. Before we begin, a few reminders. Photography without flash is permitted throughout the building, but please don't touch the ship models. Many are over a hundred years old and extremely fragile. Our tour lasts about ninety minutes and finishes in the main hall, where the gift shop is located. If you were hoping to see the restoration workshop, that's only open on weekdays, so today you'll view it through the window instead. Let's start on your left with the whaling gallery."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Where does the talk take place?",
+        "options": [
+          "At a shipyard",
+          "At an art gallery",
+          "At a maritime museum",
+          "At an aquarium"
+        ],
+        "answer": 2,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What are listeners asked not to do?",
+        "options": [
+          "Touch the exhibits",
+          "Use mobile phones",
+          "Bring bags inside",
+          "Take photographs"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Why will the group not enter the restoration workshop?",
+        "options": [
+          "It requires a separate ticket",
+          "It is being renovated",
+          "It is closed at weekends",
+          "It is already full"
+        ],
+        "answer": 2,
+        "skill": "l-infer"
+      }
+    ]
+  },
+  {
+    "id": "p4-34",
+    "title": "Quảng cáo dịch vụ chuyển nhà",
+    "kind": "ad",
+    "script": [
+      {
+        "s": "M",
+        "text": "Moving house shouldn't mean losing a week of your life. At Kestrel Movers we've been packing, lifting and unpacking for families across the region for over twenty years. Every quote is fixed. The price we give you is the price you pay, even if the job runs long. And unlike most firms, we include one month of free storage, so you don't have to time your sale and your purchase perfectly. Book online this month and we'll throw in all packing materials at no charge. Kestrel Movers. We carry the heavy part."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What service is being advertised?",
+        "options": [
+          "A moving company",
+          "A property agency",
+          "A cleaning service",
+          "A storage warehouse"
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the speaker say is unusual about the company?",
+        "options": [
+          "It includes free storage",
+          "It guarantees same-day service",
+          "It has international branches",
+          "It works on weekends"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is offered to customers who book this month?",
+        "options": [
+          "A discount on labour",
+          "An extra worker",
+          "Free packing materials",
+          "A longer guarantee"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-35",
+    "title": "Thay đổi lịch buổi chiều hội thảo",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "W",
+        "text": "Welcome back from the coffee break. There's a small change to the afternoon programme. Our speaker on supply chain risk has been delayed by a cancelled train and won't arrive until around three. Rather than leave a gap, we'll swap her session with the one that follows it, so the panel discussion will start now and the supply chain talk will run in its place afterwards. Everything else stays as printed on your handout. The closing remarks will still begin at four fifteen as scheduled."
+      }
+    ],
+    "graphic": {
+      "title": "AFTERNOON PROGRAMME",
+      "headers": [
+        "Time",
+        "Session"
+      ],
+      "rows": [
+        [
+          "13:30",
+          "Digital tools workshop"
+        ],
+        [
+          "14:00",
+          "Supply chain risk"
+        ],
+        [
+          "15:00",
+          "Panel discussion"
+        ],
+        [
+          "16:15",
+          "Closing remarks"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "Why has the programme been changed?",
+        "options": [
+          "Too few people registered",
+          "Equipment has failed",
+          "A speaker has been delayed",
+          "A room is unavailable"
+        ],
+        "answer": 2,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "Look at the graphic. Which session will now begin at two o'clock?",
+        "options": [
+          "Digital tools workshop",
+          "Supply chain risk",
+          "Closing remarks",
+          "Panel discussion"
+        ],
+        "answer": 3,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "What does the speaker say about the closing remarks?",
+        "options": [
+          "Someone else will give them",
+          "They will start at the original time",
+          "They have been cancelled",
+          "They have been shortened"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-36",
+    "title": "Bản tin giao thông buổi sáng",
+    "kind": "broadcast",
+    "script": [
+      {
+        "s": "M",
+        "text": "You're listening to the morning drive on ninety-two point five. A quick traffic update. The eastbound lanes of the Riverside Expressway are down to one lane between exits nine and twelve while crews repair a section of the surface. Expect delays of at least twenty-five minutes, and if you can, take Ashwood Road instead. The work is scheduled to finish by Friday. In better news, the ferry that was suspended last week is running again on its normal timetable from today. We'll have another update at the half hour."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the main topic of the broadcast?",
+        "options": [
+          "A weather warning",
+          "A local election",
+          "A traffic report",
+          "A sports result"
+        ],
+        "answer": 2,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the speaker recommend?",
+        "options": [
+          "Taking public transport",
+          "Using an alternative road",
+          "Avoiding the city centre",
+          "Leaving home earlier"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker say has resumed?",
+        "options": [
+          "A bus route",
+          "A bridge crossing",
+          "A ferry service",
+          "A rail line"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-37",
+    "title": "Thông báo đổi cửa khởi hành ở sân bay",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "W",
+        "text": "Attention passengers travelling on Northwind flight four one six to Halifax. This flight will now depart from gate twenty-two, not gate eight as shown on your boarding pass. Gate twenty-two is in the same terminal, but it's about a ten-minute walk, so please allow extra time. Boarding will begin fifteen minutes later than scheduled, at eleven forty. The departure time itself is unchanged. Passengers travelling with small children or needing assistance are welcome to board first."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the purpose of the announcement?",
+        "options": [
+          "To request volunteers",
+          "To explain a baggage policy",
+          "To announce a cancellation",
+          "To inform passengers of a gate change"
+        ],
+        "answer": 3,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the speaker ask passengers to do?",
+        "options": [
+          "Collect a new boarding pass",
+          "Check in a second time",
+          "Allow extra time to walk",
+          "Contact the airline"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What has NOT changed?",
+        "options": [
+          "The boarding time",
+          "The departure time",
+          "The gate number",
+          "The seat assignments"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-38",
+    "title": "Phổ biến thay đổi phúc lợi nhân viên",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "M",
+        "text": "Thanks for coming. This session covers the changes to our benefits package that take effect in January. The two biggest ones. First, the company will now cover eighty percent of the dental plan instead of sixty. Second, we're adding two personal days that don't come out of your holiday allowance. Enrolment opens on the first of December and closes on the twentieth. If you do nothing, you'll simply stay on your current plan, but you'd miss the improved dental cover, so I'd encourage everyone to log in and review the options. Sena from human resources will stay behind afterwards for individual questions."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the talk mainly about?",
+        "options": [
+          "A change in working hours",
+          "A new review process",
+          "An office relocation",
+          "Updates to employee benefits"
+        ],
+        "answer": 3,
+        "skill": "l-main"
+      },
+      {
+        "q": "What will happen if an employee takes no action?",
+        "options": [
+          "They will be charged a fee",
+          "They will be moved to the new plan automatically",
+          "They will stay on their current plan",
+          "They will lose their coverage"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What will Sena do after the session?",
+        "options": [
+          "Collect signatures",
+          "Lead a tour",
+          "Answer questions individually",
+          "Hand out forms"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-39",
+    "title": "Đổi phòng cho buổi tập huấn",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "W",
+        "text": "Good morning everyone, and welcome to the annual training day. Your name badge shows which track you're on. One correction to the printed handout. The writing workshop has been moved out of the Oak Room because the projector there is being replaced this morning. That group will meet in the room listed as available on your sheet instead. All other sessions are in the rooms shown. Lunch is at twelve thirty in the atrium for everyone."
+      }
+    ],
+    "graphic": {
+      "title": "ROOM ASSIGNMENTS",
+      "headers": [
+        "Room",
+        "Session"
+      ],
+      "rows": [
+        [
+          "Oak",
+          "Writing workshop"
+        ],
+        [
+          "Birch",
+          "Presentation skills"
+        ],
+        [
+          "Cedar",
+          "Data basics"
+        ],
+        [
+          "Maple",
+          "available"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "What event is taking place?",
+        "options": [
+          "A product launch",
+          "A training day",
+          "A job fair",
+          "A shareholder meeting"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "Look at the graphic. Which room will the writing workshop now use?",
+        "options": [
+          "Oak",
+          "Birch",
+          "Cedar",
+          "Maple"
+        ],
+        "answer": 3,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "Why was the change necessary?",
+        "options": [
+          "A speaker cancelled",
+          "The group became too large",
+          "A room was double-booked",
+          "Equipment is being replaced"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-40",
+    "title": "Quảng cáo khoá học ngoại ngữ buổi tối",
+    "kind": "ad",
+    "script": [
+      {
+        "s": "W",
+        "text": "Have you been meaning to learn Spanish for years? At Puente Language Centre our evening courses are built for people with full-time jobs. Classes run twice a week for ten weeks, and we cap every group at eight students so you actually get to speak. New this term, if you can't make a class, you can join that same session online and still keep your place. Our next intake begins the third of February, and there's a free trial lesson on the twenty-eighth of January so you can see whether the level suits you. Places go quickly, so book through our website."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is being advertised?",
+        "options": [
+          "A study-abroad programme",
+          "Language courses",
+          "A textbook series",
+          "A translation service"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "What is new this term?",
+        "options": [
+          "A weekend schedule",
+          "A larger class size",
+          "A payment plan",
+          "The option to attend online"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What can people do on the twenty-eighth of January?",
+        "options": [
+          "Receive a discount",
+          "Attend a free lesson",
+          "Meet the teachers",
+          "Take a placement test"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-41",
+    "title": "Thông báo hoãn chuyến tàu",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "M",
+        "text": "Attention passengers waiting for the ten forty service to Ashford. This train is delayed by approximately twenty-five minutes due to a signalling fault further down the line. The train will now depart from platform six rather than platform two. Passengers with connecting services at Ashford should speak to a member of staff on the platform, who can arrange alternative connections at no extra cost. We are sorry for the delay and thank you for your patience."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the announcement mainly about?",
+        "options": [
+          "A new timetable",
+          "A station closure",
+          "A cancelled service",
+          "A delayed train"
+        ],
+        "answer": 3,
+        "skill": "l-main"
+      },
+      {
+        "q": "What has changed besides the departure time?",
+        "options": [
+          "The number of carriages",
+          "The platform",
+          "The destination",
+          "The ticket price"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What are some passengers advised to do?",
+        "options": [
+          "Move to another station",
+          "Speak to staff about connections",
+          "Request a refund",
+          "Board immediately"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-42",
+    "title": "Tin nhắn thoại về đơn hàng thiếu",
+    "kind": "voicemail",
+    "script": [
+      {
+        "s": "W",
+        "text": "Hi, this is Beatriz from Northcott Supplies calling about your order placed on the second. Nine of the ten items shipped yesterday, but the desk lamps are on back order from the manufacturer and won't reach us until the twentieth. You have two options: we can send the lamps separately when they arrive, at no extra delivery cost, or we can refund that line and you can order elsewhere. Just reply to this message or call the office and let us know which you'd prefer. Thanks."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Why is the speaker calling?",
+        "options": [
+          "To take a new order",
+          "To explain that part of an order is delayed",
+          "To confirm a delivery date",
+          "To report a damaged item"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What is the reason for the delay?",
+        "options": [
+          "A driver is unavailable",
+          "Payment has not cleared",
+          "A supplier does not have stock",
+          "The address was wrong"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is the listener asked to choose between?",
+        "options": [
+          "Two delivery companies",
+          "Waiting for the item or getting a refund",
+          "Two different models",
+          "Paying now or later"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-43",
+    "title": "Giới thiệu buổi tham quan nhà máy",
+    "kind": "tour",
+    "script": [
+      {
+        "s": "M",
+        "text": "Welcome to the Ardmore bottling plant. Before we go through, everyone needs the safety glasses and the high-visibility vest from the table behind me. Please stay inside the green walkway at all times, as vehicles operate on the factory floor. The tour takes about an hour. You'll see the filling line first, then labelling, then the warehouse. Photography is fine everywhere except the filling line, where the equipment design is confidential. If it gets too loud, there are ear plugs in the basket by the door."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Where is the talk taking place?",
+        "options": [
+          "At a bottling plant",
+          "At a museum",
+          "At a distribution centre",
+          "At a laboratory"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What must listeners do before starting?",
+        "options": [
+          "Put on protective equipment",
+          "Sign a register",
+          "Leave their bags",
+          "Watch a video"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "Where is photography not allowed?",
+        "options": [
+          "In the car park",
+          "In the warehouse",
+          "On the filling line",
+          "In the labelling area"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-44",
+    "title": "Quảng cáo dịch vụ kế toán cho hộ kinh doanh",
+    "kind": "ad",
+    "script": [
+      {
+        "s": "W",
+        "text": "Running your own business is hard enough without spending your weekends on paperwork. At Halloway and Finch we look after the books for more than four hundred small businesses across the county. We charge a flat monthly fee, agreed up front, so you'll never get a surprise invoice for a phone call. Every client works with the same accountant year after year, not whoever happens to pick up. Book a free thirty-minute review of your current setup this month and we'll tell you honestly whether you'd be better off staying where you are. Halloway and Finch, on Market Street."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is being advertised?",
+        "options": [
+          "A training course",
+          "A business loan",
+          "A software package",
+          "An accounting service"
+        ],
+        "answer": 3,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the speaker emphasise about the fees?",
+        "options": [
+          "They are charged hourly",
+          "They are the lowest available",
+          "They are agreed in advance",
+          "They are waived for a year"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is offered this month?",
+        "options": [
+          "A free software licence",
+          "A referral bonus",
+          "A discount on the first year",
+          "A free review"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-45",
+    "title": "Phổ biến quy trình phòng cháy mới",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "M",
+        "text": "Thanks for staying behind. Two changes to the fire procedure take effect on Monday. First, the assembly point has moved from the car park to the grass area behind the canteen, because the car park is now used for deliveries during the day. Second, each floor now has two designated marshals instead of one, and their names are on the notice by the lifts. The drill is on the fourteenth. If you have mobility needs, please speak to me privately so we can plan your route rather than working it out on the day."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the talk mainly about?",
+        "options": [
+          "A building renovation",
+          "Changes to fire procedures",
+          "A new canteen menu",
+          "A parking policy"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "Why has the assembly point been moved?",
+        "options": [
+          "The car park is used for deliveries",
+          "A building was demolished",
+          "The grass area is larger",
+          "It was too far away"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker ask certain listeners to do?",
+        "options": [
+          "Volunteer as marshals",
+          "Read the notice aloud",
+          "Attend an extra session",
+          "Speak to him privately"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-46",
+    "title": "Bản tin đài phát thanh về lễ hội",
+    "kind": "broadcast",
+    "script": [
+      {
+        "s": "W",
+        "text": "And now to local news. The Riverbank Food Festival returns this weekend, two months later than usual after the spring flooding forced organisers to postpone. Forty-two stalls will line the north bank from Friday afternoon through Sunday evening. Entry is free, though the cookery demonstrations require a ticket, and organisers say those are almost gone. Riverbank Road will be closed to traffic from Thursday night, so if you normally drive that way to work on Friday, allow extra time. We'll be broadcasting live from the festival on Saturday morning."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the report mainly about?",
+        "options": [
+          "A road repair project",
+          "A restaurant opening",
+          "A weather warning",
+          "A food festival"
+        ],
+        "answer": 3,
+        "skill": "l-main"
+      },
+      {
+        "q": "Why was the event moved?",
+        "options": [
+          "Organisers changed",
+          "A venue was unavailable",
+          "Flooding caused a postponement",
+          "Ticket sales were low"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What does the speaker say listeners should be aware of?",
+        "options": [
+          "Entry fees have risen",
+          "Parking will cost more",
+          "The festival may be cancelled",
+          "A road will be closed"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-47",
+    "title": "Thông báo bảo trì hệ thống nội bộ",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "M",
+        "text": "This is a reminder that the staff intranet will be unavailable this Saturday from six in the morning until about two in the afternoon while we move it to a new server. Anything you need over the weekend, including shift rotas and the staff handbook, should be downloaded before you leave on Friday. Email is not affected and will work as normal throughout. When the intranet comes back you'll be asked to sign in again, and anyone whose password is more than a year old will have to set a new one."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What will happen on Saturday?",
+        "options": [
+          "A system will be unavailable",
+          "An office will close",
+          "New staff will start",
+          "A training day will run"
+        ],
+        "answer": 0,
+        "skill": "l-main"
+      },
+      {
+        "q": "What are listeners advised to do on Friday?",
+        "options": [
+          "Come in early",
+          "Back up their computers",
+          "Download what they need",
+          "Change their passwords"
+        ],
+        "answer": 2,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is NOT affected by the work?",
+        "options": [
+          "The intranet",
+          "Email",
+          "The shift rotas",
+          "The staff handbook"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-48",
+    "title": "Bài nói mở đầu khoá học nhiếp ảnh",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "W",
+        "text": "Welcome to the introductory photography course. Over six weeks we'll cover exposure, composition and basic editing. You don't need an expensive camera; several of last term's best photographs were taken on phones. Each week I'll set a short assignment, and we'll look at everyone's work together at the start of the next class. That part is optional, but I'd encourage you to take part, because you learn far more from discussing pictures than from listening to me. There's no exam and no certificate. Bring whatever camera you own to the next session."
+      }
+    ],
+    "questions": [
+      {
+        "q": "What is the speaker mainly doing?",
+        "options": [
+          "Judging a competition",
+          "Introducing a course",
+          "Selling equipment",
+          "Reviewing a book"
+        ],
+        "answer": 1,
+        "skill": "l-main"
+      },
+      {
+        "q": "What does the speaker say about equipment?",
+        "options": [
+          "A phone camera is acceptable",
+          "Cameras are provided",
+          "Equipment can be hired",
+          "A professional camera is required"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What is optional?",
+        "options": [
+          "Buying a textbook",
+          "Attending the classes",
+          "Paying the fee",
+          "Sharing work with the group"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-49",
+    "title": "Thông báo đổi phòng chờ ở sân bay",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "W",
+        "text": "Good afternoon. This is an announcement for passengers using the Silverwing lounge in Terminal 3. The lounge is closed today for refurbishment. Eligible passengers may instead use the Skyline lounge, which is one level up near gate 34. Your boarding pass will be scanned as usual and there is no charge. Please note that the Skyline lounge does not have shower facilities, so if that is something you were counting on, speak to the service desk and we will arrange access elsewhere in the terminal."
+      }
+    ],
+    "graphic": {
+      "title": "TERMINAL 3 LOUNGES",
+      "headers": [
+        "Lounge",
+        "Level",
+        "Showers"
+      ],
+      "rows": [
+        [
+          "Aurora",
+          "1",
+          "Yes"
+        ],
+        [
+          "Meridian",
+          "1",
+          "No"
+        ],
+        [
+          "Silverwing",
+          "2",
+          "Yes"
+        ],
+        [
+          "Skyline",
+          "3",
+          "No"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "What is the purpose of the announcement?",
+        "options": [
+          "To advertise a new lounge",
+          "To explain that a facility is closed",
+          "To describe a membership scheme",
+          "To announce a flight delay"
+        ],
+        "answer": 1,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "Look at the graphic. Which lounge should eligible passengers use today?",
+        "options": [
+          "Aurora",
+          "Meridian",
+          "Silverwing",
+          "Skyline"
+        ],
+        "answer": 3,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "What should passengers do if they need a shower?",
+        "options": [
+          "Use the gym",
+          "Contact the service desk",
+          "Book online",
+          "Pay an extra fee"
+        ],
+        "answer": 1,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-50",
+    "title": "Hướng dẫn dùng máy đặt món tự động",
+    "kind": "talk",
+    "script": [
+      {
+        "s": "M",
+        "text": "Before the lunch rush starts, a quick word about the new ordering screens. Customers place their own order and pay at the screen, then take a numbered stand to their table. Your job at the counter is now mainly to help anyone who's struggling and to keep an eye on the queue. One thing to watch: the screens don't ask about allergies, so whenever an order comes through with a note in the comments box, check it before it goes to the kitchen. If a customer mentions an allergy at the counter, write it on the ticket by hand."
+      }
+    ],
+    "questions": [
+      {
+        "q": "Who most likely are the listeners?",
+        "options": [
+          "Restaurant staff",
+          "Kitchen suppliers",
+          "Delivery drivers",
+          "Software engineers"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "What does the speaker say has changed?",
+        "options": [
+          "Opening hours are longer",
+          "Payment is cash only",
+          "The menu has been reduced",
+          "Customers order at a screen"
+        ],
+        "answer": 3,
+        "skill": "l-detail"
+      },
+      {
+        "q": "What are listeners told to check carefully?",
+        "options": [
+          "Notes about allergies",
+          "Payment receipts",
+          "Table numbers",
+          "Stock levels"
+        ],
+        "answer": 0,
+        "skill": "l-detail"
+      }
+    ]
+  },
+  {
+    "id": "p4-51",
+    "title": "Thông báo lịch xe đưa đón nhân viên",
+    "kind": "announcement",
+    "script": [
+      {
+        "s": "M",
+        "text": "A quick note about the staff shuttle for next week. Because of resurfacing work on Mill Road, the service cannot use the Mill Road stop from Monday to Wednesday. Anyone who normally boards there should walk to the next stop on the route instead; it is about five minutes away. All other stops and all departure times are unchanged. The Mill Road stop will be back in use on Thursday morning. If you are unsure which stop to use, the full route map is pinned by the main entrance."
+      }
+    ],
+    "graphic": {
+      "title": "STAFF SHUTTLE ROUTE",
+      "headers": [
+        "Stop",
+        "Time"
+      ],
+      "rows": [
+        [
+          "Depot",
+          "07:30"
+        ],
+        [
+          "Mill Road",
+          "07:40"
+        ],
+        [
+          "Canal Bridge",
+          "07:48"
+        ],
+        [
+          "Office",
+          "07:55"
+        ]
+      ]
+    },
+    "questions": [
+      {
+        "q": "Why is the shuttle route changing?",
+        "options": [
+          "A road is being resurfaced",
+          "A bus is being repaired",
+          "A new office has opened",
+          "Staff numbers have fallen"
+        ],
+        "answer": 0,
+        "skill": "l-purpose"
+      },
+      {
+        "q": "Look at the graphic. Which stop should affected passengers use?",
+        "options": [
+          "Depot",
+          "Mill Road",
+          "Canal Bridge",
+          "Office"
+        ],
+        "answer": 2,
+        "skill": "l-graphic"
+      },
+      {
+        "q": "What does the speaker say is unchanged?",
+        "options": [
+          "The driver",
+          "The departure times",
+          "The vehicle",
+          "The fare"
         ],
         "answer": 1,
         "skill": "l-detail"

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { KO_UNITS, KO_ALL_WORDS } from '@/data/koreanCore'
 import { speakKO } from '@/core/tts'
-import IcesLearn from '../english/components/IcesLearn'
+import VocabLab from '../english/components/vocab/VocabLab'
 import VocabQuiz from '../english/components/VocabQuiz'
 import PronunciationLab from '../english/components/PronunciationLab'
 import { KO_PRON_GROUPS } from '@/data/koreanPronunciation'
@@ -109,7 +109,14 @@ export default function KoreanPage() {
         <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
       )}
       {tab === 'learn' && (
-        <IcesLearn initialUnit={learnUnit} units={KO_UNITS} speak={speakKO} sourceLabel="Korean Core" lang="ko" />
+        <VocabLab
+          initialUnit={learnUnit}
+          units={KO_UNITS}
+          speak={speakKO}
+          sourceLabel="Korean Core"
+          lang="ko"
+          title="Từ vựng tiếng Hàn"
+        />
       )}
       {tab === 'pron' && (
         <PronunciationLab
@@ -118,7 +125,7 @@ export default function KoreanPage() {
           lang="ko"
           groups={KO_PRON_GROUPS}
           speak={speakKO}
-          intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Hàn: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm."
+          intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Hàn: nghe mẫu → phân biệt bằng tai → ghi âm hai bản để đối chiếu → tự chấm theo 5 tiêu chí."
         />
       )}
       {tab === 'quiz' && (weekQuiz ? (

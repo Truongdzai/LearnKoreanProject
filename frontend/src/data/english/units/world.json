@@ -6,29 +6,245 @@
   "tone": "tone-f",
   "emoji": "🌍",
   "words": [
-    { "en": "language", "ipa": "/ˈlæŋ.ɡwɪdʒ/", "vi": "ngôn ngữ", "pos": "noun", "img": "🗣️", "connect": "\"Leng-guịdж\" — tiếng Việt, tiếng Anh đều là language.", "ex": "How many languages do you speak?", "exVi": "Bạn nói được mấy ngôn ngữ?" },
-    { "en": "nationality", "ipa": "/ˌnæʃ.əˈnæl.ə.t̬i/", "vi": "quốc tịch", "pos": "noun", "img": "🪪", "connect": "nation (quốc gia) + ality — mục khai trên hộ chiếu.", "ex": "What is your nationality?", "exVi": "Quốc tịch của bạn là gì?" },
-    { "en": "accent", "ipa": "/ˈæk.sent/", "vi": "giọng vùng miền", "pos": "noun", "img": "🎙️", "connect": "\"Ắc-xen\" — giọng Anh-Anh khác giọng Anh-Mỹ.", "ex": "She speaks English with a French accent.", "exVi": "Cô ấy nói tiếng Anh với giọng Pháp." },
-    { "en": "dialect", "ipa": "/ˈdaɪ.ə.lekt/", "vi": "phương ngữ", "pos": "noun", "img": "🗺️", "connect": "\"Đai-ờ-lect\" — giọng Bắc, Trung, Nam là các phương ngữ.", "ex": "Each region has its own dialect.", "exVi": "Mỗi vùng có phương ngữ riêng." },
-    { "en": "foreigner", "ipa": "/ˈfɔːr.ə.nɚ/", "vi": "người nước ngoài", "pos": "noun", "img": "🧳", "connect": "foreign (nước ngoài) + er — khách Tây ba lô.", "ex": "Many foreigners visit Hoi An.", "exVi": "Nhiều người nước ngoài ghé thăm Hội An." },
-    { "en": "immigrant", "ipa": "/ˈɪm.ə.ɡrənt/", "vi": "người nhập cư", "pos": "noun", "img": "🛬", "connect": "\"Im-mi-grừnt\" — chuyển đến sống ở nước khác.", "ex": "Her parents were immigrants.", "exVi": "Bố mẹ cô ấy là người nhập cư." },
-    { "en": "refugee", "ipa": "/ˌref.jʊˈdʒiː/", "vi": "người tị nạn", "pos": "noun", "img": "⛺", "connect": "\"Re-phiu-ji\" — rời quê hương vì chiến tranh, thiên tai.", "ex": "The refugees needed food and shelter.", "exVi": "Những người tị nạn cần thức ăn và chỗ ở." },
-    { "en": "international", "ipa": "/ˌɪn.t̬ɚˈnæʃ.ən.əl/", "vi": "mang tính quốc tế", "pos": "adj", "img": "🌐", "connect": "inter (giữa) + national (quốc gia) — giữa các nước.", "ex": "She works for an international company.", "exVi": "Cô ấy làm cho một công ty quốc tế." },
-    { "en": "globe", "ipa": "/ɡloʊb/", "vi": "quả địa cầu", "pos": "noun", "img": "🌏", "connect": "\"Glôub\" — quả cầu xoay trên bàn học.", "ex": "He spun the globe and picked a country.", "exVi": "Cậu ấy xoay quả địa cầu rồi chọn một nước." },
-    { "en": "worldwide", "ipa": "/ˌwɝːldˈwaɪd/", "vi": "trên toàn thế giới", "pos": "adverb", "img": "📡", "connect": "world (thế giới) + wide (rộng) — phủ khắp hành tinh.", "ex": "The song is famous worldwide.", "exVi": "Bài hát nổi tiếng trên toàn thế giới." },
-    { "en": "religion", "ipa": "/rɪˈlɪdʒ.ən/", "vi": "tôn giáo", "pos": "noun", "img": "🛐", "connect": "\"Ri-lí-jừn\" — Phật giáo, Thiên chúa giáo…", "ex": "People of many religions live here.", "exVi": "Người theo nhiều tôn giáo sống ở đây." },
-    { "en": "ancestor", "ipa": "/ˈæn.ses.tɚ/", "vi": "tổ tiên", "pos": "noun", "img": "🏮", "connect": "\"En-xét-tơ\" — ông bà tổ tiên trên bàn thờ.", "ex": "We honor our ancestors during Tet.", "exVi": "Chúng tôi tưởng nhớ tổ tiên vào dịp Tết." },
-    { "en": "heritage", "ipa": "/ˈher.ə.t̬ɪdʒ/", "vi": "di sản", "pos": "noun", "img": "🏯", "connect": "\"He-ri-tịdж\" — Vịnh Hạ Long là di sản thế giới.", "ex": "Hue is a world heritage site.", "exVi": "Huế là một di sản thế giới." },
-    { "en": "homeland", "ipa": "/ˈhoʊm.lænd/", "vi": "quê hương", "pos": "noun", "img": "🏞️", "connect": "home (nhà) + land (đất) — mảnh đất chôn rau cắt rốn.", "ex": "He misses his homeland very much.", "exVi": "Anh ấy rất nhớ quê hương." },
-    { "en": "tribe", "ipa": "/traɪb/", "vi": "bộ tộc", "pos": "noun", "img": "🪶", "connect": "\"Trai-b\" — bộ tộc sống trong rừng sâu.", "ex": "The tribe has lived here for centuries.", "exVi": "Bộ tộc này đã sống ở đây hàng thế kỷ." },
-    { "en": "interpreter", "ipa": "/ɪnˈtɝː.prə.t̬ɚ/", "vi": "phiên dịch viên", "pos": "noun", "img": "🎧", "connect": "\"In-tơ-prờ-tơ\" — dịch nói trực tiếp trong cuộc họp.", "ex": "The interpreter translated the speech.", "exVi": "Phiên dịch viên dịch bài phát biểu." },
-    { "en": "bilingual", "ipa": "/baɪˈlɪŋ.ɡwəl/", "vi": "nói được hai thứ tiếng", "pos": "adj", "img": "🔤", "connect": "bi (hai) + lingual (ngôn ngữ) — thạo hai thứ tiếng.", "ex": "Their children are bilingual.", "exVi": "Các con của họ nói được hai thứ tiếng." },
-    { "en": "slang", "ipa": "/slæŋ/", "vi": "tiếng lóng", "pos": "noun", "img": "😎", "connect": "\"Sleng\" — từ giới trẻ hay dùng, sách vở không dạy.", "ex": "Teenagers use a lot of slang.", "exVi": "Thanh thiếu niên dùng nhiều tiếng lóng." },
-    { "en": "proverb", "ipa": "/ˈprɑː.vɝːb/", "vi": "tục ngữ", "pos": "noun", "img": "📜", "connect": "\"Pro-vơb\" — câu nói khôn ngoan của ông cha.", "ex": "This proverb teaches us patience.", "exVi": "Câu tục ngữ này dạy ta tính kiên nhẫn." },
-    { "en": "gesture", "ipa": "/ˈdʒes.tʃɚ/", "vi": "cử chỉ", "pos": "noun", "img": "👋", "connect": "\"Jét-x-chơ\" — vẫy tay, gật đầu đều là cử chỉ.", "ex": "A thumbs-up is a friendly gesture.", "exVi": "Giơ ngón cái là một cử chỉ thân thiện." },
-    { "en": "greeting", "ipa": "/ˈɡriː.t̬ɪŋ/", "vi": "lời chào", "pos": "noun", "img": "🙇", "connect": "greet (chào) + ing — mỗi nước một kiểu chào.", "ex": "Bowing is a common greeting in Korea.", "exVi": "Cúi chào là lời chào phổ biến ở Hàn Quốc." },
-    { "en": "farewell", "ipa": "/ˌferˈwel/", "vi": "lời tạm biệt", "pos": "noun", "img": "👋", "connect": "fare (đi) + well (tốt) — chúc lên đường bình an.", "ex": "We said our farewells at the airport.", "exVi": "Chúng tôi nói lời tạm biệt ở sân bay." },
-    { "en": "tourism", "ipa": "/ˈtʊr.ɪ.zəm/", "vi": "ngành du lịch", "pos": "noun", "img": "🗽", "connect": "tour (chuyến đi) + ism — ngành đón khách bốn phương.", "ex": "Tourism brings money to the city.", "exVi": "Du lịch mang lại nguồn thu cho thành phố." },
-    { "en": "etiquette", "ipa": "/ˈet̬.ɪ.kət/", "vi": "phép lịch sự, phép tắc", "pos": "noun", "img": "🎩", "connect": "\"E-ti-két\" — quy tắc ứng xử nơi bàn tiệc.", "ex": "Table etiquette differs between countries.", "exVi": "Phép tắc trên bàn ăn mỗi nước một khác." }
+    {
+      "en": "language",
+      "ipa": "/ˈlæŋ.ɡwɪdʒ/",
+      "vi": "ngôn ngữ",
+      "pos": "noun",
+      "img": "🗣️",
+      "connect": "\"Leng-guịdж\" — tiếng Việt, tiếng Anh đều là language.",
+      "ex": "How many languages do you speak?",
+      "exVi": "Bạn nói được mấy ngôn ngữ?"
+    },
+    {
+      "en": "nationality",
+      "ipa": "/ˌnæʃ.əˈnæl.ə.t̬i/",
+      "vi": "quốc tịch",
+      "pos": "noun",
+      "img": "🪪",
+      "connect": "nation (quốc gia) + ality — mục khai trên hộ chiếu.",
+      "ex": "What is your nationality?",
+      "exVi": "Quốc tịch của bạn là gì?"
+    },
+    {
+      "en": "accent",
+      "ipa": "/ˈæk.sent/",
+      "vi": "giọng vùng miền",
+      "pos": "noun",
+      "img": "🎙️",
+      "connect": "\"Ắc-xen\" — giọng Anh-Anh khác giọng Anh-Mỹ.",
+      "ex": "She speaks English with a French accent.",
+      "exVi": "Cô ấy nói tiếng Anh với giọng Pháp."
+    },
+    {
+      "en": "dialect",
+      "ipa": "/ˈdaɪ.ə.lekt/",
+      "vi": "phương ngữ",
+      "pos": "noun",
+      "img": "🗺️",
+      "connect": "\"Đai-ờ-lect\" — giọng Bắc, Trung, Nam là các phương ngữ.",
+      "ex": "Each region has its own dialect.",
+      "exVi": "Mỗi vùng có phương ngữ riêng."
+    },
+    {
+      "en": "foreigner",
+      "ipa": "/ˈfɔːr.ə.nɚ/",
+      "vi": "người nước ngoài",
+      "pos": "noun",
+      "img": "🧳",
+      "connect": "foreign (nước ngoài) + er — khách Tây ba lô.",
+      "ex": "Many foreigners visit Hoi An.",
+      "exVi": "Nhiều người nước ngoài ghé thăm Hội An."
+    },
+    {
+      "en": "immigrant",
+      "ipa": "/ˈɪm.ə.ɡrənt/",
+      "vi": "người nhập cư",
+      "pos": "noun",
+      "img": "🛬",
+      "connect": "\"Im-mi-grừnt\" — chuyển đến sống ở nước khác.",
+      "ex": "Her parents were immigrants.",
+      "exVi": "Bố mẹ cô ấy là người nhập cư."
+    },
+    {
+      "en": "refugee",
+      "ipa": "/ˌref.jʊˈdʒiː/",
+      "vi": "người tị nạn",
+      "pos": "noun",
+      "img": "⛺",
+      "connect": "\"Re-phiu-ji\" — rời quê hương vì chiến tranh, thiên tai.",
+      "ex": "The refugees needed food and shelter.",
+      "exVi": "Những người tị nạn cần thức ăn và chỗ ở."
+    },
+    {
+      "en": "international",
+      "ipa": "/ˌɪn.t̬ɚˈnæʃ.ən.əl/",
+      "vi": "mang tính quốc tế",
+      "pos": "adj",
+      "img": "🌐",
+      "connect": "inter (giữa) + national (quốc gia) — giữa các nước.",
+      "ex": "She works for an international company.",
+      "exVi": "Cô ấy làm cho một công ty quốc tế."
+    },
+    {
+      "en": "globe",
+      "ipa": "/ɡloʊb/",
+      "vi": "quả địa cầu",
+      "pos": "noun",
+      "img": "🌏",
+      "connect": "\"Glôub\" — quả cầu xoay trên bàn học.",
+      "ex": "He spun the globe and picked a country.",
+      "exVi": "Cậu ấy xoay quả địa cầu rồi chọn một nước."
+    },
+    {
+      "en": "worldwide",
+      "ipa": "/ˌwɝːldˈwaɪd/",
+      "vi": "trên toàn thế giới",
+      "pos": "adverb",
+      "img": "📡",
+      "connect": "world (thế giới) + wide (rộng) — phủ khắp hành tinh.",
+      "ex": "The song is famous worldwide.",
+      "exVi": "Bài hát nổi tiếng trên toàn thế giới."
+    },
+    {
+      "en": "religion",
+      "ipa": "/rɪˈlɪdʒ.ən/",
+      "vi": "tôn giáo",
+      "pos": "noun",
+      "img": "🛐",
+      "connect": "\"Ri-lí-jừn\" — Phật giáo, Thiên chúa giáo…",
+      "ex": "People of many religions live here.",
+      "exVi": "Người theo nhiều tôn giáo sống ở đây."
+    },
+    {
+      "en": "ancestor",
+      "ipa": "/ˈæn.ses.tɚ/",
+      "vi": "tổ tiên",
+      "pos": "noun",
+      "img": "🏮",
+      "connect": "\"En-xét-tơ\" — ông bà tổ tiên trên bàn thờ.",
+      "ex": "We honor our ancestors during Tet.",
+      "exVi": "Chúng tôi tưởng nhớ tổ tiên vào dịp Tết."
+    },
+    {
+      "en": "heritage",
+      "ipa": "/ˈher.ə.t̬ɪdʒ/",
+      "vi": "di sản",
+      "pos": "noun",
+      "img": "🏯",
+      "connect": "\"He-ri-tịdж\" — Vịnh Hạ Long là di sản thế giới.",
+      "ex": "Hue is a world heritage site.",
+      "exVi": "Huế là một di sản thế giới."
+    },
+    {
+      "en": "homeland",
+      "ipa": "/ˈhoʊm.lænd/",
+      "vi": "quê hương",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "home (nhà) + land (đất) — mảnh đất chôn rau cắt rốn.",
+      "ex": "He misses his homeland very much.",
+      "exVi": "Anh ấy rất nhớ quê hương."
+    },
+    {
+      "en": "tribe",
+      "ipa": "/traɪb/",
+      "vi": "bộ tộc",
+      "pos": "noun",
+      "img": "🪶",
+      "connect": "\"Trai-b\" — bộ tộc sống trong rừng sâu.",
+      "ex": "The tribe has lived here for centuries.",
+      "exVi": "Bộ tộc này đã sống ở đây hàng thế kỷ."
+    },
+    {
+      "en": "interpreter",
+      "ipa": "/ɪnˈtɝː.prə.t̬ɚ/",
+      "vi": "phiên dịch viên",
+      "pos": "noun",
+      "img": "🎧",
+      "connect": "\"In-tơ-prờ-tơ\" — dịch nói trực tiếp trong cuộc họp.",
+      "ex": "The interpreter translated the speech.",
+      "exVi": "Phiên dịch viên dịch bài phát biểu."
+    },
+    {
+      "en": "bilingual",
+      "ipa": "/baɪˈlɪŋ.ɡwəl/",
+      "vi": "nói được hai thứ tiếng",
+      "pos": "adj",
+      "img": "🔤",
+      "connect": "bi (hai) + lingual (ngôn ngữ) — thạo hai thứ tiếng.",
+      "ex": "Their children are bilingual.",
+      "exVi": "Các con của họ nói được hai thứ tiếng."
+    },
+    {
+      "en": "slang",
+      "ipa": "/slæŋ/",
+      "vi": "tiếng lóng",
+      "pos": "noun",
+      "img": "😎",
+      "connect": "\"Sleng\" — từ giới trẻ hay dùng, sách vở không dạy.",
+      "ex": "Teenagers use a lot of slang.",
+      "exVi": "Thanh thiếu niên dùng nhiều tiếng lóng."
+    },
+    {
+      "en": "proverb",
+      "ipa": "/ˈprɑː.vɝːb/",
+      "vi": "tục ngữ",
+      "pos": "noun",
+      "img": "📜",
+      "connect": "\"Pro-vơb\" — câu nói khôn ngoan của ông cha.",
+      "ex": "This proverb teaches us patience.",
+      "exVi": "Câu tục ngữ này dạy ta tính kiên nhẫn."
+    },
+    {
+      "en": "gesture",
+      "ipa": "/ˈdʒes.tʃɚ/",
+      "vi": "cử chỉ",
+      "pos": "noun",
+      "img": "👋",
+      "connect": "\"Jét-x-chơ\" — vẫy tay, gật đầu đều là cử chỉ.",
+      "ex": "A thumbs-up is a friendly gesture.",
+      "exVi": "Giơ ngón cái là một cử chỉ thân thiện."
+    },
+    {
+      "en": "greeting",
+      "ipa": "/ˈɡriː.t̬ɪŋ/",
+      "vi": "lời chào",
+      "pos": "noun",
+      "img": "🙇",
+      "connect": "greet (chào) + ing — mỗi nước một kiểu chào.",
+      "ex": "Bowing is a common greeting in Korea.",
+      "exVi": "Cúi chào là lời chào phổ biến ở Hàn Quốc."
+    },
+    {
+      "en": "farewell",
+      "ipa": "/ˌferˈwel/",
+      "vi": "lời tạm biệt",
+      "pos": "noun",
+      "img": "👋",
+      "connect": "fare (đi) + well (tốt) — chúc lên đường bình an.",
+      "ex": "We said our farewells at the airport.",
+      "exVi": "Chúng tôi nói lời tạm biệt ở sân bay."
+    },
+    {
+      "en": "tourism",
+      "ipa": "/ˈtʊr.ɪ.zəm/",
+      "vi": "ngành du lịch",
+      "pos": "noun",
+      "img": "🗽",
+      "connect": "tour (chuyến đi) + ism — ngành đón khách bốn phương.",
+      "ex": "Tourism brings money to the city.",
+      "exVi": "Du lịch mang lại nguồn thu cho thành phố."
+    },
+    {
+      "en": "etiquette",
+      "ipa": "/ˈet̬.ɪ.kət/",
+      "vi": "phép lịch sự, phép tắc",
+      "pos": "noun",
+      "img": "🎩",
+      "connect": "\"E-ti-két\" — quy tắc ứng xử nơi bàn tiệc.",
+      "ex": "Table etiquette differs between countries.",
+      "exVi": "Phép tắc trên bàn ăn mỗi nước một khác."
+    }
   ]
 }

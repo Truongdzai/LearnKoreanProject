@@ -6,31 +6,265 @@
   "tone": "tone-c",
   "emoji": "🎬",
   "words": [
-    { "en": "accept", "ipa": "/əkˈsept/", "vi": "chấp nhận", "pos": "verb", "img": "✅", "connect": "\"Ợc-sép-t\" — gật đầu nhận lời.", "ex": "She accepted the job offer.", "exVi": "Cô ấy nhận lời mời làm việc." },
-    { "en": "refuse", "ipa": "/rɪˈfjuːz/", "vi": "từ chối", "pos": "verb", "img": "🙅", "connect": "\"Ri-phiu-z\" — lắc đầu không nhận.", "ex": "He refused to help us.", "exVi": "Anh ta từ chối giúp chúng tôi." },
-    { "en": "allow", "ipa": "/əˈlaʊ/", "vi": "cho phép", "pos": "verb", "img": "👌", "connect": "\"Ờ-lao\" — được phép làm.", "ex": "Dogs are not allowed here.", "exVi": "Ở đây không cho phép mang chó vào." },
-    { "en": "avoid", "ipa": "/əˈvɔɪd/", "vi": "tránh", "pos": "verb", "img": "🙈", "connect": "\"Ờ-voi-d\" — né đi.", "ex": "Avoid eating too much sugar.", "exVi": "Tránh ăn quá nhiều đường." },
-    { "en": "achieve", "ipa": "/əˈtʃiːv/", "vi": "đạt được", "pos": "verb", "img": "🏆", "connect": "\"Ờ-chi-v\" — chinh phục mục tiêu.", "ex": "She achieved her dream.", "exVi": "Cô ấy đã đạt được ước mơ." },
-    { "en": "admit", "ipa": "/ədˈmɪt/", "vi": "thừa nhận", "pos": "verb", "img": "🙋", "connect": "\"Ợd-mít\" — nhận là mình sai.", "ex": "He admitted his mistake.", "exVi": "Anh ấy thừa nhận lỗi của mình." },
-    { "en": "deny", "ipa": "/dɪˈnaɪ/", "vi": "phủ nhận", "pos": "verb", "img": "🙅", "connect": "\"Đi-nai\" — chối, ngược với admit.", "ex": "She denied taking the money.", "exVi": "Cô ta phủ nhận việc lấy tiền." },
-    { "en": "appreciate", "ipa": "/əˈpriː.ʃi.eɪt/", "vi": "trân trọng, cảm kích", "pos": "verb", "img": "🙏", "connect": "\"Ờ-pri-si-ê-t\" — biết ơn giá trị.", "ex": "I appreciate your help.", "exVi": "Tôi rất cảm kích sự giúp đỡ của bạn." },
-    { "en": "attend", "ipa": "/əˈtend/", "vi": "tham dự", "pos": "verb", "img": "🪑", "connect": "\"Ờ-ten-d\" — có mặt tham dự.", "ex": "He attended the meeting.", "exVi": "Anh ấy tham dự cuộc họp." },
-    { "en": "belong", "ipa": "/bɪˈlɔːŋ/", "vi": "thuộc về", "pos": "verb", "img": "🏷️", "connect": "\"Bi-loong\" — belong to ai đó.", "ex": "This bag belongs to me.", "exVi": "Cái túi này là của tôi." },
-    { "en": "collect", "ipa": "/kəˈlekt/", "vi": "sưu tầm, thu gom", "pos": "verb", "img": "🗃️", "connect": "\"Cờ-léct\" — gom về một chỗ.", "ex": "He collects old coins.", "exVi": "Anh ấy sưu tầm tiền xu cổ." },
-    { "en": "complete", "ipa": "/kəmˈpliːt/", "vi": "hoàn thành", "pos": "verb", "img": "🏁", "connect": "\"Cợm-pli-t\" — làm xong trọn vẹn.", "ex": "Complete the form, please.", "exVi": "Vui lòng hoàn thành biểu mẫu." },
-    { "en": "continue", "ipa": "/kənˈtɪn.juː/", "vi": "tiếp tục", "pos": "verb", "img": "▶️", "connect": "\"Cợn-tin-niu\" — làm tiếp không dừng.", "ex": "The rain continued all day.", "exVi": "Mưa tiếp tục cả ngày." },
-    { "en": "create", "ipa": "/kriˈeɪt/", "vi": "tạo ra", "pos": "verb", "img": "🎨", "connect": "\"Kri-ê-t\" — sáng tạo nên.", "ex": "She created a beautiful design.", "exVi": "Cô ấy tạo ra một thiết kế đẹp." },
-    { "en": "destroy", "ipa": "/dɪˈstrɔɪ/", "vi": "phá huỷ", "pos": "verb", "img": "💥", "connect": "\"Đi-sờ-troi\" — phá tan tành.", "ex": "The storm destroyed many houses.", "exVi": "Cơn bão phá huỷ nhiều ngôi nhà." },
-    { "en": "develop", "ipa": "/dɪˈvel.əp/", "vi": "phát triển", "pos": "verb", "img": "📈", "connect": "\"Đi-ve-lợp\" — lớn mạnh dần.", "ex": "The city developed quickly.", "exVi": "Thành phố phát triển nhanh chóng." },
-    { "en": "disturb", "ipa": "/dɪˈstɜːrb/", "vi": "làm phiền", "pos": "verb", "img": "🚪", "connect": "\"Đi-sờ-tơb\" — Do not disturb!", "ex": "Don't disturb him while he works.", "exVi": "Đừng làm phiền anh ấy lúc làm việc." },
-    { "en": "earn", "ipa": "/ɜːrn/", "vi": "kiếm được (tiền)", "pos": "verb", "img": "💰", "connect": "\"Ơn\" — làm việc để kiếm tiền.", "ex": "She earns a good salary.", "exVi": "Cô ấy kiếm được mức lương tốt." },
-    { "en": "encourage", "ipa": "/ɪnˈkɜːr.ɪdʒ/", "vi": "khích lệ", "pos": "verb", "img": "📣", "connect": "en + courage (dũng khí) — tiếp thêm dũng khí.", "ex": "My teacher encouraged me a lot.", "exVi": "Cô giáo khích lệ tôi rất nhiều." },
-    { "en": "enter", "ipa": "/ˈen.t̬ɚ/", "vi": "đi vào, nhập", "pos": "verb", "img": "🚪", "connect": "\"En-tờ\" — bước vào (phím Enter).", "ex": "Knock before you enter.", "exVi": "Gõ cửa trước khi vào nhé." },
-    { "en": "improve", "ipa": "/ɪmˈpruːv/", "vi": "cải thiện", "pos": "verb", "img": "📈", "connect": "\"Im-pru-v\" — tốt lên từng ngày.", "ex": "Practice improves your English.", "exVi": "Luyện tập giúp tiếng Anh của bạn tiến bộ." },
-    { "en": "include", "ipa": "/ɪnˈkluːd/", "vi": "bao gồm", "pos": "verb", "img": "📦", "connect": "\"In-klu-d\" — tính cả vào trong.", "ex": "The price includes breakfast.", "exVi": "Giá đã bao gồm bữa sáng." },
-    { "en": "increase", "ipa": "/ɪnˈkriːs/", "vi": "tăng lên", "pos": "verb", "img": "⬆️", "connect": "\"In-kri-s\" — đi lên.", "ex": "Prices increased by 10%.", "exVi": "Giá tăng 10%." },
-    { "en": "reduce", "ipa": "/rɪˈduːs/", "vi": "giảm bớt", "pos": "verb", "img": "⬇️", "connect": "\"Ri-điu-s\" — hạ xuống.", "ex": "Reduce the use of plastic.", "exVi": "Giảm dùng đồ nhựa." },
-    { "en": "invent", "ipa": "/ɪnˈvent/", "vi": "phát minh", "pos": "verb", "img": "💡", "connect": "\"In-ven-t\" — nghĩ ra cái chưa từng có.", "ex": "Who invented the light bulb?", "exVi": "Ai phát minh ra bóng đèn?" },
-    { "en": "offer", "ipa": "/ˈɑː.fɚ/", "vi": "đề nghị, mời", "pos": "verb", "img": "🤲", "connect": "\"O-phờ\" — chủ động đưa ra.", "ex": "He offered me a cup of tea.", "exVi": "Anh ấy mời tôi một tách trà." }
+    {
+      "en": "accept",
+      "ipa": "/əkˈsept/",
+      "vi": "chấp nhận",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "\"Ợc-sép-t\" — gật đầu nhận lời.",
+      "ex": "She accepted the job offer.",
+      "exVi": "Cô ấy nhận lời mời làm việc."
+    },
+    {
+      "en": "refuse",
+      "ipa": "/rɪˈfjuːz/",
+      "vi": "từ chối",
+      "pos": "verb",
+      "img": "🙅",
+      "connect": "\"Ri-phiu-z\" — lắc đầu không nhận.",
+      "ex": "He refused to help us.",
+      "exVi": "Anh ta từ chối giúp chúng tôi."
+    },
+    {
+      "en": "allow",
+      "ipa": "/əˈlaʊ/",
+      "vi": "cho phép",
+      "pos": "verb",
+      "img": "👌",
+      "connect": "\"Ờ-lao\" — được phép làm.",
+      "ex": "Dogs are not allowed here.",
+      "exVi": "Ở đây không cho phép mang chó vào."
+    },
+    {
+      "en": "avoid",
+      "ipa": "/əˈvɔɪd/",
+      "vi": "tránh",
+      "pos": "verb",
+      "img": "🙈",
+      "connect": "\"Ờ-voi-d\" — né đi.",
+      "ex": "Avoid eating too much sugar.",
+      "exVi": "Tránh ăn quá nhiều đường."
+    },
+    {
+      "en": "achieve",
+      "ipa": "/əˈtʃiːv/",
+      "vi": "đạt được",
+      "pos": "verb",
+      "img": "🏆",
+      "connect": "\"Ờ-chi-v\" — chinh phục mục tiêu.",
+      "ex": "She achieved her dream.",
+      "exVi": "Cô ấy đã đạt được ước mơ."
+    },
+    {
+      "en": "admit",
+      "ipa": "/ədˈmɪt/",
+      "vi": "thừa nhận",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "\"Ợd-mít\" — nhận là mình sai.",
+      "ex": "He admitted his mistake.",
+      "exVi": "Anh ấy thừa nhận lỗi của mình."
+    },
+    {
+      "en": "deny",
+      "ipa": "/dɪˈnaɪ/",
+      "vi": "phủ nhận",
+      "pos": "verb",
+      "img": "🙅",
+      "connect": "\"Đi-nai\" — chối, ngược với admit.",
+      "ex": "She denied taking the money.",
+      "exVi": "Cô ta phủ nhận việc lấy tiền."
+    },
+    {
+      "en": "appreciate",
+      "ipa": "/əˈpriː.ʃi.eɪt/",
+      "vi": "trân trọng, cảm kích",
+      "pos": "verb",
+      "img": "🙏",
+      "connect": "\"Ờ-pri-si-ê-t\" — biết ơn giá trị.",
+      "ex": "I appreciate your help.",
+      "exVi": "Tôi rất cảm kích sự giúp đỡ của bạn."
+    },
+    {
+      "en": "attend",
+      "ipa": "/əˈtend/",
+      "vi": "tham dự",
+      "pos": "verb",
+      "img": "🪑",
+      "connect": "\"Ờ-ten-d\" — có mặt tham dự.",
+      "ex": "He attended the meeting.",
+      "exVi": "Anh ấy tham dự cuộc họp."
+    },
+    {
+      "en": "belong",
+      "ipa": "/bɪˈlɔːŋ/",
+      "vi": "thuộc về",
+      "pos": "verb",
+      "img": "🏷️",
+      "connect": "\"Bi-loong\" — belong to ai đó.",
+      "ex": "This bag belongs to me.",
+      "exVi": "Cái túi này là của tôi."
+    },
+    {
+      "en": "collect",
+      "ipa": "/kəˈlekt/",
+      "vi": "sưu tầm, thu gom",
+      "pos": "verb",
+      "img": "🗃️",
+      "connect": "\"Cờ-léct\" — gom về một chỗ.",
+      "ex": "He collects old coins.",
+      "exVi": "Anh ấy sưu tầm tiền xu cổ."
+    },
+    {
+      "en": "complete",
+      "ipa": "/kəmˈpliːt/",
+      "vi": "hoàn thành",
+      "pos": "verb",
+      "img": "🏁",
+      "connect": "\"Cợm-pli-t\" — làm xong trọn vẹn.",
+      "ex": "Complete the form, please.",
+      "exVi": "Vui lòng hoàn thành biểu mẫu."
+    },
+    {
+      "en": "continue",
+      "ipa": "/kənˈtɪn.juː/",
+      "vi": "tiếp tục",
+      "pos": "verb",
+      "img": "▶️",
+      "connect": "\"Cợn-tin-niu\" — làm tiếp không dừng.",
+      "ex": "The rain continued all day.",
+      "exVi": "Mưa tiếp tục cả ngày."
+    },
+    {
+      "en": "create",
+      "ipa": "/kriˈeɪt/",
+      "vi": "tạo ra",
+      "pos": "verb",
+      "img": "🎨",
+      "connect": "\"Kri-ê-t\" — sáng tạo nên.",
+      "ex": "She created a beautiful design.",
+      "exVi": "Cô ấy tạo ra một thiết kế đẹp."
+    },
+    {
+      "en": "destroy",
+      "ipa": "/dɪˈstrɔɪ/",
+      "vi": "phá huỷ",
+      "pos": "verb",
+      "img": "💥",
+      "connect": "\"Đi-sờ-troi\" — phá tan tành.",
+      "ex": "The storm destroyed many houses.",
+      "exVi": "Cơn bão phá huỷ nhiều ngôi nhà."
+    },
+    {
+      "en": "develop",
+      "ipa": "/dɪˈvel.əp/",
+      "vi": "phát triển",
+      "pos": "verb",
+      "img": "📈",
+      "connect": "\"Đi-ve-lợp\" — lớn mạnh dần.",
+      "ex": "The city developed quickly.",
+      "exVi": "Thành phố phát triển nhanh chóng."
+    },
+    {
+      "en": "disturb",
+      "ipa": "/dɪˈstɜːrb/",
+      "vi": "làm phiền",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "\"Đi-sờ-tơb\" — Do not disturb!",
+      "ex": "Don't disturb him while he works.",
+      "exVi": "Đừng làm phiền anh ấy lúc làm việc."
+    },
+    {
+      "en": "earn",
+      "ipa": "/ɜːrn/",
+      "vi": "kiếm được (tiền)",
+      "pos": "verb",
+      "img": "💰",
+      "connect": "\"Ơn\" — làm việc để kiếm tiền.",
+      "ex": "She earns a good salary.",
+      "exVi": "Cô ấy kiếm được mức lương tốt."
+    },
+    {
+      "en": "encourage",
+      "ipa": "/ɪnˈkɜːr.ɪdʒ/",
+      "vi": "khích lệ",
+      "pos": "verb",
+      "img": "📣",
+      "connect": "en + courage (dũng khí) — tiếp thêm dũng khí.",
+      "ex": "My teacher encouraged me a lot.",
+      "exVi": "Cô giáo khích lệ tôi rất nhiều."
+    },
+    {
+      "en": "enter",
+      "ipa": "/ˈen.t̬ɚ/",
+      "vi": "đi vào, nhập",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "\"En-tờ\" — bước vào (phím Enter).",
+      "ex": "Knock before you enter.",
+      "exVi": "Gõ cửa trước khi vào nhé."
+    },
+    {
+      "en": "improve",
+      "ipa": "/ɪmˈpruːv/",
+      "vi": "cải thiện",
+      "pos": "verb",
+      "img": "📈",
+      "connect": "\"Im-pru-v\" — tốt lên từng ngày.",
+      "ex": "Practice improves your English.",
+      "exVi": "Luyện tập giúp tiếng Anh của bạn tiến bộ."
+    },
+    {
+      "en": "include",
+      "ipa": "/ɪnˈkluːd/",
+      "vi": "bao gồm",
+      "pos": "verb",
+      "img": "📦",
+      "connect": "\"In-klu-d\" — tính cả vào trong.",
+      "ex": "The price includes breakfast.",
+      "exVi": "Giá đã bao gồm bữa sáng."
+    },
+    {
+      "en": "increase",
+      "ipa": "/ɪnˈkriːs/",
+      "vi": "tăng lên",
+      "pos": "verb",
+      "img": "⬆️",
+      "connect": "\"In-kri-s\" — đi lên.",
+      "ex": "Prices increased by 10%.",
+      "exVi": "Giá tăng 10%."
+    },
+    {
+      "en": "reduce",
+      "ipa": "/rɪˈduːs/",
+      "vi": "giảm bớt",
+      "pos": "verb",
+      "img": "⬇️",
+      "connect": "\"Ri-điu-s\" — hạ xuống.",
+      "ex": "Reduce the use of plastic.",
+      "exVi": "Giảm dùng đồ nhựa."
+    },
+    {
+      "en": "invent",
+      "ipa": "/ɪnˈvent/",
+      "vi": "phát minh",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "\"In-ven-t\" — nghĩ ra cái chưa từng có.",
+      "ex": "Who invented the light bulb?",
+      "exVi": "Ai phát minh ra bóng đèn?"
+    },
+    {
+      "en": "offer",
+      "ipa": "/ˈɑː.fɚ/",
+      "vi": "đề nghị, mời",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "\"O-phờ\" — chủ động đưa ra.",
+      "ex": "He offered me a cup of tea.",
+      "exVi": "Anh ấy mời tôi một tách trà."
+    }
   ]
 }

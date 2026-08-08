@@ -6,31 +6,265 @@
   "tone": "tone-a",
   "emoji": "🏋️",
   "words": [
-    { "en": "push-up", "ipa": "/ˈpʊʃ.ʌp/", "vi": "động tác hít đất", "pos": "noun", "img": "🤸", "connect": "push (đẩy) + up (lên) — chống đẩy khỏi mặt đất.", "ex": "He does fifty push-ups every morning.", "exVi": "Anh ấy hít đất năm mươi cái mỗi sáng." },
-    { "en": "sit-up", "ipa": "/ˈsɪt.ʌp/", "vi": "động tác gập bụng", "pos": "noun", "img": "🧘", "connect": "sit (ngồi) + up (dậy) — nằm rồi gập người dậy.", "ex": "Sit-ups make your stomach strong.", "exVi": "Gập bụng giúp cơ bụng khoẻ." },
-    { "en": "jog", "ipa": "/dʒɑːɡ/", "vi": "chạy bộ chậm", "pos": "verb", "img": "🏃", "connect": "\"Jóc\" — chạy chậm quanh hồ mỗi sáng.", "ex": "I jog in the park before work.", "exVi": "Tôi chạy bộ trong công viên trước giờ làm." },
-    { "en": "treadmill", "ipa": "/ˈtred.mɪl/", "vi": "máy chạy bộ", "pos": "noun", "img": "🏃", "connect": "tread (giẫm) + mill (cối) — chạy tại chỗ trên băng chuyền.", "ex": "She runs on the treadmill at the gym.", "exVi": "Cô ấy chạy trên máy chạy bộ ở phòng gym." },
-    { "en": "dumbbell", "ipa": "/ˈdʌm.bel/", "vi": "quả tạ tay", "pos": "noun", "img": "🏋️", "connect": "\"Đăm-beo\" — nâng tạ lên xuống.", "ex": "He lifts dumbbells every day.", "exVi": "Anh ấy nâng tạ tay mỗi ngày." },
-    { "en": "weightlifting", "ipa": "/ˈweɪtˌlɪf.tɪŋ/", "vi": "môn cử tạ", "pos": "noun", "img": "🏋️", "connect": "weight (tạ) + lifting (nâng) — nâng tạ nặng.", "ex": "Weightlifting builds strong muscles.", "exVi": "Cử tạ giúp cơ bắp săn chắc." },
-    { "en": "marathon", "ipa": "/ˈmer.ə.θɑːn/", "vi": "chạy marathon (42km)", "pos": "noun", "img": "🎽", "connect": "\"Me-rờ-thon\" — đường đua 42 cây số.", "ex": "She finished her first marathon.", "exVi": "Cô ấy hoàn thành cuộc marathon đầu tiên." },
-    { "en": "sprint", "ipa": "/sprɪnt/", "vi": "chạy nước rút", "pos": "verb", "img": "💨", "connect": "\"Sprin-t\" — dốc toàn lực đoạn cuối.", "ex": "He sprinted to the finish line.", "exVi": "Anh ấy nước rút về đích." },
-    { "en": "stamina", "ipa": "/ˈstæm.ə.nə/", "vi": "sức bền", "pos": "noun", "img": "🔋", "connect": "\"Sta-mi-nờ\" — pin trâu chạy mãi không mệt.", "ex": "Swimming improves your stamina.", "exVi": "Bơi lội tăng sức bền của bạn." },
-    { "en": "endurance", "ipa": "/ɪnˈdʊr.əns/", "vi": "sức chịu đựng", "pos": "noun", "img": "⛰️", "connect": "\"In-điu-rừn-x\" — endure (chịu đựng) đường dài.", "ex": "Long races test your endurance.", "exVi": "Các cuộc đua dài thử thách sức chịu đựng." },
-    { "en": "protein", "ipa": "/ˈproʊ.tiːn/", "vi": "chất đạm", "pos": "noun", "img": "🥩", "connect": "\"Prâu-tin\" — thịt, trứng, sữa giàu đạm.", "ex": "Eggs are full of protein.", "exVi": "Trứng rất giàu chất đạm." },
-    { "en": "calorie", "ipa": "/ˈkæl.ɚ.i/", "vi": "calo", "pos": "noun", "img": "🔥", "connect": "\"Ke-lờ-ri\" — năng lượng trong đồ ăn.", "ex": "This cake has 400 calories.", "exVi": "Chiếc bánh này có 400 calo." },
-    { "en": "diet", "ipa": "/ˈdaɪ.ət/", "vi": "chế độ ăn; ăn kiêng", "pos": "noun", "img": "🥗", "connect": "\"Đai-ợt\" — ăn theo thực đơn để khoẻ/giảm cân.", "ex": "She is on a healthy diet.", "exVi": "Cô ấy đang theo chế độ ăn lành mạnh." },
-    { "en": "nutrition", "ipa": "/nuːˈtrɪʃ.ən/", "vi": "dinh dưỡng", "pos": "noun", "img": "🍎", "connect": "\"Niu-trí-sừn\" — chất nuôi cơ thể.", "ex": "Good nutrition keeps kids healthy.", "exVi": "Dinh dưỡng tốt giúp trẻ khoẻ mạnh." },
-    { "en": "vitamin", "ipa": "/ˈvaɪ.t̬ə.mɪn/", "vi": "vitamin", "pos": "noun", "img": "🍊", "connect": "\"Vai-tờ-min\" — cam chanh nhiều vitamin C.", "ex": "Oranges are rich in vitamin C.", "exVi": "Cam giàu vitamin C." },
-    { "en": "junk food", "ipa": "/ˈdʒʌŋk fuːd/", "vi": "đồ ăn vặt có hại", "pos": "noun", "img": "🍟", "connect": "junk (đồ bỏ đi) + food — ngon miệng nhưng hại thân.", "ex": "Eat less junk food, please.", "exVi": "Hãy ăn ít đồ ăn vặt thôi." },
-    { "en": "trainer", "ipa": "/ˈtreɪ.nɚ/", "vi": "huấn luyện viên cá nhân", "pos": "noun", "img": "🧑‍🏫", "connect": "train (huấn luyện) + er — người kèm tập.", "ex": "My trainer plans my workouts.", "exVi": "Huấn luyện viên lên lịch tập cho tôi." },
-    { "en": "membership", "ipa": "/ˈmem.bɚ.ʃɪp/", "vi": "tư cách hội viên", "pos": "noun", "img": "🎟️", "connect": "member (thành viên) + ship — thẻ hội viên phòng tập.", "ex": "The gym membership costs 500,000 dong.", "exVi": "Thẻ hội viên phòng gym giá 500 nghìn đồng." },
-    { "en": "boxing", "ipa": "/ˈbɑːk.sɪŋ/", "vi": "môn quyền anh", "pos": "noun", "img": "🥊", "connect": "\"Bóc-xinh\" — đấm bốc trên võ đài.", "ex": "Boxing is a tough sport.", "exVi": "Quyền anh là môn thể thao khắc nghiệt." },
-    { "en": "hiking", "ipa": "/ˈhaɪ.kɪŋ/", "vi": "đi bộ đường dài", "pos": "noun", "img": "🥾", "connect": "\"Hai-kinh\" — leo đồi băng rừng cuối tuần.", "ex": "We went hiking in Sapa.", "exVi": "Chúng tôi đi bộ đường dài ở Sapa." },
-    { "en": "camping", "ipa": "/ˈkæm.pɪŋ/", "vi": "cắm trại", "pos": "noun", "img": "⛺", "connect": "camp (trại) + ing — dựng lều ngủ giữa thiên nhiên.", "ex": "Camping by the lake is fun.", "exVi": "Cắm trại bên hồ rất vui." },
-    { "en": "surfing", "ipa": "/ˈsɝː.fɪŋ/", "vi": "lướt sóng", "pos": "noun", "img": "🏄", "connect": "\"Sơ-phinh\" — cưỡi ván trên đầu sóng.", "ex": "Da Nang is great for surfing.", "exVi": "Đà Nẵng rất hợp để lướt sóng." },
-    { "en": "skateboard", "ipa": "/ˈskeɪt.bɔːrd/", "vi": "ván trượt", "pos": "noun", "img": "🛹", "connect": "skate (trượt) + board (ván) — lướt ván trên phố.", "ex": "He rides his skateboard to school.", "exVi": "Cậu ấy trượt ván đến trường." },
-    { "en": "medal", "ipa": "/ˈmed.əl/", "vi": "huy chương", "pos": "noun", "img": "🥇", "connect": "\"Me-đồl\" — vàng, bạc, đồng đeo trên cổ.", "ex": "She won a gold medal.", "exVi": "Cô ấy giành huy chương vàng." },
-    { "en": "tournament", "ipa": "/ˈtʊr.nə.mənt/", "vi": "giải đấu", "pos": "noun", "img": "🏆", "connect": "\"Tuơ-nờ-mừnt\" — đấu loại dần tới chức vô địch.", "ex": "Our team joined the football tournament.", "exVi": "Đội chúng tôi tham gia giải bóng đá." },
-    { "en": "referee", "ipa": "/ˌref.əˈriː/", "vi": "trọng tài", "pos": "noun", "img": "🧑‍⚖️", "connect": "\"Re-phờ-ri\" — người thổi còi trên sân.", "ex": "The referee gave a yellow card.", "exVi": "Trọng tài rút thẻ vàng." }
+    {
+      "en": "push-up",
+      "ipa": "/ˈpʊʃ.ʌp/",
+      "vi": "động tác hít đất",
+      "pos": "noun",
+      "img": "🤸",
+      "connect": "push (đẩy) + up (lên) — chống đẩy khỏi mặt đất.",
+      "ex": "He does fifty push-ups every morning.",
+      "exVi": "Anh ấy hít đất năm mươi cái mỗi sáng."
+    },
+    {
+      "en": "sit-up",
+      "ipa": "/ˈsɪt.ʌp/",
+      "vi": "động tác gập bụng",
+      "pos": "noun",
+      "img": "🧘",
+      "connect": "sit (ngồi) + up (dậy) — nằm rồi gập người dậy.",
+      "ex": "Sit-ups make your stomach strong.",
+      "exVi": "Gập bụng giúp cơ bụng khoẻ."
+    },
+    {
+      "en": "jog",
+      "ipa": "/dʒɑːɡ/",
+      "vi": "chạy bộ chậm",
+      "pos": "verb",
+      "img": "🏃",
+      "connect": "\"Jóc\" — chạy chậm quanh hồ mỗi sáng.",
+      "ex": "I jog in the park before work.",
+      "exVi": "Tôi chạy bộ trong công viên trước giờ làm."
+    },
+    {
+      "en": "treadmill",
+      "ipa": "/ˈtred.mɪl/",
+      "vi": "máy chạy bộ",
+      "pos": "noun",
+      "img": "🏃",
+      "connect": "tread (giẫm) + mill (cối) — chạy tại chỗ trên băng chuyền.",
+      "ex": "She runs on the treadmill at the gym.",
+      "exVi": "Cô ấy chạy trên máy chạy bộ ở phòng gym."
+    },
+    {
+      "en": "dumbbell",
+      "ipa": "/ˈdʌm.bel/",
+      "vi": "quả tạ tay",
+      "pos": "noun",
+      "img": "🏋️",
+      "connect": "\"Đăm-beo\" — nâng tạ lên xuống.",
+      "ex": "He lifts dumbbells every day.",
+      "exVi": "Anh ấy nâng tạ tay mỗi ngày."
+    },
+    {
+      "en": "weightlifting",
+      "ipa": "/ˈweɪtˌlɪf.tɪŋ/",
+      "vi": "môn cử tạ",
+      "pos": "noun",
+      "img": "🏋️",
+      "connect": "weight (tạ) + lifting (nâng) — nâng tạ nặng.",
+      "ex": "Weightlifting builds strong muscles.",
+      "exVi": "Cử tạ giúp cơ bắp săn chắc."
+    },
+    {
+      "en": "marathon",
+      "ipa": "/ˈmer.ə.θɑːn/",
+      "vi": "chạy marathon (42km)",
+      "pos": "noun",
+      "img": "🎽",
+      "connect": "\"Me-rờ-thon\" — đường đua 42 cây số.",
+      "ex": "She finished her first marathon.",
+      "exVi": "Cô ấy hoàn thành cuộc marathon đầu tiên."
+    },
+    {
+      "en": "sprint",
+      "ipa": "/sprɪnt/",
+      "vi": "chạy nước rút",
+      "pos": "verb",
+      "img": "💨",
+      "connect": "\"Sprin-t\" — dốc toàn lực đoạn cuối.",
+      "ex": "He sprinted to the finish line.",
+      "exVi": "Anh ấy nước rút về đích."
+    },
+    {
+      "en": "stamina",
+      "ipa": "/ˈstæm.ə.nə/",
+      "vi": "sức bền",
+      "pos": "noun",
+      "img": "🔋",
+      "connect": "\"Sta-mi-nờ\" — pin trâu chạy mãi không mệt.",
+      "ex": "Swimming improves your stamina.",
+      "exVi": "Bơi lội tăng sức bền của bạn."
+    },
+    {
+      "en": "endurance",
+      "ipa": "/ɪnˈdʊr.əns/",
+      "vi": "sức chịu đựng",
+      "pos": "noun",
+      "img": "⛰️",
+      "connect": "\"In-điu-rừn-x\" — endure (chịu đựng) đường dài.",
+      "ex": "Long races test your endurance.",
+      "exVi": "Các cuộc đua dài thử thách sức chịu đựng."
+    },
+    {
+      "en": "protein",
+      "ipa": "/ˈproʊ.tiːn/",
+      "vi": "chất đạm",
+      "pos": "noun",
+      "img": "🥩",
+      "connect": "\"Prâu-tin\" — thịt, trứng, sữa giàu đạm.",
+      "ex": "Eggs are full of protein.",
+      "exVi": "Trứng rất giàu chất đạm."
+    },
+    {
+      "en": "calorie",
+      "ipa": "/ˈkæl.ɚ.i/",
+      "vi": "calo",
+      "pos": "noun",
+      "img": "🔥",
+      "connect": "\"Ke-lờ-ri\" — năng lượng trong đồ ăn.",
+      "ex": "This cake has 400 calories.",
+      "exVi": "Chiếc bánh này có 400 calo."
+    },
+    {
+      "en": "diet",
+      "ipa": "/ˈdaɪ.ət/",
+      "vi": "chế độ ăn; ăn kiêng",
+      "pos": "noun",
+      "img": "🥗",
+      "connect": "\"Đai-ợt\" — ăn theo thực đơn để khoẻ/giảm cân.",
+      "ex": "She is on a healthy diet.",
+      "exVi": "Cô ấy đang theo chế độ ăn lành mạnh."
+    },
+    {
+      "en": "nutrition",
+      "ipa": "/nuːˈtrɪʃ.ən/",
+      "vi": "dinh dưỡng",
+      "pos": "noun",
+      "img": "🍎",
+      "connect": "\"Niu-trí-sừn\" — chất nuôi cơ thể.",
+      "ex": "Good nutrition keeps kids healthy.",
+      "exVi": "Dinh dưỡng tốt giúp trẻ khoẻ mạnh."
+    },
+    {
+      "en": "vitamin",
+      "ipa": "/ˈvaɪ.t̬ə.mɪn/",
+      "vi": "vitamin",
+      "pos": "noun",
+      "img": "🍊",
+      "connect": "\"Vai-tờ-min\" — cam chanh nhiều vitamin C.",
+      "ex": "Oranges are rich in vitamin C.",
+      "exVi": "Cam giàu vitamin C."
+    },
+    {
+      "en": "junk food",
+      "ipa": "/ˈdʒʌŋk fuːd/",
+      "vi": "đồ ăn vặt có hại",
+      "pos": "noun",
+      "img": "🍟",
+      "connect": "junk (đồ bỏ đi) + food — ngon miệng nhưng hại thân.",
+      "ex": "Eat less junk food, please.",
+      "exVi": "Hãy ăn ít đồ ăn vặt thôi."
+    },
+    {
+      "en": "trainer",
+      "ipa": "/ˈtreɪ.nɚ/",
+      "vi": "huấn luyện viên cá nhân",
+      "pos": "noun",
+      "img": "🧑‍🏫",
+      "connect": "train (huấn luyện) + er — người kèm tập.",
+      "ex": "My trainer plans my workouts.",
+      "exVi": "Huấn luyện viên lên lịch tập cho tôi."
+    },
+    {
+      "en": "membership",
+      "ipa": "/ˈmem.bɚ.ʃɪp/",
+      "vi": "tư cách hội viên",
+      "pos": "noun",
+      "img": "🎟️",
+      "connect": "member (thành viên) + ship — thẻ hội viên phòng tập.",
+      "ex": "The gym membership costs 500,000 dong.",
+      "exVi": "Thẻ hội viên phòng gym giá 500 nghìn đồng."
+    },
+    {
+      "en": "boxing",
+      "ipa": "/ˈbɑːk.sɪŋ/",
+      "vi": "môn quyền anh",
+      "pos": "noun",
+      "img": "🥊",
+      "connect": "\"Bóc-xinh\" — đấm bốc trên võ đài.",
+      "ex": "Boxing is a tough sport.",
+      "exVi": "Quyền anh là môn thể thao khắc nghiệt."
+    },
+    {
+      "en": "hiking",
+      "ipa": "/ˈhaɪ.kɪŋ/",
+      "vi": "đi bộ đường dài",
+      "pos": "noun",
+      "img": "🥾",
+      "connect": "\"Hai-kinh\" — leo đồi băng rừng cuối tuần.",
+      "ex": "We went hiking in Sapa.",
+      "exVi": "Chúng tôi đi bộ đường dài ở Sapa."
+    },
+    {
+      "en": "camping",
+      "ipa": "/ˈkæm.pɪŋ/",
+      "vi": "cắm trại",
+      "pos": "noun",
+      "img": "⛺",
+      "connect": "camp (trại) + ing — dựng lều ngủ giữa thiên nhiên.",
+      "ex": "Camping by the lake is fun.",
+      "exVi": "Cắm trại bên hồ rất vui."
+    },
+    {
+      "en": "surfing",
+      "ipa": "/ˈsɝː.fɪŋ/",
+      "vi": "lướt sóng",
+      "pos": "noun",
+      "img": "🏄",
+      "connect": "\"Sơ-phinh\" — cưỡi ván trên đầu sóng.",
+      "ex": "Da Nang is great for surfing.",
+      "exVi": "Đà Nẵng rất hợp để lướt sóng."
+    },
+    {
+      "en": "skateboard",
+      "ipa": "/ˈskeɪt.bɔːrd/",
+      "vi": "ván trượt",
+      "pos": "noun",
+      "img": "🛹",
+      "connect": "skate (trượt) + board (ván) — lướt ván trên phố.",
+      "ex": "He rides his skateboard to school.",
+      "exVi": "Cậu ấy trượt ván đến trường."
+    },
+    {
+      "en": "medal",
+      "ipa": "/ˈmed.əl/",
+      "vi": "huy chương",
+      "pos": "noun",
+      "img": "🥇",
+      "connect": "\"Me-đồl\" — vàng, bạc, đồng đeo trên cổ.",
+      "ex": "She won a gold medal.",
+      "exVi": "Cô ấy giành huy chương vàng."
+    },
+    {
+      "en": "tournament",
+      "ipa": "/ˈtʊr.nə.mənt/",
+      "vi": "giải đấu",
+      "pos": "noun",
+      "img": "🏆",
+      "connect": "\"Tuơ-nờ-mừnt\" — đấu loại dần tới chức vô địch.",
+      "ex": "Our team joined the football tournament.",
+      "exVi": "Đội chúng tôi tham gia giải bóng đá."
+    },
+    {
+      "en": "referee",
+      "ipa": "/ˌref.əˈriː/",
+      "vi": "trọng tài",
+      "pos": "noun",
+      "img": "🧑‍⚖️",
+      "connect": "\"Re-phờ-ri\" — người thổi còi trên sân.",
+      "ex": "The referee gave a yellow card.",
+      "exVi": "Trọng tài rút thẻ vàng."
+    }
   ]
 }

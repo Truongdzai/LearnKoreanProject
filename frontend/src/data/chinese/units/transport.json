@@ -6,17 +6,125 @@
   "tone": "tone-e",
   "emoji": "🚌",
   "words": [
-    { "zh": "公共汽车", "pinyin": "gōng gòng qì chē", "vi": "Xe buýt", "pos": "noun", "img": "🚌", "connect": "公共汽车 = công cộng khí xa, tức xe hơi dùng chung cho mọi người.", "ex": "公共汽车站在前面。", "exVi": "Bến xe buýt ở phía trước." },
-    { "zh": "地铁", "pinyin": "dì tiě", "vi": "Tàu điện ngầm", "pos": "noun", "img": "🚇", "connect": "地铁 = địa thiết, đường sắt dưới đất. Chữ thiết trong thiết bị, gang thép.", "ex": "坐地铁比开车快。", "exVi": "Đi tàu điện ngầm nhanh hơn lái xe." },
-    { "zh": "高铁", "pinyin": "gāo tiě", "vi": "Tàu cao tốc", "pos": "noun", "img": "🚄", "connect": "高铁 = cao thiết, đường sắt cao tốc — niềm tự hào giao thông Trung Quốc.", "ex": "坐高铁去上海只要五个小时。", "exVi": "Đi tàu cao tốc tới Thượng Hải chỉ mất năm tiếng." },
-    { "zh": "自行车", "pinyin": "zì xíng chē", "vi": "Xe đạp", "pos": "noun", "img": "🚲", "connect": "自行车 = tự hành xa, xe tự mình đi lấy, không cần máy.", "ex": "他骑自行车上学。", "exVi": "Cậu ấy đạp xe đi học." },
-    { "zh": "摩托车", "pinyin": "mó tuō chē", "vi": "Xe máy", "pos": "noun", "img": "🏍️", "connect": "摩托 là phiên âm của motor, ghép với 车 (xa) thành xe máy.", "ex": "在越南，摩托车最方便。", "exVi": "Ở Việt Nam, xe máy là tiện nhất." },
-    { "zh": "骑", "pinyin": "qí", "vi": "Cưỡi, đạp (xe hai bánh)", "pos": "verb", "img": "🚴", "connect": "骑 = kỵ, chữ trong kỵ binh, kỵ mã. Xe hai bánh phải dùng 骑, không dùng 坐.", "ex": "我每天骑自行车去公司。", "exVi": "Ngày nào tôi cũng đạp xe tới công ty." },
-    { "zh": "开车", "pinyin": "kāi chē", "vi": "Lái xe", "pos": "verb", "img": "🚙", "connect": "开车 = khai xa, chữ khai trong khai mạc — mở máy cho xe chạy.", "ex": "我不会开车。", "exVi": "Tôi không biết lái xe." },
-    { "zh": "打车", "pinyin": "dǎ chē", "vi": "Bắt xe, gọi taxi", "pos": "verb", "img": "🚕", "connect": "打 nghĩa gốc là đánh, nhưng đi với xe thì thành vẫy xe, gọi xe.", "ex": "太晚了，我们打车回去吧。", "exVi": "Muộn quá rồi, mình bắt xe về đi." },
-    { "zh": "堵车", "pinyin": "dǔ chē", "vi": "Tắc đường", "pos": "verb", "img": "🚦", "connect": "堵 = đổ, nghĩa là chặn, bịt lại — xe bị chặn cứng trên đường.", "ex": "早上八点很堵车。", "exVi": "Tám giờ sáng rất hay tắc đường." },
-    { "zh": "红绿灯", "pinyin": "hóng lǜ dēng", "vi": "Đèn giao thông", "pos": "noun", "img": "🚥", "connect": "红绿灯 = hồng lục đăng, cây đèn đỏ xanh.", "ex": "在红绿灯那儿往右拐。", "exVi": "Tới chỗ đèn giao thông thì rẽ phải." },
-    { "zh": "站", "pinyin": "zhàn", "vi": "Bến, ga; đứng", "pos": "noun", "img": "🚏", "connect": "站 = trạm, đúng chữ trong trạm xe, trạm dừng chân.", "ex": "下一站是火车站。", "exVi": "Bến tiếp theo là ga tàu hoả." },
-    { "zh": "路上", "pinyin": "lù shang", "vi": "Trên đường", "pos": "noun", "img": "🛣️", "connect": "路上 = lộ thượng, chữ lộ trong đường lộ, lộ trình.", "ex": "路上小心。", "exVi": "Đi đường cẩn thận nhé." }
+    {
+      "zh": "公共汽车",
+      "pinyin": "gōng gòng qì chē",
+      "vi": "Xe buýt",
+      "pos": "noun",
+      "img": "🚌",
+      "connect": "公共汽车 = công cộng khí xa, tức xe hơi dùng chung cho mọi người.",
+      "ex": "公共汽车站在前面。",
+      "exVi": "Bến xe buýt ở phía trước."
+    },
+    {
+      "zh": "地铁",
+      "pinyin": "dì tiě",
+      "vi": "Tàu điện ngầm",
+      "pos": "noun",
+      "img": "🚇",
+      "connect": "地铁 = địa thiết, đường sắt dưới đất. Chữ thiết trong thiết bị, gang thép.",
+      "ex": "坐地铁比开车快。",
+      "exVi": "Đi tàu điện ngầm nhanh hơn lái xe."
+    },
+    {
+      "zh": "高铁",
+      "pinyin": "gāo tiě",
+      "vi": "Tàu cao tốc",
+      "pos": "noun",
+      "img": "🚄",
+      "connect": "高铁 = cao thiết, đường sắt cao tốc — niềm tự hào giao thông Trung Quốc.",
+      "ex": "坐高铁去上海只要五个小时。",
+      "exVi": "Đi tàu cao tốc tới Thượng Hải chỉ mất năm tiếng."
+    },
+    {
+      "zh": "自行车",
+      "pinyin": "zì xíng chē",
+      "vi": "Xe đạp",
+      "pos": "noun",
+      "img": "🚲",
+      "connect": "自行车 = tự hành xa, xe tự mình đi lấy, không cần máy.",
+      "ex": "他骑自行车上学。",
+      "exVi": "Cậu ấy đạp xe đi học."
+    },
+    {
+      "zh": "摩托车",
+      "pinyin": "mó tuō chē",
+      "vi": "Xe máy",
+      "pos": "noun",
+      "img": "🏍️",
+      "connect": "摩托 là phiên âm của motor, ghép với 车 (xa) thành xe máy.",
+      "ex": "在越南，摩托车最方便。",
+      "exVi": "Ở Việt Nam, xe máy là tiện nhất."
+    },
+    {
+      "zh": "骑",
+      "pinyin": "qí",
+      "vi": "Cưỡi, đạp (xe hai bánh)",
+      "pos": "verb",
+      "img": "🚴",
+      "connect": "骑 = kỵ, chữ trong kỵ binh, kỵ mã. Xe hai bánh phải dùng 骑, không dùng 坐.",
+      "ex": "我每天骑自行车去公司。",
+      "exVi": "Ngày nào tôi cũng đạp xe tới công ty."
+    },
+    {
+      "zh": "开车",
+      "pinyin": "kāi chē",
+      "vi": "Lái xe",
+      "pos": "verb",
+      "img": "🚙",
+      "connect": "开车 = khai xa, chữ khai trong khai mạc — mở máy cho xe chạy.",
+      "ex": "我不会开车。",
+      "exVi": "Tôi không biết lái xe."
+    },
+    {
+      "zh": "打车",
+      "pinyin": "dǎ chē",
+      "vi": "Bắt xe, gọi taxi",
+      "pos": "verb",
+      "img": "🚕",
+      "connect": "打 nghĩa gốc là đánh, nhưng đi với xe thì thành vẫy xe, gọi xe.",
+      "ex": "太晚了，我们打车回去吧。",
+      "exVi": "Muộn quá rồi, mình bắt xe về đi."
+    },
+    {
+      "zh": "堵车",
+      "pinyin": "dǔ chē",
+      "vi": "Tắc đường",
+      "pos": "verb",
+      "img": "🚦",
+      "connect": "堵 = đổ, nghĩa là chặn, bịt lại — xe bị chặn cứng trên đường.",
+      "ex": "早上八点很堵车。",
+      "exVi": "Tám giờ sáng rất hay tắc đường."
+    },
+    {
+      "zh": "红绿灯",
+      "pinyin": "hóng lǜ dēng",
+      "vi": "Đèn giao thông",
+      "pos": "noun",
+      "img": "🚥",
+      "connect": "红绿灯 = hồng lục đăng, cây đèn đỏ xanh.",
+      "ex": "在红绿灯那儿往右拐。",
+      "exVi": "Tới chỗ đèn giao thông thì rẽ phải."
+    },
+    {
+      "zh": "站",
+      "pinyin": "zhàn",
+      "vi": "Bến, ga; đứng",
+      "pos": "noun",
+      "img": "🚏",
+      "connect": "站 = trạm, đúng chữ trong trạm xe, trạm dừng chân.",
+      "ex": "下一站是火车站。",
+      "exVi": "Bến tiếp theo là ga tàu hoả."
+    },
+    {
+      "zh": "路上",
+      "pinyin": "lù shang",
+      "vi": "Trên đường",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "路上 = lộ thượng, chữ lộ trong đường lộ, lộ trình.",
+      "ex": "路上小心。",
+      "exVi": "Đi đường cẩn thận nhé."
+    }
   ]
 }

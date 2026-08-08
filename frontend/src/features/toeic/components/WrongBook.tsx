@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { PART_META, SKILLS } from '@/data/toeicCore'
+import { ERROR_CODES } from '@/data/toeicGuide'
 import { lookupQuestion } from '../engine'
 import { dueWrong, type WrongNote } from '../state'
 
@@ -8,6 +9,7 @@ interface Props {
   wrong: WrongNote[]
   onReview: (keys: string[]) => void
   onClear: () => void
+  onTag: (key: string, code: string) => void
 }
 
 interface Row extends WrongNote {
@@ -17,8 +19,9 @@ interface Row extends WrongNote {
 
 const SIZES = [10, 20, 40]
 
-export default function WrongBook({ wrong, onReview, onClear }: Props) {
+export default function WrongBook({ wrong, onReview, onClear, onTag }: Props) {
   const [part, setPart] = useState<number | null>(null)
+  const [tagging, setTagging] = useState<string | null>(null)
 
   const rows = useMemo<Row[]>(() => {
     const out: Row[] = []
@@ -38,6 +41,13 @@ export default function WrongBook({ wrong, onReview, onClear }: Props) {
 
   const shown = part ? rows.filter((r) => r.part === part) : rows
   const repeated = rows.filter((r) => r.n >= 2).length
+
+  const topCauses = useMemo(() => {
+    const m: Record<string, number> = {}
+    for (const r of rows) if (r.cause) m[r.cause] = (m[r.cause] ?? 0) + 1
+    return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 3)
+  }, [rows])
+  const tagged = rows.filter((r) => r.cause).length
   const dueKeys = useMemo(() => new Set(dueWrong(wrong).map((w) => w.key)), [wrong])
   const due = rows.filter((r) => dueKeys.has(r.key))
 
@@ -91,6 +101,34 @@ export default function WrongBook({ wrong, onReview, onClear }: Props) {
         ngày — đúng nhịp lặp lại ngắt quãng để nhớ lâu.
       </p>
 
+      <div className="tw-cause-box">
+        <div className="twc-intro">
+          <b>🏷️ Gắn mã nguyên nhân cho câu sai</b>
+          <p>
+            Ghi đáp án đúng thôi thì cùng một nguyên nhân sẽ quay lại dưới hình thức khác. Bấm
+            <b> Nguyên nhân</b> ở mỗi câu để chọn một mã. Sau mỗi tuần, nhìn ba nhóm đứng đầu và chọn
+            đúng <b>một</b> nhóm làm mục tiêu — sửa dàn trải thì không nhóm nào dứt điểm.
+          </p>
+        </div>
+        {topCauses.length > 0 ? (
+          <div className="twc-top">
+            <span className="twc-label">Đã gắn {tagged}/{rows.length} câu · nhóm lỗi hàng đầu:</span>
+            {topCauses.map(([code, n]) => {
+              const info = ERROR_CODES.find((c) => c.code === code)
+              return (
+                <div key={code} className="twc-item">
+                  <b>{code}</b>
+                  <span>{info?.vi} · {n} câu</span>
+                  {info && <p>{info.fix}</p>}
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <p className="twc-empty">Chưa câu nào được gắn mã. Xem giải thích từng mã ở tab <b>Cẩm nang → Nhật ký lỗi</b>.</p>
+        )}
+      </div>
+
       <div className="tw-filters">
         <button className={'tw-chip' + (part === null ? ' on' : '')} onClick={() => setPart(null)}>
           Tất cả ({rows.length})
@@ -113,8 +151,30 @@ export default function WrongBook({ wrong, onReview, onClear }: Props) {
               <span className="twl-part">Part {r.part}</span>
               {SKILLS[r.skill] && <span className="twl-skill">{SKILLS[r.skill].vi}</span>}
               {r.n >= 2 && <span className="twl-n">sai {r.n} lần</span>}
+              {r.cause && <span className="twl-cause">{r.cause}</span>}
+              <button
+                className="twl-tagbtn"
+                aria-expanded={tagging === r.key}
+                onClick={() => setTagging(tagging === r.key ? null : r.key)}
+              >
+                {r.cause ? 'Đổi nguyên nhân' : 'Nguyên nhân'}
+              </button>
             </div>
             <p lang={r.part >= 5 ? 'en' : undefined}>{r.label}</p>
+            {tagging === r.key && (
+              <div className="twl-codes">
+                {ERROR_CODES.map((c) => (
+                  <button
+                    key={c.code}
+                    className={'twl-code' + (r.cause === c.code ? ' on' : '')}
+                    title={c.hint}
+                    onClick={() => onTag(r.key, c.code)}
+                  >
+                    <b>{c.code}</b> {c.vi}
+                  </button>
+                ))}
+              </div>
+            )}
           </li>
         ))}
       </ol>

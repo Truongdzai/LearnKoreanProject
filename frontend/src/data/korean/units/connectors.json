@@ -6,17 +6,125 @@
   "tone": "tone-c",
   "emoji": "🔗",
   "words": [
-    { "ko": "그리고", "romaja": "geurigo", "vi": "Và / Rồi thì", "pos": "adverb", "img": "➕", "connect": "\"Kư-ri-gô\" — nối thêm ý mới cùng chiều.", "ex": "밥을 먹었어요. 그리고 커피도 마셨어요.", "exVi": "Tôi đã ăn cơm. Và cũng uống cà phê nữa." },
-    { "ko": "그런데", "romaja": "geureonde", "vi": "Nhưng mà / Mà này", "pos": "adverb", "img": "↩️", "connect": "Vừa để chuyển ý ngược, vừa để đổi chủ đề giữa chừng.", "ex": "그런데 지금 몇 시예요?", "exVi": "Mà này, bây giờ mấy giờ rồi?" },
-    { "ko": "하지만", "romaja": "hajiman", "vi": "Tuy nhiên / Nhưng", "pos": "adverb", "img": "⚖️", "connect": "Trang trọng hơn 그런데 — dùng khi viết hoặc nói nghiêm túc.", "ex": "비쌌어요. 하지만 아주 좋았어요.", "exVi": "Đắt thật. Nhưng rất đáng." },
-    { "ko": "그래서", "romaja": "geuraeseo", "vi": "Vì vậy / Nên", "pos": "adverb", "img": "➡️", "connect": "Nối nguyên nhân đứng trước với kết quả đứng sau.", "ex": "아팠어요. 그래서 학교에 못 갔어요.", "exVi": "Tôi bị ốm. Nên đã không đi học được." },
-    { "ko": "그러면", "romaja": "geureomyeon", "vi": "Vậy thì (nói tắt: 그럼)", "pos": "adverb", "img": "🔁", "connect": "\"Nếu vậy thì…\" — đưa ra đề nghị tiếp theo.", "ex": "그러면 내일 만날까요?", "exVi": "Vậy thì mai gặp nhau nhé?" },
-    { "ko": "왜냐하면", "romaja": "waenyahamyeon", "vi": "Bởi vì", "pos": "adverb", "img": "❓", "connect": "Từ 왜 (tại sao) — mở đầu câu giải thích lý do.", "ex": "안 갔어요. 왜냐하면 너무 피곤했어요.", "exVi": "Tôi đã không đi. Bởi vì mệt quá." },
-    { "ko": "또", "romaja": "tto", "vi": "Lại / Nữa", "pos": "adverb", "img": "🔂", "connect": "\"Ttô\" ngắn gọn — lặp lại lần nữa.", "ex": "또 만나요!", "exVi": "Hẹn gặp lại nhé!" },
-    { "ko": "그러니까", "romaja": "geureonikka", "vi": "Ý là / Cho nên", "pos": "adverb", "img": "💡", "connect": "Dùng khi giải thích lại cho người nghe hiểu ra.", "ex": "그러니까 지금 출발해야 해요.", "exVi": "Cho nên bây giờ phải xuất phát rồi." },
-    { "ko": "아마", "romaja": "ama", "vi": "Có lẽ", "pos": "adverb", "img": "🤔", "connect": "\"A-ma\" — chưa chắc, đoán chừng thế.", "ex": "아마 내일 비가 올 거예요.", "exVi": "Có lẽ mai trời sẽ mưa." },
-    { "ko": "만약", "romaja": "manyak", "vi": "Nếu như", "pos": "adverb", "img": "🎲", "connect": "\"Man-yak\" chính là âm Hán \"vạn nhược\".", "ex": "만약 시간이 있으면 같이 가요.", "exVi": "Nếu như có thời gian thì cùng đi nhé." },
-    { "ko": "물론", "romaja": "mullon", "vi": "Tất nhiên rồi", "pos": "adverb", "img": "👍", "connect": "\"Mul-lon\" chính là âm Hán \"vật luận\".", "ex": "물론이죠!", "exVi": "Tất nhiên rồi!" },
-    { "ko": "예를 들면", "romaja": "yereul deulmyeon", "vi": "Ví dụ như", "pos": "phrase", "img": "📝", "connect": "\"Yê\" = ví dụ + 들다 = đưa ra → đưa ví dụ ra.", "ex": "과일, 예를 들면 사과를 좋아해요.", "exVi": "Tôi thích trái cây, ví dụ như táo." }
+    {
+      "ko": "그리고",
+      "romaja": "geurigo",
+      "vi": "Và / Rồi thì",
+      "pos": "adverb",
+      "img": "➕",
+      "connect": "\"Kư-ri-gô\" — nối thêm ý mới cùng chiều.",
+      "ex": "밥을 먹었어요. 그리고 커피도 마셨어요.",
+      "exVi": "Tôi đã ăn cơm. Và cũng uống cà phê nữa."
+    },
+    {
+      "ko": "그런데",
+      "romaja": "geureonde",
+      "vi": "Nhưng mà / Mà này",
+      "pos": "adverb",
+      "img": "↩️",
+      "connect": "Vừa để chuyển ý ngược, vừa để đổi chủ đề giữa chừng.",
+      "ex": "그런데 지금 몇 시예요?",
+      "exVi": "Mà này, bây giờ mấy giờ rồi?"
+    },
+    {
+      "ko": "하지만",
+      "romaja": "hajiman",
+      "vi": "Tuy nhiên / Nhưng",
+      "pos": "adverb",
+      "img": "⚖️",
+      "connect": "Trang trọng hơn 그런데 — dùng khi viết hoặc nói nghiêm túc.",
+      "ex": "비쌌어요. 하지만 아주 좋았어요.",
+      "exVi": "Đắt thật. Nhưng rất đáng."
+    },
+    {
+      "ko": "그래서",
+      "romaja": "geuraeseo",
+      "vi": "Vì vậy / Nên",
+      "pos": "adverb",
+      "img": "➡️",
+      "connect": "Nối nguyên nhân đứng trước với kết quả đứng sau.",
+      "ex": "아팠어요. 그래서 학교에 못 갔어요.",
+      "exVi": "Tôi bị ốm. Nên đã không đi học được."
+    },
+    {
+      "ko": "그러면",
+      "romaja": "geureomyeon",
+      "vi": "Vậy thì (nói tắt: 그럼)",
+      "pos": "adverb",
+      "img": "🔁",
+      "connect": "\"Nếu vậy thì…\" — đưa ra đề nghị tiếp theo.",
+      "ex": "그러면 내일 만날까요?",
+      "exVi": "Vậy thì mai gặp nhau nhé?"
+    },
+    {
+      "ko": "왜냐하면",
+      "romaja": "waenyahamyeon",
+      "vi": "Bởi vì",
+      "pos": "adverb",
+      "img": "❓",
+      "connect": "Từ 왜 (tại sao) — mở đầu câu giải thích lý do.",
+      "ex": "안 갔어요. 왜냐하면 너무 피곤했어요.",
+      "exVi": "Tôi đã không đi. Bởi vì mệt quá."
+    },
+    {
+      "ko": "또",
+      "romaja": "tto",
+      "vi": "Lại / Nữa",
+      "pos": "adverb",
+      "img": "🔂",
+      "connect": "\"Ttô\" ngắn gọn — lặp lại lần nữa.",
+      "ex": "또 만나요!",
+      "exVi": "Hẹn gặp lại nhé!"
+    },
+    {
+      "ko": "그러니까",
+      "romaja": "geureonikka",
+      "vi": "Ý là / Cho nên",
+      "pos": "adverb",
+      "img": "💡",
+      "connect": "Dùng khi giải thích lại cho người nghe hiểu ra.",
+      "ex": "그러니까 지금 출발해야 해요.",
+      "exVi": "Cho nên bây giờ phải xuất phát rồi."
+    },
+    {
+      "ko": "아마",
+      "romaja": "ama",
+      "vi": "Có lẽ",
+      "pos": "adverb",
+      "img": "🤔",
+      "connect": "\"A-ma\" — chưa chắc, đoán chừng thế.",
+      "ex": "아마 내일 비가 올 거예요.",
+      "exVi": "Có lẽ mai trời sẽ mưa."
+    },
+    {
+      "ko": "만약",
+      "romaja": "manyak",
+      "vi": "Nếu như",
+      "pos": "adverb",
+      "img": "🎲",
+      "connect": "\"Man-yak\" chính là âm Hán \"vạn nhược\".",
+      "ex": "만약 시간이 있으면 같이 가요.",
+      "exVi": "Nếu như có thời gian thì cùng đi nhé."
+    },
+    {
+      "ko": "물론",
+      "romaja": "mullon",
+      "vi": "Tất nhiên rồi",
+      "pos": "adverb",
+      "img": "👍",
+      "connect": "\"Mul-lon\" chính là âm Hán \"vật luận\".",
+      "ex": "물론이죠!",
+      "exVi": "Tất nhiên rồi!"
+    },
+    {
+      "ko": "예를 들면",
+      "romaja": "yereul deulmyeon",
+      "vi": "Ví dụ như",
+      "pos": "phrase",
+      "img": "📝",
+      "connect": "\"Yê\" = ví dụ + 들다 = đưa ra → đưa ví dụ ra.",
+      "ex": "과일, 예를 들면 사과를 좋아해요.",
+      "exVi": "Tôi thích trái cây, ví dụ như táo."
+    }
   ]
 }

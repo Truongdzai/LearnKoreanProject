@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "😴",
   "words": [
-    { "en": "nap", "ipa": "/næp/", "vi": "giấc ngủ ngắn", "pos": "noun", "img": "💤", "connect": "\"Nép\" — chợp mắt buổi trưa.", "ex": "A short nap helps a lot.", "exVi": "Một giấc ngủ ngắn giúp ích nhiều lắm." },
-    { "en": "dream", "ipa": "/driːm/", "vi": "giấc mơ, ước mơ", "pos": "noun", "img": "🌈", "connect": "\"Đri-m\" — mơ khi ngủ / mơ ước.", "ex": "I had a strange dream last night.", "exVi": "Đêm qua tôi mơ một giấc mơ kỳ lạ." },
-    { "en": "nightmare", "ipa": "/ˈnaɪt.mer/", "vi": "ác mộng", "pos": "noun", "img": "👻", "connect": "night (đêm) + mare — giấc mơ đáng sợ.", "ex": "The child woke up from a nightmare.", "exVi": "Đứa bé tỉnh dậy vì gặp ác mộng." },
-    { "en": "snore", "ipa": "/snɔːr/", "vi": "ngáy", "pos": "verb", "img": "😪", "connect": "\"Sờ-no\" — ngáy khò khò.", "ex": "My dad snores loudly.", "exVi": "Bố tôi ngáy rất to." },
-    { "en": "pajamas", "ipa": "/pəˈdʒɑː.məz/", "vi": "đồ ngủ", "pos": "noun", "img": "🩳", "connect": "\"Pờ-gia-mờz\" — bộ pijama.", "ex": "Put on your pajamas.", "exVi": "Mặc đồ ngủ vào đi." },
-    { "en": "sleepy", "ipa": "/ˈsliː.pi/", "vi": "buồn ngủ", "pos": "adj", "img": "🥱", "connect": "sleep + y — díp cả mắt.", "ex": "I feel sleepy after lunch.", "exVi": "Ăn trưa xong tôi thấy buồn ngủ." },
-    { "en": "awake", "ipa": "/əˈweɪk/", "vi": "còn thức", "pos": "adj", "img": "👁️", "connect": "a + wake — chưa ngủ.", "ex": "The baby is still awake.", "exVi": "Em bé vẫn còn thức." },
-    { "en": "asleep", "ipa": "/əˈsliːp/", "vi": "đang ngủ", "pos": "adj", "img": "😴", "connect": "a + sleep — fall asleep: thiếp đi.", "ex": "He fell asleep on the sofa.", "exVi": "Anh ấy ngủ thiếp trên ghế sofa." },
-    { "en": "bedtime", "ipa": "/ˈbed.taɪm/", "vi": "giờ đi ngủ", "pos": "noun", "img": "🕘", "connect": "bed + time — đến giờ lên giường.", "ex": "It's past your bedtime!", "exVi": "Quá giờ đi ngủ của con rồi!" },
-    { "en": "oversleep", "ipa": "/ˌoʊ.vɚˈsliːp/", "vi": "ngủ quên", "pos": "verb", "img": "⏰", "connect": "over (quá) + sleep — ngủ nướng lố giờ.", "ex": "I overslept and missed the bus.", "exVi": "Tôi ngủ quên nên lỡ xe buýt." },
-    { "en": "lullaby", "ipa": "/ˈlʌl.ə.baɪ/", "vi": "bài hát ru", "pos": "noun", "img": "🎶", "connect": "\"Lă-lờ-bai\" — mẹ hát ru con.", "ex": "She sang a lullaby to the baby.", "exVi": "Cô ấy hát ru em bé." },
-    { "en": "doze", "ipa": "/doʊz/", "vi": "ngủ gà ngủ gật", "pos": "verb", "img": "😪", "connect": "\"Đâu-z\" — gật gù thiếp đi.", "ex": "Grandpa dozed in his chair.", "exVi": "Ông ngủ gật trên ghế." }
+    {
+      "en": "nap",
+      "ipa": "/næp/",
+      "vi": "giấc ngủ ngắn",
+      "pos": "noun",
+      "img": "💤",
+      "connect": "\"Nép\" — chợp mắt buổi trưa.",
+      "ex": "A short nap helps a lot.",
+      "exVi": "Một giấc ngủ ngắn giúp ích nhiều lắm."
+    },
+    {
+      "en": "dream",
+      "ipa": "/driːm/",
+      "vi": "giấc mơ, ước mơ",
+      "pos": "noun",
+      "img": "🌈",
+      "connect": "\"Đri-m\" — mơ khi ngủ / mơ ước.",
+      "ex": "I had a strange dream last night.",
+      "exVi": "Đêm qua tôi mơ một giấc mơ kỳ lạ."
+    },
+    {
+      "en": "nightmare",
+      "ipa": "/ˈnaɪt.mer/",
+      "vi": "ác mộng",
+      "pos": "noun",
+      "img": "👻",
+      "connect": "night (đêm) + mare — giấc mơ đáng sợ.",
+      "ex": "The child woke up from a nightmare.",
+      "exVi": "Đứa bé tỉnh dậy vì gặp ác mộng."
+    },
+    {
+      "en": "snore",
+      "ipa": "/snɔːr/",
+      "vi": "ngáy",
+      "pos": "verb",
+      "img": "😪",
+      "connect": "\"Sờ-no\" — ngáy khò khò.",
+      "ex": "My dad snores loudly.",
+      "exVi": "Bố tôi ngáy rất to."
+    },
+    {
+      "en": "pajamas",
+      "ipa": "/pəˈdʒɑː.məz/",
+      "vi": "đồ ngủ",
+      "pos": "noun",
+      "img": "🩳",
+      "connect": "\"Pờ-gia-mờz\" — bộ pijama.",
+      "ex": "Put on your pajamas.",
+      "exVi": "Mặc đồ ngủ vào đi."
+    },
+    {
+      "en": "sleepy",
+      "ipa": "/ˈsliː.pi/",
+      "vi": "buồn ngủ",
+      "pos": "adj",
+      "img": "🥱",
+      "connect": "sleep + y — díp cả mắt.",
+      "ex": "I feel sleepy after lunch.",
+      "exVi": "Ăn trưa xong tôi thấy buồn ngủ."
+    },
+    {
+      "en": "awake",
+      "ipa": "/əˈweɪk/",
+      "vi": "còn thức",
+      "pos": "adj",
+      "img": "👁️",
+      "connect": "a + wake — chưa ngủ.",
+      "ex": "The baby is still awake.",
+      "exVi": "Em bé vẫn còn thức."
+    },
+    {
+      "en": "asleep",
+      "ipa": "/əˈsliːp/",
+      "vi": "đang ngủ",
+      "pos": "adj",
+      "img": "😴",
+      "connect": "a + sleep — fall asleep: thiếp đi.",
+      "ex": "He fell asleep on the sofa.",
+      "exVi": "Anh ấy ngủ thiếp trên ghế sofa."
+    },
+    {
+      "en": "bedtime",
+      "ipa": "/ˈbed.taɪm/",
+      "vi": "giờ đi ngủ",
+      "pos": "noun",
+      "img": "🕘",
+      "connect": "bed + time — đến giờ lên giường.",
+      "ex": "It's past your bedtime!",
+      "exVi": "Quá giờ đi ngủ của con rồi!"
+    },
+    {
+      "en": "oversleep",
+      "ipa": "/ˌoʊ.vɚˈsliːp/",
+      "vi": "ngủ quên",
+      "pos": "verb",
+      "img": "⏰",
+      "connect": "over (quá) + sleep — ngủ nướng lố giờ.",
+      "ex": "I overslept and missed the bus.",
+      "exVi": "Tôi ngủ quên nên lỡ xe buýt."
+    },
+    {
+      "en": "lullaby",
+      "ipa": "/ˈlʌl.ə.baɪ/",
+      "vi": "bài hát ru",
+      "pos": "noun",
+      "img": "🎶",
+      "connect": "\"Lă-lờ-bai\" — mẹ hát ru con.",
+      "ex": "She sang a lullaby to the baby.",
+      "exVi": "Cô ấy hát ru em bé."
+    },
+    {
+      "en": "doze",
+      "ipa": "/doʊz/",
+      "vi": "ngủ gà ngủ gật",
+      "pos": "verb",
+      "img": "😪",
+      "connect": "\"Đâu-z\" — gật gù thiếp đi.",
+      "ex": "Grandpa dozed in his chair.",
+      "exVi": "Ông ngủ gật trên ghế."
+    }
   ]
 }

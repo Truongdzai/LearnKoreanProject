@@ -195,6 +195,7 @@ CREATE TABLE IF NOT EXISTS catalog_videos (
     topic    TEXT,
     tone     TEXT,
     lang     TEXT NOT NULL DEFAULT 'ko',
+    tags     TEXT NOT NULL DEFAULT '',
     sort     INTEGER NOT NULL DEFAULT 0,
     active   INTEGER NOT NULL DEFAULT 1,
     custom   INTEGER NOT NULL DEFAULT 0
@@ -322,6 +323,64 @@ CREATE TABLE IF NOT EXISTS duels (
 CREATE INDEX IF NOT EXISTS idx_duels_a ON duels(a_id, status);
 CREATE INDEX IF NOT EXISTS idx_duels_b ON duels(b_id, status);
 
+CREATE TABLE IF NOT EXISTS speak_rooms (
+    id         TEXT PRIMARY KEY,
+    name       TEXT NOT NULL,
+    topic      TEXT,
+    lang       TEXT NOT NULL DEFAULT 'ko',
+    level      TEXT NOT NULL DEFAULT 'beginner',
+    mode       TEXT NOT NULL DEFAULT 'public',
+    pass_hash  TEXT,
+    invite     TEXT NOT NULL,
+    host_id    TEXT NOT NULL,
+    max_size   INTEGER NOT NULL DEFAULT 5,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_speak_rooms_mode ON speak_rooms(mode, created_at DESC);
+
+CREATE TABLE IF NOT EXISTS speak_room_members (
+    room_id   TEXT NOT NULL,
+    user_id   TEXT NOT NULL,
+    joined_at TEXT DEFAULT (datetime('now','localtime')),
+    seen_at   TEXT DEFAULT (datetime('now','localtime')),
+    PRIMARY KEY (room_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_speak_members_user ON speak_room_members(user_id);
+
+CREATE TABLE IF NOT EXISTS speak_signals (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    room_id    TEXT NOT NULL,
+    from_id    TEXT NOT NULL,
+    to_id      TEXT NOT NULL,
+    kind       TEXT NOT NULL,
+    payload    TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_speak_signals_inbox ON speak_signals(room_id, to_id, id);
+
+CREATE TABLE IF NOT EXISTS speak_queue (
+    user_id   TEXT PRIMARY KEY,
+    lang      TEXT NOT NULL DEFAULT 'ko',
+    level     TEXT NOT NULL DEFAULT 'beginner',
+    topics    TEXT,
+    wide      INTEGER NOT NULL DEFAULT 0,
+    room_id   TEXT,
+    joined_at TEXT DEFAULT (datetime('now','localtime')),
+    seen_at   TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_speak_queue_pool ON speak_queue(lang, room_id, joined_at);
+
+CREATE TABLE IF NOT EXISTS speak_room_msgs (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    room_id    TEXT NOT NULL,
+    user_id    TEXT,
+    kind       TEXT NOT NULL DEFAULT 'text',
+    text       TEXT,
+    audio      TEXT,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_speak_msgs_room ON speak_room_msgs(room_id, id);
+
 CREATE TABLE IF NOT EXISTS admin_audit (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     admin_id   TEXT NOT NULL,
@@ -398,6 +457,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
     vcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_videos)").fetchall()}
     if "lang" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN lang TEXT NOT NULL DEFAULT 'ko'")
+    if "tags" not in vcols:
+        conn.execute("ALTER TABLE catalog_videos ADD COLUMN tags TEXT NOT NULL DEFAULT ''")
     if "custom" not in vcols:
         conn.execute("ALTER TABLE catalog_videos ADD COLUMN custom INTEGER NOT NULL DEFAULT 0")
     scols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_shop)").fetchall()}

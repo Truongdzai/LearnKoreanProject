@@ -6,17 +6,125 @@
   "tone": "tone-e",
   "emoji": "📞",
   "words": [
-    { "ko": "여보세요", "romaja": "yeoboseyo", "vi": "A lô", "pos": "phrase", "img": "☎️", "connect": "Chỉ dùng khi nghe điện thoại, không dùng khi gặp mặt.", "ex": "여보세요, 누구세요?", "exVi": "A lô, ai đấy ạ?" },
-    { "ko": "통화", "romaja": "tonghwa", "vi": "Cuộc gọi / Đàm thoại", "pos": "noun", "img": "📲", "connect": "\"Thông-hoa\" chính là âm Hán \"thông thoại\".", "ex": "지금 통화 괜찮으세요?", "exVi": "Bây giờ anh/chị nói chuyện tiện không ạ?" },
-    { "ko": "문자", "romaja": "munja", "vi": "Tin nhắn SMS", "pos": "noun", "img": "✉️", "connect": "\"Mun-cha\" chính là âm Hán \"văn tự\".", "ex": "문자로 보내 주세요.", "exVi": "Bạn nhắn tin cho tôi nhé." },
-    { "ko": "약속", "romaja": "yaksok", "vi": "Cuộc hẹn / Lời hứa", "pos": "noun", "img": "🤝", "connect": "\"Yak-sôk\" chính là âm Hán \"ước thúc\".", "ex": "오늘 저녁에 약속이 있어요.", "exVi": "Tối nay tôi có hẹn." },
-    { "ko": "늦다", "romaja": "neutda", "vi": "Muộn / Trễ", "pos": "adj", "img": "⏰", "connect": "\"Nứt\" — đến sau giờ đã hẹn.", "ex": "십 분 정도 늦을 것 같아요.", "exVi": "Chắc tôi muộn khoảng mười phút." },
-    { "ko": "취소하다", "romaja": "chwisohada", "vi": "Huỷ", "pos": "verb", "img": "❌", "connect": "\"Chuy-sô\" chính là âm Hán \"thủ tiêu\".", "ex": "예약을 취소하고 싶어요.", "exVi": "Tôi muốn huỷ đặt chỗ." },
-    { "ko": "확인하다", "romaja": "hwaginhada", "vi": "Xác nhận / Kiểm tra lại", "pos": "verb", "img": "✅", "connect": "\"Hoak-in\" chính là âm Hán \"xác nhận\".", "ex": "시간을 다시 확인해 주세요.", "exVi": "Bạn xác nhận lại giờ giúp tôi nhé." },
-    { "ko": "연락하다", "romaja": "yeollakhada", "vi": "Liên lạc", "pos": "verb", "img": "📡", "connect": "\"Yơl-lak\" chính là âm Hán \"liên lạc\".", "ex": "도착하면 연락할게요.", "exVi": "Tới nơi tôi sẽ liên lạc." },
-    { "ko": "바꾸다", "romaja": "bakkuda", "vi": "Đổi / Chuyển máy", "pos": "verb", "img": "🔄", "connect": "Trong điện thoại nghĩa là chuyển máy cho người khác.", "ex": "사장님 좀 바꿔 주세요.", "exVi": "Cho tôi gặp giám đốc với ạ." },
-    { "ko": "끊다", "romaja": "kkeunta", "vi": "Cúp máy / Ngắt", "pos": "verb", "img": "📵", "connect": "\"Kkưn\" — cắt đứt đường dây.", "ex": "그럼 이만 끊을게요.", "exVi": "Vậy tôi xin cúp máy đây ạ." },
-    { "ko": "잠깐만요", "romaja": "jamkkanmanyo", "vi": "Đợi một chút ạ", "pos": "phrase", "img": "✋", "connect": "잠깐 = một lát — câu cửa miệng khi cần dừng lại.", "ex": "잠깐만요, 확인해 볼게요.", "exVi": "Đợi một chút ạ, để tôi kiểm tra." },
-    { "ko": "다시 걸다", "romaja": "dasi geolda", "vi": "Gọi lại", "pos": "verb", "img": "🔁", "connect": "다시 = lại + 걸다 = bấm/gọi số.", "ex": "이따가 다시 걸게요.", "exVi": "Lát nữa tôi gọi lại nhé." }
+    {
+      "ko": "여보세요",
+      "romaja": "yeoboseyo",
+      "vi": "A lô",
+      "pos": "phrase",
+      "img": "☎️",
+      "connect": "Chỉ dùng khi nghe điện thoại, không dùng khi gặp mặt.",
+      "ex": "여보세요, 누구세요?",
+      "exVi": "A lô, ai đấy ạ?"
+    },
+    {
+      "ko": "통화",
+      "romaja": "tonghwa",
+      "vi": "Cuộc gọi / Đàm thoại",
+      "pos": "noun",
+      "img": "📲",
+      "connect": "\"Thông-hoa\" chính là âm Hán \"thông thoại\".",
+      "ex": "지금 통화 괜찮으세요?",
+      "exVi": "Bây giờ anh/chị nói chuyện tiện không ạ?"
+    },
+    {
+      "ko": "문자",
+      "romaja": "munja",
+      "vi": "Tin nhắn SMS",
+      "pos": "noun",
+      "img": "✉️",
+      "connect": "\"Mun-cha\" chính là âm Hán \"văn tự\".",
+      "ex": "문자로 보내 주세요.",
+      "exVi": "Bạn nhắn tin cho tôi nhé."
+    },
+    {
+      "ko": "약속",
+      "romaja": "yaksok",
+      "vi": "Cuộc hẹn / Lời hứa",
+      "pos": "noun",
+      "img": "🤝",
+      "connect": "\"Yak-sôk\" chính là âm Hán \"ước thúc\".",
+      "ex": "오늘 저녁에 약속이 있어요.",
+      "exVi": "Tối nay tôi có hẹn."
+    },
+    {
+      "ko": "늦다",
+      "romaja": "neutda",
+      "vi": "Muộn / Trễ",
+      "pos": "adj",
+      "img": "⏰",
+      "connect": "\"Nứt\" — đến sau giờ đã hẹn.",
+      "ex": "십 분 정도 늦을 것 같아요.",
+      "exVi": "Chắc tôi muộn khoảng mười phút."
+    },
+    {
+      "ko": "취소하다",
+      "romaja": "chwisohada",
+      "vi": "Huỷ",
+      "pos": "verb",
+      "img": "❌",
+      "connect": "\"Chuy-sô\" chính là âm Hán \"thủ tiêu\".",
+      "ex": "예약을 취소하고 싶어요.",
+      "exVi": "Tôi muốn huỷ đặt chỗ."
+    },
+    {
+      "ko": "확인하다",
+      "romaja": "hwaginhada",
+      "vi": "Xác nhận / Kiểm tra lại",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "\"Hoak-in\" chính là âm Hán \"xác nhận\".",
+      "ex": "시간을 다시 확인해 주세요.",
+      "exVi": "Bạn xác nhận lại giờ giúp tôi nhé."
+    },
+    {
+      "ko": "연락하다",
+      "romaja": "yeollakhada",
+      "vi": "Liên lạc",
+      "pos": "verb",
+      "img": "📡",
+      "connect": "\"Yơl-lak\" chính là âm Hán \"liên lạc\".",
+      "ex": "도착하면 연락할게요.",
+      "exVi": "Tới nơi tôi sẽ liên lạc."
+    },
+    {
+      "ko": "바꾸다",
+      "romaja": "bakkuda",
+      "vi": "Đổi / Chuyển máy",
+      "pos": "verb",
+      "img": "🔄",
+      "connect": "Trong điện thoại nghĩa là chuyển máy cho người khác.",
+      "ex": "사장님 좀 바꿔 주세요.",
+      "exVi": "Cho tôi gặp giám đốc với ạ."
+    },
+    {
+      "ko": "끊다",
+      "romaja": "kkeunta",
+      "vi": "Cúp máy / Ngắt",
+      "pos": "verb",
+      "img": "📵",
+      "connect": "\"Kkưn\" — cắt đứt đường dây.",
+      "ex": "그럼 이만 끊을게요.",
+      "exVi": "Vậy tôi xin cúp máy đây ạ."
+    },
+    {
+      "ko": "잠깐만요",
+      "romaja": "jamkkanmanyo",
+      "vi": "Đợi một chút ạ",
+      "pos": "phrase",
+      "img": "✋",
+      "connect": "잠깐 = một lát — câu cửa miệng khi cần dừng lại.",
+      "ex": "잠깐만요, 확인해 볼게요.",
+      "exVi": "Đợi một chút ạ, để tôi kiểm tra."
+    },
+    {
+      "ko": "다시 걸다",
+      "romaja": "dasi geolda",
+      "vi": "Gọi lại",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "다시 = lại + 걸다 = bấm/gọi số.",
+      "ex": "이따가 다시 걸게요.",
+      "exVi": "Lát nữa tôi gọi lại nhé."
+    }
   ]
 }

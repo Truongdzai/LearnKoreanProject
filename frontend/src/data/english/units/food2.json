@@ -6,25 +6,205 @@
   "tone": "tone-e",
   "emoji": "🍒",
   "words": [
-    { "en": "pear", "ipa": "/per/", "vi": "quả lê", "pos": "noun", "img": "🍐", "connect": "\"Pe-a\" — lê ngọt mát (đồng âm pair).", "ex": "Pears are juicy and sweet.", "exVi": "Lê mọng nước và ngọt." },
-    { "en": "peach", "ipa": "/piːtʃ/", "vi": "quả đào", "pos": "noun", "img": "🍑", "connect": "\"Pi-ch\" — đào hồng mềm.", "ex": "The peach is ripe.", "exVi": "Quả đào chín rồi." },
-    { "en": "plum", "ipa": "/plʌm/", "vi": "quả mận", "pos": "noun", "img": "🟣", "connect": "\"Plăm\" — mận tím mọng.", "ex": "Plums are a bit sour.", "exVi": "Mận hơi chua một chút." },
-    { "en": "cherry", "ipa": "/ˈtʃer.i/", "vi": "quả anh đào", "pos": "noun", "img": "🍒", "connect": "\"Che-ri\" — cherry đỏ mọng.", "ex": "She put a cherry on the cake.", "exVi": "Cô ấy đặt một quả anh đào lên bánh." },
-    { "en": "avocado", "ipa": "/ˌæv.əˈkɑː.doʊ/", "vi": "quả bơ", "pos": "noun", "img": "🥑", "connect": "\"E-vờ-ka-đâu\" — sinh tố bơ.", "ex": "Avocado smoothie is my favorite.", "exVi": "Sinh tố bơ là món tôi mê nhất." },
-    { "en": "papaya", "ipa": "/pəˈpaɪ.ə/", "vi": "đu đủ", "pos": "noun", "img": "🧡", "connect": "\"Pờ-pai-ờ\" — đu đủ chín vàng.", "ex": "Green papaya salad is tasty.", "exVi": "Gỏi đu đủ xanh rất ngon." },
-    { "en": "guava", "ipa": "/ˈɡwɑː.və/", "vi": "quả ổi", "pos": "noun", "img": "🍈", "connect": "\"Goa-vờ\" — ổi giòn chấm muối.", "ex": "Guava with chili salt is great.", "exVi": "Ổi chấm muối ớt tuyệt lắm." },
-    { "en": "durian", "ipa": "/ˈdʊr.i.ən/", "vi": "sầu riêng", "pos": "noun", "img": "🟢", "connect": "\"Đu-ri-ừn\" — vua trái cây nặng mùi.", "ex": "Durian smells strong but tastes rich.", "exVi": "Sầu riêng nặng mùi nhưng vị béo ngậy." },
-    { "en": "lychee", "ipa": "/ˈliː.tʃiː/", "vi": "quả vải", "pos": "noun", "img": "🔴", "connect": "\"Li-chi\" — vải thiều ngọt lịm.", "ex": "Lychees are sweet in summer.", "exVi": "Mùa hè vải ngọt lịm." },
-    { "en": "sausage", "ipa": "/ˈsɑː.sɪdʒ/", "vi": "xúc xích", "pos": "noun", "img": "🌭", "connect": "\"Só-sịj\" — xúc xích nướng.", "ex": "We grilled sausages at the picnic.", "exVi": "Chúng tôi nướng xúc xích khi dã ngoại." },
-    { "en": "ham", "ipa": "/hæm/", "vi": "giăm bông", "pos": "noun", "img": "🥓", "connect": "\"Hem\" — thịt nguội kẹp bánh mì.", "ex": "A ham and cheese sandwich, please.", "exVi": "Cho một bánh kẹp giăm bông phô mai." },
-    { "en": "bacon", "ipa": "/ˈbeɪ.kən/", "vi": "thịt xông khói", "pos": "noun", "img": "🥓", "connect": "\"Bê-cừn\" — lát thịt chiên giòn.", "ex": "I love bacon and eggs for breakfast.", "exVi": "Tôi mê bữa sáng trứng với thịt xông khói." },
-    { "en": "toast", "ipa": "/toʊst/", "vi": "bánh mì nướng", "pos": "noun", "img": "🍞", "connect": "\"Tâu-st\" — lát bánh nướng giòn (cũng là nâng ly).", "ex": "I had toast with butter.", "exVi": "Tôi ăn bánh mì nướng phết bơ." },
-    { "en": "cereal", "ipa": "/ˈsɪr.i.əl/", "vi": "ngũ cốc ăn sáng", "pos": "noun", "img": "🥣", "connect": "\"Si-ri-ồ\" — ngũ cốc trộn sữa.", "ex": "Kids love cereal with milk.", "exVi": "Trẻ con mê ngũ cốc trộn sữa." },
-    { "en": "pancake", "ipa": "/ˈpæn.keɪk/", "vi": "bánh kếp", "pos": "noun", "img": "🥞", "connect": "pan (chảo) + cake (bánh) — bánh áp chảo.", "ex": "Pancakes with honey are yummy.", "exVi": "Bánh kếp rưới mật ong ngon tuyệt." },
-    { "en": "sandwich", "ipa": "/ˈsæn.wɪtʃ/", "vi": "bánh mì kẹp", "pos": "noun", "img": "🥪", "connect": "\"Sen-wịch\" — hai lát bánh kẹp nhân.", "ex": "She made a tuna sandwich.", "exVi": "Cô ấy làm bánh kẹp cá ngừ." },
-    { "en": "burger", "ipa": "/ˈbɜːr.ɡɚ/", "vi": "bánh burger", "pos": "noun", "img": "🍔", "connect": "\"Bơ-gờ\" — hamburger gọi tắt.", "ex": "A burger and fries, please.", "exVi": "Cho một burger với khoai chiên." },
-    { "en": "pizza", "ipa": "/ˈpiːt.sə/", "vi": "bánh pizza", "pos": "noun", "img": "🍕", "connect": "\"Pít-sờ\" — bánh Ý phủ phô mai.", "ex": "Let's order pizza tonight.", "exVi": "Tối nay mình đặt pizza đi." },
-    { "en": "spaghetti", "ipa": "/spəˈɡet̬.i/", "vi": "mì Ý", "pos": "noun", "img": "🍝", "connect": "\"Sờ-pờ-ghe-ti\" — mì sợi sốt cà.", "ex": "Spaghetti with tomato sauce.", "exVi": "Mì Ý sốt cà chua." },
-    { "en": "seafood", "ipa": "/ˈsiː.fuːd/", "vi": "hải sản", "pos": "noun", "img": "🦞", "connect": "sea (biển) + food (đồ ăn).", "ex": "This restaurant serves fresh seafood.", "exVi": "Nhà hàng này phục vụ hải sản tươi." }
+    {
+      "en": "pear",
+      "ipa": "/per/",
+      "vi": "quả lê",
+      "pos": "noun",
+      "img": "🍐",
+      "connect": "\"Pe-a\" — lê ngọt mát (đồng âm pair).",
+      "ex": "Pears are juicy and sweet.",
+      "exVi": "Lê mọng nước và ngọt."
+    },
+    {
+      "en": "peach",
+      "ipa": "/piːtʃ/",
+      "vi": "quả đào",
+      "pos": "noun",
+      "img": "🍑",
+      "connect": "\"Pi-ch\" — đào hồng mềm.",
+      "ex": "The peach is ripe.",
+      "exVi": "Quả đào chín rồi."
+    },
+    {
+      "en": "plum",
+      "ipa": "/plʌm/",
+      "vi": "quả mận",
+      "pos": "noun",
+      "img": "🟣",
+      "connect": "\"Plăm\" — mận tím mọng.",
+      "ex": "Plums are a bit sour.",
+      "exVi": "Mận hơi chua một chút."
+    },
+    {
+      "en": "cherry",
+      "ipa": "/ˈtʃer.i/",
+      "vi": "quả anh đào",
+      "pos": "noun",
+      "img": "🍒",
+      "connect": "\"Che-ri\" — cherry đỏ mọng.",
+      "ex": "She put a cherry on the cake.",
+      "exVi": "Cô ấy đặt một quả anh đào lên bánh."
+    },
+    {
+      "en": "avocado",
+      "ipa": "/ˌæv.əˈkɑː.doʊ/",
+      "vi": "quả bơ",
+      "pos": "noun",
+      "img": "🥑",
+      "connect": "\"E-vờ-ka-đâu\" — sinh tố bơ.",
+      "ex": "Avocado smoothie is my favorite.",
+      "exVi": "Sinh tố bơ là món tôi mê nhất."
+    },
+    {
+      "en": "papaya",
+      "ipa": "/pəˈpaɪ.ə/",
+      "vi": "đu đủ",
+      "pos": "noun",
+      "img": "🧡",
+      "connect": "\"Pờ-pai-ờ\" — đu đủ chín vàng.",
+      "ex": "Green papaya salad is tasty.",
+      "exVi": "Gỏi đu đủ xanh rất ngon."
+    },
+    {
+      "en": "guava",
+      "ipa": "/ˈɡwɑː.və/",
+      "vi": "quả ổi",
+      "pos": "noun",
+      "img": "🍈",
+      "connect": "\"Goa-vờ\" — ổi giòn chấm muối.",
+      "ex": "Guava with chili salt is great.",
+      "exVi": "Ổi chấm muối ớt tuyệt lắm."
+    },
+    {
+      "en": "durian",
+      "ipa": "/ˈdʊr.i.ən/",
+      "vi": "sầu riêng",
+      "pos": "noun",
+      "img": "🟢",
+      "connect": "\"Đu-ri-ừn\" — vua trái cây nặng mùi.",
+      "ex": "Durian smells strong but tastes rich.",
+      "exVi": "Sầu riêng nặng mùi nhưng vị béo ngậy."
+    },
+    {
+      "en": "lychee",
+      "ipa": "/ˈliː.tʃiː/",
+      "vi": "quả vải",
+      "pos": "noun",
+      "img": "🔴",
+      "connect": "\"Li-chi\" — vải thiều ngọt lịm.",
+      "ex": "Lychees are sweet in summer.",
+      "exVi": "Mùa hè vải ngọt lịm."
+    },
+    {
+      "en": "sausage",
+      "ipa": "/ˈsɑː.sɪdʒ/",
+      "vi": "xúc xích",
+      "pos": "noun",
+      "img": "🌭",
+      "connect": "\"Só-sịj\" — xúc xích nướng.",
+      "ex": "We grilled sausages at the picnic.",
+      "exVi": "Chúng tôi nướng xúc xích khi dã ngoại."
+    },
+    {
+      "en": "ham",
+      "ipa": "/hæm/",
+      "vi": "giăm bông",
+      "pos": "noun",
+      "img": "🥓",
+      "connect": "\"Hem\" — thịt nguội kẹp bánh mì.",
+      "ex": "A ham and cheese sandwich, please.",
+      "exVi": "Cho một bánh kẹp giăm bông phô mai."
+    },
+    {
+      "en": "bacon",
+      "ipa": "/ˈbeɪ.kən/",
+      "vi": "thịt xông khói",
+      "pos": "noun",
+      "img": "🥓",
+      "connect": "\"Bê-cừn\" — lát thịt chiên giòn.",
+      "ex": "I love bacon and eggs for breakfast.",
+      "exVi": "Tôi mê bữa sáng trứng với thịt xông khói."
+    },
+    {
+      "en": "toast",
+      "ipa": "/toʊst/",
+      "vi": "bánh mì nướng",
+      "pos": "noun",
+      "img": "🍞",
+      "connect": "\"Tâu-st\" — lát bánh nướng giòn (cũng là nâng ly).",
+      "ex": "I had toast with butter.",
+      "exVi": "Tôi ăn bánh mì nướng phết bơ."
+    },
+    {
+      "en": "cereal",
+      "ipa": "/ˈsɪr.i.əl/",
+      "vi": "ngũ cốc ăn sáng",
+      "pos": "noun",
+      "img": "🥣",
+      "connect": "\"Si-ri-ồ\" — ngũ cốc trộn sữa.",
+      "ex": "Kids love cereal with milk.",
+      "exVi": "Trẻ con mê ngũ cốc trộn sữa."
+    },
+    {
+      "en": "pancake",
+      "ipa": "/ˈpæn.keɪk/",
+      "vi": "bánh kếp",
+      "pos": "noun",
+      "img": "🥞",
+      "connect": "pan (chảo) + cake (bánh) — bánh áp chảo.",
+      "ex": "Pancakes with honey are yummy.",
+      "exVi": "Bánh kếp rưới mật ong ngon tuyệt."
+    },
+    {
+      "en": "sandwich",
+      "ipa": "/ˈsæn.wɪtʃ/",
+      "vi": "bánh mì kẹp",
+      "pos": "noun",
+      "img": "🥪",
+      "connect": "\"Sen-wịch\" — hai lát bánh kẹp nhân.",
+      "ex": "She made a tuna sandwich.",
+      "exVi": "Cô ấy làm bánh kẹp cá ngừ."
+    },
+    {
+      "en": "burger",
+      "ipa": "/ˈbɜːr.ɡɚ/",
+      "vi": "bánh burger",
+      "pos": "noun",
+      "img": "🍔",
+      "connect": "\"Bơ-gờ\" — hamburger gọi tắt.",
+      "ex": "A burger and fries, please.",
+      "exVi": "Cho một burger với khoai chiên."
+    },
+    {
+      "en": "pizza",
+      "ipa": "/ˈpiːt.sə/",
+      "vi": "bánh pizza",
+      "pos": "noun",
+      "img": "🍕",
+      "connect": "\"Pít-sờ\" — bánh Ý phủ phô mai.",
+      "ex": "Let's order pizza tonight.",
+      "exVi": "Tối nay mình đặt pizza đi."
+    },
+    {
+      "en": "spaghetti",
+      "ipa": "/spəˈɡet̬.i/",
+      "vi": "mì Ý",
+      "pos": "noun",
+      "img": "🍝",
+      "connect": "\"Sờ-pờ-ghe-ti\" — mì sợi sốt cà.",
+      "ex": "Spaghetti with tomato sauce.",
+      "exVi": "Mì Ý sốt cà chua."
+    },
+    {
+      "en": "seafood",
+      "ipa": "/ˈsiː.fuːd/",
+      "vi": "hải sản",
+      "pos": "noun",
+      "img": "🦞",
+      "connect": "sea (biển) + food (đồ ăn).",
+      "ex": "This restaurant serves fresh seafood.",
+      "exVi": "Nhà hàng này phục vụ hải sản tươi."
+    }
   ]
 }

@@ -6,29 +6,245 @@
   "tone": "tone-e",
   "emoji": "🎨",
   "words": [
-    { "en": "red", "ipa": "/red/", "vi": "màu đỏ", "pos": "adj", "img": "🔴", "connect": "\"Rét\" — má đỏ vì trời rét.", "ex": "The apple is red.", "exVi": "Quả táo màu đỏ." },
-    { "en": "orange", "ipa": "/ˈɔːr.ɪndʒ/", "vi": "màu cam", "pos": "adj", "img": "🟠", "connect": "Cũng chính là quả cam.", "ex": "I like the orange shirt.", "exVi": "Tôi thích cái áo màu cam." },
-    { "en": "yellow", "ipa": "/ˈjel.oʊ/", "vi": "màu vàng", "pos": "adj", "img": "🟡", "connect": "\"Y-e-lâu\" — nắng vàng.", "ex": "The sun looks yellow.", "exVi": "Mặt trời trông vàng." },
-    { "en": "green", "ipa": "/ɡriːn/", "vi": "màu xanh lá", "pos": "adj", "img": "🟢", "connect": "\"Grin\" — cây xanh tươi.", "ex": "Grass is green.", "exVi": "Cỏ có màu xanh lá." },
-    { "en": "blue", "ipa": "/bluː/", "vi": "màu xanh dương", "pos": "adj", "img": "🔵", "connect": "\"Blu\" — bầu trời xanh.", "ex": "The sea is blue.", "exVi": "Biển màu xanh dương." },
-    { "en": "purple", "ipa": "/ˈpɜːr.pəl/", "vi": "màu tím", "pos": "adj", "img": "🟣", "connect": "\"Pơ-pồ\" — hoa cà tím.", "ex": "She wears a purple dress.", "exVi": "Cô ấy mặc váy tím." },
-    { "en": "pink", "ipa": "/pɪŋk/", "vi": "màu hồng", "pos": "adj", "img": "🌸", "connect": "\"Ping\" — má hồng.", "ex": "The flower is pink.", "exVi": "Bông hoa màu hồng." },
-    { "en": "brown", "ipa": "/braʊn/", "vi": "màu nâu", "pos": "adj", "img": "🟤", "connect": "\"Brao-n\" — bánh mì nâu (brown bread).", "ex": "Her hair is brown.", "exVi": "Tóc cô ấy màu nâu." },
-    { "en": "black", "ipa": "/blæk/", "vi": "màu đen", "pos": "adj", "img": "⚫", "connect": "\"Blách\" — mèo đen.", "ex": "I have a black bag.", "exVi": "Tôi có một cái túi đen." },
-    { "en": "white", "ipa": "/waɪt/", "vi": "màu trắng", "pos": "adj", "img": "⚪", "connect": "\"Wai-t\" — tuyết trắng.", "ex": "He wears a white shirt.", "exVi": "Anh ấy mặc áo trắng." },
-    { "en": "gray", "ipa": "/ɡreɪ/", "vi": "màu xám", "pos": "adj", "img": "🌫️", "connect": "\"Grây\" — trời xám xịt (Anh-Anh: grey).", "ex": "The sky is gray today.", "exVi": "Hôm nay trời xám." },
-    { "en": "gold", "ipa": "/ɡoʊld/", "vi": "màu vàng kim", "pos": "adj", "img": "🥇", "connect": "\"Gâu-ld\" — vàng bạc.", "ex": "She has a gold ring.", "exVi": "Cô ấy có nhẫn vàng." },
-    { "en": "silver", "ipa": "/ˈsɪl.vɚ/", "vi": "màu bạc", "pos": "adj", "img": "🥈", "connect": "\"Sil-vờ\" — huy chương bạc.", "ex": "A silver coin fell down.", "exVi": "Một đồng xu bạc rơi xuống." },
-    { "en": "color", "ipa": "/ˈkʌl.ɚ/", "vi": "màu sắc", "pos": "noun", "img": "🎨", "connect": "\"Ka-lơ\" — hộp màu (Anh-Anh: colour).", "ex": "What's your favorite color?", "exVi": "Màu bạn thích nhất là gì?" },
-    { "en": "dark", "ipa": "/dɑːrk/", "vi": "tối, đậm màu", "pos": "adj", "img": "🌑", "connect": "\"Đác\" — trời tối đen.", "ex": "The room is too dark.", "exVi": "Căn phòng quá tối." },
-    { "en": "light", "ipa": "/laɪt/", "vi": "nhạt màu, sáng", "pos": "adj", "img": "💡", "connect": "\"Lai-t\" — màu sáng, cũng là ánh sáng / đèn.", "ex": "I like light blue.", "exVi": "Tôi thích màu xanh nhạt." },
-    { "en": "bright", "ipa": "/braɪt/", "vi": "tươi sáng, chói", "pos": "adj", "img": "✨", "connect": "\"Brai-t\" — nắng chói.", "ex": "The colors are very bright.", "exVi": "Màu sắc rất tươi sáng." },
-    { "en": "round", "ipa": "/raʊnd/", "vi": "tròn", "pos": "adj", "img": "⭕", "connect": "\"Rao-nd\" — vòng tròn (a round).", "ex": "The plate is round.", "exVi": "Cái đĩa hình tròn." },
-    { "en": "square", "ipa": "/skwer/", "vi": "hình vuông", "pos": "noun", "img": "⬛", "connect": "\"Sờ-kwe\" — ô vuông.", "ex": "Draw a square.", "exVi": "Vẽ một hình vuông." },
-    { "en": "circle", "ipa": "/ˈsɜːr.kəl/", "vi": "hình tròn", "pos": "noun", "img": "🔵", "connect": "\"Sơ-kồ\" — gánh xiếc (circus) đi vòng tròn.", "ex": "The kids sit in a circle.", "exVi": "Bọn trẻ ngồi thành vòng tròn." },
-    { "en": "line", "ipa": "/laɪn/", "vi": "đường kẻ, hàng", "pos": "noun", "img": "📏", "connect": "\"Lai-n\" — xếp hàng thẳng (in line).", "ex": "Draw a straight line.", "exVi": "Kẻ một đường thẳng." },
-    { "en": "shape", "ipa": "/ʃeɪp/", "vi": "hình dạng", "pos": "noun", "img": "🔷", "connect": "\"Sê-p\" — dáng hình.", "ex": "What shape is it?", "exVi": "Nó có hình gì?" },
-    { "en": "spot", "ipa": "/spɑːt/", "vi": "đốm, chấm", "pos": "noun", "img": "🔴", "connect": "\"Sờ-pát\" — chú chó có đốm.", "ex": "The dog has black spots.", "exVi": "Con chó có những đốm đen." },
-    { "en": "stripe", "ipa": "/straɪp/", "vi": "sọc, vằn", "pos": "noun", "img": "🦓", "connect": "\"Sờ-trai-p\" — áo kẻ sọc.", "ex": "A shirt with blue stripes.", "exVi": "Chiếc áo kẻ sọc xanh." }
+    {
+      "en": "red",
+      "ipa": "/red/",
+      "vi": "màu đỏ",
+      "pos": "adj",
+      "img": "🔴",
+      "connect": "\"Rét\" — má đỏ vì trời rét.",
+      "ex": "The apple is red.",
+      "exVi": "Quả táo màu đỏ."
+    },
+    {
+      "en": "orange",
+      "ipa": "/ˈɔːr.ɪndʒ/",
+      "vi": "màu cam",
+      "pos": "adj",
+      "img": "🟠",
+      "connect": "Cũng chính là quả cam.",
+      "ex": "I like the orange shirt.",
+      "exVi": "Tôi thích cái áo màu cam."
+    },
+    {
+      "en": "yellow",
+      "ipa": "/ˈjel.oʊ/",
+      "vi": "màu vàng",
+      "pos": "adj",
+      "img": "🟡",
+      "connect": "\"Y-e-lâu\" — nắng vàng.",
+      "ex": "The sun looks yellow.",
+      "exVi": "Mặt trời trông vàng."
+    },
+    {
+      "en": "green",
+      "ipa": "/ɡriːn/",
+      "vi": "màu xanh lá",
+      "pos": "adj",
+      "img": "🟢",
+      "connect": "\"Grin\" — cây xanh tươi.",
+      "ex": "Grass is green.",
+      "exVi": "Cỏ có màu xanh lá."
+    },
+    {
+      "en": "blue",
+      "ipa": "/bluː/",
+      "vi": "màu xanh dương",
+      "pos": "adj",
+      "img": "🔵",
+      "connect": "\"Blu\" — bầu trời xanh.",
+      "ex": "The sea is blue.",
+      "exVi": "Biển màu xanh dương."
+    },
+    {
+      "en": "purple",
+      "ipa": "/ˈpɜːr.pəl/",
+      "vi": "màu tím",
+      "pos": "adj",
+      "img": "🟣",
+      "connect": "\"Pơ-pồ\" — hoa cà tím.",
+      "ex": "She wears a purple dress.",
+      "exVi": "Cô ấy mặc váy tím."
+    },
+    {
+      "en": "pink",
+      "ipa": "/pɪŋk/",
+      "vi": "màu hồng",
+      "pos": "adj",
+      "img": "🌸",
+      "connect": "\"Ping\" — má hồng.",
+      "ex": "The flower is pink.",
+      "exVi": "Bông hoa màu hồng."
+    },
+    {
+      "en": "brown",
+      "ipa": "/braʊn/",
+      "vi": "màu nâu",
+      "pos": "adj",
+      "img": "🟤",
+      "connect": "\"Brao-n\" — bánh mì nâu (brown bread).",
+      "ex": "Her hair is brown.",
+      "exVi": "Tóc cô ấy màu nâu."
+    },
+    {
+      "en": "black",
+      "ipa": "/blæk/",
+      "vi": "màu đen",
+      "pos": "adj",
+      "img": "⚫",
+      "connect": "\"Blách\" — mèo đen.",
+      "ex": "I have a black bag.",
+      "exVi": "Tôi có một cái túi đen."
+    },
+    {
+      "en": "white",
+      "ipa": "/waɪt/",
+      "vi": "màu trắng",
+      "pos": "adj",
+      "img": "⚪",
+      "connect": "\"Wai-t\" — tuyết trắng.",
+      "ex": "He wears a white shirt.",
+      "exVi": "Anh ấy mặc áo trắng."
+    },
+    {
+      "en": "gray",
+      "ipa": "/ɡreɪ/",
+      "vi": "màu xám",
+      "pos": "adj",
+      "img": "🌫️",
+      "connect": "\"Grây\" — trời xám xịt (Anh-Anh: grey).",
+      "ex": "The sky is gray today.",
+      "exVi": "Hôm nay trời xám."
+    },
+    {
+      "en": "gold",
+      "ipa": "/ɡoʊld/",
+      "vi": "màu vàng kim",
+      "pos": "adj",
+      "img": "🥇",
+      "connect": "\"Gâu-ld\" — vàng bạc.",
+      "ex": "She has a gold ring.",
+      "exVi": "Cô ấy có nhẫn vàng."
+    },
+    {
+      "en": "silver",
+      "ipa": "/ˈsɪl.vɚ/",
+      "vi": "màu bạc",
+      "pos": "adj",
+      "img": "🥈",
+      "connect": "\"Sil-vờ\" — huy chương bạc.",
+      "ex": "A silver coin fell down.",
+      "exVi": "Một đồng xu bạc rơi xuống."
+    },
+    {
+      "en": "color",
+      "ipa": "/ˈkʌl.ɚ/",
+      "vi": "màu sắc",
+      "pos": "noun",
+      "img": "🎨",
+      "connect": "\"Ka-lơ\" — hộp màu (Anh-Anh: colour).",
+      "ex": "What's your favorite color?",
+      "exVi": "Màu bạn thích nhất là gì?"
+    },
+    {
+      "en": "dark",
+      "ipa": "/dɑːrk/",
+      "vi": "tối, đậm màu",
+      "pos": "adj",
+      "img": "🌑",
+      "connect": "\"Đác\" — trời tối đen.",
+      "ex": "The room is too dark.",
+      "exVi": "Căn phòng quá tối."
+    },
+    {
+      "en": "light",
+      "ipa": "/laɪt/",
+      "vi": "nhạt màu, sáng",
+      "pos": "adj",
+      "img": "💡",
+      "connect": "\"Lai-t\" — màu sáng, cũng là ánh sáng / đèn.",
+      "ex": "I like light blue.",
+      "exVi": "Tôi thích màu xanh nhạt."
+    },
+    {
+      "en": "bright",
+      "ipa": "/braɪt/",
+      "vi": "tươi sáng, chói",
+      "pos": "adj",
+      "img": "✨",
+      "connect": "\"Brai-t\" — nắng chói.",
+      "ex": "The colors are very bright.",
+      "exVi": "Màu sắc rất tươi sáng."
+    },
+    {
+      "en": "round",
+      "ipa": "/raʊnd/",
+      "vi": "tròn",
+      "pos": "adj",
+      "img": "⭕",
+      "connect": "\"Rao-nd\" — vòng tròn (a round).",
+      "ex": "The plate is round.",
+      "exVi": "Cái đĩa hình tròn."
+    },
+    {
+      "en": "square",
+      "ipa": "/skwer/",
+      "vi": "hình vuông",
+      "pos": "noun",
+      "img": "⬛",
+      "connect": "\"Sờ-kwe\" — ô vuông.",
+      "ex": "Draw a square.",
+      "exVi": "Vẽ một hình vuông."
+    },
+    {
+      "en": "circle",
+      "ipa": "/ˈsɜːr.kəl/",
+      "vi": "hình tròn",
+      "pos": "noun",
+      "img": "🔵",
+      "connect": "\"Sơ-kồ\" — gánh xiếc (circus) đi vòng tròn.",
+      "ex": "The kids sit in a circle.",
+      "exVi": "Bọn trẻ ngồi thành vòng tròn."
+    },
+    {
+      "en": "line",
+      "ipa": "/laɪn/",
+      "vi": "đường kẻ, hàng",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "\"Lai-n\" — xếp hàng thẳng (in line).",
+      "ex": "Draw a straight line.",
+      "exVi": "Kẻ một đường thẳng."
+    },
+    {
+      "en": "shape",
+      "ipa": "/ʃeɪp/",
+      "vi": "hình dạng",
+      "pos": "noun",
+      "img": "🔷",
+      "connect": "\"Sê-p\" — dáng hình.",
+      "ex": "What shape is it?",
+      "exVi": "Nó có hình gì?"
+    },
+    {
+      "en": "spot",
+      "ipa": "/spɑːt/",
+      "vi": "đốm, chấm",
+      "pos": "noun",
+      "img": "🔴",
+      "connect": "\"Sờ-pát\" — chú chó có đốm.",
+      "ex": "The dog has black spots.",
+      "exVi": "Con chó có những đốm đen."
+    },
+    {
+      "en": "stripe",
+      "ipa": "/straɪp/",
+      "vi": "sọc, vằn",
+      "pos": "noun",
+      "img": "🦓",
+      "connect": "\"Sờ-trai-p\" — áo kẻ sọc.",
+      "ex": "A shirt with blue stripes.",
+      "exVi": "Chiếc áo kẻ sọc xanh."
+    }
   ]
 }

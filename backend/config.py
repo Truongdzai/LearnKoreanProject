@@ -18,6 +18,12 @@ DEFAULTS: dict = {
     "smtp": {"host": "", "port": 587, "user": "", "password": "", "sender": "", "sender_name": "VyLing"},
     "email": {"daily_reminder": True, "reminder_hour": 20},
     "admin": {"email": "admin@vyling.vn", "password": "", "name": "Quản trị viên"},
+    "webrtc": {
+        "stun_urls": ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"],
+        "turn_url": "",
+        "turn_user": "",
+        "turn_password": "",
+    },
     "oauth": {
         "google_client_id": "",
         "google_client_secret": "",

@@ -6,31 +6,265 @@
   "tone": "tone-b",
   "emoji": "🌍",
   "words": [
-    { "en": "environment", "ipa": "/ɪnˈvaɪ.rən.mənt/", "vi": "môi trường", "pos": "noun", "img": "🌱", "connect": "\"In-vai-rừn-mừn\" — thiên nhiên quanh ta.", "ex": "We must protect the environment.", "exVi": "Chúng ta phải bảo vệ môi trường." },
-    { "en": "pollution", "ipa": "/pəˈluː.ʃən/", "vi": "ô nhiễm", "pos": "noun", "img": "🏭", "connect": "\"Pờ-lu-sừn\" — không khí bẩn.", "ex": "Air pollution is getting worse.", "exVi": "Ô nhiễm không khí ngày càng tệ." },
-    { "en": "recycle", "ipa": "/ˌriːˈsaɪ.kəl/", "vi": "tái chế", "pos": "verb", "img": "♻️", "connect": "re (lại) + cycle (vòng) — quay vòng dùng lại.", "ex": "Please recycle plastic bottles.", "exVi": "Hãy tái chế chai nhựa." },
-    { "en": "trash", "ipa": "/træʃ/", "vi": "rác", "pos": "noun", "img": "🗑️", "connect": "\"Tré-sh\" — đồ bỏ đi.", "ex": "Put the trash in the bin.", "exVi": "Bỏ rác vào thùng." },
-    { "en": "garbage", "ipa": "/ˈɡɑːr.bɪdʒ/", "vi": "rác thải", "pos": "noun", "img": "🚮", "connect": "\"Gác-bịj\" — rác (như trash).", "ex": "The garbage truck comes on Mondays.", "exVi": "Xe rác đến vào thứ Hai." },
-    { "en": "waste", "ipa": "/weɪst/", "vi": "lãng phí; chất thải", "pos": "noun", "img": "🚱", "connect": "\"Wê-st\" — phí phạm.", "ex": "Don't waste water.", "exVi": "Đừng lãng phí nước." },
-    { "en": "solar", "ipa": "/ˈsoʊ.lɚ/", "vi": "thuộc mặt trời", "pos": "adj", "img": "☀️", "connect": "\"Sâu-lờ\" — điện mặt trời (solar power).", "ex": "The house uses solar energy.", "exVi": "Ngôi nhà dùng năng lượng mặt trời." },
-    { "en": "fuel", "ipa": "/ˈfjuː.əl/", "vi": "nhiên liệu", "pos": "noun", "img": "⛽", "connect": "\"Phiu-ồ\" — xăng dầu, chất đốt.", "ex": "The car is low on fuel.", "exVi": "Xe sắp hết nhiên liệu." },
-    { "en": "smoke", "ipa": "/smoʊk/", "vi": "khói", "pos": "noun", "img": "💨", "connect": "\"Sờ-mâu-k\" — khói bay lên.", "ex": "Smoke rose from the factory.", "exVi": "Khói bốc lên từ nhà máy." },
-    { "en": "protect", "ipa": "/prəˈtekt/", "vi": "bảo vệ", "pos": "verb", "img": "🛡️", "connect": "\"Prờ-tếct\" — che chở, giữ gìn.", "ex": "Protect the forest from fire.", "exVi": "Bảo vệ khu rừng khỏi hoả hoạn." },
-    { "en": "nature", "ipa": "/ˈneɪ.tʃɚ/", "vi": "thiên nhiên", "pos": "noun", "img": "🏞️", "connect": "\"Nê-chờ\" — mẹ thiên nhiên.", "ex": "I love walking in nature.", "exVi": "Tôi thích đi dạo giữa thiên nhiên." },
-    { "en": "earth", "ipa": "/ɜːrθ/", "vi": "Trái Đất, đất", "pos": "noun", "img": "🌏", "connect": "\"Ơ-th\" — hành tinh xanh.", "ex": "The Earth goes around the Sun.", "exVi": "Trái Đất quay quanh Mặt Trời." },
-    { "en": "global", "ipa": "/ˈɡloʊ.bəl/", "vi": "toàn cầu", "pos": "adj", "img": "🌐", "connect": "globe (quả địa cầu) → global.", "ex": "Global warming is a big problem.", "exVi": "Nóng lên toàn cầu là vấn đề lớn." },
-    { "en": "litter", "ipa": "/ˈlɪt̬.ɚ/", "vi": "xả rác; rác vứt bừa", "pos": "verb", "img": "🚯", "connect": "\"Lí-tờ\" — vứt rác bừa bãi.", "ex": "Don't litter in the park.", "exVi": "Đừng xả rác trong công viên." },
-    { "en": "bin", "ipa": "/bɪn/", "vi": "thùng rác", "pos": "noun", "img": "🗑️", "connect": "\"Bin\" — thùng đựng rác.", "ex": "Throw it in the bin.", "exVi": "Vứt nó vào thùng rác." },
-    { "en": "resource", "ipa": "/ˈriː.sɔːrs/", "vi": "tài nguyên", "pos": "noun", "img": "⛏️", "connect": "\"Ri-so-s\" — nguồn của cải tự nhiên.", "ex": "Water is a precious resource.", "exVi": "Nước là tài nguyên quý giá." },
-    { "en": "disaster", "ipa": "/dɪˈzæs.tɚ/", "vi": "thảm hoạ", "pos": "noun", "img": "🌪️", "connect": "\"Đi-zát-tờ\" — tai hoạ lớn.", "ex": "The flood was a terrible disaster.", "exVi": "Trận lũ là một thảm hoạ khủng khiếp." },
-    { "en": "earthquake", "ipa": "/ˈɜːrθ.kweɪk/", "vi": "động đất", "pos": "noun", "img": "🫨", "connect": "earth (đất) + quake (rung) — đất rung.", "ex": "The earthquake shook the city.", "exVi": "Trận động đất làm rung chuyển thành phố." },
-    { "en": "volcano", "ipa": "/vɑːlˈkeɪ.noʊ/", "vi": "núi lửa", "pos": "noun", "img": "🌋", "connect": "\"Vol-kê-nâu\" — núi phun lửa.", "ex": "The volcano erupted last year.", "exVi": "Ngọn núi lửa phun trào năm ngoái." },
-    { "en": "drought", "ipa": "/draʊt/", "vi": "hạn hán", "pos": "noun", "img": "🏜️", "connect": "\"Đrao-t\" — khô hạn kéo dài.", "ex": "The drought killed the crops.", "exVi": "Hạn hán làm chết mùa màng." },
-    { "en": "desert", "ipa": "/ˈdez.ɚt/", "vi": "sa mạc", "pos": "noun", "img": "🐪", "connect": "\"Đe-zợt\" — vùng cát khô (khác dessert món tráng miệng).", "ex": "Camels live in the desert.", "exVi": "Lạc đà sống ở sa mạc." },
-    { "en": "jungle", "ipa": "/ˈdʒʌŋ.ɡəl/", "vi": "rừng rậm", "pos": "noun", "img": "🌴", "connect": "\"Giăng-gồ\" — rừng nhiệt đới rậm rạp.", "ex": "Tigers live in the jungle.", "exVi": "Hổ sống trong rừng rậm." },
-    { "en": "cave", "ipa": "/keɪv/", "vi": "hang động", "pos": "noun", "img": "🕳️", "connect": "\"Kê-v\" — hang sâu trong núi.", "ex": "Bats live in the cave.", "exVi": "Dơi sống trong hang." },
-    { "en": "wildlife", "ipa": "/ˈwaɪld.laɪf/", "vi": "động vật hoang dã", "pos": "noun", "img": "🦁", "connect": "wild (hoang dã) + life (sự sống).", "ex": "The park protects wildlife.", "exVi": "Công viên bảo vệ động vật hoang dã." },
-    { "en": "damage", "ipa": "/ˈdæm.ɪdʒ/", "vi": "thiệt hại, làm hỏng", "pos": "noun", "img": "💥", "connect": "\"Đe-mịj\" — hư hại.", "ex": "The storm caused great damage.", "exVi": "Cơn bão gây thiệt hại lớn." },
-    { "en": "rescue", "ipa": "/ˈres.kjuː/", "vi": "cứu hộ, giải cứu", "pos": "verb", "img": "🚁", "connect": "\"Rét-kiu\" — đội cứu hộ.", "ex": "They rescued people from the flood.", "exVi": "Họ cứu người dân khỏi trận lũ." }
+    {
+      "en": "environment",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "vi": "môi trường",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "\"In-vai-rừn-mừn\" — thiên nhiên quanh ta.",
+      "ex": "We must protect the environment.",
+      "exVi": "Chúng ta phải bảo vệ môi trường."
+    },
+    {
+      "en": "pollution",
+      "ipa": "/pəˈluː.ʃən/",
+      "vi": "ô nhiễm",
+      "pos": "noun",
+      "img": "🏭",
+      "connect": "\"Pờ-lu-sừn\" — không khí bẩn.",
+      "ex": "Air pollution is getting worse.",
+      "exVi": "Ô nhiễm không khí ngày càng tệ."
+    },
+    {
+      "en": "recycle",
+      "ipa": "/ˌriːˈsaɪ.kəl/",
+      "vi": "tái chế",
+      "pos": "verb",
+      "img": "♻️",
+      "connect": "re (lại) + cycle (vòng) — quay vòng dùng lại.",
+      "ex": "Please recycle plastic bottles.",
+      "exVi": "Hãy tái chế chai nhựa."
+    },
+    {
+      "en": "trash",
+      "ipa": "/træʃ/",
+      "vi": "rác",
+      "pos": "noun",
+      "img": "🗑️",
+      "connect": "\"Tré-sh\" — đồ bỏ đi.",
+      "ex": "Put the trash in the bin.",
+      "exVi": "Bỏ rác vào thùng."
+    },
+    {
+      "en": "garbage",
+      "ipa": "/ˈɡɑːr.bɪdʒ/",
+      "vi": "rác thải",
+      "pos": "noun",
+      "img": "🚮",
+      "connect": "\"Gác-bịj\" — rác (như trash).",
+      "ex": "The garbage truck comes on Mondays.",
+      "exVi": "Xe rác đến vào thứ Hai."
+    },
+    {
+      "en": "waste",
+      "ipa": "/weɪst/",
+      "vi": "lãng phí; chất thải",
+      "pos": "noun",
+      "img": "🚱",
+      "connect": "\"Wê-st\" — phí phạm.",
+      "ex": "Don't waste water.",
+      "exVi": "Đừng lãng phí nước."
+    },
+    {
+      "en": "solar",
+      "ipa": "/ˈsoʊ.lɚ/",
+      "vi": "thuộc mặt trời",
+      "pos": "adj",
+      "img": "☀️",
+      "connect": "\"Sâu-lờ\" — điện mặt trời (solar power).",
+      "ex": "The house uses solar energy.",
+      "exVi": "Ngôi nhà dùng năng lượng mặt trời."
+    },
+    {
+      "en": "fuel",
+      "ipa": "/ˈfjuː.əl/",
+      "vi": "nhiên liệu",
+      "pos": "noun",
+      "img": "⛽",
+      "connect": "\"Phiu-ồ\" — xăng dầu, chất đốt.",
+      "ex": "The car is low on fuel.",
+      "exVi": "Xe sắp hết nhiên liệu."
+    },
+    {
+      "en": "smoke",
+      "ipa": "/smoʊk/",
+      "vi": "khói",
+      "pos": "noun",
+      "img": "💨",
+      "connect": "\"Sờ-mâu-k\" — khói bay lên.",
+      "ex": "Smoke rose from the factory.",
+      "exVi": "Khói bốc lên từ nhà máy."
+    },
+    {
+      "en": "protect",
+      "ipa": "/prəˈtekt/",
+      "vi": "bảo vệ",
+      "pos": "verb",
+      "img": "🛡️",
+      "connect": "\"Prờ-tếct\" — che chở, giữ gìn.",
+      "ex": "Protect the forest from fire.",
+      "exVi": "Bảo vệ khu rừng khỏi hoả hoạn."
+    },
+    {
+      "en": "nature",
+      "ipa": "/ˈneɪ.tʃɚ/",
+      "vi": "thiên nhiên",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "\"Nê-chờ\" — mẹ thiên nhiên.",
+      "ex": "I love walking in nature.",
+      "exVi": "Tôi thích đi dạo giữa thiên nhiên."
+    },
+    {
+      "en": "earth",
+      "ipa": "/ɜːrθ/",
+      "vi": "Trái Đất, đất",
+      "pos": "noun",
+      "img": "🌏",
+      "connect": "\"Ơ-th\" — hành tinh xanh.",
+      "ex": "The Earth goes around the Sun.",
+      "exVi": "Trái Đất quay quanh Mặt Trời."
+    },
+    {
+      "en": "global",
+      "ipa": "/ˈɡloʊ.bəl/",
+      "vi": "toàn cầu",
+      "pos": "adj",
+      "img": "🌐",
+      "connect": "globe (quả địa cầu) → global.",
+      "ex": "Global warming is a big problem.",
+      "exVi": "Nóng lên toàn cầu là vấn đề lớn."
+    },
+    {
+      "en": "litter",
+      "ipa": "/ˈlɪt̬.ɚ/",
+      "vi": "xả rác; rác vứt bừa",
+      "pos": "verb",
+      "img": "🚯",
+      "connect": "\"Lí-tờ\" — vứt rác bừa bãi.",
+      "ex": "Don't litter in the park.",
+      "exVi": "Đừng xả rác trong công viên."
+    },
+    {
+      "en": "bin",
+      "ipa": "/bɪn/",
+      "vi": "thùng rác",
+      "pos": "noun",
+      "img": "🗑️",
+      "connect": "\"Bin\" — thùng đựng rác.",
+      "ex": "Throw it in the bin.",
+      "exVi": "Vứt nó vào thùng rác."
+    },
+    {
+      "en": "resource",
+      "ipa": "/ˈriː.sɔːrs/",
+      "vi": "tài nguyên",
+      "pos": "noun",
+      "img": "⛏️",
+      "connect": "\"Ri-so-s\" — nguồn của cải tự nhiên.",
+      "ex": "Water is a precious resource.",
+      "exVi": "Nước là tài nguyên quý giá."
+    },
+    {
+      "en": "disaster",
+      "ipa": "/dɪˈzæs.tɚ/",
+      "vi": "thảm hoạ",
+      "pos": "noun",
+      "img": "🌪️",
+      "connect": "\"Đi-zát-tờ\" — tai hoạ lớn.",
+      "ex": "The flood was a terrible disaster.",
+      "exVi": "Trận lũ là một thảm hoạ khủng khiếp."
+    },
+    {
+      "en": "earthquake",
+      "ipa": "/ˈɜːrθ.kweɪk/",
+      "vi": "động đất",
+      "pos": "noun",
+      "img": "🫨",
+      "connect": "earth (đất) + quake (rung) — đất rung.",
+      "ex": "The earthquake shook the city.",
+      "exVi": "Trận động đất làm rung chuyển thành phố."
+    },
+    {
+      "en": "volcano",
+      "ipa": "/vɑːlˈkeɪ.noʊ/",
+      "vi": "núi lửa",
+      "pos": "noun",
+      "img": "🌋",
+      "connect": "\"Vol-kê-nâu\" — núi phun lửa.",
+      "ex": "The volcano erupted last year.",
+      "exVi": "Ngọn núi lửa phun trào năm ngoái."
+    },
+    {
+      "en": "drought",
+      "ipa": "/draʊt/",
+      "vi": "hạn hán",
+      "pos": "noun",
+      "img": "🏜️",
+      "connect": "\"Đrao-t\" — khô hạn kéo dài.",
+      "ex": "The drought killed the crops.",
+      "exVi": "Hạn hán làm chết mùa màng."
+    },
+    {
+      "en": "desert",
+      "ipa": "/ˈdez.ɚt/",
+      "vi": "sa mạc",
+      "pos": "noun",
+      "img": "🐪",
+      "connect": "\"Đe-zợt\" — vùng cát khô (khác dessert món tráng miệng).",
+      "ex": "Camels live in the desert.",
+      "exVi": "Lạc đà sống ở sa mạc."
+    },
+    {
+      "en": "jungle",
+      "ipa": "/ˈdʒʌŋ.ɡəl/",
+      "vi": "rừng rậm",
+      "pos": "noun",
+      "img": "🌴",
+      "connect": "\"Giăng-gồ\" — rừng nhiệt đới rậm rạp.",
+      "ex": "Tigers live in the jungle.",
+      "exVi": "Hổ sống trong rừng rậm."
+    },
+    {
+      "en": "cave",
+      "ipa": "/keɪv/",
+      "vi": "hang động",
+      "pos": "noun",
+      "img": "🕳️",
+      "connect": "\"Kê-v\" — hang sâu trong núi.",
+      "ex": "Bats live in the cave.",
+      "exVi": "Dơi sống trong hang."
+    },
+    {
+      "en": "wildlife",
+      "ipa": "/ˈwaɪld.laɪf/",
+      "vi": "động vật hoang dã",
+      "pos": "noun",
+      "img": "🦁",
+      "connect": "wild (hoang dã) + life (sự sống).",
+      "ex": "The park protects wildlife.",
+      "exVi": "Công viên bảo vệ động vật hoang dã."
+    },
+    {
+      "en": "damage",
+      "ipa": "/ˈdæm.ɪdʒ/",
+      "vi": "thiệt hại, làm hỏng",
+      "pos": "noun",
+      "img": "💥",
+      "connect": "\"Đe-mịj\" — hư hại.",
+      "ex": "The storm caused great damage.",
+      "exVi": "Cơn bão gây thiệt hại lớn."
+    },
+    {
+      "en": "rescue",
+      "ipa": "/ˈres.kjuː/",
+      "vi": "cứu hộ, giải cứu",
+      "pos": "verb",
+      "img": "🚁",
+      "connect": "\"Rét-kiu\" — đội cứu hộ.",
+      "ex": "They rescued people from the flood.",
+      "exVi": "Họ cứu người dân khỏi trận lũ."
+    }
   ]
 }

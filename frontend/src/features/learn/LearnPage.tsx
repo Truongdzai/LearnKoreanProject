@@ -17,7 +17,7 @@ import type { LearnTab } from '@/core/constants/enum'
 import { useTabs } from '@/core/a11y'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
-  { id: 'shadowing', ic: 'film', label: 'Shadowing' },
+  { id: 'shadowing', ic: 'film', label: 'learn.tab.watch' },
   { id: 'phatam', ic: 'mic', label: 'learn.tab.speak' },
   { id: 'chepchinhta', ic: 'headphones', label: 'learn.tab.dictation' },
   { id: 'dienkhuyet', ic: 'target', label: 'learn.tab.cloze' },
@@ -43,6 +43,10 @@ export default function LearnPage() {
       yt.load(lesson.id)
     }
   }, [lesson])
+
+  useEffect(() => {
+    if (lesson && tab === 'shadowing') yt.load(lesson.id)
+  }, [tab, lesson])
 
   const askLevel = async () => {
     if (!lesson || levelBusy || level) return

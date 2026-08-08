@@ -1,21 +1,22 @@
 import type { NavItem } from '@/types'
 
-export const VIDEO_LANGS = ['ko', 'en', 'ja', 'zh', 'de', 'vi']
+export const VIDEO_LANGS = ['ko', 'en', 'ja', 'zh']
 
 const PATH_LANGS = VIDEO_LANGS.filter((l) => l !== 'en')
 
 export const NAV: NavItem[] = [
   { id: 'home', icon: 'home', label: 'Trang chủ' },
-  { id: 'library', icon: 'film', label: 'Kho video', langs: VIDEO_LANGS },
+  { id: 'library', icon: 'film', label: 'Shadowing', langs: VIDEO_LANGS },
   { id: 'myvideos', icon: 'tv', label: 'Video của tôi', langs: VIDEO_LANGS },
   { id: 'path', icon: 'map', label: 'Lộ trình', langs: PATH_LANGS },
   { id: 'speaking', icon: 'mic', label: 'Luyện nói', langs: VIDEO_LANGS },
   { id: 'tutor', icon: 'bulb', label: 'Gia sư AI', langs: VIDEO_LANGS },
-  { id: 'english', icon: 'globe', label: 'Tiếng Anh 3 tháng', langs: ['en'] },
+  { id: 'english', icon: 'globe', label: 'Tiếng Anh giao tiếp', langs: ['en'] },
   { id: 'toeic', icon: 'book', label: 'Luyện thi TOEIC', langs: ['en'] },
   { id: 'korean', icon: 'globe', label: 'Tiếng Hàn 3 tháng', langs: ['ko'] },
   { id: 'topik', icon: 'book', label: 'Luyện thi TOPIK', langs: ['ko'] },
   { id: 'chinese', icon: 'globe', label: 'Tiếng Trung 3 tháng', langs: ['zh'] },
+  { id: 'hsk', icon: 'book', label: 'Luyện thi HSK', langs: ['zh'] },
   { id: 'lingo', icon: 'trending', label: 'Hot Lingo', langs: ['ko'] },
   { id: 'vocab', icon: 'cards', label: 'Từ vựng' },
   { id: 'flashcards', icon: 'letters', label: 'Ôn tập' },

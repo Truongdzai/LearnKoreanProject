@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "👋",
   "words": [
-    { "zh": "你好", "pinyin": "nǐ hǎo", "vi": "Xin chào", "pos": "phrase", "img": "👋", "connect": "你 = nễ (bạn) + 好 = hảo (tốt) → \"bạn tốt\", chào nhau bằng lời chúc tốt lành.", "ex": "你好！我叫小明。", "exVi": "Xin chào! Tôi tên là Tiểu Minh." },
-    { "zh": "您好", "pinyin": "nín hǎo", "vi": "Xin chào (lịch sự)", "pos": "phrase", "img": "🙇", "connect": "您 là 你 có thêm 心 (tâm) ở dưới — chào bằng cả tấm lòng, dùng với người trên.", "ex": "老师，您好！", "exVi": "Thưa thầy, em chào thầy ạ!" },
-    { "zh": "谢谢", "pinyin": "xiè xiè", "vi": "Cảm ơn", "pos": "phrase", "img": "🙏", "connect": "谢 = tạ, đúng chữ \"cảm tạ\" trong tiếng Việt.", "ex": "谢谢你的帮助。", "exVi": "Cảm ơn sự giúp đỡ của bạn." },
-    { "zh": "不客气", "pinyin": "bú kè qì", "vi": "Không có gì", "pos": "phrase", "img": "😊", "connect": "不 = bất + 客气 = khách khí → \"đừng khách sáo\".", "ex": "不客气，这是我应该做的。", "exVi": "Không có gì, đây là việc tôi nên làm." },
-    { "zh": "对不起", "pinyin": "duì bu qǐ", "vi": "Xin lỗi", "pos": "phrase", "img": "😔", "connect": "对 = đối (đối diện) + 不起 = không nổi → có lỗi nên không dám nhìn thẳng mặt người ta.", "ex": "对不起，我来晚了。", "exVi": "Xin lỗi, tôi đến muộn rồi." },
-    { "zh": "没关系", "pinyin": "méi guān xi", "vi": "Không sao đâu", "pos": "phrase", "img": "👌", "connect": "没 = một (không có) + 关系 = quan hệ → \"chẳng liên quan gì\", tức là không sao.", "ex": "没关系，我也刚到。", "exVi": "Không sao, tôi cũng vừa mới đến." },
-    { "zh": "再见", "pinyin": "zài jiàn", "vi": "Tạm biệt", "pos": "phrase", "img": "👋", "connect": "再 = tái (lần nữa) + 见 = kiến (gặp) → \"tái kiến\", hẹn gặp lại.", "ex": "老师再见！", "exVi": "Em chào thầy ạ (tạm biệt thầy)!" },
-    { "zh": "请", "pinyin": "qǐng", "vi": "Mời, xin mời", "pos": "verb", "img": "🤲", "connect": "请 = thỉnh, như \"thỉnh cầu\" — đặt trước câu là thành lời mời lịch sự.", "ex": "请坐。", "exVi": "Mời ngồi." },
-    { "zh": "是", "pinyin": "shì", "vi": "Là, đúng vậy", "pos": "verb", "img": "✅", "connect": "是 = thị, như \"thị phi\" (đúng sai) — nghĩa gốc là \"đúng\".", "ex": "我是越南人。", "exVi": "Tôi là người Việt Nam." },
-    { "zh": "不", "pinyin": "bù", "vi": "Không", "pos": "adverb", "img": "🚫", "connect": "不 = bất, đúng chữ \"bất\" trong bất tiện, bất ngờ.", "ex": "我不喝咖啡。", "exVi": "Tôi không uống cà phê." },
-    { "zh": "叫", "pinyin": "jiào", "vi": "Tên là, gọi là", "pos": "verb", "img": "📛", "connect": "Chữ có bộ 口 (khẩu = miệng) — dùng miệng gọi tên.", "ex": "你叫什么名字？", "exVi": "Bạn tên là gì?" },
-    { "zh": "名字", "pinyin": "míng zi", "vi": "Tên", "pos": "noun", "img": "🏷️", "connect": "名 = danh + 字 = tự → \"danh tự\", cái tên gọi.", "ex": "他的名字很好听。", "exVi": "Tên của anh ấy nghe rất hay." }
+    {
+      "zh": "你好",
+      "pinyin": "nǐ hǎo",
+      "vi": "Xin chào",
+      "pos": "phrase",
+      "img": "👋",
+      "connect": "你 = nễ (bạn) + 好 = hảo (tốt) → \"bạn tốt\", chào nhau bằng lời chúc tốt lành.",
+      "ex": "你好！我叫小明。",
+      "exVi": "Xin chào! Tôi tên là Tiểu Minh."
+    },
+    {
+      "zh": "您好",
+      "pinyin": "nín hǎo",
+      "vi": "Xin chào (lịch sự)",
+      "pos": "phrase",
+      "img": "🙇",
+      "connect": "您 là 你 có thêm 心 (tâm) ở dưới — chào bằng cả tấm lòng, dùng với người trên.",
+      "ex": "老师，您好！",
+      "exVi": "Thưa thầy, em chào thầy ạ!"
+    },
+    {
+      "zh": "谢谢",
+      "pinyin": "xiè xiè",
+      "vi": "Cảm ơn",
+      "pos": "phrase",
+      "img": "🙏",
+      "connect": "谢 = tạ, đúng chữ \"cảm tạ\" trong tiếng Việt.",
+      "ex": "谢谢你的帮助。",
+      "exVi": "Cảm ơn sự giúp đỡ của bạn."
+    },
+    {
+      "zh": "不客气",
+      "pinyin": "bú kè qì",
+      "vi": "Không có gì",
+      "pos": "phrase",
+      "img": "😊",
+      "connect": "不 = bất + 客气 = khách khí → \"đừng khách sáo\".",
+      "ex": "不客气，这是我应该做的。",
+      "exVi": "Không có gì, đây là việc tôi nên làm."
+    },
+    {
+      "zh": "对不起",
+      "pinyin": "duì bu qǐ",
+      "vi": "Xin lỗi",
+      "pos": "phrase",
+      "img": "😔",
+      "connect": "对 = đối (đối diện) + 不起 = không nổi → có lỗi nên không dám nhìn thẳng mặt người ta.",
+      "ex": "对不起，我来晚了。",
+      "exVi": "Xin lỗi, tôi đến muộn rồi."
+    },
+    {
+      "zh": "没关系",
+      "pinyin": "méi guān xi",
+      "vi": "Không sao đâu",
+      "pos": "phrase",
+      "img": "👌",
+      "connect": "没 = một (không có) + 关系 = quan hệ → \"chẳng liên quan gì\", tức là không sao.",
+      "ex": "没关系，我也刚到。",
+      "exVi": "Không sao, tôi cũng vừa mới đến."
+    },
+    {
+      "zh": "再见",
+      "pinyin": "zài jiàn",
+      "vi": "Tạm biệt",
+      "pos": "phrase",
+      "img": "👋",
+      "connect": "再 = tái (lần nữa) + 见 = kiến (gặp) → \"tái kiến\", hẹn gặp lại.",
+      "ex": "老师再见！",
+      "exVi": "Em chào thầy ạ (tạm biệt thầy)!"
+    },
+    {
+      "zh": "请",
+      "pinyin": "qǐng",
+      "vi": "Mời, xin mời",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "请 = thỉnh, như \"thỉnh cầu\" — đặt trước câu là thành lời mời lịch sự.",
+      "ex": "请坐。",
+      "exVi": "Mời ngồi."
+    },
+    {
+      "zh": "是",
+      "pinyin": "shì",
+      "vi": "Là, đúng vậy",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "是 = thị, như \"thị phi\" (đúng sai) — nghĩa gốc là \"đúng\".",
+      "ex": "我是越南人。",
+      "exVi": "Tôi là người Việt Nam."
+    },
+    {
+      "zh": "不",
+      "pinyin": "bù",
+      "vi": "Không",
+      "pos": "adverb",
+      "img": "🚫",
+      "connect": "不 = bất, đúng chữ \"bất\" trong bất tiện, bất ngờ.",
+      "ex": "我不喝咖啡。",
+      "exVi": "Tôi không uống cà phê."
+    },
+    {
+      "zh": "叫",
+      "pinyin": "jiào",
+      "vi": "Tên là, gọi là",
+      "pos": "verb",
+      "img": "📛",
+      "connect": "Chữ có bộ 口 (khẩu = miệng) — dùng miệng gọi tên.",
+      "ex": "你叫什么名字？",
+      "exVi": "Bạn tên là gì?"
+    },
+    {
+      "zh": "名字",
+      "pinyin": "míng zi",
+      "vi": "Tên",
+      "pos": "noun",
+      "img": "🏷️",
+      "connect": "名 = danh + 字 = tự → \"danh tự\", cái tên gọi.",
+      "ex": "他的名字很好听。",
+      "exVi": "Tên của anh ấy nghe rất hay."
+    }
   ]
 }

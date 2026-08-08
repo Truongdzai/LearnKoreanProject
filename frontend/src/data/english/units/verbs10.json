@@ -1,0 +1,290 @@
+{
+  "id": "verbs10",
+  "name": "Động từ tần suất cao (1)",
+  "sub": "Hear, keep, let, reach, visit, enjoy…",
+  "pos": "verb",
+  "tone": "tone-c",
+  "emoji": "⚡",
+  "words": [
+    {
+      "en": "hear",
+      "ipa": "/hɪr/",
+      "vi": "nghe thấy",
+      "pos": "verb",
+      "img": "👂",
+      "connect": "Hear là nghe thấy tự nhiên, listen là chủ động lắng nghe.",
+      "ex": "I can hear the rain outside.",
+      "exVi": "Tôi nghe thấy tiếng mưa bên ngoài."
+    },
+    {
+      "en": "keep",
+      "ipa": "/kiːp/",
+      "vi": "giữ, tiếp tục",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "Keep + V-ing = cứ tiếp tục làm gì đó.",
+      "ex": "Keep trying and you will succeed.",
+      "exVi": "Cứ cố gắng rồi bạn sẽ thành công."
+    },
+    {
+      "en": "let",
+      "ipa": "/let/",
+      "vi": "để cho, cho phép",
+      "pos": "verb",
+      "img": "🙌",
+      "connect": "Let me = để tôi… — cụm mở lời cực hay dùng.",
+      "ex": "Let me help you with that.",
+      "exVi": "Để tôi giúp bạn việc đó."
+    },
+    {
+      "en": "set",
+      "ipa": "/set/",
+      "vi": "đặt, thiết lập",
+      "pos": "verb",
+      "img": "⚙️",
+      "connect": "Set an alarm: đặt báo thức. Quá khứ cũng là set.",
+      "ex": "I set an alarm for six o'clock.",
+      "exVi": "Tôi đặt báo thức lúc sáu giờ."
+    },
+    {
+      "en": "die",
+      "ipa": "/daɪ/",
+      "vi": "chết, qua đời",
+      "pos": "verb",
+      "img": "🕯️",
+      "connect": "V-ing đặc biệt: dying, không phải dieing.",
+      "ex": "The plant will die without water.",
+      "exVi": "Cái cây sẽ chết nếu không có nước."
+    },
+    {
+      "en": "reach",
+      "ipa": "/riːtʃ/",
+      "vi": "với tới, đạt tới",
+      "pos": "verb",
+      "img": "🫳",
+      "connect": "\"Rít-ch\" — reach a goal: đạt được mục tiêu.",
+      "ex": "I can't reach the top shelf.",
+      "exVi": "Tôi không với tới ngăn trên cùng."
+    },
+    {
+      "en": "pass",
+      "ipa": "/pæs/",
+      "vi": "đi qua, đưa, đỗ (kỳ thi)",
+      "pos": "verb",
+      "img": "➡️",
+      "connect": "Pass the exam: đỗ kỳ thi. Pass me the salt: đưa tôi lọ muối.",
+      "ex": "She passed the driving test.",
+      "exVi": "Cô ấy đã đỗ kỳ thi lái xe."
+    },
+    {
+      "en": "hit",
+      "ipa": "/hɪt/",
+      "vi": "đánh, va vào",
+      "pos": "verb",
+      "img": "🥊",
+      "connect": "Ba thì đều là hit — hit, hit, hit.",
+      "ex": "The ball hit the window.",
+      "exVi": "Quả bóng va vào cửa sổ."
+    },
+    {
+      "en": "travel",
+      "ipa": "/ˈtræv.əl/",
+      "vi": "đi lại, du lịch",
+      "pos": "verb",
+      "img": "✈️",
+      "connect": "\"Trá-vồ\" — travel là đi xa nói chung, trip là chuyến đi cụ thể.",
+      "ex": "I travel to Da Nang every summer.",
+      "exVi": "Hè nào tôi cũng đi Đà Nẵng."
+    },
+    {
+      "en": "visit",
+      "ipa": "/ˈvɪz.ɪt/",
+      "vi": "thăm, ghé thăm",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "\"Vi-zịt\" — visit grandma: về thăm bà.",
+      "ex": "We visit my grandparents every Sunday.",
+      "exVi": "Chủ nhật nào chúng tôi cũng về thăm ông bà."
+    },
+    {
+      "en": "enjoy",
+      "ipa": "/ɪnˈdʒɔɪ/",
+      "vi": "thích, tận hưởng",
+      "pos": "verb",
+      "img": "😌",
+      "connect": "Sau enjoy luôn là V-ing: enjoy reading.",
+      "ex": "I really enjoy cooking at home.",
+      "exVi": "Tôi rất thích nấu ăn ở nhà."
+    },
+    {
+      "en": "hate",
+      "ipa": "/heɪt/",
+      "vi": "ghét",
+      "pos": "verb",
+      "img": "😤",
+      "connect": "Trái nghĩa với love — mạnh hơn dislike.",
+      "ex": "I hate waiting in long lines.",
+      "exVi": "Tôi ghét phải xếp hàng dài."
+    },
+    {
+      "en": "touch",
+      "ipa": "/tʌtʃ/",
+      "vi": "chạm, sờ",
+      "pos": "verb",
+      "img": "👆",
+      "connect": "\"Tắt-ch\" — màn hình touch screen.",
+      "ex": "Please do not touch the paintings.",
+      "exVi": "Xin đừng chạm vào các bức tranh."
+    },
+    {
+      "en": "deal",
+      "ipa": "/diːl/",
+      "vi": "giải quyết, thoả thuận",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "Deal with = xử lý, đối phó với việc gì.",
+      "ex": "I will deal with this problem tomorrow.",
+      "exVi": "Mai tôi sẽ xử lý vấn đề này."
+    },
+    {
+      "en": "treat",
+      "ipa": "/triːt/",
+      "vi": "đối xử, điều trị",
+      "pos": "verb",
+      "img": "💊",
+      "connect": "Treat someone well: đối xử tốt với ai đó.",
+      "ex": "The doctor treated my injury.",
+      "exVi": "Bác sĩ đã điều trị vết thương cho tôi."
+    },
+    {
+      "en": "raise",
+      "ipa": "/reɪz/",
+      "vi": "nâng lên, nuôi dạy",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "Raise your hand: giơ tay lên.",
+      "ex": "Please raise your hand if you have a question.",
+      "exVi": "Hãy giơ tay nếu bạn có câu hỏi."
+    },
+    {
+      "en": "kill",
+      "ipa": "/kɪl/",
+      "vi": "giết",
+      "pos": "verb",
+      "img": "⚔️",
+      "connect": "\"Kiu\" — kill time: giết thời gian.",
+      "ex": "Frost can kill young plants.",
+      "exVi": "Sương giá có thể làm chết cây non."
+    },
+    {
+      "en": "happen",
+      "ipa": "/ˈhæp.ən/",
+      "vi": "xảy ra",
+      "pos": "verb",
+      "img": "💥",
+      "connect": "Không dùng bị động: \"it happened\", không phải \"it was happened\".",
+      "ex": "What happened to your phone?",
+      "exVi": "Điện thoại của bạn bị làm sao vậy?"
+    },
+    {
+      "en": "seek",
+      "ipa": "/siːk/",
+      "vi": "tìm kiếm",
+      "pos": "verb",
+      "img": "🔎",
+      "connect": "Trang trọng hơn look for — quá khứ là sought.",
+      "ex": "Many people seek help online.",
+      "exVi": "Nhiều người tìm kiếm sự trợ giúp trên mạng."
+    },
+    {
+      "en": "prove",
+      "ipa": "/pruːv/",
+      "vi": "chứng minh",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "\"Prúv\" — cùng gốc với proof (bằng chứng).",
+      "ex": "Can you prove that you were at home?",
+      "exVi": "Bạn có chứng minh được lúc đó bạn ở nhà không?"
+    },
+    {
+      "en": "relax",
+      "ipa": "/rɪˈlæks/",
+      "vi": "thư giãn",
+      "pos": "verb",
+      "img": "🛀",
+      "connect": "\"Ri-lếch-s\" — nghỉ ngơi cho thoải mái.",
+      "ex": "I relax by listening to music.",
+      "exVi": "Tôi thư giãn bằng cách nghe nhạc."
+    },
+    {
+      "en": "surprise",
+      "ipa": "/sɚˈpraɪz/",
+      "vi": "làm ngạc nhiên",
+      "pos": "verb",
+      "img": "🎉",
+      "connect": "Trọng âm rơi vào âm sau: sur-PRISE.",
+      "ex": "Her answer surprised everyone.",
+      "exVi": "Câu trả lời của cô ấy làm mọi người ngạc nhiên."
+    },
+    {
+      "en": "separate",
+      "ipa": "/ˈsep.ə.reɪt/",
+      "vi": "tách ra, chia ra",
+      "pos": "verb",
+      "img": "✂️",
+      "connect": "Nhớ \"se-pa-rate\" có chữ a ở giữa — hay viết sai.",
+      "ex": "Separate the eggs from the flour.",
+      "exVi": "Tách trứng ra khỏi bột."
+    },
+    {
+      "en": "settle",
+      "ipa": "/ˈset̬.əl/",
+      "vi": "ổn định, giải quyết",
+      "pos": "verb",
+      "img": "🏘️",
+      "connect": "Settle down: ổn định cuộc sống.",
+      "ex": "They settled in Ha Noi last year.",
+      "exVi": "Họ đã định cư ở Hà Nội từ năm ngoái."
+    },
+    {
+      "en": "sort",
+      "ipa": "/sɔːrt/",
+      "vi": "phân loại, sắp xếp",
+      "pos": "verb",
+      "img": "🗂️",
+      "connect": "Sort out: giải quyết cho gọn gàng.",
+      "ex": "Please sort these files by date.",
+      "exVi": "Hãy sắp xếp các tệp này theo ngày."
+    },
+    {
+      "en": "spell",
+      "ipa": "/spel/",
+      "vi": "đánh vần",
+      "pos": "verb",
+      "img": "🔡",
+      "connect": "How do you spell it? — câu hỏi cực hay dùng.",
+      "ex": "How do you spell your last name?",
+      "exVi": "Họ của bạn đánh vần thế nào?"
+    },
+    {
+      "en": "slip",
+      "ipa": "/slɪp/",
+      "vi": "trượt chân, tuột",
+      "pos": "verb",
+      "img": "🧊",
+      "connect": "\"Sờ-líp\" — trượt trên sàn ướt.",
+      "ex": "Be careful, you might slip on the wet floor.",
+      "exVi": "Cẩn thận, bạn có thể trượt chân trên sàn ướt."
+    },
+    {
+      "en": "type",
+      "ipa": "/taɪp/",
+      "vi": "gõ phím, đánh máy",
+      "pos": "verb",
+      "img": "⌨️",
+      "connect": "Cũng là danh từ: type = kiểu, loại.",
+      "ex": "She can type very quickly.",
+      "exVi": "Cô ấy đánh máy rất nhanh."
+    }
+  ]
+}

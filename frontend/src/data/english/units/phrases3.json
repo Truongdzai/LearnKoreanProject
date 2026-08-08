@@ -6,29 +6,245 @@
   "tone": "tone-b",
   "emoji": "💬",
   "words": [
-    { "en": "what a pity", "ipa": "/wʌt ə ˈpɪt̬.i/", "vi": "tiếc thật đấy", "pos": "phrase", "img": "😔", "connect": "pity (đáng tiếc) — nghe tin buồn thì thốt lên.", "ex": "You can't come? What a pity!", "exVi": "Bạn không đến được à? Tiếc thật đấy!" },
-    { "en": "no wonder", "ipa": "/noʊ ˈwʌn.dɚ/", "vi": "thảo nào, hèn gì", "pos": "phrase", "img": "💡", "connect": "\"không có gì lạ\" — à ra thế, hèn gì!", "ex": "He didn't sleep — no wonder he's tired.", "exVi": "Anh ấy không ngủ — thảo nào mệt." },
-    { "en": "so what", "ipa": "/soʊ wʌt/", "vi": "thì sao nào", "pos": "phrase", "img": "🤷", "connect": "\"vậy thì sao\" — chuyện đó chẳng quan trọng.", "ex": "I failed once. So what? I'll try again.", "exVi": "Tôi trượt một lần. Thì sao nào? Tôi sẽ thử lại." },
-    { "en": "who knows", "ipa": "/huː noʊz/", "vi": "ai mà biết được", "pos": "phrase", "img": "🔮", "connect": "\"ai biết\" — tương lai khó đoán.", "ex": "Maybe I'll be rich someday — who knows!", "exVi": "Biết đâu một ngày tôi giàu — ai mà biết được!" },
-    { "en": "why not", "ipa": "/waɪ nɑːt/", "vi": "sao lại không, chơi luôn", "pos": "phrase", "img": "👍", "connect": "\"tại sao không\" — đồng ý ngay không nghĩ ngợi.", "ex": "Want to try Korean food? — Why not!", "exVi": "Thử món Hàn không? — Sao lại không!" },
-    { "en": "guess what", "ipa": "/ɡes wʌt/", "vi": "đoán xem có chuyện gì này", "pos": "phrase", "img": "🎁", "connect": "\"đoán xem\" — mở đầu khi sắp kể tin hot.", "ex": "Guess what! I passed the exam!", "exVi": "Đoán xem! Tớ đỗ kỳ thi rồi!" },
-    { "en": "you never know", "ipa": "/juː ˈnev.ɚ noʊ/", "vi": "biết đâu đấy", "pos": "phrase", "img": "🍀", "connect": "\"bạn chẳng bao giờ biết\" — cứ thử, biết đâu may.", "ex": "Buy a ticket — you never know!", "exVi": "Mua vé đi — biết đâu đấy!" },
-    { "en": "it doesn't matter", "ipa": "/ɪt ˈdʌz.ənt ˈmæt̬.ɚ/", "vi": "không sao đâu, không quan trọng", "pos": "phrase", "img": "🆗", "connect": "matter (quan trọng) — chuyện nhỏ, bỏ qua.", "ex": "Red or blue? It doesn't matter.", "exVi": "Đỏ hay xanh? Không quan trọng đâu." },
-    { "en": "don't mention it", "ipa": "/doʊnt ˈmen.ʃən ɪt/", "vi": "có gì đâu (đáp lời cảm ơn)", "pos": "phrase", "img": "😊", "connect": "\"đừng nhắc đến\" — chuyện nhỏ, khỏi cảm ơn.", "ex": "Thanks a lot! — Don't mention it.", "exVi": "Cảm ơn nhiều nhé! — Có gì đâu." },
-    { "en": "believe it or not", "ipa": "/bɪˈliːv ɪt ɔːr nɑːt/", "vi": "tin hay không thì tuỳ", "pos": "phrase", "img": "😲", "connect": "\"tin hay không\" — mở đầu chuyện khó tin.", "ex": "Believe it or not, I won the lottery.", "exVi": "Tin hay không thì tuỳ, tôi trúng số đấy." },
-    { "en": "as far as I know", "ipa": "/əz fɑːr əz aɪ noʊ/", "vi": "theo như tôi biết", "pos": "phrase", "img": "🧐", "connect": "\"xa nhất mà tôi biết\" — trong hiểu biết của tôi.", "ex": "As far as I know, the shop opens at nine.", "exVi": "Theo tôi biết thì cửa hàng mở lúc 9 giờ." },
-    { "en": "if I were you", "ipa": "/ɪf aɪ wɝː juː/", "vi": "nếu tôi là bạn", "pos": "phrase", "img": "🪞", "connect": "câu mở đầu khi khuyên — nếu ở vị trí bạn.", "ex": "If I were you, I would apologize.", "exVi": "Nếu tôi là bạn, tôi sẽ xin lỗi." },
-    { "en": "to be fair", "ipa": "/tə biː fer/", "vi": "công bằng mà nói", "pos": "phrase", "img": "⚖️", "connect": "fair (công bằng) — nói đỡ cho phía bên kia.", "ex": "To be fair, he did try his best.", "exVi": "Công bằng mà nói, anh ấy đã cố hết sức." },
-    { "en": "in my opinion", "ipa": "/ɪn maɪ əˈpɪn.jən/", "vi": "theo ý kiến của tôi", "pos": "phrase", "img": "🗣️", "connect": "opinion (ý kiến) — mở đầu khi nêu quan điểm.", "ex": "In my opinion, this movie is better.", "exVi": "Theo tôi, phim này hay hơn." },
-    { "en": "on second thought", "ipa": "/ɑːn ˈsek.ənd θɑːt/", "vi": "nghĩ lại thì", "pos": "phrase", "img": "🔄", "connect": "\"suy nghĩ lần hai\" — đổi ý sau khi nghĩ kỹ.", "ex": "On second thought, let's stay home.", "exVi": "Nghĩ lại thì mình ở nhà đi." },
-    { "en": "by all means", "ipa": "/baɪ ɑːl miːnz/", "vi": "cứ tự nhiên, dĩ nhiên rồi", "pos": "phrase", "img": "🙌", "connect": "\"bằng mọi cách\" — đồng ý nhiệt tình.", "ex": "May I borrow this book? — By all means!", "exVi": "Tôi mượn cuốn sách nhé? — Cứ tự nhiên!" },
-    { "en": "as soon as possible", "ipa": "/əz suːn əz ˈpɑː.sə.bəl/", "vi": "càng sớm càng tốt", "pos": "phrase", "img": "⚡", "connect": "viết tắt ASAP — gấp lắm rồi.", "ex": "Please reply as soon as possible.", "exVi": "Vui lòng trả lời càng sớm càng tốt." },
-    { "en": "at the end of the day", "ipa": "/æt ði end əv ðə deɪ/", "vi": "suy cho cùng", "pos": "phrase", "img": "🌇", "connect": "\"cuối ngày\" — chốt lại điều quan trọng nhất.", "ex": "At the end of the day, health matters most.", "exVi": "Suy cho cùng, sức khoẻ là quan trọng nhất." },
-    { "en": "for a while", "ipa": "/fɔːr ə waɪl/", "vi": "trong một lúc", "pos": "phrase", "img": "⏲️", "connect": "while (khoảng thời gian) — một chốc một lát.", "ex": "Let's rest for a while.", "exVi": "Mình nghỉ một lúc đi." },
-    { "en": "kind of", "ipa": "/kaɪnd əv/", "vi": "hơi hơi, kiểu như", "pos": "phrase", "img": "🤏", "connect": "nói giảm — \"kind of tired\" là hơi mệt.", "ex": "I'm kind of hungry now.", "exVi": "Giờ tôi hơi đói rồi." },
-    { "en": "sort of", "ipa": "/sɔːrt əv/", "vi": "đại loại là, hơi", "pos": "phrase", "img": "🌫️", "connect": "giống kind of — trả lời lưng chừng.", "ex": "Do you like it? — Sort of.", "exVi": "Bạn thích không? — Đại loại là có." },
-    { "en": "no big deal", "ipa": "/noʊ bɪɡ diːl/", "vi": "chuyện nhỏ mà", "pos": "phrase", "img": "🤙", "connect": "\"không phải vụ lớn\" — đừng bận tâm.", "ex": "I broke a cup — no big deal.", "exVi": "Tôi làm vỡ cái cốc — chuyện nhỏ mà." },
-    { "en": "it's a long story", "ipa": "/ɪts ə lɑːŋ ˈstɔːr.i/", "vi": "chuyện dài lắm", "pos": "phrase", "img": "📚", "connect": "\"câu chuyện dài\" — lười kể chi tiết.", "ex": "Why were you late? — It's a long story.", "exVi": "Sao bạn muộn thế? — Chuyện dài lắm." },
-    { "en": "that's life", "ipa": "/ðæts laɪf/", "vi": "đời là thế mà", "pos": "phrase", "img": "🍂", "connect": "\"đời là vậy\" — chấp nhận chuyện không may.", "ex": "We lost the game, but that's life.", "exVi": "Thua trận rồi, nhưng đời là thế mà." }
+    {
+      "en": "what a pity",
+      "ipa": "/wʌt ə ˈpɪt̬.i/",
+      "vi": "tiếc thật đấy",
+      "pos": "phrase",
+      "img": "😔",
+      "connect": "pity (đáng tiếc) — nghe tin buồn thì thốt lên.",
+      "ex": "You can't come? What a pity!",
+      "exVi": "Bạn không đến được à? Tiếc thật đấy!"
+    },
+    {
+      "en": "no wonder",
+      "ipa": "/noʊ ˈwʌn.dɚ/",
+      "vi": "thảo nào, hèn gì",
+      "pos": "phrase",
+      "img": "💡",
+      "connect": "\"không có gì lạ\" — à ra thế, hèn gì!",
+      "ex": "He didn't sleep — no wonder he's tired.",
+      "exVi": "Anh ấy không ngủ — thảo nào mệt."
+    },
+    {
+      "en": "so what",
+      "ipa": "/soʊ wʌt/",
+      "vi": "thì sao nào",
+      "pos": "phrase",
+      "img": "🤷",
+      "connect": "\"vậy thì sao\" — chuyện đó chẳng quan trọng.",
+      "ex": "I failed once. So what? I'll try again.",
+      "exVi": "Tôi trượt một lần. Thì sao nào? Tôi sẽ thử lại."
+    },
+    {
+      "en": "who knows",
+      "ipa": "/huː noʊz/",
+      "vi": "ai mà biết được",
+      "pos": "phrase",
+      "img": "🔮",
+      "connect": "\"ai biết\" — tương lai khó đoán.",
+      "ex": "Maybe I'll be rich someday — who knows!",
+      "exVi": "Biết đâu một ngày tôi giàu — ai mà biết được!"
+    },
+    {
+      "en": "why not",
+      "ipa": "/waɪ nɑːt/",
+      "vi": "sao lại không, chơi luôn",
+      "pos": "phrase",
+      "img": "👍",
+      "connect": "\"tại sao không\" — đồng ý ngay không nghĩ ngợi.",
+      "ex": "Want to try Korean food? — Why not!",
+      "exVi": "Thử món Hàn không? — Sao lại không!"
+    },
+    {
+      "en": "guess what",
+      "ipa": "/ɡes wʌt/",
+      "vi": "đoán xem có chuyện gì này",
+      "pos": "phrase",
+      "img": "🎁",
+      "connect": "\"đoán xem\" — mở đầu khi sắp kể tin hot.",
+      "ex": "Guess what! I passed the exam!",
+      "exVi": "Đoán xem! Tớ đỗ kỳ thi rồi!"
+    },
+    {
+      "en": "you never know",
+      "ipa": "/juː ˈnev.ɚ noʊ/",
+      "vi": "biết đâu đấy",
+      "pos": "phrase",
+      "img": "🍀",
+      "connect": "\"bạn chẳng bao giờ biết\" — cứ thử, biết đâu may.",
+      "ex": "Buy a ticket — you never know!",
+      "exVi": "Mua vé đi — biết đâu đấy!"
+    },
+    {
+      "en": "it doesn't matter",
+      "ipa": "/ɪt ˈdʌz.ənt ˈmæt̬.ɚ/",
+      "vi": "không sao đâu, không quan trọng",
+      "pos": "phrase",
+      "img": "🆗",
+      "connect": "matter (quan trọng) — chuyện nhỏ, bỏ qua.",
+      "ex": "Red or blue? It doesn't matter.",
+      "exVi": "Đỏ hay xanh? Không quan trọng đâu."
+    },
+    {
+      "en": "don't mention it",
+      "ipa": "/doʊnt ˈmen.ʃən ɪt/",
+      "vi": "có gì đâu (đáp lời cảm ơn)",
+      "pos": "phrase",
+      "img": "😊",
+      "connect": "\"đừng nhắc đến\" — chuyện nhỏ, khỏi cảm ơn.",
+      "ex": "Thanks a lot! — Don't mention it.",
+      "exVi": "Cảm ơn nhiều nhé! — Có gì đâu."
+    },
+    {
+      "en": "believe it or not",
+      "ipa": "/bɪˈliːv ɪt ɔːr nɑːt/",
+      "vi": "tin hay không thì tuỳ",
+      "pos": "phrase",
+      "img": "😲",
+      "connect": "\"tin hay không\" — mở đầu chuyện khó tin.",
+      "ex": "Believe it or not, I won the lottery.",
+      "exVi": "Tin hay không thì tuỳ, tôi trúng số đấy."
+    },
+    {
+      "en": "as far as I know",
+      "ipa": "/əz fɑːr əz aɪ noʊ/",
+      "vi": "theo như tôi biết",
+      "pos": "phrase",
+      "img": "🧐",
+      "connect": "\"xa nhất mà tôi biết\" — trong hiểu biết của tôi.",
+      "ex": "As far as I know, the shop opens at nine.",
+      "exVi": "Theo tôi biết thì cửa hàng mở lúc 9 giờ."
+    },
+    {
+      "en": "if I were you",
+      "ipa": "/ɪf aɪ wɝː juː/",
+      "vi": "nếu tôi là bạn",
+      "pos": "phrase",
+      "img": "🪞",
+      "connect": "câu mở đầu khi khuyên — nếu ở vị trí bạn.",
+      "ex": "If I were you, I would apologize.",
+      "exVi": "Nếu tôi là bạn, tôi sẽ xin lỗi."
+    },
+    {
+      "en": "to be fair",
+      "ipa": "/tə biː fer/",
+      "vi": "công bằng mà nói",
+      "pos": "phrase",
+      "img": "⚖️",
+      "connect": "fair (công bằng) — nói đỡ cho phía bên kia.",
+      "ex": "To be fair, he did try his best.",
+      "exVi": "Công bằng mà nói, anh ấy đã cố hết sức."
+    },
+    {
+      "en": "in my opinion",
+      "ipa": "/ɪn maɪ əˈpɪn.jən/",
+      "vi": "theo ý kiến của tôi",
+      "pos": "phrase",
+      "img": "🗣️",
+      "connect": "opinion (ý kiến) — mở đầu khi nêu quan điểm.",
+      "ex": "In my opinion, this movie is better.",
+      "exVi": "Theo tôi, phim này hay hơn."
+    },
+    {
+      "en": "on second thought",
+      "ipa": "/ɑːn ˈsek.ənd θɑːt/",
+      "vi": "nghĩ lại thì",
+      "pos": "phrase",
+      "img": "🔄",
+      "connect": "\"suy nghĩ lần hai\" — đổi ý sau khi nghĩ kỹ.",
+      "ex": "On second thought, let's stay home.",
+      "exVi": "Nghĩ lại thì mình ở nhà đi."
+    },
+    {
+      "en": "by all means",
+      "ipa": "/baɪ ɑːl miːnz/",
+      "vi": "cứ tự nhiên, dĩ nhiên rồi",
+      "pos": "phrase",
+      "img": "🙌",
+      "connect": "\"bằng mọi cách\" — đồng ý nhiệt tình.",
+      "ex": "May I borrow this book? — By all means!",
+      "exVi": "Tôi mượn cuốn sách nhé? — Cứ tự nhiên!"
+    },
+    {
+      "en": "as soon as possible",
+      "ipa": "/əz suːn əz ˈpɑː.sə.bəl/",
+      "vi": "càng sớm càng tốt",
+      "pos": "phrase",
+      "img": "⚡",
+      "connect": "viết tắt ASAP — gấp lắm rồi.",
+      "ex": "Please reply as soon as possible.",
+      "exVi": "Vui lòng trả lời càng sớm càng tốt."
+    },
+    {
+      "en": "at the end of the day",
+      "ipa": "/æt ði end əv ðə deɪ/",
+      "vi": "suy cho cùng",
+      "pos": "phrase",
+      "img": "🌇",
+      "connect": "\"cuối ngày\" — chốt lại điều quan trọng nhất.",
+      "ex": "At the end of the day, health matters most.",
+      "exVi": "Suy cho cùng, sức khoẻ là quan trọng nhất."
+    },
+    {
+      "en": "for a while",
+      "ipa": "/fɔːr ə waɪl/",
+      "vi": "trong một lúc",
+      "pos": "phrase",
+      "img": "⏲️",
+      "connect": "while (khoảng thời gian) — một chốc một lát.",
+      "ex": "Let's rest for a while.",
+      "exVi": "Mình nghỉ một lúc đi."
+    },
+    {
+      "en": "kind of",
+      "ipa": "/kaɪnd əv/",
+      "vi": "hơi hơi, kiểu như",
+      "pos": "phrase",
+      "img": "🤏",
+      "connect": "nói giảm — \"kind of tired\" là hơi mệt.",
+      "ex": "I'm kind of hungry now.",
+      "exVi": "Giờ tôi hơi đói rồi."
+    },
+    {
+      "en": "sort of",
+      "ipa": "/sɔːrt əv/",
+      "vi": "đại loại là, hơi",
+      "pos": "phrase",
+      "img": "🌫️",
+      "connect": "giống kind of — trả lời lưng chừng.",
+      "ex": "Do you like it? — Sort of.",
+      "exVi": "Bạn thích không? — Đại loại là có."
+    },
+    {
+      "en": "no big deal",
+      "ipa": "/noʊ bɪɡ diːl/",
+      "vi": "chuyện nhỏ mà",
+      "pos": "phrase",
+      "img": "🤙",
+      "connect": "\"không phải vụ lớn\" — đừng bận tâm.",
+      "ex": "I broke a cup — no big deal.",
+      "exVi": "Tôi làm vỡ cái cốc — chuyện nhỏ mà."
+    },
+    {
+      "en": "it's a long story",
+      "ipa": "/ɪts ə lɑːŋ ˈstɔːr.i/",
+      "vi": "chuyện dài lắm",
+      "pos": "phrase",
+      "img": "📚",
+      "connect": "\"câu chuyện dài\" — lười kể chi tiết.",
+      "ex": "Why were you late? — It's a long story.",
+      "exVi": "Sao bạn muộn thế? — Chuyện dài lắm."
+    },
+    {
+      "en": "that's life",
+      "ipa": "/ðæts laɪf/",
+      "vi": "đời là thế mà",
+      "pos": "phrase",
+      "img": "🍂",
+      "connect": "\"đời là vậy\" — chấp nhận chuyện không may.",
+      "ex": "We lost the game, but that's life.",
+      "exVi": "Thua trận rồi, nhưng đời là thế mà."
+    }
   ]
 }

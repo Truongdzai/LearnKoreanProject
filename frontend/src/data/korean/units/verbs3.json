@@ -6,17 +6,125 @@
   "tone": "tone-e",
   "emoji": "💭",
   "words": [
-    { "ko": "알다", "romaja": "alda", "vi": "Biết", "pos": "verb", "img": "💡", "connect": "\"Al\" — à, ra là thế.", "ex": "그 사람을 잘 알아요.", "exVi": "Tôi biết rõ người đó." },
-    { "ko": "모르다", "romaja": "moreuda", "vi": "Không biết", "pos": "verb", "img": "🤷", "connect": "\"Mô-rư\" — mờ mịt, chẳng rõ gì.", "ex": "죄송해요, 잘 모르겠어요.", "exVi": "Xin lỗi, tôi không rõ lắm." },
-    { "ko": "생각하다", "romaja": "saenggakhada", "vi": "Nghĩ / Suy nghĩ", "pos": "verb", "img": "🤔", "connect": "\"Seng-gak\" — sinh ra ý trong đầu.", "ex": "저도 그렇게 생각해요.", "exVi": "Tôi cũng nghĩ như vậy." },
-    { "ko": "기다리다", "romaja": "gidarida", "vi": "Đợi / Chờ", "pos": "verb", "img": "⏳", "connect": "\"Ki-đa-ri\" kéo dài như lúc chờ đợi.", "ex": "여기서 잠깐 기다려 주세요.", "exVi": "Bạn đợi ở đây một lát nhé." },
-    { "ko": "만나다", "romaja": "mannada", "vi": "Gặp", "pos": "verb", "img": "🤝", "connect": "\"Man-na\" — muôn người gặp nhau.", "ex": "내일 친구를 만나요.", "exVi": "Ngày mai tôi gặp bạn." },
-    { "ko": "전화하다", "romaja": "jeonhwahada", "vi": "Gọi điện", "pos": "verb", "img": "📞", "connect": "\"Chơn-hoa\" chính là âm Hán \"điện thoại\".", "ex": "이따가 전화할게요.", "exVi": "Lát nữa tôi sẽ gọi điện." },
-    { "ko": "도와주다", "romaja": "dowajuda", "vi": "Giúp đỡ", "pos": "verb", "img": "🙌", "connect": "\"Đô-oa\" + 주다 (cho) → ra tay giúp cho.", "ex": "좀 도와주세요.", "exVi": "Giúp tôi một chút với ạ." },
-    { "ko": "시작하다", "romaja": "sijakhada", "vi": "Bắt đầu", "pos": "verb", "img": "▶️", "connect": "\"Si-chak\" chính là âm Hán \"thuỷ tác\".", "ex": "수업을 시작할게요.", "exVi": "Chúng ta bắt đầu buổi học nhé." },
-    { "ko": "끝나다", "romaja": "kkeutnada", "vi": "Kết thúc", "pos": "verb", "img": "🏁", "connect": "\"Kkưt\" = cuối — đến cuối là xong.", "ex": "회의가 벌써 끝났어요.", "exVi": "Cuộc họp đã kết thúc rồi." },
-    { "ko": "찾다", "romaja": "chatda", "vi": "Tìm", "pos": "verb", "img": "🔍", "connect": "\"Chát\" — chạy đi tìm khắp nơi.", "ex": "화장실을 찾고 있어요.", "exVi": "Tôi đang tìm nhà vệ sinh." },
-    { "ko": "있다", "romaja": "itda", "vi": "Có / Ở", "pos": "verb", "img": "✔️", "connect": "\"Ít-tha\" — có ở đây này.", "ex": "질문 있어요?", "exVi": "Bạn có câu hỏi không?" },
-    { "ko": "없다", "romaja": "eopda", "vi": "Không có", "pos": "verb", "img": "🚫", "connect": "Ngược hẳn 있다 — trống trơn.", "ex": "지금 시간이 없어요.", "exVi": "Bây giờ tôi không có thời gian." }
+    {
+      "ko": "알다",
+      "romaja": "alda",
+      "vi": "Biết",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "\"Al\" — à, ra là thế.",
+      "ex": "그 사람을 잘 알아요.",
+      "exVi": "Tôi biết rõ người đó."
+    },
+    {
+      "ko": "모르다",
+      "romaja": "moreuda",
+      "vi": "Không biết",
+      "pos": "verb",
+      "img": "🤷",
+      "connect": "\"Mô-rư\" — mờ mịt, chẳng rõ gì.",
+      "ex": "죄송해요, 잘 모르겠어요.",
+      "exVi": "Xin lỗi, tôi không rõ lắm."
+    },
+    {
+      "ko": "생각하다",
+      "romaja": "saenggakhada",
+      "vi": "Nghĩ / Suy nghĩ",
+      "pos": "verb",
+      "img": "🤔",
+      "connect": "\"Seng-gak\" — sinh ra ý trong đầu.",
+      "ex": "저도 그렇게 생각해요.",
+      "exVi": "Tôi cũng nghĩ như vậy."
+    },
+    {
+      "ko": "기다리다",
+      "romaja": "gidarida",
+      "vi": "Đợi / Chờ",
+      "pos": "verb",
+      "img": "⏳",
+      "connect": "\"Ki-đa-ri\" kéo dài như lúc chờ đợi.",
+      "ex": "여기서 잠깐 기다려 주세요.",
+      "exVi": "Bạn đợi ở đây một lát nhé."
+    },
+    {
+      "ko": "만나다",
+      "romaja": "mannada",
+      "vi": "Gặp",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "\"Man-na\" — muôn người gặp nhau.",
+      "ex": "내일 친구를 만나요.",
+      "exVi": "Ngày mai tôi gặp bạn."
+    },
+    {
+      "ko": "전화하다",
+      "romaja": "jeonhwahada",
+      "vi": "Gọi điện",
+      "pos": "verb",
+      "img": "📞",
+      "connect": "\"Chơn-hoa\" chính là âm Hán \"điện thoại\".",
+      "ex": "이따가 전화할게요.",
+      "exVi": "Lát nữa tôi sẽ gọi điện."
+    },
+    {
+      "ko": "도와주다",
+      "romaja": "dowajuda",
+      "vi": "Giúp đỡ",
+      "pos": "verb",
+      "img": "🙌",
+      "connect": "\"Đô-oa\" + 주다 (cho) → ra tay giúp cho.",
+      "ex": "좀 도와주세요.",
+      "exVi": "Giúp tôi một chút với ạ."
+    },
+    {
+      "ko": "시작하다",
+      "romaja": "sijakhada",
+      "vi": "Bắt đầu",
+      "pos": "verb",
+      "img": "▶️",
+      "connect": "\"Si-chak\" chính là âm Hán \"thuỷ tác\".",
+      "ex": "수업을 시작할게요.",
+      "exVi": "Chúng ta bắt đầu buổi học nhé."
+    },
+    {
+      "ko": "끝나다",
+      "romaja": "kkeutnada",
+      "vi": "Kết thúc",
+      "pos": "verb",
+      "img": "🏁",
+      "connect": "\"Kkưt\" = cuối — đến cuối là xong.",
+      "ex": "회의가 벌써 끝났어요.",
+      "exVi": "Cuộc họp đã kết thúc rồi."
+    },
+    {
+      "ko": "찾다",
+      "romaja": "chatda",
+      "vi": "Tìm",
+      "pos": "verb",
+      "img": "🔍",
+      "connect": "\"Chát\" — chạy đi tìm khắp nơi.",
+      "ex": "화장실을 찾고 있어요.",
+      "exVi": "Tôi đang tìm nhà vệ sinh."
+    },
+    {
+      "ko": "있다",
+      "romaja": "itda",
+      "vi": "Có / Ở",
+      "pos": "verb",
+      "img": "✔️",
+      "connect": "\"Ít-tha\" — có ở đây này.",
+      "ex": "질문 있어요?",
+      "exVi": "Bạn có câu hỏi không?"
+    },
+    {
+      "ko": "없다",
+      "romaja": "eopda",
+      "vi": "Không có",
+      "pos": "verb",
+      "img": "🚫",
+      "connect": "Ngược hẳn 있다 — trống trơn.",
+      "ex": "지금 시간이 없어요.",
+      "exVi": "Bây giờ tôi không có thời gian."
+    }
   ]
 }

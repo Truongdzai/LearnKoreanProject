@@ -6,26 +6,215 @@
   "tone": "tone-c",
   "emoji": "🧼",
   "words": [
-    { "en": "shampoo", "ipa": "/ʃæmˈpuː/", "vi": "dầu gội", "pos": "noun", "img": "🧴", "connect": "\"Sem-pu\" — gội đầu bằng shampoo.", "ex": "This shampoo smells nice.", "exVi": "Dầu gội này thơm ghê." },
-    { "en": "toothpaste", "ipa": "/ˈtuːθ.peɪst/", "vi": "kem đánh răng", "pos": "noun", "img": "🪥", "connect": "tooth (răng) + paste (kem).", "ex": "We're out of toothpaste.", "exVi": "Nhà hết kem đánh răng rồi." },
-    { "en": "razor", "ipa": "/ˈreɪ.zɚ/", "vi": "dao cạo", "pos": "noun", "img": "🪒", "connect": "\"Rê-zờ\" — cạo râu bằng razor.", "ex": "He bought a new razor.", "exVi": "Anh ấy mua một chiếc dao cạo mới." },
-    { "en": "tissue", "ipa": "/ˈtɪʃ.uː/", "vi": "khăn giấy", "pos": "noun", "img": "🤧", "connect": "\"Tí-su\" — rút một tờ khăn giấy.", "ex": "Do you have a tissue?", "exVi": "Bạn có khăn giấy không?" },
-    { "en": "sunscreen", "ipa": "/ˈsʌn.skriːn/", "vi": "kem chống nắng", "pos": "noun", "img": "🧴", "connect": "sun (nắng) + screen (chắn).", "ex": "Wear sunscreen at the beach.", "exVi": "Ra biển nhớ bôi kem chống nắng." },
-    { "en": "laundry", "ipa": "/ˈlɑːn.dri/", "vi": "đồ giặt, việc giặt giũ", "pos": "noun", "img": "🧺", "connect": "\"Lon-đri\" — giỏ đồ chờ giặt.", "ex": "The laundry basket is full.", "exVi": "Giỏ đồ giặt đầy ắp rồi." },
-    { "en": "detergent", "ipa": "/dɪˈtɜːr.dʒənt/", "vi": "bột/nước giặt", "pos": "noun", "img": "🧴", "connect": "\"Đi-tơ-jừnt\" — chất tẩy giặt đồ.", "ex": "Add detergent to the machine.", "exVi": "Cho nước giặt vào máy." },
-    { "en": "mop", "ipa": "/mɑːp/", "vi": "cây lau nhà", "pos": "noun", "img": "🧹", "connect": "\"Móp\" — lau sàn bằng mop.", "ex": "Mop the floor, please.", "exVi": "Lau sàn nhà giúp nhé." },
-    { "en": "toothpick", "ipa": "/ˈtuːθ.pɪk/", "vi": "tăm xỉa răng", "pos": "noun", "img": "🦷", "connect": "tooth (răng) + pick (chọc).", "ex": "Can I have a toothpick?", "exVi": "Cho tôi xin cây tăm." },
-    { "en": "bubble", "ipa": "/ˈbʌb.əl/", "vi": "bong bóng, bọt", "pos": "noun", "img": "🫧", "connect": "\"Bă-bồ\" — bọt xà phòng.", "ex": "The kids love blowing bubbles.", "exVi": "Bọn trẻ mê thổi bong bóng xà phòng." },
-    { "en": "foam", "ipa": "/foʊm/", "vi": "bọt (dày)", "pos": "noun", "img": "🛁", "connect": "\"Phâu-m\" — bọt kem cạo râu, bọt biển.", "ex": "The soap makes a lot of foam.", "exVi": "Xà phòng này nhiều bọt thật." },
-    { "en": "stain", "ipa": "/steɪn/", "vi": "vết bẩn, vết ố", "pos": "noun", "img": "👕", "connect": "\"Sờ-tê-n\" — vết cà phê trên áo.", "ex": "There's a coffee stain on my shirt.", "exVi": "Áo tôi dính một vết cà phê." },
-    { "en": "dirt", "ipa": "/dɜːrt/", "vi": "bụi bẩn, đất cát", "pos": "noun", "img": "🟤", "connect": "\"Đơt\" — dirty là bẩn.", "ex": "Wash the dirt off your hands.", "exVi": "Rửa sạch đất cát trên tay đi." },
-    { "en": "sweat", "ipa": "/swet/", "vi": "mồ hôi", "pos": "noun", "img": "💦", "connect": "\"Su-ét\" — đổ mồ hôi khi tập.", "ex": "His shirt was wet with sweat.", "exVi": "Áo anh ấy ướt đẫm mồ hôi." },
-    { "en": "hygiene", "ipa": "/ˈhaɪ.dʒiːn/", "vi": "vệ sinh", "pos": "noun", "img": "🧼", "connect": "\"Hai-jin\" — giữ gìn sạch sẽ.", "ex": "Good hygiene prevents illness.", "exVi": "Vệ sinh tốt giúp phòng bệnh." },
-    { "en": "bathe", "ipa": "/beɪð/", "vi": "tắm (cho ai)", "pos": "verb", "img": "🛁", "connect": "\"Bê-dh\" — bath là danh từ.", "ex": "She bathes the baby every evening.", "exVi": "Chiều nào cô ấy cũng tắm cho em bé." },
-    { "en": "rinse", "ipa": "/rɪns/", "vi": "xả nước, tráng", "pos": "verb", "img": "🚿", "connect": "\"Rin-s\" — xả sạch xà phòng.", "ex": "Rinse your hair well.", "exVi": "Xả tóc cho thật sạch nhé." },
-    { "en": "trim", "ipa": "/trɪm/", "vi": "tỉa, cắt gọn", "pos": "verb", "img": "✂️", "connect": "\"Trim\" — tỉa tóc, tỉa cây.", "ex": "Just trim the ends, please.", "exVi": "Chỉ tỉa phần đuôi tóc thôi nhé." },
-    { "en": "odor", "ipa": "/ˈoʊ.dɚ/", "vi": "mùi (khó chịu)", "pos": "noun", "img": "👃", "connect": "\"Âu-đờ\" — mùi cần khử.", "ex": "The fridge has a strange odor.", "exVi": "Tủ lạnh có mùi lạ." },
-    { "en": "steam", "ipa": "/stiːm/", "vi": "hơi nước", "pos": "noun", "img": "♨️", "connect": "\"Sờ-ti-m\" — hơi bốc từ nước nóng.", "ex": "Steam rose from the hot bath.", "exVi": "Hơi nước bốc lên từ bồn tắm nóng." },
-    { "en": "sanitizer", "ipa": "/ˈsæn.ə.taɪ.zɚ/", "vi": "nước rửa tay khô", "pos": "noun", "img": "🧴", "connect": "\"Se-nờ-tai-zờ\" — gel diệt khuẩn.", "ex": "Use hand sanitizer before eating.", "exVi": "Dùng nước rửa tay khô trước khi ăn." }
+    {
+      "en": "shampoo",
+      "ipa": "/ʃæmˈpuː/",
+      "vi": "dầu gội",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "\"Sem-pu\" — gội đầu bằng shampoo.",
+      "ex": "This shampoo smells nice.",
+      "exVi": "Dầu gội này thơm ghê."
+    },
+    {
+      "en": "toothpaste",
+      "ipa": "/ˈtuːθ.peɪst/",
+      "vi": "kem đánh răng",
+      "pos": "noun",
+      "img": "🪥",
+      "connect": "tooth (răng) + paste (kem).",
+      "ex": "We're out of toothpaste.",
+      "exVi": "Nhà hết kem đánh răng rồi."
+    },
+    {
+      "en": "razor",
+      "ipa": "/ˈreɪ.zɚ/",
+      "vi": "dao cạo",
+      "pos": "noun",
+      "img": "🪒",
+      "connect": "\"Rê-zờ\" — cạo râu bằng razor.",
+      "ex": "He bought a new razor.",
+      "exVi": "Anh ấy mua một chiếc dao cạo mới."
+    },
+    {
+      "en": "tissue",
+      "ipa": "/ˈtɪʃ.uː/",
+      "vi": "khăn giấy",
+      "pos": "noun",
+      "img": "🤧",
+      "connect": "\"Tí-su\" — rút một tờ khăn giấy.",
+      "ex": "Do you have a tissue?",
+      "exVi": "Bạn có khăn giấy không?"
+    },
+    {
+      "en": "sunscreen",
+      "ipa": "/ˈsʌn.skriːn/",
+      "vi": "kem chống nắng",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "sun (nắng) + screen (chắn).",
+      "ex": "Wear sunscreen at the beach.",
+      "exVi": "Ra biển nhớ bôi kem chống nắng."
+    },
+    {
+      "en": "laundry",
+      "ipa": "/ˈlɑːn.dri/",
+      "vi": "đồ giặt, việc giặt giũ",
+      "pos": "noun",
+      "img": "🧺",
+      "connect": "\"Lon-đri\" — giỏ đồ chờ giặt.",
+      "ex": "The laundry basket is full.",
+      "exVi": "Giỏ đồ giặt đầy ắp rồi."
+    },
+    {
+      "en": "detergent",
+      "ipa": "/dɪˈtɜːr.dʒənt/",
+      "vi": "bột/nước giặt",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "\"Đi-tơ-jừnt\" — chất tẩy giặt đồ.",
+      "ex": "Add detergent to the machine.",
+      "exVi": "Cho nước giặt vào máy."
+    },
+    {
+      "en": "mop",
+      "ipa": "/mɑːp/",
+      "vi": "cây lau nhà",
+      "pos": "noun",
+      "img": "🧹",
+      "connect": "\"Móp\" — lau sàn bằng mop.",
+      "ex": "Mop the floor, please.",
+      "exVi": "Lau sàn nhà giúp nhé."
+    },
+    {
+      "en": "toothpick",
+      "ipa": "/ˈtuːθ.pɪk/",
+      "vi": "tăm xỉa răng",
+      "pos": "noun",
+      "img": "🦷",
+      "connect": "tooth (răng) + pick (chọc).",
+      "ex": "Can I have a toothpick?",
+      "exVi": "Cho tôi xin cây tăm."
+    },
+    {
+      "en": "bubble",
+      "ipa": "/ˈbʌb.əl/",
+      "vi": "bong bóng, bọt",
+      "pos": "noun",
+      "img": "🫧",
+      "connect": "\"Bă-bồ\" — bọt xà phòng.",
+      "ex": "The kids love blowing bubbles.",
+      "exVi": "Bọn trẻ mê thổi bong bóng xà phòng."
+    },
+    {
+      "en": "foam",
+      "ipa": "/foʊm/",
+      "vi": "bọt (dày)",
+      "pos": "noun",
+      "img": "🛁",
+      "connect": "\"Phâu-m\" — bọt kem cạo râu, bọt biển.",
+      "ex": "The soap makes a lot of foam.",
+      "exVi": "Xà phòng này nhiều bọt thật."
+    },
+    {
+      "en": "stain",
+      "ipa": "/steɪn/",
+      "vi": "vết bẩn, vết ố",
+      "pos": "noun",
+      "img": "👕",
+      "connect": "\"Sờ-tê-n\" — vết cà phê trên áo.",
+      "ex": "There's a coffee stain on my shirt.",
+      "exVi": "Áo tôi dính một vết cà phê."
+    },
+    {
+      "en": "dirt",
+      "ipa": "/dɜːrt/",
+      "vi": "bụi bẩn, đất cát",
+      "pos": "noun",
+      "img": "🟤",
+      "connect": "\"Đơt\" — dirty là bẩn.",
+      "ex": "Wash the dirt off your hands.",
+      "exVi": "Rửa sạch đất cát trên tay đi."
+    },
+    {
+      "en": "sweat",
+      "ipa": "/swet/",
+      "vi": "mồ hôi",
+      "pos": "noun",
+      "img": "💦",
+      "connect": "\"Su-ét\" — đổ mồ hôi khi tập.",
+      "ex": "His shirt was wet with sweat.",
+      "exVi": "Áo anh ấy ướt đẫm mồ hôi."
+    },
+    {
+      "en": "hygiene",
+      "ipa": "/ˈhaɪ.dʒiːn/",
+      "vi": "vệ sinh",
+      "pos": "noun",
+      "img": "🧼",
+      "connect": "\"Hai-jin\" — giữ gìn sạch sẽ.",
+      "ex": "Good hygiene prevents illness.",
+      "exVi": "Vệ sinh tốt giúp phòng bệnh."
+    },
+    {
+      "en": "bathe",
+      "ipa": "/beɪð/",
+      "vi": "tắm (cho ai)",
+      "pos": "verb",
+      "img": "🛁",
+      "connect": "\"Bê-dh\" — bath là danh từ.",
+      "ex": "She bathes the baby every evening.",
+      "exVi": "Chiều nào cô ấy cũng tắm cho em bé."
+    },
+    {
+      "en": "rinse",
+      "ipa": "/rɪns/",
+      "vi": "xả nước, tráng",
+      "pos": "verb",
+      "img": "🚿",
+      "connect": "\"Rin-s\" — xả sạch xà phòng.",
+      "ex": "Rinse your hair well.",
+      "exVi": "Xả tóc cho thật sạch nhé."
+    },
+    {
+      "en": "trim",
+      "ipa": "/trɪm/",
+      "vi": "tỉa, cắt gọn",
+      "pos": "verb",
+      "img": "✂️",
+      "connect": "\"Trim\" — tỉa tóc, tỉa cây.",
+      "ex": "Just trim the ends, please.",
+      "exVi": "Chỉ tỉa phần đuôi tóc thôi nhé."
+    },
+    {
+      "en": "odor",
+      "ipa": "/ˈoʊ.dɚ/",
+      "vi": "mùi (khó chịu)",
+      "pos": "noun",
+      "img": "👃",
+      "connect": "\"Âu-đờ\" — mùi cần khử.",
+      "ex": "The fridge has a strange odor.",
+      "exVi": "Tủ lạnh có mùi lạ."
+    },
+    {
+      "en": "steam",
+      "ipa": "/stiːm/",
+      "vi": "hơi nước",
+      "pos": "noun",
+      "img": "♨️",
+      "connect": "\"Sờ-ti-m\" — hơi bốc từ nước nóng.",
+      "ex": "Steam rose from the hot bath.",
+      "exVi": "Hơi nước bốc lên từ bồn tắm nóng."
+    },
+    {
+      "en": "sanitizer",
+      "ipa": "/ˈsæn.ə.taɪ.zɚ/",
+      "vi": "nước rửa tay khô",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "\"Se-nờ-tai-zờ\" — gel diệt khuẩn.",
+      "ex": "Use hand sanitizer before eating.",
+      "exVi": "Dùng nước rửa tay khô trước khi ăn."
+    }
   ]
 }

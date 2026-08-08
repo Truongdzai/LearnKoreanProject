@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, Query, Request
 from pydantic import BaseModel, Field
 
-from ..services import auth, dictionary, pinyin, quota
+from ..services import auth, dictionary, phonetics, pinyin, quota
 
 router = APIRouter(prefix="/api/define", tags=["Từ điển"])
 OptAuth = Depends(auth.get_optional_user)
@@ -32,3 +32,12 @@ class PinyinIn(BaseModel):
 @router.post("/pinyin", tags=["Từ điển"])
 def api_pinyin(body: PinyinIn):
     return {"readings": pinyin.readings(body.words)}
+
+
+class IpaIn(BaseModel):
+    words: list[str] = Field(default_factory=list, max_length=600)
+
+
+@router.post("/ipa", tags=["Từ điển"])
+def api_ipa(body: IpaIn):
+    return {"readings": phonetics.readings(body.words)}

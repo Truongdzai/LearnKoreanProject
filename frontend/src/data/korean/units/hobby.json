@@ -6,17 +6,125 @@
   "tone": "tone-f",
   "emoji": "🎧",
   "words": [
-    { "ko": "취미", "romaja": "chwimi", "vi": "Sở thích", "pos": "noun", "img": "🎯", "connect": "\"Chuy-mi\" chính là âm Hán \"thú vị\".", "ex": "취미가 뭐예요?", "exVi": "Sở thích của bạn là gì?" },
-    { "ko": "음악", "romaja": "eumak", "vi": "Âm nhạc", "pos": "noun", "img": "🎵", "connect": "\"Ưm-ak\" chính là âm Hán \"âm nhạc\".", "ex": "저는 한국 음악을 자주 들어요.", "exVi": "Tôi hay nghe nhạc Hàn Quốc." },
-    { "ko": "영화", "romaja": "yeonghwa", "vi": "Phim điện ảnh", "pos": "noun", "img": "🎬", "connect": "\"Yơng-hoa\" chính là âm Hán \"ảnh hoạ\".", "ex": "주말에 영화를 봐요.", "exVi": "Cuối tuần tôi xem phim." },
-    { "ko": "노래", "romaja": "norae", "vi": "Bài hát", "pos": "noun", "img": "🎤", "connect": "노래방 = phòng hát karaoke Hàn Quốc.", "ex": "이 노래 정말 좋아요.", "exVi": "Bài hát này hay thật đấy." },
-    { "ko": "게임", "romaja": "geim", "vi": "Trò chơi / Game", "pos": "noun", "img": "🎮", "connect": "\"Kê-im\" mượn từ \"game\".", "ex": "밤에 게임을 조금 해요.", "exVi": "Buổi tối tôi chơi game một chút." },
-    { "ko": "그림", "romaja": "geurim", "vi": "Tranh vẽ", "pos": "noun", "img": "🎨", "connect": "그리다 = vẽ → thứ được vẽ ra.", "ex": "그림 그리는 걸 좋아해요.", "exVi": "Tôi thích vẽ tranh." },
-    { "ko": "춤", "romaja": "chum", "vi": "Điệu nhảy", "pos": "noun", "img": "💃", "connect": "\"Chum\" — 춤을 추다 = nhảy múa.", "ex": "춤을 배우고 싶어요.", "exVi": "Tôi muốn học nhảy." },
-    { "ko": "독서", "romaja": "dokseo", "vi": "Việc đọc sách", "pos": "noun", "img": "📖", "connect": "\"Đôk-sơ\" chính là âm Hán \"độc thư\".", "ex": "제 취미는 독서예요.", "exVi": "Sở thích của tôi là đọc sách." },
-    { "ko": "등산", "romaja": "deungsan", "vi": "Leo núi", "pos": "noun", "img": "🥾", "connect": "\"Đưng-san\" chính là âm Hán \"đăng sơn\" — thú vui quốc dân của người Hàn.", "ex": "주말마다 등산을 가요.", "exVi": "Cuối tuần nào tôi cũng đi leo núi." },
-    { "ko": "낚시", "romaja": "naksi", "vi": "Câu cá", "pos": "noun", "img": "🎣", "connect": "\"Nak-si\" — ngồi im bên hồ chờ cá.", "ex": "아버지는 낚시를 좋아하세요.", "exVi": "Bố tôi thích câu cá." },
-    { "ko": "여가", "romaja": "yeoga", "vi": "Thời gian rảnh", "pos": "noun", "img": "🌴", "connect": "\"Yơ-ga\" chính là âm Hán \"dư hạ\".", "ex": "여가 시간에 뭐 하세요?", "exVi": "Lúc rảnh bạn làm gì?" },
-    { "ko": "재미", "romaja": "jaemi", "vi": "Sự thú vị / Niềm vui", "pos": "noun", "img": "😄", "connect": "Gốc của 재미있다 đã học ở tuần trước.", "ex": "요리에 재미를 붙였어요.", "exVi": "Tôi bắt đầu thấy nấu ăn thú vị." }
+    {
+      "ko": "취미",
+      "romaja": "chwimi",
+      "vi": "Sở thích",
+      "pos": "noun",
+      "img": "🎯",
+      "connect": "\"Chuy-mi\" chính là âm Hán \"thú vị\".",
+      "ex": "취미가 뭐예요?",
+      "exVi": "Sở thích của bạn là gì?"
+    },
+    {
+      "ko": "음악",
+      "romaja": "eumak",
+      "vi": "Âm nhạc",
+      "pos": "noun",
+      "img": "🎵",
+      "connect": "\"Ưm-ak\" chính là âm Hán \"âm nhạc\".",
+      "ex": "저는 한국 음악을 자주 들어요.",
+      "exVi": "Tôi hay nghe nhạc Hàn Quốc."
+    },
+    {
+      "ko": "영화",
+      "romaja": "yeonghwa",
+      "vi": "Phim điện ảnh",
+      "pos": "noun",
+      "img": "🎬",
+      "connect": "\"Yơng-hoa\" chính là âm Hán \"ảnh hoạ\".",
+      "ex": "주말에 영화를 봐요.",
+      "exVi": "Cuối tuần tôi xem phim."
+    },
+    {
+      "ko": "노래",
+      "romaja": "norae",
+      "vi": "Bài hát",
+      "pos": "noun",
+      "img": "🎤",
+      "connect": "노래방 = phòng hát karaoke Hàn Quốc.",
+      "ex": "이 노래 정말 좋아요.",
+      "exVi": "Bài hát này hay thật đấy."
+    },
+    {
+      "ko": "게임",
+      "romaja": "geim",
+      "vi": "Trò chơi / Game",
+      "pos": "noun",
+      "img": "🎮",
+      "connect": "\"Kê-im\" mượn từ \"game\".",
+      "ex": "밤에 게임을 조금 해요.",
+      "exVi": "Buổi tối tôi chơi game một chút."
+    },
+    {
+      "ko": "그림",
+      "romaja": "geurim",
+      "vi": "Tranh vẽ",
+      "pos": "noun",
+      "img": "🎨",
+      "connect": "그리다 = vẽ → thứ được vẽ ra.",
+      "ex": "그림 그리는 걸 좋아해요.",
+      "exVi": "Tôi thích vẽ tranh."
+    },
+    {
+      "ko": "춤",
+      "romaja": "chum",
+      "vi": "Điệu nhảy",
+      "pos": "noun",
+      "img": "💃",
+      "connect": "\"Chum\" — 춤을 추다 = nhảy múa.",
+      "ex": "춤을 배우고 싶어요.",
+      "exVi": "Tôi muốn học nhảy."
+    },
+    {
+      "ko": "독서",
+      "romaja": "dokseo",
+      "vi": "Việc đọc sách",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "\"Đôk-sơ\" chính là âm Hán \"độc thư\".",
+      "ex": "제 취미는 독서예요.",
+      "exVi": "Sở thích của tôi là đọc sách."
+    },
+    {
+      "ko": "등산",
+      "romaja": "deungsan",
+      "vi": "Leo núi",
+      "pos": "noun",
+      "img": "🥾",
+      "connect": "\"Đưng-san\" chính là âm Hán \"đăng sơn\" — thú vui quốc dân của người Hàn.",
+      "ex": "주말마다 등산을 가요.",
+      "exVi": "Cuối tuần nào tôi cũng đi leo núi."
+    },
+    {
+      "ko": "낚시",
+      "romaja": "naksi",
+      "vi": "Câu cá",
+      "pos": "noun",
+      "img": "🎣",
+      "connect": "\"Nak-si\" — ngồi im bên hồ chờ cá.",
+      "ex": "아버지는 낚시를 좋아하세요.",
+      "exVi": "Bố tôi thích câu cá."
+    },
+    {
+      "ko": "여가",
+      "romaja": "yeoga",
+      "vi": "Thời gian rảnh",
+      "pos": "noun",
+      "img": "🌴",
+      "connect": "\"Yơ-ga\" chính là âm Hán \"dư hạ\".",
+      "ex": "여가 시간에 뭐 하세요?",
+      "exVi": "Lúc rảnh bạn làm gì?"
+    },
+    {
+      "ko": "재미",
+      "romaja": "jaemi",
+      "vi": "Sự thú vị / Niềm vui",
+      "pos": "noun",
+      "img": "😄",
+      "connect": "Gốc của 재미있다 đã học ở tuần trước.",
+      "ex": "요리에 재미를 붙였어요.",
+      "exVi": "Tôi bắt đầu thấy nấu ăn thú vị."
+    }
   ]
 }

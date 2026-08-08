@@ -6,33 +6,285 @@
   "tone": "tone-b",
   "emoji": "📚",
   "words": [
-    { "en": "classroom", "ipa": "/ˈklæs.ruːm/", "vi": "lớp học, phòng học", "pos": "noun", "img": "🏫", "connect": "class (lớp) + room (phòng).", "ex": "The classroom is bright and clean.", "exVi": "Lớp học sáng sủa và sạch sẽ." },
-    { "en": "desk", "ipa": "/desk/", "vi": "bàn học", "pos": "noun", "img": "🪑", "connect": "\"Đét-k\" — bàn để ngồi học.", "ex": "Put your book on the desk.", "exVi": "Đặt sách lên bàn học." },
-    { "en": "notebook", "ipa": "/ˈnoʊt.bʊk/", "vi": "vở, sổ tay", "pos": "noun", "img": "📓", "connect": "note (ghi chú) + book (sách).", "ex": "I write new words in my notebook.", "exVi": "Tôi ghi từ mới vào vở." },
-    { "en": "pencil", "ipa": "/ˈpen.səl/", "vi": "bút chì", "pos": "noun", "img": "✏️", "connect": "\"Pen-sồ\" — họ hàng với pen (bút).", "ex": "Sharpen your pencil, please.", "exVi": "Gọt bút chì đi nào." },
-    { "en": "eraser", "ipa": "/ɪˈreɪ.sɚ/", "vi": "cục tẩy", "pos": "noun", "img": "🧽", "connect": "erase (xoá) + r — đồ để xoá.", "ex": "Use an eraser to fix the mistake.", "exVi": "Dùng tẩy để sửa lỗi." },
-    { "en": "ruler", "ipa": "/ˈruː.lɚ/", "vi": "thước kẻ", "pos": "noun", "img": "📏", "connect": "rule (kẻ vạch) + r; cũng là \"người cai trị\".", "ex": "Draw a line with a ruler.", "exVi": "Kẻ một đường bằng thước." },
-    { "en": "textbook", "ipa": "/ˈtekst.bʊk/", "vi": "sách giáo khoa", "pos": "noun", "img": "📘", "connect": "text (bài) + book (sách).", "ex": "Open your textbook to page ten.", "exVi": "Mở sách giáo khoa trang mười." },
-    { "en": "dictionary", "ipa": "/ˈdɪk.ʃən.er.i/", "vi": "từ điển", "pos": "noun", "img": "📖", "connect": "\"Đíc-sừn-ne-ri\" — nơi tra nghĩa từ.", "ex": "Look it up in the dictionary.", "exVi": "Tra nó trong từ điển đi." },
-    { "en": "backpack", "ipa": "/ˈbæk.pæk/", "vi": "ba lô", "pos": "noun", "img": "🎒", "connect": "back (lưng) + pack (túi) — túi đeo lưng.", "ex": "My backpack is very heavy today.", "exVi": "Hôm nay ba lô của tôi nặng lắm." },
-    { "en": "chalk", "ipa": "/tʃɔːk/", "vi": "phấn viết bảng", "pos": "noun", "img": "🖍️", "connect": "\"Chóoc\" — chữ \"l\" câm.", "ex": "The teacher writes with chalk.", "exVi": "Cô giáo viết bằng phấn." },
-    { "en": "whiteboard", "ipa": "/ˈwaɪt.bɔːrd/", "vi": "bảng trắng", "pos": "noun", "img": "📋", "connect": "white (trắng) + board (bảng).", "ex": "Write your name on the whiteboard.", "exVi": "Viết tên bạn lên bảng trắng." },
-    { "en": "glue", "ipa": "/ɡluː/", "vi": "keo dán", "pos": "noun", "img": "🧴", "connect": "\"Glu\" — dính chặt như keo.", "ex": "Use glue to stick the paper.", "exVi": "Dùng keo để dán tờ giấy." },
-    { "en": "scissors", "ipa": "/ˈsɪz.ɚz/", "vi": "cái kéo", "pos": "noun", "img": "✂️", "connect": "\"Si-zờ-z\" — luôn ở dạng số nhiều.", "ex": "Cut the paper with scissors.", "exVi": "Cắt giấy bằng kéo." },
-    { "en": "subject", "ipa": "/ˈsʌb.dʒekt/", "vi": "môn học", "pos": "noun", "img": "📚", "connect": "\"Sáb-giếct\" — môn học ở trường.", "ex": "Math is my favorite subject.", "exVi": "Toán là môn tôi thích nhất." },
-    { "en": "math", "ipa": "/mæθ/", "vi": "môn toán", "pos": "noun", "img": "➗", "connect": "rút gọn của mathematics.", "ex": "I have a math test today.", "exVi": "Hôm nay tôi có bài kiểm tra toán." },
-    { "en": "science", "ipa": "/ˈsaɪ.əns/", "vi": "khoa học", "pos": "noun", "img": "🔬", "connect": "\"Sai-ừn-s\" — môn khoa học.", "ex": "Science is really interesting.", "exVi": "Khoa học thật sự thú vị." },
-    { "en": "history", "ipa": "/ˈhɪs.tɚ.i/", "vi": "lịch sử", "pos": "noun", "img": "📜", "connect": "nghe như \"his story\" — câu chuyện xưa.", "ex": "We study history at school.", "exVi": "Chúng tôi học lịch sử ở trường." },
-    { "en": "grade", "ipa": "/ɡreɪd/", "vi": "điểm số, khối lớp", "pos": "noun", "img": "💯", "connect": "\"Grê-d\" — điểm hoặc lớp mấy.", "ex": "She got a good grade on the test.", "exVi": "Cô ấy được điểm cao trong bài kiểm tra." },
-    { "en": "knowledge", "ipa": "/ˈnɑː.lɪdʒ/", "vi": "kiến thức", "pos": "noun", "img": "🧠", "connect": "know (biết) + ledge; chữ \"k\" câm.", "ex": "Books give us knowledge.", "exVi": "Sách cho chúng ta kiến thức." },
-    { "en": "study", "ipa": "/ˈstʌd.i/", "vi": "học tập", "pos": "verb", "img": "📖", "connect": "\"Sờ-tơ-đi\" — ngồi học bài.", "ex": "I study English every day.", "exVi": "Ngày nào tôi cũng học tiếng Anh." },
-    { "en": "teach", "ipa": "/tiːtʃ/", "vi": "dạy học", "pos": "verb", "img": "👩‍🏫", "connect": "teacher chính là người teach.", "ex": "She teaches math to children.", "exVi": "Cô ấy dạy toán cho trẻ em." },
-    { "en": "spelling", "ipa": "/ˈspel.ɪŋ/", "vi": "chính tả, cách đánh vần", "pos": "noun", "img": "🔤", "connect": "spell (đánh vần) + ing.", "ex": "Check your spelling before you submit.", "exVi": "Kiểm tra chính tả trước khi nộp." },
-    { "en": "semester", "ipa": "/sɪˈmes.tɚ/", "vi": "học kỳ", "pos": "noun", "img": "🗓️", "connect": "\"Sờ-mét-tờ\" — một kỳ học.", "ex": "The new semester starts in September.", "exVi": "Học kỳ mới bắt đầu vào tháng Chín." },
-    { "en": "absent", "ipa": "/ˈæb.sənt/", "vi": "vắng mặt", "pos": "adj", "img": "🙅", "connect": "\"Áb-sừn\" — không có mặt.", "ex": "Two students are absent today.", "exVi": "Hôm nay có hai bạn vắng mặt." },
-    { "en": "note", "ipa": "/noʊt/", "vi": "ghi chú", "pos": "noun", "img": "📝", "connect": "\"Nâu-t\" — mẩu ghi chú.", "ex": "Take notes during the lesson.", "exVi": "Ghi chú trong giờ học nhé." },
-    { "en": "page", "ipa": "/peɪdʒ/", "vi": "trang (sách)", "pos": "noun", "img": "📄", "connect": "\"Pê-jờ\" — trang giấy.", "ex": "Turn to the next page.", "exVi": "Lật sang trang tiếp theo." },
-    { "en": "library", "ipa": "/ˈlaɪ.brer.i/", "vi": "thư viện", "pos": "noun", "img": "📚", "connect": "\"Lai-bre-ri\" — nơi mượn sách.", "ex": "I borrow books from the library.", "exVi": "Tôi mượn sách ở thư viện." },
-    { "en": "degree", "ipa": "/dɪˈɡriː/", "vi": "bằng cấp, độ", "pos": "noun", "img": "🎓", "connect": "\"Đi-gri\" — bằng đại học (cũng là độ nhiệt).", "ex": "She has a university degree.", "exVi": "Cô ấy có bằng đại học." }
+    {
+      "en": "classroom",
+      "ipa": "/ˈklæs.ruːm/",
+      "vi": "lớp học, phòng học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "class (lớp) + room (phòng).",
+      "ex": "The classroom is bright and clean.",
+      "exVi": "Lớp học sáng sủa và sạch sẽ."
+    },
+    {
+      "en": "desk",
+      "ipa": "/desk/",
+      "vi": "bàn học",
+      "pos": "noun",
+      "img": "🪑",
+      "connect": "\"Đét-k\" — bàn để ngồi học.",
+      "ex": "Put your book on the desk.",
+      "exVi": "Đặt sách lên bàn học."
+    },
+    {
+      "en": "notebook",
+      "ipa": "/ˈnoʊt.bʊk/",
+      "vi": "vở, sổ tay",
+      "pos": "noun",
+      "img": "📓",
+      "connect": "note (ghi chú) + book (sách).",
+      "ex": "I write new words in my notebook.",
+      "exVi": "Tôi ghi từ mới vào vở."
+    },
+    {
+      "en": "pencil",
+      "ipa": "/ˈpen.səl/",
+      "vi": "bút chì",
+      "pos": "noun",
+      "img": "✏️",
+      "connect": "\"Pen-sồ\" — họ hàng với pen (bút).",
+      "ex": "Sharpen your pencil, please.",
+      "exVi": "Gọt bút chì đi nào."
+    },
+    {
+      "en": "eraser",
+      "ipa": "/ɪˈreɪ.sɚ/",
+      "vi": "cục tẩy",
+      "pos": "noun",
+      "img": "🧽",
+      "connect": "erase (xoá) + r — đồ để xoá.",
+      "ex": "Use an eraser to fix the mistake.",
+      "exVi": "Dùng tẩy để sửa lỗi."
+    },
+    {
+      "en": "ruler",
+      "ipa": "/ˈruː.lɚ/",
+      "vi": "thước kẻ",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "rule (kẻ vạch) + r; cũng là \"người cai trị\".",
+      "ex": "Draw a line with a ruler.",
+      "exVi": "Kẻ một đường bằng thước."
+    },
+    {
+      "en": "textbook",
+      "ipa": "/ˈtekst.bʊk/",
+      "vi": "sách giáo khoa",
+      "pos": "noun",
+      "img": "📘",
+      "connect": "text (bài) + book (sách).",
+      "ex": "Open your textbook to page ten.",
+      "exVi": "Mở sách giáo khoa trang mười."
+    },
+    {
+      "en": "dictionary",
+      "ipa": "/ˈdɪk.ʃən.er.i/",
+      "vi": "từ điển",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "\"Đíc-sừn-ne-ri\" — nơi tra nghĩa từ.",
+      "ex": "Look it up in the dictionary.",
+      "exVi": "Tra nó trong từ điển đi."
+    },
+    {
+      "en": "backpack",
+      "ipa": "/ˈbæk.pæk/",
+      "vi": "ba lô",
+      "pos": "noun",
+      "img": "🎒",
+      "connect": "back (lưng) + pack (túi) — túi đeo lưng.",
+      "ex": "My backpack is very heavy today.",
+      "exVi": "Hôm nay ba lô của tôi nặng lắm."
+    },
+    {
+      "en": "chalk",
+      "ipa": "/tʃɔːk/",
+      "vi": "phấn viết bảng",
+      "pos": "noun",
+      "img": "🖍️",
+      "connect": "\"Chóoc\" — chữ \"l\" câm.",
+      "ex": "The teacher writes with chalk.",
+      "exVi": "Cô giáo viết bằng phấn."
+    },
+    {
+      "en": "whiteboard",
+      "ipa": "/ˈwaɪt.bɔːrd/",
+      "vi": "bảng trắng",
+      "pos": "noun",
+      "img": "📋",
+      "connect": "white (trắng) + board (bảng).",
+      "ex": "Write your name on the whiteboard.",
+      "exVi": "Viết tên bạn lên bảng trắng."
+    },
+    {
+      "en": "glue",
+      "ipa": "/ɡluː/",
+      "vi": "keo dán",
+      "pos": "noun",
+      "img": "🧴",
+      "connect": "\"Glu\" — dính chặt như keo.",
+      "ex": "Use glue to stick the paper.",
+      "exVi": "Dùng keo để dán tờ giấy."
+    },
+    {
+      "en": "scissors",
+      "ipa": "/ˈsɪz.ɚz/",
+      "vi": "cái kéo",
+      "pos": "noun",
+      "img": "✂️",
+      "connect": "\"Si-zờ-z\" — luôn ở dạng số nhiều.",
+      "ex": "Cut the paper with scissors.",
+      "exVi": "Cắt giấy bằng kéo."
+    },
+    {
+      "en": "subject",
+      "ipa": "/ˈsʌb.dʒekt/",
+      "vi": "môn học",
+      "pos": "noun",
+      "img": "📚",
+      "connect": "\"Sáb-giếct\" — môn học ở trường.",
+      "ex": "Math is my favorite subject.",
+      "exVi": "Toán là môn tôi thích nhất."
+    },
+    {
+      "en": "math",
+      "ipa": "/mæθ/",
+      "vi": "môn toán",
+      "pos": "noun",
+      "img": "➗",
+      "connect": "rút gọn của mathematics.",
+      "ex": "I have a math test today.",
+      "exVi": "Hôm nay tôi có bài kiểm tra toán."
+    },
+    {
+      "en": "science",
+      "ipa": "/ˈsaɪ.əns/",
+      "vi": "khoa học",
+      "pos": "noun",
+      "img": "🔬",
+      "connect": "\"Sai-ừn-s\" — môn khoa học.",
+      "ex": "Science is really interesting.",
+      "exVi": "Khoa học thật sự thú vị."
+    },
+    {
+      "en": "history",
+      "ipa": "/ˈhɪs.tɚ.i/",
+      "vi": "lịch sử",
+      "pos": "noun",
+      "img": "📜",
+      "connect": "nghe như \"his story\" — câu chuyện xưa.",
+      "ex": "We study history at school.",
+      "exVi": "Chúng tôi học lịch sử ở trường."
+    },
+    {
+      "en": "grade",
+      "ipa": "/ɡreɪd/",
+      "vi": "điểm số, khối lớp",
+      "pos": "noun",
+      "img": "💯",
+      "connect": "\"Grê-d\" — điểm hoặc lớp mấy.",
+      "ex": "She got a good grade on the test.",
+      "exVi": "Cô ấy được điểm cao trong bài kiểm tra."
+    },
+    {
+      "en": "knowledge",
+      "ipa": "/ˈnɑː.lɪdʒ/",
+      "vi": "kiến thức",
+      "pos": "noun",
+      "img": "🧠",
+      "connect": "know (biết) + ledge; chữ \"k\" câm.",
+      "ex": "Books give us knowledge.",
+      "exVi": "Sách cho chúng ta kiến thức."
+    },
+    {
+      "en": "study",
+      "ipa": "/ˈstʌd.i/",
+      "vi": "học tập",
+      "pos": "verb",
+      "img": "📖",
+      "connect": "\"Sờ-tơ-đi\" — ngồi học bài.",
+      "ex": "I study English every day.",
+      "exVi": "Ngày nào tôi cũng học tiếng Anh."
+    },
+    {
+      "en": "teach",
+      "ipa": "/tiːtʃ/",
+      "vi": "dạy học",
+      "pos": "verb",
+      "img": "👩‍🏫",
+      "connect": "teacher chính là người teach.",
+      "ex": "She teaches math to children.",
+      "exVi": "Cô ấy dạy toán cho trẻ em."
+    },
+    {
+      "en": "spelling",
+      "ipa": "/ˈspel.ɪŋ/",
+      "vi": "chính tả, cách đánh vần",
+      "pos": "noun",
+      "img": "🔤",
+      "connect": "spell (đánh vần) + ing.",
+      "ex": "Check your spelling before you submit.",
+      "exVi": "Kiểm tra chính tả trước khi nộp."
+    },
+    {
+      "en": "semester",
+      "ipa": "/sɪˈmes.tɚ/",
+      "vi": "học kỳ",
+      "pos": "noun",
+      "img": "🗓️",
+      "connect": "\"Sờ-mét-tờ\" — một kỳ học.",
+      "ex": "The new semester starts in September.",
+      "exVi": "Học kỳ mới bắt đầu vào tháng Chín."
+    },
+    {
+      "en": "absent",
+      "ipa": "/ˈæb.sənt/",
+      "vi": "vắng mặt",
+      "pos": "adj",
+      "img": "🙅",
+      "connect": "\"Áb-sừn\" — không có mặt.",
+      "ex": "Two students are absent today.",
+      "exVi": "Hôm nay có hai bạn vắng mặt."
+    },
+    {
+      "en": "note",
+      "ipa": "/noʊt/",
+      "vi": "ghi chú",
+      "pos": "noun",
+      "img": "📝",
+      "connect": "\"Nâu-t\" — mẩu ghi chú.",
+      "ex": "Take notes during the lesson.",
+      "exVi": "Ghi chú trong giờ học nhé."
+    },
+    {
+      "en": "page",
+      "ipa": "/peɪdʒ/",
+      "vi": "trang (sách)",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "\"Pê-jờ\" — trang giấy.",
+      "ex": "Turn to the next page.",
+      "exVi": "Lật sang trang tiếp theo."
+    },
+    {
+      "en": "library",
+      "ipa": "/ˈlaɪ.brer.i/",
+      "vi": "thư viện",
+      "pos": "noun",
+      "img": "📚",
+      "connect": "\"Lai-bre-ri\" — nơi mượn sách.",
+      "ex": "I borrow books from the library.",
+      "exVi": "Tôi mượn sách ở thư viện."
+    },
+    {
+      "en": "degree",
+      "ipa": "/dɪˈɡriː/",
+      "vi": "bằng cấp, độ",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "\"Đi-gri\" — bằng đại học (cũng là độ nhiệt).",
+      "ex": "She has a university degree.",
+      "exVi": "Cô ấy có bằng đại học."
+    }
   ]
 }

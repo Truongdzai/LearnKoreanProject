@@ -6,17 +6,125 @@
   "tone": "tone-e",
   "emoji": "🍚",
   "words": [
-    { "ko": "밥", "romaja": "bap", "vi": "Cơm / Bữa ăn", "pos": "noun", "img": "🍚", "connect": "\"Báp\" — một chén cơm đầy.", "ex": "밥을 먹었어요.", "exVi": "Tôi đã ăn cơm." },
-    { "ko": "물", "romaja": "mul", "vi": "Nước", "pos": "noun", "img": "💧", "connect": "\"Mul\" — \"múc\" một ly nước.", "ex": "물 좀 주세요.", "exVi": "Cho tôi xin ít nước." },
-    { "ko": "커피", "romaja": "keopi", "vi": "Cà phê", "pos": "noun", "img": "☕", "connect": "\"Kơ-pi\" — chính là \"coffee\".", "ex": "커피 한 잔 주세요.", "exVi": "Cho tôi một ly cà phê." },
-    { "ko": "김치", "romaja": "gimchi", "vi": "Kim chi", "pos": "noun", "img": "🥬", "connect": "\"Kim-chi\" — món cải muối trứ danh.", "ex": "김치는 조금 매워요.", "exVi": "Kim chi hơi cay." },
-    { "ko": "빵", "romaja": "ppang", "vi": "Bánh mì", "pos": "noun", "img": "🍞", "connect": "\"Ppang\" gốc từ \"pão/pain\" — bánh mì.", "ex": "아침에 빵을 먹어요.", "exVi": "Buổi sáng tôi ăn bánh mì." },
-    { "ko": "과일", "romaja": "gwail", "vi": "Trái cây", "pos": "noun", "img": "🍎", "connect": "\"Kua-il\" — nghe như \"quả\".", "ex": "과일을 좋아해요.", "exVi": "Tôi thích trái cây." },
-    { "ko": "고기", "romaja": "gogi", "vi": "Thịt", "pos": "noun", "img": "🥩", "connect": "\"Kô-ghi\" — miếng thịt trên bàn.", "ex": "고기를 구워요.", "exVi": "Tôi nướng thịt." },
-    { "ko": "돈", "romaja": "don", "vi": "Tiền", "pos": "noun", "img": "💰", "connect": "\"Đôn\" — gợi \"đồng\" tiền.", "ex": "돈이 없어요.", "exVi": "Tôi không có tiền." },
-    { "ko": "얼마", "romaja": "eolma", "vi": "Bao nhiêu (tiền)", "pos": "question", "img": "❓", "connect": "\"Ơl-ma\" — hỏi \"ơ, mấy\" đồng.", "ex": "이거 얼마예요?", "exVi": "Cái này bao nhiêu tiền?" },
-    { "ko": "이거", "romaja": "igeo", "vi": "Cái này", "pos": "noun", "img": "👉", "connect": "\"I-gơ\" — chỉ vào \"cái\" này.", "ex": "이거 주세요.", "exVi": "Cho tôi cái này." },
-    { "ko": "주세요", "romaja": "juseyo", "vi": "Làm ơn cho / Xin", "pos": "phrase", "img": "🙏", "connect": "\"Chu-sê-yô\" — \"cho\" tôi với.", "ex": "물 주세요.", "exVi": "Cho tôi nước." },
-    { "ko": "맛있어요", "romaja": "masisseoyo", "vi": "Ngon", "pos": "adj", "img": "😋", "connect": "\"Ma-si-sơ-yô\" — ăn thấy \"mát\" miệng, ngon.", "ex": "이 음식이 맛있어요.", "exVi": "Món này ngon." }
+    {
+      "ko": "밥",
+      "romaja": "bap",
+      "vi": "Cơm / Bữa ăn",
+      "pos": "noun",
+      "img": "🍚",
+      "connect": "\"Báp\" — một chén cơm đầy.",
+      "ex": "밥을 먹었어요.",
+      "exVi": "Tôi đã ăn cơm."
+    },
+    {
+      "ko": "물",
+      "romaja": "mul",
+      "vi": "Nước",
+      "pos": "noun",
+      "img": "💧",
+      "connect": "\"Mul\" — \"múc\" một ly nước.",
+      "ex": "물 좀 주세요.",
+      "exVi": "Cho tôi xin ít nước."
+    },
+    {
+      "ko": "커피",
+      "romaja": "keopi",
+      "vi": "Cà phê",
+      "pos": "noun",
+      "img": "☕",
+      "connect": "\"Kơ-pi\" — chính là \"coffee\".",
+      "ex": "커피 한 잔 주세요.",
+      "exVi": "Cho tôi một ly cà phê."
+    },
+    {
+      "ko": "김치",
+      "romaja": "gimchi",
+      "vi": "Kim chi",
+      "pos": "noun",
+      "img": "🥬",
+      "connect": "\"Kim-chi\" — món cải muối trứ danh.",
+      "ex": "김치는 조금 매워요.",
+      "exVi": "Kim chi hơi cay."
+    },
+    {
+      "ko": "빵",
+      "romaja": "ppang",
+      "vi": "Bánh mì",
+      "pos": "noun",
+      "img": "🍞",
+      "connect": "\"Ppang\" gốc từ \"pão/pain\" — bánh mì.",
+      "ex": "아침에 빵을 먹어요.",
+      "exVi": "Buổi sáng tôi ăn bánh mì."
+    },
+    {
+      "ko": "과일",
+      "romaja": "gwail",
+      "vi": "Trái cây",
+      "pos": "noun",
+      "img": "🍎",
+      "connect": "\"Kua-il\" — nghe như \"quả\".",
+      "ex": "과일을 좋아해요.",
+      "exVi": "Tôi thích trái cây."
+    },
+    {
+      "ko": "고기",
+      "romaja": "gogi",
+      "vi": "Thịt",
+      "pos": "noun",
+      "img": "🥩",
+      "connect": "\"Kô-ghi\" — miếng thịt trên bàn.",
+      "ex": "고기를 구워요.",
+      "exVi": "Tôi nướng thịt."
+    },
+    {
+      "ko": "돈",
+      "romaja": "don",
+      "vi": "Tiền",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "\"Đôn\" — gợi \"đồng\" tiền.",
+      "ex": "돈이 없어요.",
+      "exVi": "Tôi không có tiền."
+    },
+    {
+      "ko": "얼마",
+      "romaja": "eolma",
+      "vi": "Bao nhiêu (tiền)",
+      "pos": "question",
+      "img": "❓",
+      "connect": "\"Ơl-ma\" — hỏi \"ơ, mấy\" đồng.",
+      "ex": "이거 얼마예요?",
+      "exVi": "Cái này bao nhiêu tiền?"
+    },
+    {
+      "ko": "이거",
+      "romaja": "igeo",
+      "vi": "Cái này",
+      "pos": "noun",
+      "img": "👉",
+      "connect": "\"I-gơ\" — chỉ vào \"cái\" này.",
+      "ex": "이거 주세요.",
+      "exVi": "Cho tôi cái này."
+    },
+    {
+      "ko": "주세요",
+      "romaja": "juseyo",
+      "vi": "Làm ơn cho / Xin",
+      "pos": "phrase",
+      "img": "🙏",
+      "connect": "\"Chu-sê-yô\" — \"cho\" tôi với.",
+      "ex": "물 주세요.",
+      "exVi": "Cho tôi nước."
+    },
+    {
+      "ko": "맛있어요",
+      "romaja": "masisseoyo",
+      "vi": "Ngon",
+      "pos": "adj",
+      "img": "😋",
+      "connect": "\"Ma-si-sơ-yô\" — ăn thấy \"mát\" miệng, ngon.",
+      "ex": "이 음식이 맛있어요.",
+      "exVi": "Món này ngon."
+    }
   ]
 }

@@ -1,15 +1,45 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
-import { romanizeLine } from '@/core/utils/romanize'
-import { pronunciationScore, markWords, scoreBand } from '@/core/utils/pronounce'
+import { useVoiceClip } from '@/hooks/useVoiceClip'
+import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
+import { usePhonetics } from '@/hooks/usePhonetics'
+import { scoreBand } from '@/core/utils/pronounce'
+import {
+  alignWords, classify, overallScore, splitWords,
+  type ErrorKind, type WordPair,
+} from '@/core/utils/speechDiff'
 import { fetchPronounceFeedback, type PronounceFeedback } from '@/core/api/pronounce.api'
+import { addCard } from '@/core/api/srs.api'
+import { useSkillLog } from '@/core/skills'
+import { useMissBook } from '@/core/missBook'
+import { useLessonProgress, lessonStat } from '@/core/lessonProgress'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
+import { playRange, refDuration, segEnd } from '../segments'
+import ProsodyCard from './ProsodyCard'
+import TranscriptRail from './TranscriptRail'
 import type { Lesson } from '@/models/lesson.model'
 
 const REWARD = 5
+const RATES = [0.5, 0.75, 1, 1.25]
+const PASS = 65
+const AUTOPAUSE_KEY = 'vyling.sh.autoPause'
+const RATE_KEY = 'vyling.sh.rate'
+
+type Mode = 'repeat' | 'overlay'
+
+function loadFlag(key: string, fallback: boolean): boolean {
+  try {
+    const v = localStorage.getItem(key)
+    return v === null ? fallback : v === '1'
+  } catch { return fallback }
+}
+
+function loadRate(): number {
+  try { return Number(localStorage.getItem(RATE_KEY)) || 1 } catch { return 1 }
+}
 
 export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const { recordEvent, learnLang, nativeLang, t } = useAppStore()
@@ -22,43 +52,208 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState('')
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
+  const [dropped, setDropped] = useState(false)
   const sr = useSpeechRecognition(cfg.locale)
+  const skills = useSkillLog()
+  const missBook = useMissBook()
+  const prog = useLessonProgress()
+
+  const [mode, setMode] = useState<Mode>('repeat')
+  const [rate, setRate] = useState(loadRate)
+  const [autoPause, setAutoPause] = useState(() => loadFlag(AUTOPAUSE_KEY, true))
+  const [playing, setPlaying] = useState(false)
+  const [panel, setPanel] = useState<'' | 'gear' | 'keys'>('')
+  const [myClip, setMyClip] = useState('')
+  const [saved, setSaved] = useState(0)
+  const [saveErr, setSaveErr] = useState('')
+  const clip = useVoiceClip()
+  const yt = useYouTubePlayer('shadow-player')
+  const cancelPlay = useRef<(() => void) | null>(null)
+  const myAudio = useRef<HTMLAudioElement | null>(null)
+  const tick = useRef<number | null>(null)
+  const spoke = useRef(false)
 
   const cur = segs[i]
-  const romaja = useMemo(() => (cfg.reading === 'romaja' ? romanizeLine(cur.ko) : ''), [cur.ko, cfg.reading === 'romaja'])
+  const lines = useMemo(() => segs.map((s) => s.ko), [segs])
+  const ph = usePhonetics(learnLang, lines)
 
-  const speak = (text: string, rate = 0.9) => speakLang(text, cfg.locale, rate)
+  const targetWords = useMemo(() => splitWords(cur.ko, learnLang), [cur.ko, learnLang])
+  const heardWords = useMemo(() => splitWords(heard, learnLang), [heard, learnLang])
+
+  const pairs = useMemo<WordPair[]>(() => {
+    if (score === null || !heardWords.length) return []
+    void ph.version
+    return alignWords({ target: targetWords, heard: heardWords, phones: ph.phones })
+  }, [score, targetWords, heardWords, ph.phones, ph.version])
+
+  const issues = useMemo(
+    () => pairs
+      .filter((p) => p.state !== 'ok')
+      .map((p) => ({
+        ...p,
+        kind: p.state === 'extra'
+          ? ('extra' as ErrorKind)
+          : classify(ph.phones(p.target), p.heard ? ph.phones(p.heard) : [], ph.read(p.target), p.heard ? ph.read(p.heard) : ''),
+      })),
+    [pairs, ph.phones, ph.read, ph.version],
+  )
+
+  const speak = (text: string, r = 0.9) => speakLang(text, cfg.locale, r)
+
+  useEffect(() => { yt.load(lesson.id) }, [lesson.id])
+
+  const stopTick = () => {
+    if (tick.current) { window.clearInterval(tick.current); tick.current = null }
+  }
+
+  const stopOriginal = useCallback(() => {
+    cancelPlay.current?.()
+    cancelPlay.current = null
+    stopTick()
+    yt.pause()
+    setPlaying(false)
+  }, [yt])
+
+  const indexAt = useCallback((time: number) => {
+    for (let k = segs.length - 1; k >= 0; k--) if (time >= segs[k].start) return k
+    return 0
+  }, [segs])
+
+  const startTick = useCallback((from: number) => {
+    stopTick()
+    let entered = false
+    let cursor = from
+    tick.current = window.setInterval(() => {
+      const now = yt.getTime()
+      if (now == null) return
+      if (!entered) {
+        if (now >= segs[from].start - 0.4) entered = true
+        return
+      }
+      if (autoPause) {
+        if (now >= segEnd(segs, from) - 0.06) stopOriginal()
+        return
+      }
+      const at = indexAt(now)
+      if (at !== cursor) {
+        cursor = at
+        setI(at)
+        resetAttempt()
+      }
+    }, 120)
+  }, [yt, segs, autoPause, indexAt, stopOriginal])
+
+  const playFrom = useCallback((idx: number) => {
+    stopOriginal()
+    setPlaying(true)
+    yt.setRate(rate)
+    yt.seek(segs[idx].start)
+    startTick(idx)
+  }, [yt, rate, segs, startTick, stopOriginal])
+
+  const togglePlay = () => {
+    if (playing) stopOriginal()
+    else playFrom(i)
+  }
+
+  const stopMine = () => { myAudio.current?.pause(); myAudio.current = null }
+
+  const playMine = () => {
+    if (!myClip) return
+    stopMine()
+    const el = new Audio(myClip)
+    myAudio.current = el
+    el.play().catch(() => { })
+  }
 
   const resetAttempt = () => {
     setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()
+    setMyClip(''); setSaved(0); setSaveErr(''); setDropped(false)
   }
 
-  const go = (idx: number) => {
+  const go = useCallback((idx: number) => {
     if (idx < 0 || idx >= segs.length) return
+    stopOriginal(); stopMine()
+    if (clip.recording) clip.cancel()
     setI(idx); resetAttempt()
-  }
+  }, [segs.length, stopOriginal, clip])
+
+  useEffect(() => () => { stopOriginal(); stopMine() }, [])
+
+  useEffect(() => {
+    try { localStorage.setItem(AUTOPAUSE_KEY, autoPause ? '1' : '0') } catch {  }
+  }, [autoPause])
+
+  useEffect(() => {
+    try { localStorage.setItem(RATE_KEY, String(rate)) } catch {  }
+  }, [rate])
 
   const record = () => {
     if (sr.listening) { sr.stop(); return }
-    setScore(null); setAi(null); setAiError('')
+    stopOriginal()
+    setScore(null); setAi(null); setAiError(''); setMyClip('')
     sr.start()
+    if (clip.supported && !clip.recording) clip.start((data) => setMyClip(data))
   }
 
-  const applyResult = (said: string) => {
-    const sc = pronunciationScore(cur.ko, said)
+  const shadowOver = () => {
+    if (clip.recording) { clip.stop(); stopOriginal(); return }
+    setMyClip(''); setSaveErr('')
+    clip.start((data) => { setMyClip(data); stopOriginal() })
+    setPlaying(true)
+    cancelPlay.current = playRange(yt, cur.start, segEnd(segs, i), { times: 1, rate, onEnd: stopOriginal })
+  }
+
+  const applyResult = useCallback(async (said: string) => {
+    const words = splitWords(said, learnLang)
+    await ph.ensure(words)
+    const list = alignWords({ target: targetWords, heard: words, phones: ph.phones })
+    const sc = overallScore(list, ph.phones)
     setHeard(said)
     setScore(sc)
-    if (sc >= 65 && !rewarded.has(i)) {
+    skills.record('speak', sc)
+    prog.record('speak', lesson.id, i, sc, segs.length, lesson.title)
+    const bad = list.filter((p) => p.state === 'wrong' || p.state === 'missing').map((p) => p.target).filter(Boolean)
+    if (bad.length) {
+      missBook.add(bad.map((w) => ({ w, ctx: cur.ko, vi: cur.vi || '', lang: learnLang, k: 'speak' as const })))
+    }
+    if (sc >= PASS && !rewarded.has(i)) {
       recordEvent('pronounce', 1)
       setRewarded((r) => new Set(r).add(i))
     }
+  }, [learnLang, ph, targetWords, skills, prog, lesson.id, lesson.title, i, segs.length, missBook, cur.ko, cur.vi, rewarded, recordEvent])
+
+  const discardAttempt = () => {
+    if (score === null) return
+    skills.undo('speak', score)
+    prog.drop('speak', lesson.id, i)
+    missBook.undo(
+      pairs.filter((p) => p.state === 'wrong' || p.state === 'missing')
+        .map((p) => ({ w: p.target, lang: learnLang, k: 'speak' as const })),
+    )
+    setDropped(true)
+    setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()
   }
 
   useEffect(() => {
     if (sr.listening || score !== null) return
     const said = sr.transcript.trim()
-    if (said) applyResult(said)
+    if (said) void applyResult(said)
   }, [sr.listening, sr.transcript])
+
+  useEffect(() => {
+    if (mode === 'repeat' || !sr.listening) return
+    sr.stop()
+  }, [mode, sr.listening])
+
+  useEffect(() => {
+    if (mode !== 'repeat') return
+    if (sr.listening) { spoke.current = true; return }
+    if (spoke.current && clip.recording) {
+      spoke.current = false
+      clip.stop()
+    }
+  }, [mode, sr.listening, clip.recording, clip.stop])
 
   const askAI = async () => {
     if (score === null) return
@@ -74,92 +269,294 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   }
 
   const band = score !== null ? scoreBand(score) : null
-  const marks = score !== null ? markWords(cur.ko, heard) : []
-  const passed = rewarded.size
+  const missed = useMemo(
+    () => Array.from(new Set(pairs.filter((p) => p.state === 'wrong' || p.state === 'missing').map((p) => p.target).filter(Boolean))),
+    [pairs],
+  )
+  const scores = prog.scoresOf('speak', lesson.id)
+  const stat = lessonStat(scores, segs.length, PASS)
+
+  const saveMissed = async () => {
+    if (!missed.length) return
+    setSaveErr('')
+    try {
+      const back = cur.vi ? `${cur.ko} — ${cur.vi}` : cur.ko
+      for (const word of missed) await addCard({ front: word, back, source: 'shadowing' })
+      setSaved(missed.length)
+    } catch (e) {
+      setSaveErr((e as Error).message)
+    }
+  }
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null
+      if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return
+      if (el?.isContentEditable) return
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      const k = e.key.toLowerCase()
+      if (k === ' ') { e.preventDefault(); togglePlay() }
+      else if (k === 'r') { e.preventDefault(); record() }
+      else if (k === 'arrowleft') { e.preventDefault(); go(i - 1) }
+      else if (k === 'arrowright') { e.preventDefault(); go(i + 1) }
+      else if (k === 'l') { e.preventDefault(); playFrom(i) }
+      else if (k === 'escape') setPanel('')
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  })
+
+  const chipTone = (s: WordPair['state']) =>
+    s === 'ok' ? 'ok' : s === 'near' ? 'near' : s === 'missing' ? 'gone' : 'bad'
+
+  const chipMark = (s: WordPair['state']) =>
+    s === 'ok' ? '✓' : s === 'near' ? '~' : s === 'missing' ? '–' : '✕'
 
   return (
-    <div className="shadow">
-      <div className="shadow-bar">
-        <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> {t('sh.prev')}</button>
-        <div className="shadow-prog">
-          <span>{t('sh.line', { a: i + 1, b: segs.length })}</span>
-          <div className="tp-bar"><span style={{ width: ((i + 1) / segs.length) * 100 + '%' }} /></div>
-          <span className="shadow-passed"><Icon name="check-circle" size={14} /> {t('sh.passed', { n: passed })}</span>
-        </div>
-        <button className="btn-ghost sm" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>{t('sh.next')} <Icon name="arrow-right" size={15} /></button>
-      </div>
-
-      <div className="shadow-card">
-        <div className="shadow-ko" lang={learnLang}>
-          {marks.length
-            ? marks.map((m, k) => <span key={k} className={'sw ' + (m.ok ? 'ok' : 'miss')}>{m.word} </span>)
-            : cur.ko}
-        </div>
-        {romaja && <div className="shadow-romaja">{romaja}</div>}
-        {cur.vi && <div className="shadow-vi">{cur.vi}</div>}
-
-        <div className="shadow-listen">
-          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={16} /> {t('sh.listen')}</button>
-          <button className="btn-ghost" onClick={() => speak(cur.ko, 0.6)}><Icon name="volume" size={16} /> {t('sh.slow')}</button>
-        </div>
-
-        {sr.supported ? (
-          <>
-            <button className={'mic-btn' + (sr.listening ? ' on' : '')} onClick={record}>
-              <Icon name="mic" size={26} />
-              <span>{sr.listening ? t('sh.micStop') : t('sh.micStart')}</span>
-            </button>
-            {(sr.listening || sr.interim) && <div className="shadow-interim" lang={learnLang}>{sr.interim || '…'}</div>}
-            {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
-          </>
-        ) : (
-          <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noSR')}</div>
-        )}
-      </div>
-
-      {score !== null && band && (
-        <div className={'shadow-result ' + band.tone}>
-          <div className="sr-score">
-            <svg viewBox="0 0 80 80" className="sr-ring">
-              <circle cx="40" cy="40" r="34" className="sr-ring-bg" />
-              <circle cx="40" cy="40" r="34" className="sr-ring-fg"
-                strokeDasharray={2 * Math.PI * 34}
-                strokeDashoffset={2 * Math.PI * 34 * (1 - score / 100)} />
-            </svg>
-            <b>{score}<small>%</small></b>
+    <div className="shadow2">
+      <div className="sh2-main">
+        <div className="sh2-stage">
+          <div className="player-wrap"><div id="shadow-player" /></div>
+          <div className="sh2-cap" aria-hidden="true">
+            {cur.vi && <div className="sh2-cap-vi">{cur.vi}</div>}
+            <div className="sh2-cap-ko" lang={learnLang}>{cur.ko}</div>
           </div>
-          <div className="sr-body">
-            <div className="sr-band">{t(band.labelKey)}{score >= 65 && rewarded.has(i) && <span className="sr-coin">+{REWARD} XP <Icon name="star" size={13} /></span>}</div>
-            <div className="sr-heard"><span>{t('sh.youSaid')}</span> <em lang={learnLang}>{heard || t('sh.unclear')}</em></div>
-            <div className="sr-actions">
-              <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> {t('sh.retry')}</button>
-              <button className="btn-primary sm" onClick={askAI} disabled={aiLoading}>
-                <Icon name="sparkles" size={14} /> {aiLoading ? t('sh.aiScoring') : t('sh.aiBtn')}
+        </div>
+
+        <div className="sh2-optrow">
+          <button
+            type="button"
+            className={'sh2-switch' + (autoPause ? ' on' : '')}
+            role="switch"
+            aria-checked={autoPause}
+            onClick={() => setAutoPause((v) => !v)}
+            title={t('sh.autoPauseTip')}
+          >
+            <span className="sh2-knob" />
+            <span>{t('sh.autoPause')}</span>
+          </button>
+          <span className="sh2-linecount">{t('sh.line', { a: i + 1, b: segs.length })}</span>
+          <span className="sh2-passed"><Icon name="check-circle" size={14} /> {t('sh.passed', { n: stat.passed })}</span>
+        </div>
+
+        <div className="sh2-transport">
+          <button className="sh2-tbtn" disabled={i === 0} onClick={() => go(i - 1)} title={t('sh.prevLine')} aria-label={t('sh.prevLine')}>
+            <Icon name="chevron-left" size={18} />
+          </button>
+          <button className="sh2-tbtn" onClick={() => playFrom(i)} title={t('sh.replayLine')} aria-label={t('sh.replayLine')}>
+            <Icon name="refresh" size={18} />
+          </button>
+          <button className={'sh2-tbtn play' + (playing ? ' on' : '')} onClick={togglePlay} title={playing ? t('sh.pauseLine') : t('sh.playLine')} aria-label={playing ? t('sh.pauseLine') : t('sh.playLine')}>
+            <Icon name={playing ? 'pause' : 'play'} size={18} />
+          </button>
+          <button className="sh2-tbtn" disabled={i === segs.length - 1} onClick={() => go(i + 1)} title={t('sh.nextLine')} aria-label={t('sh.nextLine')}>
+            <Icon name="arrow-right" size={18} />
+          </button>
+
+          <div className="sh2-tools">
+            <div className="sh2-pop-wrap">
+              <button className="sh2-tool" onClick={() => setPanel(panel === 'gear' ? '' : 'gear')} aria-expanded={panel === 'gear'}>
+                <Icon name="flame" size={14} /> {rate}×
               </button>
+              {panel === 'gear' && (
+                <div className="sh2-pop">
+                  <div className="sh2-pop-h">{t('sh.speed')}</div>
+                  <div className="sh2-pop-chips">
+                    {RATES.map((r) => (
+                      <button key={r} className={'sh2-chip' + (rate === r ? ' on' : '')} onClick={() => { setRate(r); yt.setRate(r) }}>{r}×</button>
+                    ))}
+                  </div>
+                  <div className="sh2-pop-h">{t('sh.modeHead')}</div>
+                  <div className="sh2-pop-chips">
+                    <button className={'sh2-chip' + (mode === 'repeat' ? ' on' : '')} onClick={() => setMode('repeat')}>{t('sh.modeRepeat')}</button>
+                    <button className={'sh2-chip' + (mode === 'overlay' ? ' on' : '')} onClick={() => setMode('overlay')}>{t('sh.modeOverlay')}</button>
+                  </div>
+                  <p className="sh2-pop-hint">{t(mode === 'repeat' ? 'sh.modeRepeatHint' : 'sh.modeOverlayHint')}</p>
+                  <div className="sh2-pop-h">{t('sh.ttsGroup')}</div>
+                  <div className="sh2-pop-chips">
+                    <button className="sh2-chip" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={13} /> {t('sh.listen')}</button>
+                    <button className="sh2-chip" onClick={() => speak(cur.ko, 0.6)}><Icon name="volume" size={13} /> {t('sh.slow')}</button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="sh2-pop-wrap">
+              <button className="sh2-tool" onClick={() => setPanel(panel === 'keys' ? '' : 'keys')} aria-expanded={panel === 'keys'} title={t('sh.keys')}>
+                <Icon name="bulb" size={14} />
+              </button>
+              {panel === 'keys' && (
+                <div className="sh2-pop wide">
+                  <div className="sh2-pop-h">{t('sh.keys')}</div>
+                  <ul className="sh2-keys">
+                    <li><kbd>Space</kbd> {t('sh.keyPlay')}</li>
+                    <li><kbd>R</kbd> {t('sh.keyRec')}</li>
+                    <li><kbd>L</kbd> {t('sh.keyReplay')}</li>
+                    <li><kbd>←</kbd> <kbd>→</kbd> {t('sh.keyMove')}</li>
+                  </ul>
+                  <div className="sh2-pop-h">{t('sh.howHead')}</div>
+                  <ol className="sh2-how">
+                    {[1, 2, 3, 4].map((n) => <li key={n}><b>{t(`sh.step${n}`)}</b> — {t(`sh.step${n}d`)}</li>)}
+                  </ol>
+                </div>
+              )}
             </div>
           </div>
         </div>
-      )}
 
-      {aiError && (
-        <div className="shadow-aierr">
-          <Icon name="x-circle" size={15} /> {t('sh.aiFail', { msg: aiError })}
-          <span>{t('sh.aiFailTip')}</span>
+        <div className="sh2-words" lang={learnLang}>
+          {targetWords.map((w, k) => (
+            <span key={k} className="sh2-word">
+              <b>{w}</b>
+              {ph.read(w) && <i>/{ph.read(w)}/</i>}
+            </span>
+          ))}
         </div>
-      )}
 
-      {ai && (
-        <div className="ai-feedback">
-          <div className="ai-fb-head"><Icon name="vyling" size={18} /> {t('sh.aiHead')} {ai.model && <span className="ai-model">{ai.model}</span>}</div>
-          <p className="ai-fb-text">{ai.feedback}</p>
-          {ai.tips.length > 0 && (
-            <ul className="ai-fb-tips">
-              {ai.tips.map((tip, k) => <li key={k}><Icon name="check" size={14} /> {tip}</li>)}
-            </ul>
-          )}
-          {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}
-        </div>
-      )}
+        {mode === 'repeat' ? (
+          sr.supported ? (
+            <>
+              <div className="sh2-actions">
+                <button className="sh2-act ghost" disabled={!myClip} onClick={playMine}>
+                  <Icon name="play" size={15} /> {t('sh.replayMine')}
+                </button>
+                <button className={'sh2-act rec' + (sr.listening ? ' on' : '')} onClick={record}>
+                  <Icon name="mic" size={17} /> {sr.listening ? t('sh.recording') : t('sh.recordBtn')}
+                </button>
+                <button className="sh2-act skip" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>
+                  <Icon name="arrow-right" size={15} /> {t('sh.skipLine')}
+                </button>
+              </div>
+              {(sr.listening || sr.interim) && <div className="sh2-interim" lang={learnLang}>{sr.interim || '…'}</div>}
+              {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
+              {dropped && <div className="shadow-dropped"><Icon name="check-circle" size={14} /> {t('sh.misheardOk')}</div>}
+            </>
+          ) : (
+            <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noSR')}</div>
+          )
+        ) : clip.supported ? (
+          <div className="sh2-actions">
+            <button className="sh2-act ghost" disabled={!myClip} onClick={playMine}>
+              <Icon name="play" size={15} /> {t('sh.replayMine')}
+            </button>
+            <button className={'sh2-act rec' + (clip.recording ? ' on' : '')} onClick={shadowOver}>
+              <Icon name="mic" size={17} /> {clip.recording ? t('sh.shadowStop', { s: clip.seconds }) : t('sh.shadowNow')}
+            </button>
+            <button className="sh2-act skip" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>
+              <Icon name="arrow-right" size={15} /> {t('sh.skipLine')}
+            </button>
+          </div>
+        ) : (
+          <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noRec')}</div>
+        )}
+
+        {score !== null && band && (
+          <div className="sh2-result">
+            <div className="sh2-chips">
+              {pairs.map((p, k) => {
+                const shown = p.state === 'missing' ? p.target : p.heard
+                return (
+                  <span key={k} className={'sh2-chip-w ' + chipTone(p.state)}>
+                    <span className="sh2-cw-mark">{chipMark(p.state)}</span>
+                    <b>{shown}</b>
+                    {ph.read(shown) && <i>/{ph.read(shown)}/</i>}
+                  </span>
+                )
+              })}
+              <div className={'sh2-ring ' + band.tone}>
+                <svg viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="34" className="sh2-ring-bg" />
+                  <circle cx="40" cy="40" r="34" className="sh2-ring-fg"
+                    strokeDasharray={2 * Math.PI * 34}
+                    strokeDashoffset={2 * Math.PI * 34 * (1 - score / 100)} />
+                </svg>
+                <b>{score}</b>
+              </div>
+            </div>
+
+            {issues.length > 0 && (
+              <ul className="sh2-issues">
+                {issues.map((it, k) => (
+                  <li key={k} className={'sh2-issue ' + chipTone(it.state)}>
+                    <span className="sh2-iw">
+                      {it.target || '—'} {it.target && ph.read(it.target) && <em>/{ph.read(it.target)}/</em>}
+                    </span>
+                    <Icon name="arrow-right" size={13} />
+                    <span className="sh2-iw bad">
+                      {it.heard || '—'} {it.heard && ph.read(it.heard) && <em>/{ph.read(it.heard)}/</em>}
+                    </span>
+                    <span className="sh2-ikind">{t('sh.kind.' + it.kind)}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {mode === 'repeat' && myClip && (
+              <ProsodyCard clip={myClip} refSec={refDuration(segs, i)} text={cur.ko} lang={learnLang} />
+            )}
+
+            <div className="sh2-legend">
+              <span><i className="lg ok" /> {t('sh.legend.ok')}</span>
+              <span><i className="lg near" /> {t('sh.legend.near')}</span>
+              <span><i className="lg bad" /> {t('sh.legend.wrong')}</span>
+              <span><i className="lg gone" /> {t('sh.legend.missing')}</span>
+              <span className="sh2-band">{t(band.labelKey)}{score >= PASS && rewarded.has(i) && <em>+{REWARD} XP</em>}</span>
+            </div>
+
+            <div className="sh2-resact">
+              <button className="btn-ghost sm" onClick={resetAttempt}><Icon name="mic" size={14} /> {t('sh.retry')}</button>
+              <button className="btn-ghost sm" onClick={discardAttempt} title={t('sh.misheardTip')}>
+                <Icon name="x-circle" size={14} /> {t('sh.misheard')}
+              </button>
+              <button className="btn-primary sm" onClick={askAI} disabled={aiLoading}>
+                <Icon name="sparkles" size={14} /> {aiLoading ? t('sh.aiScoring') : t('sh.aiBtn')}
+              </button>
+              {missed.length > 0 && (
+                saved ? (
+                  <span className="shadow-savedok"><Icon name="check-circle" size={14} /> {t('sh.saved', { n: saved })}</span>
+                ) : (
+                  <button className="btn-ghost sm" onClick={saveMissed}>
+                    <Icon name="cards" size={14} /> {t('sh.saveMiss', { n: missed.length })}
+                  </button>
+                )
+              )}
+            </div>
+            {saveErr && <div className="shadow-err"><Icon name="x-circle" size={14} /> {t('sh.saveFail', { msg: saveErr })}</div>}
+            <p className="sh2-srnote"><Icon name="bulb" size={13} /> {t('sh.srNote')}</p>
+          </div>
+        )}
+
+        {aiError && (
+          <div className="shadow-aierr">
+            <Icon name="x-circle" size={15} /> {t('sh.aiFail', { msg: aiError })}
+            <span>{t('sh.aiFailTip')}</span>
+          </div>
+        )}
+
+        {ai && (
+          <div className="ai-feedback">
+            <div className="ai-fb-head"><Icon name="vyling" size={18} /> {t('sh.aiHead')} {ai.model && <span className="ai-model">{ai.model}</span>}</div>
+            <p className="ai-fb-text">{ai.feedback}</p>
+            {ai.tips.length > 0 && (
+              <ul className="ai-fb-tips">
+                {ai.tips.map((tip, k) => <li key={k}><Icon name="check" size={14} /> {tip}</li>)}
+              </ul>
+            )}
+            {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}
+          </div>
+        )}
+      </div>
+
+      <TranscriptRail
+        segs={segs}
+        current={i}
+        scores={scores}
+        pass={PASS}
+        masked={false}
+        onJump={go}
+        onReset={() => prog.reset('speak', lesson.id)}
+        phonetic={ph.supported ? ph.line : undefined}
+        side
+      />
     </div>
   )
 }

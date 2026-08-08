@@ -6,17 +6,125 @@
   "tone": "tone-d",
   "emoji": "❓",
   "words": [
-    { "zh": "什么", "pinyin": "shén me", "vi": "Cái gì", "pos": "question", "img": "❓", "connect": "Đặt ngay chỗ muốn hỏi, không đảo câu như tiếng Anh: 你吃什么？= bạn ăn gì?", "ex": "你在做什么？", "exVi": "Bạn đang làm gì vậy?" },
-    { "zh": "谁", "pinyin": "shéi", "vi": "Ai", "pos": "question", "img": "🕵️", "connect": "谁 = thuỳ, chữ Hán–Việt cổ trong \"thuỳ nhân\" (người nào).", "ex": "他是谁？", "exVi": "Anh ấy là ai?" },
-    { "zh": "哪儿", "pinyin": "nǎr", "vi": "Ở đâu", "pos": "question", "img": "📍", "connect": "哪 = na (nào) + 儿 đọc uốn lưỡi kiểu Bắc Kinh. Miền Nam nói 哪里 nǎlǐ.", "ex": "你去哪儿？", "exVi": "Bạn đi đâu đấy?" },
-    { "zh": "什么时候", "pinyin": "shén me shí hou", "vi": "Khi nào", "pos": "question", "img": "⏰", "connect": "什么 (gì) + 时候 = thời hậu (lúc) → \"lúc nào\".", "ex": "你什么时候来？", "exVi": "Khi nào bạn đến?" },
-    { "zh": "怎么", "pinyin": "zěn me", "vi": "Như thế nào", "pos": "question", "img": "🤔", "connect": "Hỏi cách làm: 怎么去 = đi thế nào, 怎么说 = nói thế nào.", "ex": "这个字怎么读？", "exVi": "Chữ này đọc thế nào?" },
-    { "zh": "为什么", "pinyin": "wèi shén me", "vi": "Tại sao", "pos": "question", "img": "💭", "connect": "为 = vi/vị (vì) + 什么 (gì) → \"vì cái gì\".", "ex": "你为什么学中文？", "exVi": "Tại sao bạn học tiếng Trung?" },
-    { "zh": "几", "pinyin": "jǐ", "vi": "Mấy (số nhỏ)", "pos": "question", "img": "🔢", "connect": "Hỏi số dưới mười thì dùng 几, số lớn dùng 多少.", "ex": "现在几点？", "exVi": "Bây giờ mấy giờ?" },
-    { "zh": "哪", "pinyin": "nǎ", "vi": "Nào (cái nào)", "pos": "question", "img": "👆", "connect": "哪 = na. 哪个 = cái nào, 哪天 = ngày nào.", "ex": "你要哪个？", "exVi": "Bạn muốn cái nào?" },
-    { "zh": "吗", "pinyin": "ma", "vi": "(trợ từ hỏi có/không)", "pos": "question", "img": "❔", "connect": "Thêm 吗 vào cuối câu kể là thành câu hỏi — không cần đảo trật tự gì cả.", "ex": "你是学生吗？", "exVi": "Bạn là học sinh phải không?" },
-    { "zh": "呢", "pinyin": "ne", "vi": "(hỏi ngược lại: còn… thì sao)", "pos": "question", "img": "🔄", "connect": "Hỏi lại gọn lỏn: 我很好，你呢？= tôi khoẻ, còn bạn?", "ex": "我喝茶，你呢？", "exVi": "Tôi uống trà, còn bạn thì sao?" },
-    { "zh": "好吗", "pinyin": "hǎo ma", "vi": "Được không?", "pos": "phrase", "img": "🙂", "connect": "Gắn cuối câu để xin ý kiến, nghe mềm hơn nhiều so với ra lệnh.", "ex": "我们明天去，好吗？", "exVi": "Mai mình đi nhé, được không?" },
-    { "zh": "怎么样", "pinyin": "zěn me yàng", "vi": "Thế nào? (thấy sao)", "pos": "question", "img": "👀", "connect": "怎么 (thế nào) + 样 = dạng → hỏi cảm nhận, ý kiến.", "ex": "这个菜怎么样？", "exVi": "Món này thế nào?" }
+    {
+      "zh": "什么",
+      "pinyin": "shén me",
+      "vi": "Cái gì",
+      "pos": "question",
+      "img": "❓",
+      "connect": "Đặt ngay chỗ muốn hỏi, không đảo câu như tiếng Anh: 你吃什么？= bạn ăn gì?",
+      "ex": "你在做什么？",
+      "exVi": "Bạn đang làm gì vậy?"
+    },
+    {
+      "zh": "谁",
+      "pinyin": "shéi",
+      "vi": "Ai",
+      "pos": "question",
+      "img": "🕵️",
+      "connect": "谁 = thuỳ, chữ Hán–Việt cổ trong \"thuỳ nhân\" (người nào).",
+      "ex": "他是谁？",
+      "exVi": "Anh ấy là ai?"
+    },
+    {
+      "zh": "哪儿",
+      "pinyin": "nǎr",
+      "vi": "Ở đâu",
+      "pos": "question",
+      "img": "📍",
+      "connect": "哪 = na (nào) + 儿 đọc uốn lưỡi kiểu Bắc Kinh. Miền Nam nói 哪里 nǎlǐ.",
+      "ex": "你去哪儿？",
+      "exVi": "Bạn đi đâu đấy?"
+    },
+    {
+      "zh": "什么时候",
+      "pinyin": "shén me shí hou",
+      "vi": "Khi nào",
+      "pos": "question",
+      "img": "⏰",
+      "connect": "什么 (gì) + 时候 = thời hậu (lúc) → \"lúc nào\".",
+      "ex": "你什么时候来？",
+      "exVi": "Khi nào bạn đến?"
+    },
+    {
+      "zh": "怎么",
+      "pinyin": "zěn me",
+      "vi": "Như thế nào",
+      "pos": "question",
+      "img": "🤔",
+      "connect": "Hỏi cách làm: 怎么去 = đi thế nào, 怎么说 = nói thế nào.",
+      "ex": "这个字怎么读？",
+      "exVi": "Chữ này đọc thế nào?"
+    },
+    {
+      "zh": "为什么",
+      "pinyin": "wèi shén me",
+      "vi": "Tại sao",
+      "pos": "question",
+      "img": "💭",
+      "connect": "为 = vi/vị (vì) + 什么 (gì) → \"vì cái gì\".",
+      "ex": "你为什么学中文？",
+      "exVi": "Tại sao bạn học tiếng Trung?"
+    },
+    {
+      "zh": "几",
+      "pinyin": "jǐ",
+      "vi": "Mấy (số nhỏ)",
+      "pos": "question",
+      "img": "🔢",
+      "connect": "Hỏi số dưới mười thì dùng 几, số lớn dùng 多少.",
+      "ex": "现在几点？",
+      "exVi": "Bây giờ mấy giờ?"
+    },
+    {
+      "zh": "哪",
+      "pinyin": "nǎ",
+      "vi": "Nào (cái nào)",
+      "pos": "question",
+      "img": "👆",
+      "connect": "哪 = na. 哪个 = cái nào, 哪天 = ngày nào.",
+      "ex": "你要哪个？",
+      "exVi": "Bạn muốn cái nào?"
+    },
+    {
+      "zh": "吗",
+      "pinyin": "ma",
+      "vi": "(trợ từ hỏi có/không)",
+      "pos": "question",
+      "img": "❔",
+      "connect": "Thêm 吗 vào cuối câu kể là thành câu hỏi — không cần đảo trật tự gì cả.",
+      "ex": "你是学生吗？",
+      "exVi": "Bạn là học sinh phải không?"
+    },
+    {
+      "zh": "呢",
+      "pinyin": "ne",
+      "vi": "(hỏi ngược lại: còn… thì sao)",
+      "pos": "question",
+      "img": "🔄",
+      "connect": "Hỏi lại gọn lỏn: 我很好，你呢？= tôi khoẻ, còn bạn?",
+      "ex": "我喝茶，你呢？",
+      "exVi": "Tôi uống trà, còn bạn thì sao?"
+    },
+    {
+      "zh": "好吗",
+      "pinyin": "hǎo ma",
+      "vi": "Được không?",
+      "pos": "phrase",
+      "img": "🙂",
+      "connect": "Gắn cuối câu để xin ý kiến, nghe mềm hơn nhiều so với ra lệnh.",
+      "ex": "我们明天去，好吗？",
+      "exVi": "Mai mình đi nhé, được không?"
+    },
+    {
+      "zh": "怎么样",
+      "pinyin": "zěn me yàng",
+      "vi": "Thế nào? (thấy sao)",
+      "pos": "question",
+      "img": "👀",
+      "connect": "怎么 (thế nào) + 样 = dạng → hỏi cảm nhận, ý kiến.",
+      "ex": "这个菜怎么样？",
+      "exVi": "Món này thế nào?"
+    }
   ]
 }

@@ -1,152 +1,74 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import {
-  fetchAdminStats, fetchAdminCatalog, fetchAdminUsers, saveCatalogItem, deleteCatalogItem,
+  fetchAdminStats, fetchAdminSeries, fetchAdminCatalog, fetchAdminUsers, saveCatalogItem, deleteCatalogItem,
   updateAdminUser, deleteAdminUser, giftCoins, setUserPlus,
   fetchAdminFeedback, setFeedbackStatus, deleteFeedback, fetchAdminAudit,
-  type AdminStats, type AdminUser, type AdminCatalog, type CatalogKind, type AdminPlan, type AdminFeedback,
-  type AuditEntry,
+  type AdminStats, type AdminSeries, type AdminUser, type AdminCatalog, type CatalogKind,
+  type AdminFeedback, type AuditEntry, type SeriesMetric,
 } from '@/core/api/admin.api'
 import { formatDate } from '@/core/utils/format'
-import { useTabs } from '@/core/a11y'
-import { useAuth } from '@/store/auth.store'
+import { studyLang } from '@/core/constants/languages'
+import AdminShell, { SETTINGS_TABS } from './components/AdminShell'
+import type { SearchHit, Section, SettingsTab } from './components/AdminShell'
+import DataTable, { Pager, paginate, useSort } from './components/DataTable'
+import type { Col } from './components/DataTable'
+import KpiCard, { DeltaChip } from './components/KpiCard'
+import TrendChart, { Sparkline } from './components/TrendChart'
+import { CatalogModal, GiftModal, UserModal } from './components/AdminModals'
+import {
+  ALL_METRICS, KPI_METRICS, METRIC_LABEL, METRIC_SHORT, RANGES, RANGE_LABEL, RANGE_SHORT,
+  fmtDayLong, fmtInt,
+} from './metrics'
+import {
+  AUDIT_LABEL, CAT_FILTERS, CAT_PAGE_SIZE, FIELDS, KIND_LABEL, PAGE_SIZE,
+  addDaysISO, daysLeft, initialValues, planStatus, todayISO,
+} from './fields'
 
-type Tab = 'overview' | 'users' | 'videos' | 'quests' | 'shop' | 'plans' | 'feedback' | 'audit'
+type Row = Record<string, unknown>
 
-const TAB_IDS: Tab[] = ['overview', 'users', 'videos', 'quests', 'shop', 'plans', 'feedback', 'audit']
-
-const AUDIT_LABEL: Record<string, string> = {
-  'admin.login': 'Quản trị đăng nhập',
-  'catalog.save': 'Lưu nội dung',
-  'catalog.delete': 'Xoá nội dung',
-  'user.update': 'Sửa người dùng',
-  'user.gift': 'Tặng xu',
-  'user.plus': 'Đổi gói Plus',
-  'user.delete': 'Xoá người dùng',
-  'feedback.status': 'Đổi trạng thái phản hồi',
-  'feedback.delete': 'Xoá phản hồi',
+const USER_SORT: Record<string, { asc: string; desc: string }> = {
+  name: { asc: 'name', desc: 'name_desc' },
+  coins: { asc: 'coins_asc', desc: 'coins' },
+  xp: { asc: 'xp_asc', desc: 'xp' },
+  streak: { asc: 'streak_asc', desc: 'streak' },
+  createdAt: { asc: 'oldest', desc: 'recent' },
+  lastActive: { asc: 'active_asc', desc: 'active' },
 }
 
-interface Field { k: string; label: string; type?: 'text' | 'number' | 'bool' | 'select'; opts?: string[]; required?: boolean }
-
-const PAGE_SIZE = 20
-const CAT_PAGE_SIZE = 8
-
-const CAT_FILTERS: Record<CatalogKind, { k: string; label: string } | null> = {
-  videos: { k: 'level', label: 'cấp độ' },
-  quests: { k: 'period', label: 'chu kỳ' },
-  shop: { k: 'category', label: 'loại' },
-  plans: null,
-}
-
-const FIELDS: Record<CatalogKind, Field[]> = {
+const CAT_COLS: Record<CatalogKind, { k: string; label: string; num?: boolean }[]> = {
   videos: [
-    { k: 'id', label: 'Mã video (YouTube ID)', required: true },
-    { k: 'title', label: 'Tiêu đề', required: true },
-    { k: 'channel', label: 'Kênh' },
-    { k: 'level', label: 'Cấp độ' },
-    { k: 'dur', label: 'Thời lượng' },
-    { k: 'topic', label: 'Chủ đề' },
-    { k: 'tone', label: 'Màu (tone-a … tone-f)' },
-    { k: 'sort', label: 'Thứ tự', type: 'number' },
-    { k: 'active', label: 'Hiển thị', type: 'bool' },
+    { k: 'id', label: 'Mã' }, { k: 'title', label: 'Tiêu đề' },
+    { k: 'channel', label: 'Kênh' }, { k: 'level', label: 'Cấp' }, { k: 'lang', label: 'Ngôn ngữ' },
   ],
   quests: [
-    { k: 'id', label: 'Mã', required: true },
-    { k: 'title', label: 'Tên nhiệm vụ', required: true },
-    { k: 'descr', label: 'Mô tả' },
-    { k: 'period', label: 'Chu kỳ', type: 'select', opts: ['daily', 'weekly', 'monthly'] },
-    { k: 'metric', label: 'Loại đo', type: 'select', opts: ['lesson', 'pronounce', 'review', 'video', 'word', 'streak', 'login'] },
-    { k: 'reward', label: 'Thưởng (xu)', type: 'number' },
-    { k: 'target', label: 'Mục tiêu', type: 'number' },
-    { k: 'plus', label: 'Chỉ Plus', type: 'bool' },
-    { k: 'sort', label: 'Thứ tự', type: 'number' },
-    { k: 'active', label: 'Bật', type: 'bool' },
+    { k: 'id', label: 'Mã' }, { k: 'title', label: 'Tên' }, { k: 'period', label: 'Chu kỳ' },
+    { k: 'reward', label: 'Thưởng', num: true }, { k: 'target', label: 'Mục tiêu', num: true },
   ],
   shop: [
-    { k: 'id', label: 'Mã', required: true },
-    { k: 'name', label: 'Tên vật phẩm', required: true },
-    { k: 'descr', label: 'Mô tả' },
-    { k: 'price', label: 'Giá (xu)', type: 'number' },
-    { k: 'category', label: 'Loại', type: 'select', opts: ['seed', 'frame', 'background', 'avatar', 'badge', 'pet'] },
-    { k: 'art', label: 'Art key', required: true },
-    { k: 'plus', label: 'Chỉ Plus', type: 'bool' },
-    { k: 'sort', label: 'Thứ tự', type: 'number' },
-    { k: 'active', label: 'Bật', type: 'bool' },
+    { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' },
+    { k: 'category', label: 'Loại' }, { k: 'price', label: 'Giá', num: true },
   ],
   plans: [
-    { k: 'id', label: 'Mã gói', required: true },
-    { k: 'name', label: 'Tên gói', required: true },
-    { k: 'tagline', label: 'Khẩu hiệu' },
-    { k: 'original', label: 'Giá gốc (gạch ngang)' },
-    { k: 'price', label: 'Giá hiển thị' },
-    { k: 'unit', label: 'Đơn vị (vd /tháng)' },
-    { k: 'note', label: 'Ghi chú' },
-    { k: 'cta', label: 'Nút (CTA)' },
-    { k: 'days', label: 'Số ngày Plus (0 = vĩnh viễn)', type: 'number' },
-    { k: 'featured', label: 'Nổi bật', type: 'bool' },
-    { k: 'sort', label: 'Thứ tự', type: 'number' },
-    { k: 'active', label: 'Hiển thị', type: 'bool' },
+    { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' },
+    { k: 'price', label: 'Giá' }, { k: 'days', label: 'Số ngày', num: true },
   ],
 }
 
-const KIND_LABEL: Record<CatalogKind, string> = { videos: 'video', quests: 'nhiệm vụ', shop: 'vật phẩm', plans: 'gói đăng ký' }
-
-function initialValues(fields: Field[], item?: Record<string, unknown>): Record<string, unknown> {
-  const v: Record<string, unknown> = {}
-  for (const f of fields) {
-    let raw = item?.[f.k]
-    if (raw === undefined && f.k === 'descr') raw = item?.['desc']
-    if (f.type === 'bool') v[f.k] = raw === undefined ? true : !!raw
-    else if (f.type === 'number') v[f.k] = raw ?? 0
-    else if (f.type === 'select') v[f.k] = raw ?? f.opts?.[0] ?? ''
-    else v[f.k] = raw ?? ''
-  }
-  return v
-}
-
-function planLabel(p: AdminPlan): string {
-  return `${p.name} · ${p.days > 0 ? p.days + ' ngày' : 'vĩnh viễn'}`
-}
-
-function todayISO(): string {
-  const d = new Date()
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-}
-
-function addDaysISO(base: string, n: number): string {
-  const d = new Date((base || todayISO()) + 'T00:00:00')
-  d.setDate(d.getDate() + n)
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-}
-
-function daysLeft(until?: string | null): number | null {
-  if (!until) return null
-  const end = new Date(String(until).slice(0, 10) + 'T00:00:00')
-  if (isNaN(end.getTime())) return null
-  const now = new Date(); now.setHours(0, 0, 0, 0)
-  return Math.round((end.getTime() - now.getTime()) / 86400000)
-}
-
-function planStatus(u: AdminUser): string {
-  if (u.isPlus) {
-    if (!u.plusUntil) return 'Plus · vĩnh viễn'
-    const d = daysLeft(u.plusUntil)
-    if (d === null) return 'Plus'
-    if (d <= 0) return `Plus · hết hạn hôm nay (${formatDate(u.plusUntil)})`
-    return `Plus · còn ${d} ngày — đến ${formatDate(u.plusUntil)}`
-  }
-  if (u.plusUntil) return `Đã hết hạn ${formatDate(u.plusUntil)}`
-  return 'Miễn phí'
-}
+const FB_LABEL: Record<string, string> = { new: 'Mới', seen: 'Đã xem', done: 'Đã xử lý' }
 
 export default function AdminPage() {
-  const { account } = useAuth()
-  const [tab, setTab] = useState<Tab>('overview')
-  const tabs = useTabs('admin', TAB_IDS, tab, setTab, 'Trang quản trị')
-  const [stats, setStats] = useState<AdminStats | null>(null)
-  const [catalog, setCatalog] = useState<AdminCatalog | null>(null)
+  const [section, setSection] = useState<Section>('overview')
+  const [settingsTab, setSettingsTab] = useState<SettingsTab>('videos')
+  const [workspace, setWorkspace] = useState('')
+  const [gq, setGq] = useState('')
   const [flash, setFlash] = useState('')
+
+  const [stats, setStats] = useState<AdminStats | null>(null)
+  const [series, setSeries] = useState<AdminSeries | null>(null)
+  const [days, setDays] = useState<number>(30)
+  const [metric, setMetric] = useState<SeriesMetric>('active')
+  const [catalog, setCatalog] = useState<AdminCatalog | null>(null)
 
   const [users, setUsers] = useState<AdminUser[]>([])
   const [total, setTotal] = useState(0)
@@ -156,7 +78,7 @@ export default function AdminPage() {
   const [fRole, setFRole] = useState('')
   const [fStatus, setFStatus] = useState('')
   const [fPlus, setFPlus] = useState('')
-  const [fSort, setFSort] = useState('recent')
+  const [uSort, setUSort] = useState({ k: 'createdAt', dir: 'desc' as 'asc' | 'desc' })
 
   const [catSearch, setCatSearch] = useState('')
   const [catActive, setCatActive] = useState('all')
@@ -164,7 +86,7 @@ export default function AdminPage() {
   const [catPage, setCatPage] = useState(1)
 
   const [editKind, setEditKind] = useState<CatalogKind | null>(null)
-  const [editValues, setEditValues] = useState<Record<string, unknown>>({})
+  const [editValues, setEditValues] = useState<Row>({})
   const [editingNew, setEditingNew] = useState(false)
   const [editUser, setEditUser] = useState<AdminUser | null>(null)
   const [editPlusMode, setEditPlusMode] = useState('keep')
@@ -188,11 +110,14 @@ export default function AdminPage() {
 
   const loadStats = useCallback(() => { fetchAdminStats().then(setStats).catch(() => {}) }, [])
   const loadCatalog = useCallback(() => { fetchAdminCatalog().then(setCatalog).catch(() => {}) }, [])
+  const loadSeries = useCallback(() => { fetchAdminSeries(days).then(setSeries).catch(() => {}) }, [days])
+
+  const sortParam = USER_SORT[uSort.k]?.[uSort.dir] || 'recent'
   const loadUsers = useCallback(() => {
-    fetchAdminUsers({ q, role: fRole, status: fStatus, plus: fPlus, sort: fSort, page, pageSize: PAGE_SIZE })
+    fetchAdminUsers({ q, role: fRole, status: fStatus, plus: fPlus, sort: sortParam, page, pageSize: PAGE_SIZE })
       .then((r) => { setUsers(r.users); setTotal(r.total) })
       .catch(() => {})
-  }, [q, fRole, fStatus, fPlus, fSort, page])
+  }, [q, fRole, fStatus, fPlus, sortParam, page])
 
   const loadFeedback = useCallback(() => {
     fetchAdminFeedback(fbStatus, fbPage, PAGE_SIZE)
@@ -207,40 +132,35 @@ export default function AdminPage() {
   }, [auditAction, auditPage])
 
   useEffect(() => { loadStats(); loadCatalog() }, [loadStats, loadCatalog])
+  useEffect(() => { loadSeries() }, [loadSeries])
   useEffect(() => { loadUsers() }, [loadUsers])
-  useEffect(() => { if (tab === 'feedback') loadFeedback() }, [tab, loadFeedback])
-  useEffect(() => { if (tab === 'audit') loadAudit() }, [tab, loadAudit])
-  useEffect(() => { setCatSearch(''); setCatActive('all'); setCatFilter(''); setCatPage(1) }, [tab])
+  useEffect(() => { if (settingsTab === 'feedback' && section === 'settings') loadFeedback() }, [section, settingsTab, loadFeedback])
+  useEffect(() => { if (settingsTab === 'audit' && section === 'settings') loadAudit() }, [section, settingsTab, loadAudit])
+  useEffect(() => { setCatSearch(''); setCatActive('all'); setCatFilter(''); setCatPage(1) }, [settingsTab])
 
   const planOptions = useMemo(() => (catalog?.plans || []).filter((p) => p.active), [catalog])
+  const points = series?.points || []
 
-  const statCards = useMemo(() => stats ? [
-    { ic: 'user', label: 'Tổng người dùng', val: stats.users, tone: 'blue' },
-    { ic: 'sparkles', label: 'Thành viên Plus', val: stats.plus, tone: 'gold' },
-    { ic: 'flame', label: 'Hoạt động hôm nay', val: stats.activeToday, tone: 'fire' },
-    { ic: 'trending', label: 'Mới (7 ngày)', val: stats.newWeek, tone: 'violet' },
-    { ic: 'film', label: 'Video trong kho', val: stats.videos, tone: 'blue' },
-    { ic: 'target', label: 'Nhiệm vụ', val: stats.quests, tone: 'violet' },
-    { ic: 'store', label: 'Vật phẩm', val: stats.shop, tone: 'gold' },
-    { ic: 'crown', label: 'Gói đăng ký', val: stats.plans, tone: 'gold' },
-    { ic: 'cards', label: 'Thẻ từ vựng', val: stats.srsCards, tone: 'blue' },
-    { ic: 'book', label: 'Mục từ điển', val: stats.dictEntries, tone: 'violet' },
-    { ic: 'bulb', label: 'Phản hồi mới', val: stats.feedbackNew ?? 0, tone: 'fire' },
-  ] as const : [], [stats])
-
-  const resetPage = () => setPage(1)
+  const catRows = useCallback((kind: CatalogKind): Row[] => {
+    const all = (catalog?.[kind] || []) as unknown as Row[]
+    if (kind === 'videos' && workspace) return all.filter((r) => String(r.lang || 'ko') === workspace)
+    return all
+  }, [catalog, workspace])
 
   const openNew = (kind: CatalogKind) => {
-    setEditKind(kind); setEditingNew(true); setEditValues(initialValues(FIELDS[kind]))
+    setEditKind(kind); setEditingNew(true)
+    const base = initialValues(FIELDS[kind])
+    if (kind === 'videos' && workspace) base.lang = workspace
+    setEditValues(base)
   }
-  const openEdit = (kind: CatalogKind, item: Record<string, unknown>) => {
+  const openEdit = (kind: CatalogKind, item: Row) => {
     setEditKind(kind); setEditingNew(false); setEditValues(initialValues(FIELDS[kind], item))
   }
   const closeEdit = () => { setEditKind(null); setEditValues({}) }
 
   const saveEdit = async () => {
     if (!editKind) return
-    const data: Record<string, unknown> = {}
+    const data: Row = {}
     for (const f of FIELDS[editKind]) {
       const val = editValues[f.k]
       data[f.k] = f.type === 'bool' ? (val ? 1 : 0) : val
@@ -294,8 +214,6 @@ export default function AdminPage() {
     } catch (e) { showFlash((e as Error).message) }
   }
 
-  const openGift = (u: AdminUser) => { setGiftUser(u); setGiftAmount(100); setGiftMsg('') }
-
   const sendGift = async () => {
     if (!giftUser) return
     if (giftAmount <= 0) { showFlash('Số xu phải lớn hơn 0.'); return }
@@ -307,23 +225,113 @@ export default function AdminPage() {
     } catch (e) { showFlash((e as Error).message) }
   }
 
-  const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE))
+  const goCatalog = (tab: SettingsTab, search: string) => {
+    setSection('settings'); setSettingsTab(tab)
+    setTimeout(() => { setCatSearch(search); setCatPage(1) }, 0)
+  }
+
+  const hits = useMemo<SearchHit[]>(() => {
+    const ql = gq.trim().toLowerCase()
+    if (!ql || !catalog) return []
+    const out: SearchHit[] = []
+    const push = (tab: SettingsTab, group: string, rows: Row[], nameKey: string) => {
+      for (const r of rows) {
+        if (out.filter((h) => h.group === group).length >= 3) break
+        const label = String(r[nameKey] ?? r.id ?? '')
+        if (!label.toLowerCase().includes(ql) && !String(r.id ?? '').toLowerCase().includes(ql)) continue
+        out.push({ id: `${tab}:${r.id}`, group, label, hint: String(r.id ?? ''), run: () => goCatalog(tab, label) })
+      }
+    }
+    push('videos', 'Video', catalog.videos as unknown as Row[], 'title')
+    push('quests', 'Nhiệm vụ', catalog.quests as unknown as Row[], 'title')
+    push('shop', 'Vật phẩm', catalog.shop as unknown as Row[], 'name')
+    push('plans', 'Gói', catalog.plans as unknown as Row[], 'name')
+    return out
+  }, [gq, catalog])
+
+  const submitQuery = () => {
+    setSection('users'); setQInput(gq); setQ(gq); setPage(1)
+  }
+
+  const userPageCount = Math.max(1, Math.ceil(total / PAGE_SIZE))
 
   const plusCell = (u: AdminUser) => {
     if (u.isPlus) {
-      if (!u.plusUntil) return <span className="admin-plus"><Icon name="sparkles" size={12} /> Vĩnh viễn</span>
+      if (!u.plusUntil) return <span className="adm-tag plus">Vĩnh viễn</span>
       const d = daysLeft(u.plusUntil)
       return (
-        <span className={'admin-plus' + (d !== null && d <= 7 ? ' soon' : '')} title={planStatus(u)}>
-          <Icon name="sparkles" size={12} /> {d !== null && d > 0 ? `Còn ${d} ngày` : 'Hết hạn hôm nay'}
+        <span className={'adm-tag plus' + (d !== null && d <= 7 ? ' warn' : '')} title={planStatus(u)}>
+          {d !== null && d > 0 ? `Còn ${d} ngày` : 'Hết hôm nay'}
         </span>
       )
     }
-    if (u.plusUntil) return <span className="admin-plus exp" title={planStatus(u)}>Hết hạn {formatDate(u.plusUntil)}</span>
-    return <>—</>
+    if (u.plusUntil) return <span className="adm-tag" title={planStatus(u)}>Hết {formatDate(u.plusUntil)}</span>
+    return <span className="adm-dim">Miễn phí</span>
   }
 
-  const catalogTable = (kind: CatalogKind, rows: Record<string, unknown>[], cols: { k: string; label: string }[]) => {
+  const userCols: Col<AdminUser>[] = [
+    {
+      k: 'name', label: 'Người dùng', sortable: true, wide: true,
+      render: (u) => (
+        <div className="adm-cell-user">
+          <b>{u.name}</b>
+          <small>{u.email || u.phone || '—'}</small>
+        </div>
+      ),
+    },
+    { k: 'role', label: 'Vai trò', render: (u) => (u.role === 'admin' ? <span className="adm-tag accent">Admin</span> : <span className="adm-dim">Người dùng</span>) },
+    { k: 'plus', label: 'Gói', render: plusCell },
+    { k: 'coins', label: 'Xu', sortable: true, align: 'right', render: (u) => fmtInt(u.coins) },
+    { k: 'xp', label: 'XP', sortable: true, align: 'right', render: (u) => fmtInt(u.xp) },
+    { k: 'streak', label: 'Chuỗi', sortable: true, align: 'right', render: (u) => fmtInt(u.streak) },
+    { k: 'createdAt', label: 'Tham gia', sortable: true, render: (u) => <span className="adm-dim">{formatDate(u.createdAt)}</span> },
+    { k: 'lastActive', label: 'Gần đây', sortable: true, render: (u) => <span className="adm-dim">{u.lastActive ? formatDate(u.lastActive) : '—'}</span> },
+    { k: 'status', label: 'Trạng thái', render: (u) => (u.status === 'active' ? <span className="adm-tag ok">Hoạt động</span> : <span className="adm-tag off">Đã khoá</span>) },
+    {
+      k: 'act', label: '', align: 'right',
+      render: (u) => (
+        <div className="adm-rowacts">
+          <button type="button" onClick={() => { setGiftUser(u); setGiftAmount(100); setGiftMsg('') }} title="Tặng xu"><Icon name="gift" size={15} /></button>
+          <button type="button" onClick={() => openEditUser(u)} title="Sửa"><Icon name="note" size={15} /></button>
+          {u.role !== 'admin' && <button type="button" onClick={() => removeUser(u)} title="Xoá"><Icon name="trash" size={15} /></button>}
+        </div>
+      ),
+    },
+  ]
+
+  const dayCols: Col<Record<string, number | string>>[] = [
+    { k: 'd', label: 'Ngày', sortable: true, render: (r) => fmtDayLong(String(r.d)), sortVal: (r) => String(r.d) },
+    ...ALL_METRICS.map((m) => ({
+      k: m, label: METRIC_SHORT[m], sortable: true, align: 'right' as const,
+      render: (r: Record<string, number | string>) => fmtInt(Number(r[m])),
+      sortVal: (r: Record<string, number | string>) => Number(r[m]),
+    })),
+  ]
+
+  const daySorted = useSort(points as unknown as Record<string, number | string>[], dayCols, 'd', 'desc')
+  const [dayPage, setDayPage] = useState(1)
+  useEffect(() => { setDayPage(1) }, [days])
+  const dayPaged = paginate(daySorted.sorted, dayPage, 15)
+
+  const recentCols: Col<AdminUser>[] = [
+    {
+      k: 'name', label: 'Người dùng', wide: true,
+      render: (u) => (
+        <div className="adm-cell-user">
+          <b>{u.name}</b>
+          <small>{u.email || u.phone || '—'}</small>
+        </div>
+      ),
+    },
+    { k: 'plus', label: 'Gói', render: plusCell },
+    { k: 'xp', label: 'XP', align: 'right', render: (u) => fmtInt(u.xp) },
+    { k: 'createdAt', label: 'Tham gia', render: (u) => <span className="adm-dim">{formatDate(u.createdAt)}</span> },
+  ]
+
+  const kpiHint = `so với ${RANGE_LABEL[days].toLowerCase()} trước đó`
+
+  const catalogPanel = (kind: CatalogKind) => {
+    const rows = catRows(kind)
     const ql = catSearch.trim().toLowerCase()
     const fcfg = CAT_FILTERS[kind]
     const filterOpts = fcfg
@@ -335,450 +343,460 @@ export default function AdminPage() {
     if (catActive !== 'all') shown = shown.filter((r) => (catActive === 'on' ? !!r.active : !r.active))
     if (fcfg && catFilter) shown = shown.filter((r) => String(r[fcfg.k] ?? '') === catFilter)
 
-    const pageCount = Math.max(1, Math.ceil(shown.length / CAT_PAGE_SIZE))
-    const cur = Math.min(catPage, pageCount)
-    const paged = shown.slice((cur - 1) * CAT_PAGE_SIZE, cur * CAT_PAGE_SIZE)
+    const cols: Col<Row>[] = [
+      ...CAT_COLS[kind].map((c) => ({
+        k: c.k, label: c.label, sortable: true, align: c.num ? ('right' as const) : undefined,
+        wide: c.k === 'title' || c.k === 'name',
+        render: (r: Row) => <span title={String(r[c.k] ?? '')}>{String(r[c.k] ?? '—')}</span>,
+        sortVal: (r: Row) => (c.num ? Number(r[c.k] ?? 0) : String(r[c.k] ?? '')),
+      })),
+      {
+        k: 'active', label: 'Bật', align: 'center',
+        render: (r: Row) => (r.active ? <span className="adm-tag ok">Bật</span> : <span className="adm-tag off">Tắt</span>),
+      },
+      {
+        k: 'act', label: '', align: 'right',
+        render: (r: Row) => (
+          <div className="adm-rowacts">
+            <button type="button" onClick={() => openEdit(kind, r)} title="Sửa"><Icon name="note" size={15} /></button>
+            <button type="button" onClick={() => remove(kind, String(r.id))} title="Xoá"><Icon name="trash" size={15} /></button>
+          </div>
+        ),
+      },
+    ]
 
-    return (
-      <div className="admin-card">
-        <div className="admin-card-head admin-filters">
-          <div className="admin-search">
-            <Icon name="search" size={15} />
-            <input value={catSearch} onChange={(e) => { setCatSearch(e.target.value); setCatPage(1) }} placeholder={`Tìm ${KIND_LABEL[kind]}…`} aria-label={`Tìm ${KIND_LABEL[kind]}`} />
-          </div>
-          {fcfg && (
-            <select aria-label="Lọc theo phân loại" value={catFilter} onChange={(e) => { setCatFilter(e.target.value); setCatPage(1) }}>
-              <option value="">Mọi {fcfg.label}</option>
-              {filterOpts.map((o) => <option key={o} value={o}>{o}</option>)}
-            </select>
-          )}
-          <select aria-label="Lọc theo trạng thái bật/tắt" value={catActive} onChange={(e) => { setCatActive(e.target.value); setCatPage(1) }}>
-            <option value="all">Mọi trạng thái</option>
-            <option value="on">Đang bật</option>
-            <option value="off">Đang tắt</option>
-          </select>
-          <div className="admin-head-right">
-            <b>{shown.length}/{rows.length}</b>
-            <button className="btn-primary sm" onClick={() => openNew(kind)}><Icon name="plus" size={14} /> Thêm</button>
-          </div>
-        </div>
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead>
-              <tr>{cols.map((c) => <th key={c.k}>{c.label}</th>)}<th>Bật</th><th></th></tr>
-            </thead>
-            <tbody>
-              {paged.map((r) => (
-                <tr key={String(r.id)} className={r.active ? '' : 'off'}>
-                  {cols.map((c) => <td key={c.k} title={String(r[c.k] ?? '')}>{String(r[c.k] ?? '')}</td>)}
-                  <td>{r.active ? '✓' : '—'}</td>
-                  <td className="admin-row-actions">
-                    <button onClick={() => openEdit(kind, r)} title="Sửa"><Icon name="note" size={15} /></button>
-                    <button onClick={() => remove(kind, String(r.id))} title="Xoá"><Icon name="trash" size={15} /></button>
-                  </td>
-                </tr>
-              ))}
-              {!paged.length && (
-                <tr><td colSpan={cols.length + 2} className="admin-empty">Không có {KIND_LABEL[kind]} nào khớp bộ lọc.</td></tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-        {pageCount > 1 && (
-          <div className="admin-pager">
-            <span>{shown.length.toLocaleString('vi')} mục · Trang {cur}/{pageCount}</span>
-            <div className="admin-pager-btns">
-              <button className="btn-ghost sm" disabled={cur <= 1} onClick={() => setCatPage(cur - 1)}>
-                <Icon name="chevron-left" size={15} /> Trước
-              </button>
-              <button className="btn-ghost sm" disabled={cur >= pageCount} onClick={() => setCatPage(cur + 1)}>
-                Sau <Icon name="chevron-down" size={15} />
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    )
+    return <CatalogPanel
+      kind={kind} cols={cols} shown={shown} totalRows={rows.length}
+      catSearch={catSearch} setCatSearch={setCatSearch}
+      catActive={catActive} setCatActive={setCatActive}
+      catFilter={catFilter} setCatFilter={setCatFilter}
+      filterOpts={filterOpts} fcfg={fcfg}
+      catPage={catPage} setCatPage={setCatPage}
+      onNew={() => openNew(kind)}
+    />
   }
 
   return (
-    <div className="admin">
-      <div className="admin-head">
-        <div>
-          <h1 className="page-title"><Icon name="settings" /> Trang quản trị</h1>
-          <p className="page-sub">Xin chào {account?.name} — quản lý nội dung, người dùng và theo dõi thống kê.</p>
-        </div>
-      </div>
+    <AdminShell
+      section={section} onSection={setSection}
+      settingsTab={settingsTab} onSettingsTab={setSettingsTab}
+      badges={{ feedback: stats?.feedbackNew || 0 }}
+      workspace={workspace} onWorkspace={setWorkspace}
+      query={gq} onQuery={setGq} hits={hits} onSubmitQuery={submitQuery}
+    >
+      {flash && <div className="adm-flash" role="status">{flash}</div>}
 
-      {flash && <div className="shop-flash">{flash}</div>}
+      {section === 'overview' && (
+        <>
+          <PageHead
+            title="Tổng quan"
+            sub={series ? `Dữ liệu từ ${fmtDayLong(series.from)} đến ${fmtDayLong(series.to)}` : 'Đang tải số liệu…'}
+          />
 
-      <div className="admin-tabs" {...tabs.list}>
-        {([
-          ['overview', 'Tổng quan', 'chart'],
-          ['users', 'Người dùng', 'user'],
-          ['videos', 'Video', 'film'],
-          ['quests', 'Nhiệm vụ', 'target'],
-          ['shop', 'Cửa hàng', 'store'],
-          ['plans', 'Gói đăng ký', 'crown'],
-          ['feedback', 'Phản hồi', 'bulb'],
-          ['audit', 'Nhật ký', 'lock'],
-        ] as [Tab, string, string][]).map(([id, label, ic]) => (
-          <button key={id} {...tabs.tab(id)} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
-            <Icon name={ic as never} size={15} /> {label}
-          </button>
-        ))}
-      </div>
-
-      <div {...tabs.panel(tab)}>
-      {tab === 'overview' && (
-        <div className="admin-stats">
-          {statCards.map((s) => (
-            <div key={s.label} className={'act-stat ' + s.tone}>
-              <span className="act-stat-ic"><Icon name={s.ic as never} size={20} /></span>
-              <div>
-                <b>{s.val.toLocaleString('vi')}</b>
-                <span>{s.label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {tab === 'users' && (
-        <div className="admin-card">
-          <div className="admin-card-head admin-filters">
-            <div className="admin-search">
-              <Icon name="search" size={15} />
-              <input
-                value={qInput}
-                onChange={(e) => setQInput(e.target.value)}
-                onKeyDown={(e) => { if (e.key === 'Enter') { setQ(qInput); resetPage() } }}
-                placeholder="Tìm theo tên, email hoặc SĐT…"
-                aria-label="Tìm người dùng theo tên, email hoặc số điện thoại"
+          <div className="adm-kpis">
+            {KPI_METRICS.map((m) => (
+              <KpiCard
+                key={m}
+                label={METRIC_LABEL[m]}
+                kpi={series?.kpi[m]}
+                hint={kpiHint}
+                active={metric === m}
+                onClick={() => setMetric(m)}
               />
-            </div>
-            <select aria-label="Lọc theo vai trò" value={fRole} onChange={(e) => { setFRole(e.target.value); resetPage() }}>
-              <option value="">Mọi vai trò</option>
-              <option value="user">Người dùng</option>
-              <option value="admin">Quản trị viên</option>
-            </select>
-            <select aria-label="Lọc theo trạng thái tài khoản" value={fStatus} onChange={(e) => { setFStatus(e.target.value); resetPage() }}>
-              <option value="">Mọi trạng thái</option>
-              <option value="active">Hoạt động</option>
-              <option value="locked">Đã khoá</option>
-            </select>
-            <select aria-label="Lọc theo gói đăng ký" value={fPlus} onChange={(e) => { setFPlus(e.target.value); resetPage() }}>
-              <option value="">Mọi gói</option>
-              <option value="plus">Đang Plus</option>
-              <option value="free">Miễn phí</option>
-            </select>
-            <select aria-label="Sắp xếp danh sách" value={fSort} onChange={(e) => { setFSort(e.target.value); resetPage() }}>
-              <option value="recent">Mới nhất</option>
-              <option value="oldest">Cũ nhất</option>
-              <option value="active">Hoạt động gần đây</option>
-              <option value="coins">Nhiều xu nhất</option>
-              <option value="xp">Nhiều XP nhất</option>
-              <option value="name">Tên (A→Z)</option>
-            </select>
-            <button className="btn-ghost sm" onClick={() => { setQ(qInput); resetPage() }}>Lọc</button>
+            ))}
           </div>
 
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr><th>Tên</th><th>Email</th><th>Vai trò</th><th>Gói</th><th>Xu</th><th>XP</th><th>Chuỗi</th><th>Trạng thái</th><th></th></tr>
-              </thead>
-              <tbody>
-                {users.map((u) => (
-                  <tr key={u.id} className={u.status === 'active' ? '' : 'off'}>
-                    <td>{u.name}</td>
-                    <td title={u.email || ''}>{u.email || u.phone || '—'}</td>
-                    <td>{u.role === 'admin' ? <span className="admin-badge">Admin</span> : 'Người dùng'}</td>
-                    <td>{plusCell(u)}</td>
-                    <td>{u.coins.toLocaleString('vi')}</td>
-                    <td>{u.xp.toLocaleString('vi')}</td>
-                    <td>{u.streak}</td>
-                    <td>{u.status === 'active' ? 'Hoạt động' : 'Đã khoá'}</td>
-                    <td className="admin-row-actions">
-                      <button onClick={() => openGift(u)} title="Tặng xu"><Icon name="gift" size={15} /></button>
-                      <button onClick={() => openEditUser(u)} title="Sửa"><Icon name="note" size={15} /></button>
-                      {u.role !== 'admin' && (
-                        <button onClick={() => removeUser(u)} title="Xoá"><Icon name="trash" size={15} /></button>
-                      )}
-                    </td>
-                  </tr>
+          <section className="adm-card">
+            <div className="adm-card-head">
+              <div>
+                <h2>{METRIC_LABEL[metric]}</h2>
+                <p>Theo ngày — bấm một thẻ chỉ số phía trên để đổi đường biểu diễn.</p>
+              </div>
+              <div className="adm-seg" role="group" aria-label="Khoảng thời gian">
+                {RANGES.map((d) => (
+                  <button key={d} type="button" className={days === d ? 'on' : ''} aria-pressed={days === d} onClick={() => setDays(d)}>
+                    {RANGE_SHORT[d]}
+                  </button>
                 ))}
-                {!users.length && (
-                  <tr><td colSpan={9} className="admin-empty">Không có người dùng nào khớp bộ lọc.</td></tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="admin-pager">
-            <span>{total.toLocaleString('vi')} người dùng · Trang {page}/{pageCount}</span>
-            <div className="admin-pager-btns">
-              <button className="btn-ghost sm" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>
-                <Icon name="chevron-left" size={15} /> Trước
-              </button>
-              <button className="btn-ghost sm" disabled={page >= pageCount} onClick={() => setPage((p) => Math.min(pageCount, p + 1))}>
-                Sau <Icon name="chevron-down" size={15} />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {tab === 'videos' && catalog && catalogTable('videos', catalog.videos as unknown as Record<string, unknown>[], [
-        { k: 'id', label: 'Mã' }, { k: 'title', label: 'Tiêu đề' }, { k: 'channel', label: 'Kênh' }, { k: 'level', label: 'Cấp' },
-      ])}
-      {tab === 'quests' && catalog && catalogTable('quests', catalog.quests as unknown as Record<string, unknown>[], [
-        { k: 'id', label: 'Mã' }, { k: 'title', label: 'Tên' }, { k: 'period', label: 'Chu kỳ' }, { k: 'reward', label: 'Thưởng' }, { k: 'target', label: 'Mục tiêu' },
-      ])}
-      {tab === 'shop' && catalog && catalogTable('shop', catalog.shop as unknown as Record<string, unknown>[], [
-        { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' }, { k: 'category', label: 'Loại' }, { k: 'price', label: 'Giá' },
-      ])}
-      {tab === 'plans' && catalog && catalogTable('plans', catalog.plans as unknown as Record<string, unknown>[], [
-        { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' }, { k: 'price', label: 'Giá' }, { k: 'days', label: 'Số ngày' },
-      ])}
-
-      {tab === 'feedback' && (
-        <div className="admin-card">
-          <div className="admin-card-head admin-filters">
-            <b>{fbTotal.toLocaleString('vi')} phản hồi</b>
-            <select aria-label="Lọc góp ý theo trạng thái" value={fbStatus} onChange={(e) => { setFbStatus(e.target.value); setFbPage(1) }}>
-              <option value="">Tất cả trạng thái</option>
-              <option value="new">Mới</option>
-              <option value="seen">Đã xem</option>
-              <option value="done">Đã xử lý</option>
-            </select>
-          </div>
-          <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead>
-              <tr><th>Loại</th><th>Nội dung</th><th>Người gửi</th><th>Trang</th><th>Lúc</th><th>Trạng thái</th><th></th></tr>
-            </thead>
-            <tbody>
-              {fb.map((f) => (
-                <tr key={f.id}>
-                  <td>{f.kind === 'bug' ? '🐞 Lỗi' : '💡 Góp ý'}</td>
-                  <td style={{ maxWidth: 380, whiteSpace: 'pre-wrap' }}>{f.message}</td>
-                  <td>{f.name || 'Khách'}</td>
-                  <td>{f.page}</td>
-                  <td>{formatDate(f.createdAt)}</td>
-                  <td>
-                    <select aria-label="Đổi trạng thái góp ý" value={f.status} onChange={(e) => {
-                      setFeedbackStatus(f.id, e.target.value).then(() => { loadFeedback(); loadStats() }).catch(() => {})
-                    }}>
-                      <option value="new">Mới</option>
-                      <option value="seen">Đã xem</option>
-                      <option value="done">Đã xử lý</option>
-                    </select>
-                  </td>
-                  <td>
-                    <button className="btn-ghost sm" onClick={() => {
-                      deleteFeedback(f.id).then(() => { loadFeedback(); loadStats(); showFlash('Đã xoá phản hồi.') }).catch(() => {})
-                    }}><Icon name="trash" size={14} /></button>
-                  </td>
-                </tr>
-              ))}
-              {fb.length === 0 && <tr><td colSpan={7} style={{ textAlign: 'center', color: 'var(--muted)' }}>Chưa có phản hồi nào.</td></tr>}
-            </tbody>
-          </table>
-          </div>
-          {fbTotal > PAGE_SIZE && (
-            <div className="admin-pager">
-              <span>Trang {fbPage}/{Math.max(1, Math.ceil(fbTotal / PAGE_SIZE))}</span>
-              <div className="admin-pager-btns">
-                <button className="btn-ghost sm" disabled={fbPage <= 1} onClick={() => setFbPage((p) => Math.max(1, p - 1))}>
-                  <Icon name="chevron-left" size={15} /> Trước
-                </button>
-                <button className="btn-ghost sm" disabled={fbPage >= Math.ceil(fbTotal / PAGE_SIZE)} onClick={() => setFbPage((p) => p + 1)}>
-                  Sau <Icon name="chevron-down" size={15} />
-                </button>
               </div>
             </div>
-          )}
-        </div>
+            <TrendChart points={points} metric={metric} />
+          </section>
+
+          <section className="adm-card">
+            <div className="adm-card-head">
+              <div>
+                <h2>Người dùng mới nhất</h2>
+                <p>{fmtInt(total)} tài khoản trong hệ thống.</p>
+              </div>
+              <button type="button" className="adm-btn" onClick={() => setSection('users')}>
+                Xem tất cả <Icon name="arrow-right" size={14} />
+              </button>
+            </div>
+            <DataTable
+              cols={recentCols}
+              rows={users.slice(0, 8)}
+              rowKey={(u) => u.id}
+              rowClass={(u) => (u.status === 'active' ? '' : 'off')}
+              empty="Chưa có người dùng nào."
+              maxHeight={420}
+            />
+          </section>
+        </>
       )}
 
-      {tab === 'audit' && (
-        <div className="admin-card">
-          <div className="admin-card-head admin-filters">
-            <b>{auditTotal.toLocaleString('vi')} thao tác đã ghi</b>
-            <select aria-label="Lọc nhật ký theo loại thao tác" value={auditAction} onChange={(e) => { setAuditAction(e.target.value); setAuditPage(1) }}>
-              <option value="">Tất cả loại thao tác</option>
-              {auditActions.map((a) => (
-                <option key={a} value={a}>{AUDIT_LABEL[a] || a}</option>
+      {section === 'reports' && (
+        <>
+          <PageHead title="Báo cáo" sub={`Chi tiết ${RANGE_LABEL[days].toLowerCase()} gần nhất theo từng chỉ số.`} />
+
+          <div className="adm-toolbar">
+            <div className="adm-seg" role="group" aria-label="Khoảng thời gian">
+              {RANGES.map((d) => (
+                <button key={d} type="button" className={days === d ? 'on' : ''} aria-pressed={days === d} onClick={() => setDays(d)}>
+                  {RANGE_LABEL[d]}
+                </button>
               ))}
-            </select>
-            <span className="admin-hint">Giữ 2000 dòng gần nhất — dùng để truy lại ai đã đổi gì khi có sự cố.</span>
-          </div>
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr><th>Lúc</th><th>Người làm</th><th>Thao tác</th><th>Đối tượng</th><th>Chi tiết</th><th>IP</th></tr>
-              </thead>
-              <tbody>
-                {audit.map((a) => (
-                  <tr key={a.id}>
-                    <td>{formatDate(a.created_at)}</td>
-                    <td>{a.admin_name || a.admin_id}</td>
-                    <td>{AUDIT_LABEL[a.action] || a.action}</td>
-                    <td style={{ maxWidth: 220, wordBreak: 'break-all' }}>{a.target}</td>
-                    <td style={{ maxWidth: 320, wordBreak: 'break-word', color: 'var(--text2)' }}>{a.detail}</td>
-                    <td>{a.ip}</td>
-                  </tr>
-                ))}
-                {audit.length === 0 && (
-                  <tr><td colSpan={6} style={{ textAlign: 'center', color: 'var(--muted)' }}>Chưa có thao tác nào được ghi.</td></tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-          {auditTotal > PAGE_SIZE && (
-            <div className="admin-pager">
-              <span>Trang {auditPage}/{Math.max(1, Math.ceil(auditTotal / PAGE_SIZE))}</span>
-              <div className="admin-pager-btns">
-                <button className="btn-ghost sm" disabled={auditPage <= 1} onClick={() => setAuditPage((p) => Math.max(1, p - 1))}>
-                  <Icon name="chevron-left" size={15} /> Trước
-                </button>
-                <button className="btn-ghost sm" disabled={auditPage >= Math.ceil(auditTotal / PAGE_SIZE)} onClick={() => setAuditPage((p) => p + 1)}>
-                  Sau <Icon name="chevron-down" size={15} />
-                </button>
-              </div>
             </div>
-          )}
-        </div>
+          </div>
+
+          <div className="adm-metrics">
+            {ALL_METRICS.map((m) => (
+              <button
+                key={m} type="button"
+                className={'adm-metric' + (metric === m ? ' on' : '')}
+                onClick={() => setMetric(m)} aria-pressed={metric === m}
+              >
+                <span className="adm-kpi-label">{METRIC_LABEL[m]}</span>
+                <div className="adm-kpi-row">
+                  <b>{series ? fmtInt(series.kpi[m].value) : '—'}</b>
+                  <DeltaChip kpi={series?.kpi[m]} />
+                </div>
+                <Sparkline points={points} metric={m} />
+              </button>
+            ))}
+          </div>
+
+          <section className="adm-card">
+            <div className="adm-card-head">
+              <div><h2>{METRIC_LABEL[metric]}</h2><p>Đường biểu diễn theo ngày.</p></div>
+            </div>
+            <TrendChart points={points} metric={metric} />
+          </section>
+
+          <div className="adm-split">
+            <MixCard title="Phân bổ gói" items={series?.mix.plan} />
+            <MixCard title="Kênh đăng ký mới" items={series?.mix.provider} empty="Chưa có đăng ký mới trong kỳ." />
+            <MixCard title="Video theo ngôn ngữ" items={series?.mix.videoLang} labelOf={(k) => studyLang(k).name} />
+            <MixCard title="Phản hồi theo trạng thái" items={series?.mix.feedback} labelOf={(k) => FB_LABEL[k] || k} empty="Chưa có phản hồi." />
+          </div>
+
+          <section className="adm-card">
+            <div className="adm-card-head">
+              <div><h2>Chi tiết theo ngày</h2><p>Bấm tiêu đề cột để sắp xếp.</p></div>
+            </div>
+            <DataTable
+              cols={dayCols}
+              rows={dayPaged.slice}
+              rowKey={(r) => String(r.d)}
+              sort={daySorted.sort}
+              onSort={daySorted.toggle}
+              empty="Chưa có dữ liệu hoạt động."
+            />
+            <Pager page={dayPaged.cur} pageCount={dayPaged.pageCount} total={points.length} unit="ngày" onPage={setDayPage} />
+          </section>
+        </>
       )}
-      </div>
+
+      {section === 'users' && (
+        <>
+          <PageHead title="Người dùng" sub={`${fmtInt(total)} tài khoản khớp bộ lọc hiện tại.`} />
+
+          <section className="adm-card">
+            <div className="adm-filters">
+              <div className="adm-inline-search">
+                <Icon name="search" size={15} />
+                <input
+                  value={qInput}
+                  onChange={(e) => setQInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') { setQ(qInput); setPage(1) } }}
+                  placeholder="Tìm theo tên, email hoặc SĐT…"
+                  aria-label="Tìm người dùng"
+                />
+              </div>
+              <select aria-label="Lọc theo vai trò" value={fRole} onChange={(e) => { setFRole(e.target.value); setPage(1) }}>
+                <option value="">Mọi vai trò</option>
+                <option value="user">Người dùng</option>
+                <option value="admin">Quản trị viên</option>
+              </select>
+              <select aria-label="Lọc theo trạng thái" value={fStatus} onChange={(e) => { setFStatus(e.target.value); setPage(1) }}>
+                <option value="">Mọi trạng thái</option>
+                <option value="active">Hoạt động</option>
+                <option value="locked">Đã khoá</option>
+              </select>
+              <select aria-label="Lọc theo gói" value={fPlus} onChange={(e) => { setFPlus(e.target.value); setPage(1) }}>
+                <option value="">Mọi gói</option>
+                <option value="plus">Đang Plus</option>
+                <option value="free">Miễn phí</option>
+              </select>
+              <button type="button" className="adm-btn primary" onClick={() => { setQ(qInput); setPage(1) }}>Lọc</button>
+            </div>
+
+            <DataTable
+              cols={userCols}
+              rows={users}
+              rowKey={(u) => u.id}
+              sort={uSort}
+              onSort={(k) => {
+                if (!USER_SORT[k]) return
+                setUSort((s) => (s.k === k ? { k, dir: s.dir === 'asc' ? 'desc' : 'asc' } : { k, dir: 'asc' }))
+                setPage(1)
+              }}
+              rowClass={(u) => (u.status === 'active' ? '' : 'off')}
+              empty="Không có người dùng nào khớp bộ lọc."
+              maxHeight={620}
+            />
+            <Pager page={page} pageCount={userPageCount} total={total} unit="người dùng" onPage={setPage} />
+          </section>
+        </>
+      )}
+
+      {section === 'settings' && (
+        <>
+          <PageHead
+            title={SETTINGS_TABS.find((t) => t.id === settingsTab)?.label || 'Cài đặt'}
+            sub={
+              settingsTab === 'videos' && workspace
+                ? `Đang lọc theo không gian ${studyLang(workspace).name}.`
+                : 'Quản lý nội dung hiển thị cho học viên.'
+            }
+          />
+
+          <div className="adm-tabs" role="tablist" aria-label="Nhóm cài đặt">
+            {SETTINGS_TABS.map((t) => (
+              <button
+                key={t.id} type="button" role="tab" aria-selected={settingsTab === t.id}
+                className={settingsTab === t.id ? 'on' : ''}
+                onClick={() => setSettingsTab(t.id)}
+              >
+                {t.label}
+                {t.id === 'feedback' && !!stats?.feedbackNew && <em>{stats.feedbackNew}</em>}
+              </button>
+            ))}
+          </div>
+
+          {settingsTab === 'videos' && catalog && catalogPanel('videos')}
+          {settingsTab === 'quests' && catalog && catalogPanel('quests')}
+          {settingsTab === 'shop' && catalog && catalogPanel('shop')}
+          {settingsTab === 'plans' && catalog && catalogPanel('plans')}
+
+          {settingsTab === 'feedback' && (
+            <section className="adm-card">
+              <div className="adm-filters">
+                <b>{fmtInt(fbTotal)} phản hồi</b>
+                <select aria-label="Lọc góp ý theo trạng thái" value={fbStatus} onChange={(e) => { setFbStatus(e.target.value); setFbPage(1) }}>
+                  <option value="">Tất cả trạng thái</option>
+                  <option value="new">Mới</option>
+                  <option value="seen">Đã xem</option>
+                  <option value="done">Đã xử lý</option>
+                </select>
+              </div>
+              <DataTable
+                cols={[
+                  { k: 'kind', label: 'Loại', render: (f: AdminFeedback) => (f.kind === 'bug' ? <span className="adm-tag warn">Lỗi</span> : <span className="adm-tag accent">Góp ý</span>) },
+                  { k: 'message', label: 'Nội dung', wide: true, render: (f: AdminFeedback) => <span className="adm-wrap">{f.message}</span> },
+                  { k: 'name', label: 'Người gửi', render: (f: AdminFeedback) => f.name || <span className="adm-dim">Khách</span> },
+                  { k: 'page', label: 'Trang', render: (f: AdminFeedback) => <span className="adm-dim">{f.page}</span> },
+                  { k: 'createdAt', label: 'Lúc', render: (f: AdminFeedback) => <span className="adm-dim">{formatDate(f.createdAt)}</span> },
+                  {
+                    k: 'status', label: 'Trạng thái',
+                    render: (f: AdminFeedback) => (
+                      <select
+                        aria-label="Đổi trạng thái góp ý" value={f.status}
+                        onChange={(e) => setFeedbackStatus(f.id, e.target.value).then(() => { loadFeedback(); loadStats() }).catch(() => {})}
+                      >
+                        <option value="new">Mới</option>
+                        <option value="seen">Đã xem</option>
+                        <option value="done">Đã xử lý</option>
+                      </select>
+                    ),
+                  },
+                  {
+                    k: 'act', label: '', align: 'right',
+                    render: (f: AdminFeedback) => (
+                      <div className="adm-rowacts">
+                        <button
+                          type="button" title="Xoá"
+                          onClick={() => deleteFeedback(f.id).then(() => { loadFeedback(); loadStats(); showFlash('Đã xoá phản hồi.') }).catch(() => {})}
+                        ><Icon name="trash" size={15} /></button>
+                      </div>
+                    ),
+                  },
+                ]}
+                rows={fb}
+                rowKey={(f) => String(f.id)}
+                empty="Chưa có phản hồi nào."
+                maxHeight={560}
+              />
+              <Pager
+                page={fbPage} pageCount={Math.max(1, Math.ceil(fbTotal / PAGE_SIZE))}
+                total={fbTotal} unit="phản hồi" onPage={setFbPage}
+              />
+            </section>
+          )}
+
+          {settingsTab === 'audit' && (
+            <section className="adm-card">
+              <div className="adm-filters">
+                <b>{fmtInt(auditTotal)} thao tác đã ghi</b>
+                <select aria-label="Lọc nhật ký theo loại thao tác" value={auditAction} onChange={(e) => { setAuditAction(e.target.value); setAuditPage(1) }}>
+                  <option value="">Tất cả loại thao tác</option>
+                  {auditActions.map((a) => <option key={a} value={a}>{AUDIT_LABEL[a] || a}</option>)}
+                </select>
+                <span className="adm-note">Giữ 2000 dòng gần nhất — dùng để truy lại ai đã đổi gì khi có sự cố.</span>
+              </div>
+              <DataTable
+                cols={[
+                  { k: 'created_at', label: 'Lúc', render: (a: AuditEntry) => <span className="adm-dim">{formatDate(a.created_at)}</span> },
+                  { k: 'admin', label: 'Người làm', render: (a: AuditEntry) => a.admin_name || a.admin_id },
+                  { k: 'action', label: 'Thao tác', render: (a: AuditEntry) => AUDIT_LABEL[a.action] || a.action },
+                  { k: 'target', label: 'Đối tượng', render: (a: AuditEntry) => <span className="adm-wrap">{a.target}</span> },
+                  { k: 'detail', label: 'Chi tiết', wide: true, render: (a: AuditEntry) => <span className="adm-wrap adm-dim">{a.detail}</span> },
+                  { k: 'ip', label: 'IP', render: (a: AuditEntry) => <span className="adm-dim">{a.ip}</span> },
+                ]}
+                rows={audit}
+                rowKey={(a) => String(a.id)}
+                empty="Chưa có thao tác nào được ghi."
+                maxHeight={560}
+              />
+              <Pager
+                page={auditPage} pageCount={Math.max(1, Math.ceil(auditTotal / PAGE_SIZE))}
+                total={auditTotal} unit="thao tác" onPage={setAuditPage}
+              />
+            </section>
+          )}
+        </>
+      )}
 
       {editKind && (
-        <div className="auth-backdrop" onClick={closeEdit}>
-          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="lookup-close auth-close" onClick={closeEdit}><Icon name="x" /></button>
-            <h2>{editingNew ? 'Thêm' : 'Sửa'} {KIND_LABEL[editKind]}</h2>
-            <div className="admin-form">
-              {FIELDS[editKind].map((f) => (
-                <label key={f.k} className="admin-field">
-                  <span>{f.label}{f.required && ' *'}</span>
-                  {f.type === 'bool' ? (
-                    <input type="checkbox" checked={!!editValues[f.k]} onChange={(e) => setEditValues((v) => ({ ...v, [f.k]: e.target.checked }))} />
-                  ) : f.type === 'select' ? (
-                    <select value={String(editValues[f.k] ?? '')} onChange={(e) => setEditValues((v) => ({ ...v, [f.k]: e.target.value }))}>
-                      {f.opts!.map((o) => <option key={o} value={o}>{o}</option>)}
-                    </select>
-                  ) : (
-                    <input
-                      type={f.type === 'number' ? 'number' : 'text'}
-                      value={String(editValues[f.k] ?? '')}
-                      disabled={f.k === 'id' && !editingNew}
-                      onChange={(e) => setEditValues((v) => ({ ...v, [f.k]: f.type === 'number' ? Number(e.target.value) : e.target.value }))}
-                    />
-                  )}
-                </label>
-              ))}
-            </div>
-            <div className="admin-modal-foot">
-              <button className="btn-ghost" onClick={closeEdit}>Huỷ</button>
-              <button className="btn-primary" onClick={saveEdit}><Icon name="check" size={15} /> Lưu</button>
-            </div>
-          </div>
-        </div>
+        <CatalogModal
+          kind={editKind} isNew={editingNew} values={editValues}
+          onChange={setEditValues} onClose={closeEdit} onSave={saveEdit}
+        />
       )}
 
       {editUser && (
-        <div className="auth-backdrop" onClick={() => setEditUser(null)}>
-          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="lookup-close auth-close" onClick={() => setEditUser(null)}><Icon name="x" /></button>
-            <h2>Sửa người dùng</h2>
-            <div className="admin-form">
-              <label className="admin-field"><span>Tên</span>
-                <input value={editUser.name} onChange={(e) => setEditUser({ ...editUser, name: e.target.value })} /></label>
-              <label className="admin-field"><span>Email</span>
-                <input value={editUser.email || ''} disabled /></label>
-              <label className="admin-field"><span>Vai trò</span>
-                <select value={editUser.role} onChange={(e) => setEditUser({ ...editUser, role: e.target.value as AdminUser['role'] })}>
-                  <option value="user">Người dùng</option>
-                  <option value="admin">Quản trị viên</option>
-                </select></label>
-              <label className="admin-field"><span>Trạng thái</span>
-                <select value={editUser.status} onChange={(e) => setEditUser({ ...editUser, status: e.target.value })}>
-                  <option value="active">Hoạt động</option>
-                  <option value="locked">Khoá</option>
-                </select></label>
-              <div className="admin-field admin-field-wide admin-plus-box">
-                <span>Gói Plus — hiện tại: <b className={editUser.isPlus ? 'admin-plus' : ''}>{planStatus(editUser)}</b></span>
-                <select value={editPlusMode} onChange={(e) => setEditPlusMode(e.target.value)}>
-                  <option value="keep">Giữ nguyên</option>
-                  <option value="until">Đặt / sửa ngày kết thúc</option>
-                  <option value="lifetime">Plus vĩnh viễn</option>
-                  <option value="free">Huỷ Plus (Miễn phí)</option>
-                  {planOptions.length > 0 && (
-                    <optgroup label="Cấp theo gói">
-                      {planOptions.map((p) => <option key={p.id} value={'plan:' + p.id}>{planLabel(p)}</option>)}
-                    </optgroup>
-                  )}
-                </select>
-                {editPlusMode === 'until' && (
-                  <div className="admin-plus-date">
-                    <input type="date" value={editPlusUntil} onChange={(e) => setEditPlusUntil(e.target.value)} />
-                    <div className="admin-gift-quick">
-                      <button type="button" className="admin-chip" onClick={() => setEditPlusUntil(todayISO())}>Hôm nay</button>
-                      {[7, 30, 90, 365].map((n) => (
-                        <button type="button" key={n} className="admin-chip" onClick={() => setEditPlusUntil((d) => addDaysISO(d, n))}>+{n} ngày</button>
-                      ))}
-                    </div>
-                    <small className="admin-gift-hint">
-                      {(() => { const d = daysLeft(editPlusUntil); return d === null ? '' : d < 0 ? `Ngày này đã qua — gói sẽ ở trạng thái hết hạn.` : `Tương đương còn ${d} ngày kể từ hôm nay.` })()}
-                    </small>
-                  </div>
-                )}
-              </div>
-              <label className="admin-field"><span>Xu</span>
-                <input type="number" value={editUser.coins} onChange={(e) => setEditUser({ ...editUser, coins: Number(e.target.value) })} /></label>
-              <label className="admin-field"><span>XP</span>
-                <input type="number" value={editUser.xp} onChange={(e) => setEditUser({ ...editUser, xp: Number(e.target.value) })} /></label>
-              <label className="admin-field"><span>Chuỗi ngày</span>
-                <input type="number" value={editUser.streak} onChange={(e) => setEditUser({ ...editUser, streak: Number(e.target.value) })} /></label>
-            </div>
-            <div className="admin-modal-foot">
-              <button className="btn-ghost" onClick={() => setEditUser(null)}>Huỷ</button>
-              <button className="btn-primary" onClick={saveUser}><Icon name="check" size={15} /> Lưu</button>
-            </div>
-          </div>
-        </div>
+        <UserModal
+          user={editUser} onChange={setEditUser}
+          plusMode={editPlusMode} onPlusMode={setEditPlusMode}
+          plusUntil={editPlusUntil} onPlusUntil={setEditPlusUntil}
+          plans={planOptions}
+          onClose={() => setEditUser(null)} onSave={saveUser}
+        />
       )}
 
       {giftUser && (
-        <div className="auth-backdrop" onClick={() => setGiftUser(null)}>
-          <div className="admin-modal admin-modal-sm" onClick={(e) => e.stopPropagation()}>
-            <button className="lookup-close auth-close" onClick={() => setGiftUser(null)}><Icon name="x" /></button>
-            <h2><Icon name="gift" size={18} /> Tặng xu cho {giftUser.name}</h2>
-            <p className="admin-gift-hint">Học viên sẽ nhận thông báo cảm ơn khi đăng nhập lần tới. Để trống lời nhắn để dùng câu mặc định.</p>
-            <div className="admin-form admin-form-1">
-              <label className="admin-field"><span>Số xu tặng</span>
-                <input type="number" min={1} value={giftAmount} onChange={(e) => setGiftAmount(Number(e.target.value))} /></label>
-              <div className="admin-gift-quick">
-                {[50, 100, 200, 500, 1000].map((n) => (
-                  <button key={n} className={'admin-chip' + (giftAmount === n ? ' on' : '')} onClick={() => setGiftAmount(n)}>+{n}</button>
-                ))}
-              </div>
-              <label className="admin-field"><span>Lời nhắn (tuỳ chọn)</span>
-                <textarea
-                  rows={3}
-                  value={giftMsg}
-                  onChange={(e) => setGiftMsg(e.target.value)}
-                  placeholder={`Cảm ơn sự cố gắng của bạn, vì vậy admin tặng bạn ${giftAmount.toLocaleString('vi')} xu — hãy tiếp tục giữ lửa nhé, fighting! 🔥`}
-                /></label>
-            </div>
-            <div className="admin-modal-foot">
-              <button className="btn-ghost" onClick={() => setGiftUser(null)}>Huỷ</button>
-              <button className="btn-primary" onClick={sendGift}><Icon name="coin" size={15} /> Tặng xu</button>
-            </div>
-          </div>
-        </div>
+        <GiftModal
+          user={giftUser} amount={giftAmount} onAmount={setGiftAmount}
+          message={giftMsg} onMessage={setGiftMsg}
+          onClose={() => setGiftUser(null)} onSend={sendGift}
+        />
       )}
+    </AdminShell>
+  )
+}
+
+function PageHead({ title, sub }: { title: string; sub: string }) {
+  return (
+    <div className="adm-pagehead">
+      <h1>{title}</h1>
+      <p>{sub}</p>
     </div>
+  )
+}
+
+function MixCard({
+  title, items, labelOf, empty = 'Chưa có dữ liệu.',
+}: { title: string; items?: { k: string; v: number }[]; labelOf?: (k: string) => string; empty?: string }) {
+  const rows = items || []
+  const max = Math.max(1, ...rows.map((r) => r.v))
+  return (
+    <section className="adm-card mix">
+      <h2>{title}</h2>
+      {rows.length === 0 && <p className="adm-note">{empty}</p>}
+      {rows.map((r) => (
+        <div key={r.k} className="adm-mixrow">
+          <span>{labelOf ? labelOf(r.k) : r.k}</span>
+          <div className="adm-bar"><i style={{ width: `${(r.v / max) * 100}%` }} /></div>
+          <b>{fmtInt(r.v)}</b>
+        </div>
+      ))}
+    </section>
+  )
+}
+
+interface CatalogPanelProps {
+  kind: CatalogKind
+  cols: Col<Row>[]
+  shown: Row[]
+  totalRows: number
+  catSearch: string
+  setCatSearch: (v: string) => void
+  catActive: string
+  setCatActive: (v: string) => void
+  catFilter: string
+  setCatFilter: (v: string) => void
+  filterOpts: string[]
+  fcfg: { k: string; label: string } | null
+  catPage: number
+  setCatPage: (n: number) => void
+  onNew: () => void
+}
+
+function CatalogPanel({
+  kind, cols, shown, totalRows, catSearch, setCatSearch, catActive, setCatActive,
+  catFilter, setCatFilter, filterOpts, fcfg, catPage, setCatPage, onNew,
+}: CatalogPanelProps) {
+  const { sort, toggle, sorted } = useSort(shown, cols, 'id', 'asc')
+  const paged = paginate(sorted, catPage, CAT_PAGE_SIZE)
+
+  return (
+    <section className="adm-card">
+      <div className="adm-filters">
+        <div className="adm-inline-search">
+          <Icon name="search" size={15} />
+          <input
+            value={catSearch}
+            onChange={(e) => { setCatSearch(e.target.value); setCatPage(1) }}
+            placeholder={`Tìm ${KIND_LABEL[kind]}…`}
+            aria-label={`Tìm ${KIND_LABEL[kind]}`}
+          />
+        </div>
+        {fcfg && (
+          <select aria-label="Lọc theo phân loại" value={catFilter} onChange={(e) => { setCatFilter(e.target.value); setCatPage(1) }}>
+            <option value="">Mọi {fcfg.label}</option>
+            {filterOpts.map((o) => <option key={o} value={o}>{o}</option>)}
+          </select>
+        )}
+        <select aria-label="Lọc theo trạng thái bật/tắt" value={catActive} onChange={(e) => { setCatActive(e.target.value); setCatPage(1) }}>
+          <option value="all">Mọi trạng thái</option>
+          <option value="on">Đang bật</option>
+          <option value="off">Đang tắt</option>
+        </select>
+        <span className="adm-note">{shown.length}/{totalRows}</span>
+        <button type="button" className="adm-btn primary" onClick={onNew}><Icon name="plus" size={14} /> Thêm</button>
+      </div>
+
+      <DataTable
+        cols={cols}
+        rows={paged.slice}
+        rowKey={(r) => String(r.id)}
+        sort={sort}
+        onSort={toggle}
+        rowClass={(r) => (r.active ? '' : 'off')}
+        empty={`Không có ${KIND_LABEL[kind]} nào khớp bộ lọc.`}
+        maxHeight={560}
+      />
+      <Pager page={paged.cur} pageCount={paged.pageCount} total={shown.length} unit="mục" onPage={setCatPage} />
+    </section>
   )
 }

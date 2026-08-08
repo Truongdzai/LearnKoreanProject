@@ -1,0 +1,330 @@
+{
+  "id": "nouns5",
+  "name": "Danh từ tần suất cao",
+  "sub": "Person, life, part, story, service, end…",
+  "pos": "noun",
+  "tone": "tone-a",
+  "emoji": "🔤",
+  "words": [
+    {
+      "en": "person",
+      "ipa": "/ˈpɝː.sən/",
+      "vi": "người, cá nhân",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "\"Pơ-sần\" — số nhiều bất quy tắc là people.",
+      "ex": "She is a very kind person.",
+      "exVi": "Cô ấy là một người rất tử tế."
+    },
+    {
+      "en": "world",
+      "ipa": "/wɝːld/",
+      "vi": "thế giới",
+      "pos": "noun",
+      "img": "🌍",
+      "connect": "\"Wơ-lđ\" — cả thế giới trong một từ.",
+      "ex": "English is spoken all over the world.",
+      "exVi": "Tiếng Anh được nói khắp thế giới."
+    },
+    {
+      "en": "life",
+      "ipa": "/laɪf/",
+      "vi": "cuộc sống, đời",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "\"Lai-f\" — số nhiều đổi thành lives.",
+      "ex": "City life is busy but exciting.",
+      "exVi": "Cuộc sống thành phố bận rộn nhưng thú vị."
+    },
+    {
+      "en": "part",
+      "ipa": "/pɑːrt/",
+      "vi": "phần, bộ phận",
+      "pos": "noun",
+      "img": "🧩",
+      "connect": "\"Pát\" — một phần của tổng thể.",
+      "ex": "This is the best part of the movie.",
+      "exVi": "Đây là phần hay nhất của bộ phim."
+    },
+    {
+      "en": "case",
+      "ipa": "/keɪs/",
+      "vi": "trường hợp, vụ việc",
+      "pos": "noun",
+      "img": "📁",
+      "connect": "\"Kê-s\" — in that case: trong trường hợp đó.",
+      "ex": "In that case, we should leave early.",
+      "exVi": "Trong trường hợp đó, chúng ta nên đi sớm."
+    },
+    {
+      "en": "group",
+      "ipa": "/ɡruːp/",
+      "vi": "nhóm",
+      "pos": "noun",
+      "img": "👥",
+      "connect": "\"Grúp\" — group chat, nhóm chat.",
+      "ex": "We work in a group of five.",
+      "exVi": "Chúng tôi làm việc theo nhóm năm người."
+    },
+    {
+      "en": "story",
+      "ipa": "/ˈstɔːr.i/",
+      "vi": "câu chuyện",
+      "pos": "noun",
+      "img": "📖",
+      "connect": "\"Sto-ri\" — kể chuyện trước khi ngủ.",
+      "ex": "Tell me the whole story.",
+      "exVi": "Kể cho tôi nghe toàn bộ câu chuyện."
+    },
+    {
+      "en": "lot",
+      "ipa": "/lɑːt/",
+      "vi": "nhiều, số lượng lớn",
+      "pos": "noun",
+      "img": "📚",
+      "connect": "A lot of = rất nhiều — cụm dùng hằng ngày.",
+      "ex": "There is a lot of work today.",
+      "exVi": "Hôm nay có rất nhiều việc."
+    },
+    {
+      "en": "business",
+      "ipa": "/ˈbɪz.nɪs/",
+      "vi": "việc kinh doanh, công việc",
+      "pos": "noun",
+      "img": "💼",
+      "connect": "\"Bíz-nis\" — busy (bận) sinh ra business.",
+      "ex": "She runs a small business.",
+      "exVi": "Cô ấy điều hành một cơ sở kinh doanh nhỏ."
+    },
+    {
+      "en": "side",
+      "ipa": "/saɪd/",
+      "vi": "bên, phía",
+      "pos": "noun",
+      "img": "↔️",
+      "connect": "\"Sai-đ\" — side by side: cạnh nhau.",
+      "ex": "Please stand on the other side.",
+      "exVi": "Làm ơn đứng sang phía bên kia."
+    },
+    {
+      "en": "service",
+      "ipa": "/ˈsɝː.vɪs/",
+      "vi": "dịch vụ",
+      "pos": "noun",
+      "img": "🛎️",
+      "connect": "Từ serve (phục vụ) mà ra.",
+      "ex": "The service at this hotel is great.",
+      "exVi": "Dịch vụ ở khách sạn này rất tốt."
+    },
+    {
+      "en": "end",
+      "ipa": "/end/",
+      "vi": "kết thúc, phần cuối",
+      "pos": "noun",
+      "img": "🏁",
+      "connect": "\"En-đ\" — in the end: cuối cùng thì.",
+      "ex": "We stayed until the end of the show.",
+      "exVi": "Chúng tôi ở lại đến hết buổi diễn."
+    },
+    {
+      "en": "member",
+      "ipa": "/ˈmem.bɚ/",
+      "vi": "thành viên",
+      "pos": "noun",
+      "img": "🪪",
+      "connect": "\"Mem-bờ\" — thẻ member của câu lạc bộ.",
+      "ex": "He is a member of our team.",
+      "exVi": "Anh ấy là thành viên của đội chúng tôi."
+    },
+    {
+      "en": "information",
+      "ipa": "/ˌɪn.fɚˈmeɪ.ʃən/",
+      "vi": "thông tin",
+      "pos": "noun",
+      "img": "ℹ️",
+      "connect": "Danh từ không đếm được — không có \"informations\".",
+      "ex": "I need more information about the course.",
+      "exVi": "Tôi cần thêm thông tin về khoá học."
+    },
+    {
+      "en": "health",
+      "ipa": "/helθ/",
+      "vi": "sức khoẻ",
+      "pos": "noun",
+      "img": "❤️‍🩹",
+      "connect": "Từ heal (chữa lành) — kết thúc bằng /θ/.",
+      "ex": "Good sleep is important for your health.",
+      "exVi": "Ngủ đủ giấc rất quan trọng với sức khoẻ."
+    },
+    {
+      "en": "girl",
+      "ipa": "/ɡɝːl/",
+      "vi": "cô gái, bé gái",
+      "pos": "noun",
+      "img": "👧",
+      "connect": "\"Gơ-l\" — âm /ɝː/ giống trong bird.",
+      "ex": "The girl next door plays piano.",
+      "exVi": "Cô bé nhà bên chơi piano."
+    },
+    {
+      "en": "boy",
+      "ipa": "/bɔɪ/",
+      "vi": "cậu bé, con trai",
+      "pos": "noun",
+      "img": "👦",
+      "connect": "\"Boi\" — dễ nhớ như tên gọi thân mật.",
+      "ex": "The boy is riding his bike.",
+      "exVi": "Cậu bé đang đạp xe."
+    },
+    {
+      "en": "air",
+      "ipa": "/er/",
+      "vi": "không khí",
+      "pos": "noun",
+      "img": "💨",
+      "connect": "\"E-ơ\" — air conditioner: máy điều hoà không khí.",
+      "ex": "The air is very fresh this morning.",
+      "exVi": "Không khí sáng nay rất trong lành."
+    },
+    {
+      "en": "age",
+      "ipa": "/eɪdʒ/",
+      "vi": "tuổi, độ tuổi",
+      "pos": "noun",
+      "img": "🎂",
+      "connect": "\"Ây-jờ\" — What is your age? = Bạn bao nhiêu tuổi?",
+      "ex": "Children under the age of six enter free.",
+      "exVi": "Trẻ dưới sáu tuổi vào cửa miễn phí."
+    },
+    {
+      "en": "sense",
+      "ipa": "/sens/",
+      "vi": "giác quan, ý nghĩa",
+      "pos": "noun",
+      "img": "🧠",
+      "connect": "Make sense = có lý, hiểu được.",
+      "ex": "That explanation makes sense.",
+      "exVi": "Lời giải thích đó nghe có lý."
+    },
+    {
+      "en": "death",
+      "ipa": "/deθ/",
+      "vi": "cái chết",
+      "pos": "noun",
+      "img": "🕯️",
+      "connect": "Danh từ của die — kết thúc bằng /θ/.",
+      "ex": "The film is about life and death.",
+      "exVi": "Bộ phim nói về sự sống và cái chết."
+    },
+    {
+      "en": "list",
+      "ipa": "/lɪst/",
+      "vi": "danh sách",
+      "pos": "noun",
+      "img": "📝",
+      "connect": "\"Lít\" — to-do list: danh sách việc cần làm.",
+      "ex": "Put milk on the shopping list.",
+      "exVi": "Ghi sữa vào danh sách mua sắm."
+    },
+    {
+      "en": "film",
+      "ipa": "/fɪlm/",
+      "vi": "bộ phim",
+      "pos": "noun",
+      "img": "🎞️",
+      "connect": "Người Anh nói film, người Mỹ nói movie.",
+      "ex": "We watched a French film last night.",
+      "exVi": "Tối qua chúng tôi xem một bộ phim Pháp."
+    },
+    {
+      "en": "picture",
+      "ipa": "/ˈpɪk.tʃɚ/",
+      "vi": "bức tranh, bức ảnh",
+      "pos": "noun",
+      "img": "🖼️",
+      "connect": "\"Pík-chờ\" — take a picture: chụp một tấm ảnh.",
+      "ex": "Can you take a picture of us?",
+      "exVi": "Bạn chụp giúp chúng tôi một tấm ảnh nhé?"
+    },
+    {
+      "en": "piece",
+      "ipa": "/piːs/",
+      "vi": "miếng, mảnh",
+      "pos": "noun",
+      "img": "🍰",
+      "connect": "Đọc giống peace (hoà bình) — a piece of cake: một miếng bánh.",
+      "ex": "Would you like a piece of cake?",
+      "exVi": "Bạn có muốn một miếng bánh không?"
+    },
+    {
+      "en": "land",
+      "ipa": "/lænd/",
+      "vi": "đất, vùng đất",
+      "pos": "noun",
+      "img": "🏞️",
+      "connect": "\"Len-đ\" — cũng là động từ: hạ cánh.",
+      "ex": "They bought a piece of land near the river.",
+      "exVi": "Họ mua một mảnh đất gần sông."
+    },
+    {
+      "en": "ground",
+      "ipa": "/ɡraʊnd/",
+      "vi": "mặt đất, nền đất",
+      "pos": "noun",
+      "img": "🟫",
+      "connect": "\"Gờ-rao-nđ\" — on the ground: dưới mặt đất.",
+      "ex": "The children sat on the ground.",
+      "exVi": "Bọn trẻ ngồi trên mặt đất."
+    },
+    {
+      "en": "building",
+      "ipa": "/ˈbɪl.dɪŋ/",
+      "vi": "toà nhà",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "Từ build (xây) + -ing — thứ được xây lên.",
+      "ex": "That building has thirty floors.",
+      "exVi": "Toà nhà đó có ba mươi tầng."
+    },
+    {
+      "en": "policy",
+      "ipa": "/ˈpɑː.lə.si/",
+      "vi": "chính sách",
+      "pos": "noun",
+      "img": "📜",
+      "connect": "\"Pó-lơ-si\" — đừng nhầm với police (cảnh sát).",
+      "ex": "The company has a clear refund policy.",
+      "exVi": "Công ty có chính sách hoàn tiền rõ ràng."
+    },
+    {
+      "en": "college",
+      "ipa": "/ˈkɑː.lɪdʒ/",
+      "vi": "trường cao đẳng, đại học",
+      "pos": "noun",
+      "img": "🎓",
+      "connect": "\"Cá-lịt\" — ở Mỹ college nghĩa là đại học.",
+      "ex": "My sister is still in college.",
+      "exVi": "Chị tôi vẫn đang học đại học."
+    },
+    {
+      "en": "development",
+      "ipa": "/dɪˈvel.əp.mənt/",
+      "vi": "sự phát triển",
+      "pos": "noun",
+      "img": "📈",
+      "connect": "Từ develop (phát triển) + -ment.",
+      "ex": "The city has seen fast development.",
+      "exVi": "Thành phố đã phát triển rất nhanh."
+    },
+    {
+      "en": "economy",
+      "ipa": "/ɪˈkɑː.nə.mi/",
+      "vi": "nền kinh tế",
+      "pos": "noun",
+      "img": "🏦",
+      "connect": "Trọng âm rơi vào âm thứ hai: e-CO-no-my.",
+      "ex": "The economy is growing again.",
+      "exVi": "Nền kinh tế đang tăng trưởng trở lại."
+    }
+  ]
+}

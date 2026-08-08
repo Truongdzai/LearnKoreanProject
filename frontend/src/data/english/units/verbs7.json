@@ -6,31 +6,265 @@
   "tone": "tone-c",
   "emoji": "⚙️",
   "words": [
-    { "en": "install", "ipa": "/ɪnˈstɑːl/", "vi": "cài đặt, lắp đặt", "pos": "verb", "img": "💿", "connect": "\"In-sờ-tol\" — cài app, lắp máy.", "ex": "Install the app on your phone.", "exVi": "Cài ứng dụng vào điện thoại." },
-    { "en": "launch", "ipa": "/lɑːntʃ/", "vi": "ra mắt, phóng", "pos": "verb", "img": "🚀", "connect": "\"Lon-ch\" — phóng tên lửa, ra mắt sản phẩm.", "ex": "They launched a new phone.", "exVi": "Họ ra mắt một mẫu điện thoại mới." },
-    { "en": "limit", "ipa": "/ˈlɪm.ɪt/", "vi": "giới hạn", "pos": "verb", "img": "🚧", "connect": "\"Li-mịt\" — chặn ở một mức.", "ex": "Limit screen time for kids.", "exVi": "Giới hạn thời gian dùng màn hình của trẻ." },
-    { "en": "locate", "ipa": "/ˈloʊ.keɪt/", "vi": "xác định vị trí", "pos": "verb", "img": "📍", "connect": "location là danh từ.", "ex": "Can you locate the museum on the map?", "exVi": "Bạn tìm được bảo tàng trên bản đồ không?" },
-    { "en": "maintain", "ipa": "/meɪnˈteɪn/", "vi": "duy trì, bảo dưỡng", "pos": "verb", "img": "🔧", "connect": "\"Mên-tê-n\" — giữ cho tốt đều.", "ex": "Maintain your bike regularly.", "exVi": "Bảo dưỡng xe đạp thường xuyên." },
-    { "en": "mark", "ipa": "/mɑːrk/", "vi": "đánh dấu, chấm điểm", "pos": "verb", "img": "✔️", "connect": "\"Mác\" — đánh dấu vào.", "ex": "Mark the date on the calendar.", "exVi": "Đánh dấu ngày đó trên lịch." },
-    { "en": "multiply", "ipa": "/ˈmʌl.tə.plaɪ/", "vi": "nhân lên", "pos": "verb", "img": "✖️", "connect": "\"Măl-tờ-plai\" — phép nhân.", "ex": "Multiply five by three.", "exVi": "Nhân năm với ba." },
-    { "en": "observe", "ipa": "/əbˈzɜːrv/", "vi": "quan sát", "pos": "verb", "img": "🔭", "connect": "\"Ợb-zơv\" — nhìn kỹ để hiểu.", "ex": "We observed the birds quietly.", "exVi": "Chúng tôi lặng lẽ quan sát đàn chim." },
-    { "en": "operate", "ipa": "/ˈɑː.pɚ.eɪt/", "vi": "vận hành; phẫu thuật", "pos": "verb", "img": "🏭", "connect": "\"O-pờ-rê-t\" — cho máy chạy / mổ.", "ex": "He can operate this machine.", "exVi": "Anh ấy biết vận hành cỗ máy này." },
-    { "en": "organize", "ipa": "/ˈɔːr.ɡən.aɪz/", "vi": "tổ chức, sắp xếp", "pos": "verb", "img": "🗂️", "connect": "\"O-gừn-nai-z\" — đứng ra tổ chức.", "ex": "She organized a birthday party.", "exVi": "Cô ấy tổ chức một bữa tiệc sinh nhật." },
-    { "en": "participate", "ipa": "/pɑːrˈtɪs.ə.peɪt/", "vi": "tham gia", "pos": "verb", "img": "🙋", "connect": "\"Pa-tí-sờ-pê-t\" — góp mặt tham gia.", "ex": "Everyone participated in the game.", "exVi": "Mọi người đều tham gia trò chơi." },
-    { "en": "perform", "ipa": "/pɚˈfɔːrm/", "vi": "biểu diễn, thực hiện", "pos": "verb", "img": "🎤", "connect": "\"Pờ-phom\" — diễn trên sân khấu.", "ex": "The band performed live.", "exVi": "Ban nhạc biểu diễn trực tiếp." },
-    { "en": "permit", "ipa": "/pɚˈmɪt/", "vi": "cho phép", "pos": "verb", "img": "✅", "connect": "\"Pờ-mít\" — như allow (trang trọng).", "ex": "Smoking is not permitted here.", "exVi": "Ở đây không cho phép hút thuốc." },
-    { "en": "persuade", "ipa": "/pɚˈsweɪd/", "vi": "thuyết phục", "pos": "verb", "img": "🗣️", "connect": "\"Pờ-suê-d\" — nói cho người khác nghe theo.", "ex": "She persuaded me to join.", "exVi": "Cô ấy thuyết phục tôi tham gia." },
-    { "en": "pollute", "ipa": "/pəˈluːt/", "vi": "gây ô nhiễm", "pos": "verb", "img": "🏭", "connect": "pollution là danh từ.", "ex": "Factories pollute the river.", "exVi": "Các nhà máy làm ô nhiễm dòng sông." },
-    { "en": "postpone", "ipa": "/poʊstˈpoʊn/", "vi": "dời lại, hoãn", "pos": "verb", "img": "📅", "connect": "post (sau) + pone — đẩy về sau.", "ex": "The match was postponed to Sunday.", "exVi": "Trận đấu bị dời sang Chủ nhật." },
-    { "en": "praise", "ipa": "/preɪz/", "vi": "khen ngợi", "pos": "verb", "img": "👏", "connect": "\"Prê-z\" — khen hết lời.", "ex": "The teacher praised her effort.", "exVi": "Cô giáo khen ngợi sự cố gắng của em ấy." },
-    { "en": "predict", "ipa": "/prɪˈdɪkt/", "vi": "dự đoán", "pos": "verb", "img": "🔮", "connect": "pre (trước) + dict (nói) — nói trước.", "ex": "Nobody can predict the future.", "exVi": "Không ai đoán trước được tương lai." },
-    { "en": "print", "ipa": "/prɪnt/", "vi": "in ra", "pos": "verb", "img": "🖨️", "connect": "\"Prin-t\" — printer là máy in.", "ex": "Print two copies, please.", "exVi": "In giúp hai bản nhé." },
-    { "en": "promote", "ipa": "/prəˈmoʊt/", "vi": "quảng bá; thăng chức", "pos": "verb", "img": "📣", "connect": "\"Prờ-mâu-t\" — đẩy lên cao hơn.", "ex": "They promote the new product.", "exVi": "Họ quảng bá sản phẩm mới." },
-    { "en": "publish", "ipa": "/ˈpʌb.lɪʃ/", "vi": "xuất bản, đăng", "pos": "verb", "img": "📚", "connect": "\"Păb-lịsh\" — in sách, đăng bài.", "ex": "She published her first book.", "exVi": "Cô ấy xuất bản cuốn sách đầu tay." },
-    { "en": "react", "ipa": "/riˈækt/", "vi": "phản ứng", "pos": "verb", "img": "😮", "connect": "re + act — đáp lại hành động.", "ex": "How did he react to the news?", "exVi": "Anh ấy phản ứng thế nào với tin đó?" },
-    { "en": "record", "ipa": "/rɪˈkɔːrd/", "vi": "ghi âm, ghi lại", "pos": "verb", "img": "🎙️", "connect": "\"Ri-co-d\" — thu âm, ghi hình.", "ex": "I recorded the lecture.", "exVi": "Tôi ghi âm lại bài giảng." },
-    { "en": "recover", "ipa": "/rɪˈkʌv.ɚ/", "vi": "hồi phục", "pos": "verb", "img": "💪", "connect": "re + cover — khoẻ lại như cũ.", "ex": "He recovered from the flu.", "exVi": "Anh ấy đã khỏi cúm." },
-    { "en": "reflect", "ipa": "/rɪˈflekt/", "vi": "phản chiếu; suy ngẫm", "pos": "verb", "img": "🪞", "connect": "\"Ri-fléct\" — soi lại (cả nghĩa bóng).", "ex": "The lake reflects the mountain.", "exVi": "Mặt hồ phản chiếu ngọn núi." },
-    { "en": "regret", "ipa": "/rɪˈɡret/", "vi": "hối tiếc", "pos": "verb", "img": "😔", "connect": "\"Ri-grét\" — tiếc vì đã/không làm.", "ex": "I regret not studying harder.", "exVi": "Tôi hối tiếc vì đã không học chăm hơn." }
+    {
+      "en": "install",
+      "ipa": "/ɪnˈstɑːl/",
+      "vi": "cài đặt, lắp đặt",
+      "pos": "verb",
+      "img": "💿",
+      "connect": "\"In-sờ-tol\" — cài app, lắp máy.",
+      "ex": "Install the app on your phone.",
+      "exVi": "Cài ứng dụng vào điện thoại."
+    },
+    {
+      "en": "launch",
+      "ipa": "/lɑːntʃ/",
+      "vi": "ra mắt, phóng",
+      "pos": "verb",
+      "img": "🚀",
+      "connect": "\"Lon-ch\" — phóng tên lửa, ra mắt sản phẩm.",
+      "ex": "They launched a new phone.",
+      "exVi": "Họ ra mắt một mẫu điện thoại mới."
+    },
+    {
+      "en": "limit",
+      "ipa": "/ˈlɪm.ɪt/",
+      "vi": "giới hạn",
+      "pos": "verb",
+      "img": "🚧",
+      "connect": "\"Li-mịt\" — chặn ở một mức.",
+      "ex": "Limit screen time for kids.",
+      "exVi": "Giới hạn thời gian dùng màn hình của trẻ."
+    },
+    {
+      "en": "locate",
+      "ipa": "/ˈloʊ.keɪt/",
+      "vi": "xác định vị trí",
+      "pos": "verb",
+      "img": "📍",
+      "connect": "location là danh từ.",
+      "ex": "Can you locate the museum on the map?",
+      "exVi": "Bạn tìm được bảo tàng trên bản đồ không?"
+    },
+    {
+      "en": "maintain",
+      "ipa": "/meɪnˈteɪn/",
+      "vi": "duy trì, bảo dưỡng",
+      "pos": "verb",
+      "img": "🔧",
+      "connect": "\"Mên-tê-n\" — giữ cho tốt đều.",
+      "ex": "Maintain your bike regularly.",
+      "exVi": "Bảo dưỡng xe đạp thường xuyên."
+    },
+    {
+      "en": "mark",
+      "ipa": "/mɑːrk/",
+      "vi": "đánh dấu, chấm điểm",
+      "pos": "verb",
+      "img": "✔️",
+      "connect": "\"Mác\" — đánh dấu vào.",
+      "ex": "Mark the date on the calendar.",
+      "exVi": "Đánh dấu ngày đó trên lịch."
+    },
+    {
+      "en": "multiply",
+      "ipa": "/ˈmʌl.tə.plaɪ/",
+      "vi": "nhân lên",
+      "pos": "verb",
+      "img": "✖️",
+      "connect": "\"Măl-tờ-plai\" — phép nhân.",
+      "ex": "Multiply five by three.",
+      "exVi": "Nhân năm với ba."
+    },
+    {
+      "en": "observe",
+      "ipa": "/əbˈzɜːrv/",
+      "vi": "quan sát",
+      "pos": "verb",
+      "img": "🔭",
+      "connect": "\"Ợb-zơv\" — nhìn kỹ để hiểu.",
+      "ex": "We observed the birds quietly.",
+      "exVi": "Chúng tôi lặng lẽ quan sát đàn chim."
+    },
+    {
+      "en": "operate",
+      "ipa": "/ˈɑː.pɚ.eɪt/",
+      "vi": "vận hành; phẫu thuật",
+      "pos": "verb",
+      "img": "🏭",
+      "connect": "\"O-pờ-rê-t\" — cho máy chạy / mổ.",
+      "ex": "He can operate this machine.",
+      "exVi": "Anh ấy biết vận hành cỗ máy này."
+    },
+    {
+      "en": "organize",
+      "ipa": "/ˈɔːr.ɡən.aɪz/",
+      "vi": "tổ chức, sắp xếp",
+      "pos": "verb",
+      "img": "🗂️",
+      "connect": "\"O-gừn-nai-z\" — đứng ra tổ chức.",
+      "ex": "She organized a birthday party.",
+      "exVi": "Cô ấy tổ chức một bữa tiệc sinh nhật."
+    },
+    {
+      "en": "participate",
+      "ipa": "/pɑːrˈtɪs.ə.peɪt/",
+      "vi": "tham gia",
+      "pos": "verb",
+      "img": "🙋",
+      "connect": "\"Pa-tí-sờ-pê-t\" — góp mặt tham gia.",
+      "ex": "Everyone participated in the game.",
+      "exVi": "Mọi người đều tham gia trò chơi."
+    },
+    {
+      "en": "perform",
+      "ipa": "/pɚˈfɔːrm/",
+      "vi": "biểu diễn, thực hiện",
+      "pos": "verb",
+      "img": "🎤",
+      "connect": "\"Pờ-phom\" — diễn trên sân khấu.",
+      "ex": "The band performed live.",
+      "exVi": "Ban nhạc biểu diễn trực tiếp."
+    },
+    {
+      "en": "permit",
+      "ipa": "/pɚˈmɪt/",
+      "vi": "cho phép",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "\"Pờ-mít\" — như allow (trang trọng).",
+      "ex": "Smoking is not permitted here.",
+      "exVi": "Ở đây không cho phép hút thuốc."
+    },
+    {
+      "en": "persuade",
+      "ipa": "/pɚˈsweɪd/",
+      "vi": "thuyết phục",
+      "pos": "verb",
+      "img": "🗣️",
+      "connect": "\"Pờ-suê-d\" — nói cho người khác nghe theo.",
+      "ex": "She persuaded me to join.",
+      "exVi": "Cô ấy thuyết phục tôi tham gia."
+    },
+    {
+      "en": "pollute",
+      "ipa": "/pəˈluːt/",
+      "vi": "gây ô nhiễm",
+      "pos": "verb",
+      "img": "🏭",
+      "connect": "pollution là danh từ.",
+      "ex": "Factories pollute the river.",
+      "exVi": "Các nhà máy làm ô nhiễm dòng sông."
+    },
+    {
+      "en": "postpone",
+      "ipa": "/poʊstˈpoʊn/",
+      "vi": "dời lại, hoãn",
+      "pos": "verb",
+      "img": "📅",
+      "connect": "post (sau) + pone — đẩy về sau.",
+      "ex": "The match was postponed to Sunday.",
+      "exVi": "Trận đấu bị dời sang Chủ nhật."
+    },
+    {
+      "en": "praise",
+      "ipa": "/preɪz/",
+      "vi": "khen ngợi",
+      "pos": "verb",
+      "img": "👏",
+      "connect": "\"Prê-z\" — khen hết lời.",
+      "ex": "The teacher praised her effort.",
+      "exVi": "Cô giáo khen ngợi sự cố gắng của em ấy."
+    },
+    {
+      "en": "predict",
+      "ipa": "/prɪˈdɪkt/",
+      "vi": "dự đoán",
+      "pos": "verb",
+      "img": "🔮",
+      "connect": "pre (trước) + dict (nói) — nói trước.",
+      "ex": "Nobody can predict the future.",
+      "exVi": "Không ai đoán trước được tương lai."
+    },
+    {
+      "en": "print",
+      "ipa": "/prɪnt/",
+      "vi": "in ra",
+      "pos": "verb",
+      "img": "🖨️",
+      "connect": "\"Prin-t\" — printer là máy in.",
+      "ex": "Print two copies, please.",
+      "exVi": "In giúp hai bản nhé."
+    },
+    {
+      "en": "promote",
+      "ipa": "/prəˈmoʊt/",
+      "vi": "quảng bá; thăng chức",
+      "pos": "verb",
+      "img": "📣",
+      "connect": "\"Prờ-mâu-t\" — đẩy lên cao hơn.",
+      "ex": "They promote the new product.",
+      "exVi": "Họ quảng bá sản phẩm mới."
+    },
+    {
+      "en": "publish",
+      "ipa": "/ˈpʌb.lɪʃ/",
+      "vi": "xuất bản, đăng",
+      "pos": "verb",
+      "img": "📚",
+      "connect": "\"Păb-lịsh\" — in sách, đăng bài.",
+      "ex": "She published her first book.",
+      "exVi": "Cô ấy xuất bản cuốn sách đầu tay."
+    },
+    {
+      "en": "react",
+      "ipa": "/riˈækt/",
+      "vi": "phản ứng",
+      "pos": "verb",
+      "img": "😮",
+      "connect": "re + act — đáp lại hành động.",
+      "ex": "How did he react to the news?",
+      "exVi": "Anh ấy phản ứng thế nào với tin đó?"
+    },
+    {
+      "en": "record",
+      "ipa": "/rɪˈkɔːrd/",
+      "vi": "ghi âm, ghi lại",
+      "pos": "verb",
+      "img": "🎙️",
+      "connect": "\"Ri-co-d\" — thu âm, ghi hình.",
+      "ex": "I recorded the lecture.",
+      "exVi": "Tôi ghi âm lại bài giảng."
+    },
+    {
+      "en": "recover",
+      "ipa": "/rɪˈkʌv.ɚ/",
+      "vi": "hồi phục",
+      "pos": "verb",
+      "img": "💪",
+      "connect": "re + cover — khoẻ lại như cũ.",
+      "ex": "He recovered from the flu.",
+      "exVi": "Anh ấy đã khỏi cúm."
+    },
+    {
+      "en": "reflect",
+      "ipa": "/rɪˈflekt/",
+      "vi": "phản chiếu; suy ngẫm",
+      "pos": "verb",
+      "img": "🪞",
+      "connect": "\"Ri-fléct\" — soi lại (cả nghĩa bóng).",
+      "ex": "The lake reflects the mountain.",
+      "exVi": "Mặt hồ phản chiếu ngọn núi."
+    },
+    {
+      "en": "regret",
+      "ipa": "/rɪˈɡret/",
+      "vi": "hối tiếc",
+      "pos": "verb",
+      "img": "😔",
+      "connect": "\"Ri-grét\" — tiếc vì đã/không làm.",
+      "ex": "I regret not studying harder.",
+      "exVi": "Tôi hối tiếc vì đã không học chăm hơn."
+    }
   ]
 }

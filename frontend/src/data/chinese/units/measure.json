@@ -6,17 +6,125 @@
   "tone": "tone-c",
   "emoji": "🔢",
   "words": [
-    { "zh": "本", "pinyin": "běn", "vi": "Quyển (sách, vở)", "pos": "noun", "img": "📕", "connect": "本 = bản, chữ trong bản thảo, văn bản — đếm thứ đóng thành tập.", "ex": "我买了三本书。", "exVi": "Tôi đã mua ba quyển sách." },
-    { "zh": "杯", "pinyin": "bēi", "vi": "Cốc, ly", "pos": "noun", "img": "☕", "connect": "杯 = bôi, chữ trong can bôi (cạn chén) — đếm đồ uống theo ly.", "ex": "两杯咖啡，谢谢。", "exVi": "Hai ly cà phê, cảm ơn." },
-    { "zh": "件", "pinyin": "jiàn", "vi": "Chiếc (áo), việc", "pos": "noun", "img": "👚", "connect": "件 = kiện, chữ trong kiện hàng, sự kiện — đếm áo và đếm việc.", "ex": "我买了一件衣服。", "exVi": "Tôi mua một chiếc áo." },
-    { "zh": "条", "pinyin": "tiáo", "vi": "Con, cái (vật dài)", "pos": "noun", "img": "🐟", "connect": "条 = điều, chữ trong điều luật — dùng cho thứ dài: cá, quần, đường, sông.", "ex": "这条鱼很大。", "exVi": "Con cá này rất to." },
-    { "zh": "张", "pinyin": "zhāng", "vi": "Tờ, tấm (vật phẳng)", "pos": "noun", "img": "📄", "connect": "张 = trương, chữ trong khuếch trương (căng ra) — dùng cho vật phẳng: giấy, vé, bàn.", "ex": "请给我一张纸。", "exVi": "Cho tôi xin một tờ giấy." },
-    { "zh": "只", "pinyin": "zhī", "vi": "Con (động vật)", "pos": "noun", "img": "🐱", "connect": "只 = chích, dùng cho con vật và vật lẻ đôi: một chiếc giày, một con mèo.", "ex": "我家有两只猫。", "exVi": "Nhà tôi có hai con mèo." },
-    { "zh": "双", "pinyin": "shuāng", "vi": "Đôi", "pos": "noun", "img": "👟", "connect": "双 = song, chữ trong song sinh, song hỉ — đếm thứ đi có đôi.", "ex": "一双鞋要多少钱？", "exVi": "Một đôi giày giá bao nhiêu?" },
-    { "zh": "位", "pinyin": "wèi", "vi": "Vị (người, lịch sự)", "pos": "noun", "img": "🙇", "connect": "位 = vị, chữ trong quý vị, chư vị — đếm người một cách kính trọng.", "ex": "请问几位？", "exVi": "Xin hỏi quý khách mấy người ạ?" },
-    { "zh": "辆", "pinyin": "liàng", "vi": "Chiếc (xe cộ)", "pos": "noun", "img": "🚗", "connect": "辆 = lượng, có bộ 车 (xa = xe) bên trái — chỉ dùng để đếm xe.", "ex": "门口有两辆车。", "exVi": "Ngoài cổng có hai chiếc xe." },
-    { "zh": "瓶", "pinyin": "píng", "vi": "Chai", "pos": "noun", "img": "🍾", "connect": "瓶 = bình, chữ trong bình hoa, bình nước.", "ex": "给我一瓶水。", "exVi": "Cho tôi một chai nước." },
-    { "zh": "碗", "pinyin": "wǎn", "vi": "Bát, chén", "pos": "noun", "img": "🍚", "connect": "碗 = uyển, có bộ 石 (thạch = đá) — đồ sành đựng cơm.", "ex": "我吃了两碗米饭。", "exVi": "Tôi đã ăn hai bát cơm." },
-    { "zh": "些", "pinyin": "xiē", "vi": "Một vài, một ít", "pos": "noun", "img": "➕", "connect": "些 = ta, luôn đi với 一 hoặc 这 / 那: 一些 là một ít, 这些 là những cái này.", "ex": "我买了一些水果。", "exVi": "Tôi đã mua một ít hoa quả." }
+    {
+      "zh": "本",
+      "pinyin": "běn",
+      "vi": "Quyển (sách, vở)",
+      "pos": "noun",
+      "img": "📕",
+      "connect": "本 = bản, chữ trong bản thảo, văn bản — đếm thứ đóng thành tập.",
+      "ex": "我买了三本书。",
+      "exVi": "Tôi đã mua ba quyển sách."
+    },
+    {
+      "zh": "杯",
+      "pinyin": "bēi",
+      "vi": "Cốc, ly",
+      "pos": "noun",
+      "img": "☕",
+      "connect": "杯 = bôi, chữ trong can bôi (cạn chén) — đếm đồ uống theo ly.",
+      "ex": "两杯咖啡，谢谢。",
+      "exVi": "Hai ly cà phê, cảm ơn."
+    },
+    {
+      "zh": "件",
+      "pinyin": "jiàn",
+      "vi": "Chiếc (áo), việc",
+      "pos": "noun",
+      "img": "👚",
+      "connect": "件 = kiện, chữ trong kiện hàng, sự kiện — đếm áo và đếm việc.",
+      "ex": "我买了一件衣服。",
+      "exVi": "Tôi mua một chiếc áo."
+    },
+    {
+      "zh": "条",
+      "pinyin": "tiáo",
+      "vi": "Con, cái (vật dài)",
+      "pos": "noun",
+      "img": "🐟",
+      "connect": "条 = điều, chữ trong điều luật — dùng cho thứ dài: cá, quần, đường, sông.",
+      "ex": "这条鱼很大。",
+      "exVi": "Con cá này rất to."
+    },
+    {
+      "zh": "张",
+      "pinyin": "zhāng",
+      "vi": "Tờ, tấm (vật phẳng)",
+      "pos": "noun",
+      "img": "📄",
+      "connect": "张 = trương, chữ trong khuếch trương (căng ra) — dùng cho vật phẳng: giấy, vé, bàn.",
+      "ex": "请给我一张纸。",
+      "exVi": "Cho tôi xin một tờ giấy."
+    },
+    {
+      "zh": "只",
+      "pinyin": "zhī",
+      "vi": "Con (động vật)",
+      "pos": "noun",
+      "img": "🐱",
+      "connect": "只 = chích, dùng cho con vật và vật lẻ đôi: một chiếc giày, một con mèo.",
+      "ex": "我家有两只猫。",
+      "exVi": "Nhà tôi có hai con mèo."
+    },
+    {
+      "zh": "双",
+      "pinyin": "shuāng",
+      "vi": "Đôi",
+      "pos": "noun",
+      "img": "👟",
+      "connect": "双 = song, chữ trong song sinh, song hỉ — đếm thứ đi có đôi.",
+      "ex": "一双鞋要多少钱？",
+      "exVi": "Một đôi giày giá bao nhiêu?"
+    },
+    {
+      "zh": "位",
+      "pinyin": "wèi",
+      "vi": "Vị (người, lịch sự)",
+      "pos": "noun",
+      "img": "🙇",
+      "connect": "位 = vị, chữ trong quý vị, chư vị — đếm người một cách kính trọng.",
+      "ex": "请问几位？",
+      "exVi": "Xin hỏi quý khách mấy người ạ?"
+    },
+    {
+      "zh": "辆",
+      "pinyin": "liàng",
+      "vi": "Chiếc (xe cộ)",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "辆 = lượng, có bộ 车 (xa = xe) bên trái — chỉ dùng để đếm xe.",
+      "ex": "门口有两辆车。",
+      "exVi": "Ngoài cổng có hai chiếc xe."
+    },
+    {
+      "zh": "瓶",
+      "pinyin": "píng",
+      "vi": "Chai",
+      "pos": "noun",
+      "img": "🍾",
+      "connect": "瓶 = bình, chữ trong bình hoa, bình nước.",
+      "ex": "给我一瓶水。",
+      "exVi": "Cho tôi một chai nước."
+    },
+    {
+      "zh": "碗",
+      "pinyin": "wǎn",
+      "vi": "Bát, chén",
+      "pos": "noun",
+      "img": "🍚",
+      "connect": "碗 = uyển, có bộ 石 (thạch = đá) — đồ sành đựng cơm.",
+      "ex": "我吃了两碗米饭。",
+      "exVi": "Tôi đã ăn hai bát cơm."
+    },
+    {
+      "zh": "些",
+      "pinyin": "xiē",
+      "vi": "Một vài, một ít",
+      "pos": "noun",
+      "img": "➕",
+      "connect": "些 = ta, luôn đi với 一 hoặc 这 / 那: 一些 là một ít, 这些 là những cái này.",
+      "ex": "我买了一些水果。",
+      "exVi": "Tôi đã mua một ít hoa quả."
+    }
   ]
 }

@@ -6,13 +6,14 @@ import type { ReviewGroup, RunResult } from '../engine'
 interface Props {
   res: RunResult
   onBack: () => void
+  saveToWrongBook?: boolean
 }
 
 const LETTERS = ['A', 'B', 'C', 'D']
 const SPEAKER_ICON: Record<string, string> = { M: '👨', W: '👩', M2: '🧔', W2: '👩‍🦰' }
 const partName = (p: number) => PART_META.find((m) => m.part === p)?.name ?? `Part ${p}`
 
-export default function TestReview({ res, onBack }: Props) {
+export default function TestReview({ res, onBack, saveToWrongBook = true }: Props) {
   const [wrongOnly, setWrongOnly] = useState(true)
 
   const groups = useMemo<ReviewGroup[]>(() => {
@@ -55,7 +56,7 @@ export default function TestReview({ res, onBack }: Props) {
           </button>
         </div>
         <div className="tv-actions">
-          {wrongCount > 0 && (
+          {wrongCount > 0 && saveToWrongBook && (
             <span className="tv-saved"><Icon name="note" size={14} /> {wrongCount} câu sai đã tự lưu vào Sổ tay</span>
           )}
           <button className="btn-ghost sm" onClick={onBack}>Đóng ôn bài</button>
@@ -84,6 +85,20 @@ export default function TestReview({ res, onBack }: Props) {
                   </div>
                 </details>
               )}
+              {g.img && (
+                <div className={g.part >= 3 ? 'tr-photo chart' : 'tr-photo'}>
+                  <img
+                    src={g.img}
+                    alt={g.part >= 3 ? 'Bảng/biểu đồ của nhóm câu hỏi' : 'Ảnh đề Part 1'}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              {g.imgs?.map((src, i) => (
+                <div key={src} className="tr-photo passage">
+                  <img src={src} alt={`Đoạn văn ${i + 1} của nhóm câu hỏi`} loading="lazy" />
+                </div>
+              ))}
               {g.graphic && (
                 <div className="tr-graphic" lang="en">
                   <b>{g.graphic.title}</b>

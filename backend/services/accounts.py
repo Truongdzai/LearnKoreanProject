@@ -684,9 +684,15 @@ _SORTS = {
     "recent": "created_at DESC",
     "oldest": "created_at ASC",
     "active": "last_active DESC",
+    "active_asc": "last_active ASC",
     "coins": "coins DESC",
+    "coins_asc": "coins ASC",
     "xp": "xp DESC",
+    "xp_asc": "xp ASC",
+    "streak": "streak DESC",
+    "streak_asc": "streak ASC",
     "name": "name COLLATE NOCASE ASC",
+    "name_desc": "name COLLATE NOCASE DESC",
 }
 
 
@@ -767,7 +773,7 @@ def admin_update_user(user_id: str, fields: dict) -> dict:
 USER_TABLES = (
     "user_items", "user_garden", "user_paths", "user_videos", "quest_progress",
     "activity_log", "coin_gifts", "srs_cards", "srs_reviews", "user_plans",
-    "league_members", "email_log",
+    "league_members", "email_log", "speak_room_members", "speak_room_msgs", "speak_queue",
 )
 
 
@@ -777,6 +783,7 @@ def purge_user(user_id: str) -> None:
         for table in USER_TABLES:
             conn.execute(f"DELETE FROM {table} WHERE user_id = ?", (user_id,))
         conn.execute("DELETE FROM duels WHERE a_id = ? OR b_id = ?", (user_id, user_id))
+        conn.execute("DELETE FROM speak_rooms WHERE host_id = ?", (user_id,))
         conn.execute("DELETE FROM ai_usage WHERE subject = ?", (f"u:{user_id}",))
         conn.execute("UPDATE feedback SET user_id = NULL, name = 'Người dùng đã xoá' WHERE user_id = ?", (user_id,))
         conn.execute("UPDATE users SET ref_by = NULL WHERE ref_by = ?", (user_id,))

@@ -6,33 +6,285 @@
   "tone": "tone-c",
   "emoji": "👕",
   "words": [
-    { "en": "clothes", "ipa": "/kloʊz/", "vi": "quần áo", "pos": "noun", "img": "👚", "connect": "\"Klâu-z\" — đọc gọn, âm \"th\" gần như im.", "ex": "Put on warm clothes.", "exVi": "Mặc quần áo ấm vào." },
-    { "en": "shirt", "ipa": "/ʃɜːrt/", "vi": "áo sơ mi", "pos": "noun", "img": "👔", "connect": "\"Sớt\" — áo sơ mi công sở.", "ex": "He wears a white shirt.", "exVi": "Anh ấy mặc áo sơ mi trắng." },
-    { "en": "t-shirt", "ipa": "/ˈtiː.ʃɜːrt/", "vi": "áo phông", "pos": "noun", "img": "👕", "connect": "Áo hình chữ \"T\".", "ex": "I bought a new T-shirt.", "exVi": "Tôi mua một chiếc áo phông mới." },
-    { "en": "pants", "ipa": "/pænts/", "vi": "quần dài", "pos": "noun", "img": "👖", "connect": "\"Pen-ts\" — luôn ở dạng số nhiều.", "ex": "These pants are too long.", "exVi": "Cái quần này dài quá." },
-    { "en": "jeans", "ipa": "/dʒiːnz/", "vi": "quần bò", "pos": "noun", "img": "👖", "connect": "\"Din-z\" — quần jean.", "ex": "She likes blue jeans.", "exVi": "Cô ấy thích quần bò xanh." },
-    { "en": "dress", "ipa": "/dres/", "vi": "váy liền", "pos": "noun", "img": "👗", "connect": "\"Đrét\" — đầm dạ hội.", "ex": "She wore a red dress.", "exVi": "Cô ấy mặc một chiếc váy đỏ." },
-    { "en": "skirt", "ipa": "/skɜːrt/", "vi": "chân váy", "pos": "noun", "img": "👗", "connect": "\"Sờ-kớt\" — khác shirt (sơ mi) một chữ.", "ex": "The skirt is too short.", "exVi": "Chân váy hơi ngắn." },
-    { "en": "shoes", "ipa": "/ʃuːz/", "vi": "giày", "pos": "noun", "img": "👟", "connect": "\"Su-z\" — một đôi giày.", "ex": "My shoes are dirty.", "exVi": "Giày của tôi bị bẩn." },
-    { "en": "socks", "ipa": "/sɑːks/", "vi": "tất, vớ", "pos": "noun", "img": "🧦", "connect": "\"Sóc-s\" — một đôi tất.", "ex": "Wear warm socks in winter.", "exVi": "Mùa đông nhớ đi tất ấm." },
-    { "en": "hat", "ipa": "/hæt/", "vi": "mũ (có vành)", "pos": "noun", "img": "🎩", "connect": "\"Hét\" — đội mũ rộng vành.", "ex": "He wears a black hat.", "exVi": "Anh ấy đội mũ đen." },
-    { "en": "cap", "ipa": "/kæp/", "vi": "mũ lưỡi trai", "pos": "noun", "img": "🧢", "connect": "\"Kép\" — nón kết.", "ex": "The boy has a red cap.", "exVi": "Cậu bé đội mũ lưỡi trai đỏ." },
-    { "en": "jacket", "ipa": "/ˈdʒæk.ɪt/", "vi": "áo khoác", "pos": "noun", "img": "🧥", "connect": "\"Giác-kịt\" — áo khoác nhẹ.", "ex": "Take a jacket, it's cold.", "exVi": "Mang áo khoác đi, trời lạnh." },
-    { "en": "coat", "ipa": "/koʊt/", "vi": "áo choàng dài", "pos": "noun", "img": "🧥", "connect": "\"Kâu-t\" — áo khoác dài ấm.", "ex": "She has a long coat.", "exVi": "Cô ấy có một chiếc áo choàng dài." },
-    { "en": "sweater", "ipa": "/ˈswet.ɚ/", "vi": "áo len", "pos": "noun", "img": "🧶", "connect": "\"Sờ-we-tờ\" — sweat (mồ hôi) nhưng đây là áo len ấm.", "ex": "I knitted a sweater.", "exVi": "Tôi đan một chiếc áo len." },
-    { "en": "scarf", "ipa": "/skɑːrf/", "vi": "khăn quàng cổ", "pos": "noun", "img": "🧣", "connect": "\"Sờ-cáp\" — quàng cho ấm cổ.", "ex": "Wear a scarf when it's windy.", "exVi": "Trời gió thì quàng khăn vào." },
-    { "en": "gloves", "ipa": "/ɡlʌvz/", "vi": "găng tay", "pos": "noun", "img": "🧤", "connect": "\"Glăv-z\" — găng giữ ấm tay.", "ex": "My gloves keep me warm.", "exVi": "Găng tay giữ ấm cho tôi." },
-    { "en": "belt", "ipa": "/belt/", "vi": "thắt lưng", "pos": "noun", "img": "🪢", "connect": "\"Bel-t\" — dây nịt.", "ex": "He tightened his belt.", "exVi": "Anh ấy thắt chặt dây lưng." },
-    { "en": "tie", "ipa": "/taɪ/", "vi": "cà vạt", "pos": "noun", "img": "👔", "connect": "\"Tai\" — tie cũng là \"thắt\".", "ex": "He wears a tie to work.", "exVi": "Anh ấy đeo cà vạt đi làm." },
-    { "en": "glasses", "ipa": "/ˈɡlæs.ɪz/", "vi": "kính mắt", "pos": "noun", "img": "👓", "connect": "\"Glát-sịz\" — glass (kính) số nhiều = kính đeo.", "ex": "I can't read without glasses.", "exVi": "Không có kính tôi không đọc được." },
-    { "en": "ring", "ipa": "/rɪŋ/", "vi": "chiếc nhẫn", "pos": "noun", "img": "💍", "connect": "\"Ring\" — nhẫn tròn (cũng là tiếng chuông reo).", "ex": "She wears a gold ring.", "exVi": "Cô ấy đeo một chiếc nhẫn vàng." },
-    { "en": "pocket", "ipa": "/ˈpɑː.kɪt/", "vi": "túi (áo/quần)", "pos": "noun", "img": "👖", "connect": "\"Pó-kịt\" — bỏ túi (pocket money).", "ex": "My keys are in my pocket.", "exVi": "Chìa khoá ở trong túi tôi." },
-    { "en": "size", "ipa": "/saɪz/", "vi": "cỡ, kích cỡ", "pos": "noun", "img": "📏", "connect": "\"Sai-z\" — chọn size vừa người.", "ex": "What size do you wear?", "exVi": "Bạn mặc cỡ nào?" },
-    { "en": "boots", "ipa": "/buːts/", "vi": "giày bốt, ủng", "pos": "noun", "img": "🥾", "connect": "\"Bu-ts\" — giày cao cổ.", "ex": "She bought new boots.", "exVi": "Cô ấy mua một đôi bốt mới." },
-    { "en": "sandals", "ipa": "/ˈsæn.dəlz/", "vi": "dép xăng đan", "pos": "noun", "img": "👡", "connect": "\"Sen-đồ-z\" — dép quai.", "ex": "Wear sandals to the beach.", "exVi": "Đi dép xăng đan ra biển." },
-    { "en": "uniform", "ipa": "/ˈjuː.nɪ.fɔːrm/", "vi": "đồng phục", "pos": "noun", "img": "👮", "connect": "uni (một, giống nhau) + form — ai cũng mặc giống nhau.", "ex": "Students wear a uniform.", "exVi": "Học sinh mặc đồng phục." },
-    { "en": "suit", "ipa": "/suːt/", "vi": "bộ vest", "pos": "noun", "img": "🤵", "connect": "\"Su-t\" — bộ com-lê.", "ex": "He looks smart in a suit.", "exVi": "Anh ấy trông bảnh trong bộ vest." },
-    { "en": "wallet", "ipa": "/ˈwɑː.lɪt/", "vi": "ví tiền", "pos": "noun", "img": "👛", "connect": "\"Wó-lịt\" — ví đựng tiền.", "ex": "I lost my wallet.", "exVi": "Tôi làm mất ví rồi." },
-    { "en": "umbrella", "ipa": "/ʌmˈbrel.ə/", "vi": "cái ô, dù", "pos": "noun", "img": "☂️", "connect": "\"Ăm-brel-lờ\" — che ô khi mưa.", "ex": "Take an umbrella, it may rain.", "exVi": "Mang ô đi, có thể mưa đấy." }
+    {
+      "en": "clothes",
+      "ipa": "/kloʊz/",
+      "vi": "quần áo",
+      "pos": "noun",
+      "img": "👚",
+      "connect": "\"Klâu-z\" — đọc gọn, âm \"th\" gần như im.",
+      "ex": "Put on warm clothes.",
+      "exVi": "Mặc quần áo ấm vào."
+    },
+    {
+      "en": "shirt",
+      "ipa": "/ʃɜːrt/",
+      "vi": "áo sơ mi",
+      "pos": "noun",
+      "img": "👔",
+      "connect": "\"Sớt\" — áo sơ mi công sở.",
+      "ex": "He wears a white shirt.",
+      "exVi": "Anh ấy mặc áo sơ mi trắng."
+    },
+    {
+      "en": "t-shirt",
+      "ipa": "/ˈtiː.ʃɜːrt/",
+      "vi": "áo phông",
+      "pos": "noun",
+      "img": "👕",
+      "connect": "Áo hình chữ \"T\".",
+      "ex": "I bought a new T-shirt.",
+      "exVi": "Tôi mua một chiếc áo phông mới."
+    },
+    {
+      "en": "pants",
+      "ipa": "/pænts/",
+      "vi": "quần dài",
+      "pos": "noun",
+      "img": "👖",
+      "connect": "\"Pen-ts\" — luôn ở dạng số nhiều.",
+      "ex": "These pants are too long.",
+      "exVi": "Cái quần này dài quá."
+    },
+    {
+      "en": "jeans",
+      "ipa": "/dʒiːnz/",
+      "vi": "quần bò",
+      "pos": "noun",
+      "img": "👖",
+      "connect": "\"Din-z\" — quần jean.",
+      "ex": "She likes blue jeans.",
+      "exVi": "Cô ấy thích quần bò xanh."
+    },
+    {
+      "en": "dress",
+      "ipa": "/dres/",
+      "vi": "váy liền",
+      "pos": "noun",
+      "img": "👗",
+      "connect": "\"Đrét\" — đầm dạ hội.",
+      "ex": "She wore a red dress.",
+      "exVi": "Cô ấy mặc một chiếc váy đỏ."
+    },
+    {
+      "en": "skirt",
+      "ipa": "/skɜːrt/",
+      "vi": "chân váy",
+      "pos": "noun",
+      "img": "👗",
+      "connect": "\"Sờ-kớt\" — khác shirt (sơ mi) một chữ.",
+      "ex": "The skirt is too short.",
+      "exVi": "Chân váy hơi ngắn."
+    },
+    {
+      "en": "shoes",
+      "ipa": "/ʃuːz/",
+      "vi": "giày",
+      "pos": "noun",
+      "img": "👟",
+      "connect": "\"Su-z\" — một đôi giày.",
+      "ex": "My shoes are dirty.",
+      "exVi": "Giày của tôi bị bẩn."
+    },
+    {
+      "en": "socks",
+      "ipa": "/sɑːks/",
+      "vi": "tất, vớ",
+      "pos": "noun",
+      "img": "🧦",
+      "connect": "\"Sóc-s\" — một đôi tất.",
+      "ex": "Wear warm socks in winter.",
+      "exVi": "Mùa đông nhớ đi tất ấm."
+    },
+    {
+      "en": "hat",
+      "ipa": "/hæt/",
+      "vi": "mũ (có vành)",
+      "pos": "noun",
+      "img": "🎩",
+      "connect": "\"Hét\" — đội mũ rộng vành.",
+      "ex": "He wears a black hat.",
+      "exVi": "Anh ấy đội mũ đen."
+    },
+    {
+      "en": "cap",
+      "ipa": "/kæp/",
+      "vi": "mũ lưỡi trai",
+      "pos": "noun",
+      "img": "🧢",
+      "connect": "\"Kép\" — nón kết.",
+      "ex": "The boy has a red cap.",
+      "exVi": "Cậu bé đội mũ lưỡi trai đỏ."
+    },
+    {
+      "en": "jacket",
+      "ipa": "/ˈdʒæk.ɪt/",
+      "vi": "áo khoác",
+      "pos": "noun",
+      "img": "🧥",
+      "connect": "\"Giác-kịt\" — áo khoác nhẹ.",
+      "ex": "Take a jacket, it's cold.",
+      "exVi": "Mang áo khoác đi, trời lạnh."
+    },
+    {
+      "en": "coat",
+      "ipa": "/koʊt/",
+      "vi": "áo choàng dài",
+      "pos": "noun",
+      "img": "🧥",
+      "connect": "\"Kâu-t\" — áo khoác dài ấm.",
+      "ex": "She has a long coat.",
+      "exVi": "Cô ấy có một chiếc áo choàng dài."
+    },
+    {
+      "en": "sweater",
+      "ipa": "/ˈswet.ɚ/",
+      "vi": "áo len",
+      "pos": "noun",
+      "img": "🧶",
+      "connect": "\"Sờ-we-tờ\" — sweat (mồ hôi) nhưng đây là áo len ấm.",
+      "ex": "I knitted a sweater.",
+      "exVi": "Tôi đan một chiếc áo len."
+    },
+    {
+      "en": "scarf",
+      "ipa": "/skɑːrf/",
+      "vi": "khăn quàng cổ",
+      "pos": "noun",
+      "img": "🧣",
+      "connect": "\"Sờ-cáp\" — quàng cho ấm cổ.",
+      "ex": "Wear a scarf when it's windy.",
+      "exVi": "Trời gió thì quàng khăn vào."
+    },
+    {
+      "en": "gloves",
+      "ipa": "/ɡlʌvz/",
+      "vi": "găng tay",
+      "pos": "noun",
+      "img": "🧤",
+      "connect": "\"Glăv-z\" — găng giữ ấm tay.",
+      "ex": "My gloves keep me warm.",
+      "exVi": "Găng tay giữ ấm cho tôi."
+    },
+    {
+      "en": "belt",
+      "ipa": "/belt/",
+      "vi": "thắt lưng",
+      "pos": "noun",
+      "img": "🪢",
+      "connect": "\"Bel-t\" — dây nịt.",
+      "ex": "He tightened his belt.",
+      "exVi": "Anh ấy thắt chặt dây lưng."
+    },
+    {
+      "en": "tie",
+      "ipa": "/taɪ/",
+      "vi": "cà vạt",
+      "pos": "noun",
+      "img": "👔",
+      "connect": "\"Tai\" — tie cũng là \"thắt\".",
+      "ex": "He wears a tie to work.",
+      "exVi": "Anh ấy đeo cà vạt đi làm."
+    },
+    {
+      "en": "glasses",
+      "ipa": "/ˈɡlæs.ɪz/",
+      "vi": "kính mắt",
+      "pos": "noun",
+      "img": "👓",
+      "connect": "\"Glát-sịz\" — glass (kính) số nhiều = kính đeo.",
+      "ex": "I can't read without glasses.",
+      "exVi": "Không có kính tôi không đọc được."
+    },
+    {
+      "en": "ring",
+      "ipa": "/rɪŋ/",
+      "vi": "chiếc nhẫn",
+      "pos": "noun",
+      "img": "💍",
+      "connect": "\"Ring\" — nhẫn tròn (cũng là tiếng chuông reo).",
+      "ex": "She wears a gold ring.",
+      "exVi": "Cô ấy đeo một chiếc nhẫn vàng."
+    },
+    {
+      "en": "pocket",
+      "ipa": "/ˈpɑː.kɪt/",
+      "vi": "túi (áo/quần)",
+      "pos": "noun",
+      "img": "👖",
+      "connect": "\"Pó-kịt\" — bỏ túi (pocket money).",
+      "ex": "My keys are in my pocket.",
+      "exVi": "Chìa khoá ở trong túi tôi."
+    },
+    {
+      "en": "size",
+      "ipa": "/saɪz/",
+      "vi": "cỡ, kích cỡ",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "\"Sai-z\" — chọn size vừa người.",
+      "ex": "What size do you wear?",
+      "exVi": "Bạn mặc cỡ nào?"
+    },
+    {
+      "en": "boots",
+      "ipa": "/buːts/",
+      "vi": "giày bốt, ủng",
+      "pos": "noun",
+      "img": "🥾",
+      "connect": "\"Bu-ts\" — giày cao cổ.",
+      "ex": "She bought new boots.",
+      "exVi": "Cô ấy mua một đôi bốt mới."
+    },
+    {
+      "en": "sandals",
+      "ipa": "/ˈsæn.dəlz/",
+      "vi": "dép xăng đan",
+      "pos": "noun",
+      "img": "👡",
+      "connect": "\"Sen-đồ-z\" — dép quai.",
+      "ex": "Wear sandals to the beach.",
+      "exVi": "Đi dép xăng đan ra biển."
+    },
+    {
+      "en": "uniform",
+      "ipa": "/ˈjuː.nɪ.fɔːrm/",
+      "vi": "đồng phục",
+      "pos": "noun",
+      "img": "👮",
+      "connect": "uni (một, giống nhau) + form — ai cũng mặc giống nhau.",
+      "ex": "Students wear a uniform.",
+      "exVi": "Học sinh mặc đồng phục."
+    },
+    {
+      "en": "suit",
+      "ipa": "/suːt/",
+      "vi": "bộ vest",
+      "pos": "noun",
+      "img": "🤵",
+      "connect": "\"Su-t\" — bộ com-lê.",
+      "ex": "He looks smart in a suit.",
+      "exVi": "Anh ấy trông bảnh trong bộ vest."
+    },
+    {
+      "en": "wallet",
+      "ipa": "/ˈwɑː.lɪt/",
+      "vi": "ví tiền",
+      "pos": "noun",
+      "img": "👛",
+      "connect": "\"Wó-lịt\" — ví đựng tiền.",
+      "ex": "I lost my wallet.",
+      "exVi": "Tôi làm mất ví rồi."
+    },
+    {
+      "en": "umbrella",
+      "ipa": "/ʌmˈbrel.ə/",
+      "vi": "cái ô, dù",
+      "pos": "noun",
+      "img": "☂️",
+      "connect": "\"Ăm-brel-lờ\" — che ô khi mưa.",
+      "ex": "Take an umbrella, it may rain.",
+      "exVi": "Mang ô đi, có thể mưa đấy."
+    }
   ]
 }

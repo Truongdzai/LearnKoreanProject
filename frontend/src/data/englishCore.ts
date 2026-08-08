@@ -118,6 +118,10 @@ import driving from './english/units/driving.json'
 import worldfood from './english/units/worldfood.json'
 import world from './english/units/world.json'
 import repair from './english/units/repair.json'
+import nouns5 from './english/units/nouns5.json'
+import verbs10 from './english/units/verbs10.json'
+import verbs11 from './english/units/verbs11.json'
+import adjectives9 from './english/units/adjectives9.json'
 
 
 import { type IcesWord, type VocabUnit } from './vocabCore'
@@ -145,6 +149,7 @@ export const UNITS: VocabUnit[] = [
   christmas, computing, business2, idioms2, phrasal3, nouns4,
   verbs9, adjectives8, health3, airport, farm, law,
   fitness, phrases3, adverbs3, driving, worldfood, world, repair,
+  nouns5, verbs10, verbs11, adjectives9,
 ] as unknown as VocabUnit[]
 
 export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
@@ -164,9 +169,14 @@ const gl = (week: number, seq: number, lessonId: string): WeekTask => {
 const tk = (week: number, n: number): WeekTask =>
   ({ id: `w${week}-toeic`, kind: 'toeic', n, label: `TOEIC: hoàn thành ≥ ${n}/60 ngày lộ trình` })
 
-const pn = (week: number, groupId: string): WeekTask => {
+const pn = (week: number, groupId: string, seq?: number): WeekTask => {
   const g = PRON_GROUPS.find((x) => x.id === groupId)
-  return { id: `w${week}-pron`, kind: 'pron', groupId, label: `Phát âm: ${g?.title ?? groupId} (kiểm tra đạt ≥ ${PRON_PASS}%)` }
+  return {
+    id: seq ? `w${week}-pron${seq}` : `w${week}-pron`,
+    kind: 'pron',
+    groupId,
+    label: `Phát âm: ${g?.title ?? groupId} (kiểm tra đạt ≥ ${PRON_PASS}%)`,
+  }
 }
 
 export const PLAN_12_WEEKS: WeekPlan[] = [
@@ -430,6 +440,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w12-grammar', kind: 'grammar', label: 'Hoàn thành cả 18 bài Ngữ pháp giao tiếp' },
       tk(12, 40),
       pn(12, 'linking'),
+      pn(12, 'rhythm', 2),
       { id: 'w12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 80%', passPct: 80 },
       { id: 'w12-speak', kind: 'speak', label: 'Trò chuyện tự do 10 phút với AI, không nhìn gợi ý' },
       { id: 'w12-write', kind: 'custom', label: 'Viết đoạn 8–10 câu giới thiệu bản thân — so với ngày 1 để thấy mình đã đi xa', go: null },
@@ -602,8 +613,8 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
     ],
   },
   {
-    week: 6, month: 2, phase: 'Compile', title: 'Công việc & trường lớp — xong 12 nhóm âm',
-    focus: 'Từ vựng đi làm, đi học + phỏng vấn thử với AI. Hoàn thành nốt 2 nhóm âm cuối (trọng âm, nối âm) — từ đây phát âm đủ bộ.',
+    week: 6, month: 2, phase: 'Compile', title: 'Công việc & trường lớp — xong 13 nhóm âm',
+    focus: 'Từ vựng đi làm, đi học + phỏng vấn thử với AI. Hoàn thành nốt 3 nhóm âm cuối (trọng âm, nối âm, nhịp điệu lời nói) — từ đây phát âm đủ bộ.',
     rhythm: 'Khung 7,5 giờ/ngày · khối nói tăng lên 1,5h (có buổi phỏng vấn thử) · viết 3 email trong tuần. Ngày 6: kiểm tra (chuẩn 85%) · Ngày 7: ôn + nghỉ.',
     quizUnits: ['worklife', 'office', 'school', 'education', 'jobs', 'computing'],
     patterns: [
@@ -620,7 +631,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(6, 5, 'jobs', 'Nghề nghiệp'),
       bv(6, 6, 'computing', 'Máy tính & internet'),
       bgl(6, 1, 'e13'), bgl(6, 2, 'e14'),
-      bpn(6, 1, 'stress'), bpn(6, 2, 'linking'),
+      bpn(6, 1, 'stress'), bpn(6, 2, 'linking'), bpn(6, 3, 'rhythm'),
       btk(6, 14),
       { id: 'bw6-write', kind: 'custom', label: 'Viết 3 email: xin việc đơn giản, hỏi thông tin, cảm ơn', go: null },
       { id: 'bw6-speak', kind: 'speak', label: 'Luyện nói 4 buổi, trong đó 1 buổi phỏng vấn xin việc thử với AI' },

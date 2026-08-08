@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "📍",
   "words": [
-    { "zh": "家", "pinyin": "jiā", "vi": "Nhà, gia đình", "pos": "noun", "img": "🏠", "connect": "家 = gia, như \"gia đình\", \"gia chủ\".", "ex": "我家有四口人。", "exVi": "Nhà tôi có bốn người." },
-    { "zh": "学校", "pinyin": "xué xiào", "vi": "Trường học", "pos": "noun", "img": "🏫", "connect": "学 = học + 校 = hiệu → \"học hiệu\", đúng chữ \"trường học\" Hán–Việt.", "ex": "学校离我家很近。", "exVi": "Trường học gần nhà tôi." },
-    { "zh": "商店", "pinyin": "shāng diàn", "vi": "Cửa hàng", "pos": "noun", "img": "🏪", "connect": "商 = thương (buôn bán) + 店 = điếm (tiệm) → \"thương điếm\".", "ex": "我去商店买东西。", "exVi": "Tôi đi cửa hàng mua đồ." },
-    { "zh": "医院", "pinyin": "yī yuàn", "vi": "Bệnh viện", "pos": "noun", "img": "🏥", "connect": "医 = y (chữa bệnh) + 院 = viện → \"y viện\".", "ex": "他在医院工作。", "exVi": "Anh ấy làm việc ở bệnh viện." },
-    { "zh": "中国", "pinyin": "Zhōng guó", "vi": "Trung Quốc", "pos": "noun", "img": "🇨🇳", "connect": "中 = trung + 国 = quốc → \"Trung Quốc\", y hệt tiếng Việt.", "ex": "我想去中国旅游。", "exVi": "Tôi muốn đi du lịch Trung Quốc." },
-    { "zh": "北京", "pinyin": "Běi jīng", "vi": "Bắc Kinh", "pos": "noun", "img": "🏯", "connect": "北 = bắc + 京 = kinh → \"Bắc Kinh\", kinh đô phía bắc.", "ex": "北京是中国的首都。", "exVi": "Bắc Kinh là thủ đô Trung Quốc." },
-    { "zh": "在", "pinyin": "zài", "vi": "Ở (tại đâu)", "pos": "prep", "img": "📌", "connect": "在 = tại, như \"tại chỗ\", \"hiện tại\". Đứng trước nơi chốn: 在家 = ở nhà.", "ex": "书在桌子上。", "exVi": "Quyển sách ở trên bàn." },
-    { "zh": "里", "pinyin": "lǐ", "vi": "Bên trong", "pos": "prep", "img": "📦", "connect": "里 = lý, như \"nội lý\". Đặt SAU danh từ: 家里 = trong nhà.", "ex": "包里有什么？", "exVi": "Trong túi có gì?" },
-    { "zh": "上", "pinyin": "shàng", "vi": "Trên", "pos": "prep", "img": "⬆️", "connect": "上 = thượng, như \"thượng lưu\". Chữ vẽ một nét nằm trên vạch ngang.", "ex": "猫在椅子上。", "exVi": "Con mèo ở trên ghế." },
-    { "zh": "下", "pinyin": "xià", "vi": "Dưới", "pos": "prep", "img": "⬇️", "connect": "下 = hạ, như \"hạ lưu\". Chữ 上 lật ngược lại.", "ex": "钥匙在书下面。", "exVi": "Chìa khoá ở dưới quyển sách." },
-    { "zh": "前面", "pinyin": "qián miàn", "vi": "Phía trước", "pos": "noun", "img": "⏩", "connect": "前 = tiền (trước, như \"tiền sử\") + 面 = diện (mặt).", "ex": "银行在前面。", "exVi": "Ngân hàng ở phía trước." },
-    { "zh": "后面", "pinyin": "hòu miàn", "vi": "Phía sau", "pos": "noun", "img": "⏪", "connect": "后 = hậu (sau, như \"hậu quả\") + 面 = diện.", "ex": "我坐在他后面。", "exVi": "Tôi ngồi phía sau anh ấy." }
+    {
+      "zh": "家",
+      "pinyin": "jiā",
+      "vi": "Nhà, gia đình",
+      "pos": "noun",
+      "img": "🏠",
+      "connect": "家 = gia, như \"gia đình\", \"gia chủ\".",
+      "ex": "我家有四口人。",
+      "exVi": "Nhà tôi có bốn người."
+    },
+    {
+      "zh": "学校",
+      "pinyin": "xué xiào",
+      "vi": "Trường học",
+      "pos": "noun",
+      "img": "🏫",
+      "connect": "学 = học + 校 = hiệu → \"học hiệu\", đúng chữ \"trường học\" Hán–Việt.",
+      "ex": "学校离我家很近。",
+      "exVi": "Trường học gần nhà tôi."
+    },
+    {
+      "zh": "商店",
+      "pinyin": "shāng diàn",
+      "vi": "Cửa hàng",
+      "pos": "noun",
+      "img": "🏪",
+      "connect": "商 = thương (buôn bán) + 店 = điếm (tiệm) → \"thương điếm\".",
+      "ex": "我去商店买东西。",
+      "exVi": "Tôi đi cửa hàng mua đồ."
+    },
+    {
+      "zh": "医院",
+      "pinyin": "yī yuàn",
+      "vi": "Bệnh viện",
+      "pos": "noun",
+      "img": "🏥",
+      "connect": "医 = y (chữa bệnh) + 院 = viện → \"y viện\".",
+      "ex": "他在医院工作。",
+      "exVi": "Anh ấy làm việc ở bệnh viện."
+    },
+    {
+      "zh": "中国",
+      "pinyin": "Zhōng guó",
+      "vi": "Trung Quốc",
+      "pos": "noun",
+      "img": "🇨🇳",
+      "connect": "中 = trung + 国 = quốc → \"Trung Quốc\", y hệt tiếng Việt.",
+      "ex": "我想去中国旅游。",
+      "exVi": "Tôi muốn đi du lịch Trung Quốc."
+    },
+    {
+      "zh": "北京",
+      "pinyin": "Běi jīng",
+      "vi": "Bắc Kinh",
+      "pos": "noun",
+      "img": "🏯",
+      "connect": "北 = bắc + 京 = kinh → \"Bắc Kinh\", kinh đô phía bắc.",
+      "ex": "北京是中国的首都。",
+      "exVi": "Bắc Kinh là thủ đô Trung Quốc."
+    },
+    {
+      "zh": "在",
+      "pinyin": "zài",
+      "vi": "Ở (tại đâu)",
+      "pos": "prep",
+      "img": "📌",
+      "connect": "在 = tại, như \"tại chỗ\", \"hiện tại\". Đứng trước nơi chốn: 在家 = ở nhà.",
+      "ex": "书在桌子上。",
+      "exVi": "Quyển sách ở trên bàn."
+    },
+    {
+      "zh": "里",
+      "pinyin": "lǐ",
+      "vi": "Bên trong",
+      "pos": "prep",
+      "img": "📦",
+      "connect": "里 = lý, như \"nội lý\". Đặt SAU danh từ: 家里 = trong nhà.",
+      "ex": "包里有什么？",
+      "exVi": "Trong túi có gì?"
+    },
+    {
+      "zh": "上",
+      "pinyin": "shàng",
+      "vi": "Trên",
+      "pos": "prep",
+      "img": "⬆️",
+      "connect": "上 = thượng, như \"thượng lưu\". Chữ vẽ một nét nằm trên vạch ngang.",
+      "ex": "猫在椅子上。",
+      "exVi": "Con mèo ở trên ghế."
+    },
+    {
+      "zh": "下",
+      "pinyin": "xià",
+      "vi": "Dưới",
+      "pos": "prep",
+      "img": "⬇️",
+      "connect": "下 = hạ, như \"hạ lưu\". Chữ 上 lật ngược lại.",
+      "ex": "钥匙在书下面。",
+      "exVi": "Chìa khoá ở dưới quyển sách."
+    },
+    {
+      "zh": "前面",
+      "pinyin": "qián miàn",
+      "vi": "Phía trước",
+      "pos": "noun",
+      "img": "⏩",
+      "connect": "前 = tiền (trước, như \"tiền sử\") + 面 = diện (mặt).",
+      "ex": "银行在前面。",
+      "exVi": "Ngân hàng ở phía trước."
+    },
+    {
+      "zh": "后面",
+      "pinyin": "hòu miàn",
+      "vi": "Phía sau",
+      "pos": "noun",
+      "img": "⏪",
+      "connect": "后 = hậu (sau, như \"hậu quả\") + 面 = diện.",
+      "ex": "我坐在他后面。",
+      "exVi": "Tôi ngồi phía sau anh ấy."
+    }
   ]
 }

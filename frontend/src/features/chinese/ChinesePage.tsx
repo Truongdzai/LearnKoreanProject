@@ -3,7 +3,7 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { ZH_UNITS, ZH_ALL_WORDS } from '@/data/chineseCore'
 import { ZH_PRON_GROUPS } from '@/data/chinesePronunciation'
 import { speakZH } from '@/core/tts'
-import IcesLearn from '../english/components/IcesLearn'
+import VocabLab from '../english/components/vocab/VocabLab'
 import VocabQuiz from '../english/components/VocabQuiz'
 import PronunciationLab from '../english/components/PronunciationLab'
 import { recordWeekQuiz } from '../english/progress'
@@ -11,6 +11,8 @@ import ChineseRoadmap from './ChineseRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
+import { useAppStore } from '@/store/app.store'
+import { HSK_BANK } from '@/data/hskCore'
 
 type Tab = 'program' | 'learn' | 'pron' | 'quiz'
 
@@ -29,6 +31,7 @@ interface WeekQuiz {
 }
 
 export default function ChinesePage() {
+  const { setView } = useAppStore()
   const [tab, setTab] = useState<Tab>('program')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
   const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
@@ -106,6 +109,20 @@ export default function ChinesePage() {
         }}
       />
 
+      <div className="en-principle">
+        <Icon name="trophy" size={20} />
+        <div>
+          <b>Muốn lấy chứng chỉ HSK?</b> Lộ trình này dạy để nói được; còn dạng câu ra thi thì học ở trang
+          <b> Luyện thi HSK</b>: {HSK_BANK.capsules} viên ngữ pháp HSK 1–2, {HSK_BANK.listening} câu 听力,
+          {' '}{HSK_BANK.reading} câu 阅读 và đề thi thử quy đổi thang 200.
+          <div className="zh-hsk-cta">
+            <button className="btn-primary sm" onClick={() => setView('hsk')}>
+              <Icon name="book" size={15} /> Mở trang Luyện thi HSK
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="en-tabs" {...tabs.list}>
         {TABS.map((t) => (
           <button key={t.id} {...tabs.tab(t.id)} className={'en-tab' + (tab === t.id ? ' on' : '')} onClick={() => pickTab(t.id)}>
@@ -119,7 +136,14 @@ export default function ChinesePage() {
           <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
         )}
         {tab === 'learn' && (
-          <IcesLearn initialUnit={learnUnit} units={ZH_UNITS} speak={speakZH} sourceLabel="Chinese Core" lang="zh" />
+          <VocabLab
+            initialUnit={learnUnit}
+            units={ZH_UNITS}
+            speak={speakZH}
+            sourceLabel="Chinese Core"
+            lang="zh"
+            title="Từ vựng tiếng Trung"
+          />
         )}
         {tab === 'pron' && (
           <PronunciationLab
@@ -128,7 +152,7 @@ export default function ChinesePage() {
             lang="zh"
             groups={ZH_PRON_GROUPS}
             speak={speakZH}
-            intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Trung: nghe mẫu → phân biệt bằng tai → đọc lại cho máy chấm."
+            intro="Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Trung: nghe mẫu → phân biệt bằng tai → ghi âm hai bản để đối chiếu → tự chấm theo 5 tiêu chí."
           />
         )}
         {tab === 'quiz' && (weekQuiz ? (

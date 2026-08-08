@@ -6,31 +6,265 @@
   "tone": "tone-f",
   "emoji": "🌊",
   "words": [
-    { "en": "ocean", "ipa": "/ˈoʊ.ʃən/", "vi": "đại dương", "pos": "noun", "img": "🌊", "connect": "\"Âu-sừn\" — biển lớn mênh mông.", "ex": "The Pacific is the biggest ocean.", "exVi": "Thái Bình Dương là đại dương lớn nhất." },
-    { "en": "whale", "ipa": "/weɪl/", "vi": "cá voi", "pos": "noun", "img": "🐋", "connect": "\"Wê-l\" — cá voi khổng lồ.", "ex": "The blue whale is the largest animal.", "exVi": "Cá voi xanh là loài vật lớn nhất." },
-    { "en": "dolphin", "ipa": "/ˈdɑːl.fɪn/", "vi": "cá heo", "pos": "noun", "img": "🐬", "connect": "\"Đol-phin\" — cá heo thông minh.", "ex": "Dolphins are very smart.", "exVi": "Cá heo rất thông minh." },
-    { "en": "shark", "ipa": "/ʃɑːrk/", "vi": "cá mập", "pos": "noun", "img": "🦈", "connect": "\"Sác\" — hàm răng sắc.", "ex": "Sharks have sharp teeth.", "exVi": "Cá mập có hàm răng sắc nhọn." },
-    { "en": "octopus", "ipa": "/ˈɑːk.tə.pəs/", "vi": "bạch tuộc", "pos": "noun", "img": "🐙", "connect": "octo = tám — tám xúc tu.", "ex": "An octopus has eight arms.", "exVi": "Bạch tuộc có tám xúc tu." },
-    { "en": "crab", "ipa": "/kræb/", "vi": "con cua", "pos": "noun", "img": "🦀", "connect": "\"Kráp\" — cua bò ngang.", "ex": "Crabs walk sideways.", "exVi": "Cua bò ngang." },
-    { "en": "shrimp", "ipa": "/ʃrɪmp/", "vi": "con tôm", "pos": "noun", "img": "🦐", "connect": "\"Srim-p\" — tôm nhỏ.", "ex": "I love grilled shrimp.", "exVi": "Tôi thích tôm nướng." },
-    { "en": "shell", "ipa": "/ʃel/", "vi": "vỏ sò, vỏ ốc", "pos": "noun", "img": "🐚", "connect": "\"Sel\" — nhặt vỏ sò trên cát.", "ex": "She collects shells on the beach.", "exVi": "Cô ấy nhặt vỏ sò trên bãi biển." },
-    { "en": "coral", "ipa": "/ˈkɔːr.əl/", "vi": "san hô", "pos": "noun", "img": "🪸", "connect": "\"Co-rồ\" — rạn san hô đầy màu.", "ex": "The coral reef is colorful.", "exVi": "Rạn san hô rực rỡ sắc màu." },
-    { "en": "seaweed", "ipa": "/ˈsiː.wiːd/", "vi": "rong biển", "pos": "noun", "img": "🌿", "connect": "sea (biển) + weed (cỏ) — cỏ biển.", "ex": "Koreans eat a lot of seaweed.", "exVi": "Người Hàn ăn nhiều rong biển." },
-    { "en": "sailor", "ipa": "/ˈseɪ.lɚ/", "vi": "thuỷ thủ", "pos": "noun", "img": "⚓", "connect": "sail (căng buồm) + or (người).", "ex": "The sailor works on a big ship.", "exVi": "Người thuỷ thủ làm việc trên con tàu lớn." },
-    { "en": "dive", "ipa": "/daɪv/", "vi": "lặn", "pos": "verb", "img": "🤿", "connect": "\"Đai-v\" — lặn xuống nước.", "ex": "We dive to see the coral.", "exVi": "Chúng tôi lặn xuống ngắm san hô." },
-    { "en": "net", "ipa": "/net/", "vi": "cái lưới", "pos": "noun", "img": "🕸️", "connect": "\"Nét\" — lưới đánh cá.", "ex": "The fisherman throws his net.", "exVi": "Người ngư dân quăng lưới." },
-    { "en": "tide", "ipa": "/taɪd/", "vi": "thuỷ triều", "pos": "noun", "img": "🌊", "connect": "\"Tai-d\" — nước lên nước xuống.", "ex": "The tide is high in the evening.", "exVi": "Thuỷ triều lên cao vào buổi tối." },
-    { "en": "squid", "ipa": "/skwɪd/", "vi": "con mực", "pos": "noun", "img": "🦑", "connect": "\"Sờ-quịd\" — mực ống.", "ex": "Grilled squid is delicious.", "exVi": "Mực nướng rất ngon." },
-    { "en": "jellyfish", "ipa": "/ˈdʒel.i.fɪʃ/", "vi": "con sứa", "pos": "noun", "img": "🪼", "connect": "jelly (thạch) + fish — cá mềm như thạch.", "ex": "Some jellyfish can sting you.", "exVi": "Một số loài sứa có thể chích bạn." },
-    { "en": "turtle", "ipa": "/ˈtɜːr.t̬əl/", "vi": "con rùa", "pos": "noun", "img": "🐢", "connect": "\"Tơ-tồ\" — rùa biển chậm rãi.", "ex": "Sea turtles live very long.", "exVi": "Rùa biển sống rất thọ." },
-    { "en": "seal", "ipa": "/siːl/", "vi": "hải cẩu", "pos": "noun", "img": "🦭", "connect": "\"Si-l\" — hải cẩu vỗ tay.", "ex": "The seal swims fast.", "exVi": "Con hải cẩu bơi nhanh." },
-    { "en": "penguin", "ipa": "/ˈpeŋ.ɡwɪn/", "vi": "chim cánh cụt", "pos": "noun", "img": "🐧", "connect": "\"Peng-guin\" — chim không bay, bơi giỏi.", "ex": "Penguins live in cold places.", "exVi": "Chim cánh cụt sống ở nơi lạnh giá." },
-    { "en": "lighthouse", "ipa": "/ˈlaɪt.haʊs/", "vi": "ngọn hải đăng", "pos": "noun", "img": "🗼", "connect": "light (đèn) + house (nhà) — nhà đèn soi biển.", "ex": "The lighthouse guides the ships.", "exVi": "Ngọn hải đăng dẫn đường cho tàu bè." },
-    { "en": "anchor", "ipa": "/ˈæŋ.kɚ/", "vi": "mỏ neo", "pos": "noun", "img": "⚓", "connect": "\"Eng-cờ\" — chữ \"ch\" đọc là \"k\"; neo giữ tàu.", "ex": "Drop the anchor here.", "exVi": "Thả neo ở đây." },
-    { "en": "sail", "ipa": "/seɪl/", "vi": "căng buồm, đi thuyền", "pos": "verb", "img": "⛵", "connect": "\"Sê-l\" — giương buồm ra khơi.", "ex": "We sailed along the coast.", "exVi": "Chúng tôi đi thuyền dọc bờ biển." },
-    { "en": "captain", "ipa": "/ˈkæp.tən/", "vi": "thuyền trưởng, đội trưởng", "pos": "noun", "img": "👨‍✈️", "connect": "\"Kép-từn\" — người chỉ huy tàu.", "ex": "The captain steers the ship.", "exVi": "Thuyền trưởng lái con tàu." },
-    { "en": "pirate", "ipa": "/ˈpaɪ.rət/", "vi": "cướp biển", "pos": "noun", "img": "🏴‍☠️", "connect": "\"Pai-rợt\" — hải tặc.", "ex": "The pirates looked for treasure.", "exVi": "Bọn cướp biển đi tìm kho báu." },
-    { "en": "treasure", "ipa": "/ˈtreʒ.ɚ/", "vi": "kho báu", "pos": "noun", "img": "💰", "connect": "\"Tre-zhờ\" — rương vàng bạc.", "ex": "They found a hidden treasure.", "exVi": "Họ tìm thấy một kho báu bị giấu." },
-    { "en": "float", "ipa": "/floʊt/", "vi": "nổi (trên nước)", "pos": "verb", "img": "🛟", "connect": "\"Flâu-t\" — nổi lềnh bềnh.", "ex": "Wood floats on water.", "exVi": "Gỗ nổi trên mặt nước." }
+    {
+      "en": "ocean",
+      "ipa": "/ˈoʊ.ʃən/",
+      "vi": "đại dương",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "\"Âu-sừn\" — biển lớn mênh mông.",
+      "ex": "The Pacific is the biggest ocean.",
+      "exVi": "Thái Bình Dương là đại dương lớn nhất."
+    },
+    {
+      "en": "whale",
+      "ipa": "/weɪl/",
+      "vi": "cá voi",
+      "pos": "noun",
+      "img": "🐋",
+      "connect": "\"Wê-l\" — cá voi khổng lồ.",
+      "ex": "The blue whale is the largest animal.",
+      "exVi": "Cá voi xanh là loài vật lớn nhất."
+    },
+    {
+      "en": "dolphin",
+      "ipa": "/ˈdɑːl.fɪn/",
+      "vi": "cá heo",
+      "pos": "noun",
+      "img": "🐬",
+      "connect": "\"Đol-phin\" — cá heo thông minh.",
+      "ex": "Dolphins are very smart.",
+      "exVi": "Cá heo rất thông minh."
+    },
+    {
+      "en": "shark",
+      "ipa": "/ʃɑːrk/",
+      "vi": "cá mập",
+      "pos": "noun",
+      "img": "🦈",
+      "connect": "\"Sác\" — hàm răng sắc.",
+      "ex": "Sharks have sharp teeth.",
+      "exVi": "Cá mập có hàm răng sắc nhọn."
+    },
+    {
+      "en": "octopus",
+      "ipa": "/ˈɑːk.tə.pəs/",
+      "vi": "bạch tuộc",
+      "pos": "noun",
+      "img": "🐙",
+      "connect": "octo = tám — tám xúc tu.",
+      "ex": "An octopus has eight arms.",
+      "exVi": "Bạch tuộc có tám xúc tu."
+    },
+    {
+      "en": "crab",
+      "ipa": "/kræb/",
+      "vi": "con cua",
+      "pos": "noun",
+      "img": "🦀",
+      "connect": "\"Kráp\" — cua bò ngang.",
+      "ex": "Crabs walk sideways.",
+      "exVi": "Cua bò ngang."
+    },
+    {
+      "en": "shrimp",
+      "ipa": "/ʃrɪmp/",
+      "vi": "con tôm",
+      "pos": "noun",
+      "img": "🦐",
+      "connect": "\"Srim-p\" — tôm nhỏ.",
+      "ex": "I love grilled shrimp.",
+      "exVi": "Tôi thích tôm nướng."
+    },
+    {
+      "en": "shell",
+      "ipa": "/ʃel/",
+      "vi": "vỏ sò, vỏ ốc",
+      "pos": "noun",
+      "img": "🐚",
+      "connect": "\"Sel\" — nhặt vỏ sò trên cát.",
+      "ex": "She collects shells on the beach.",
+      "exVi": "Cô ấy nhặt vỏ sò trên bãi biển."
+    },
+    {
+      "en": "coral",
+      "ipa": "/ˈkɔːr.əl/",
+      "vi": "san hô",
+      "pos": "noun",
+      "img": "🪸",
+      "connect": "\"Co-rồ\" — rạn san hô đầy màu.",
+      "ex": "The coral reef is colorful.",
+      "exVi": "Rạn san hô rực rỡ sắc màu."
+    },
+    {
+      "en": "seaweed",
+      "ipa": "/ˈsiː.wiːd/",
+      "vi": "rong biển",
+      "pos": "noun",
+      "img": "🌿",
+      "connect": "sea (biển) + weed (cỏ) — cỏ biển.",
+      "ex": "Koreans eat a lot of seaweed.",
+      "exVi": "Người Hàn ăn nhiều rong biển."
+    },
+    {
+      "en": "sailor",
+      "ipa": "/ˈseɪ.lɚ/",
+      "vi": "thuỷ thủ",
+      "pos": "noun",
+      "img": "⚓",
+      "connect": "sail (căng buồm) + or (người).",
+      "ex": "The sailor works on a big ship.",
+      "exVi": "Người thuỷ thủ làm việc trên con tàu lớn."
+    },
+    {
+      "en": "dive",
+      "ipa": "/daɪv/",
+      "vi": "lặn",
+      "pos": "verb",
+      "img": "🤿",
+      "connect": "\"Đai-v\" — lặn xuống nước.",
+      "ex": "We dive to see the coral.",
+      "exVi": "Chúng tôi lặn xuống ngắm san hô."
+    },
+    {
+      "en": "net",
+      "ipa": "/net/",
+      "vi": "cái lưới",
+      "pos": "noun",
+      "img": "🕸️",
+      "connect": "\"Nét\" — lưới đánh cá.",
+      "ex": "The fisherman throws his net.",
+      "exVi": "Người ngư dân quăng lưới."
+    },
+    {
+      "en": "tide",
+      "ipa": "/taɪd/",
+      "vi": "thuỷ triều",
+      "pos": "noun",
+      "img": "🌊",
+      "connect": "\"Tai-d\" — nước lên nước xuống.",
+      "ex": "The tide is high in the evening.",
+      "exVi": "Thuỷ triều lên cao vào buổi tối."
+    },
+    {
+      "en": "squid",
+      "ipa": "/skwɪd/",
+      "vi": "con mực",
+      "pos": "noun",
+      "img": "🦑",
+      "connect": "\"Sờ-quịd\" — mực ống.",
+      "ex": "Grilled squid is delicious.",
+      "exVi": "Mực nướng rất ngon."
+    },
+    {
+      "en": "jellyfish",
+      "ipa": "/ˈdʒel.i.fɪʃ/",
+      "vi": "con sứa",
+      "pos": "noun",
+      "img": "🪼",
+      "connect": "jelly (thạch) + fish — cá mềm như thạch.",
+      "ex": "Some jellyfish can sting you.",
+      "exVi": "Một số loài sứa có thể chích bạn."
+    },
+    {
+      "en": "turtle",
+      "ipa": "/ˈtɜːr.t̬əl/",
+      "vi": "con rùa",
+      "pos": "noun",
+      "img": "🐢",
+      "connect": "\"Tơ-tồ\" — rùa biển chậm rãi.",
+      "ex": "Sea turtles live very long.",
+      "exVi": "Rùa biển sống rất thọ."
+    },
+    {
+      "en": "seal",
+      "ipa": "/siːl/",
+      "vi": "hải cẩu",
+      "pos": "noun",
+      "img": "🦭",
+      "connect": "\"Si-l\" — hải cẩu vỗ tay.",
+      "ex": "The seal swims fast.",
+      "exVi": "Con hải cẩu bơi nhanh."
+    },
+    {
+      "en": "penguin",
+      "ipa": "/ˈpeŋ.ɡwɪn/",
+      "vi": "chim cánh cụt",
+      "pos": "noun",
+      "img": "🐧",
+      "connect": "\"Peng-guin\" — chim không bay, bơi giỏi.",
+      "ex": "Penguins live in cold places.",
+      "exVi": "Chim cánh cụt sống ở nơi lạnh giá."
+    },
+    {
+      "en": "lighthouse",
+      "ipa": "/ˈlaɪt.haʊs/",
+      "vi": "ngọn hải đăng",
+      "pos": "noun",
+      "img": "🗼",
+      "connect": "light (đèn) + house (nhà) — nhà đèn soi biển.",
+      "ex": "The lighthouse guides the ships.",
+      "exVi": "Ngọn hải đăng dẫn đường cho tàu bè."
+    },
+    {
+      "en": "anchor",
+      "ipa": "/ˈæŋ.kɚ/",
+      "vi": "mỏ neo",
+      "pos": "noun",
+      "img": "⚓",
+      "connect": "\"Eng-cờ\" — chữ \"ch\" đọc là \"k\"; neo giữ tàu.",
+      "ex": "Drop the anchor here.",
+      "exVi": "Thả neo ở đây."
+    },
+    {
+      "en": "sail",
+      "ipa": "/seɪl/",
+      "vi": "căng buồm, đi thuyền",
+      "pos": "verb",
+      "img": "⛵",
+      "connect": "\"Sê-l\" — giương buồm ra khơi.",
+      "ex": "We sailed along the coast.",
+      "exVi": "Chúng tôi đi thuyền dọc bờ biển."
+    },
+    {
+      "en": "captain",
+      "ipa": "/ˈkæp.tən/",
+      "vi": "thuyền trưởng, đội trưởng",
+      "pos": "noun",
+      "img": "👨‍✈️",
+      "connect": "\"Kép-từn\" — người chỉ huy tàu.",
+      "ex": "The captain steers the ship.",
+      "exVi": "Thuyền trưởng lái con tàu."
+    },
+    {
+      "en": "pirate",
+      "ipa": "/ˈpaɪ.rət/",
+      "vi": "cướp biển",
+      "pos": "noun",
+      "img": "🏴‍☠️",
+      "connect": "\"Pai-rợt\" — hải tặc.",
+      "ex": "The pirates looked for treasure.",
+      "exVi": "Bọn cướp biển đi tìm kho báu."
+    },
+    {
+      "en": "treasure",
+      "ipa": "/ˈtreʒ.ɚ/",
+      "vi": "kho báu",
+      "pos": "noun",
+      "img": "💰",
+      "connect": "\"Tre-zhờ\" — rương vàng bạc.",
+      "ex": "They found a hidden treasure.",
+      "exVi": "Họ tìm thấy một kho báu bị giấu."
+    },
+    {
+      "en": "float",
+      "ipa": "/floʊt/",
+      "vi": "nổi (trên nước)",
+      "pos": "verb",
+      "img": "🛟",
+      "connect": "\"Flâu-t\" — nổi lềnh bềnh.",
+      "ex": "Wood floats on water.",
+      "exVi": "Gỗ nổi trên mặt nước."
+    }
   ]
 }

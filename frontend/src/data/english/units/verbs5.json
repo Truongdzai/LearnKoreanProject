@@ -6,30 +6,255 @@
   "tone": "tone-b",
   "emoji": "🎯",
   "words": [
-    { "en": "manage", "ipa": "/ˈmæn.ɪdʒ/", "vi": "quản lý; xoay xở được", "pos": "verb", "img": "🗂️", "connect": "\"Me-nịj\" — điều hành / lo liệu được.", "ex": "She manages a small team.", "exVi": "Cô ấy quản lý một nhóm nhỏ." },
-    { "en": "own", "ipa": "/oʊn/", "vi": "sở hữu", "pos": "verb", "img": "🔑", "connect": "\"Âu-n\" — của riêng mình (owner là chủ).", "ex": "They own two houses.", "exVi": "Họ sở hữu hai căn nhà." },
-    { "en": "prepare", "ipa": "/prɪˈper/", "vi": "chuẩn bị", "pos": "verb", "img": "🎒", "connect": "\"Pri-pe\" — sửa soạn trước.", "ex": "Prepare for the interview.", "exVi": "Chuẩn bị cho buổi phỏng vấn nhé." },
-    { "en": "prevent", "ipa": "/prɪˈvent/", "vi": "ngăn ngừa", "pos": "verb", "img": "🛑", "connect": "\"Pri-ven-t\" — chặn trước khi xảy ra.", "ex": "Wash hands to prevent illness.", "exVi": "Rửa tay để ngăn ngừa bệnh tật." },
-    { "en": "produce", "ipa": "/prəˈduːs/", "vi": "sản xuất", "pos": "verb", "img": "🏭", "connect": "\"Prờ-điu-s\" — làm ra sản phẩm.", "ex": "The factory produces shoes.", "exVi": "Nhà máy sản xuất giày." },
-    { "en": "provide", "ipa": "/prəˈvaɪd/", "vi": "cung cấp", "pos": "verb", "img": "🤲", "connect": "\"Prờ-vai-d\" — đưa cho cái cần.", "ex": "The hotel provides free wifi.", "exVi": "Khách sạn cung cấp wifi miễn phí." },
-    { "en": "receive", "ipa": "/rɪˈsiːv/", "vi": "nhận được", "pos": "verb", "img": "📥", "connect": "\"Ri-si-v\" — nhận về tay.", "ex": "I received your letter today.", "exVi": "Hôm nay tôi nhận được thư của bạn." },
-    { "en": "recommend", "ipa": "/ˌrek.əˈmend/", "vi": "gợi ý, giới thiệu", "pos": "verb", "img": "👍", "connect": "\"Re-cờ-men-d\" — khuyên nên dùng.", "ex": "Can you recommend a good book?", "exVi": "Bạn gợi ý giúp một cuốn sách hay được không?" },
-    { "en": "repeat", "ipa": "/rɪˈpiːt/", "vi": "lặp lại", "pos": "verb", "img": "🔁", "connect": "\"Ri-pi-t\" — nói lại lần nữa.", "ex": "Could you repeat that, please?", "exVi": "Bạn nhắc lại giúp được không?" },
-    { "en": "replace", "ipa": "/rɪˈpleɪs/", "vi": "thay thế", "pos": "verb", "img": "🔄", "connect": "re + place — đặt cái mới vào chỗ cũ.", "ex": "Replace the old battery.", "exVi": "Thay cục pin cũ đi." },
-    { "en": "require", "ipa": "/rɪˈkwaɪr/", "vi": "yêu cầu, cần", "pos": "verb", "img": "📋", "connect": "\"Ri-quai-ơ\" — đòi hỏi phải có.", "ex": "This job requires English.", "exVi": "Công việc này yêu cầu tiếng Anh." },
-    { "en": "return", "ipa": "/rɪˈtɜːrn/", "vi": "trở về, trả lại", "pos": "verb", "img": "↩️", "connect": "\"Ri-tơn\" — quay về / hoàn trả.", "ex": "He returned home late.", "exVi": "Anh ấy trở về nhà muộn." },
-    { "en": "solve", "ipa": "/sɑːlv/", "vi": "giải quyết", "pos": "verb", "img": "🧩", "connect": "\"Sol-v\" — giải bài toán, gỡ vấn đề.", "ex": "We solved the problem together.", "exVi": "Chúng tôi cùng nhau giải quyết vấn đề." },
-    { "en": "succeed", "ipa": "/səkˈsiːd/", "vi": "thành công", "pos": "verb", "img": "🏆", "connect": "\"Sợc-si-d\" — success là danh từ.", "ex": "Work hard and you will succeed.", "exVi": "Chăm chỉ rồi bạn sẽ thành công." },
-    { "en": "support", "ipa": "/səˈpɔːrt/", "vi": "ủng hộ, hỗ trợ", "pos": "verb", "img": "🤝", "connect": "\"Sờ-po-t\" — đứng sau tiếp sức.", "ex": "My family supports my dream.", "exVi": "Gia đình ủng hộ ước mơ của tôi." },
-    { "en": "surround", "ipa": "/səˈraʊnd/", "vi": "bao quanh", "pos": "verb", "img": "⭕", "connect": "\"Sờ-rao-nd\" — vây xung quanh.", "ex": "Mountains surround the village.", "exVi": "Núi non bao quanh ngôi làng." },
-    { "en": "exist", "ipa": "/ɪɡˈzɪst/", "vi": "tồn tại", "pos": "verb", "img": "🌍", "connect": "\"Ịg-zít-st\" — có thật trên đời.", "ex": "Do aliens really exist?", "exVi": "Người ngoài hành tinh có thật không?" },
-    { "en": "contain", "ipa": "/kənˈteɪn/", "vi": "chứa đựng", "pos": "verb", "img": "📦", "connect": "\"Cợn-tê-n\" — bên trong có (container).", "ex": "This drink contains a lot of sugar.", "exVi": "Đồ uống này chứa nhiều đường." },
-    { "en": "depend", "ipa": "/dɪˈpend/", "vi": "phụ thuộc", "pos": "verb", "img": "🔗", "connect": "\"Đi-pen-d\" — depend on: tuỳ vào.", "ex": "It depends on the weather.", "exVi": "Còn tuỳ vào thời tiết." },
-    { "en": "remain", "ipa": "/rɪˈmeɪn/", "vi": "vẫn còn, ở lại", "pos": "verb", "img": "🪨", "connect": "\"Ri-mê-n\" — giữ nguyên như cũ.", "ex": "Please remain seated.", "exVi": "Vui lòng ngồi yên tại chỗ." },
-    { "en": "suffer", "ipa": "/ˈsʌf.ɚ/", "vi": "chịu đựng, đau khổ", "pos": "verb", "img": "😖", "connect": "\"Să-phờ\" — chịu khổ vì bệnh/mất mát.", "ex": "He suffers from back pain.", "exVi": "Anh ấy bị đau lưng hành hạ." },
-    { "en": "survive", "ipa": "/sɚˈvaɪv/", "vi": "sống sót", "pos": "verb", "img": "🏝️", "connect": "\"Sờ-vai-v\" — vượt qua mà vẫn sống.", "ex": "They survived the storm.", "exVi": "Họ sống sót qua cơn bão." },
-    { "en": "attract", "ipa": "/əˈtrækt/", "vi": "thu hút", "pos": "verb", "img": "🧲", "connect": "\"Ờ-trắc-t\" — hút như nam châm.", "ex": "The beach attracts many tourists.", "exVi": "Bãi biển thu hút nhiều du khách." },
-    { "en": "gain", "ipa": "/ɡeɪn/", "vi": "đạt được, tăng thêm", "pos": "verb", "img": "📈", "connect": "\"Ghê-n\" — thu về (gain weight: tăng cân).", "ex": "She gained a lot of experience.", "exVi": "Cô ấy tích luỹ được nhiều kinh nghiệm." },
-    { "en": "obtain", "ipa": "/əbˈteɪn/", "vi": "có được, giành được", "pos": "verb", "img": "🎫", "connect": "\"Ợb-tê-n\" — lấy được (trang trọng).", "ex": "He obtained a visa last week.", "exVi": "Tuần trước anh ấy đã lấy được visa." }
+    {
+      "en": "manage",
+      "ipa": "/ˈmæn.ɪdʒ/",
+      "vi": "quản lý; xoay xở được",
+      "pos": "verb",
+      "img": "🗂️",
+      "connect": "\"Me-nịj\" — điều hành / lo liệu được.",
+      "ex": "She manages a small team.",
+      "exVi": "Cô ấy quản lý một nhóm nhỏ."
+    },
+    {
+      "en": "own",
+      "ipa": "/oʊn/",
+      "vi": "sở hữu",
+      "pos": "verb",
+      "img": "🔑",
+      "connect": "\"Âu-n\" — của riêng mình (owner là chủ).",
+      "ex": "They own two houses.",
+      "exVi": "Họ sở hữu hai căn nhà."
+    },
+    {
+      "en": "prepare",
+      "ipa": "/prɪˈper/",
+      "vi": "chuẩn bị",
+      "pos": "verb",
+      "img": "🎒",
+      "connect": "\"Pri-pe\" — sửa soạn trước.",
+      "ex": "Prepare for the interview.",
+      "exVi": "Chuẩn bị cho buổi phỏng vấn nhé."
+    },
+    {
+      "en": "prevent",
+      "ipa": "/prɪˈvent/",
+      "vi": "ngăn ngừa",
+      "pos": "verb",
+      "img": "🛑",
+      "connect": "\"Pri-ven-t\" — chặn trước khi xảy ra.",
+      "ex": "Wash hands to prevent illness.",
+      "exVi": "Rửa tay để ngăn ngừa bệnh tật."
+    },
+    {
+      "en": "produce",
+      "ipa": "/prəˈduːs/",
+      "vi": "sản xuất",
+      "pos": "verb",
+      "img": "🏭",
+      "connect": "\"Prờ-điu-s\" — làm ra sản phẩm.",
+      "ex": "The factory produces shoes.",
+      "exVi": "Nhà máy sản xuất giày."
+    },
+    {
+      "en": "provide",
+      "ipa": "/prəˈvaɪd/",
+      "vi": "cung cấp",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "\"Prờ-vai-d\" — đưa cho cái cần.",
+      "ex": "The hotel provides free wifi.",
+      "exVi": "Khách sạn cung cấp wifi miễn phí."
+    },
+    {
+      "en": "receive",
+      "ipa": "/rɪˈsiːv/",
+      "vi": "nhận được",
+      "pos": "verb",
+      "img": "📥",
+      "connect": "\"Ri-si-v\" — nhận về tay.",
+      "ex": "I received your letter today.",
+      "exVi": "Hôm nay tôi nhận được thư của bạn."
+    },
+    {
+      "en": "recommend",
+      "ipa": "/ˌrek.əˈmend/",
+      "vi": "gợi ý, giới thiệu",
+      "pos": "verb",
+      "img": "👍",
+      "connect": "\"Re-cờ-men-d\" — khuyên nên dùng.",
+      "ex": "Can you recommend a good book?",
+      "exVi": "Bạn gợi ý giúp một cuốn sách hay được không?"
+    },
+    {
+      "en": "repeat",
+      "ipa": "/rɪˈpiːt/",
+      "vi": "lặp lại",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "\"Ri-pi-t\" — nói lại lần nữa.",
+      "ex": "Could you repeat that, please?",
+      "exVi": "Bạn nhắc lại giúp được không?"
+    },
+    {
+      "en": "replace",
+      "ipa": "/rɪˈpleɪs/",
+      "vi": "thay thế",
+      "pos": "verb",
+      "img": "🔄",
+      "connect": "re + place — đặt cái mới vào chỗ cũ.",
+      "ex": "Replace the old battery.",
+      "exVi": "Thay cục pin cũ đi."
+    },
+    {
+      "en": "require",
+      "ipa": "/rɪˈkwaɪr/",
+      "vi": "yêu cầu, cần",
+      "pos": "verb",
+      "img": "📋",
+      "connect": "\"Ri-quai-ơ\" — đòi hỏi phải có.",
+      "ex": "This job requires English.",
+      "exVi": "Công việc này yêu cầu tiếng Anh."
+    },
+    {
+      "en": "return",
+      "ipa": "/rɪˈtɜːrn/",
+      "vi": "trở về, trả lại",
+      "pos": "verb",
+      "img": "↩️",
+      "connect": "\"Ri-tơn\" — quay về / hoàn trả.",
+      "ex": "He returned home late.",
+      "exVi": "Anh ấy trở về nhà muộn."
+    },
+    {
+      "en": "solve",
+      "ipa": "/sɑːlv/",
+      "vi": "giải quyết",
+      "pos": "verb",
+      "img": "🧩",
+      "connect": "\"Sol-v\" — giải bài toán, gỡ vấn đề.",
+      "ex": "We solved the problem together.",
+      "exVi": "Chúng tôi cùng nhau giải quyết vấn đề."
+    },
+    {
+      "en": "succeed",
+      "ipa": "/səkˈsiːd/",
+      "vi": "thành công",
+      "pos": "verb",
+      "img": "🏆",
+      "connect": "\"Sợc-si-d\" — success là danh từ.",
+      "ex": "Work hard and you will succeed.",
+      "exVi": "Chăm chỉ rồi bạn sẽ thành công."
+    },
+    {
+      "en": "support",
+      "ipa": "/səˈpɔːrt/",
+      "vi": "ủng hộ, hỗ trợ",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "\"Sờ-po-t\" — đứng sau tiếp sức.",
+      "ex": "My family supports my dream.",
+      "exVi": "Gia đình ủng hộ ước mơ của tôi."
+    },
+    {
+      "en": "surround",
+      "ipa": "/səˈraʊnd/",
+      "vi": "bao quanh",
+      "pos": "verb",
+      "img": "⭕",
+      "connect": "\"Sờ-rao-nd\" — vây xung quanh.",
+      "ex": "Mountains surround the village.",
+      "exVi": "Núi non bao quanh ngôi làng."
+    },
+    {
+      "en": "exist",
+      "ipa": "/ɪɡˈzɪst/",
+      "vi": "tồn tại",
+      "pos": "verb",
+      "img": "🌍",
+      "connect": "\"Ịg-zít-st\" — có thật trên đời.",
+      "ex": "Do aliens really exist?",
+      "exVi": "Người ngoài hành tinh có thật không?"
+    },
+    {
+      "en": "contain",
+      "ipa": "/kənˈteɪn/",
+      "vi": "chứa đựng",
+      "pos": "verb",
+      "img": "📦",
+      "connect": "\"Cợn-tê-n\" — bên trong có (container).",
+      "ex": "This drink contains a lot of sugar.",
+      "exVi": "Đồ uống này chứa nhiều đường."
+    },
+    {
+      "en": "depend",
+      "ipa": "/dɪˈpend/",
+      "vi": "phụ thuộc",
+      "pos": "verb",
+      "img": "🔗",
+      "connect": "\"Đi-pen-d\" — depend on: tuỳ vào.",
+      "ex": "It depends on the weather.",
+      "exVi": "Còn tuỳ vào thời tiết."
+    },
+    {
+      "en": "remain",
+      "ipa": "/rɪˈmeɪn/",
+      "vi": "vẫn còn, ở lại",
+      "pos": "verb",
+      "img": "🪨",
+      "connect": "\"Ri-mê-n\" — giữ nguyên như cũ.",
+      "ex": "Please remain seated.",
+      "exVi": "Vui lòng ngồi yên tại chỗ."
+    },
+    {
+      "en": "suffer",
+      "ipa": "/ˈsʌf.ɚ/",
+      "vi": "chịu đựng, đau khổ",
+      "pos": "verb",
+      "img": "😖",
+      "connect": "\"Să-phờ\" — chịu khổ vì bệnh/mất mát.",
+      "ex": "He suffers from back pain.",
+      "exVi": "Anh ấy bị đau lưng hành hạ."
+    },
+    {
+      "en": "survive",
+      "ipa": "/sɚˈvaɪv/",
+      "vi": "sống sót",
+      "pos": "verb",
+      "img": "🏝️",
+      "connect": "\"Sờ-vai-v\" — vượt qua mà vẫn sống.",
+      "ex": "They survived the storm.",
+      "exVi": "Họ sống sót qua cơn bão."
+    },
+    {
+      "en": "attract",
+      "ipa": "/əˈtrækt/",
+      "vi": "thu hút",
+      "pos": "verb",
+      "img": "🧲",
+      "connect": "\"Ờ-trắc-t\" — hút như nam châm.",
+      "ex": "The beach attracts many tourists.",
+      "exVi": "Bãi biển thu hút nhiều du khách."
+    },
+    {
+      "en": "gain",
+      "ipa": "/ɡeɪn/",
+      "vi": "đạt được, tăng thêm",
+      "pos": "verb",
+      "img": "📈",
+      "connect": "\"Ghê-n\" — thu về (gain weight: tăng cân).",
+      "ex": "She gained a lot of experience.",
+      "exVi": "Cô ấy tích luỹ được nhiều kinh nghiệm."
+    },
+    {
+      "en": "obtain",
+      "ipa": "/əbˈteɪn/",
+      "vi": "có được, giành được",
+      "pos": "verb",
+      "img": "🎫",
+      "connect": "\"Ợb-tê-n\" — lấy được (trang trọng).",
+      "ex": "He obtained a visa last week.",
+      "exVi": "Tuần trước anh ấy đã lấy được visa."
+    }
   ]
 }

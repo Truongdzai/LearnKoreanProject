@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "📱",
   "words": [
-    { "ko": "휴대폰", "romaja": "hyudaepon", "vi": "Điện thoại di động", "pos": "noun", "img": "📱", "connect": "\"Hyu-đe\" chính là âm Hán \"huề đới\" (mang theo) + phone.", "ex": "휴대폰을 집에 두고 왔어요.", "exVi": "Tôi để quên điện thoại ở nhà rồi." },
-    { "ko": "컴퓨터", "romaja": "keompyuteo", "vi": "Máy tính", "pos": "noun", "img": "💻", "connect": "\"Khơm-pyu-thơ\" mượn từ \"computer\".", "ex": "컴퓨터로 일해요.", "exVi": "Tôi làm việc bằng máy tính." },
-    { "ko": "인터넷", "romaja": "inteonet", "vi": "Internet", "pos": "noun", "img": "🌐", "connect": "\"In-thơ-nét\" mượn từ \"internet\".", "ex": "인터넷이 안 돼요.", "exVi": "Mạng không vào được." },
-    { "ko": "이메일", "romaja": "imeil", "vi": "Email", "pos": "noun", "img": "📧", "connect": "\"I-mê-il\" mượn từ \"e-mail\".", "ex": "이메일을 보냈어요.", "exVi": "Tôi đã gửi email rồi." },
-    { "ko": "메시지", "romaja": "mesiji", "vi": "Tin nhắn", "pos": "noun", "img": "💬", "connect": "\"Mê-si-chi\" mượn từ \"message\".", "ex": "메시지 보내 주세요.", "exVi": "Bạn nhắn tin cho tôi nhé." },
-    { "ko": "사진", "romaja": "sajin", "vi": "Ảnh", "pos": "noun", "img": "📷", "connect": "\"Sa-chin\" chính là âm Hán \"tả chân\".", "ex": "사진 한 장 찍어 주세요.", "exVi": "Chụp giúp tôi một tấm ảnh với ạ." },
-    { "ko": "영상", "romaja": "yeongsang", "vi": "Video", "pos": "noun", "img": "🎬", "connect": "\"Yơng-sang\" chính là âm Hán \"ảnh tượng\".", "ex": "이 영상 정말 재미있어요.", "exVi": "Video này thú vị thật đấy." },
-    { "ko": "앱", "romaja": "aep", "vi": "Ứng dụng", "pos": "noun", "img": "📲", "connect": "\"Ép\" mượn từ \"app\".", "ex": "이 앱을 매일 써요.", "exVi": "Tôi dùng ứng dụng này mỗi ngày." },
-    { "ko": "비밀번호", "romaja": "bimilbeonho", "vi": "Mật khẩu", "pos": "noun", "img": "🔑", "connect": "\"Bi-mil\" = bí mật + \"bơn-hô\" = số hiệu.", "ex": "비밀번호를 잊어버렸어요.", "exVi": "Tôi quên mất mật khẩu rồi." },
-    { "ko": "충전하다", "romaja": "chungjeonhada", "vi": "Sạc pin", "pos": "verb", "img": "🔌", "connect": "\"Chung-chơn\" chính là âm Hán \"sung điện\".", "ex": "휴대폰을 충전해야 해요.", "exVi": "Tôi phải sạc điện thoại." },
-    { "ko": "검색하다", "romaja": "geomsaekhada", "vi": "Tìm kiếm (trên mạng)", "pos": "verb", "img": "🔎", "connect": "\"Kơm-sek\" chính là âm Hán \"kiểm sách\".", "ex": "인터넷에서 검색해 봤어요.", "exVi": "Tôi đã thử tìm trên mạng." },
-    { "ko": "와이파이", "romaja": "waipai", "vi": "Wi-Fi", "pos": "noun", "img": "📶", "connect": "\"Oa-i-pha-i\" mượn từ \"Wi-Fi\".", "ex": "여기 와이파이 있어요?", "exVi": "Ở đây có Wi-Fi không ạ?" }
+    {
+      "ko": "휴대폰",
+      "romaja": "hyudaepon",
+      "vi": "Điện thoại di động",
+      "pos": "noun",
+      "img": "📱",
+      "connect": "\"Hyu-đe\" chính là âm Hán \"huề đới\" (mang theo) + phone.",
+      "ex": "휴대폰을 집에 두고 왔어요.",
+      "exVi": "Tôi để quên điện thoại ở nhà rồi."
+    },
+    {
+      "ko": "컴퓨터",
+      "romaja": "keompyuteo",
+      "vi": "Máy tính",
+      "pos": "noun",
+      "img": "💻",
+      "connect": "\"Khơm-pyu-thơ\" mượn từ \"computer\".",
+      "ex": "컴퓨터로 일해요.",
+      "exVi": "Tôi làm việc bằng máy tính."
+    },
+    {
+      "ko": "인터넷",
+      "romaja": "inteonet",
+      "vi": "Internet",
+      "pos": "noun",
+      "img": "🌐",
+      "connect": "\"In-thơ-nét\" mượn từ \"internet\".",
+      "ex": "인터넷이 안 돼요.",
+      "exVi": "Mạng không vào được."
+    },
+    {
+      "ko": "이메일",
+      "romaja": "imeil",
+      "vi": "Email",
+      "pos": "noun",
+      "img": "📧",
+      "connect": "\"I-mê-il\" mượn từ \"e-mail\".",
+      "ex": "이메일을 보냈어요.",
+      "exVi": "Tôi đã gửi email rồi."
+    },
+    {
+      "ko": "메시지",
+      "romaja": "mesiji",
+      "vi": "Tin nhắn",
+      "pos": "noun",
+      "img": "💬",
+      "connect": "\"Mê-si-chi\" mượn từ \"message\".",
+      "ex": "메시지 보내 주세요.",
+      "exVi": "Bạn nhắn tin cho tôi nhé."
+    },
+    {
+      "ko": "사진",
+      "romaja": "sajin",
+      "vi": "Ảnh",
+      "pos": "noun",
+      "img": "📷",
+      "connect": "\"Sa-chin\" chính là âm Hán \"tả chân\".",
+      "ex": "사진 한 장 찍어 주세요.",
+      "exVi": "Chụp giúp tôi một tấm ảnh với ạ."
+    },
+    {
+      "ko": "영상",
+      "romaja": "yeongsang",
+      "vi": "Video",
+      "pos": "noun",
+      "img": "🎬",
+      "connect": "\"Yơng-sang\" chính là âm Hán \"ảnh tượng\".",
+      "ex": "이 영상 정말 재미있어요.",
+      "exVi": "Video này thú vị thật đấy."
+    },
+    {
+      "ko": "앱",
+      "romaja": "aep",
+      "vi": "Ứng dụng",
+      "pos": "noun",
+      "img": "📲",
+      "connect": "\"Ép\" mượn từ \"app\".",
+      "ex": "이 앱을 매일 써요.",
+      "exVi": "Tôi dùng ứng dụng này mỗi ngày."
+    },
+    {
+      "ko": "비밀번호",
+      "romaja": "bimilbeonho",
+      "vi": "Mật khẩu",
+      "pos": "noun",
+      "img": "🔑",
+      "connect": "\"Bi-mil\" = bí mật + \"bơn-hô\" = số hiệu.",
+      "ex": "비밀번호를 잊어버렸어요.",
+      "exVi": "Tôi quên mất mật khẩu rồi."
+    },
+    {
+      "ko": "충전하다",
+      "romaja": "chungjeonhada",
+      "vi": "Sạc pin",
+      "pos": "verb",
+      "img": "🔌",
+      "connect": "\"Chung-chơn\" chính là âm Hán \"sung điện\".",
+      "ex": "휴대폰을 충전해야 해요.",
+      "exVi": "Tôi phải sạc điện thoại."
+    },
+    {
+      "ko": "검색하다",
+      "romaja": "geomsaekhada",
+      "vi": "Tìm kiếm (trên mạng)",
+      "pos": "verb",
+      "img": "🔎",
+      "connect": "\"Kơm-sek\" chính là âm Hán \"kiểm sách\".",
+      "ex": "인터넷에서 검색해 봤어요.",
+      "exVi": "Tôi đã thử tìm trên mạng."
+    },
+    {
+      "ko": "와이파이",
+      "romaja": "waipai",
+      "vi": "Wi-Fi",
+      "pos": "noun",
+      "img": "📶",
+      "connect": "\"Oa-i-pha-i\" mượn từ \"Wi-Fi\".",
+      "ex": "여기 와이파이 있어요?",
+      "exVi": "Ở đây có Wi-Fi không ạ?"
+    }
   ]
 }

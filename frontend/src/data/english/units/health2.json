@@ -6,33 +6,285 @@
   "tone": "tone-d",
   "emoji": "🩺",
   "words": [
-    { "en": "finger", "ipa": "/ˈfɪŋ.ɡɚ/", "vi": "ngón tay", "pos": "noun", "img": "👆", "connect": "\"Phing-gờ\" — ngón trên bàn tay.", "ex": "I cut my finger.", "exVi": "Tôi bị đứt tay (ngón tay)." },
-    { "en": "knee", "ipa": "/niː/", "vi": "đầu gối", "pos": "noun", "img": "🦵", "connect": "\"Ni\" — chữ \"k\" câm.", "ex": "He hurt his knee playing football.", "exVi": "Anh ấy đau đầu gối khi đá bóng." },
-    { "en": "shoulder", "ipa": "/ˈʃoʊl.dɚ/", "vi": "vai", "pos": "noun", "img": "💪", "connect": "\"Sâu-đờ\" — bờ vai.", "ex": "My shoulders are tight.", "exVi": "Vai tôi bị mỏi cứng." },
-    { "en": "neck", "ipa": "/nek/", "vi": "cổ", "pos": "noun", "img": "🧣", "connect": "\"Nếc\" — cổ nối đầu với thân.", "ex": "I have a pain in my neck.", "exVi": "Tôi bị đau cổ." },
-    { "en": "chest", "ipa": "/tʃest/", "vi": "ngực", "pos": "noun", "img": "🫁", "connect": "\"Chét-st\" — lồng ngực.", "ex": "He felt a pain in his chest.", "exVi": "Anh ấy thấy đau ở ngực." },
-    { "en": "elbow", "ipa": "/ˈel.boʊ/", "vi": "khuỷu tay", "pos": "noun", "img": "💪", "connect": "\"El-bâu\" — chỗ gập tay.", "ex": "Don't put your elbows on the table.", "exVi": "Đừng chống khuỷu tay lên bàn." },
-    { "en": "wrist", "ipa": "/rɪst/", "vi": "cổ tay", "pos": "noun", "img": "⌚", "connect": "\"Rít-st\" — chữ \"w\" câm; đeo đồng hồ ở đây.", "ex": "She wears a watch on her wrist.", "exVi": "Cô ấy đeo đồng hồ ở cổ tay." },
-    { "en": "ankle", "ipa": "/ˈæŋ.kəl/", "vi": "mắt cá chân", "pos": "noun", "img": "🦶", "connect": "\"Eng-cồ\" — chỗ nối chân với bàn chân.", "ex": "I twisted my ankle.", "exVi": "Tôi bị trẹo mắt cá chân." },
-    { "en": "toe", "ipa": "/toʊ/", "vi": "ngón chân", "pos": "noun", "img": "🦶", "connect": "\"Tâu\" — ngón ở bàn chân.", "ex": "I hurt my toe on the door.", "exVi": "Tôi đập ngón chân vào cửa." },
-    { "en": "throat", "ipa": "/θroʊt/", "vi": "cổ họng", "pos": "noun", "img": "🗣️", "connect": "\"Th-râu-t\" — họng.", "ex": "I have a sore throat.", "exVi": "Tôi bị đau họng." },
-    { "en": "lip", "ipa": "/lɪp/", "vi": "môi", "pos": "noun", "img": "👄", "connect": "\"Líp\" — đôi môi.", "ex": "Her lips are dry.", "exVi": "Môi cô ấy bị khô." },
-    { "en": "tongue", "ipa": "/tʌŋ/", "vi": "lưỡi", "pos": "noun", "img": "👅", "connect": "\"Tăng\" — cách viết lạ, nhớ kỹ.", "ex": "Stick out your tongue.", "exVi": "Thè lưỡi ra nào." },
-    { "en": "brain", "ipa": "/breɪn/", "vi": "não bộ", "pos": "noun", "img": "🧠", "connect": "\"Brê-n\" — bộ não thông minh.", "ex": "The brain controls the body.", "exVi": "Não điều khiển cơ thể." },
-    { "en": "bone", "ipa": "/boʊn/", "vi": "xương", "pos": "noun", "img": "🦴", "connect": "\"Bâu-n\" — bộ xương.", "ex": "He broke a bone in his arm.", "exVi": "Anh ấy bị gãy một cái xương ở tay." },
-    { "en": "muscle", "ipa": "/ˈmʌs.əl/", "vi": "cơ bắp", "pos": "noun", "img": "💪", "connect": "\"Mắt-sồ\" — chữ \"c\" câm.", "ex": "Exercise builds strong muscles.", "exVi": "Tập luyện giúp cơ bắp khoẻ." },
-    { "en": "flu", "ipa": "/fluː/", "vi": "bệnh cúm", "pos": "noun", "img": "🤧", "connect": "\"Flu\" — rút gọn của influenza.", "ex": "She has the flu.", "exVi": "Cô ấy bị cúm." },
-    { "en": "sneeze", "ipa": "/sniːz/", "vi": "hắt hơi", "pos": "verb", "img": "🤧", "connect": "\"Sờ-ni-z\" — hắt xì.", "ex": "The dust made me sneeze.", "exVi": "Bụi làm tôi hắt hơi." },
-    { "en": "dizzy", "ipa": "/ˈdɪz.i/", "vi": "chóng mặt", "pos": "adj", "img": "😵", "connect": "\"Đi-zi\" — quay cuồng chóng mặt.", "ex": "I feel dizzy when I stand up.", "exVi": "Tôi thấy chóng mặt khi đứng dậy." },
-    { "en": "ill", "ipa": "/ɪl/", "vi": "ốm, bệnh", "pos": "adj", "img": "🤒", "connect": "\"Il\" — bị ốm (như sick).", "ex": "He has been ill for a week.", "exVi": "Anh ấy ốm cả tuần nay." },
-    { "en": "cure", "ipa": "/kjʊr/", "vi": "chữa khỏi", "pos": "verb", "img": "💊", "connect": "\"Kiu-a\" — chữa lành bệnh.", "ex": "This medicine can cure the illness.", "exVi": "Thuốc này có thể chữa khỏi bệnh." },
-    { "en": "pill", "ipa": "/pɪl/", "vi": "viên thuốc", "pos": "noun", "img": "💊", "connect": "\"Pil\" — viên thuốc con nhộng.", "ex": "Take one pill after each meal.", "exVi": "Uống một viên sau mỗi bữa ăn." },
-    { "en": "bandage", "ipa": "/ˈbæn.dɪdʒ/", "vi": "băng gạc", "pos": "noun", "img": "🩹", "connect": "\"Ben-địj\" — quấn băng vết thương.", "ex": "Put a bandage on the cut.", "exVi": "Băng vết cắt lại." },
-    { "en": "wound", "ipa": "/wuːnd/", "vi": "vết thương", "pos": "noun", "img": "🩸", "connect": "\"Wu-nd\" — vết thương hở.", "ex": "Clean the wound carefully.", "exVi": "Rửa vết thương cẩn thận." },
-    { "en": "breathe", "ipa": "/briːð/", "vi": "hít thở", "pos": "verb", "img": "🫁", "connect": "\"Bri-dh\" — thở ra hít vào.", "ex": "Breathe slowly and relax.", "exVi": "Thở chậm lại và thư giãn." },
-    { "en": "allergy", "ipa": "/ˈæl.ɚ.dʒi/", "vi": "dị ứng", "pos": "noun", "img": "🤧", "connect": "\"A-lơ-ji\" — dị ứng phấn hoa.", "ex": "I have an allergy to peanuts.", "exVi": "Tôi bị dị ứng với đậu phộng." },
-    { "en": "weight", "ipa": "/weɪt/", "vi": "cân nặng", "pos": "noun", "img": "⚖️", "connect": "\"Wê-t\" — chữ \"gh\" câm.", "ex": "I want to lose some weight.", "exVi": "Tôi muốn giảm cân một chút." },
-    { "en": "height", "ipa": "/haɪt/", "vi": "chiều cao", "pos": "noun", "img": "📏", "connect": "\"Hai-t\" — cao bao nhiêu.", "ex": "What is your height?", "exVi": "Bạn cao bao nhiêu?" },
-    { "en": "germ", "ipa": "/dʒɜːrm/", "vi": "vi trùng", "pos": "noun", "img": "🦠", "connect": "\"Giơm\" — mầm bệnh nhỏ.", "ex": "Wash your hands to kill germs.", "exVi": "Rửa tay để diệt vi trùng." }
+    {
+      "en": "finger",
+      "ipa": "/ˈfɪŋ.ɡɚ/",
+      "vi": "ngón tay",
+      "pos": "noun",
+      "img": "👆",
+      "connect": "\"Phing-gờ\" — ngón trên bàn tay.",
+      "ex": "I cut my finger.",
+      "exVi": "Tôi bị đứt tay (ngón tay)."
+    },
+    {
+      "en": "knee",
+      "ipa": "/niː/",
+      "vi": "đầu gối",
+      "pos": "noun",
+      "img": "🦵",
+      "connect": "\"Ni\" — chữ \"k\" câm.",
+      "ex": "He hurt his knee playing football.",
+      "exVi": "Anh ấy đau đầu gối khi đá bóng."
+    },
+    {
+      "en": "shoulder",
+      "ipa": "/ˈʃoʊl.dɚ/",
+      "vi": "vai",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"Sâu-đờ\" — bờ vai.",
+      "ex": "My shoulders are tight.",
+      "exVi": "Vai tôi bị mỏi cứng."
+    },
+    {
+      "en": "neck",
+      "ipa": "/nek/",
+      "vi": "cổ",
+      "pos": "noun",
+      "img": "🧣",
+      "connect": "\"Nếc\" — cổ nối đầu với thân.",
+      "ex": "I have a pain in my neck.",
+      "exVi": "Tôi bị đau cổ."
+    },
+    {
+      "en": "chest",
+      "ipa": "/tʃest/",
+      "vi": "ngực",
+      "pos": "noun",
+      "img": "🫁",
+      "connect": "\"Chét-st\" — lồng ngực.",
+      "ex": "He felt a pain in his chest.",
+      "exVi": "Anh ấy thấy đau ở ngực."
+    },
+    {
+      "en": "elbow",
+      "ipa": "/ˈel.boʊ/",
+      "vi": "khuỷu tay",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"El-bâu\" — chỗ gập tay.",
+      "ex": "Don't put your elbows on the table.",
+      "exVi": "Đừng chống khuỷu tay lên bàn."
+    },
+    {
+      "en": "wrist",
+      "ipa": "/rɪst/",
+      "vi": "cổ tay",
+      "pos": "noun",
+      "img": "⌚",
+      "connect": "\"Rít-st\" — chữ \"w\" câm; đeo đồng hồ ở đây.",
+      "ex": "She wears a watch on her wrist.",
+      "exVi": "Cô ấy đeo đồng hồ ở cổ tay."
+    },
+    {
+      "en": "ankle",
+      "ipa": "/ˈæŋ.kəl/",
+      "vi": "mắt cá chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "\"Eng-cồ\" — chỗ nối chân với bàn chân.",
+      "ex": "I twisted my ankle.",
+      "exVi": "Tôi bị trẹo mắt cá chân."
+    },
+    {
+      "en": "toe",
+      "ipa": "/toʊ/",
+      "vi": "ngón chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "\"Tâu\" — ngón ở bàn chân.",
+      "ex": "I hurt my toe on the door.",
+      "exVi": "Tôi đập ngón chân vào cửa."
+    },
+    {
+      "en": "throat",
+      "ipa": "/θroʊt/",
+      "vi": "cổ họng",
+      "pos": "noun",
+      "img": "🗣️",
+      "connect": "\"Th-râu-t\" — họng.",
+      "ex": "I have a sore throat.",
+      "exVi": "Tôi bị đau họng."
+    },
+    {
+      "en": "lip",
+      "ipa": "/lɪp/",
+      "vi": "môi",
+      "pos": "noun",
+      "img": "👄",
+      "connect": "\"Líp\" — đôi môi.",
+      "ex": "Her lips are dry.",
+      "exVi": "Môi cô ấy bị khô."
+    },
+    {
+      "en": "tongue",
+      "ipa": "/tʌŋ/",
+      "vi": "lưỡi",
+      "pos": "noun",
+      "img": "👅",
+      "connect": "\"Tăng\" — cách viết lạ, nhớ kỹ.",
+      "ex": "Stick out your tongue.",
+      "exVi": "Thè lưỡi ra nào."
+    },
+    {
+      "en": "brain",
+      "ipa": "/breɪn/",
+      "vi": "não bộ",
+      "pos": "noun",
+      "img": "🧠",
+      "connect": "\"Brê-n\" — bộ não thông minh.",
+      "ex": "The brain controls the body.",
+      "exVi": "Não điều khiển cơ thể."
+    },
+    {
+      "en": "bone",
+      "ipa": "/boʊn/",
+      "vi": "xương",
+      "pos": "noun",
+      "img": "🦴",
+      "connect": "\"Bâu-n\" — bộ xương.",
+      "ex": "He broke a bone in his arm.",
+      "exVi": "Anh ấy bị gãy một cái xương ở tay."
+    },
+    {
+      "en": "muscle",
+      "ipa": "/ˈmʌs.əl/",
+      "vi": "cơ bắp",
+      "pos": "noun",
+      "img": "💪",
+      "connect": "\"Mắt-sồ\" — chữ \"c\" câm.",
+      "ex": "Exercise builds strong muscles.",
+      "exVi": "Tập luyện giúp cơ bắp khoẻ."
+    },
+    {
+      "en": "flu",
+      "ipa": "/fluː/",
+      "vi": "bệnh cúm",
+      "pos": "noun",
+      "img": "🤧",
+      "connect": "\"Flu\" — rút gọn của influenza.",
+      "ex": "She has the flu.",
+      "exVi": "Cô ấy bị cúm."
+    },
+    {
+      "en": "sneeze",
+      "ipa": "/sniːz/",
+      "vi": "hắt hơi",
+      "pos": "verb",
+      "img": "🤧",
+      "connect": "\"Sờ-ni-z\" — hắt xì.",
+      "ex": "The dust made me sneeze.",
+      "exVi": "Bụi làm tôi hắt hơi."
+    },
+    {
+      "en": "dizzy",
+      "ipa": "/ˈdɪz.i/",
+      "vi": "chóng mặt",
+      "pos": "adj",
+      "img": "😵",
+      "connect": "\"Đi-zi\" — quay cuồng chóng mặt.",
+      "ex": "I feel dizzy when I stand up.",
+      "exVi": "Tôi thấy chóng mặt khi đứng dậy."
+    },
+    {
+      "en": "ill",
+      "ipa": "/ɪl/",
+      "vi": "ốm, bệnh",
+      "pos": "adj",
+      "img": "🤒",
+      "connect": "\"Il\" — bị ốm (như sick).",
+      "ex": "He has been ill for a week.",
+      "exVi": "Anh ấy ốm cả tuần nay."
+    },
+    {
+      "en": "cure",
+      "ipa": "/kjʊr/",
+      "vi": "chữa khỏi",
+      "pos": "verb",
+      "img": "💊",
+      "connect": "\"Kiu-a\" — chữa lành bệnh.",
+      "ex": "This medicine can cure the illness.",
+      "exVi": "Thuốc này có thể chữa khỏi bệnh."
+    },
+    {
+      "en": "pill",
+      "ipa": "/pɪl/",
+      "vi": "viên thuốc",
+      "pos": "noun",
+      "img": "💊",
+      "connect": "\"Pil\" — viên thuốc con nhộng.",
+      "ex": "Take one pill after each meal.",
+      "exVi": "Uống một viên sau mỗi bữa ăn."
+    },
+    {
+      "en": "bandage",
+      "ipa": "/ˈbæn.dɪdʒ/",
+      "vi": "băng gạc",
+      "pos": "noun",
+      "img": "🩹",
+      "connect": "\"Ben-địj\" — quấn băng vết thương.",
+      "ex": "Put a bandage on the cut.",
+      "exVi": "Băng vết cắt lại."
+    },
+    {
+      "en": "wound",
+      "ipa": "/wuːnd/",
+      "vi": "vết thương",
+      "pos": "noun",
+      "img": "🩸",
+      "connect": "\"Wu-nd\" — vết thương hở.",
+      "ex": "Clean the wound carefully.",
+      "exVi": "Rửa vết thương cẩn thận."
+    },
+    {
+      "en": "breathe",
+      "ipa": "/briːð/",
+      "vi": "hít thở",
+      "pos": "verb",
+      "img": "🫁",
+      "connect": "\"Bri-dh\" — thở ra hít vào.",
+      "ex": "Breathe slowly and relax.",
+      "exVi": "Thở chậm lại và thư giãn."
+    },
+    {
+      "en": "allergy",
+      "ipa": "/ˈæl.ɚ.dʒi/",
+      "vi": "dị ứng",
+      "pos": "noun",
+      "img": "🤧",
+      "connect": "\"A-lơ-ji\" — dị ứng phấn hoa.",
+      "ex": "I have an allergy to peanuts.",
+      "exVi": "Tôi bị dị ứng với đậu phộng."
+    },
+    {
+      "en": "weight",
+      "ipa": "/weɪt/",
+      "vi": "cân nặng",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "\"Wê-t\" — chữ \"gh\" câm.",
+      "ex": "I want to lose some weight.",
+      "exVi": "Tôi muốn giảm cân một chút."
+    },
+    {
+      "en": "height",
+      "ipa": "/haɪt/",
+      "vi": "chiều cao",
+      "pos": "noun",
+      "img": "📏",
+      "connect": "\"Hai-t\" — cao bao nhiêu.",
+      "ex": "What is your height?",
+      "exVi": "Bạn cao bao nhiêu?"
+    },
+    {
+      "en": "germ",
+      "ipa": "/dʒɜːrm/",
+      "vi": "vi trùng",
+      "pos": "noun",
+      "img": "🦠",
+      "connect": "\"Giơm\" — mầm bệnh nhỏ.",
+      "ex": "Wash your hands to kill germs.",
+      "exVi": "Rửa tay để diệt vi trùng."
+    }
   ]
 }

@@ -283,7 +283,9 @@ export function estimateScoreFull(rawL: number, rawR: number): {
 export const TOEIC_TARGET = 750
 
 
-export type ToeicTaskKind = 'grammar' | 'vocab' | 'practice' | 'minitest' | 'review' | 'video' | 'custom' | 'weak' | 'wrongbook'
+export type ToeicTaskKind =
+  | 'grammar' | 'vocab' | 'practice' | 'minitest' | 'review' | 'video'
+  | 'custom' | 'weak' | 'wrongbook' | 'speak' | 'write' | 'guide' | 'errorlog'
 
 export interface ToeicTask {
   id: string
@@ -294,28 +296,84 @@ export interface ToeicTask {
   pct?: number
   part?: number
   n?: number
+  swIds?: string[]
+  times?: number
+  chapter?: string
 }
 
 export interface ToeicDay {
   d: number
-  phase: 1 | 2 | 3 | 4
+  week: number
+  phase: number
   title: string
   tasks: ToeicTask[]
 }
 
 export interface ToeicPhase {
-  phase: 1 | 2 | 3 | 4
+  phase: number
   name: string
   range: string
   goal: string
+  output: string
 }
 
+export interface ToeicWeek {
+  w: number
+  phase: number
+  theme: string
+}
+
+export const TOEIC_TOTAL_DAYS = 84
+
 export const TOEIC_PHASES: ToeicPhase[] = [
-  { phase: 1, name: 'Lấy gốc cấp tốc', range: 'Ngày 1–14', goal: 'Nắm 13 điểm ngữ pháp nền + 6 nhóm từ vựng lõi. Đo điểm đầu vào ngay ngày 1.' },
-  { phase: 2, name: 'Làm quen dạng đề', range: 'Ngày 15–30', goal: 'Hiểu chiến thuật cả 6 Part, hoàn thành ngữ pháp nâng cao. Thi thử lần 2 ngày 30.' },
-  { phase: 3, name: 'Luyện sâu & vá điểm yếu', range: 'Ngày 31–45', goal: 'Luyện khối lượng lớn theo Part + tấn công kỹ năng yếu nhất. Thi thử lần 3 ngày 45.' },
-  { phase: 4, name: 'Tổng luyện nước rút', range: 'Ngày 46–60', goal: 'Nhịp thi thật mỗi ngày, tối ưu thời gian làm bài. Thi thử chung kết ngày 59.' },
+  {
+    phase: 1, name: 'Chẩn đoán & bộ công cụ', range: 'Tuần 1–2 · ngày 1–14',
+    goal: 'Chưa cố bao phủ toàn bộ đề. Hai tuần này tạo CÔNG CỤ: cách phân tích câu, cách ghi từ, cách nghe kèm bản chép lời, cách ghi âm, cách viết nhật ký lỗi.',
+    output: 'Bản ghi âm ban đầu · bài viết ban đầu · nhật ký lỗi · bộ từ vựng có âm thanh.',
+  },
+  {
+    phase: 2, name: 'Hệ động từ & diễn ngôn ngắn', range: 'Tuần 3–4 · ngày 15–28',
+    goal: 'Chuyển từ đơn vị nhỏ sang diễn ngôn: hệ thống động từ, hỏi và phản hồi, nghe theo cụm, Part 3 và Part 6, mô tả tranh, viết câu từ ảnh.',
+    output: 'Một bài Listening rút gọn · bốn bài mô tả tranh · 10 câu Writing từ ảnh.',
+  },
+  {
+    phase: 3, name: 'Quan hệ logic & văn bản đơn', range: 'Tuần 5–6 · ngày 29–42',
+    goal: 'Giới từ, liên từ, mệnh đề; nhận ra cách diễn đạt tương đương; Part 4 và Part 7 đoạn đơn; câu hỏi Speaking ngắn; email yêu cầu thông tin.',
+    output: 'Hai email hoàn chỉnh · một bài Reading có bấm giờ · bản ghi câu 5–7.',
+  },
+  {
+    phase: 4, name: 'Kết nối nhiều nguồn', range: 'Tuần 7–8 · ngày 43–56',
+    goal: 'Ghép thông tin nằm ở nhiều chỗ: Part 7 văn bản đôi và ba, Speaking câu 8–10 theo bảng, email đề xuất hoặc xử lý vấn đề.',
+    output: 'Bốn bài đọc nhiều văn bản · bốn bộ trả lời theo lịch trình · hai email.',
+  },
+  {
+    phase: 5, name: 'Tổ chức lập luận', range: 'Tuần 9–10 · ngày 57–70',
+    goal: 'Duy trì một quan điểm có lý do và ví dụ: Speaking câu 11, Writing bài luận, tích hợp lại từ vựng và ngữ pháp đã học.',
+    output: 'Bốn bài nói một phút · hai bài luận 30 phút có sửa.',
+  },
+  {
+    phase: 6, name: 'Bấm giờ & tổng duyệt', range: 'Tuần 11–12 · ngày 71–84',
+    goal: 'Luyện thời gian, làm đề đầy đủ có chọn lọc, ôn đúng những lỗi còn lặp lại và điều chỉnh chiến lược. Không đổi chiến lược vào ngày thi.',
+    output: 'Một đến hai bài mô phỏng đủ bốn kỹ năng · báo cáo tiến bộ · kế hoạch giai đoạn tiếp theo.',
+  },
 ]
+
+export const TOEIC_WEEKS: ToeicWeek[] = [
+  { w: 1, phase: 1, theme: 'Văn phòng & lịch hẹn' },
+  { w: 2, phase: 1, theme: 'Lịch trình & thông báo' },
+  { w: 3, phase: 2, theme: 'Hỏi & phản hồi tại nơi làm việc' },
+  { w: 4, phase: 2, theme: 'Mô tả việc đang diễn ra' },
+  { w: 5, phase: 3, theme: 'Yêu cầu thông tin' },
+  { w: 6, phase: 3, theme: 'Thay đổi & thông báo dịch vụ' },
+  { w: 7, phase: 4, theme: 'Lịch trình & sự kiện' },
+  { w: 8, phase: 4, theme: 'Sự cố & xử lý vấn đề' },
+  { w: 9, phase: 5, theme: 'Quan điểm về cách làm việc' },
+  { w: 10, phase: 5, theme: 'Quan điểm về đào tạo & tuyển dụng' },
+  { w: 11, phase: 6, theme: 'Mô phỏng từng kỹ năng' },
+  { w: 12, phase: 6, theme: 'Tổng duyệt & chốt phong độ' },
+]
+
+export const WEEK_RULE = 'Ngày thứ 7 của mỗi tuần KHÔNG học nội dung mới — chỉ truy hồi và sửa lỗi: làm lại câu từng sai mà không xem đáp án, nói lại câu Speaking cũ, viết lại email từ dàn ý.'
 
 const g = (d: number, capsuleId: string): ToeicTask => {
   const c = GRAMMAR_CAPSULES.find((x) => x.id === capsuleId)
@@ -333,76 +391,121 @@ const wk = (d: number, n: number): ToeicTask =>
   ({ id: `d${d}-wk`, kind: 'weak', n, label: `Luyện điểm yếu: ${n} câu kỹ năng yếu nhất của bạn` })
 const wb = (d: number, n: number): ToeicTask =>
   ({ id: `d${d}-wb`, kind: 'wrongbook', n, label: `Sổ tay câu sai: ôn lại ${n} câu bạn từng làm sai` })
+const sp = (d: number, swIds: string[], label: string, times = 1): ToeicTask =>
+  ({ id: `d${d}-sp`, kind: 'speak', swIds, times, label })
+const wr = (d: number, swIds: string[], label: string, times = 1): ToeicTask =>
+  ({ id: `d${d}-wr`, kind: 'write', swIds, times, label })
+const gd = (d: number, chapter: string, label: string): ToeicTask =>
+  ({ id: `d${d}-gd`, kind: 'guide', chapter, label })
+const el = (d: number, n: number): ToeicTask =>
+  ({ id: `d${d}-el`, kind: 'errorlog', n, label: `Nhật ký lỗi: gắn mã nguyên nhân cho ${n} câu sai trong sổ` })
 
-export const TOEIC_60_DAYS: ToeicDay[] = [
-  { d: 1, phase: 1, title: 'Đo điểm xuất phát', tasks: [mt(1, 'Thi thử ĐẦU VÀO — cứ làm hết sức, điểm thấp là bình thường!'), g(1, 'g01'), v(1, 'nouns', 50, 'Danh từ cốt lõi')] },
-  { d: 2, phase: 1, title: 'Nền móng câu', tasks: [g(2, 'g02'), v(2, 'nouns', 100, 'Danh từ cốt lõi'), p(2, 2, 5)] },
-  { d: 3, phase: 1, title: 'Hiện tại đơn', tasks: [g(3, 'g03'), v(3, 'places', 50, 'Nơi chốn & đời sống'), rv(3)] },
-  { d: 4, phase: 1, title: 'Đang xảy ra hay thường xuyên?', tasks: [g(4, 'g04'), v(4, 'places', 100, 'Nơi chốn & đời sống'), p(4, 2, 5)] },
-  { d: 5, phase: 1, title: 'Vũ khí Part 5: từ loại', tasks: [g(5, 'g05'), v(5, 'verbs', 50, 'Động từ cốt lõi'), p(5, 5, 8)] },
-  { d: 6, phase: 1, title: 'Kể chuyện quá khứ', tasks: [g(6, 'g06'), v(6, 'verbs', 100, 'Động từ cốt lõi'), rv(6)] },
-  { d: 7, phase: 1, title: 'Nghỉ có chủ đích', tasks: [vd(7), rv(7), cu(7, 'Nghe lại các câu Part 2 đã làm sai trong tuần (mở Phân tích)')] },
-  { d: 8, phase: 1, title: 'Nói chuyện tương lai', tasks: [g(8, 'g07'), v(8, 'worklife', 50, 'Công việc & học hành'), p(8, 5, 8)] },
-  { d: 9, phase: 1, title: 'since & for', tasks: [g(9, 'g08'), v(9, 'worklife', 100, 'Công việc & học hành'), p(9, 2, 5)] },
-  { d: 10, phase: 1, title: 'must, should, may', tasks: [g(10, 'g09'), v(10, 'timenum', 50, 'Số đếm & thời gian'), rv(10)] },
-  { d: 11, phase: 1, title: 'in, on, at, by, until', tasks: [g(11, 'g10'), v(11, 'timenum', 100, 'Số đếm & thời gian'), p(11, 5, 8)] },
-  { d: 12, phase: 1, title: 'Nối câu cho mượt', tasks: [g(12, 'g11'), v(12, 'foodshop', 50, 'Ăn uống & mua sắm'), p(12, 2, 5)] },
-  { d: 13, phase: 1, title: 'So sánh', tasks: [g(13, 'g12'), v(13, 'foodshop', 100, 'Ăn uống & mua sắm'), rv(13)] },
-  { d: 14, phase: 1, title: 'Chốt chặng lấy gốc', tasks: [g(14, 'g13'), p(14, 5, 10), vd(14)] },
+const S1 = ['s1-1', 's1-2', 's1-3', 's1-4', 's1-5', 's1-6', 's1-7', 's1-8', 's1-9', 's1-10', 's1-11']
+const S2 = ['s2-1', 's2-2', 's2-3', 's2-4', 's2-5', 's2-6', 's2-7', 's2-8', 's2-9', 's2-10', 's2-11']
+const W1 = ['w1-1', 'w1-2', 'w1-3', 'w1-4', 'w1-5', 'w1-6', 'w1-7', 'w1-8']
+const W2 = ['w2-1', 'w2-2', 'w2-3', 'w2-4', 'w2-5', 'w2-6', 'w2-7', 'w2-8']
 
-  { d: 15, phase: 2, title: 'Bị động — giọng văn công sở', tasks: [g(15, 'g14'), p(15, 2, 10), rv(15)] },
-  { d: 16, phase: 2, title: 'Tăng tốc Part 2', tasks: [p(16, 2, 10), v(16, 'verbs2', 50, 'Động từ giao tiếp & sinh hoạt'), vd(16)] },
-  { d: 17, phase: 2, title: 'Mệnh đề quan hệ', tasks: [g(17, 'g15'), p(17, 5, 12), rv(17)] },
-  { d: 18, phase: 2, title: 'Ngày Part 5 chuyên sâu', tasks: [p(18, 5, 12), v(18, 'verbs2', 100, 'Động từ giao tiếp & sinh hoạt'), vd(18)] },
-  { d: 19, phase: 2, title: 'V-ing hay to V?', tasks: [g(19, 'g16'), p(19, 3, 6), rv(19)] },
-  { d: 20, phase: 2, title: 'Nghe hội thoại thật', tasks: [p(20, 3, 6), v(20, 'adjectives', 50, 'Tính từ ứng dụng cao'), vd(20)] },
-  { d: 21, phase: 2, title: 'Nghỉ có chủ đích', tasks: [rv(21), wb(21, 10), cu(21, 'Nghe thụ động 15 phút tiếng Anh (podcast/video) khi rảnh tay')] },
-  { d: 22, phase: 2, title: 'Hoà hợp chủ - vị', tasks: [g(22, 'g17'), p(22, 6, 4), rv(22)] },
-  { d: 23, phase: 2, title: 'Điền đoạn văn Part 6', tasks: [p(23, 6, 8), v(23, 'adjectives', 100, 'Tính từ ứng dụng cao'), vd(23)] },
-  { d: 24, phase: 2, title: 'Câu điều kiện', tasks: [g(24, 'g18'), p(24, 4, 6), rv(24)] },
-  { d: 25, phase: 2, title: 'Bài nói ngắn Part 4', tasks: [p(25, 4, 6), v(25, 'preps', 50, 'Giới từ & từ nối'), vd(25)] },
-  { d: 26, phase: 2, title: 'Bơi vào Part 7', tasks: [p(26, 7, 6), rv(26), cu(26, 'Đọc kỹ phần chiến thuật Part 7 trước khi luyện')] },
-  { d: 27, phase: 2, title: 'Đọc hiểu tăng tốc', tasks: [p(27, 7, 7), v(27, 'preps', 100, 'Giới từ & từ nối'), vd(27)] },
-  { d: 28, phase: 2, title: 'Phối hợp nghe + đọc', tasks: [p(28, 5, 12), p(28, 2, 8), rv(28)] },
-  { d: 29, phase: 2, title: 'Tổng duyệt trước thi thử', tasks: [p(29, 3, 6), p(29, 4, 6), vd(29)] },
-  { d: 30, phase: 2, title: '🎯 Thi thử giữa kỳ', tasks: [mt(30, 'Thi thử lần 2 — so điểm với ngày 1 để thấy mình đã đi bao xa'), rv(30)] },
+export const TOEIC_DAYS: ToeicDay[] = [
+  { d: 1, week: 1, phase: 1, title: 'Đo điểm xuất phát', tasks: [mt(1, 'Thi thử ĐẦU VÀO — cứ làm hết sức, điểm thấp là bình thường!'), gd(1, 'exam', 'Cẩm nang: đọc chương "Cấu trúc 4 kỹ năng" để biết mình sắp thi cái gì'), v(1, 'office', 50, 'Văn phòng')] },
+  { d: 2, week: 1, phase: 1, title: 'Bản ghi âm đầu tiên', tasks: [sp(2, ['s1-1'], 'Speaking câu 1: đọc thành tiếng — GIỮ LẠI bản ghi này làm mốc so sánh'), g(2, 'g01'), v(2, 'office', 100, 'Văn phòng')] },
+  { d: 3, week: 1, phase: 1, title: 'Học cho đúng cách', tasks: [gd(3, 'method', 'Cẩm nang: đọc chương "Cách luyện có hiệu quả" — bốn nhánh, truy hồi, giãn cách'), g(3, 'g02'), p(3, 1, 3)] },
+  { d: 4, week: 1, phase: 1, title: 'Bài viết đầu tiên', tasks: [wr(4, ['w1-6'], 'Writing câu 6: email hỏi thông tin — GIỮ NGUYÊN bản đầu, chưa sửa gì'), v(4, 'worklife', 50, 'Công việc & học hành'), p(4, 2, 5)] },
+  { d: 5, week: 1, phase: 1, title: 'Vũ khí Part 5: từ loại', tasks: [g(5, 'g05'), p(5, 5, 8), v(5, 'worklife', 100, 'Công việc & học hành')] },
+  { d: 6, week: 1, phase: 1, title: 'Âm cuối và nhóm ý', tasks: [sp(6, ['s1-2'], 'Speaking câu 2: đọc thành tiếng, chú ý âm cuối và chỗ ngắt'), p(6, 1, 3), rv(6)] },
+  { d: 7, week: 1, phase: 1, title: 'Truy hồi & sửa lỗi', tasks: [wb(7, 10), el(7, 5), cu(7, 'Hôm nay KHÔNG học mới: nói lại câu Speaking ngày 2 mà không nhìn bài, rồi so với bản ghi cũ')] },
 
-  { d: 31, phase: 3, title: 'Đọc kết quả, chọn mục tiêu', tasks: [cu(31, 'Mở tab Phân tích: ghi lại 3 kỹ năng yếu nhất của bạn'), wk(31, 10), rv(31)] },
-  { d: 32, phase: 3, title: 'Ngày nghe chuyên sâu', tasks: [p(32, 2, 10), p(32, 3, 6), v(32, 'tech', 50, 'Công nghệ & mạng số')] },
-  { d: 33, phase: 3, title: 'Ngày đọc chuyên sâu', tasks: [p(33, 5, 15), rv(33), vd(33)] },
-  { d: 34, phase: 3, title: 'Vá điểm yếu #2', tasks: [wk(34, 10), v(34, 'tech', 100, 'Công nghệ & mạng số'), rv(34)] },
-  { d: 35, phase: 3, title: 'Hội thoại + bài nói', tasks: [p(35, 3, 6), p(35, 4, 6), vd(35)] },
-  { d: 36, phase: 3, title: 'Part 6 + 7 liền mạch', tasks: [p(36, 6, 8), p(36, 7, 7), rv(36)] },
-  { d: 37, phase: 3, title: 'Ôn ngữ pháp còn hổng', tasks: [cu(37, 'Làm lại 2 viên nang ngữ pháp có điểm luyện thấp nhất'), wk(37, 10), wb(37, 10)] },
-  { d: 38, phase: 3, title: 'Nước rút tuần 6', tasks: [p(38, 5, 15), v(38, 'home', 50, 'Nhà cửa & đồ dùng'), rv(38)] },
-  { d: 39, phase: 3, title: 'Nghe không nhìn chữ', tasks: [p(39, 2, 10), p(39, 4, 6), vd(39)] },
-  { d: 40, phase: 3, title: 'Vá điểm yếu #3', tasks: [wk(40, 10), v(40, 'home', 100, 'Nhà cửa & đồ dùng'), rv(40)] },
-  { d: 41, phase: 3, title: 'Đọc dài hơi', tasks: [p(41, 7, 8), rv(41), cu(41, 'Bấm giờ: mỗi câu Part 7 tối đa 1 phút')] },
-  { d: 42, phase: 3, title: 'Phối hợp toàn diện', tasks: [p(42, 3, 6), p(42, 5, 12), vd(42)] },
-  { d: 43, phase: 3, title: 'Từ phản xạ nhanh', tasks: [v(43, 'phrases2', 100, 'Cụm phản xạ nhanh'), wk(43, 10), rv(43)] },
-  { d: 44, phase: 3, title: 'Tổng duyệt chặng 3', tasks: [p(44, 6, 8), p(44, 2, 8), wb(44, 10)] },
-  { d: 45, phase: 3, title: '🎯 Thi thử lần 3', tasks: [mt(45, 'Thi thử lần 3 — mục tiêu vượt điểm lần 2 ít nhất 50 điểm'), rv(45)] },
+  { d: 8, week: 2, phase: 1, title: 'Hệ mã lỗi', tasks: [gd(8, 'errors', 'Cẩm nang: đọc chương "Nhật ký lỗi" — 8 mã nguyên nhân và thứ tự ưu tiên'), g(8, 'g03'), v(8, 'timenum', 50, 'Số đếm & thời gian')] },
+  { d: 9, week: 2, phase: 1, title: 'Hiện tại tiếp diễn — ngôn ngữ của ảnh', tasks: [g(9, 'g04'), p(9, 1, 3), v(9, 'timenum', 100, 'Số đếm & thời gian')] },
+  { d: 10, week: 2, phase: 1, title: 'Part 2 phản xạ', tasks: [p(10, 2, 10), sp(10, ['s2-1'], 'Speaking bộ 2 câu 1: đọc thành tiếng'), rv(10)] },
+  { d: 11, week: 2, phase: 1, title: 'Từ đi theo cụm', tasks: [v(11, 'collocations', 50, 'Cụm từ đi với nhau'), p(11, 5, 8), vd(11)] },
+  { d: 12, week: 2, phase: 1, title: 'Viết câu theo ảnh', tasks: [wr(12, ['w1-1', 'w1-2'], 'Writing câu 1–2: viết đúng MỘT câu cho mỗi ảnh, dùng đủ 2 từ bắt buộc'), p(12, 1, 3), rv(12)] },
+  { d: 13, week: 2, phase: 1, title: 'Nghe và đọc xen kẽ', tasks: [p(13, 2, 10), p(13, 5, 8), v(13, 'collocations', 100, 'Cụm từ đi với nhau')] },
+  { d: 14, week: 2, phase: 1, title: 'Chốt chặng 1', tasks: [sp(14, ['s2-2'], 'Speaking bộ 2 câu 2 — nghe lại và so với bản ghi ngày 2'), wb(14, 10), el(14, 5)] },
 
-  { d: 46, phase: 4, title: 'Phân tích & lên dây cót', tasks: [cu(46, 'So sánh 3 lần thi thử trong tab Phân tích — kỹ năng nào cải thiện chậm nhất?'), wk(46, 10), rv(46)] },
-  { d: 47, phase: 4, title: 'Nhịp thi thật: nghe', tasks: [p(47, 2, 10), p(47, 3, 9), vd(47)] },
-  { d: 48, phase: 4, title: 'Nhịp thi thật: đọc', tasks: [p(48, 5, 15), p(48, 7, 7), rv(48)] },
-  { d: 49, phase: 4, title: 'Đổi tai đổi mắt', tasks: [p(49, 4, 9), p(49, 6, 8), vd(49)] },
-  { d: 50, phase: 4, title: 'Vá điểm yếu lần cuối', tasks: [wk(50, 15), rv(50), wb(50, 15)] },
-  { d: 51, phase: 4, title: 'Tổng ôn ngữ pháp', tasks: [cu(51, 'Lướt lại 18 viên nang ngữ pháp — chỉ đọc phần quy tắc, 30 phút'), p(51, 5, 15), vd(51)] },
-  { d: 52, phase: 4, title: '🎯 Thi thử lần 4', tasks: [mt(52, 'Thi thử lần 4 — tập quản trị thời gian như thi thật'), rv(52)] },
-  { d: 53, phase: 4, title: 'Sửa sai lần 4', tasks: [wb(53, 15), wk(53, 10), vd(53)] },
-  { d: 54, phase: 4, title: 'Nghe nước rút', tasks: [p(54, 2, 10), p(54, 4, 9), rv(54)] },
-  { d: 55, phase: 4, title: 'Đọc nước rút', tasks: [p(55, 7, 8), p(55, 6, 8), vd(55)] },
-  { d: 56, phase: 4, title: 'Giữ phong độ', tasks: [p(56, 3, 9), p(56, 5, 12), rv(56)] },
-  { d: 57, phase: 4, title: 'Ngày nhẹ trước chung kết', tasks: [rv(57), wb(57, 10), cu(57, 'Ngủ đủ — não cần nghỉ để ghi nhớ. Hôm nay chỉ ôn nhẹ')] },
-  { d: 58, phase: 4, title: 'Khởi động chung kết', tasks: [wk(58, 10), p(58, 2, 5), rv(58)] },
-  { d: 59, phase: 4, title: '🏁 Thi thử CHUNG KẾT', tasks: [mt(59, 'Thi thử chung kết — làm trong yên tĩnh, bấm giờ nghiêm túc'), cu(59, 'Ghi lại điểm ước lượng cuối cùng của bạn')] },
-  { d: 60, phase: 4, title: '🎓 Tổng kết hành trình', tasks: [cu(60, 'So điểm ngày 1 và ngày 59 — bạn đã đi một chặng rất dài!'), rv(60), cu(60, 'Đăng ký lịch thi TOEIC thật trong 2 tuần tới khi phong độ đang cao')] },
+  { d: 15, week: 3, phase: 2, title: 'Khung ngữ pháp nền', tasks: [gd(15, 'grammar', 'Cẩm nang: đọc "Khung ngữ pháp" 18 chủ điểm — mỗi chủ điểm gắn một chức năng giao tiếp'), g(15, 'g06'), v(15, 'communication', 50, 'Giao tiếp')] },
+  { d: 16, week: 3, phase: 2, title: 'Bước vào Part 3', tasks: [p(16, 3, 6), v(16, 'communication', 100, 'Giao tiếp'), rv(16)] },
+  { d: 17, week: 3, phase: 2, title: 'Nói chuyện tương lai', tasks: [g(17, 'g07'), p(17, 2, 10), vd(17)] },
+  { d: 18, week: 3, phase: 2, title: 'Mô tả tranh — lần đầu', tasks: [sp(18, ['s1-3'], 'Speaking câu 3: mô tả tranh trong 30 giây'), p(18, 1, 3), v(18, 'places', 50, 'Nơi chốn & đời sống')] },
+  { d: 19, week: 3, phase: 2, title: 'Hiện tại hoàn thành', tasks: [g(19, 'g08'), p(19, 5, 10), v(19, 'places', 100, 'Nơi chốn & đời sống')] },
+  { d: 20, week: 3, phase: 2, title: 'Điền đoạn văn Part 6', tasks: [p(20, 6, 4), wr(20, ['w1-3', 'w1-4'], 'Writing câu 3–4: viết câu theo ảnh'), rv(20)] },
+  { d: 21, week: 3, phase: 2, title: 'Truy hồi & sửa lỗi', tasks: [wb(21, 10), el(21, 8), cu(21, 'Nghe lại 1 hội thoại Part 3 đã làm và tự tóm tắt: ai – mục đích – vấn đề – hành động tiếp theo')] },
+
+  { d: 22, week: 4, phase: 2, title: 'Câu hỏi WH', tasks: [g(22, 'g13'), p(22, 2, 10), v(22, 'verbs2', 50, 'Động từ giao tiếp')] },
+  { d: 23, week: 4, phase: 2, title: 'Mô tả tranh lần 2', tasks: [sp(23, ['s1-4'], 'Speaking câu 4: mô tả tranh — nhớ câu định vị bối cảnh ở đầu'), p(23, 3, 6), v(23, 'verbs2', 100, 'Động từ giao tiếp')] },
+  { d: 24, week: 4, phase: 2, title: 'Part 6 chuyên sâu', tasks: [p(24, 6, 8), wr(24, ['w1-5'], 'Writing câu 5: viết câu theo ảnh'), rv(24)] },
+  { d: 25, week: 4, phase: 2, title: 'Nghe theo cụm ngắn', tasks: [p(25, 3, 6), v(25, 'jobs', 50, 'Nghề nghiệp'), vd(25)] },
+  { d: 26, week: 4, phase: 2, title: 'Tả ảnh bộ đề 2', tasks: [sp(26, ['s2-3', 's2-4'], 'Speaking bộ 2 câu 3–4: mô tả tranh'), p(26, 1, 3), rv(26)] },
+  { d: 27, week: 4, phase: 2, title: 'Viết câu theo ảnh — bộ 2', tasks: [wr(27, ['w2-1', 'w2-2', 'w2-3'], 'Writing bộ 2 câu 1–3: viết câu theo ảnh'), p(27, 5, 10), v(27, 'jobs', 100, 'Nghề nghiệp')] },
+  { d: 28, week: 4, phase: 2, title: 'Chốt chặng 2', tasks: [wr(28, ['w2-4', 'w2-5'], 'Writing bộ 2 câu 4–5: viết câu theo ảnh'), mt(28, 'Thi thử giữa chặng — so điểm với ngày 1'), wb(28, 10)] },
+
+  { d: 29, week: 5, phase: 3, title: 'Cụm từ theo tình huống', tasks: [gd(29, 'phrases', 'Cẩm nang: học "Cụm từ theo tình huống" — mỗi cụm nghe, đọc, nói và viết một lần'), g(29, 'g10'), v(29, 'preps', 50, 'Giới từ & từ nối')] },
+  { d: 30, week: 5, phase: 3, title: 'Liên từ & quan hệ logic', tasks: [g(30, 'g11'), p(30, 5, 10), v(30, 'preps', 100, 'Giới từ & từ nối')] },
+  { d: 31, week: 5, phase: 3, title: 'Bài nói ngắn Part 4', tasks: [p(31, 4, 6), sp(31, ['s1-5', 's1-6'], 'Speaking câu 5–6: trả lời thẳng trong 15 giây'), rv(31)] },
+  { d: 32, week: 5, phase: 3, title: 'Bơi vào Part 7', tasks: [p(32, 7, 6), cu(32, 'Đọc "Chu kỳ luyện đọc" trong Cẩm nang trước khi làm — mỗi câu phải chỉ ra được BẰNG CHỨNG'), vd(32)] },
+  { d: 33, week: 5, phase: 3, title: 'Câu 7 — phát triển ý', tasks: [sp(33, ['s1-7'], 'Speaking câu 7: 30 giây, cần lý do CÓ GIẢI THÍCH và một ví dụ thật'), p(33, 4, 6), v(33, 'travel2', 50, 'Du lịch & đi lại')] },
+  { d: 34, week: 5, phase: 3, title: 'Email nêu vấn đề & đề xuất', tasks: [wr(34, ['w2-6'], 'Writing bộ 2 câu 6: nêu 1 vấn đề + 2 đề xuất — đếm lại cho đủ'), p(34, 7, 6), v(34, 'travel2', 100, 'Du lịch & đi lại')] },
+  { d: 35, week: 5, phase: 3, title: 'Truy hồi & sửa lỗi', tasks: [wb(35, 15), el(35, 10), cu(35, 'Viết lại email ngày 4 từ dàn ý, KHÔNG nhìn bản cũ — viết xong mới mở ra so')] },
+
+  { d: 36, week: 6, phase: 3, title: 'Mệnh đề quan hệ', tasks: [g(36, 'g15'), p(36, 7, 7), rv(36)] },
+  { d: 37, week: 6, phase: 3, title: 'Modal & lời đề nghị', tasks: [g(37, 'g09'), p(37, 2, 10), v(37, 'shopping', 50, 'Mua sắm')] },
+  { d: 38, week: 6, phase: 3, title: 'So sánh', tasks: [g(38, 'g12'), p(38, 5, 12), v(38, 'shopping', 100, 'Mua sắm')] },
+  { d: 39, week: 6, phase: 3, title: 'Speaking bộ 2 câu 5–7', tasks: [sp(39, ['s2-5', 's2-6', 's2-7'], 'Speaking bộ 2 câu 5–7: trả lời đủ mọi vế được hỏi'), p(39, 4, 6), rv(39)] },
+  { d: 40, week: 6, phase: 3, title: 'Đọc có bấm giờ', tasks: [p(40, 7, 7), cu(40, 'Bấm giờ Part 7 văn bản đơn — mốc tham khảo ~1 phút/câu, ghi lại thời gian thật của bạn'), vd(40)] },
+  { d: 41, week: 6, phase: 3, title: 'Diễn đạt tương đương', tasks: [p(41, 3, 6), p(41, 4, 6), v(41, 'phrases2', 50, 'Cụm phản xạ nhanh')] },
+  { d: 42, week: 6, phase: 3, title: 'Chốt chặng 3', tasks: [mt(42, 'Thi thử chặng 3'), wb(42, 15), el(42, 10)] },
+
+  { d: 43, week: 7, phase: 4, title: 'Câu bị động', tasks: [g(43, 'g14'), p(43, 5, 12), v(43, 'business2', 50, 'Kinh doanh')] },
+  { d: 44, week: 7, phase: 4, title: 'Trả lời theo bảng', tasks: [sp(44, ['s1-8', 's1-9'], 'Speaking câu 8–9: đóng gói dữ liệu thành câu hoàn chỉnh, không đọc trống'), p(44, 7, 7), v(44, 'business2', 100, 'Kinh doanh')] },
+  { d: 45, week: 7, phase: 4, title: 'Văn bản đôi', tasks: [p(45, 7, 7), cu(45, 'Gắn nhãn ngắn cho từng tài liệu (A = chính sách · B = đơn hàng · C = phản hồi) TRƯỚC khi đọc sâu'), rv(45)] },
+  { d: 46, week: 7, phase: 4, title: 'Câu 10 — tổng hợp nhiều dòng', tasks: [sp(46, ['s1-10'], 'Speaking câu 10: nêu tổng quan trước rồi mới liệt kê từng dòng'), p(46, 3, 6), vd(46)] },
+  { d: 47, week: 7, phase: 4, title: 'V-ing hay to V', tasks: [g(47, 'g16'), p(47, 5, 12), v(47, 'tech', 50, 'Công nghệ')] },
+  { d: 48, week: 7, phase: 4, title: 'Email xử lý vấn đề', tasks: [wr(48, ['w1-7'], 'Writing câu 7: xin lỗi + 2 hành động cụ thể + bước tiếp theo cho khách'), p(48, 7, 7), v(48, 'tech', 100, 'Công nghệ')] },
+  { d: 49, week: 7, phase: 4, title: 'Truy hồi & sửa lỗi', tasks: [wb(49, 15), el(49, 12), cu(49, 'Nhìn bảng của câu 8–10 trong 45 giây, che đi rồi nói lại cấu trúc bảng bằng trí nhớ')] },
+
+  { d: 50, week: 8, phase: 4, title: 'Hoà hợp chủ - vị', tasks: [g(50, 'g17'), p(50, 5, 12), rv(50)] },
+  { d: 51, week: 8, phase: 4, title: 'Speaking bộ 2 câu 8–10', tasks: [sp(51, ['s2-8', 's2-9', 's2-10'], 'Speaking bộ 2 câu 8–10: có cả dạng lịch sự sửa lại giả định sai của người gọi'), p(51, 4, 6), vd(51)] },
+  { d: 52, week: 8, phase: 4, title: 'Câu hỏi Look at the graphic', tasks: [p(52, 3, 6), p(52, 4, 6), v(52, 'phrases2', 100, 'Cụm phản xạ nhanh')] },
+  { d: 53, week: 8, phase: 4, title: 'Email đề xuất giải pháp', tasks: [wr(53, ['w2-7'], 'Writing bộ 2 câu 7: xin lỗi + giải thích + 2 giải pháp + 1 câu hỏi cho khách'), p(53, 7, 7), rv(53)] },
+  { d: 54, week: 8, phase: 4, title: 'Nhóm ba văn bản', tasks: [p(54, 7, 7), p(54, 6, 8), vd(54)] },
+  { d: 55, week: 8, phase: 4, title: 'Viết lại email đầu tiên', tasks: [wr(55, ['w1-6'], 'Writing câu 6 làm lại — so với bản ngày 4 xem đã đủ yêu cầu chưa', 2), wb(55, 15), rv(55)] },
+  { d: 56, week: 8, phase: 4, title: 'Chốt chặng 4', tasks: [mt(56, 'Thi thử chặng 4'), el(56, 12), cu(56, 'Đếm 3 nhóm mã lỗi nhiều nhất và chọn ĐÚNG MỘT nhóm làm mục tiêu cho 2 tuần tới')] },
+
+  { d: 57, week: 9, phase: 5, title: 'Biết mình đang ở đâu', tasks: [gd(57, 'plan', 'Cẩm nang: đọc "Chương trình 12 tuần" và đối chiếu với sản phẩm bạn đã có'), g(57, 'g18'), v(57, 'connectors', 50, 'Từ nối')] },
+  { d: 58, week: 9, phase: 5, title: 'Câu 11 — lần đầu', tasks: [sp(58, ['s1-11'], 'Speaking câu 11: nêu lập trường ngay câu đầu, 2 lý do, 1 ví dụ, 1 nhượng bộ'), p(58, 5, 12), rv(58)] },
+  { d: 59, week: 9, phase: 5, title: 'Dàn ý trước khi viết', tasks: [cu(59, 'Lập dàn ý 4 đoạn cho đề Writing câu 8 TRƯỚC khi viết: lập trường – lý do 1 – lý do 2 – nhượng bộ'), p(59, 7, 7), v(59, 'connectors', 100, 'Từ nối')] },
+  { d: 60, week: 9, phase: 5, title: 'Bài luận 30 phút', tasks: [wr(60, ['w1-8'], 'Writing câu 8: bài luận 30 phút — mỗi lý do phải giải thích CƠ CHẾ, không lặp lại đánh giá'), rv(60), v(60, 'education', 50, 'Học hành & đào tạo')] },
+  { d: 61, week: 9, phase: 5, title: 'Sửa bài luận', tasks: [cu(61, 'Sửa bài luận theo 3 lượt: nhiệm vụ → tổ chức → ngôn ngữ. Đọc lại ĐỀ trước rồi mới đọc bài'), p(61, 3, 6), p(61, 4, 6)] },
+  { d: 62, week: 9, phase: 5, title: 'Câu 11 bộ đề 2', tasks: [sp(62, ['s2-11'], 'Speaking bộ 2 câu 11: lập trường có điều kiện thường an toàn hơn khẳng định tuyệt đối'), p(62, 7, 7), vd(62)] },
+  { d: 63, week: 9, phase: 5, title: 'Truy hồi & sửa lỗi', tasks: [wb(63, 15), el(63, 15), cu(63, 'Nghe lại 2 bản ghi câu 11: đếm số lần im lặng trên 2 giây và số ý thật sự có ví dụ')] },
+
+  { d: 64, week: 10, phase: 5, title: 'Bài luận thứ hai', tasks: [wr(64, ['w2-8'], 'Writing bộ 2 câu 8: bài luận 30 phút'), p(64, 5, 12), v(64, 'education', 100, 'Học hành & đào tạo')] },
+  { d: 65, week: 10, phase: 5, title: 'Nói lại câu 11', tasks: [sp(65, ['s1-11'], 'Speaking câu 11 làm lại — so với bản ngày 58', 2), p(65, 2, 10), vd(65)] },
+  { d: 66, week: 10, phase: 5, title: 'Vá ngữ pháp còn hổng', tasks: [cu(66, 'Làm lại 2 viên nang ngữ pháp có điểm luyện thấp nhất'), wk(66, 10), rv(66)] },
+  { d: 67, week: 10, phase: 5, title: 'Đọc dài hơi', tasks: [p(67, 7, 7), p(67, 6, 8), rv(67)] },
+  { d: 68, week: 10, phase: 5, title: 'Vá điểm yếu', tasks: [wk(68, 15), p(68, 5, 12), vd(68)] },
+  { d: 69, week: 10, phase: 5, title: 'Nói lại câu 11 bộ 2', tasks: [sp(69, ['s2-11'], 'Speaking bộ 2 câu 11 làm lại — mục tiêu: nói gần hết 60 giây', 2), p(69, 4, 6), rv(69)] },
+  { d: 70, week: 10, phase: 5, title: 'Chốt chặng 5', tasks: [mt(70, 'Thi thử chặng 5'), wb(70, 15), el(70, 15)] },
+
+  { d: 71, week: 11, phase: 6, title: 'Điều kiện mô phỏng', tasks: [gd(71, 'day', 'Cẩm nang: đọc "Thi thử & ngày thi" — điều kiện mô phỏng và chiến lược từng phần'), p(71, 5, 15), rv(71)] },
+  { d: 72, week: 11, phase: 6, title: 'Nghe theo nhịp thi thật', tasks: [p(72, 2, 10), p(72, 3, 9), vd(72)] },
+  { d: 73, week: 11, phase: 6, title: 'Đọc theo nhịp thi thật', tasks: [p(73, 7, 7), p(73, 6, 8), rv(73)] },
+  { d: 74, week: 11, phase: 6, title: 'Speaking mô phỏng bộ 1', tasks: [sp(74, S1, 'Speaking: chạy trọn 11 câu bộ đề 1 trong một lượt, không dừng giữa chừng', 2), rv(74), cu(74, 'Dùng tai nghe và micrô, ngồi yên tĩnh — làm đúng như phòng thi')] },
+  { d: 75, week: 11, phase: 6, title: 'Writing mô phỏng bộ 1', tasks: [wr(75, W1, 'Writing: chạy trọn 8 câu bộ đề 1 — 8′ cho câu 1–5, 10′ mỗi email, 30′ bài luận', 2), p(75, 5, 15), vd(75)] },
+  { d: 76, week: 11, phase: 6, title: 'Vá điểm yếu lần cuối', tasks: [wk(76, 15), wb(76, 20), rv(76)] },
+  { d: 77, week: 11, phase: 6, title: 'Truy hồi & sửa lỗi', tasks: [el(77, 20), cu(77, 'Đọc lại nhật ký lỗi 11 tuần: nhóm mã nào vẫn còn lặp? Đó là việc của tuần cuối'), rv(77)] },
+
+  { d: 78, week: 12, phase: 6, title: 'FULL TEST Nghe – Đọc', tasks: [mt(78, 'FULL TEST 200 câu · Nghe 45′ + Đọc 75′, làm liền mạch'), cu(78, 'Không dừng âm thanh, không tra từ, không ghi chú — và ghi mức độ chắc chắn cho từng câu'), rv(78)] },
+  { d: 79, week: 12, phase: 6, title: 'Chữa đề', tasks: [cu(79, 'Chữa FULL TEST: mỗi câu sai phải chỉ ra BẰNG CHỨNG trong bài rồi mới gắn mã lỗi'), wb(79, 20), el(79, 20)] },
+  { d: 80, week: 12, phase: 6, title: 'Speaking mô phỏng bộ 2', tasks: [sp(80, S2, 'Speaking: chạy trọn 11 câu bộ đề 2', 2), rv(80), vd(80)] },
+  { d: 81, week: 12, phase: 6, title: 'Writing mô phỏng bộ 2', tasks: [wr(81, W2, 'Writing: chạy trọn 8 câu bộ đề 2', 2), p(81, 5, 15), rv(81)] },
+  { d: 82, week: 12, phase: 6, title: 'Giữ phong độ', tasks: [wk(82, 10), p(82, 3, 9), rv(82)] },
+  { d: 83, week: 12, phase: 6, title: 'Ngày nhẹ trước khi thi', tasks: [cu(83, 'Hôm nay chỉ xem lại lỗi tần suất cao và các mẫu câu đã dùng ổn định — KHÔNG học từ mới'), rv(83), wb(83, 10)] },
+  { d: 84, week: 12, phase: 6, title: 'Tổng kết hành trình', tasks: [cu(84, 'So điểm ngày 1 với ngày 78 · nghe lại bản ghi ngày 2 cạnh bản mô phỏng ngày 80'), gd(84, 'day', 'Đọc lại mục "Trước ngày thi" và kiểm tra giấy tờ, lịch thi trên trang IIG Việt Nam'), cu(84, 'Đăng ký lịch thi thật trong 2 tuần tới, khi phong độ đang cao')] },
 ]
 
-export const TOEIC_TASK_TOTAL = TOEIC_60_DAYS.reduce((s, d) => s + d.tasks.length, 0)
+export const TOEIC_TASK_TOTAL = TOEIC_DAYS.reduce((s, d) => s + d.tasks.length, 0)
 
-for (const day of TOEIC_60_DAYS) {
+for (const day of TOEIC_DAYS) {
   const seen = new Set<string>()
   for (const t of day.tasks) {
     let id = t.id

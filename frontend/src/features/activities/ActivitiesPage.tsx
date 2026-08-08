@@ -6,6 +6,10 @@ import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 import ShareCard from '@/features/share/ShareCard'
 import MyDataCard from './MyDataCard'
+import SkillProgress from './SkillProgress'
+import MissBookCard from './MissBookCard'
+import { useSkillLog } from '@/core/skills'
+import { useMissBook } from '@/core/missBook'
 
 const EMPTY: Activities = {
   labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
@@ -38,6 +42,8 @@ export default function ActivitiesPage() {
   const { isAuthed, openAuth, account, setAccount } = useAuth()
   const [data, setData] = useState<Activities>(EMPTY)
   const [days, setDays] = useState<ActivityDay[]>([])
+  const { log } = useSkillLog()
+  const { book, drop, clear } = useMissBook()
 
   const start = useMemo(() => {
     const d = new Date()
@@ -221,6 +227,9 @@ export default function ActivitiesPage() {
           <span>{t('act.heatMore')}</span>
         </div>
       </div>
+
+      <SkillProgress log={log} />
+      <MissBookCard book={book} onDrop={drop} onClear={clear} />
 
       <div className="section-title"><span className="pin" /> {t('bd.title')} ({earnedCount}/{badges.length})</div>
       <div className="badge-grid">

@@ -6,29 +6,245 @@
   "tone": "tone-e",
   "emoji": "🍽️",
   "words": [
-    { "en": "tip", "ipa": "/tɪp/", "vi": "tiền boa; mẹo", "pos": "noun", "img": "💵", "connect": "\"Típ\" — tiền tip cho phục vụ.", "ex": "We left a tip for the waiter.", "exVi": "Chúng tôi để lại tiền boa cho bồi bàn." },
-    { "en": "reservation", "ipa": "/ˌrez.ɚˈveɪ.ʃən/", "vi": "việc đặt bàn/chỗ", "pos": "noun", "img": "📞", "connect": "reserve (đặt trước) → reservation.", "ex": "I made a reservation for two.", "exVi": "Tôi đã đặt bàn cho hai người." },
-    { "en": "buffet", "ipa": "/bəˈfeɪ/", "vi": "tiệc tự chọn", "pos": "noun", "img": "🍱", "connect": "\"Bờ-phê\" — chữ \"t\" câm; ăn buffet.", "ex": "The hotel serves a breakfast buffet.", "exVi": "Khách sạn phục vụ buffet sáng." },
-    { "en": "dessert", "ipa": "/dɪˈzɜːrt/", "vi": "món tráng miệng", "pos": "noun", "img": "🍨", "connect": "\"Đi-zớt\" — nhấn âm 2 (khác desert sa mạc).", "ex": "What's for dessert?", "exVi": "Tráng miệng có món gì?" },
-    { "en": "appetizer", "ipa": "/ˈæp.ə.taɪ.zɚ/", "vi": "món khai vị", "pos": "noun", "img": "🥗", "connect": "appetite (sự thèm ăn) → appetizer.", "ex": "We ordered soup as an appetizer.", "exVi": "Chúng tôi gọi súp làm món khai vị." },
-    { "en": "snack", "ipa": "/snæk/", "vi": "đồ ăn vặt", "pos": "noun", "img": "🍿", "connect": "\"Sờ-nék\" — ăn vặt giữa buổi.", "ex": "I had a snack before dinner.", "exVi": "Tôi ăn vặt chút trước bữa tối." },
-    { "en": "portion", "ipa": "/ˈpɔːr.ʃən/", "vi": "khẩu phần, suất", "pos": "noun", "img": "🍛", "connect": "\"Po-sừn\" — một suất ăn.", "ex": "The portions here are huge.", "exVi": "Suất ăn ở đây to lắm." },
-    { "en": "flavor", "ipa": "/ˈfleɪ.vɚ/", "vi": "hương vị", "pos": "noun", "img": "😋", "connect": "\"Flê-vờ\" — vị món ăn.", "ex": "Which flavor do you like?", "exVi": "Bạn thích hương vị nào?" },
-    { "en": "chopsticks", "ipa": "/ˈtʃɑːp.stɪks/", "vi": "đôi đũa", "pos": "noun", "img": "🥢", "connect": "chop + sticks (que) — que gắp.", "ex": "Can you eat with chopsticks?", "exVi": "Bạn ăn bằng đũa được không?" },
-    { "en": "straw", "ipa": "/strɔː/", "vi": "ống hút; rơm", "pos": "noun", "img": "🥤", "connect": "\"Sờ-tro\" — hút nước bằng ống.", "ex": "No straw, please.", "exVi": "Không cần ống hút đâu ạ." },
-    { "en": "tray", "ipa": "/treɪ/", "vi": "cái khay", "pos": "noun", "img": "🫕", "connect": "\"Trây\" — khay bê đồ ăn.", "ex": "Carry the food on a tray.", "exVi": "Bê đồ ăn bằng khay." },
-    { "en": "counter", "ipa": "/ˈkaʊn.t̬ɚ/", "vi": "quầy", "pos": "noun", "img": "🧾", "connect": "\"Cao-n-tờ\" — quầy gọi món/tính tiền.", "ex": "Order at the counter, please.", "exVi": "Vui lòng gọi món ở quầy." },
-    { "en": "takeaway", "ipa": "/ˈteɪk.ə.weɪ/", "vi": "đồ mang về", "pos": "noun", "img": "🥡", "connect": "take + away — mua mang đi.", "ex": "Two coffees takeaway, please.", "exVi": "Cho hai cà phê mang về ạ." },
-    { "en": "leftover", "ipa": "/ˈleft.oʊ.vɚ/", "vi": "đồ ăn thừa", "pos": "noun", "img": "🍲", "connect": "left (còn lại) + over — đồ dư bữa trước.", "ex": "We ate the leftovers for lunch.", "exVi": "Bữa trưa chúng tôi ăn đồ thừa hôm qua." },
-    { "en": "vegetarian", "ipa": "/ˌvedʒ.əˈter.i.ən/", "vi": "người ăn chay", "pos": "noun", "img": "🥦", "connect": "vegetable (rau) → vegetarian.", "ex": "She has been a vegetarian for years.", "exVi": "Cô ấy ăn chay nhiều năm rồi." },
-    { "en": "sauce", "ipa": "/sɔːs/", "vi": "nước sốt", "pos": "noun", "img": "🥫", "connect": "\"Sót\" — chấm với sốt.", "ex": "This fish sauce is tasty.", "exVi": "Nước mắm này ngon đấy." },
-    { "en": "vinegar", "ipa": "/ˈvɪn.ə.ɡɚ/", "vi": "giấm", "pos": "noun", "img": "🫙", "connect": "\"Vi-nờ-gờ\" — chua như giấm.", "ex": "Add a little vinegar to the salad.", "exVi": "Cho chút giấm vào món salad." },
-    { "en": "honey", "ipa": "/ˈhʌn.i/", "vi": "mật ong", "pos": "noun", "img": "🍯", "connect": "\"Hă-ni\" — cũng là cách gọi \"cưng ơi\".", "ex": "I put honey in my tea.", "exVi": "Tôi pha mật ong vào trà." },
-    { "en": "jam", "ipa": "/dʒæm/", "vi": "mứt", "pos": "noun", "img": "🍓", "connect": "\"Giem\" — mứt phết bánh mì.", "ex": "Bread with strawberry jam.", "exVi": "Bánh mì phết mứt dâu." },
-    { "en": "butter", "ipa": "/ˈbʌt̬.ɚ/", "vi": "bơ", "pos": "noun", "img": "🧈", "connect": "\"Bă-tờ\" — bơ vàng béo ngậy.", "ex": "Spread butter on the toast.", "exVi": "Phết bơ lên bánh mì nướng." },
-    { "en": "cheese", "ipa": "/tʃiːz/", "vi": "phô mai", "pos": "noun", "img": "🧀", "connect": "\"Chi-z\" — nói \"cheese\" khi chụp ảnh.", "ex": "I love pizza with extra cheese.", "exVi": "Tôi thích pizza thêm phô mai." },
-    { "en": "yogurt", "ipa": "/ˈjoʊ.ɡɚt/", "vi": "sữa chua", "pos": "noun", "img": "🥛", "connect": "\"Dâu-gớt\" — sữa chua mát lạnh.", "ex": "Yogurt is good for digestion.", "exVi": "Sữa chua tốt cho tiêu hoá." },
-    { "en": "grocery", "ipa": "/ˈɡroʊ.sɚ.i/", "vi": "thực phẩm, tạp hoá", "pos": "noun", "img": "🛒", "connect": "\"Grâu-sờ-ri\" — đi mua grocery.", "ex": "I do the grocery shopping weekly.", "exVi": "Tôi đi mua thực phẩm hằng tuần." },
-    { "en": "thirsty", "ipa": "/ˈθɜːr.sti/", "vi": "khát nước", "pos": "adj", "img": "🥵", "connect": "\"Thớt-sti\" — khát khô cổ.", "ex": "I'm so thirsty after running.", "exVi": "Chạy xong tôi khát nước quá." }
+    {
+      "en": "tip",
+      "ipa": "/tɪp/",
+      "vi": "tiền boa; mẹo",
+      "pos": "noun",
+      "img": "💵",
+      "connect": "\"Típ\" — tiền tip cho phục vụ.",
+      "ex": "We left a tip for the waiter.",
+      "exVi": "Chúng tôi để lại tiền boa cho bồi bàn."
+    },
+    {
+      "en": "reservation",
+      "ipa": "/ˌrez.ɚˈveɪ.ʃən/",
+      "vi": "việc đặt bàn/chỗ",
+      "pos": "noun",
+      "img": "📞",
+      "connect": "reserve (đặt trước) → reservation.",
+      "ex": "I made a reservation for two.",
+      "exVi": "Tôi đã đặt bàn cho hai người."
+    },
+    {
+      "en": "buffet",
+      "ipa": "/bəˈfeɪ/",
+      "vi": "tiệc tự chọn",
+      "pos": "noun",
+      "img": "🍱",
+      "connect": "\"Bờ-phê\" — chữ \"t\" câm; ăn buffet.",
+      "ex": "The hotel serves a breakfast buffet.",
+      "exVi": "Khách sạn phục vụ buffet sáng."
+    },
+    {
+      "en": "dessert",
+      "ipa": "/dɪˈzɜːrt/",
+      "vi": "món tráng miệng",
+      "pos": "noun",
+      "img": "🍨",
+      "connect": "\"Đi-zớt\" — nhấn âm 2 (khác desert sa mạc).",
+      "ex": "What's for dessert?",
+      "exVi": "Tráng miệng có món gì?"
+    },
+    {
+      "en": "appetizer",
+      "ipa": "/ˈæp.ə.taɪ.zɚ/",
+      "vi": "món khai vị",
+      "pos": "noun",
+      "img": "🥗",
+      "connect": "appetite (sự thèm ăn) → appetizer.",
+      "ex": "We ordered soup as an appetizer.",
+      "exVi": "Chúng tôi gọi súp làm món khai vị."
+    },
+    {
+      "en": "snack",
+      "ipa": "/snæk/",
+      "vi": "đồ ăn vặt",
+      "pos": "noun",
+      "img": "🍿",
+      "connect": "\"Sờ-nék\" — ăn vặt giữa buổi.",
+      "ex": "I had a snack before dinner.",
+      "exVi": "Tôi ăn vặt chút trước bữa tối."
+    },
+    {
+      "en": "portion",
+      "ipa": "/ˈpɔːr.ʃən/",
+      "vi": "khẩu phần, suất",
+      "pos": "noun",
+      "img": "🍛",
+      "connect": "\"Po-sừn\" — một suất ăn.",
+      "ex": "The portions here are huge.",
+      "exVi": "Suất ăn ở đây to lắm."
+    },
+    {
+      "en": "flavor",
+      "ipa": "/ˈfleɪ.vɚ/",
+      "vi": "hương vị",
+      "pos": "noun",
+      "img": "😋",
+      "connect": "\"Flê-vờ\" — vị món ăn.",
+      "ex": "Which flavor do you like?",
+      "exVi": "Bạn thích hương vị nào?"
+    },
+    {
+      "en": "chopsticks",
+      "ipa": "/ˈtʃɑːp.stɪks/",
+      "vi": "đôi đũa",
+      "pos": "noun",
+      "img": "🥢",
+      "connect": "chop + sticks (que) — que gắp.",
+      "ex": "Can you eat with chopsticks?",
+      "exVi": "Bạn ăn bằng đũa được không?"
+    },
+    {
+      "en": "straw",
+      "ipa": "/strɔː/",
+      "vi": "ống hút; rơm",
+      "pos": "noun",
+      "img": "🥤",
+      "connect": "\"Sờ-tro\" — hút nước bằng ống.",
+      "ex": "No straw, please.",
+      "exVi": "Không cần ống hút đâu ạ."
+    },
+    {
+      "en": "tray",
+      "ipa": "/treɪ/",
+      "vi": "cái khay",
+      "pos": "noun",
+      "img": "🫕",
+      "connect": "\"Trây\" — khay bê đồ ăn.",
+      "ex": "Carry the food on a tray.",
+      "exVi": "Bê đồ ăn bằng khay."
+    },
+    {
+      "en": "counter",
+      "ipa": "/ˈkaʊn.t̬ɚ/",
+      "vi": "quầy",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "\"Cao-n-tờ\" — quầy gọi món/tính tiền.",
+      "ex": "Order at the counter, please.",
+      "exVi": "Vui lòng gọi món ở quầy."
+    },
+    {
+      "en": "takeaway",
+      "ipa": "/ˈteɪk.ə.weɪ/",
+      "vi": "đồ mang về",
+      "pos": "noun",
+      "img": "🥡",
+      "connect": "take + away — mua mang đi.",
+      "ex": "Two coffees takeaway, please.",
+      "exVi": "Cho hai cà phê mang về ạ."
+    },
+    {
+      "en": "leftover",
+      "ipa": "/ˈleft.oʊ.vɚ/",
+      "vi": "đồ ăn thừa",
+      "pos": "noun",
+      "img": "🍲",
+      "connect": "left (còn lại) + over — đồ dư bữa trước.",
+      "ex": "We ate the leftovers for lunch.",
+      "exVi": "Bữa trưa chúng tôi ăn đồ thừa hôm qua."
+    },
+    {
+      "en": "vegetarian",
+      "ipa": "/ˌvedʒ.əˈter.i.ən/",
+      "vi": "người ăn chay",
+      "pos": "noun",
+      "img": "🥦",
+      "connect": "vegetable (rau) → vegetarian.",
+      "ex": "She has been a vegetarian for years.",
+      "exVi": "Cô ấy ăn chay nhiều năm rồi."
+    },
+    {
+      "en": "sauce",
+      "ipa": "/sɔːs/",
+      "vi": "nước sốt",
+      "pos": "noun",
+      "img": "🥫",
+      "connect": "\"Sót\" — chấm với sốt.",
+      "ex": "This fish sauce is tasty.",
+      "exVi": "Nước mắm này ngon đấy."
+    },
+    {
+      "en": "vinegar",
+      "ipa": "/ˈvɪn.ə.ɡɚ/",
+      "vi": "giấm",
+      "pos": "noun",
+      "img": "🫙",
+      "connect": "\"Vi-nờ-gờ\" — chua như giấm.",
+      "ex": "Add a little vinegar to the salad.",
+      "exVi": "Cho chút giấm vào món salad."
+    },
+    {
+      "en": "honey",
+      "ipa": "/ˈhʌn.i/",
+      "vi": "mật ong",
+      "pos": "noun",
+      "img": "🍯",
+      "connect": "\"Hă-ni\" — cũng là cách gọi \"cưng ơi\".",
+      "ex": "I put honey in my tea.",
+      "exVi": "Tôi pha mật ong vào trà."
+    },
+    {
+      "en": "jam",
+      "ipa": "/dʒæm/",
+      "vi": "mứt",
+      "pos": "noun",
+      "img": "🍓",
+      "connect": "\"Giem\" — mứt phết bánh mì.",
+      "ex": "Bread with strawberry jam.",
+      "exVi": "Bánh mì phết mứt dâu."
+    },
+    {
+      "en": "butter",
+      "ipa": "/ˈbʌt̬.ɚ/",
+      "vi": "bơ",
+      "pos": "noun",
+      "img": "🧈",
+      "connect": "\"Bă-tờ\" — bơ vàng béo ngậy.",
+      "ex": "Spread butter on the toast.",
+      "exVi": "Phết bơ lên bánh mì nướng."
+    },
+    {
+      "en": "cheese",
+      "ipa": "/tʃiːz/",
+      "vi": "phô mai",
+      "pos": "noun",
+      "img": "🧀",
+      "connect": "\"Chi-z\" — nói \"cheese\" khi chụp ảnh.",
+      "ex": "I love pizza with extra cheese.",
+      "exVi": "Tôi thích pizza thêm phô mai."
+    },
+    {
+      "en": "yogurt",
+      "ipa": "/ˈjoʊ.ɡɚt/",
+      "vi": "sữa chua",
+      "pos": "noun",
+      "img": "🥛",
+      "connect": "\"Dâu-gớt\" — sữa chua mát lạnh.",
+      "ex": "Yogurt is good for digestion.",
+      "exVi": "Sữa chua tốt cho tiêu hoá."
+    },
+    {
+      "en": "grocery",
+      "ipa": "/ˈɡroʊ.sɚ.i/",
+      "vi": "thực phẩm, tạp hoá",
+      "pos": "noun",
+      "img": "🛒",
+      "connect": "\"Grâu-sờ-ri\" — đi mua grocery.",
+      "ex": "I do the grocery shopping weekly.",
+      "exVi": "Tôi đi mua thực phẩm hằng tuần."
+    },
+    {
+      "en": "thirsty",
+      "ipa": "/ˈθɜːr.sti/",
+      "vi": "khát nước",
+      "pos": "adj",
+      "img": "🥵",
+      "connect": "\"Thớt-sti\" — khát khô cổ.",
+      "ex": "I'm so thirsty after running.",
+      "exVi": "Chạy xong tôi khát nước quá."
+    }
   ]
 }

@@ -20,6 +20,54 @@ export interface PronSentence {
   vi: string
 }
 
+export interface PronVoicing {
+  off: string
+  on: string
+  offWord: string
+  offIpa: string
+  offVi: string
+  onWord: string
+  onIpa: string
+  onVi: string
+}
+
+export interface PronSyllable {
+  w: string
+  ipa: string
+  vi: string
+  parts: string[]
+  hit: number
+}
+
+export interface PronClassPair {
+  base: string
+  nounIpa: string
+  nounVi: string
+  verbIpa: string
+  verbVi: string
+  nounParts: string[]
+  verbParts: string[]
+  sent: string
+  vi: string
+}
+
+export interface PronFamily {
+  note: string
+  items: PronSyllable[]
+}
+
+export interface PronShift {
+  at: number
+  mean: string
+}
+
+export interface PronFocus {
+  words: string[]
+  vi: string
+  content: number[]
+  shifts: PronShift[]
+}
+
 export interface PronGroup {
   id: string
   emoji: string
@@ -29,6 +77,11 @@ export interface PronGroup {
   tip: string
   pairs?: PronPair[]
   words?: PronWord[]
+  voicing?: PronVoicing[]
+  syllables?: PronSyllable[]
+  classPairs?: PronClassPair[]
+  families?: PronFamily[]
+  focus?: PronFocus[]
   sentences: PronSentence[]
 }
 

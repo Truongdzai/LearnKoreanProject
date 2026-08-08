@@ -6,33 +6,285 @@
   "tone": "tone-a",
   "emoji": "🔬",
   "words": [
-    { "en": "act", "ipa": "/ækt/", "vi": "hành động; diễn xuất", "pos": "verb", "img": "🎭", "connect": "\"Ắc-t\" — actor (diễn viên) là người act.", "ex": "Think first, then act.", "exVi": "Nghĩ trước rồi hãy hành động." },
-    { "en": "add", "ipa": "/æd/", "vi": "thêm vào, cộng", "pos": "verb", "img": "➕", "connect": "\"Éd\" — dấu cộng thêm vào.", "ex": "Add some sugar to the tea.", "exVi": "Thêm chút đường vào trà." },
-    { "en": "adjust", "ipa": "/əˈdʒʌst/", "vi": "điều chỉnh", "pos": "verb", "img": "🎚️", "connect": "\"Ờ-jấst\" — vặn nút cho vừa (just) ý.", "ex": "Adjust the volume, please.", "exVi": "Chỉnh âm lượng giúp mình nhé." },
-    { "en": "affect", "ipa": "/əˈfekt/", "vi": "ảnh hưởng đến", "pos": "verb", "img": "🌊", "connect": "\"Ờ-phéc-t\" — Affect là Động từ, effect là danh từ.", "ex": "The weather affects my mood.", "exVi": "Thời tiết ảnh hưởng đến tâm trạng tôi." },
-    { "en": "analyze", "ipa": "/ˈæn.əl.aɪz/", "vi": "phân tích", "pos": "verb", "img": "🔍", "connect": "\"E-nờ-lai-z\" — mổ xẻ dữ liệu tìm câu trả lời.", "ex": "Scientists analyzed the water sample.", "exVi": "Các nhà khoa học phân tích mẫu nước." },
-    { "en": "approve", "ipa": "/əˈpruːv/", "vi": "phê duyệt, tán thành", "pos": "verb", "img": "✅", "connect": "\"Ờ-pruv\" — sếp gật đầu đóng dấu.", "ex": "The boss approved my plan.", "exVi": "Sếp đã duyệt kế hoạch của tôi." },
-    { "en": "arise", "ipa": "/əˈraɪz/", "vi": "nảy sinh, xuất hiện", "pos": "verb", "img": "🌫️", "connect": "\"Ờ-rai-z\" — rise (dâng lên) → vấn đề trồi lên.", "ex": "A new problem arose yesterday.", "exVi": "Một vấn đề mới nảy sinh hôm qua." },
-    { "en": "assess", "ipa": "/əˈses/", "vi": "đánh giá", "pos": "verb", "img": "📋", "connect": "\"Ờ-xét\" — chấm điểm, định giá trị.", "ex": "The teacher assessed our speaking skills.", "exVi": "Giáo viên đánh giá kỹ năng nói của chúng tôi." },
-    { "en": "assist", "ipa": "/əˈsɪst/", "vi": "hỗ trợ, giúp đỡ", "pos": "verb", "img": "🤲", "connect": "\"Ờ-xít\" — trong bóng đá, đường kiến tạo là assist.", "ex": "Two nurses assisted the doctor.", "exVi": "Hai y tá hỗ trợ bác sĩ." },
-    { "en": "assume", "ipa": "/əˈsuːm/", "vi": "cho rằng, giả định", "pos": "verb", "img": "🤔", "connect": "\"Ờ-xum\" — đoán chắc dù chưa có bằng chứng.", "ex": "I assumed you were busy.", "exVi": "Tôi cứ tưởng bạn bận." },
-    { "en": "claim", "ipa": "/kleɪm/", "vi": "tuyên bố; đòi quyền lợi", "pos": "verb", "img": "🗣️", "connect": "\"Klêim\" — khẳng định chắc nịch điều mình nói là thật.", "ex": "He claims he saw a UFO.", "exVi": "Anh ấy tuyên bố đã nhìn thấy UFO." },
-    { "en": "classify", "ipa": "/ˈklæs.ə.faɪ/", "vi": "phân loại", "pos": "verb", "img": "🗂️", "connect": "\"Kla-sờ-phai\" — class (lớp) → chia vào từng lớp.", "ex": "Classify the words by topic.", "exVi": "Phân loại các từ theo chủ đề." },
-    { "en": "combine", "ipa": "/kəmˈbaɪn/", "vi": "kết hợp", "pos": "verb", "img": "🧪", "connect": "\"Cơm-bai-n\" — trộn hai thứ thành một.", "ex": "Combine flour and eggs in a bowl.", "exVi": "Trộn bột và trứng trong tô." },
-    { "en": "commit", "ipa": "/kəˈmɪt/", "vi": "cam kết; phạm (lỗi)", "pos": "verb", "img": "📌", "connect": "\"Cơ-mít\" — dốc lòng theo đến cùng.", "ex": "She committed to daily practice.", "exVi": "Cô ấy cam kết luyện tập mỗi ngày." },
-    { "en": "conclude", "ipa": "/kənˈkluːd/", "vi": "kết luận", "pos": "verb", "img": "🔚", "connect": "\"Cơn-clud\" — gói lại vấn đề ở câu cuối.", "ex": "The report concludes that sales will rise.", "exVi": "Báo cáo kết luận doanh số sẽ tăng." },
-    { "en": "conduct", "ipa": "/kənˈdʌkt/", "vi": "tiến hành", "pos": "verb", "img": "🧑‍🔬", "connect": "\"Cơn-đắc-t\" — đứng ra dẫn dắt cuộc khảo sát.", "ex": "They conducted a survey of 500 people.", "exVi": "Họ tiến hành khảo sát 500 người." },
-    { "en": "consist", "ipa": "/kənˈsɪst/", "vi": "gồm có (consist of)", "pos": "verb", "img": "🧩", "connect": "\"Cơn-xít\" — luôn đi với of: gồm những phần nào.", "ex": "The team consists of five members.", "exVi": "Đội gồm năm thành viên." },
-    { "en": "consult", "ipa": "/kənˈsʌlt/", "vi": "tham khảo ý kiến", "pos": "verb", "img": "🩺", "connect": "\"Cơn-xâu-t\" — hỏi ý chuyên gia trước khi quyết.", "ex": "Consult a doctor before taking pills.", "exVi": "Hỏi ý bác sĩ trước khi uống thuốc." },
-    { "en": "contribute", "ipa": "/kənˈtrɪb.juːt/", "vi": "đóng góp", "pos": "verb", "img": "🎁", "connect": "\"Cơn-trí-biut\" — mỗi người góp một phần.", "ex": "Everyone contributed ideas to the project.", "exVi": "Mọi người đều đóng góp ý tưởng cho dự án." },
-    { "en": "convince", "ipa": "/kənˈvɪns/", "vi": "thuyết phục", "pos": "verb", "img": "🧲", "connect": "\"Cơn-vin-x\" — nói đến khi người kia gật đầu.", "ex": "She convinced me to join the class.", "exVi": "Cô ấy thuyết phục tôi tham gia lớp học." },
-    { "en": "decrease", "ipa": "/dɪˈkriːs/", "vi": "giảm xuống", "pos": "verb", "img": "📉", "connect": "\"Đi-krít\" — ngược với increase (tăng).", "ex": "Prices decreased last month.", "exVi": "Giá cả giảm vào tháng trước." },
-    { "en": "demonstrate", "ipa": "/ˈdem.ən.streɪt/", "vi": "chứng minh, trình diễn", "pos": "verb", "img": "🎪", "connect": "\"Đe-mờn-strêit\" — làm mẫu (demo) cho xem tận mắt.", "ex": "He demonstrated how the app works.", "exVi": "Anh ấy trình diễn cách ứng dụng hoạt động." },
-    { "en": "determine", "ipa": "/dɪˈtɝː.mɪn/", "vi": "xác định, quyết định", "pos": "verb", "img": "🧭", "connect": "\"Đi-tơ-min\" — chốt rõ ràng không lung lay.", "ex": "Tests determine your English level.", "exVi": "Bài kiểm tra xác định trình độ tiếng Anh của bạn." },
-    { "en": "differ", "ipa": "/ˈdɪf.ɚ/", "vi": "khác nhau", "pos": "verb", "img": "🔀", "connect": "\"Đí-phơ\" — different (khác) → differ là động từ.", "ex": "Our opinions differ on this point.", "exVi": "Ý kiến chúng tôi khác nhau ở điểm này." },
-    { "en": "distinguish", "ipa": "/dɪˈstɪŋ.ɡwɪʃ/", "vi": "phân biệt", "pos": "verb", "img": "👓", "connect": "\"Đi-sting-guých\" — nhìn ra điểm khác giữa hai thứ giống nhau.", "ex": "Can you distinguish the twins?", "exVi": "Bạn phân biệt được cặp song sinh không?" },
-    { "en": "emphasize", "ipa": "/ˈem.fə.saɪz/", "vi": "nhấn mạnh", "pos": "verb", "img": "❗", "connect": "\"Em-phờ-xai-z\" — gạch chân, tô đậm ý chính.", "ex": "The teacher emphasized the main rule.", "exVi": "Giáo viên nhấn mạnh quy tắc chính." },
-    { "en": "enable", "ipa": "/ɪˈneɪ.bəl/", "vi": "cho phép, giúp có thể", "pos": "verb", "img": "🔓", "connect": "en + able (có thể) — mở khoá cho làm được.", "ex": "The app enables you to learn anywhere.", "exVi": "Ứng dụng giúp bạn học được ở mọi nơi." },
-    { "en": "ensure", "ipa": "/ɪnˈʃʊr/", "vi": "đảm bảo", "pos": "verb", "img": "🔒", "connect": "\"In-suơ\" — sure (chắc) → làm cho chắc chắn.", "ex": "Please ensure the door is locked.", "exVi": "Hãy đảm bảo cửa đã khoá." }
+    {
+      "en": "act",
+      "ipa": "/ækt/",
+      "vi": "hành động; diễn xuất",
+      "pos": "verb",
+      "img": "🎭",
+      "connect": "\"Ắc-t\" — actor (diễn viên) là người act.",
+      "ex": "Think first, then act.",
+      "exVi": "Nghĩ trước rồi hãy hành động."
+    },
+    {
+      "en": "add",
+      "ipa": "/æd/",
+      "vi": "thêm vào, cộng",
+      "pos": "verb",
+      "img": "➕",
+      "connect": "\"Éd\" — dấu cộng thêm vào.",
+      "ex": "Add some sugar to the tea.",
+      "exVi": "Thêm chút đường vào trà."
+    },
+    {
+      "en": "adjust",
+      "ipa": "/əˈdʒʌst/",
+      "vi": "điều chỉnh",
+      "pos": "verb",
+      "img": "🎚️",
+      "connect": "\"Ờ-jấst\" — vặn nút cho vừa (just) ý.",
+      "ex": "Adjust the volume, please.",
+      "exVi": "Chỉnh âm lượng giúp mình nhé."
+    },
+    {
+      "en": "affect",
+      "ipa": "/əˈfekt/",
+      "vi": "ảnh hưởng đến",
+      "pos": "verb",
+      "img": "🌊",
+      "connect": "\"Ờ-phéc-t\" — Affect là Động từ, effect là danh từ.",
+      "ex": "The weather affects my mood.",
+      "exVi": "Thời tiết ảnh hưởng đến tâm trạng tôi."
+    },
+    {
+      "en": "analyze",
+      "ipa": "/ˈæn.əl.aɪz/",
+      "vi": "phân tích",
+      "pos": "verb",
+      "img": "🔍",
+      "connect": "\"E-nờ-lai-z\" — mổ xẻ dữ liệu tìm câu trả lời.",
+      "ex": "Scientists analyzed the water sample.",
+      "exVi": "Các nhà khoa học phân tích mẫu nước."
+    },
+    {
+      "en": "approve",
+      "ipa": "/əˈpruːv/",
+      "vi": "phê duyệt, tán thành",
+      "pos": "verb",
+      "img": "✅",
+      "connect": "\"Ờ-pruv\" — sếp gật đầu đóng dấu.",
+      "ex": "The boss approved my plan.",
+      "exVi": "Sếp đã duyệt kế hoạch của tôi."
+    },
+    {
+      "en": "arise",
+      "ipa": "/əˈraɪz/",
+      "vi": "nảy sinh, xuất hiện",
+      "pos": "verb",
+      "img": "🌫️",
+      "connect": "\"Ờ-rai-z\" — rise (dâng lên) → vấn đề trồi lên.",
+      "ex": "A new problem arose yesterday.",
+      "exVi": "Một vấn đề mới nảy sinh hôm qua."
+    },
+    {
+      "en": "assess",
+      "ipa": "/əˈses/",
+      "vi": "đánh giá",
+      "pos": "verb",
+      "img": "📋",
+      "connect": "\"Ờ-xét\" — chấm điểm, định giá trị.",
+      "ex": "The teacher assessed our speaking skills.",
+      "exVi": "Giáo viên đánh giá kỹ năng nói của chúng tôi."
+    },
+    {
+      "en": "assist",
+      "ipa": "/əˈsɪst/",
+      "vi": "hỗ trợ, giúp đỡ",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "\"Ờ-xít\" — trong bóng đá, đường kiến tạo là assist.",
+      "ex": "Two nurses assisted the doctor.",
+      "exVi": "Hai y tá hỗ trợ bác sĩ."
+    },
+    {
+      "en": "assume",
+      "ipa": "/əˈsuːm/",
+      "vi": "cho rằng, giả định",
+      "pos": "verb",
+      "img": "🤔",
+      "connect": "\"Ờ-xum\" — đoán chắc dù chưa có bằng chứng.",
+      "ex": "I assumed you were busy.",
+      "exVi": "Tôi cứ tưởng bạn bận."
+    },
+    {
+      "en": "claim",
+      "ipa": "/kleɪm/",
+      "vi": "tuyên bố; đòi quyền lợi",
+      "pos": "verb",
+      "img": "🗣️",
+      "connect": "\"Klêim\" — khẳng định chắc nịch điều mình nói là thật.",
+      "ex": "He claims he saw a UFO.",
+      "exVi": "Anh ấy tuyên bố đã nhìn thấy UFO."
+    },
+    {
+      "en": "classify",
+      "ipa": "/ˈklæs.ə.faɪ/",
+      "vi": "phân loại",
+      "pos": "verb",
+      "img": "🗂️",
+      "connect": "\"Kla-sờ-phai\" — class (lớp) → chia vào từng lớp.",
+      "ex": "Classify the words by topic.",
+      "exVi": "Phân loại các từ theo chủ đề."
+    },
+    {
+      "en": "combine",
+      "ipa": "/kəmˈbaɪn/",
+      "vi": "kết hợp",
+      "pos": "verb",
+      "img": "🧪",
+      "connect": "\"Cơm-bai-n\" — trộn hai thứ thành một.",
+      "ex": "Combine flour and eggs in a bowl.",
+      "exVi": "Trộn bột và trứng trong tô."
+    },
+    {
+      "en": "commit",
+      "ipa": "/kəˈmɪt/",
+      "vi": "cam kết; phạm (lỗi)",
+      "pos": "verb",
+      "img": "📌",
+      "connect": "\"Cơ-mít\" — dốc lòng theo đến cùng.",
+      "ex": "She committed to daily practice.",
+      "exVi": "Cô ấy cam kết luyện tập mỗi ngày."
+    },
+    {
+      "en": "conclude",
+      "ipa": "/kənˈkluːd/",
+      "vi": "kết luận",
+      "pos": "verb",
+      "img": "🔚",
+      "connect": "\"Cơn-clud\" — gói lại vấn đề ở câu cuối.",
+      "ex": "The report concludes that sales will rise.",
+      "exVi": "Báo cáo kết luận doanh số sẽ tăng."
+    },
+    {
+      "en": "conduct",
+      "ipa": "/kənˈdʌkt/",
+      "vi": "tiến hành",
+      "pos": "verb",
+      "img": "🧑‍🔬",
+      "connect": "\"Cơn-đắc-t\" — đứng ra dẫn dắt cuộc khảo sát.",
+      "ex": "They conducted a survey of 500 people.",
+      "exVi": "Họ tiến hành khảo sát 500 người."
+    },
+    {
+      "en": "consist",
+      "ipa": "/kənˈsɪst/",
+      "vi": "gồm có (consist of)",
+      "pos": "verb",
+      "img": "🧩",
+      "connect": "\"Cơn-xít\" — luôn đi với of: gồm những phần nào.",
+      "ex": "The team consists of five members.",
+      "exVi": "Đội gồm năm thành viên."
+    },
+    {
+      "en": "consult",
+      "ipa": "/kənˈsʌlt/",
+      "vi": "tham khảo ý kiến",
+      "pos": "verb",
+      "img": "🩺",
+      "connect": "\"Cơn-xâu-t\" — hỏi ý chuyên gia trước khi quyết.",
+      "ex": "Consult a doctor before taking pills.",
+      "exVi": "Hỏi ý bác sĩ trước khi uống thuốc."
+    },
+    {
+      "en": "contribute",
+      "ipa": "/kənˈtrɪb.juːt/",
+      "vi": "đóng góp",
+      "pos": "verb",
+      "img": "🎁",
+      "connect": "\"Cơn-trí-biut\" — mỗi người góp một phần.",
+      "ex": "Everyone contributed ideas to the project.",
+      "exVi": "Mọi người đều đóng góp ý tưởng cho dự án."
+    },
+    {
+      "en": "convince",
+      "ipa": "/kənˈvɪns/",
+      "vi": "thuyết phục",
+      "pos": "verb",
+      "img": "🧲",
+      "connect": "\"Cơn-vin-x\" — nói đến khi người kia gật đầu.",
+      "ex": "She convinced me to join the class.",
+      "exVi": "Cô ấy thuyết phục tôi tham gia lớp học."
+    },
+    {
+      "en": "decrease",
+      "ipa": "/dɪˈkriːs/",
+      "vi": "giảm xuống",
+      "pos": "verb",
+      "img": "📉",
+      "connect": "\"Đi-krít\" — ngược với increase (tăng).",
+      "ex": "Prices decreased last month.",
+      "exVi": "Giá cả giảm vào tháng trước."
+    },
+    {
+      "en": "demonstrate",
+      "ipa": "/ˈdem.ən.streɪt/",
+      "vi": "chứng minh, trình diễn",
+      "pos": "verb",
+      "img": "🎪",
+      "connect": "\"Đe-mờn-strêit\" — làm mẫu (demo) cho xem tận mắt.",
+      "ex": "He demonstrated how the app works.",
+      "exVi": "Anh ấy trình diễn cách ứng dụng hoạt động."
+    },
+    {
+      "en": "determine",
+      "ipa": "/dɪˈtɝː.mɪn/",
+      "vi": "xác định, quyết định",
+      "pos": "verb",
+      "img": "🧭",
+      "connect": "\"Đi-tơ-min\" — chốt rõ ràng không lung lay.",
+      "ex": "Tests determine your English level.",
+      "exVi": "Bài kiểm tra xác định trình độ tiếng Anh của bạn."
+    },
+    {
+      "en": "differ",
+      "ipa": "/ˈdɪf.ɚ/",
+      "vi": "khác nhau",
+      "pos": "verb",
+      "img": "🔀",
+      "connect": "\"Đí-phơ\" — different (khác) → differ là động từ.",
+      "ex": "Our opinions differ on this point.",
+      "exVi": "Ý kiến chúng tôi khác nhau ở điểm này."
+    },
+    {
+      "en": "distinguish",
+      "ipa": "/dɪˈstɪŋ.ɡwɪʃ/",
+      "vi": "phân biệt",
+      "pos": "verb",
+      "img": "👓",
+      "connect": "\"Đi-sting-guých\" — nhìn ra điểm khác giữa hai thứ giống nhau.",
+      "ex": "Can you distinguish the twins?",
+      "exVi": "Bạn phân biệt được cặp song sinh không?"
+    },
+    {
+      "en": "emphasize",
+      "ipa": "/ˈem.fə.saɪz/",
+      "vi": "nhấn mạnh",
+      "pos": "verb",
+      "img": "❗",
+      "connect": "\"Em-phờ-xai-z\" — gạch chân, tô đậm ý chính.",
+      "ex": "The teacher emphasized the main rule.",
+      "exVi": "Giáo viên nhấn mạnh quy tắc chính."
+    },
+    {
+      "en": "enable",
+      "ipa": "/ɪˈneɪ.bəl/",
+      "vi": "cho phép, giúp có thể",
+      "pos": "verb",
+      "img": "🔓",
+      "connect": "en + able (có thể) — mở khoá cho làm được.",
+      "ex": "The app enables you to learn anywhere.",
+      "exVi": "Ứng dụng giúp bạn học được ở mọi nơi."
+    },
+    {
+      "en": "ensure",
+      "ipa": "/ɪnˈʃʊr/",
+      "vi": "đảm bảo",
+      "pos": "verb",
+      "img": "🔒",
+      "connect": "\"In-suơ\" — sure (chắc) → làm cho chắc chắn.",
+      "ex": "Please ensure the door is locked.",
+      "exVi": "Hãy đảm bảo cửa đã khoá."
+    }
   ]
 }

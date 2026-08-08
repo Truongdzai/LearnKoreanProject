@@ -6,17 +6,125 @@
   "tone": "tone-d",
   "emoji": "👕",
   "words": [
-    { "zh": "裙子", "pinyin": "qún zi", "vi": "Váy, chân váy", "pos": "noun", "img": "👗", "connect": "裙 = quần, nhưng trong tiếng Trung là cái váy — nhớ kỹ kẻo mua nhầm.", "ex": "她今天穿了一条红裙子。", "exVi": "Hôm nay cô ấy mặc một chiếc váy đỏ." },
-    { "zh": "穿", "pinyin": "chuān", "vi": "Mặc, đi (giày)", "pos": "verb", "img": "🧥", "connect": "穿 = xuyên, nghĩa gốc là xuyên qua — luồn người qua áo là mặc.", "ex": "今天冷，多穿一点。", "exVi": "Hôm nay lạnh, mặc thêm vào." },
-    { "zh": "裤子", "pinyin": "kù zi", "vi": "Quần", "pos": "noun", "img": "👖", "connect": "裤 = khố, chữ trong cái khố ngày xưa — đồ mặc phần dưới.", "ex": "这条裤子太长了。", "exVi": "Cái quần này dài quá." },
-    { "zh": "鞋", "pinyin": "xié", "vi": "Giày", "pos": "noun", "img": "👟", "connect": "鞋 = hài, chữ trong hài nhung, đôi hài của truyện cổ tích.", "ex": "我想买一双鞋。", "exVi": "Tôi muốn mua một đôi giày." },
-    { "zh": "帽子", "pinyin": "mào zi", "vi": "Cái mũ", "pos": "noun", "img": "🧢", "connect": "帽 = mạo, chữ trong mũ mão của quan lại ngày xưa.", "ex": "他戴着一顶红帽子。", "exVi": "Anh ấy đội một chiếc mũ đỏ." },
-    { "zh": "颜色", "pinyin": "yán sè", "vi": "Màu sắc", "pos": "noun", "img": "🎨", "connect": "颜色 = nhan sắc, chữ nhan trong dung nhan — sắc màu của gương mặt.", "ex": "你喜欢什么颜色？", "exVi": "Bạn thích màu gì?" },
-    { "zh": "红", "pinyin": "hóng", "vi": "Màu đỏ", "pos": "adj", "img": "🔴", "connect": "红 = hồng, đúng chữ trong hồng kỳ, má hồng.", "ex": "中国人喜欢红色。", "exVi": "Người Trung Quốc thích màu đỏ." },
-    { "zh": "白", "pinyin": "bái", "vi": "Màu trắng", "pos": "adj", "img": "⚪", "connect": "白 = bạch, đúng chữ trong bạch mã, bạch tuyết.", "ex": "我买了一件白衬衫。", "exVi": "Tôi đã mua một chiếc sơ mi trắng." },
-    { "zh": "黑", "pinyin": "hēi", "vi": "Màu đen", "pos": "adj", "img": "⚫", "connect": "黑 = hắc, đúng chữ trong hắc ám, hắc bạch.", "ex": "他的头发很黑。", "exVi": "Tóc anh ấy rất đen." },
-    { "zh": "蓝", "pinyin": "lán", "vi": "Màu xanh lam", "pos": "adj", "img": "🔵", "connect": "蓝 = lam, đúng chữ trong màu lam, lam ngọc.", "ex": "天空是蓝色的。", "exVi": "Bầu trời màu xanh lam." },
-    { "zh": "长", "pinyin": "cháng", "vi": "Dài", "pos": "adj", "img": "📏", "connect": "长 = trường, chữ trong trường kỳ, trường tồn. Đọc là zhǎng thì thành trưởng (lớn lên).", "ex": "这条路很长。", "exVi": "Con đường này rất dài." },
-    { "zh": "短", "pinyin": "duǎn", "vi": "Ngắn", "pos": "adj", "img": "📐", "connect": "短 = đoản, chữ trong đoản kiếm, sở đoản.", "ex": "夏天我穿短裤。", "exVi": "Mùa hè tôi mặc quần ngắn." }
+    {
+      "zh": "裙子",
+      "pinyin": "qún zi",
+      "vi": "Váy, chân váy",
+      "pos": "noun",
+      "img": "👗",
+      "connect": "裙 = quần, nhưng trong tiếng Trung là cái váy — nhớ kỹ kẻo mua nhầm.",
+      "ex": "她今天穿了一条红裙子。",
+      "exVi": "Hôm nay cô ấy mặc một chiếc váy đỏ."
+    },
+    {
+      "zh": "穿",
+      "pinyin": "chuān",
+      "vi": "Mặc, đi (giày)",
+      "pos": "verb",
+      "img": "🧥",
+      "connect": "穿 = xuyên, nghĩa gốc là xuyên qua — luồn người qua áo là mặc.",
+      "ex": "今天冷，多穿一点。",
+      "exVi": "Hôm nay lạnh, mặc thêm vào."
+    },
+    {
+      "zh": "裤子",
+      "pinyin": "kù zi",
+      "vi": "Quần",
+      "pos": "noun",
+      "img": "👖",
+      "connect": "裤 = khố, chữ trong cái khố ngày xưa — đồ mặc phần dưới.",
+      "ex": "这条裤子太长了。",
+      "exVi": "Cái quần này dài quá."
+    },
+    {
+      "zh": "鞋",
+      "pinyin": "xié",
+      "vi": "Giày",
+      "pos": "noun",
+      "img": "👟",
+      "connect": "鞋 = hài, chữ trong hài nhung, đôi hài của truyện cổ tích.",
+      "ex": "我想买一双鞋。",
+      "exVi": "Tôi muốn mua một đôi giày."
+    },
+    {
+      "zh": "帽子",
+      "pinyin": "mào zi",
+      "vi": "Cái mũ",
+      "pos": "noun",
+      "img": "🧢",
+      "connect": "帽 = mạo, chữ trong mũ mão của quan lại ngày xưa.",
+      "ex": "他戴着一顶红帽子。",
+      "exVi": "Anh ấy đội một chiếc mũ đỏ."
+    },
+    {
+      "zh": "颜色",
+      "pinyin": "yán sè",
+      "vi": "Màu sắc",
+      "pos": "noun",
+      "img": "🎨",
+      "connect": "颜色 = nhan sắc, chữ nhan trong dung nhan — sắc màu của gương mặt.",
+      "ex": "你喜欢什么颜色？",
+      "exVi": "Bạn thích màu gì?"
+    },
+    {
+      "zh": "红",
+      "pinyin": "hóng",
+      "vi": "Màu đỏ",
+      "pos": "adj",
+      "img": "🔴",
+      "connect": "红 = hồng, đúng chữ trong hồng kỳ, má hồng.",
+      "ex": "中国人喜欢红色。",
+      "exVi": "Người Trung Quốc thích màu đỏ."
+    },
+    {
+      "zh": "白",
+      "pinyin": "bái",
+      "vi": "Màu trắng",
+      "pos": "adj",
+      "img": "⚪",
+      "connect": "白 = bạch, đúng chữ trong bạch mã, bạch tuyết.",
+      "ex": "我买了一件白衬衫。",
+      "exVi": "Tôi đã mua một chiếc sơ mi trắng."
+    },
+    {
+      "zh": "黑",
+      "pinyin": "hēi",
+      "vi": "Màu đen",
+      "pos": "adj",
+      "img": "⚫",
+      "connect": "黑 = hắc, đúng chữ trong hắc ám, hắc bạch.",
+      "ex": "他的头发很黑。",
+      "exVi": "Tóc anh ấy rất đen."
+    },
+    {
+      "zh": "蓝",
+      "pinyin": "lán",
+      "vi": "Màu xanh lam",
+      "pos": "adj",
+      "img": "🔵",
+      "connect": "蓝 = lam, đúng chữ trong màu lam, lam ngọc.",
+      "ex": "天空是蓝色的。",
+      "exVi": "Bầu trời màu xanh lam."
+    },
+    {
+      "zh": "长",
+      "pinyin": "cháng",
+      "vi": "Dài",
+      "pos": "adj",
+      "img": "📏",
+      "connect": "长 = trường, chữ trong trường kỳ, trường tồn. Đọc là zhǎng thì thành trưởng (lớn lên).",
+      "ex": "这条路很长。",
+      "exVi": "Con đường này rất dài."
+    },
+    {
+      "zh": "短",
+      "pinyin": "duǎn",
+      "vi": "Ngắn",
+      "pos": "adj",
+      "img": "📐",
+      "connect": "短 = đoản, chữ trong đoản kiếm, sở đoản.",
+      "ex": "夏天我穿短裤。",
+      "exVi": "Mùa hè tôi mặc quần ngắn."
+    }
   ]
 }

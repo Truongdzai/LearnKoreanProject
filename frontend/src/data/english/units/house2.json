@@ -6,33 +6,285 @@
   "tone": "tone-c",
   "emoji": "🏠",
   "words": [
-    { "en": "garage", "ipa": "/ɡəˈrɑːʒ/", "vi": "nhà để xe", "pos": "noun", "img": "🚗", "connect": "\"Gờ-ra-zhờ\" — chỗ cất ô tô.", "ex": "The car is in the garage.", "exVi": "Chiếc xe ở trong nhà để xe." },
-    { "en": "elevator", "ipa": "/ˈel.ə.veɪ.t̬ɚ/", "vi": "thang máy", "pos": "noun", "img": "🛗", "connect": "elevate (nâng lên) + or.", "ex": "Take the elevator to the fifth floor.", "exVi": "Đi thang máy lên tầng năm." },
-    { "en": "balcony", "ipa": "/ˈbæl.kə.ni/", "vi": "ban công", "pos": "noun", "img": "🏢", "connect": "\"Ban-cờ-ni\" — gần giống \"ban công\".", "ex": "She grows flowers on the balcony.", "exVi": "Cô ấy trồng hoa ngoài ban công." },
-    { "en": "gate", "ipa": "/ɡeɪt/", "vi": "cổng", "pos": "noun", "img": "🚪", "connect": "\"Ghê-t\" — cổng lớn ngoài sân.", "ex": "Please close the gate.", "exVi": "Đóng cổng lại giúp nhé." },
-    { "en": "fence", "ipa": "/fens/", "vi": "hàng rào", "pos": "noun", "img": "🚧", "connect": "\"Phen-s\" — rào quanh nhà.", "ex": "The dog jumped over the fence.", "exVi": "Con chó nhảy qua hàng rào." },
-    { "en": "chimney", "ipa": "/ˈtʃɪm.ni/", "vi": "ống khói", "pos": "noun", "img": "🏭", "connect": "\"Chim-ni\" — khói bay ra ống khói.", "ex": "Smoke rises from the chimney.", "exVi": "Khói bốc lên từ ống khói." },
-    { "en": "basement", "ipa": "/ˈbeɪs.mənt/", "vi": "tầng hầm", "pos": "noun", "img": "🕳️", "connect": "base (đáy) + ment — tầng dưới cùng.", "ex": "We keep old boxes in the basement.", "exVi": "Chúng tôi để mấy thùng cũ dưới tầng hầm." },
-    { "en": "attic", "ipa": "/ˈæt̬.ɪk/", "vi": "gác mái", "pos": "noun", "img": "🏚️", "connect": "\"Á-tịc\" — phòng nhỏ trên mái.", "ex": "The attic is full of dust.", "exVi": "Gác mái đầy bụi." },
-    { "en": "hallway", "ipa": "/ˈhɔːl.weɪ/", "vi": "hành lang", "pos": "noun", "img": "🚪", "connect": "hall (sảnh) + way (lối).", "ex": "The bedrooms are down the hallway.", "exVi": "Các phòng ngủ ở cuối hành lang." },
-    { "en": "driveway", "ipa": "/ˈdraɪv.weɪ/", "vi": "lối vào (cho xe)", "pos": "noun", "img": "🛣️", "connect": "drive (lái) + way (lối).", "ex": "Park in the driveway.", "exVi": "Đỗ xe ở lối vào nhà." },
-    { "en": "faucet", "ipa": "/ˈfɔː.sɪt/", "vi": "vòi nước", "pos": "noun", "img": "🚰", "connect": "\"Phô-sịt\" — vòi nước (Anh-Anh: tap).", "ex": "Turn off the faucet.", "exVi": "Khoá vòi nước lại." },
-    { "en": "sink", "ipa": "/sɪŋk/", "vi": "bồn rửa", "pos": "noun", "img": "🚿", "connect": "\"Sing-k\" — bồn rửa (cũng nghĩa \"chìm\").", "ex": "The dishes are in the sink.", "exVi": "Bát đĩa đang ở trong bồn rửa." },
-    { "en": "switch", "ipa": "/swɪtʃ/", "vi": "công tắc", "pos": "noun", "img": "🔌", "connect": "\"Sờ-wích\" — bật/tắt điện.", "ex": "The light switch is by the door.", "exVi": "Công tắc đèn ở cạnh cửa." },
-    { "en": "socket", "ipa": "/ˈsɑː.kɪt/", "vi": "ổ cắm điện", "pos": "noun", "img": "🔌", "connect": "\"Só-kịt\" — ổ cắm trên tường.", "ex": "Plug it into the socket.", "exVi": "Cắm nó vào ổ điện." },
-    { "en": "heater", "ipa": "/ˈhiː.t̬ɚ/", "vi": "máy sưởi", "pos": "noun", "img": "🔥", "connect": "heat (nóng) + er.", "ex": "Turn on the heater; it's cold.", "exVi": "Bật máy sưởi lên, lạnh quá." },
-    { "en": "closet", "ipa": "/ˈklɑː.zɪt/", "vi": "tủ tường", "pos": "noun", "img": "🚪", "connect": "\"Klo-zịt\" — tủ chứa đồ.", "ex": "Hang your coat in the closet.", "exVi": "Treo áo khoác vào tủ." },
-    { "en": "wardrobe", "ipa": "/ˈwɔːr.droʊb/", "vi": "tủ quần áo", "pos": "noun", "img": "🚪", "connect": "\"Wo-drâu-b\" — tủ đựng đồ mặc.", "ex": "Her wardrobe is full of dresses.", "exVi": "Tủ đồ của cô ấy đầy váy." },
-    { "en": "cupboard", "ipa": "/ˈkʌb.ɚd/", "vi": "tủ chén", "pos": "noun", "img": "🗄️", "connect": "cup (cốc) + board; đọc \"Cắ-bợd\", \"p\" câm.", "ex": "The cups are in the cupboard.", "exVi": "Cốc chén ở trong tủ chén." },
-    { "en": "dishwasher", "ipa": "/ˈdɪʃ.wɑː.ʃɚ/", "vi": "máy rửa bát", "pos": "noun", "img": "🍽️", "connect": "dish (đĩa) + washer (máy rửa).", "ex": "Put the plates in the dishwasher.", "exVi": "Cho đĩa vào máy rửa bát." },
-    { "en": "rug", "ipa": "/rʌɡ/", "vi": "tấm thảm nhỏ", "pos": "noun", "img": "🟫", "connect": "\"Rắc\" — thảm trải sàn.", "ex": "There's a soft rug by the bed.", "exVi": "Có một tấm thảm mềm cạnh giường." },
-    { "en": "carpet", "ipa": "/ˈkɑːr.pɪt/", "vi": "thảm (trải sàn)", "pos": "noun", "img": "🧶", "connect": "\"Các-pịt\" — thảm lớn phủ sàn.", "ex": "Vacuum the carpet, please.", "exVi": "Hút bụi thảm giúp nhé." },
-    { "en": "cushion", "ipa": "/ˈkʊʃ.ən/", "vi": "cái nệm, gối tựa", "pos": "noun", "img": "🛋️", "connect": "\"Cút-sừn\" — gối êm trên ghế.", "ex": "The sofa has soft cushions.", "exVi": "Cái ghế sofa có gối tựa êm." },
-    { "en": "shower", "ipa": "/ˈʃaʊ.ɚ/", "vi": "vòi sen, tắm sen", "pos": "noun", "img": "🚿", "connect": "\"Sao-ờ\" — tắm dưới vòi sen.", "ex": "I take a shower every morning.", "exVi": "Sáng nào tôi cũng tắm." },
-    { "en": "bathtub", "ipa": "/ˈbæθ.tʌb/", "vi": "bồn tắm", "pos": "noun", "img": "🛁", "connect": "bath (tắm) + tub (chậu).", "ex": "The baby loves the bathtub.", "exVi": "Em bé thích cái bồn tắm." },
-    { "en": "toilet", "ipa": "/ˈtɔɪ.lət/", "vi": "nhà vệ sinh, bồn cầu", "pos": "noun", "img": "🚽", "connect": "\"Toi-lợt\" — toilet.", "ex": "Where is the toilet?", "exVi": "Nhà vệ sinh ở đâu ạ?" },
-    { "en": "doorbell", "ipa": "/ˈdɔːr.bel/", "vi": "chuông cửa", "pos": "noun", "img": "🔔", "connect": "door (cửa) + bell (chuông).", "ex": "Someone is ringing the doorbell.", "exVi": "Có người đang bấm chuông cửa." },
-    { "en": "apartment", "ipa": "/əˈpɑːrt.mənt/", "vi": "căn hộ", "pos": "noun", "img": "🏢", "connect": "\"Ờ-pác-mừn\" — căn hộ chung cư.", "ex": "They live in a small apartment.", "exVi": "Họ sống trong một căn hộ nhỏ." },
-    { "en": "furniture", "ipa": "/ˈfɜːr.nɪ.tʃɚ/", "vi": "đồ nội thất", "pos": "noun", "img": "🛋️", "connect": "\"Phơ-ni-chờ\" — bàn ghế tủ giường (không đếm được).", "ex": "The furniture is made of wood.", "exVi": "Đồ nội thất làm bằng gỗ." }
+    {
+      "en": "garage",
+      "ipa": "/ɡəˈrɑːʒ/",
+      "vi": "nhà để xe",
+      "pos": "noun",
+      "img": "🚗",
+      "connect": "\"Gờ-ra-zhờ\" — chỗ cất ô tô.",
+      "ex": "The car is in the garage.",
+      "exVi": "Chiếc xe ở trong nhà để xe."
+    },
+    {
+      "en": "elevator",
+      "ipa": "/ˈel.ə.veɪ.t̬ɚ/",
+      "vi": "thang máy",
+      "pos": "noun",
+      "img": "🛗",
+      "connect": "elevate (nâng lên) + or.",
+      "ex": "Take the elevator to the fifth floor.",
+      "exVi": "Đi thang máy lên tầng năm."
+    },
+    {
+      "en": "balcony",
+      "ipa": "/ˈbæl.kə.ni/",
+      "vi": "ban công",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "\"Ban-cờ-ni\" — gần giống \"ban công\".",
+      "ex": "She grows flowers on the balcony.",
+      "exVi": "Cô ấy trồng hoa ngoài ban công."
+    },
+    {
+      "en": "gate",
+      "ipa": "/ɡeɪt/",
+      "vi": "cổng",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"Ghê-t\" — cổng lớn ngoài sân.",
+      "ex": "Please close the gate.",
+      "exVi": "Đóng cổng lại giúp nhé."
+    },
+    {
+      "en": "fence",
+      "ipa": "/fens/",
+      "vi": "hàng rào",
+      "pos": "noun",
+      "img": "🚧",
+      "connect": "\"Phen-s\" — rào quanh nhà.",
+      "ex": "The dog jumped over the fence.",
+      "exVi": "Con chó nhảy qua hàng rào."
+    },
+    {
+      "en": "chimney",
+      "ipa": "/ˈtʃɪm.ni/",
+      "vi": "ống khói",
+      "pos": "noun",
+      "img": "🏭",
+      "connect": "\"Chim-ni\" — khói bay ra ống khói.",
+      "ex": "Smoke rises from the chimney.",
+      "exVi": "Khói bốc lên từ ống khói."
+    },
+    {
+      "en": "basement",
+      "ipa": "/ˈbeɪs.mənt/",
+      "vi": "tầng hầm",
+      "pos": "noun",
+      "img": "🕳️",
+      "connect": "base (đáy) + ment — tầng dưới cùng.",
+      "ex": "We keep old boxes in the basement.",
+      "exVi": "Chúng tôi để mấy thùng cũ dưới tầng hầm."
+    },
+    {
+      "en": "attic",
+      "ipa": "/ˈæt̬.ɪk/",
+      "vi": "gác mái",
+      "pos": "noun",
+      "img": "🏚️",
+      "connect": "\"Á-tịc\" — phòng nhỏ trên mái.",
+      "ex": "The attic is full of dust.",
+      "exVi": "Gác mái đầy bụi."
+    },
+    {
+      "en": "hallway",
+      "ipa": "/ˈhɔːl.weɪ/",
+      "vi": "hành lang",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "hall (sảnh) + way (lối).",
+      "ex": "The bedrooms are down the hallway.",
+      "exVi": "Các phòng ngủ ở cuối hành lang."
+    },
+    {
+      "en": "driveway",
+      "ipa": "/ˈdraɪv.weɪ/",
+      "vi": "lối vào (cho xe)",
+      "pos": "noun",
+      "img": "🛣️",
+      "connect": "drive (lái) + way (lối).",
+      "ex": "Park in the driveway.",
+      "exVi": "Đỗ xe ở lối vào nhà."
+    },
+    {
+      "en": "faucet",
+      "ipa": "/ˈfɔː.sɪt/",
+      "vi": "vòi nước",
+      "pos": "noun",
+      "img": "🚰",
+      "connect": "\"Phô-sịt\" — vòi nước (Anh-Anh: tap).",
+      "ex": "Turn off the faucet.",
+      "exVi": "Khoá vòi nước lại."
+    },
+    {
+      "en": "sink",
+      "ipa": "/sɪŋk/",
+      "vi": "bồn rửa",
+      "pos": "noun",
+      "img": "🚿",
+      "connect": "\"Sing-k\" — bồn rửa (cũng nghĩa \"chìm\").",
+      "ex": "The dishes are in the sink.",
+      "exVi": "Bát đĩa đang ở trong bồn rửa."
+    },
+    {
+      "en": "switch",
+      "ipa": "/swɪtʃ/",
+      "vi": "công tắc",
+      "pos": "noun",
+      "img": "🔌",
+      "connect": "\"Sờ-wích\" — bật/tắt điện.",
+      "ex": "The light switch is by the door.",
+      "exVi": "Công tắc đèn ở cạnh cửa."
+    },
+    {
+      "en": "socket",
+      "ipa": "/ˈsɑː.kɪt/",
+      "vi": "ổ cắm điện",
+      "pos": "noun",
+      "img": "🔌",
+      "connect": "\"Só-kịt\" — ổ cắm trên tường.",
+      "ex": "Plug it into the socket.",
+      "exVi": "Cắm nó vào ổ điện."
+    },
+    {
+      "en": "heater",
+      "ipa": "/ˈhiː.t̬ɚ/",
+      "vi": "máy sưởi",
+      "pos": "noun",
+      "img": "🔥",
+      "connect": "heat (nóng) + er.",
+      "ex": "Turn on the heater; it's cold.",
+      "exVi": "Bật máy sưởi lên, lạnh quá."
+    },
+    {
+      "en": "closet",
+      "ipa": "/ˈklɑː.zɪt/",
+      "vi": "tủ tường",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"Klo-zịt\" — tủ chứa đồ.",
+      "ex": "Hang your coat in the closet.",
+      "exVi": "Treo áo khoác vào tủ."
+    },
+    {
+      "en": "wardrobe",
+      "ipa": "/ˈwɔːr.droʊb/",
+      "vi": "tủ quần áo",
+      "pos": "noun",
+      "img": "🚪",
+      "connect": "\"Wo-drâu-b\" — tủ đựng đồ mặc.",
+      "ex": "Her wardrobe is full of dresses.",
+      "exVi": "Tủ đồ của cô ấy đầy váy."
+    },
+    {
+      "en": "cupboard",
+      "ipa": "/ˈkʌb.ɚd/",
+      "vi": "tủ chén",
+      "pos": "noun",
+      "img": "🗄️",
+      "connect": "cup (cốc) + board; đọc \"Cắ-bợd\", \"p\" câm.",
+      "ex": "The cups are in the cupboard.",
+      "exVi": "Cốc chén ở trong tủ chén."
+    },
+    {
+      "en": "dishwasher",
+      "ipa": "/ˈdɪʃ.wɑː.ʃɚ/",
+      "vi": "máy rửa bát",
+      "pos": "noun",
+      "img": "🍽️",
+      "connect": "dish (đĩa) + washer (máy rửa).",
+      "ex": "Put the plates in the dishwasher.",
+      "exVi": "Cho đĩa vào máy rửa bát."
+    },
+    {
+      "en": "rug",
+      "ipa": "/rʌɡ/",
+      "vi": "tấm thảm nhỏ",
+      "pos": "noun",
+      "img": "🟫",
+      "connect": "\"Rắc\" — thảm trải sàn.",
+      "ex": "There's a soft rug by the bed.",
+      "exVi": "Có một tấm thảm mềm cạnh giường."
+    },
+    {
+      "en": "carpet",
+      "ipa": "/ˈkɑːr.pɪt/",
+      "vi": "thảm (trải sàn)",
+      "pos": "noun",
+      "img": "🧶",
+      "connect": "\"Các-pịt\" — thảm lớn phủ sàn.",
+      "ex": "Vacuum the carpet, please.",
+      "exVi": "Hút bụi thảm giúp nhé."
+    },
+    {
+      "en": "cushion",
+      "ipa": "/ˈkʊʃ.ən/",
+      "vi": "cái nệm, gối tựa",
+      "pos": "noun",
+      "img": "🛋️",
+      "connect": "\"Cút-sừn\" — gối êm trên ghế.",
+      "ex": "The sofa has soft cushions.",
+      "exVi": "Cái ghế sofa có gối tựa êm."
+    },
+    {
+      "en": "shower",
+      "ipa": "/ˈʃaʊ.ɚ/",
+      "vi": "vòi sen, tắm sen",
+      "pos": "noun",
+      "img": "🚿",
+      "connect": "\"Sao-ờ\" — tắm dưới vòi sen.",
+      "ex": "I take a shower every morning.",
+      "exVi": "Sáng nào tôi cũng tắm."
+    },
+    {
+      "en": "bathtub",
+      "ipa": "/ˈbæθ.tʌb/",
+      "vi": "bồn tắm",
+      "pos": "noun",
+      "img": "🛁",
+      "connect": "bath (tắm) + tub (chậu).",
+      "ex": "The baby loves the bathtub.",
+      "exVi": "Em bé thích cái bồn tắm."
+    },
+    {
+      "en": "toilet",
+      "ipa": "/ˈtɔɪ.lət/",
+      "vi": "nhà vệ sinh, bồn cầu",
+      "pos": "noun",
+      "img": "🚽",
+      "connect": "\"Toi-lợt\" — toilet.",
+      "ex": "Where is the toilet?",
+      "exVi": "Nhà vệ sinh ở đâu ạ?"
+    },
+    {
+      "en": "doorbell",
+      "ipa": "/ˈdɔːr.bel/",
+      "vi": "chuông cửa",
+      "pos": "noun",
+      "img": "🔔",
+      "connect": "door (cửa) + bell (chuông).",
+      "ex": "Someone is ringing the doorbell.",
+      "exVi": "Có người đang bấm chuông cửa."
+    },
+    {
+      "en": "apartment",
+      "ipa": "/əˈpɑːrt.mənt/",
+      "vi": "căn hộ",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "\"Ờ-pác-mừn\" — căn hộ chung cư.",
+      "ex": "They live in a small apartment.",
+      "exVi": "Họ sống trong một căn hộ nhỏ."
+    },
+    {
+      "en": "furniture",
+      "ipa": "/ˈfɜːr.nɪ.tʃɚ/",
+      "vi": "đồ nội thất",
+      "pos": "noun",
+      "img": "🛋️",
+      "connect": "\"Phơ-ni-chờ\" — bàn ghế tủ giường (không đếm được).",
+      "ex": "The furniture is made of wood.",
+      "exVi": "Đồ nội thất làm bằng gỗ."
+    }
   ]
 }

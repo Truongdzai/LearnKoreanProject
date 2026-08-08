@@ -62,6 +62,11 @@
       { "a": "breathe", "aIpa": "/briːð/", "aVi": "thở", "b": "breeze", "bIpa": "/briːz/", "bVi": "làn gió nhẹ" },
       { "a": "worth", "aIpa": "/wɜːθ/", "aVi": "đáng giá", "b": "worse", "bIpa": "/wɜːs/", "bVi": "tệ hơn" }
     ],
+    "voicing": [
+      { "off": "/θ/", "on": "/ð/", "offWord": "thigh", "offIpa": "/θaɪ/", "offVi": "bắp đùi", "onWord": "thy", "onIpa": "/ðaɪ/", "onVi": "của ngươi (cổ)" },
+      { "off": "/θ/", "on": "/ð/", "offWord": "mouth", "offIpa": "/maʊθ/", "offVi": "cái miệng", "onWord": "mouths", "onIpa": "/maʊðz/", "onVi": "những cái miệng" },
+      { "off": "/θ/", "on": "/ð/", "offWord": "teeth", "offIpa": "/tiːθ/", "offVi": "hàm răng", "onWord": "teethe", "onIpa": "/tiːð/", "onVi": "mọc răng" }
+    ],
     "sentences": [
       { "en": "I think they are thirty.", "vi": "Tôi nghĩ họ ba mươi tuổi." },
       { "en": "Breathe through your mouth.", "vi": "Hãy thở bằng miệng." },
@@ -87,6 +92,11 @@
       { "w": "boxes", "ipa": "/ˈbɒksɪz/", "vi": "những chiếc hộp" },
       { "w": "pages", "ipa": "/ˈpeɪdʒɪz/", "vi": "những trang giấy" }
     ],
+    "voicing": [
+      { "off": "/s/", "on": "/z/", "offWord": "rice", "offIpa": "/raɪs/", "offVi": "cơm, gạo", "onWord": "rise", "onIpa": "/raɪz/", "onVi": "trỗi dậy" },
+      { "off": "/s/", "on": "/z/", "offWord": "price", "offIpa": "/praɪs/", "offVi": "giá tiền", "onWord": "prize", "onIpa": "/praɪz/", "onVi": "giải thưởng" },
+      { "off": "/s/", "on": "/z/", "offWord": "bus", "offIpa": "/bʌs/", "offVi": "xe buýt", "onWord": "buzz", "onIpa": "/bʌz/", "onVi": "tiếng vo ve" }
+    ],
     "sentences": [
       { "en": "She watches two boxes of books.", "vi": "Cô ấy trông chừng hai thùng sách." },
       { "en": "My friend needs three days.", "vi": "Bạn tôi cần ba ngày." },
@@ -111,6 +121,11 @@
       { "w": "wanted", "ipa": "/ˈwɒntɪd/", "vi": "đã muốn" },
       { "w": "needed", "ipa": "/ˈniːdɪd/", "vi": "đã cần" },
       { "w": "started", "ipa": "/ˈstɑːtɪd/", "vi": "đã bắt đầu" }
+    ],
+    "voicing": [
+      { "off": "/t/", "on": "/d/", "offWord": "worked", "offIpa": "/wɜːkt/", "offVi": "đã làm việc", "onWord": "played", "onIpa": "/pleɪd/", "onVi": "đã chơi" },
+      { "off": "/t/", "on": "/d/", "offWord": "stopped", "offIpa": "/stɒpt/", "offVi": "đã dừng lại", "onWord": "moved", "onIpa": "/muːvd/", "onVi": "đã di chuyển" },
+      { "off": "/t/", "on": "/d/", "offWord": "watched", "offIpa": "/wɒtʃt/", "offVi": "đã xem", "onWord": "lived", "onIpa": "/lɪvd/", "onVi": "đã sống" }
     ],
     "sentences": [
       { "en": "We watched a film and decided to stay.", "vi": "Chúng tôi đã xem phim rồi quyết định ở lại." },
@@ -183,6 +198,11 @@
       { "a": "watch", "aIpa": "/wɒtʃ/", "aVi": "xem; đồng hồ", "b": "wash", "bIpa": "/wɒʃ/", "bVi": "rửa, giặt" },
       { "a": "catch", "aIpa": "/kætʃ/", "aVi": "bắt lấy", "b": "cash", "bIpa": "/kæʃ/", "bVi": "tiền mặt" }
     ],
+    "voicing": [
+      { "off": "/s/", "on": "/z/", "offWord": "sip", "offIpa": "/sɪp/", "offVi": "nhấp một ngụm", "onWord": "zip", "onIpa": "/zɪp/", "onVi": "khoá kéo" },
+      { "off": "/ʃ/", "on": "/ʒ/", "offWord": "sheer", "offIpa": "/ʃɪə/", "offVi": "hoàn toàn; mỏng tang", "onWord": "measure", "onIpa": "/ˈmeʒə/", "onVi": "đo lường" },
+      { "off": "/tʃ/", "on": "/dʒ/", "offWord": "cheap", "offIpa": "/tʃiːp/", "offVi": "rẻ", "onWord": "jeep", "onIpa": "/dʒiːp/", "onVi": "xe jeep" }
+    ],
     "sentences": [
       { "en": "She sells cheap shoes on the ship.", "vi": "Cô ấy bán giày rẻ trên tàu." },
       { "en": "Please wash my watch and my socks.", "vi": "Làm ơn rửa đồng hồ và giặt tất giúp tôi." },
@@ -205,6 +225,11 @@
       { "a": "pat", "aIpa": "/pæt/", "aVi": "vỗ nhẹ", "b": "bat", "bIpa": "/bæt/", "bVi": "con dơi" },
       { "a": "pig", "aIpa": "/pɪɡ/", "aVi": "con lợn", "b": "big", "bIpa": "/bɪɡ/", "bVi": "to lớn" },
       { "a": "pull", "aIpa": "/pʊl/", "aVi": "kéo", "b": "bull", "bIpa": "/bʊl/", "bVi": "con bò đực" }
+    ],
+    "voicing": [
+      { "off": "/f/", "on": "/v/", "offWord": "safe", "offIpa": "/seɪf/", "offVi": "an toàn", "onWord": "save", "onIpa": "/seɪv/", "onVi": "tiết kiệm; cứu" },
+      { "off": "/f/", "on": "/v/", "offWord": "leaf", "offIpa": "/liːf/", "offVi": "chiếc lá", "onWord": "leave", "onIpa": "/liːv/", "onVi": "rời đi" },
+      { "off": "/p/", "on": "/b/", "offWord": "pat", "offIpa": "/pæt/", "offVi": "vỗ nhẹ", "onWord": "bat", "onIpa": "/bæt/", "onVi": "con dơi" }
     ],
     "sentences": [
       { "en": "I have five very big vans.", "vi": "Tôi có năm chiếc xe tải rất to." },
@@ -254,6 +279,58 @@
       { "w": "experience", "ipa": "/ɪkˈspɪəriəns/", "vi": "kinh nghiệm — nhấn âm 2: ex-PE-rience" },
       { "w": "opportunity", "ipa": "/ˌɒpəˈtjuːnəti/", "vi": "cơ hội — nhấn âm 3: op-por-TU-ni-ty" }
     ],
+    "syllables": [
+      { "w": "computer", "ipa": "/kəmˈpjuːtə/", "vi": "máy tính", "parts": ["com", "pu", "ter"], "hit": 1 },
+      { "w": "important", "ipa": "/ɪmˈpɔːtnt/", "vi": "quan trọng", "parts": ["im", "por", "tant"], "hit": 1 },
+      { "w": "comfortable", "ipa": "/ˈkʌmftəbl/", "vi": "thoải mái", "parts": ["comf", "ta", "ble"], "hit": 0 },
+      { "w": "vegetable", "ipa": "/ˈvedʒtəbl/", "vi": "rau củ", "parts": ["veg", "ta", "ble"], "hit": 0 },
+      { "w": "develop", "ipa": "/dɪˈveləp/", "vi": "phát triển", "parts": ["de", "ve", "lop"], "hit": 1 },
+      { "w": "interesting", "ipa": "/ˈɪntrəstɪŋ/", "vi": "thú vị", "parts": ["in", "tres", "ting"], "hit": 0 },
+      { "w": "experience", "ipa": "/ɪkˈspɪəriəns/", "vi": "kinh nghiệm", "parts": ["ex", "pe", "ri", "ence"], "hit": 1 },
+      { "w": "opportunity", "ipa": "/ˌɒpəˈtjuːnəti/", "vi": "cơ hội", "parts": ["op", "por", "tu", "ni", "ty"], "hit": 2 },
+      { "w": "hotel", "ipa": "/həʊˈtel/", "vi": "khách sạn", "parts": ["ho", "tel"], "hit": 1 },
+      { "w": "hospital", "ipa": "/ˈhɒspɪtl/", "vi": "bệnh viện", "parts": ["hos", "pi", "tal"], "hit": 0 }
+    ],
+    "classPairs": [
+      {
+        "base": "record", "nounIpa": "/ˈrekɔːd/", "nounVi": "bản thu, hồ sơ", "verbIpa": "/rɪˈkɔːd/", "verbVi": "thu âm",
+        "nounParts": ["RE", "cord"], "verbParts": ["re", "CORD"],
+        "sent": "Please record the new record.", "vi": "Hãy thu âm bản nhạc mới."
+      },
+      {
+        "base": "present", "nounIpa": "/ˈpreznt/", "nounVi": "món quà", "verbIpa": "/prɪˈzent/", "verbVi": "trao, trình bày",
+        "nounParts": ["PRE", "sent"], "verbParts": ["pre", "SENT"],
+        "sent": "They will present the present to her.", "vi": "Họ sẽ trao món quà cho cô ấy."
+      },
+      {
+        "base": "object", "nounIpa": "/ˈɒbdʒɪkt/", "nounVi": "đồ vật", "verbIpa": "/əbˈdʒekt/", "verbVi": "phản đối",
+        "nounParts": ["OB", "ject"], "verbParts": ["ob", "JECT"],
+        "sent": "I object to that object on the desk.", "vi": "Tôi phản đối cái vật đặt trên bàn đó."
+      },
+      {
+        "base": "increase", "nounIpa": "/ˈɪŋkriːs/", "nounVi": "mức tăng", "verbIpa": "/ɪnˈkriːs/", "verbVi": "tăng lên",
+        "nounParts": ["IN", "crease"], "verbParts": ["in", "CREASE"],
+        "sent": "They increase the price, so there is an increase.", "vi": "Họ tăng giá nên có một mức tăng."
+      }
+    ],
+    "families": [
+      {
+        "note": "Hậu tố đổi vị trí trọng âm, và các nguyên âm không mang trọng âm cũng biến đổi theo.",
+        "items": [
+          { "w": "photograph", "ipa": "/ˈfəʊtəɡrɑːf/", "vi": "bức ảnh", "parts": ["pho", "to", "graph"], "hit": 0 },
+          { "w": "photography", "ipa": "/fəˈtɒɡrəfi/", "vi": "nhiếp ảnh", "parts": ["pho", "to", "gra", "phy"], "hit": 1 },
+          { "w": "photographic", "ipa": "/ˌfəʊtəˈɡræfɪk/", "vi": "thuộc nhiếp ảnh", "parts": ["pho", "to", "gra", "phic"], "hit": 2 }
+        ]
+      },
+      {
+        "note": "Cùng một họ từ, trọng âm chạy dần về cuối khi thêm hậu tố.",
+        "items": [
+          { "w": "economy", "ipa": "/ɪˈkɒnəmi/", "vi": "nền kinh tế", "parts": ["e", "co", "no", "my"], "hit": 1 },
+          { "w": "economic", "ipa": "/ˌiːkəˈnɒmɪk/", "vi": "thuộc kinh tế", "parts": ["e", "co", "no", "mic"], "hit": 2 },
+          { "w": "economical", "ipa": "/ˌiːkəˈnɒmɪkl/", "vi": "tiết kiệm", "parts": ["e", "co", "no", "mi", "cal"], "hit": 2 }
+        ]
+      }
+    ],
     "sentences": [
       { "en": "This is a very interesting opportunity.", "vi": "Đây là một cơ hội rất thú vị." },
       { "en": "My computer is important for my job.", "vi": "Máy tính rất quan trọng với công việc của tôi." },
@@ -281,6 +358,71 @@
       { "en": "I need a cup of coffee.", "vi": "Tôi cần một tách cà phê." },
       { "en": "What are you doing at eight?", "vi": "Tám giờ bạn làm gì?" },
       { "en": "Turn it off and pick it up.", "vi": "Tắt nó đi rồi nhặt nó lên." }
+    ]
+  },
+  {
+    "id": "rhythm",
+    "emoji": "🥁",
+    "title": "Nhịp điệu lời nói",
+    "sub": "Từ mang thông tin nổi lên",
+    "why": "Người Việt đọc các từ trong câu với lực gần ngang nhau, nên câu nghe đều đều và người nghe phải tự đoán đâu là ý chính. Tiếng Anh dồn lực vào từ mang thông tin và lướt nhanh các từ chức năng.",
+    "tip": "Danh từ, động từ chính, tính từ và trạng từ nhận trọng âm câu. Mạo từ, giới từ ngắn, trợ động từ và đại từ đọc nhẹ, len vào giữa hai nhịp. Vỗ tay ở các nhịp nhấn — không cần khoảng cách đều tuyệt đối.",
+    "words": [
+      { "w": "a cup of tea", "ipa": "/ə ˈkʌp əv ˈtiː/", "vi": "một tách trà — nhấn CUP và TEA, lướt a và of" },
+      { "w": "at the station", "ipa": "/ət ðə ˈsteɪʃn/", "vi": "ở nhà ga — chỉ STA nổi lên" },
+      { "w": "I can do it", "ipa": "/aɪ kən ˈduː ɪt/", "vi": "tôi làm được — can đọc nhẹ thành /kən/" },
+      { "w": "some of them", "ipa": "/ˈsʌm əv ðəm/", "vi": "một vài trong số họ — nhấn SOME" },
+      { "w": "for a moment", "ipa": "/fər ə ˈməʊmənt/", "vi": "trong chốc lát — nhấn MO" },
+      { "w": "it was raining", "ipa": "/ɪt wəz ˈreɪnɪŋ/", "vi": "trời đang mưa — was đọc nhẹ thành /wəz/" },
+      { "w": "we should go home", "ipa": "/wi ʃəd ˈɡəʊ ˈhəʊm/", "vi": "ta nên về nhà — nhấn GO và HOME" },
+      { "w": "a lot of people", "ipa": "/ə ˈlɒt əv ˈpiːpl/", "vi": "rất nhiều người — nhấn LOT và PEO" }
+    ],
+    "focus": [
+      {
+        "words": ["I", "wanted", "the", "blue", "shirt."],
+        "vi": "Tôi muốn cái áo màu xanh.",
+        "content": [1, 3, 4],
+        "shifts": [
+          { "at": 3, "mean": "Màu xanh được đối chiếu với màu khác — không phải chiếc áo đỏ." },
+          { "at": 1, "mean": "Nhấn vào hành động: tôi đã MUỐN nó, chứ không phải chỉ xem hay nhắc tới." },
+          { "at": 0, "mean": "Đối chiếu người: TÔI muốn chiếc áo đó, còn người kia thì không." }
+        ]
+      },
+      {
+        "words": ["I", "need", "the", "red", "one."],
+        "vi": "Tôi cần cái màu đỏ.",
+        "content": [1, 3, 4],
+        "shifts": [
+          { "at": 3, "mean": "Cái màu ĐỎ, không phải cái màu khác." },
+          { "at": 1, "mean": "Tôi CẦN nó chứ không phải chỉ thích." },
+          { "at": 4, "mean": "Chỉ cần MỘT cái, không phải cả bộ." }
+        ]
+      },
+      {
+        "words": ["She", "works", "in", "a", "big", "hospital."],
+        "vi": "Cô ấy làm trong một bệnh viện lớn.",
+        "content": [1, 4, 5],
+        "shifts": [
+          { "at": 5, "mean": "Nơi làm việc là BỆNH VIỆN, không phải trường học hay văn phòng." },
+          { "at": 4, "mean": "Bệnh viện LỚN, không phải phòng khám nhỏ." },
+          { "at": 1, "mean": "Cô ấy LÀM ở đó, không phải đang nằm viện." }
+        ]
+      },
+      {
+        "words": ["We", "can", "meet", "on", "Friday."],
+        "vi": "Chúng ta có thể gặp nhau vào thứ Sáu.",
+        "content": [2, 4],
+        "shifts": [
+          { "at": 4, "mean": "Thứ SÁU, không phải ngày khác." },
+          { "at": 2, "mean": "Chúng ta GẶP nhau, không phải chỉ gọi điện." },
+          { "at": 1, "mean": "Nhấn can là khẳng định lại: hoàn toàn CÓ THỂ, đừng lo." }
+        ]
+      }
+    ],
+    "sentences": [
+      { "en": "I wanted the blue shirt, not the red one.", "vi": "Tôi muốn chiếc áo xanh, không phải chiếc áo đỏ." },
+      { "en": "She works in a big hospital near the station.", "vi": "Cô ấy làm ở một bệnh viện lớn gần nhà ga." },
+      { "en": "We can meet on Friday if you are free.", "vi": "Chúng ta có thể gặp vào thứ Sáu nếu bạn rảnh." }
     ]
   }
 ]

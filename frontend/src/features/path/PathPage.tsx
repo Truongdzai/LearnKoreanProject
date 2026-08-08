@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import Flag from '@/core/components/Flag'
 import { GOALS, INTERESTS, LEVELS, buildSteps, LEARN_GOAL_PRESETS } from '@/data/pathOptions'
-import { STUDY_LANGS, NATIVE_LANGS, studyLang } from '@/core/constants/languages'
+import { STUDY_LANGS, NATIVE_CODE, studyLang } from '@/core/constants/languages'
 import { studyLangName } from '@/core/i18n/translations'
 import { goalById } from '@/features/onboarding/goals'
 import type { LearningPath } from '@/models/path.model'
@@ -22,7 +22,6 @@ export default function PathPage() {
   const [mode, setMode] = useState<'landing' | 'wizard' | 'result'>('landing')
   const [step, setStep] = useState(0)
   const [lang, setLang] = useState(learnLang)
-  const [native, setNative] = useState(nativeLang)
   const [goals, setGoals] = useState<string[]>([])
   const [interests, setInterests] = useState<string[]>([])
   const [level, setLevel] = useState('')
@@ -30,14 +29,13 @@ export default function PathPage() {
 
   useEffect(() => {
     if (!wizardRequested) return
-    setStep(0); setLang(learnLang); setNative(nativeLang)
+    setStep(0); setLang(learnLang)
     setGoals(LEARN_GOAL_PRESETS[learnGoal] || []); setInterests([]); setLevel(''); setCreated(null)
     setMode('wizard')
     clearWizard()
   }, [wizardRequested, learnLang, nativeLang, clearWizard, learnGoal])
 
   const pickStudy = (code: string) => setLang(code)
-  const pickNative = (code: string) => setNative(code)
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string, max = 5) => {
     if (arr.includes(v)) set(arr.filter((x) => x !== v))
@@ -45,14 +43,14 @@ export default function PathPage() {
   }
 
   const reset = () => {
-    setStep(0); setLang(learnLang); setNative(nativeLang); setGoals(presetGoals); setInterests([]); setLevel(''); setCreated(null)
+    setStep(0); setLang(learnLang); setGoals(presetGoals); setInterests([]); setLevel(''); setCreated(null)
   }
 
   const finish = async () => {
     const l = studyLang(lang)
     const lv = LEVELS.find((x) => x.code === level)
     setLearnLang(lang)
-    setNativeLang(native)
+    setNativeLang(NATIVE_CODE)
     const path: LearningPath = {
       id: 'p' + Date.now(),
       language: l.name,
@@ -70,7 +68,7 @@ export default function PathPage() {
     setMode('result')
   }
 
-  const canNext = [lang !== '' && native !== '', goals.length > 0, true, level !== ''][step]
+  const canNext = [lang !== '', goals.length > 0, true, level !== ''][step]
 
   if (mode === 'landing') {
     return (
@@ -189,17 +187,6 @@ export default function PathPage() {
                   <span className="lang-flag"><Flag code={l.flag} size={54} /></span>
                   <span>{studyLangName(uiLang, l.code)}</span>
                   <small className="lang-endonym">{l.endonym}</small>
-                </button>
-              ))}
-            </div>
-
-            <h2 className="wiz-title" style={{ marginTop: 30 }}>{t('path.q1b')}</h2>
-            <p className="wiz-sub">{t('path.q1bSub')}</p>
-            <div className="native-grid">
-              {NATIVE_LANGS.map((n) => (
-                <button key={n.code} className={'native-card' + (native === n.code ? ' on' : '')} onClick={() => pickNative(n.code)}>
-                  <Flag code={n.flag} size={24} />
-                  <span>{n.name}</span>
                 </button>
               ))}
             </div>

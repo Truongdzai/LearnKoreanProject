@@ -6,17 +6,125 @@
   "tone": "tone-c",
   "emoji": "🏃",
   "words": [
-    { "ko": "가다", "romaja": "gada", "vi": "Đi", "pos": "verb", "img": "🚶", "connect": "\"Ga-đa\" — ra \"ga\" tàu để đi.", "ex": "학교에 가요.", "exVi": "Tôi đi học." },
-    { "ko": "오다", "romaja": "oda", "vi": "Đến / Tới", "pos": "verb", "img": "🚶‍♂️", "connect": "\"Ô-đa\" — \"ồ, đã\" tới nơi.", "ex": "친구가 집에 와요.", "exVi": "Bạn đến nhà." },
-    { "ko": "먹다", "romaja": "meokda", "vi": "Ăn", "pos": "verb", "img": "🍽️", "connect": "\"Mơk\" — mấp máy miệng để ăn.", "ex": "밥을 먹어요.", "exVi": "Tôi ăn cơm." },
-    { "ko": "마시다", "romaja": "masida", "vi": "Uống", "pos": "verb", "img": "🥤", "connect": "\"Ma-si\" — nâng ly \"mã\" uống.", "ex": "물을 마셔요.", "exVi": "Tôi uống nước." },
-    { "ko": "자다", "romaja": "jada", "vi": "Ngủ", "pos": "verb", "img": "😴", "connect": "\"Cha-đa\" — \"chà, đã\" buồn ngủ.", "ex": "일찍 자요.", "exVi": "Tôi ngủ sớm." },
-    { "ko": "보다", "romaja": "boda", "vi": "Xem / Nhìn", "pos": "verb", "img": "👀", "connect": "\"Bô-đa\" — dùng mắt để nhìn.", "ex": "영화를 봐요.", "exVi": "Tôi xem phim." },
-    { "ko": "듣다", "romaja": "deutda", "vi": "Nghe", "pos": "verb", "img": "👂", "connect": "\"Đưt\" — \"được\" nghe rõ.", "ex": "음악을 들어요.", "exVi": "Tôi nghe nhạc." },
-    { "ko": "말하다", "romaja": "malhada", "vi": "Nói", "pos": "verb", "img": "🗣️", "connect": "\"Mal\" — mở miệng ra \"man\" nói.", "ex": "한국어로 말해요.", "exVi": "Tôi nói bằng tiếng Hàn." },
-    { "ko": "읽다", "romaja": "ikda", "vi": "Đọc", "pos": "verb", "img": "📖", "connect": "\"Ik\" — có \"ích\" thì đọc sách.", "ex": "책을 읽어요.", "exVi": "Tôi đọc sách." },
-    { "ko": "쓰다", "romaja": "sseuda", "vi": "Viết", "pos": "verb", "img": "✍️", "connect": "\"Ssư\" — cầm bút để viết.", "ex": "편지를 써요.", "exVi": "Tôi viết thư." },
-    { "ko": "사다", "romaja": "sada", "vi": "Mua", "pos": "verb", "img": "🛒", "connect": "\"Sa-đa\" — \"xả\" tiền để mua.", "ex": "빵을 사요.", "exVi": "Tôi mua bánh mì." },
-    { "ko": "공부하다", "romaja": "gongbuhada", "vi": "Học bài", "pos": "verb", "img": "📚", "connect": "\"Gong-bu\" gợi \"công phu\" học hành.", "ex": "매일 공부해요.", "exVi": "Tôi học mỗi ngày." }
+    {
+      "ko": "가다",
+      "romaja": "gada",
+      "vi": "Đi",
+      "pos": "verb",
+      "img": "🚶",
+      "connect": "\"Ga-đa\" — ra \"ga\" tàu để đi.",
+      "ex": "학교에 가요.",
+      "exVi": "Tôi đi học."
+    },
+    {
+      "ko": "오다",
+      "romaja": "oda",
+      "vi": "Đến / Tới",
+      "pos": "verb",
+      "img": "🚶‍♂️",
+      "connect": "\"Ô-đa\" — \"ồ, đã\" tới nơi.",
+      "ex": "친구가 집에 와요.",
+      "exVi": "Bạn đến nhà."
+    },
+    {
+      "ko": "먹다",
+      "romaja": "meokda",
+      "vi": "Ăn",
+      "pos": "verb",
+      "img": "🍽️",
+      "connect": "\"Mơk\" — mấp máy miệng để ăn.",
+      "ex": "밥을 먹어요.",
+      "exVi": "Tôi ăn cơm."
+    },
+    {
+      "ko": "마시다",
+      "romaja": "masida",
+      "vi": "Uống",
+      "pos": "verb",
+      "img": "🥤",
+      "connect": "\"Ma-si\" — nâng ly \"mã\" uống.",
+      "ex": "물을 마셔요.",
+      "exVi": "Tôi uống nước."
+    },
+    {
+      "ko": "자다",
+      "romaja": "jada",
+      "vi": "Ngủ",
+      "pos": "verb",
+      "img": "😴",
+      "connect": "\"Cha-đa\" — \"chà, đã\" buồn ngủ.",
+      "ex": "일찍 자요.",
+      "exVi": "Tôi ngủ sớm."
+    },
+    {
+      "ko": "보다",
+      "romaja": "boda",
+      "vi": "Xem / Nhìn",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "\"Bô-đa\" — dùng mắt để nhìn.",
+      "ex": "영화를 봐요.",
+      "exVi": "Tôi xem phim."
+    },
+    {
+      "ko": "듣다",
+      "romaja": "deutda",
+      "vi": "Nghe",
+      "pos": "verb",
+      "img": "👂",
+      "connect": "\"Đưt\" — \"được\" nghe rõ.",
+      "ex": "음악을 들어요.",
+      "exVi": "Tôi nghe nhạc."
+    },
+    {
+      "ko": "말하다",
+      "romaja": "malhada",
+      "vi": "Nói",
+      "pos": "verb",
+      "img": "🗣️",
+      "connect": "\"Mal\" — mở miệng ra \"man\" nói.",
+      "ex": "한국어로 말해요.",
+      "exVi": "Tôi nói bằng tiếng Hàn."
+    },
+    {
+      "ko": "읽다",
+      "romaja": "ikda",
+      "vi": "Đọc",
+      "pos": "verb",
+      "img": "📖",
+      "connect": "\"Ik\" — có \"ích\" thì đọc sách.",
+      "ex": "책을 읽어요.",
+      "exVi": "Tôi đọc sách."
+    },
+    {
+      "ko": "쓰다",
+      "romaja": "sseuda",
+      "vi": "Viết",
+      "pos": "verb",
+      "img": "✍️",
+      "connect": "\"Ssư\" — cầm bút để viết.",
+      "ex": "편지를 써요.",
+      "exVi": "Tôi viết thư."
+    },
+    {
+      "ko": "사다",
+      "romaja": "sada",
+      "vi": "Mua",
+      "pos": "verb",
+      "img": "🛒",
+      "connect": "\"Sa-đa\" — \"xả\" tiền để mua.",
+      "ex": "빵을 사요.",
+      "exVi": "Tôi mua bánh mì."
+    },
+    {
+      "ko": "공부하다",
+      "romaja": "gongbuhada",
+      "vi": "Học bài",
+      "pos": "verb",
+      "img": "📚",
+      "connect": "\"Gong-bu\" gợi \"công phu\" học hành.",
+      "ex": "매일 공부해요.",
+      "exVi": "Tôi học mỗi ngày."
+    }
   ]
 }

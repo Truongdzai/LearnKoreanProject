@@ -6,33 +6,285 @@
   "tone": "tone-b",
   "emoji": "🎓",
   "words": [
-    { "en": "able", "ipa": "/ˈeɪ.bəl/", "vi": "có thể, có khả năng", "pos": "adj", "img": "🙆", "connect": "\"Êy-bồl\" — be able to = có thể làm.", "ex": "She is able to swim two kilometers.", "exVi": "Cô ấy có thể bơi hai cây số." },
-    { "en": "academic", "ipa": "/ˌæk.əˈdem.ɪk/", "vi": "thuộc học thuật", "pos": "adj", "img": "🏫", "connect": "\"A-cờ-đe-mích\" — academy (học viện) → chuyện trường lớp.", "ex": "His academic results are excellent.", "exVi": "Kết quả học tập của cậu ấy xuất sắc." },
-    { "en": "acceptable", "ipa": "/əkˈsep.tə.bəl/", "vi": "chấp nhận được", "pos": "adj", "img": "👌", "connect": "accept (chấp nhận) + able — đủ tốt để gật đầu.", "ex": "The price is acceptable to me.", "exVi": "Mức giá đó tôi chấp nhận được." },
-    { "en": "additional", "ipa": "/əˈdɪʃ.ən.əl/", "vi": "thêm vào, bổ sung", "pos": "adj", "img": "➕", "connect": "add (thêm) → additional là phần cộng thêm.", "ex": "There is an additional fee for luggage.", "exVi": "Có phí bổ sung cho hành lý." },
-    { "en": "advanced", "ipa": "/ədˈvænst/", "vi": "nâng cao, tiên tiến", "pos": "adj", "img": "🚀", "connect": "\"Ợt-van-st\" — vượt lên trước một bậc.", "ex": "She is taking an advanced English course.", "exVi": "Cô ấy đang học khoá tiếng Anh nâng cao." },
-    { "en": "alternative", "ipa": "/ɑːlˈtɝː.nə.t̬ɪv/", "vi": "thay thế, phương án khác", "pos": "adj", "img": "🔀", "connect": "\"Ôl-tơ-nờ-tiv\" — đường này tắc thì có lối khác.", "ex": "Is there an alternative route?", "exVi": "Có đường đi thay thế không?" },
-    { "en": "annual", "ipa": "/ˈæn.ju.əl/", "vi": "hằng năm", "pos": "adj", "img": "📅", "connect": "\"E-niu-ồl\" — mỗi năm một lần như hội làng.", "ex": "The annual festival is in May.", "exVi": "Lễ hội thường niên diễn ra vào tháng Năm." },
-    { "en": "appropriate", "ipa": "/əˈproʊ.pri.ət/", "vi": "phù hợp, thích đáng", "pos": "adj", "img": "🎯", "connect": "\"Ờ-prâu-pri-ợt\" — đúng nơi đúng lúc đúng kiểu.", "ex": "Wear appropriate clothes for the interview.", "exVi": "Mặc trang phục phù hợp khi phỏng vấn." },
-    { "en": "aware", "ipa": "/əˈwer/", "vi": "nhận thức được", "pos": "adj", "img": "👁️", "connect": "\"Ờ-que\" — mắt mở, biết chuyện gì đang diễn ra.", "ex": "Are you aware of the new rule?", "exVi": "Bạn có biết quy định mới không?" },
-    { "en": "basic", "ipa": "/ˈbeɪ.sɪk/", "vi": "cơ bản", "pos": "adj", "img": "🧱", "connect": "\"Bêy-xích\" — base (nền) → kiến thức nền.", "ex": "I know some basic Korean.", "exVi": "Tôi biết chút tiếng Hàn cơ bản." },
-    { "en": "brief", "ipa": "/briːf/", "vi": "ngắn gọn", "pos": "adj", "img": "⏱️", "connect": "\"Brif\" — briefing là buổi họp chớp nhoáng.", "ex": "He gave a brief answer.", "exVi": "Anh ấy trả lời ngắn gọn." },
-    { "en": "capable", "ipa": "/ˈkeɪ.pə.bəl/", "vi": "có năng lực", "pos": "adj", "img": "🦾", "connect": "\"Kêy-pờ-bồl\" — đủ sức gánh việc.", "ex": "She is capable of leading the team.", "exVi": "Cô ấy đủ năng lực dẫn dắt cả đội." },
-    { "en": "central", "ipa": "/ˈsen.trəl/", "vi": "trung tâm, chủ chốt", "pos": "adj", "img": "🎯", "connect": "center (trung tâm) → central là nằm giữa.", "ex": "The hotel is in the central district.", "exVi": "Khách sạn nằm ở quận trung tâm." },
-    { "en": "certain", "ipa": "/ˈsɝː.tən/", "vi": "chắc chắn; nhất định", "pos": "adj", "img": "💯", "connect": "\"Sơ-từn\" — chắc như đinh đóng cột.", "ex": "I'm certain that he will come.", "exVi": "Tôi chắc chắn anh ấy sẽ đến." },
-    { "en": "common", "ipa": "/ˈkɑː.mən/", "vi": "phổ biến, thường gặp", "pos": "adj", "img": "👥", "connect": "\"Ko-mờn\" — Nguyễn là họ common nhất Việt Nam.", "ex": "Rain is common in July.", "exVi": "Mưa là chuyện thường gặp vào tháng Bảy." },
-    { "en": "complex", "ipa": "/kəmˈpleks/", "vi": "phức tạp", "pos": "adj", "img": "🕸️", "connect": "\"Cơm-plex\" — rối như mạng nhện.", "ex": "This is a complex problem.", "exVi": "Đây là một vấn đề phức tạp." },
-    { "en": "complicated", "ipa": "/ˈkɑːm.plə.keɪ.t̬ɪd/", "vi": "rắc rối, phức tạp", "pos": "adj", "img": "🧶", "connect": "\"Kom-pli-kêy-tịd\" — rối như cuộn len bị mèo nghịch.", "ex": "The instructions are too complicated.", "exVi": "Phần hướng dẫn rắc rối quá." },
-    { "en": "constant", "ipa": "/ˈkɑːn.stənt/", "vi": "liên tục, không đổi", "pos": "adj", "img": "🔄", "connect": "\"Kon-stừnt\" — đều đều không ngừng nghỉ.", "ex": "The constant noise kept me awake.", "exVi": "Tiếng ồn liên tục làm tôi không ngủ được." },
-    { "en": "convenient", "ipa": "/kənˈviː.ni.ənt/", "vi": "thuận tiện", "pos": "adj", "img": "🏪", "connect": "\"Cơn-vi-ni-ừnt\" — convenience store là cửa hàng tiện lợi.", "ex": "Online shopping is very convenient.", "exVi": "Mua sắm online rất thuận tiện." },
-    { "en": "crucial", "ipa": "/ˈkruː.ʃəl/", "vi": "cực kỳ quan trọng", "pos": "adj", "img": "🗝️", "connect": "\"Kru-sồl\" — mấu chốt sống còn.", "ex": "Sleep is crucial for your health.", "exVi": "Giấc ngủ cực kỳ quan trọng với sức khoẻ." },
-    { "en": "current", "ipa": "/ˈkɝː.ənt/", "vi": "hiện tại, đương thời", "pos": "adj", "img": "🕐", "connect": "\"Cơ-rừnt\" — dòng chảy đang diễn ra ngay lúc này.", "ex": "What is your current job?", "exVi": "Công việc hiện tại của bạn là gì?" },
-    { "en": "direct", "ipa": "/daɪˈrekt/", "vi": "trực tiếp, thẳng", "pos": "adj", "img": "➡️", "connect": "\"Đai-réc-t\" — đường bay thẳng không dừng.", "ex": "Is there a direct flight to Seoul?", "exVi": "Có chuyến bay thẳng đến Seoul không?" },
-    { "en": "distant", "ipa": "/ˈdɪs.tənt/", "vi": "xa xôi", "pos": "adj", "img": "🔭", "connect": "distance (khoảng cách) → distant là ở tít xa.", "ex": "We could see distant mountains.", "exVi": "Chúng tôi thấy những ngọn núi xa xôi." },
-    { "en": "diverse", "ipa": "/dɪˈvɝːs/", "vi": "đa dạng", "pos": "adj", "img": "🌈", "connect": "\"Đi-vơs\" — muôn màu muôn vẻ.", "ex": "Vietnam has diverse food cultures.", "exVi": "Việt Nam có văn hoá ẩm thực đa dạng." },
-    { "en": "effective", "ipa": "/ɪˈfek.tɪv/", "vi": "hiệu quả", "pos": "adj", "img": "💊", "connect": "effect (tác dụng) + ive — có tác dụng thật.", "ex": "This is an effective way to learn words.", "exVi": "Đây là cách học từ hiệu quả." },
-    { "en": "efficient", "ipa": "/ɪˈfɪʃ.ənt/", "vi": "năng suất, ít lãng phí", "pos": "adj", "img": "⚡", "connect": "\"I-phí-sừnt\" — làm nhanh gọn, tốn ít công sức.", "ex": "The new machine is very efficient.", "exVi": "Chiếc máy mới rất năng suất." },
-    { "en": "essential", "ipa": "/ɪˈsen.ʃəl/", "vi": "thiết yếu", "pos": "adj", "img": "🫀", "connect": "\"I-xen-sồl\" — thiếu là không xong.", "ex": "Water is essential for life.", "exVi": "Nước là thứ thiết yếu cho sự sống." },
-    { "en": "obvious", "ipa": "/ˈɑːb.vi.əs/", "vi": "hiển nhiên, rõ ràng", "pos": "adj", "img": "🔆", "connect": "\"Ob-vi-ợs\" — rõ như ban ngày.", "ex": "The answer is obvious.", "exVi": "Câu trả lời quá hiển nhiên." }
+    {
+      "en": "able",
+      "ipa": "/ˈeɪ.bəl/",
+      "vi": "có thể, có khả năng",
+      "pos": "adj",
+      "img": "🙆",
+      "connect": "\"Êy-bồl\" — be able to = có thể làm.",
+      "ex": "She is able to swim two kilometers.",
+      "exVi": "Cô ấy có thể bơi hai cây số."
+    },
+    {
+      "en": "academic",
+      "ipa": "/ˌæk.əˈdem.ɪk/",
+      "vi": "thuộc học thuật",
+      "pos": "adj",
+      "img": "🏫",
+      "connect": "\"A-cờ-đe-mích\" — academy (học viện) → chuyện trường lớp.",
+      "ex": "His academic results are excellent.",
+      "exVi": "Kết quả học tập của cậu ấy xuất sắc."
+    },
+    {
+      "en": "acceptable",
+      "ipa": "/əkˈsep.tə.bəl/",
+      "vi": "chấp nhận được",
+      "pos": "adj",
+      "img": "👌",
+      "connect": "accept (chấp nhận) + able — đủ tốt để gật đầu.",
+      "ex": "The price is acceptable to me.",
+      "exVi": "Mức giá đó tôi chấp nhận được."
+    },
+    {
+      "en": "additional",
+      "ipa": "/əˈdɪʃ.ən.əl/",
+      "vi": "thêm vào, bổ sung",
+      "pos": "adj",
+      "img": "➕",
+      "connect": "add (thêm) → additional là phần cộng thêm.",
+      "ex": "There is an additional fee for luggage.",
+      "exVi": "Có phí bổ sung cho hành lý."
+    },
+    {
+      "en": "advanced",
+      "ipa": "/ədˈvænst/",
+      "vi": "nâng cao, tiên tiến",
+      "pos": "adj",
+      "img": "🚀",
+      "connect": "\"Ợt-van-st\" — vượt lên trước một bậc.",
+      "ex": "She is taking an advanced English course.",
+      "exVi": "Cô ấy đang học khoá tiếng Anh nâng cao."
+    },
+    {
+      "en": "alternative",
+      "ipa": "/ɑːlˈtɝː.nə.t̬ɪv/",
+      "vi": "thay thế, phương án khác",
+      "pos": "adj",
+      "img": "🔀",
+      "connect": "\"Ôl-tơ-nờ-tiv\" — đường này tắc thì có lối khác.",
+      "ex": "Is there an alternative route?",
+      "exVi": "Có đường đi thay thế không?"
+    },
+    {
+      "en": "annual",
+      "ipa": "/ˈæn.ju.əl/",
+      "vi": "hằng năm",
+      "pos": "adj",
+      "img": "📅",
+      "connect": "\"E-niu-ồl\" — mỗi năm một lần như hội làng.",
+      "ex": "The annual festival is in May.",
+      "exVi": "Lễ hội thường niên diễn ra vào tháng Năm."
+    },
+    {
+      "en": "appropriate",
+      "ipa": "/əˈproʊ.pri.ət/",
+      "vi": "phù hợp, thích đáng",
+      "pos": "adj",
+      "img": "🎯",
+      "connect": "\"Ờ-prâu-pri-ợt\" — đúng nơi đúng lúc đúng kiểu.",
+      "ex": "Wear appropriate clothes for the interview.",
+      "exVi": "Mặc trang phục phù hợp khi phỏng vấn."
+    },
+    {
+      "en": "aware",
+      "ipa": "/əˈwer/",
+      "vi": "nhận thức được",
+      "pos": "adj",
+      "img": "👁️",
+      "connect": "\"Ờ-que\" — mắt mở, biết chuyện gì đang diễn ra.",
+      "ex": "Are you aware of the new rule?",
+      "exVi": "Bạn có biết quy định mới không?"
+    },
+    {
+      "en": "basic",
+      "ipa": "/ˈbeɪ.sɪk/",
+      "vi": "cơ bản",
+      "pos": "adj",
+      "img": "🧱",
+      "connect": "\"Bêy-xích\" — base (nền) → kiến thức nền.",
+      "ex": "I know some basic Korean.",
+      "exVi": "Tôi biết chút tiếng Hàn cơ bản."
+    },
+    {
+      "en": "brief",
+      "ipa": "/briːf/",
+      "vi": "ngắn gọn",
+      "pos": "adj",
+      "img": "⏱️",
+      "connect": "\"Brif\" — briefing là buổi họp chớp nhoáng.",
+      "ex": "He gave a brief answer.",
+      "exVi": "Anh ấy trả lời ngắn gọn."
+    },
+    {
+      "en": "capable",
+      "ipa": "/ˈkeɪ.pə.bəl/",
+      "vi": "có năng lực",
+      "pos": "adj",
+      "img": "🦾",
+      "connect": "\"Kêy-pờ-bồl\" — đủ sức gánh việc.",
+      "ex": "She is capable of leading the team.",
+      "exVi": "Cô ấy đủ năng lực dẫn dắt cả đội."
+    },
+    {
+      "en": "central",
+      "ipa": "/ˈsen.trəl/",
+      "vi": "trung tâm, chủ chốt",
+      "pos": "adj",
+      "img": "🎯",
+      "connect": "center (trung tâm) → central là nằm giữa.",
+      "ex": "The hotel is in the central district.",
+      "exVi": "Khách sạn nằm ở quận trung tâm."
+    },
+    {
+      "en": "certain",
+      "ipa": "/ˈsɝː.tən/",
+      "vi": "chắc chắn; nhất định",
+      "pos": "adj",
+      "img": "💯",
+      "connect": "\"Sơ-từn\" — chắc như đinh đóng cột.",
+      "ex": "I'm certain that he will come.",
+      "exVi": "Tôi chắc chắn anh ấy sẽ đến."
+    },
+    {
+      "en": "common",
+      "ipa": "/ˈkɑː.mən/",
+      "vi": "phổ biến, thường gặp",
+      "pos": "adj",
+      "img": "👥",
+      "connect": "\"Ko-mờn\" — Nguyễn là họ common nhất Việt Nam.",
+      "ex": "Rain is common in July.",
+      "exVi": "Mưa là chuyện thường gặp vào tháng Bảy."
+    },
+    {
+      "en": "complex",
+      "ipa": "/kəmˈpleks/",
+      "vi": "phức tạp",
+      "pos": "adj",
+      "img": "🕸️",
+      "connect": "\"Cơm-plex\" — rối như mạng nhện.",
+      "ex": "This is a complex problem.",
+      "exVi": "Đây là một vấn đề phức tạp."
+    },
+    {
+      "en": "complicated",
+      "ipa": "/ˈkɑːm.plə.keɪ.t̬ɪd/",
+      "vi": "rắc rối, phức tạp",
+      "pos": "adj",
+      "img": "🧶",
+      "connect": "\"Kom-pli-kêy-tịd\" — rối như cuộn len bị mèo nghịch.",
+      "ex": "The instructions are too complicated.",
+      "exVi": "Phần hướng dẫn rắc rối quá."
+    },
+    {
+      "en": "constant",
+      "ipa": "/ˈkɑːn.stənt/",
+      "vi": "liên tục, không đổi",
+      "pos": "adj",
+      "img": "🔄",
+      "connect": "\"Kon-stừnt\" — đều đều không ngừng nghỉ.",
+      "ex": "The constant noise kept me awake.",
+      "exVi": "Tiếng ồn liên tục làm tôi không ngủ được."
+    },
+    {
+      "en": "convenient",
+      "ipa": "/kənˈviː.ni.ənt/",
+      "vi": "thuận tiện",
+      "pos": "adj",
+      "img": "🏪",
+      "connect": "\"Cơn-vi-ni-ừnt\" — convenience store là cửa hàng tiện lợi.",
+      "ex": "Online shopping is very convenient.",
+      "exVi": "Mua sắm online rất thuận tiện."
+    },
+    {
+      "en": "crucial",
+      "ipa": "/ˈkruː.ʃəl/",
+      "vi": "cực kỳ quan trọng",
+      "pos": "adj",
+      "img": "🗝️",
+      "connect": "\"Kru-sồl\" — mấu chốt sống còn.",
+      "ex": "Sleep is crucial for your health.",
+      "exVi": "Giấc ngủ cực kỳ quan trọng với sức khoẻ."
+    },
+    {
+      "en": "current",
+      "ipa": "/ˈkɝː.ənt/",
+      "vi": "hiện tại, đương thời",
+      "pos": "adj",
+      "img": "🕐",
+      "connect": "\"Cơ-rừnt\" — dòng chảy đang diễn ra ngay lúc này.",
+      "ex": "What is your current job?",
+      "exVi": "Công việc hiện tại của bạn là gì?"
+    },
+    {
+      "en": "direct",
+      "ipa": "/daɪˈrekt/",
+      "vi": "trực tiếp, thẳng",
+      "pos": "adj",
+      "img": "➡️",
+      "connect": "\"Đai-réc-t\" — đường bay thẳng không dừng.",
+      "ex": "Is there a direct flight to Seoul?",
+      "exVi": "Có chuyến bay thẳng đến Seoul không?"
+    },
+    {
+      "en": "distant",
+      "ipa": "/ˈdɪs.tənt/",
+      "vi": "xa xôi",
+      "pos": "adj",
+      "img": "🔭",
+      "connect": "distance (khoảng cách) → distant là ở tít xa.",
+      "ex": "We could see distant mountains.",
+      "exVi": "Chúng tôi thấy những ngọn núi xa xôi."
+    },
+    {
+      "en": "diverse",
+      "ipa": "/dɪˈvɝːs/",
+      "vi": "đa dạng",
+      "pos": "adj",
+      "img": "🌈",
+      "connect": "\"Đi-vơs\" — muôn màu muôn vẻ.",
+      "ex": "Vietnam has diverse food cultures.",
+      "exVi": "Việt Nam có văn hoá ẩm thực đa dạng."
+    },
+    {
+      "en": "effective",
+      "ipa": "/ɪˈfek.tɪv/",
+      "vi": "hiệu quả",
+      "pos": "adj",
+      "img": "💊",
+      "connect": "effect (tác dụng) + ive — có tác dụng thật.",
+      "ex": "This is an effective way to learn words.",
+      "exVi": "Đây là cách học từ hiệu quả."
+    },
+    {
+      "en": "efficient",
+      "ipa": "/ɪˈfɪʃ.ənt/",
+      "vi": "năng suất, ít lãng phí",
+      "pos": "adj",
+      "img": "⚡",
+      "connect": "\"I-phí-sừnt\" — làm nhanh gọn, tốn ít công sức.",
+      "ex": "The new machine is very efficient.",
+      "exVi": "Chiếc máy mới rất năng suất."
+    },
+    {
+      "en": "essential",
+      "ipa": "/ɪˈsen.ʃəl/",
+      "vi": "thiết yếu",
+      "pos": "adj",
+      "img": "🫀",
+      "connect": "\"I-xen-sồl\" — thiếu là không xong.",
+      "ex": "Water is essential for life.",
+      "exVi": "Nước là thứ thiết yếu cho sự sống."
+    },
+    {
+      "en": "obvious",
+      "ipa": "/ˈɑːb.vi.əs/",
+      "vi": "hiển nhiên, rõ ràng",
+      "pos": "adj",
+      "img": "🔆",
+      "connect": "\"Ob-vi-ợs\" — rõ như ban ngày.",
+      "ex": "The answer is obvious.",
+      "exVi": "Câu trả lời quá hiển nhiên."
+    }
   ]
 }

@@ -2,15 +2,11 @@ from __future__ import annotations
 
 
 STUDY_LANGS = {
-    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật",
-    "zh": "tiếng Trung", "de": "tiếng Đức", "vi": "tiếng Việt",
+    "ko": "tiếng Hàn", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
 }
 
 NATIVE_LANGS = {
-    "vi": "tiếng Việt", "en": "tiếng Anh", "ja": "tiếng Nhật", "zh": "tiếng Trung",
-    "ko": "tiếng Hàn", "id": "tiếng Indonesia", "es": "tiếng Tây Ban Nha",
-    "fr": "tiếng Pháp", "de": "tiếng Đức", "ru": "tiếng Nga", "it": "tiếng Ý",
-    "pt": "tiếng Bồ Đào Nha",
+    "vi": "tiếng Việt",
 }
 
 

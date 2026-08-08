@@ -6,33 +6,285 @@
   "tone": "tone-b",
   "emoji": "⚽",
   "words": [
-    { "en": "sport", "ipa": "/spɔːrt/", "vi": "môn thể thao", "pos": "noun", "img": "🏅", "connect": "\"Sờ-pot\" — chơi thể thao.", "ex": "Soccer is a popular sport.", "exVi": "Bóng đá là môn thể thao phổ biến." },
-    { "en": "football", "ipa": "/ˈfʊt.bɔːl/", "vi": "bóng đá", "pos": "noun", "img": "⚽", "connect": "foot (chân) + ball (bóng).", "ex": "They play football on Sunday.", "exVi": "Họ đá bóng vào Chủ nhật." },
-    { "en": "basketball", "ipa": "/ˈbæs.kɪt.bɔːl/", "vi": "bóng rổ", "pos": "noun", "img": "🏀", "connect": "basket (rổ) + ball (bóng).", "ex": "He is good at basketball.", "exVi": "Anh ấy chơi bóng rổ giỏi." },
-    { "en": "tennis", "ipa": "/ˈten.ɪs/", "vi": "quần vợt", "pos": "noun", "img": "🎾", "connect": "\"Te-nít\" — vợt tennis.", "ex": "Let's play tennis this weekend.", "exVi": "Cuối tuần mình chơi tennis nhé." },
-    { "en": "swim", "ipa": "/swɪm/", "vi": "bơi", "pos": "verb", "img": "🏊", "connect": "\"Sờ-wim\" — bơi lội dưới nước.", "ex": "I swim every weekend.", "exVi": "Cuối tuần nào tôi cũng bơi." },
-    { "en": "jump", "ipa": "/dʒʌmp/", "vi": "nhảy", "pos": "verb", "img": "🤸", "connect": "\"Giăm-p\" — nhảy bật lên.", "ex": "Can you jump over it?", "exVi": "Bạn nhảy qua được không?" },
-    { "en": "kick", "ipa": "/kɪk/", "vi": "đá (chân)", "pos": "verb", "img": "🦵", "connect": "\"Kích\" — đá bóng.", "ex": "He kicked the ball hard.", "exVi": "Anh ấy đá bóng thật mạnh." },
-    { "en": "throw", "ipa": "/θroʊ/", "vi": "ném, quăng", "pos": "verb", "img": "🤾", "connect": "\"Th-râu\" — ném bóng đi.", "ex": "Throw the ball to me.", "exVi": "Ném bóng cho tôi đi." },
-    { "en": "catch", "ipa": "/kætʃ/", "vi": "bắt, chụp", "pos": "verb", "img": "🧤", "connect": "\"Két-ch\" — chụp bóng.", "ex": "Catch the ball!", "exVi": "Bắt bóng đi!" },
-    { "en": "ball", "ipa": "/bɔːl/", "vi": "quả bóng", "pos": "noun", "img": "⚽", "connect": "\"Bôn\" — quả bóng tròn.", "ex": "The ball is round.", "exVi": "Quả bóng hình tròn." },
-    { "en": "goal", "ipa": "/ɡoʊl/", "vi": "bàn thắng, khung thành", "pos": "noun", "img": "🥅", "connect": "\"Gâu-l\" — ghi \"gôn\".", "ex": "He scored a goal.", "exVi": "Anh ấy ghi được một bàn." },
-    { "en": "win", "ipa": "/wɪn/", "vi": "thắng, giành được", "pos": "verb", "img": "🏆", "connect": "\"Win\" — chiến thắng.", "ex": "Our team will win.", "exVi": "Đội của mình sẽ thắng." },
-    { "en": "lose", "ipa": "/luːz/", "vi": "thua, mất", "pos": "verb", "img": "😞", "connect": "\"Lu-z\" — thua cuộc.", "ex": "Don't be sad if you lose.", "exVi": "Thua thì cũng đừng buồn nhé." },
-    { "en": "score", "ipa": "/skɔːr/", "vi": "tỉ số, ghi điểm", "pos": "noun", "img": "🔢", "connect": "\"Sờ-co\" — tỉ số trận đấu.", "ex": "What's the score now?", "exVi": "Tỉ số bây giờ là bao nhiêu?" },
-    { "en": "match", "ipa": "/mætʃ/", "vi": "trận đấu", "pos": "noun", "img": "🏟️", "connect": "\"Mét-ch\" — trận \"match\".", "ex": "The match starts at eight.", "exVi": "Trận đấu bắt đầu lúc 8 giờ." },
-    { "en": "player", "ipa": "/ˈpleɪ.ɚ/", "vi": "cầu thủ, người chơi", "pos": "noun", "img": "🏃", "connect": "play (chơi) + er (người).", "ex": "He is a great player.", "exVi": "Anh ấy là một cầu thủ giỏi." },
-    { "en": "coach", "ipa": "/koʊtʃ/", "vi": "huấn luyện viên", "pos": "noun", "img": "🧑‍🏫", "connect": "\"Kâu-ch\" — thầy dạy đội.", "ex": "The coach trains the team.", "exVi": "Huấn luyện viên rèn luyện cho đội." },
-    { "en": "gym", "ipa": "/dʒɪm/", "vi": "phòng tập", "pos": "noun", "img": "🏋️", "connect": "\"Gim\" — đi tập gym.", "ex": "I go to the gym daily.", "exVi": "Ngày nào tôi cũng đi tập gym." },
-    { "en": "race", "ipa": "/reɪs/", "vi": "cuộc đua", "pos": "noun", "img": "🏁", "connect": "\"Rê-s\" — cuộc chạy đua.", "ex": "She won the race.", "exVi": "Cô ấy thắng cuộc đua." },
-    { "en": "ride", "ipa": "/raɪd/", "vi": "cưỡi, đạp, đi (xe)", "pos": "verb", "img": "🚴", "connect": "\"Rai-d\" — cưỡi/đạp xe.", "ex": "I ride my bike to school.", "exVi": "Tôi đạp xe đến trường." },
-    { "en": "climb", "ipa": "/klaɪm/", "vi": "leo, trèo", "pos": "verb", "img": "🧗", "connect": "\"Klai-m\" — chữ \"b\" cuối câm; leo núi.", "ex": "They climb mountains together.", "exVi": "Họ cùng nhau leo núi." },
-    { "en": "dance", "ipa": "/dæns/", "vi": "nhảy, múa", "pos": "verb", "img": "💃", "connect": "\"Đen-s\" — khiêu vũ.", "ex": "She loves to dance.", "exVi": "Cô ấy rất thích nhảy." },
-    { "en": "sing", "ipa": "/sɪŋ/", "vi": "hát", "pos": "verb", "img": "🎤", "connect": "\"Sing\" — ca hát.", "ex": "We sing together at parties.", "exVi": "Chúng tôi cùng hát trong tiệc." },
-    { "en": "hobby", "ipa": "/ˈhɑː.bi/", "vi": "sở thích", "pos": "noun", "img": "🎯", "connect": "\"Hó-bi\" — thú vui riêng.", "ex": "Reading is my hobby.", "exVi": "Đọc sách là sở thích của tôi." },
-    { "en": "practice", "ipa": "/ˈpræk.tɪs/", "vi": "luyện tập", "pos": "verb", "img": "🔁", "connect": "\"Prác-tịs\" — tập đi tập lại.", "ex": "Practice makes perfect.", "exVi": "Có công mài sắt có ngày nên kim." },
-    { "en": "fit", "ipa": "/fɪt/", "vi": "khoẻ, cân đối", "pos": "adj", "img": "💪", "connect": "\"Phít\" — dáng \"fit\", săn chắc.", "ex": "Exercise keeps you fit.", "exVi": "Tập luyện giúp bạn khoẻ đẹp." },
-    { "en": "cycle", "ipa": "/ˈsaɪ.kəl/", "vi": "đạp xe", "pos": "verb", "img": "🚲", "connect": "\"Sai-kồ\" — từ \"bicycle\" (xe đạp).", "ex": "I cycle to work every day.", "exVi": "Ngày nào tôi cũng đạp xe đi làm." },
-    { "en": "yoga", "ipa": "/ˈjoʊ.ɡə/", "vi": "yoga", "pos": "noun", "img": "🧘", "connect": "\"Dâu-gờ\" — tập yoga thư giãn.", "ex": "She does yoga every morning.", "exVi": "Sáng nào cô ấy cũng tập yoga." }
+    {
+      "en": "sport",
+      "ipa": "/spɔːrt/",
+      "vi": "môn thể thao",
+      "pos": "noun",
+      "img": "🏅",
+      "connect": "\"Sờ-pot\" — chơi thể thao.",
+      "ex": "Soccer is a popular sport.",
+      "exVi": "Bóng đá là môn thể thao phổ biến."
+    },
+    {
+      "en": "football",
+      "ipa": "/ˈfʊt.bɔːl/",
+      "vi": "bóng đá",
+      "pos": "noun",
+      "img": "⚽",
+      "connect": "foot (chân) + ball (bóng).",
+      "ex": "They play football on Sunday.",
+      "exVi": "Họ đá bóng vào Chủ nhật."
+    },
+    {
+      "en": "basketball",
+      "ipa": "/ˈbæs.kɪt.bɔːl/",
+      "vi": "bóng rổ",
+      "pos": "noun",
+      "img": "🏀",
+      "connect": "basket (rổ) + ball (bóng).",
+      "ex": "He is good at basketball.",
+      "exVi": "Anh ấy chơi bóng rổ giỏi."
+    },
+    {
+      "en": "tennis",
+      "ipa": "/ˈten.ɪs/",
+      "vi": "quần vợt",
+      "pos": "noun",
+      "img": "🎾",
+      "connect": "\"Te-nít\" — vợt tennis.",
+      "ex": "Let's play tennis this weekend.",
+      "exVi": "Cuối tuần mình chơi tennis nhé."
+    },
+    {
+      "en": "swim",
+      "ipa": "/swɪm/",
+      "vi": "bơi",
+      "pos": "verb",
+      "img": "🏊",
+      "connect": "\"Sờ-wim\" — bơi lội dưới nước.",
+      "ex": "I swim every weekend.",
+      "exVi": "Cuối tuần nào tôi cũng bơi."
+    },
+    {
+      "en": "jump",
+      "ipa": "/dʒʌmp/",
+      "vi": "nhảy",
+      "pos": "verb",
+      "img": "🤸",
+      "connect": "\"Giăm-p\" — nhảy bật lên.",
+      "ex": "Can you jump over it?",
+      "exVi": "Bạn nhảy qua được không?"
+    },
+    {
+      "en": "kick",
+      "ipa": "/kɪk/",
+      "vi": "đá (chân)",
+      "pos": "verb",
+      "img": "🦵",
+      "connect": "\"Kích\" — đá bóng.",
+      "ex": "He kicked the ball hard.",
+      "exVi": "Anh ấy đá bóng thật mạnh."
+    },
+    {
+      "en": "throw",
+      "ipa": "/θroʊ/",
+      "vi": "ném, quăng",
+      "pos": "verb",
+      "img": "🤾",
+      "connect": "\"Th-râu\" — ném bóng đi.",
+      "ex": "Throw the ball to me.",
+      "exVi": "Ném bóng cho tôi đi."
+    },
+    {
+      "en": "catch",
+      "ipa": "/kætʃ/",
+      "vi": "bắt, chụp",
+      "pos": "verb",
+      "img": "🧤",
+      "connect": "\"Két-ch\" — chụp bóng.",
+      "ex": "Catch the ball!",
+      "exVi": "Bắt bóng đi!"
+    },
+    {
+      "en": "ball",
+      "ipa": "/bɔːl/",
+      "vi": "quả bóng",
+      "pos": "noun",
+      "img": "⚽",
+      "connect": "\"Bôn\" — quả bóng tròn.",
+      "ex": "The ball is round.",
+      "exVi": "Quả bóng hình tròn."
+    },
+    {
+      "en": "goal",
+      "ipa": "/ɡoʊl/",
+      "vi": "bàn thắng, khung thành",
+      "pos": "noun",
+      "img": "🥅",
+      "connect": "\"Gâu-l\" — ghi \"gôn\".",
+      "ex": "He scored a goal.",
+      "exVi": "Anh ấy ghi được một bàn."
+    },
+    {
+      "en": "win",
+      "ipa": "/wɪn/",
+      "vi": "thắng, giành được",
+      "pos": "verb",
+      "img": "🏆",
+      "connect": "\"Win\" — chiến thắng.",
+      "ex": "Our team will win.",
+      "exVi": "Đội của mình sẽ thắng."
+    },
+    {
+      "en": "lose",
+      "ipa": "/luːz/",
+      "vi": "thua, mất",
+      "pos": "verb",
+      "img": "😞",
+      "connect": "\"Lu-z\" — thua cuộc.",
+      "ex": "Don't be sad if you lose.",
+      "exVi": "Thua thì cũng đừng buồn nhé."
+    },
+    {
+      "en": "score",
+      "ipa": "/skɔːr/",
+      "vi": "tỉ số, ghi điểm",
+      "pos": "noun",
+      "img": "🔢",
+      "connect": "\"Sờ-co\" — tỉ số trận đấu.",
+      "ex": "What's the score now?",
+      "exVi": "Tỉ số bây giờ là bao nhiêu?"
+    },
+    {
+      "en": "match",
+      "ipa": "/mætʃ/",
+      "vi": "trận đấu",
+      "pos": "noun",
+      "img": "🏟️",
+      "connect": "\"Mét-ch\" — trận \"match\".",
+      "ex": "The match starts at eight.",
+      "exVi": "Trận đấu bắt đầu lúc 8 giờ."
+    },
+    {
+      "en": "player",
+      "ipa": "/ˈpleɪ.ɚ/",
+      "vi": "cầu thủ, người chơi",
+      "pos": "noun",
+      "img": "🏃",
+      "connect": "play (chơi) + er (người).",
+      "ex": "He is a great player.",
+      "exVi": "Anh ấy là một cầu thủ giỏi."
+    },
+    {
+      "en": "coach",
+      "ipa": "/koʊtʃ/",
+      "vi": "huấn luyện viên",
+      "pos": "noun",
+      "img": "🧑‍🏫",
+      "connect": "\"Kâu-ch\" — thầy dạy đội.",
+      "ex": "The coach trains the team.",
+      "exVi": "Huấn luyện viên rèn luyện cho đội."
+    },
+    {
+      "en": "gym",
+      "ipa": "/dʒɪm/",
+      "vi": "phòng tập",
+      "pos": "noun",
+      "img": "🏋️",
+      "connect": "\"Gim\" — đi tập gym.",
+      "ex": "I go to the gym daily.",
+      "exVi": "Ngày nào tôi cũng đi tập gym."
+    },
+    {
+      "en": "race",
+      "ipa": "/reɪs/",
+      "vi": "cuộc đua",
+      "pos": "noun",
+      "img": "🏁",
+      "connect": "\"Rê-s\" — cuộc chạy đua.",
+      "ex": "She won the race.",
+      "exVi": "Cô ấy thắng cuộc đua."
+    },
+    {
+      "en": "ride",
+      "ipa": "/raɪd/",
+      "vi": "cưỡi, đạp, đi (xe)",
+      "pos": "verb",
+      "img": "🚴",
+      "connect": "\"Rai-d\" — cưỡi/đạp xe.",
+      "ex": "I ride my bike to school.",
+      "exVi": "Tôi đạp xe đến trường."
+    },
+    {
+      "en": "climb",
+      "ipa": "/klaɪm/",
+      "vi": "leo, trèo",
+      "pos": "verb",
+      "img": "🧗",
+      "connect": "\"Klai-m\" — chữ \"b\" cuối câm; leo núi.",
+      "ex": "They climb mountains together.",
+      "exVi": "Họ cùng nhau leo núi."
+    },
+    {
+      "en": "dance",
+      "ipa": "/dæns/",
+      "vi": "nhảy, múa",
+      "pos": "verb",
+      "img": "💃",
+      "connect": "\"Đen-s\" — khiêu vũ.",
+      "ex": "She loves to dance.",
+      "exVi": "Cô ấy rất thích nhảy."
+    },
+    {
+      "en": "sing",
+      "ipa": "/sɪŋ/",
+      "vi": "hát",
+      "pos": "verb",
+      "img": "🎤",
+      "connect": "\"Sing\" — ca hát.",
+      "ex": "We sing together at parties.",
+      "exVi": "Chúng tôi cùng hát trong tiệc."
+    },
+    {
+      "en": "hobby",
+      "ipa": "/ˈhɑː.bi/",
+      "vi": "sở thích",
+      "pos": "noun",
+      "img": "🎯",
+      "connect": "\"Hó-bi\" — thú vui riêng.",
+      "ex": "Reading is my hobby.",
+      "exVi": "Đọc sách là sở thích của tôi."
+    },
+    {
+      "en": "practice",
+      "ipa": "/ˈpræk.tɪs/",
+      "vi": "luyện tập",
+      "pos": "verb",
+      "img": "🔁",
+      "connect": "\"Prác-tịs\" — tập đi tập lại.",
+      "ex": "Practice makes perfect.",
+      "exVi": "Có công mài sắt có ngày nên kim."
+    },
+    {
+      "en": "fit",
+      "ipa": "/fɪt/",
+      "vi": "khoẻ, cân đối",
+      "pos": "adj",
+      "img": "💪",
+      "connect": "\"Phít\" — dáng \"fit\", săn chắc.",
+      "ex": "Exercise keeps you fit.",
+      "exVi": "Tập luyện giúp bạn khoẻ đẹp."
+    },
+    {
+      "en": "cycle",
+      "ipa": "/ˈsaɪ.kəl/",
+      "vi": "đạp xe",
+      "pos": "verb",
+      "img": "🚲",
+      "connect": "\"Sai-kồ\" — từ \"bicycle\" (xe đạp).",
+      "ex": "I cycle to work every day.",
+      "exVi": "Ngày nào tôi cũng đạp xe đi làm."
+    },
+    {
+      "en": "yoga",
+      "ipa": "/ˈjoʊ.ɡə/",
+      "vi": "yoga",
+      "pos": "noun",
+      "img": "🧘",
+      "connect": "\"Dâu-gờ\" — tập yoga thư giãn.",
+      "ex": "She does yoga every morning.",
+      "exVi": "Sáng nào cô ấy cũng tập yoga."
+    }
   ]
 }

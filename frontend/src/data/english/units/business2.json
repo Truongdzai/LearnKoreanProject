@@ -6,33 +6,285 @@
   "tone": "tone-c",
   "emoji": "💼",
   "words": [
-    { "en": "entrepreneur", "ipa": "/ˌɑːn.trə.prəˈnɝː/", "vi": "doanh nhân khởi nghiệp", "pos": "noun", "img": "🚀", "connect": "\"On-trờ-prờ-nơ\" — người dám mở công ty riêng.", "ex": "The young entrepreneur opened a cafe.", "exVi": "Doanh nhân trẻ mở một quán cà phê." },
-    { "en": "startup", "ipa": "/ˈstɑːrt.ʌp/", "vi": "công ty khởi nghiệp", "pos": "noun", "img": "🌱", "connect": "start (bắt đầu) + up (lên) — công ty non trẻ mới mọc.", "ex": "She works at a tech startup.", "exVi": "Cô ấy làm ở một startup công nghệ." },
-    { "en": "investor", "ipa": "/ɪnˈves.tɚ/", "vi": "nhà đầu tư", "pos": "noun", "img": "🤵", "connect": "\"In-ves-tơ\" — người rót tiền vào công ty.", "ex": "The investor gave them one million dollars.", "exVi": "Nhà đầu tư rót cho họ một triệu đô." },
-    { "en": "invest", "ipa": "/ɪnˈvest/", "vi": "đầu tư", "pos": "verb", "img": "💰", "connect": "\"In-vét\" — bỏ tiền hôm nay, gặt quả ngày mai.", "ex": "He invests in small companies.", "exVi": "Anh ấy đầu tư vào các công ty nhỏ." },
-    { "en": "stock", "ipa": "/stɑːk/", "vi": "cổ phiếu; hàng trong kho", "pos": "noun", "img": "📈", "connect": "\"Stóc\" — giá cổ phiếu lên xuống mỗi ngày.", "ex": "The stock price went up today.", "exVi": "Giá cổ phiếu hôm nay tăng." },
-    { "en": "revenue", "ipa": "/ˈrev.ə.nuː/", "vi": "doanh thu", "pos": "noun", "img": "🧾", "connect": "\"Re-vờ-niu\" — tổng tiền thu về trước khi trừ chi phí.", "ex": "Revenue doubled this year.", "exVi": "Doanh thu năm nay tăng gấp đôi." },
-    { "en": "expense", "ipa": "/ɪkˈspens/", "vi": "chi phí", "pos": "noun", "img": "💸", "connect": "\"Ích-x-pen-x\" — expensive (đắt) → expense là khoản phải chi.", "ex": "Rent is our biggest expense.", "exVi": "Tiền thuê nhà là chi phí lớn nhất của chúng tôi." },
-    { "en": "loss", "ipa": "/lɑːs/", "vi": "khoản lỗ, mất mát", "pos": "noun", "img": "📉", "connect": "\"Lo-x\" — lose (mất) → loss là khoản lỗ.", "ex": "The company reported a big loss.", "exVi": "Công ty báo cáo một khoản lỗ lớn." },
-    { "en": "negotiate", "ipa": "/nəˈɡoʊ.ʃi.eɪt/", "vi": "đàm phán, thương lượng", "pos": "verb", "img": "🤝", "connect": "\"Nờ-gâu-si-êit\" — mặc cả trên bàn họp.", "ex": "We negotiated a better price.", "exVi": "Chúng tôi thương lượng được giá tốt hơn." },
-    { "en": "strategy", "ipa": "/ˈstræt̬.ə.dʒi/", "vi": "chiến lược", "pos": "noun", "img": "♟️", "connect": "\"Strát-tờ-ji\" — kế hoạch lớn như đánh cờ.", "ex": "Our strategy is to sell online first.", "exVi": "Chiến lược của chúng tôi là bán online trước." },
-    { "en": "competitor", "ipa": "/kəmˈpet̬.ə.t̬ɚ/", "vi": "đối thủ cạnh tranh", "pos": "noun", "img": "🥊", "connect": "\"Cơm-pe-ti-tơ\" — hãng đối đầu giành khách.", "ex": "Our competitor lowered their prices.", "exVi": "Đối thủ của chúng tôi vừa hạ giá." },
-    { "en": "compete", "ipa": "/kəmˈpiːt/", "vi": "cạnh tranh, thi đấu", "pos": "verb", "img": "🏁", "connect": "\"Cơm-pít\" — đua nhau giành phần thắng.", "ex": "Small shops compete with big malls.", "exVi": "Tiệm nhỏ cạnh tranh với trung tâm thương mại lớn." },
-    { "en": "campaign", "ipa": "/kæmˈpeɪn/", "vi": "chiến dịch (quảng cáo)", "pos": "noun", "img": "📣", "connect": "\"Kem-pêin\" — chiến dịch quảng cáo rầm rộ.", "ex": "The ad campaign was very successful.", "exVi": "Chiến dịch quảng cáo rất thành công." },
-    { "en": "sponsor", "ipa": "/ˈspɑːn.sɚ/", "vi": "nhà tài trợ; tài trợ", "pos": "noun", "img": "🎗️", "connect": "\"Spon-sơ\" — hãng trả tiền in logo lên áo đội bóng.", "ex": "A bank is the sponsor of the event.", "exVi": "Một ngân hàng là nhà tài trợ của sự kiện." },
-    { "en": "partnership", "ipa": "/ˈpɑːrt.nɚ.ʃɪp/", "vi": "quan hệ hợp tác", "pos": "noun", "img": "🤝", "connect": "partner (đối tác) + ship — bắt tay làm ăn chung.", "ex": "The two firms formed a partnership.", "exVi": "Hai công ty thiết lập quan hệ hợp tác." },
-    { "en": "headquarters", "ipa": "/ˈhed.kwɔːr.t̬ɚz/", "vi": "trụ sở chính", "pos": "noun", "img": "🏢", "connect": "head (đầu) + quarters (khu) — đầu não công ty.", "ex": "Their headquarters is in Hanoi.", "exVi": "Trụ sở chính của họ ở Hà Nội." },
-    { "en": "recruit", "ipa": "/rɪˈkruːt/", "vi": "tuyển dụng", "pos": "verb", "img": "🧲", "connect": "\"Ri-krút\" — chiêu mộ người tài về đội.", "ex": "We are recruiting three engineers.", "exVi": "Chúng tôi đang tuyển ba kỹ sư." },
-    { "en": "resign", "ipa": "/rɪˈzaɪn/", "vi": "từ chức, xin nghỉ việc", "pos": "verb", "img": "📄", "connect": "\"Ri-dain\" — ký (sign) đơn rời ghế.", "ex": "The manager resigned last month.", "exVi": "Vị quản lý từ chức tháng trước." },
-    { "en": "retail", "ipa": "/ˈriː.teɪl/", "vi": "bán lẻ", "pos": "noun", "img": "🏪", "connect": "\"Ri-têil\" — bán từng món cho người dùng.", "ex": "She works in retail.", "exVi": "Cô ấy làm trong ngành bán lẻ." },
-    { "en": "wholesale", "ipa": "/ˈhoʊl.seɪl/", "vi": "bán buôn, bán sỉ", "pos": "noun", "img": "📦", "connect": "whole (nguyên cả) + sale (bán) — bán nguyên lô giá rẻ.", "ex": "They buy fruit at wholesale prices.", "exVi": "Họ mua trái cây giá sỉ." },
-    { "en": "supply", "ipa": "/səˈplaɪ/", "vi": "nguồn cung; cung cấp", "pos": "noun", "img": "🚚", "connect": "\"Sờ-plai\" — cung đi với cầu (supply & demand).", "ex": "The supply of rice is low this year.", "exVi": "Nguồn cung gạo năm nay thấp." },
-    { "en": "trade", "ipa": "/treɪd/", "vi": "thương mại; trao đổi", "pos": "noun", "img": "🌏", "connect": "\"Trêid\" — buôn bán qua lại giữa các nước.", "ex": "Trade between the two countries grew.", "exVi": "Thương mại giữa hai nước tăng trưởng." },
-    { "en": "industry", "ipa": "/ˈɪn.də.stri/", "vi": "ngành công nghiệp", "pos": "noun", "img": "🏭", "connect": "\"In-đợs-tri\" — ngành nghề: du lịch, dệt may, xe hơi…", "ex": "The tourism industry is growing fast.", "exVi": "Ngành du lịch đang tăng trưởng nhanh." },
-    { "en": "manufacture", "ipa": "/ˌmæn.jəˈfæk.tʃɚ/", "vi": "sản xuất (hàng loạt)", "pos": "verb", "img": "🏭", "connect": "\"Men-niu-fắc-chơ\" — nhà máy cho ra hàng loạt.", "ex": "This factory manufactures shoes.", "exVi": "Nhà máy này sản xuất giày." },
-    { "en": "warehouse", "ipa": "/ˈwer.haʊs/", "vi": "nhà kho", "pos": "noun", "img": "🏬", "connect": "ware (hàng) + house (nhà) — nhà chứa hàng.", "ex": "The goods are stored in a warehouse.", "exVi": "Hàng hoá được cất trong nhà kho." },
-    { "en": "bankrupt", "ipa": "/ˈbæŋ.krʌpt/", "vi": "phá sản", "pos": "adj", "img": "🫥", "connect": "bank (ngân hàng) + rupt (vỡ) — vỡ nợ, sạch tiền.", "ex": "The company went bankrupt.", "exVi": "Công ty đã phá sản." },
-    { "en": "debt", "ipa": "/det/", "vi": "khoản nợ", "pos": "noun", "img": "🧾", "connect": "\"Đét\" (b câm) — gánh nợ trên vai.", "ex": "He paid off all his debts.", "exVi": "Anh ấy đã trả hết nợ." },
-    { "en": "insurance", "ipa": "/ɪnˈʃʊr.əns/", "vi": "bảo hiểm", "pos": "noun", "img": "🛡️", "connect": "\"In-suơ-rừn-x\" — tấm khiên khi gặp rủi ro.", "ex": "Health insurance is important.", "exVi": "Bảo hiểm y tế rất quan trọng." }
+    {
+      "en": "entrepreneur",
+      "ipa": "/ˌɑːn.trə.prəˈnɝː/",
+      "vi": "doanh nhân khởi nghiệp",
+      "pos": "noun",
+      "img": "🚀",
+      "connect": "\"On-trờ-prờ-nơ\" — người dám mở công ty riêng.",
+      "ex": "The young entrepreneur opened a cafe.",
+      "exVi": "Doanh nhân trẻ mở một quán cà phê."
+    },
+    {
+      "en": "startup",
+      "ipa": "/ˈstɑːrt.ʌp/",
+      "vi": "công ty khởi nghiệp",
+      "pos": "noun",
+      "img": "🌱",
+      "connect": "start (bắt đầu) + up (lên) — công ty non trẻ mới mọc.",
+      "ex": "She works at a tech startup.",
+      "exVi": "Cô ấy làm ở một startup công nghệ."
+    },
+    {
+      "en": "investor",
+      "ipa": "/ɪnˈves.tɚ/",
+      "vi": "nhà đầu tư",
+      "pos": "noun",
+      "img": "🤵",
+      "connect": "\"In-ves-tơ\" — người rót tiền vào công ty.",
+      "ex": "The investor gave them one million dollars.",
+      "exVi": "Nhà đầu tư rót cho họ một triệu đô."
+    },
+    {
+      "en": "invest",
+      "ipa": "/ɪnˈvest/",
+      "vi": "đầu tư",
+      "pos": "verb",
+      "img": "💰",
+      "connect": "\"In-vét\" — bỏ tiền hôm nay, gặt quả ngày mai.",
+      "ex": "He invests in small companies.",
+      "exVi": "Anh ấy đầu tư vào các công ty nhỏ."
+    },
+    {
+      "en": "stock",
+      "ipa": "/stɑːk/",
+      "vi": "cổ phiếu; hàng trong kho",
+      "pos": "noun",
+      "img": "📈",
+      "connect": "\"Stóc\" — giá cổ phiếu lên xuống mỗi ngày.",
+      "ex": "The stock price went up today.",
+      "exVi": "Giá cổ phiếu hôm nay tăng."
+    },
+    {
+      "en": "revenue",
+      "ipa": "/ˈrev.ə.nuː/",
+      "vi": "doanh thu",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "\"Re-vờ-niu\" — tổng tiền thu về trước khi trừ chi phí.",
+      "ex": "Revenue doubled this year.",
+      "exVi": "Doanh thu năm nay tăng gấp đôi."
+    },
+    {
+      "en": "expense",
+      "ipa": "/ɪkˈspens/",
+      "vi": "chi phí",
+      "pos": "noun",
+      "img": "💸",
+      "connect": "\"Ích-x-pen-x\" — expensive (đắt) → expense là khoản phải chi.",
+      "ex": "Rent is our biggest expense.",
+      "exVi": "Tiền thuê nhà là chi phí lớn nhất của chúng tôi."
+    },
+    {
+      "en": "loss",
+      "ipa": "/lɑːs/",
+      "vi": "khoản lỗ, mất mát",
+      "pos": "noun",
+      "img": "📉",
+      "connect": "\"Lo-x\" — lose (mất) → loss là khoản lỗ.",
+      "ex": "The company reported a big loss.",
+      "exVi": "Công ty báo cáo một khoản lỗ lớn."
+    },
+    {
+      "en": "negotiate",
+      "ipa": "/nəˈɡoʊ.ʃi.eɪt/",
+      "vi": "đàm phán, thương lượng",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "\"Nờ-gâu-si-êit\" — mặc cả trên bàn họp.",
+      "ex": "We negotiated a better price.",
+      "exVi": "Chúng tôi thương lượng được giá tốt hơn."
+    },
+    {
+      "en": "strategy",
+      "ipa": "/ˈstræt̬.ə.dʒi/",
+      "vi": "chiến lược",
+      "pos": "noun",
+      "img": "♟️",
+      "connect": "\"Strát-tờ-ji\" — kế hoạch lớn như đánh cờ.",
+      "ex": "Our strategy is to sell online first.",
+      "exVi": "Chiến lược của chúng tôi là bán online trước."
+    },
+    {
+      "en": "competitor",
+      "ipa": "/kəmˈpet̬.ə.t̬ɚ/",
+      "vi": "đối thủ cạnh tranh",
+      "pos": "noun",
+      "img": "🥊",
+      "connect": "\"Cơm-pe-ti-tơ\" — hãng đối đầu giành khách.",
+      "ex": "Our competitor lowered their prices.",
+      "exVi": "Đối thủ của chúng tôi vừa hạ giá."
+    },
+    {
+      "en": "compete",
+      "ipa": "/kəmˈpiːt/",
+      "vi": "cạnh tranh, thi đấu",
+      "pos": "verb",
+      "img": "🏁",
+      "connect": "\"Cơm-pít\" — đua nhau giành phần thắng.",
+      "ex": "Small shops compete with big malls.",
+      "exVi": "Tiệm nhỏ cạnh tranh với trung tâm thương mại lớn."
+    },
+    {
+      "en": "campaign",
+      "ipa": "/kæmˈpeɪn/",
+      "vi": "chiến dịch (quảng cáo)",
+      "pos": "noun",
+      "img": "📣",
+      "connect": "\"Kem-pêin\" — chiến dịch quảng cáo rầm rộ.",
+      "ex": "The ad campaign was very successful.",
+      "exVi": "Chiến dịch quảng cáo rất thành công."
+    },
+    {
+      "en": "sponsor",
+      "ipa": "/ˈspɑːn.sɚ/",
+      "vi": "nhà tài trợ; tài trợ",
+      "pos": "noun",
+      "img": "🎗️",
+      "connect": "\"Spon-sơ\" — hãng trả tiền in logo lên áo đội bóng.",
+      "ex": "A bank is the sponsor of the event.",
+      "exVi": "Một ngân hàng là nhà tài trợ của sự kiện."
+    },
+    {
+      "en": "partnership",
+      "ipa": "/ˈpɑːrt.nɚ.ʃɪp/",
+      "vi": "quan hệ hợp tác",
+      "pos": "noun",
+      "img": "🤝",
+      "connect": "partner (đối tác) + ship — bắt tay làm ăn chung.",
+      "ex": "The two firms formed a partnership.",
+      "exVi": "Hai công ty thiết lập quan hệ hợp tác."
+    },
+    {
+      "en": "headquarters",
+      "ipa": "/ˈhed.kwɔːr.t̬ɚz/",
+      "vi": "trụ sở chính",
+      "pos": "noun",
+      "img": "🏢",
+      "connect": "head (đầu) + quarters (khu) — đầu não công ty.",
+      "ex": "Their headquarters is in Hanoi.",
+      "exVi": "Trụ sở chính của họ ở Hà Nội."
+    },
+    {
+      "en": "recruit",
+      "ipa": "/rɪˈkruːt/",
+      "vi": "tuyển dụng",
+      "pos": "verb",
+      "img": "🧲",
+      "connect": "\"Ri-krút\" — chiêu mộ người tài về đội.",
+      "ex": "We are recruiting three engineers.",
+      "exVi": "Chúng tôi đang tuyển ba kỹ sư."
+    },
+    {
+      "en": "resign",
+      "ipa": "/rɪˈzaɪn/",
+      "vi": "từ chức, xin nghỉ việc",
+      "pos": "verb",
+      "img": "📄",
+      "connect": "\"Ri-dain\" — ký (sign) đơn rời ghế.",
+      "ex": "The manager resigned last month.",
+      "exVi": "Vị quản lý từ chức tháng trước."
+    },
+    {
+      "en": "retail",
+      "ipa": "/ˈriː.teɪl/",
+      "vi": "bán lẻ",
+      "pos": "noun",
+      "img": "🏪",
+      "connect": "\"Ri-têil\" — bán từng món cho người dùng.",
+      "ex": "She works in retail.",
+      "exVi": "Cô ấy làm trong ngành bán lẻ."
+    },
+    {
+      "en": "wholesale",
+      "ipa": "/ˈhoʊl.seɪl/",
+      "vi": "bán buôn, bán sỉ",
+      "pos": "noun",
+      "img": "📦",
+      "connect": "whole (nguyên cả) + sale (bán) — bán nguyên lô giá rẻ.",
+      "ex": "They buy fruit at wholesale prices.",
+      "exVi": "Họ mua trái cây giá sỉ."
+    },
+    {
+      "en": "supply",
+      "ipa": "/səˈplaɪ/",
+      "vi": "nguồn cung; cung cấp",
+      "pos": "noun",
+      "img": "🚚",
+      "connect": "\"Sờ-plai\" — cung đi với cầu (supply & demand).",
+      "ex": "The supply of rice is low this year.",
+      "exVi": "Nguồn cung gạo năm nay thấp."
+    },
+    {
+      "en": "trade",
+      "ipa": "/treɪd/",
+      "vi": "thương mại; trao đổi",
+      "pos": "noun",
+      "img": "🌏",
+      "connect": "\"Trêid\" — buôn bán qua lại giữa các nước.",
+      "ex": "Trade between the two countries grew.",
+      "exVi": "Thương mại giữa hai nước tăng trưởng."
+    },
+    {
+      "en": "industry",
+      "ipa": "/ˈɪn.də.stri/",
+      "vi": "ngành công nghiệp",
+      "pos": "noun",
+      "img": "🏭",
+      "connect": "\"In-đợs-tri\" — ngành nghề: du lịch, dệt may, xe hơi…",
+      "ex": "The tourism industry is growing fast.",
+      "exVi": "Ngành du lịch đang tăng trưởng nhanh."
+    },
+    {
+      "en": "manufacture",
+      "ipa": "/ˌmæn.jəˈfæk.tʃɚ/",
+      "vi": "sản xuất (hàng loạt)",
+      "pos": "verb",
+      "img": "🏭",
+      "connect": "\"Men-niu-fắc-chơ\" — nhà máy cho ra hàng loạt.",
+      "ex": "This factory manufactures shoes.",
+      "exVi": "Nhà máy này sản xuất giày."
+    },
+    {
+      "en": "warehouse",
+      "ipa": "/ˈwer.haʊs/",
+      "vi": "nhà kho",
+      "pos": "noun",
+      "img": "🏬",
+      "connect": "ware (hàng) + house (nhà) — nhà chứa hàng.",
+      "ex": "The goods are stored in a warehouse.",
+      "exVi": "Hàng hoá được cất trong nhà kho."
+    },
+    {
+      "en": "bankrupt",
+      "ipa": "/ˈbæŋ.krʌpt/",
+      "vi": "phá sản",
+      "pos": "adj",
+      "img": "🫥",
+      "connect": "bank (ngân hàng) + rupt (vỡ) — vỡ nợ, sạch tiền.",
+      "ex": "The company went bankrupt.",
+      "exVi": "Công ty đã phá sản."
+    },
+    {
+      "en": "debt",
+      "ipa": "/det/",
+      "vi": "khoản nợ",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "\"Đét\" (b câm) — gánh nợ trên vai.",
+      "ex": "He paid off all his debts.",
+      "exVi": "Anh ấy đã trả hết nợ."
+    },
+    {
+      "en": "insurance",
+      "ipa": "/ɪnˈʃʊr.əns/",
+      "vi": "bảo hiểm",
+      "pos": "noun",
+      "img": "🛡️",
+      "connect": "\"In-suơ-rừn-x\" — tấm khiên khi gặp rủi ro.",
+      "ex": "Health insurance is important.",
+      "exVi": "Bảo hiểm y tế rất quan trọng."
+    }
   ]
 }

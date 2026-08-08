@@ -6,31 +6,265 @@
   "tone": "tone-a",
   "emoji": "💼",
   "words": [
-    { "en": "engineer", "ipa": "/ˌen.dʒɪˈnɪr/", "vi": "kỹ sư", "pos": "noun", "img": "👷", "connect": "\"En-gi-ni-a\" — kỹ sư máy móc.", "ex": "She works as an engineer.", "exVi": "Cô ấy làm kỹ sư." },
-    { "en": "farmer", "ipa": "/ˈfɑːr.mɚ/", "vi": "nông dân", "pos": "noun", "img": "👨‍🌾", "connect": "farm (nông trại) + er (người).", "ex": "The farmer grows rice.", "exVi": "Bác nông dân trồng lúa." },
-    { "en": "artist", "ipa": "/ˈɑːr.tɪst/", "vi": "nghệ sĩ, hoạ sĩ", "pos": "noun", "img": "🎨", "connect": "art (nghệ thuật) + ist (người).", "ex": "The artist paints beautifully.", "exVi": "Người nghệ sĩ vẽ rất đẹp." },
-    { "en": "singer", "ipa": "/ˈsɪŋ.ɚ/", "vi": "ca sĩ", "pos": "noun", "img": "🎤", "connect": "sing (hát) + er (người).", "ex": "She is a famous singer.", "exVi": "Cô ấy là một ca sĩ nổi tiếng." },
-    { "en": "actor", "ipa": "/ˈæk.tɚ/", "vi": "diễn viên", "pos": "noun", "img": "🎭", "connect": "act (diễn) + or (người).", "ex": "He is a movie actor.", "exVi": "Anh ấy là diễn viên điện ảnh." },
-    { "en": "police", "ipa": "/pəˈliːs/", "vi": "cảnh sát", "pos": "noun", "img": "👮", "connect": "\"Pờ-lít\" — công an.", "ex": "Call the police!", "exVi": "Gọi cảnh sát đi!" },
-    { "en": "lawyer", "ipa": "/ˈlɔɪ.ɚ/", "vi": "luật sư", "pos": "noun", "img": "⚖️", "connect": "law (luật) + yer (người).", "ex": "The lawyer helped us a lot.", "exVi": "Luật sư đã giúp chúng tôi rất nhiều." },
-    { "en": "chef", "ipa": "/ʃef/", "vi": "đầu bếp", "pos": "noun", "img": "👨‍🍳", "connect": "\"Sép\" — bếp trưởng.", "ex": "The chef makes great food.", "exVi": "Đầu bếp nấu ăn rất ngon." },
-    { "en": "waiter", "ipa": "/ˈweɪ.t̬ɚ/", "vi": "bồi bàn", "pos": "noun", "img": "🧑‍🍽️", "connect": "wait (phục vụ) + er (người).", "ex": "The waiter brought the menu.", "exVi": "Người bồi bàn mang thực đơn tới." },
-    { "en": "scientist", "ipa": "/ˈsaɪ.ən.tɪst/", "vi": "nhà khoa học", "pos": "noun", "img": "🔬", "connect": "science (khoa học) + ist (người).", "ex": "The scientist did an experiment.", "exVi": "Nhà khoa học làm một thí nghiệm." },
-    { "en": "writer", "ipa": "/ˈraɪ.t̬ɚ/", "vi": "nhà văn", "pos": "noun", "img": "✍️", "connect": "write (viết) + er (người).", "ex": "She is a young writer.", "exVi": "Cô ấy là một nhà văn trẻ." },
-    { "en": "painter", "ipa": "/ˈpeɪn.t̬ɚ/", "vi": "hoạ sĩ, thợ sơn", "pos": "noun", "img": "🖌️", "connect": "paint (sơn/vẽ) + er (người).", "ex": "The painter uses many colors.", "exVi": "Hoạ sĩ dùng rất nhiều màu." },
-    { "en": "dentist", "ipa": "/ˈden.tɪst/", "vi": "nha sĩ", "pos": "noun", "img": "🦷", "connect": "\"Đen-tịst\" — bác sĩ răng (dental).", "ex": "See a dentist about that tooth.", "exVi": "Đi nha sĩ khám cái răng đó đi." },
-    { "en": "pilot", "ipa": "/ˈpaɪ.lət/", "vi": "phi công", "pos": "noun", "img": "🧑‍✈️", "connect": "\"Pai-lợt\" — người lái máy bay.", "ex": "The pilot flies the plane.", "exVi": "Phi công lái máy bay." },
-    { "en": "soldier", "ipa": "/ˈsoʊl.dʒɚ/", "vi": "người lính", "pos": "noun", "img": "🪖", "connect": "\"Sâu-giơ\" — bộ đội.", "ex": "The soldier is very brave.", "exVi": "Người lính rất dũng cảm." },
-    { "en": "guard", "ipa": "/ɡɑːrd/", "vi": "bảo vệ", "pos": "noun", "img": "💂", "connect": "\"Gác\" — gác cổng.", "ex": "The guard checks the door.", "exVi": "Bảo vệ kiểm tra cửa." },
-    { "en": "cleaner", "ipa": "/ˈkliː.nɚ/", "vi": "lao công", "pos": "noun", "img": "🧹", "connect": "clean (dọn) + er (người).", "ex": "The cleaner mops the floor.", "exVi": "Lao công lau sàn nhà." },
-    { "en": "guide", "ipa": "/ɡaɪd/", "vi": "hướng dẫn viên", "pos": "noun", "img": "🧭", "connect": "\"Gai-d\" — người dẫn đường.", "ex": "The tour guide is helpful.", "exVi": "Hướng dẫn viên du lịch rất nhiệt tình." },
-    { "en": "manager", "ipa": "/ˈmæn.ɪ.dʒɚ/", "vi": "người quản lý", "pos": "noun", "img": "🧑‍💼", "connect": "manage (quản lý) + er (người).", "ex": "The manager runs the store.", "exVi": "Người quản lý điều hành cửa hàng." },
-    { "en": "owner", "ipa": "/ˈoʊ.nɚ/", "vi": "chủ sở hữu", "pos": "noun", "img": "🔑", "connect": "own (sở hữu) + er (người).", "ex": "She is the owner of the café.", "exVi": "Cô ấy là chủ quán cà phê." },
-    { "en": "staff", "ipa": "/stæf/", "vi": "nhân viên (tập thể)", "pos": "noun", "img": "🧑‍💼", "connect": "\"Sờ-táp\" — đội ngũ nhân viên.", "ex": "The staff are very friendly.", "exVi": "Nhân viên ở đây rất thân thiện." },
-    { "en": "career", "ipa": "/kəˈrɪr/", "vi": "sự nghiệp", "pos": "noun", "img": "📈", "connect": "\"Kơ-ria\" — con đường sự nghiệp.", "ex": "She has a great career.", "exVi": "Cô ấy có một sự nghiệp tốt." },
-    { "en": "colleague", "ipa": "/ˈkɑː.liːɡ/", "vi": "đồng nghiệp", "pos": "noun", "img": "🤝", "connect": "\"Kó-lig\" — người làm cùng.", "ex": "My colleagues are kind.", "exVi": "Đồng nghiệp của tôi tốt bụng." },
-    { "en": "hire", "ipa": "/haɪr/", "vi": "thuê, tuyển", "pos": "verb", "img": "🧑‍💼", "connect": "\"Hai-ơ\" — tuyển người vào làm.", "ex": "The company hired ten people.", "exVi": "Công ty tuyển mười người." },
-    { "en": "mechanic", "ipa": "/məˈkæn.ɪk/", "vi": "thợ máy", "pos": "noun", "img": "🔧", "connect": "\"Mờ-ke-níc\" — người sửa máy.", "ex": "The mechanic fixed my car.", "exVi": "Thợ máy đã sửa xe cho tôi." },
-    { "en": "firefighter", "ipa": "/ˈfaɪr.faɪ.t̬ɚ/", "vi": "lính cứu hoả", "pos": "noun", "img": "🧑‍🚒", "connect": "fire (lửa) + fighter (người chiến đấu).", "ex": "Firefighters are real heroes.", "exVi": "Lính cứu hoả là những người hùng thật sự." }
+    {
+      "en": "engineer",
+      "ipa": "/ˌen.dʒɪˈnɪr/",
+      "vi": "kỹ sư",
+      "pos": "noun",
+      "img": "👷",
+      "connect": "\"En-gi-ni-a\" — kỹ sư máy móc.",
+      "ex": "She works as an engineer.",
+      "exVi": "Cô ấy làm kỹ sư."
+    },
+    {
+      "en": "farmer",
+      "ipa": "/ˈfɑːr.mɚ/",
+      "vi": "nông dân",
+      "pos": "noun",
+      "img": "👨‍🌾",
+      "connect": "farm (nông trại) + er (người).",
+      "ex": "The farmer grows rice.",
+      "exVi": "Bác nông dân trồng lúa."
+    },
+    {
+      "en": "artist",
+      "ipa": "/ˈɑːr.tɪst/",
+      "vi": "nghệ sĩ, hoạ sĩ",
+      "pos": "noun",
+      "img": "🎨",
+      "connect": "art (nghệ thuật) + ist (người).",
+      "ex": "The artist paints beautifully.",
+      "exVi": "Người nghệ sĩ vẽ rất đẹp."
+    },
+    {
+      "en": "singer",
+      "ipa": "/ˈsɪŋ.ɚ/",
+      "vi": "ca sĩ",
+      "pos": "noun",
+      "img": "🎤",
+      "connect": "sing (hát) + er (người).",
+      "ex": "She is a famous singer.",
+      "exVi": "Cô ấy là một ca sĩ nổi tiếng."
+    },
+    {
+      "en": "actor",
+      "ipa": "/ˈæk.tɚ/",
+      "vi": "diễn viên",
+      "pos": "noun",
+      "img": "🎭",
+      "connect": "act (diễn) + or (người).",
+      "ex": "He is a movie actor.",
+      "exVi": "Anh ấy là diễn viên điện ảnh."
+    },
+    {
+      "en": "police",
+      "ipa": "/pəˈliːs/",
+      "vi": "cảnh sát",
+      "pos": "noun",
+      "img": "👮",
+      "connect": "\"Pờ-lít\" — công an.",
+      "ex": "Call the police!",
+      "exVi": "Gọi cảnh sát đi!"
+    },
+    {
+      "en": "lawyer",
+      "ipa": "/ˈlɔɪ.ɚ/",
+      "vi": "luật sư",
+      "pos": "noun",
+      "img": "⚖️",
+      "connect": "law (luật) + yer (người).",
+      "ex": "The lawyer helped us a lot.",
+      "exVi": "Luật sư đã giúp chúng tôi rất nhiều."
+    },
+    {
+      "en": "chef",
+      "ipa": "/ʃef/",
+      "vi": "đầu bếp",
+      "pos": "noun",
+      "img": "👨‍🍳",
+      "connect": "\"Sép\" — bếp trưởng.",
+      "ex": "The chef makes great food.",
+      "exVi": "Đầu bếp nấu ăn rất ngon."
+    },
+    {
+      "en": "waiter",
+      "ipa": "/ˈweɪ.t̬ɚ/",
+      "vi": "bồi bàn",
+      "pos": "noun",
+      "img": "🧑‍🍽️",
+      "connect": "wait (phục vụ) + er (người).",
+      "ex": "The waiter brought the menu.",
+      "exVi": "Người bồi bàn mang thực đơn tới."
+    },
+    {
+      "en": "scientist",
+      "ipa": "/ˈsaɪ.ən.tɪst/",
+      "vi": "nhà khoa học",
+      "pos": "noun",
+      "img": "🔬",
+      "connect": "science (khoa học) + ist (người).",
+      "ex": "The scientist did an experiment.",
+      "exVi": "Nhà khoa học làm một thí nghiệm."
+    },
+    {
+      "en": "writer",
+      "ipa": "/ˈraɪ.t̬ɚ/",
+      "vi": "nhà văn",
+      "pos": "noun",
+      "img": "✍️",
+      "connect": "write (viết) + er (người).",
+      "ex": "She is a young writer.",
+      "exVi": "Cô ấy là một nhà văn trẻ."
+    },
+    {
+      "en": "painter",
+      "ipa": "/ˈpeɪn.t̬ɚ/",
+      "vi": "hoạ sĩ, thợ sơn",
+      "pos": "noun",
+      "img": "🖌️",
+      "connect": "paint (sơn/vẽ) + er (người).",
+      "ex": "The painter uses many colors.",
+      "exVi": "Hoạ sĩ dùng rất nhiều màu."
+    },
+    {
+      "en": "dentist",
+      "ipa": "/ˈden.tɪst/",
+      "vi": "nha sĩ",
+      "pos": "noun",
+      "img": "🦷",
+      "connect": "\"Đen-tịst\" — bác sĩ răng (dental).",
+      "ex": "See a dentist about that tooth.",
+      "exVi": "Đi nha sĩ khám cái răng đó đi."
+    },
+    {
+      "en": "pilot",
+      "ipa": "/ˈpaɪ.lət/",
+      "vi": "phi công",
+      "pos": "noun",
+      "img": "🧑‍✈️",
+      "connect": "\"Pai-lợt\" — người lái máy bay.",
+      "ex": "The pilot flies the plane.",
+      "exVi": "Phi công lái máy bay."
+    },
+    {
+      "en": "soldier",
+      "ipa": "/ˈsoʊl.dʒɚ/",
+      "vi": "người lính",
+      "pos": "noun",
+      "img": "🪖",
+      "connect": "\"Sâu-giơ\" — bộ đội.",
+      "ex": "The soldier is very brave.",
+      "exVi": "Người lính rất dũng cảm."
+    },
+    {
+      "en": "guard",
+      "ipa": "/ɡɑːrd/",
+      "vi": "bảo vệ",
+      "pos": "noun",
+      "img": "💂",
+      "connect": "\"Gác\" — gác cổng.",
+      "ex": "The guard checks the door.",
+      "exVi": "Bảo vệ kiểm tra cửa."
+    },
+    {
+      "en": "cleaner",
+      "ipa": "/ˈkliː.nɚ/",
+      "vi": "lao công",
+      "pos": "noun",
+      "img": "🧹",
+      "connect": "clean (dọn) + er (người).",
+      "ex": "The cleaner mops the floor.",
+      "exVi": "Lao công lau sàn nhà."
+    },
+    {
+      "en": "guide",
+      "ipa": "/ɡaɪd/",
+      "vi": "hướng dẫn viên",
+      "pos": "noun",
+      "img": "🧭",
+      "connect": "\"Gai-d\" — người dẫn đường.",
+      "ex": "The tour guide is helpful.",
+      "exVi": "Hướng dẫn viên du lịch rất nhiệt tình."
+    },
+    {
+      "en": "manager",
+      "ipa": "/ˈmæn.ɪ.dʒɚ/",
+      "vi": "người quản lý",
+      "pos": "noun",
+      "img": "🧑‍💼",
+      "connect": "manage (quản lý) + er (người).",
+      "ex": "The manager runs the store.",
+      "exVi": "Người quản lý điều hành cửa hàng."
+    },
+    {
+      "en": "owner",
+      "ipa": "/ˈoʊ.nɚ/",
+      "vi": "chủ sở hữu",
+      "pos": "noun",
+      "img": "🔑",
+      "connect": "own (sở hữu) + er (người).",
+      "ex": "She is the owner of the café.",
+      "exVi": "Cô ấy là chủ quán cà phê."
+    },
+    {
+      "en": "staff",
+      "ipa": "/stæf/",
+      "vi": "nhân viên (tập thể)",
+      "pos": "noun",
+      "img": "🧑‍💼",
+      "connect": "\"Sờ-táp\" — đội ngũ nhân viên.",
+      "ex": "The staff are very friendly.",
+      "exVi": "Nhân viên ở đây rất thân thiện."
+    },
+    {
+      "en": "career",
+      "ipa": "/kəˈrɪr/",
+      "vi": "sự nghiệp",
+      "pos": "noun",
+      "img": "📈",
+      "connect": "\"Kơ-ria\" — con đường sự nghiệp.",
+      "ex": "She has a great career.",
+      "exVi": "Cô ấy có một sự nghiệp tốt."
+    },
+    {
+      "en": "colleague",
+      "ipa": "/ˈkɑː.liːɡ/",
+      "vi": "đồng nghiệp",
+      "pos": "noun",
+      "img": "🤝",
+      "connect": "\"Kó-lig\" — người làm cùng.",
+      "ex": "My colleagues are kind.",
+      "exVi": "Đồng nghiệp của tôi tốt bụng."
+    },
+    {
+      "en": "hire",
+      "ipa": "/haɪr/",
+      "vi": "thuê, tuyển",
+      "pos": "verb",
+      "img": "🧑‍💼",
+      "connect": "\"Hai-ơ\" — tuyển người vào làm.",
+      "ex": "The company hired ten people.",
+      "exVi": "Công ty tuyển mười người."
+    },
+    {
+      "en": "mechanic",
+      "ipa": "/məˈkæn.ɪk/",
+      "vi": "thợ máy",
+      "pos": "noun",
+      "img": "🔧",
+      "connect": "\"Mờ-ke-níc\" — người sửa máy.",
+      "ex": "The mechanic fixed my car.",
+      "exVi": "Thợ máy đã sửa xe cho tôi."
+    },
+    {
+      "en": "firefighter",
+      "ipa": "/ˈfaɪr.faɪ.t̬ɚ/",
+      "vi": "lính cứu hoả",
+      "pos": "noun",
+      "img": "🧑‍🚒",
+      "connect": "fire (lửa) + fighter (người chiến đấu).",
+      "ex": "Firefighters are real heroes.",
+      "exVi": "Lính cứu hoả là những người hùng thật sự."
+    }
   ]
 }

@@ -1,0 +1,310 @@
+{
+  "id": "verbs11",
+  "name": "Động từ tần suất cao (2)",
+  "sub": "Involve, reveal, fail, rely, select…",
+  "pos": "verb",
+  "tone": "tone-e",
+  "emoji": "🔧",
+  "words": [
+    {
+      "en": "stare",
+      "ipa": "/ster/",
+      "vi": "nhìn chằm chằm",
+      "pos": "verb",
+      "img": "👀",
+      "connect": "Stare at = nhìn không rời mắt, mạnh hơn look.",
+      "ex": "Don't stare at people on the bus.",
+      "exVi": "Đừng nhìn chằm chằm vào người khác trên xe buýt."
+    },
+    {
+      "en": "strike",
+      "ipa": "/straɪk/",
+      "vi": "đánh mạnh, đình công",
+      "pos": "verb",
+      "img": "⚡",
+      "connect": "Quá khứ struck — go on strike: đi đình công.",
+      "ex": "Lightning struck the old tree.",
+      "exVi": "Sét đã đánh trúng cây cổ thụ."
+    },
+    {
+      "en": "struggle",
+      "ipa": "/ˈstrʌɡ.əl/",
+      "vi": "vật lộn, chật vật",
+      "pos": "verb",
+      "img": "😮‍💨",
+      "connect": "Struggle with = chật vật với việc gì.",
+      "ex": "I still struggle with English grammar.",
+      "exVi": "Tôi vẫn còn chật vật với ngữ pháp tiếng Anh."
+    },
+    {
+      "en": "tend",
+      "ipa": "/tend/",
+      "vi": "có xu hướng",
+      "pos": "verb",
+      "img": "📉",
+      "connect": "Tend to + V = thường hay làm gì.",
+      "ex": "I tend to wake up early.",
+      "exVi": "Tôi thường hay dậy sớm."
+    },
+    {
+      "en": "threaten",
+      "ipa": "/ˈθret̬.ən/",
+      "vi": "đe doạ",
+      "pos": "verb",
+      "img": "⚠️",
+      "connect": "Bắt đầu bằng /θ/ — lưỡi chạm răng.",
+      "ex": "He threatened to call the police.",
+      "exVi": "Anh ta doạ sẽ gọi cảnh sát."
+    },
+    {
+      "en": "unite",
+      "ipa": "/juˈnaɪt/",
+      "vi": "đoàn kết, hợp nhất",
+      "pos": "verb",
+      "img": "🤝",
+      "connect": "Cùng gốc với United (thống nhất) trong tên nước.",
+      "ex": "The crisis united the whole village.",
+      "exVi": "Cuộc khủng hoảng đã gắn kết cả ngôi làng."
+    },
+    {
+      "en": "urge",
+      "ipa": "/ɝːdʒ/",
+      "vi": "thúc giục",
+      "pos": "verb",
+      "img": "📣",
+      "connect": "\"Ơ-jờ\" — urge someone to do something.",
+      "ex": "Doctors urge people to drink more water.",
+      "exVi": "Bác sĩ khuyên mọi người uống nhiều nước hơn."
+    },
+    {
+      "en": "vary",
+      "ipa": "/ˈver.i/",
+      "vi": "thay đổi, khác nhau",
+      "pos": "verb",
+      "img": "🔀",
+      "connect": "Cùng gốc với various (đa dạng).",
+      "ex": "Prices vary from shop to shop.",
+      "exVi": "Giá cả khác nhau tuỳ từng cửa hàng."
+    },
+    {
+      "en": "wander",
+      "ipa": "/ˈwɑːn.dɚ/",
+      "vi": "đi lang thang",
+      "pos": "verb",
+      "img": "🚶",
+      "connect": "Đừng nhầm với wonder (tự hỏi) — wander là đi lòng vòng.",
+      "ex": "We wandered around the old town.",
+      "exVi": "Chúng tôi lang thang quanh phố cổ."
+    },
+    {
+      "en": "rush",
+      "ipa": "/rʌʃ/",
+      "vi": "vội vã, hối hả",
+      "pos": "verb",
+      "img": "🏃",
+      "connect": "Rush hour: giờ cao điểm.",
+      "ex": "Don't rush, we have plenty of time.",
+      "exVi": "Đừng vội, chúng ta còn nhiều thời gian."
+    },
+    {
+      "en": "satisfy",
+      "ipa": "/ˈsæt̬.ɪs.faɪ/",
+      "vi": "làm hài lòng",
+      "pos": "verb",
+      "img": "😊",
+      "connect": "Tính từ satisfied: hài lòng.",
+      "ex": "The meal satisfied everyone at the table.",
+      "exVi": "Bữa ăn làm hài lòng mọi người trong bàn."
+    },
+    {
+      "en": "select",
+      "ipa": "/sɪˈlekt/",
+      "vi": "chọn lựa",
+      "pos": "verb",
+      "img": "☑️",
+      "connect": "Trang trọng hơn choose — hay gặp trên giao diện máy tính.",
+      "ex": "Select your language from the list.",
+      "exVi": "Chọn ngôn ngữ của bạn trong danh sách."
+    },
+    {
+      "en": "release",
+      "ipa": "/rɪˈliːs/",
+      "vi": "thả ra, phát hành",
+      "pos": "verb",
+      "img": "🕊️",
+      "connect": "Release a song: phát hành một bài hát.",
+      "ex": "The band released a new album.",
+      "exVi": "Ban nhạc vừa phát hành album mới."
+    },
+    {
+      "en": "rely",
+      "ipa": "/rɪˈlaɪ/",
+      "vi": "dựa vào, tin cậy",
+      "pos": "verb",
+      "img": "🫱",
+      "connect": "Luôn đi với on: rely on someone.",
+      "ex": "You can rely on me.",
+      "exVi": "Bạn có thể tin tưởng vào tôi."
+    },
+    {
+      "en": "reveal",
+      "ipa": "/rɪˈviːl/",
+      "vi": "tiết lộ",
+      "pos": "verb",
+      "img": "🎭",
+      "connect": "\"Ri-víu\" — vén màn cho lộ ra.",
+      "ex": "She refused to reveal her secret.",
+      "exVi": "Cô ấy từ chối tiết lộ bí mật của mình."
+    },
+    {
+      "en": "reject",
+      "ipa": "/rɪˈdʒekt/",
+      "vi": "từ chối, bác bỏ",
+      "pos": "verb",
+      "img": "🚫",
+      "connect": "Mạnh hơn refuse — bác bỏ hẳn.",
+      "ex": "The bank rejected my application.",
+      "exVi": "Ngân hàng đã từ chối đơn của tôi."
+    },
+    {
+      "en": "occur",
+      "ipa": "/əˈkɝː/",
+      "vi": "xảy ra",
+      "pos": "verb",
+      "img": "📌",
+      "connect": "Trang trọng hơn happen — hay gặp trong tin tức.",
+      "ex": "The accident occurred at midnight.",
+      "exVi": "Vụ tai nạn xảy ra lúc nửa đêm."
+    },
+    {
+      "en": "load",
+      "ipa": "/loʊd/",
+      "vi": "chất, tải lên",
+      "pos": "verb",
+      "img": "📦",
+      "connect": "Download = tải xuống, upload = tải lên.",
+      "ex": "They loaded the boxes into the truck.",
+      "exVi": "Họ chất các thùng lên xe tải."
+    },
+    {
+      "en": "involve",
+      "ipa": "/ɪnˈvɑːlv/",
+      "vi": "liên quan, bao gồm",
+      "pos": "verb",
+      "img": "🔗",
+      "connect": "Be involved in = có dính líu tới.",
+      "ex": "The job involves a lot of travel.",
+      "exVi": "Công việc này đòi hỏi đi lại nhiều."
+    },
+    {
+      "en": "inform",
+      "ipa": "/ɪnˈfɔːrm/",
+      "vi": "thông báo",
+      "pos": "verb",
+      "img": "📨",
+      "connect": "Cùng gốc với information (thông tin).",
+      "ex": "Please inform me if the time changes.",
+      "exVi": "Hãy báo cho tôi nếu giờ giấc thay đổi."
+    },
+    {
+      "en": "influence",
+      "ipa": "/ˈɪn.flu.əns/",
+      "vi": "ảnh hưởng tới",
+      "pos": "verb",
+      "img": "🌊",
+      "connect": "Từ này sinh ra influencer — người có sức ảnh hưởng.",
+      "ex": "Weather can influence our mood.",
+      "exVi": "Thời tiết có thể ảnh hưởng tới tâm trạng."
+    },
+    {
+      "en": "identify",
+      "ipa": "/aɪˈden.t̬ə.faɪ/",
+      "vi": "nhận diện, xác định",
+      "pos": "verb",
+      "img": "🔍",
+      "connect": "Cùng gốc với ID (identity: danh tính).",
+      "ex": "Can you identify the man in the photo?",
+      "exVi": "Bạn có nhận ra người đàn ông trong ảnh không?"
+    },
+    {
+      "en": "hurry",
+      "ipa": "/ˈhɝː.i/",
+      "vi": "vội, gấp gáp",
+      "pos": "verb",
+      "img": "⏱️",
+      "connect": "In a hurry: đang vội.",
+      "ex": "Hurry up or we will miss the bus.",
+      "exVi": "Nhanh lên không lỡ xe buýt bây giờ."
+    },
+    {
+      "en": "fail",
+      "ipa": "/feɪl/",
+      "vi": "thất bại, trượt",
+      "pos": "verb",
+      "img": "❌",
+      "connect": "Trái nghĩa với pass — fail an exam: trượt kỳ thi.",
+      "ex": "Don't be afraid to fail.",
+      "exVi": "Đừng sợ thất bại."
+    },
+    {
+      "en": "employ",
+      "ipa": "/ɪmˈplɔɪ/",
+      "vi": "thuê, tuyển dụng",
+      "pos": "verb",
+      "img": "🧑‍💼",
+      "connect": "Sinh ra employer (chủ) và employee (nhân viên).",
+      "ex": "The factory employs two hundred people.",
+      "exVi": "Nhà máy tuyển dụng hai trăm người."
+    },
+    {
+      "en": "blame",
+      "ipa": "/bleɪm/",
+      "vi": "đổ lỗi",
+      "pos": "verb",
+      "img": "☝️",
+      "connect": "Blame someone for something: đổ lỗi cho ai vì việc gì.",
+      "ex": "Don't blame me for the delay.",
+      "exVi": "Đừng đổ lỗi cho tôi vì sự chậm trễ."
+    },
+    {
+      "en": "attack",
+      "ipa": "/əˈtæk/",
+      "vi": "tấn công",
+      "pos": "verb",
+      "img": "🛡️",
+      "connect": "Trọng âm rơi vào âm sau: a-TTACK.",
+      "ex": "The dog attacked the postman.",
+      "exVi": "Con chó đã tấn công người đưa thư."
+    },
+    {
+      "en": "advise",
+      "ipa": "/ədˈvaɪz/",
+      "vi": "khuyên",
+      "pos": "verb",
+      "img": "💡",
+      "connect": "Động từ advise đọc /z/, danh từ advice đọc /s/.",
+      "ex": "The doctor advised me to rest.",
+      "exVi": "Bác sĩ khuyên tôi nghỉ ngơi."
+    },
+    {
+      "en": "value",
+      "ipa": "/ˈvæl.juː/",
+      "vi": "coi trọng, định giá",
+      "pos": "verb",
+      "img": "💎",
+      "connect": "Cũng là danh từ: giá trị.",
+      "ex": "I value your honest opinion.",
+      "exVi": "Tôi trân trọng ý kiến thẳng thắn của bạn."
+    },
+    {
+      "en": "thank",
+      "ipa": "/θæŋk/",
+      "vi": "cảm ơn",
+      "pos": "verb",
+      "img": "🙏",
+      "connect": "Bắt đầu bằng /θ/ — thank you, không phải \"tank you\".",
+      "ex": "I want to thank you for your help.",
+      "exVi": "Tôi muốn cảm ơn bạn vì đã giúp đỡ."
+    }
+  ]
+}

@@ -23,6 +23,16 @@ const LETTERS = ['A', 'B', 'C', 'D']
 
 const SPEAKER_ICON: Record<string, string> = { M: '👨', W: '👩', M2: '🧔', W2: '👩‍🦰' }
 
+const DIRECTION: Record<number, string> = {
+  1: 'Select the one statement that best describes what you see in the picture.',
+  2: 'Select the best response to each question.',
+  3: 'Select the best response to each question.',
+  4: 'Select the best response to each question.',
+  5: 'Select the best answer to complete the sentence.',
+  6: 'Select the best answer to complete the text.',
+  7: 'Select the best answer for each question.',
+}
+
 export default function Runner({
   groups, mode, title, timerSec, sectionSec, playOnce, initial, onPersist, onFinish, onExit,
 }: Props) {
@@ -34,6 +44,7 @@ export default function Runner({
   const [remR, setRemR] = useState(initial?.remR ?? sectionSec?.reading ?? 0)
   const [voiceStatus, setVoiceStatus] = useState(englishVoiceStatus)
   const [autoJumped, setAutoJumped] = useState(false)
+  const [marked, setMarked] = useState<Set<string>>(new Set())
   const finishedRef = useRef(false)
 
   useEffect(() => onVoicesChanged(() => setVoiceStatus(englishVoiceStatus())), [])
@@ -42,6 +53,11 @@ export default function Runner({
   const totalQ = useMemo(() => groups.reduce((s, x) => s + x.questions.length, 0), [groups])
   const answeredQ = Object.keys(answers).length
   const firstReading = useMemo(() => groups.findIndex((x) => x.part >= 5), [groups])
+  const lastNum = useMemo(() => groups.reduce((best, x) => {
+    const end = x.questions.reduce(
+      (m, q, i) => Math.max(m, q.num ?? (x.qStart != null ? x.qStart + i : 0)), 0)
+    return Math.max(best, end)
+  }, 0), [groups])
   const inReading = !!sectionSec && !!g && g.part >= 5
   const remaining = sectionSec ? (inReading ? remR : remL) : remL
 
@@ -123,6 +139,9 @@ export default function Runner({
     else setGi((x) => x + 1)
   }
 
+  const canGoBack = gi > 0 && g.part >= 5 && groups[gi - 1].part >= 5
+  const prev = () => { stopSpeak(); setGi((x) => Math.max(0, x - 1)) }
+
   const checkGroup = () => setCheckedGroups((s) => new Set(s).add(g.id))
 
   const fmtTime = (s: number) => {
@@ -136,6 +155,7 @@ export default function Runner({
   const qLabel = g.qStart != null
     ? (qEnd === g.qStart ? `Câu ${g.qStart}` : `Câu ${g.qStart}–${qEnd}`)
     : null
+  const hasContext = !!(g.img || g.imgs?.length || g.graphic || g.passage || g.part <= 4)
   const hasMp3 = !!g.mp3?.length
   const noAudio = !hasMp3 && voiceStatus === 'none'
   const audioSpent = playOnce && played.has(g.id)
@@ -161,15 +181,20 @@ export default function Runner({
         <button className="btn-ghost sm" onClick={() => { stopSpeak(); onExit() }}>
           <Icon name="arrow-left" size={14} /> {onPersist ? 'Tạm dừng' : 'Thoát'}
         </button>
-        <div className="tr-title">{title}</div>
+        <div className="tr-title">
+          {sectionSec ? (inReading ? 'Reading' : 'Listening') : title}
+          {qLabel ? <b> · {qLabel}{lastNum ? ` / ${lastNum}` : ''}</b> : null}
+        </div>
         <div className="tr-meta">
-          {sectionSec && <span className="tr-section">{inReading ? '📖 Đọc' : '🎧 Nghe'}</span>}
+          <span className="tr-pill">{answeredQ}/{totalQ}</span>
           {(timerSec || sectionSec) ? (
-            <span className={'tr-clock' + (remaining < 120 ? ' low' : '')}>
+            <span className={'tr-pill tr-clock' + (remaining < 120 ? ' low' : '')}>
               <Icon name="clock" size={14} /> {fmtTime(remaining)}
             </span>
           ) : null}
-          <span>{answeredQ}/{totalQ} câu</span>
+          {mode === 'test' && (
+            <button className="tr-submit" onClick={finish}>Nộp bài</button>
+          )}
         </div>
       </div>
       {autoJumped && (
@@ -187,7 +212,9 @@ export default function Runner({
       )}
       <div className="quiz-bar"><div style={{ width: `${(answeredQ / totalQ) * 100}%` }} /></div>
 
-      <div className="tr-body">
+      <div className={'tr-body' + (hasContext ? '' : ' lean')}>
+       <div className="tr-pane left">
+        <div className="tr-pane-head" lang="en">{DIRECTION[g.part]}</div>
         <div className="tr-part-tag">
           Part {g.part}{qLabel ? ` · ${qLabel}` : ''}
           {g.intro && g.part <= 2 ? '' : g.intro ? ` · ${g.intro}` : ''}
@@ -195,8 +222,12 @@ export default function Runner({
         </div>
 
         {g.img && (
-          <div className="tr-photo">
-            <img src={g.img} alt="Ảnh đề Part 1" loading="lazy" />
+          <div className={g.part >= 3 ? 'tr-photo chart' : 'tr-photo'}>
+            <img
+              src={g.img}
+              alt={g.part >= 3 ? 'Bảng/biểu đồ của nhóm câu hỏi' : 'Ảnh đề Part 1'}
+              loading="lazy"
+            />
           </div>
         )}
 
@@ -223,7 +254,7 @@ export default function Runner({
             </button>
             <button className="btn-ghost sm" onClick={stopSpeak}><Icon name="stop" size={13} /> Dừng</button>
             {playOnce
-              ? <small>Chuẩn đề thật: audio chỉ phát MỘT lần.</small>
+              ? <small>Lưu ý: Khi thi audio chỉ phát đúng 1 lần</small>
               : mode === 'test' && <small>Đề thật chỉ phát 1 lần — hạn chế nghe lại nhé.</small>}
             {!hasMp3 && <small>(giọng đọc của thiết bị)</small>}
           </div>
@@ -236,6 +267,26 @@ export default function Runner({
             ))}
           </div>
         ) : null}
+
+        {g.imgs?.map((src, i) => (
+          <div key={src} className="tr-photo passage">
+            <img src={src} alt={`Đoạn văn ${i + 1} của nhóm câu hỏi`} loading="lazy" />
+          </div>
+        ))}
+
+        {!!g.shortPassage && (
+          <div className="tr-pace low">
+            📄 Bộ này thiếu {g.shortPassage} đoạn văn (sách gốc không nhúng ảnh đoạn đó) — vài câu
+            có thể phải đoán, các câu còn lại vẫn tính bình thường.
+          </div>
+        )}
+
+        {g.needsGraphic && (
+          <div className="tr-pace low">
+            🖼️ Nhóm này có câu “Look at the graphic” nhưng hình của đề gốc chưa được nhập —
+            câu đó bạn tạm đoán, các câu còn lại vẫn tính bình thường.
+          </div>
+        )}
 
         {g.graphic && (
           <div className="tr-graphic" lang="en">
@@ -257,17 +308,28 @@ export default function Runner({
         {g.passage && (
           <pre className="tr-passage" lang="en">{g.passage}</pre>
         )}
+       </div>
 
+       <div className="tr-pane right">
+        <div className="tr-pane-head">Question</div>
         {g.questions.map((q, qi) => {
           const picked = answers[q.key]
           return (
             <div key={q.key} className="tr-question">
               {q.text && (
                 <p className="tr-q" lang={g.part >= 5 ? 'en' : undefined}>
-                  {g.questions.length > 1 ? `${g.qStart != null ? g.qStart + qi : qi + 1}. ` : ''}{q.text}
+                  {g.questions.length > 1
+                    ? `${q.num ?? (g.qStart != null ? g.qStart + qi : qi + 1)}. `
+                    : ''}{q.text}
                 </p>
               )}
-              {!q.text && <p className="tr-q">Chọn câu trả lời đúng nhất (nghe audio):</p>}
+              {!q.text && (
+                <p className="tr-q">
+                  {g.part >= 5
+                    ? `${q.num ?? qi + 1}. Chọn phương án điền vào chỗ trống tương ứng trong bài.`
+                    : 'Chọn câu trả lời đúng nhất (nghe audio):'}
+                </p>
+              )}
               <div className="quiz-options tr-opts">
                 {q.options.map((opt, oi) => {
                   let cls = 'quiz-opt tr-opt'
@@ -301,9 +363,29 @@ export default function Runner({
             </div>
           )
         })}
+       </div>
       </div>
 
       <div className="tr-foot">
+        <label className="tr-mark">
+          <input
+            type="checkbox"
+            checked={marked.has(g.id)}
+            onChange={(e) => setMarked((s) => {
+              const next = new Set(s)
+              if (e.target.checked) next.add(g.id)
+              else next.delete(g.id)
+              return next
+            })}
+          />
+          Đánh dấu xem lại{marked.size ? ` (${marked.size})` : ''}
+        </label>
+        <span className="tr-count">Nhóm {gi + 1}/{groups.length}</span>
+        {canGoBack && (
+          <button className="btn-ghost sm" onClick={prev}>
+            <Icon name="arrow-left" size={15} /> Câu trước
+          </button>
+        )}
         {mode === 'practice' && !single && !checked && (
           <button className="btn-primary" onClick={checkGroup} disabled={!allAnswered}>
             Kiểm tra đáp án
@@ -314,7 +396,6 @@ export default function Runner({
             {isLast ? 'Nộp bài & xem kết quả' : 'Tiếp tục'} <Icon name="arrow-right" size={15} />
           </button>
         )}
-        <span className="tr-count">Nhóm {gi + 1}/{groups.length}</span>
       </div>
     </div>
   )

@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "👨‍👩‍👧",
   "words": [
-    { "zh": "家人", "pinyin": "jiā rén", "vi": "Người nhà, người thân", "pos": "noun", "img": "👪", "connect": "家人 = gia nhân, người trong nhà. Chữ gia trong gia đình, gia đạo.", "ex": "我最爱我的家人。", "exVi": "Tôi yêu người nhà mình nhất." },
-    { "zh": "哥哥", "pinyin": "gē ge", "vi": "Anh trai", "pos": "noun", "img": "🧑", "connect": "哥 = ca, đúng chữ trong đại ca của phim kiếm hiệp.", "ex": "我哥哥比我大三岁。", "exVi": "Anh trai tôi hơn tôi ba tuổi." },
-    { "zh": "姐姐", "pinyin": "jiě jie", "vi": "Chị gái", "pos": "noun", "img": "👧", "connect": "姐 = tỷ, đúng chữ trong tỷ muội. Có bộ 女 (nữ) bên trái.", "ex": "姐姐在北京工作。", "exVi": "Chị tôi làm việc ở Bắc Kinh." },
-    { "zh": "弟弟", "pinyin": "dì di", "vi": "Em trai", "pos": "noun", "img": "👦", "connect": "弟 = đệ, đúng chữ trong huynh đệ, đệ tử.", "ex": "我有一个弟弟。", "exVi": "Tôi có một em trai." },
-    { "zh": "妹妹", "pinyin": "mèi mei", "vi": "Em gái", "pos": "noun", "img": "👧", "connect": "妹 = muội, đúng chữ trong tỷ muội, tiểu muội.", "ex": "妹妹很喜欢唱歌。", "exVi": "Em gái tôi rất thích hát." },
-    { "zh": "孩子", "pinyin": "hái zi", "vi": "Đứa trẻ, con cái", "pos": "noun", "img": "🧒", "connect": "孩 = hài, đúng chữ trong hài nhi, hài đồng.", "ex": "孩子们在公园玩。", "exVi": "Bọn trẻ đang chơi ở công viên." },
-    { "zh": "爷爷", "pinyin": "yé ye", "vi": "Ông nội", "pos": "noun", "img": "👴", "connect": "爷 có bộ 父 (phụ = cha) ở trên — cha của cha, tức là ông.", "ex": "爷爷每天早上散步。", "exVi": "Ông nội đi bộ mỗi sáng." },
-    { "zh": "奶奶", "pinyin": "nǎi nai", "vi": "Bà nội", "pos": "noun", "img": "👵", "connect": "奶 = nãi, nghĩa gốc là sữa — người cho bú, đi với 爷爷 thành cặp ông bà.", "ex": "奶奶做的菜最好吃。", "exVi": "Món bà nội nấu là ngon nhất." },
-    { "zh": "丈夫", "pinyin": "zhàng fu", "vi": "Chồng", "pos": "noun", "img": "🤵", "connect": "丈夫 = trượng phu, đúng chữ trong đấng trượng phu của tiếng Việt.", "ex": "她丈夫是医生。", "exVi": "Chồng cô ấy là bác sĩ." },
-    { "zh": "妻子", "pinyin": "qī zi", "vi": "Vợ", "pos": "noun", "img": "👰", "connect": "妻子 = thê tử, chữ thê trong phu thê, thê thiếp.", "ex": "他和妻子一起去旅游。", "exVi": "Anh ấy cùng vợ đi du lịch." },
-    { "zh": "结婚", "pinyin": "jié hūn", "vi": "Kết hôn, cưới", "pos": "verb", "img": "💒", "connect": "结婚 = kết hôn, đúng chữ trong tiếng Việt.", "ex": "他们去年结婚了。", "exVi": "Họ đã cưới nhau năm ngoái." },
-    { "zh": "亲戚", "pinyin": "qīn qi", "vi": "Họ hàng", "pos": "noun", "img": "👨‍👩‍👦‍👦", "connect": "亲戚 = thân thích, chữ thân trong thân thuộc, người thân.", "ex": "春节我们去看亲戚。", "exVi": "Tết chúng tôi đi thăm họ hàng." }
+    {
+      "zh": "家人",
+      "pinyin": "jiā rén",
+      "vi": "Người nhà, người thân",
+      "pos": "noun",
+      "img": "👪",
+      "connect": "家人 = gia nhân, người trong nhà. Chữ gia trong gia đình, gia đạo.",
+      "ex": "我最爱我的家人。",
+      "exVi": "Tôi yêu người nhà mình nhất."
+    },
+    {
+      "zh": "哥哥",
+      "pinyin": "gē ge",
+      "vi": "Anh trai",
+      "pos": "noun",
+      "img": "🧑",
+      "connect": "哥 = ca, đúng chữ trong đại ca của phim kiếm hiệp.",
+      "ex": "我哥哥比我大三岁。",
+      "exVi": "Anh trai tôi hơn tôi ba tuổi."
+    },
+    {
+      "zh": "姐姐",
+      "pinyin": "jiě jie",
+      "vi": "Chị gái",
+      "pos": "noun",
+      "img": "👧",
+      "connect": "姐 = tỷ, đúng chữ trong tỷ muội. Có bộ 女 (nữ) bên trái.",
+      "ex": "姐姐在北京工作。",
+      "exVi": "Chị tôi làm việc ở Bắc Kinh."
+    },
+    {
+      "zh": "弟弟",
+      "pinyin": "dì di",
+      "vi": "Em trai",
+      "pos": "noun",
+      "img": "👦",
+      "connect": "弟 = đệ, đúng chữ trong huynh đệ, đệ tử.",
+      "ex": "我有一个弟弟。",
+      "exVi": "Tôi có một em trai."
+    },
+    {
+      "zh": "妹妹",
+      "pinyin": "mèi mei",
+      "vi": "Em gái",
+      "pos": "noun",
+      "img": "👧",
+      "connect": "妹 = muội, đúng chữ trong tỷ muội, tiểu muội.",
+      "ex": "妹妹很喜欢唱歌。",
+      "exVi": "Em gái tôi rất thích hát."
+    },
+    {
+      "zh": "孩子",
+      "pinyin": "hái zi",
+      "vi": "Đứa trẻ, con cái",
+      "pos": "noun",
+      "img": "🧒",
+      "connect": "孩 = hài, đúng chữ trong hài nhi, hài đồng.",
+      "ex": "孩子们在公园玩。",
+      "exVi": "Bọn trẻ đang chơi ở công viên."
+    },
+    {
+      "zh": "爷爷",
+      "pinyin": "yé ye",
+      "vi": "Ông nội",
+      "pos": "noun",
+      "img": "👴",
+      "connect": "爷 có bộ 父 (phụ = cha) ở trên — cha của cha, tức là ông.",
+      "ex": "爷爷每天早上散步。",
+      "exVi": "Ông nội đi bộ mỗi sáng."
+    },
+    {
+      "zh": "奶奶",
+      "pinyin": "nǎi nai",
+      "vi": "Bà nội",
+      "pos": "noun",
+      "img": "👵",
+      "connect": "奶 = nãi, nghĩa gốc là sữa — người cho bú, đi với 爷爷 thành cặp ông bà.",
+      "ex": "奶奶做的菜最好吃。",
+      "exVi": "Món bà nội nấu là ngon nhất."
+    },
+    {
+      "zh": "丈夫",
+      "pinyin": "zhàng fu",
+      "vi": "Chồng",
+      "pos": "noun",
+      "img": "🤵",
+      "connect": "丈夫 = trượng phu, đúng chữ trong đấng trượng phu của tiếng Việt.",
+      "ex": "她丈夫是医生。",
+      "exVi": "Chồng cô ấy là bác sĩ."
+    },
+    {
+      "zh": "妻子",
+      "pinyin": "qī zi",
+      "vi": "Vợ",
+      "pos": "noun",
+      "img": "👰",
+      "connect": "妻子 = thê tử, chữ thê trong phu thê, thê thiếp.",
+      "ex": "他和妻子一起去旅游。",
+      "exVi": "Anh ấy cùng vợ đi du lịch."
+    },
+    {
+      "zh": "结婚",
+      "pinyin": "jié hūn",
+      "vi": "Kết hôn, cưới",
+      "pos": "verb",
+      "img": "💒",
+      "connect": "结婚 = kết hôn, đúng chữ trong tiếng Việt.",
+      "ex": "他们去年结婚了。",
+      "exVi": "Họ đã cưới nhau năm ngoái."
+    },
+    {
+      "zh": "亲戚",
+      "pinyin": "qīn qi",
+      "vi": "Họ hàng",
+      "pos": "noun",
+      "img": "👨‍👩‍👦‍👦",
+      "connect": "亲戚 = thân thích, chữ thân trong thân thuộc, người thân.",
+      "ex": "春节我们去看亲戚。",
+      "exVi": "Tết chúng tôi đi thăm họ hàng."
+    }
   ]
 }

@@ -87,6 +87,18 @@ email    = "admin@vyling.vn"
 password = ""
 name     = "Quản trị viên"
 
+# Gọi thoại trực tiếp trong phòng luyện nói (WebRTC).
+#   stun_* : miễn phí, đủ cho phần lớn máy ở nhà/văn phòng — không cần cài gì.
+#   turn_* : máy chủ chuyển tiếp, CẦN khi hai người đều ở sau NAT chặt (4G, wifi công ty).
+#            Tự dựng bằng coturn trên VPS rồi điền vào đây, hoặc mua dịch vụ TURN.
+#            Để trống cũng chạy, chỉ là một số cuộc gọi sẽ không kết nối được.
+#   Lưu ý: trình duyệt chỉ cho dùng micro trên HTTPS (hoặc localhost).
+[webrtc]
+stun_urls     = ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"]
+turn_url      = ""
+turn_user     = ""
+turn_password = ""
+
 # Đăng nhập Google / Facebook (tùy chọn). Để trống thì 2 nút đó sẽ ẩn.
 #   Google : tạo OAuth Client ID (Web) tại https://console.cloud.google.com/apis/credentials
 #            thêm Authorized redirect URI: http://127.0.0.1:8000/api/auth/google/callback

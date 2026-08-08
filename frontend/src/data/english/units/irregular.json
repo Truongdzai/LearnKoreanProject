@@ -6,30 +6,255 @@
   "tone": "tone-b",
   "emoji": "🔀",
   "words": [
-    { "en": "begin", "ipa": "/bɪˈɡɪn/", "vi": "bắt đầu", "pos": "verb", "img": "▶️", "connect": "begin → began → begun.", "ex": "The class begins at eight.", "exVi": "Lớp học bắt đầu lúc tám giờ." },
-    { "en": "become", "ipa": "/bɪˈkʌm/", "vi": "trở thành", "pos": "verb", "img": "🦋", "connect": "become → became → become.", "ex": "She became a doctor.", "exVi": "Cô ấy trở thành bác sĩ." },
-    { "en": "fly", "ipa": "/flaɪ/", "vi": "bay", "pos": "verb", "img": "🕊️", "connect": "fly → flew → flown.", "ex": "Birds fly south in winter.", "exVi": "Chim bay về phương nam vào mùa đông." },
-    { "en": "fight", "ipa": "/faɪt/", "vi": "chiến đấu, cãi nhau", "pos": "verb", "img": "🥊", "connect": "fight → fought → fought.", "ex": "Don't fight with your brother.", "exVi": "Đừng đánh nhau với em trai." },
-    { "en": "steal", "ipa": "/stiːl/", "vi": "ăn trộm", "pos": "verb", "img": "🕵️", "connect": "steal → stole → stolen.", "ex": "Someone stole my bike.", "exVi": "Ai đó đã trộm xe đạp của tôi." },
-    { "en": "feed", "ipa": "/fiːd/", "vi": "cho ăn", "pos": "verb", "img": "🍼", "connect": "feed → fed → fed.", "ex": "She feeds the cat twice a day.", "exVi": "Cô ấy cho mèo ăn hai lần mỗi ngày." },
-    { "en": "blow", "ipa": "/bloʊ/", "vi": "thổi", "pos": "verb", "img": "🌬️", "connect": "blow → blew → blown.", "ex": "The wind blew all night.", "exVi": "Gió thổi suốt đêm." },
-    { "en": "bite", "ipa": "/baɪt/", "vi": "cắn", "pos": "verb", "img": "🦷", "connect": "bite → bit → bitten.", "ex": "The dog doesn't bite.", "exVi": "Con chó này không cắn đâu." },
-    { "en": "dig", "ipa": "/dɪɡ/", "vi": "đào", "pos": "verb", "img": "⛏️", "connect": "dig → dug → dug.", "ex": "The dog dug a hole.", "exVi": "Con chó đào một cái hố." },
-    { "en": "fall", "ipa": "/fɔːl/", "vi": "rơi, ngã", "pos": "verb", "img": "🍂", "connect": "fall → fell → fallen.", "ex": "Leaves fall in autumn.", "exVi": "Lá rơi vào mùa thu." },
-    { "en": "forgive", "ipa": "/fɚˈɡɪv/", "vi": "tha thứ", "pos": "verb", "img": "🕊️", "connect": "forgive → forgave → forgiven.", "ex": "Please forgive me.", "exVi": "Xin hãy tha thứ cho tôi." },
-    { "en": "hang", "ipa": "/hæŋ/", "vi": "treo", "pos": "verb", "img": "🖼️", "connect": "hang → hung → hung.", "ex": "Hang the picture on the wall.", "exVi": "Treo bức tranh lên tường." },
-    { "en": "lay", "ipa": "/leɪ/", "vi": "đặt, để (vật)", "pos": "verb", "img": "🥚", "connect": "lay → laid → laid (đặt cái gì xuống).", "ex": "Lay the baby on the bed.", "exVi": "Đặt em bé lên giường." },
-    { "en": "lie", "ipa": "/laɪ/", "vi": "nằm; nói dối", "pos": "verb", "img": "🛏️", "connect": "nằm: lie → lay → lain; nói dối: lie → lied.", "ex": "I lay on the grass and rested.", "exVi": "Tôi nằm trên cỏ nghỉ ngơi." },
-    { "en": "rise", "ipa": "/raɪz/", "vi": "mọc, tăng lên", "pos": "verb", "img": "🌅", "connect": "rise → rose → risen.", "ex": "The sun rises in the east.", "exVi": "Mặt trời mọc ở hướng đông." },
-    { "en": "shoot", "ipa": "/ʃuːt/", "vi": "bắn; chụp/quay", "pos": "verb", "img": "🎯", "connect": "shoot → shot → shot.", "ex": "He shot the ball into the goal.", "exVi": "Anh ấy sút bóng vào khung thành." },
-    { "en": "shut", "ipa": "/ʃʌt/", "vi": "đóng sập", "pos": "verb", "img": "🚪", "connect": "shut → shut → shut (không đổi).", "ex": "Shut the door, please.", "exVi": "Đóng cửa lại giúp nhé." },
-    { "en": "sweep", "ipa": "/swiːp/", "vi": "quét", "pos": "verb", "img": "🧹", "connect": "sweep → swept → swept.", "ex": "I sweep the floor every day.", "exVi": "Ngày nào tôi cũng quét nhà." },
-    { "en": "tear", "ipa": "/ter/", "vi": "xé rách", "pos": "verb", "img": "📃", "connect": "tear → tore → torn.", "ex": "He tore the letter in half.", "exVi": "Anh ấy xé đôi lá thư." },
-    { "en": "spread", "ipa": "/spred/", "vi": "lan rộng, phết", "pos": "verb", "img": "🧈", "connect": "spread → spread → spread (không đổi).", "ex": "The news spread quickly.", "exVi": "Tin tức lan đi rất nhanh." },
-    { "en": "hold", "ipa": "/hoʊld/", "vi": "cầm, giữ, tổ chức", "pos": "verb", "img": "🤲", "connect": "hold → held → held.", "ex": "Hold my hand when crossing.", "exVi": "Nắm tay tôi khi qua đường." },
-    { "en": "burn", "ipa": "/bɜːrn/", "vi": "cháy, đốt", "pos": "verb", "img": "🔥", "connect": "burn → burnt/burned.", "ex": "The toast is burning!", "exVi": "Bánh mì cháy rồi kìa!" },
-    { "en": "burst", "ipa": "/bɜːrst/", "vi": "nổ tung, vỡ oà", "pos": "verb", "img": "🎈", "connect": "burst → burst → burst (không đổi).", "ex": "The balloon burst loudly.", "exVi": "Quả bóng nổ đánh bốp." },
-    { "en": "quit", "ipa": "/kwɪt/", "vi": "bỏ, nghỉ (việc)", "pos": "verb", "img": "🚪", "connect": "quit → quit → quit (không đổi).", "ex": "He quit his job last month.", "exVi": "Tháng trước anh ấy nghỉ việc." },
-    { "en": "bet", "ipa": "/bet/", "vi": "cá cược, dám chắc", "pos": "verb", "img": "🎲", "connect": "bet → bet → bet; I bet = tôi cá là.", "ex": "I bet it will rain tomorrow.", "exVi": "Tôi cá là mai trời mưa." }
+    {
+      "en": "begin",
+      "ipa": "/bɪˈɡɪn/",
+      "vi": "bắt đầu",
+      "pos": "verb",
+      "img": "▶️",
+      "connect": "begin → began → begun.",
+      "ex": "The class begins at eight.",
+      "exVi": "Lớp học bắt đầu lúc tám giờ."
+    },
+    {
+      "en": "become",
+      "ipa": "/bɪˈkʌm/",
+      "vi": "trở thành",
+      "pos": "verb",
+      "img": "🦋",
+      "connect": "become → became → become.",
+      "ex": "She became a doctor.",
+      "exVi": "Cô ấy trở thành bác sĩ."
+    },
+    {
+      "en": "fly",
+      "ipa": "/flaɪ/",
+      "vi": "bay",
+      "pos": "verb",
+      "img": "🕊️",
+      "connect": "fly → flew → flown.",
+      "ex": "Birds fly south in winter.",
+      "exVi": "Chim bay về phương nam vào mùa đông."
+    },
+    {
+      "en": "fight",
+      "ipa": "/faɪt/",
+      "vi": "chiến đấu, cãi nhau",
+      "pos": "verb",
+      "img": "🥊",
+      "connect": "fight → fought → fought.",
+      "ex": "Don't fight with your brother.",
+      "exVi": "Đừng đánh nhau với em trai."
+    },
+    {
+      "en": "steal",
+      "ipa": "/stiːl/",
+      "vi": "ăn trộm",
+      "pos": "verb",
+      "img": "🕵️",
+      "connect": "steal → stole → stolen.",
+      "ex": "Someone stole my bike.",
+      "exVi": "Ai đó đã trộm xe đạp của tôi."
+    },
+    {
+      "en": "feed",
+      "ipa": "/fiːd/",
+      "vi": "cho ăn",
+      "pos": "verb",
+      "img": "🍼",
+      "connect": "feed → fed → fed.",
+      "ex": "She feeds the cat twice a day.",
+      "exVi": "Cô ấy cho mèo ăn hai lần mỗi ngày."
+    },
+    {
+      "en": "blow",
+      "ipa": "/bloʊ/",
+      "vi": "thổi",
+      "pos": "verb",
+      "img": "🌬️",
+      "connect": "blow → blew → blown.",
+      "ex": "The wind blew all night.",
+      "exVi": "Gió thổi suốt đêm."
+    },
+    {
+      "en": "bite",
+      "ipa": "/baɪt/",
+      "vi": "cắn",
+      "pos": "verb",
+      "img": "🦷",
+      "connect": "bite → bit → bitten.",
+      "ex": "The dog doesn't bite.",
+      "exVi": "Con chó này không cắn đâu."
+    },
+    {
+      "en": "dig",
+      "ipa": "/dɪɡ/",
+      "vi": "đào",
+      "pos": "verb",
+      "img": "⛏️",
+      "connect": "dig → dug → dug.",
+      "ex": "The dog dug a hole.",
+      "exVi": "Con chó đào một cái hố."
+    },
+    {
+      "en": "fall",
+      "ipa": "/fɔːl/",
+      "vi": "rơi, ngã",
+      "pos": "verb",
+      "img": "🍂",
+      "connect": "fall → fell → fallen.",
+      "ex": "Leaves fall in autumn.",
+      "exVi": "Lá rơi vào mùa thu."
+    },
+    {
+      "en": "forgive",
+      "ipa": "/fɚˈɡɪv/",
+      "vi": "tha thứ",
+      "pos": "verb",
+      "img": "🕊️",
+      "connect": "forgive → forgave → forgiven.",
+      "ex": "Please forgive me.",
+      "exVi": "Xin hãy tha thứ cho tôi."
+    },
+    {
+      "en": "hang",
+      "ipa": "/hæŋ/",
+      "vi": "treo",
+      "pos": "verb",
+      "img": "🖼️",
+      "connect": "hang → hung → hung.",
+      "ex": "Hang the picture on the wall.",
+      "exVi": "Treo bức tranh lên tường."
+    },
+    {
+      "en": "lay",
+      "ipa": "/leɪ/",
+      "vi": "đặt, để (vật)",
+      "pos": "verb",
+      "img": "🥚",
+      "connect": "lay → laid → laid (đặt cái gì xuống).",
+      "ex": "Lay the baby on the bed.",
+      "exVi": "Đặt em bé lên giường."
+    },
+    {
+      "en": "lie",
+      "ipa": "/laɪ/",
+      "vi": "nằm; nói dối",
+      "pos": "verb",
+      "img": "🛏️",
+      "connect": "nằm: lie → lay → lain; nói dối: lie → lied.",
+      "ex": "I lay on the grass and rested.",
+      "exVi": "Tôi nằm trên cỏ nghỉ ngơi."
+    },
+    {
+      "en": "rise",
+      "ipa": "/raɪz/",
+      "vi": "mọc, tăng lên",
+      "pos": "verb",
+      "img": "🌅",
+      "connect": "rise → rose → risen.",
+      "ex": "The sun rises in the east.",
+      "exVi": "Mặt trời mọc ở hướng đông."
+    },
+    {
+      "en": "shoot",
+      "ipa": "/ʃuːt/",
+      "vi": "bắn; chụp/quay",
+      "pos": "verb",
+      "img": "🎯",
+      "connect": "shoot → shot → shot.",
+      "ex": "He shot the ball into the goal.",
+      "exVi": "Anh ấy sút bóng vào khung thành."
+    },
+    {
+      "en": "shut",
+      "ipa": "/ʃʌt/",
+      "vi": "đóng sập",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "shut → shut → shut (không đổi).",
+      "ex": "Shut the door, please.",
+      "exVi": "Đóng cửa lại giúp nhé."
+    },
+    {
+      "en": "sweep",
+      "ipa": "/swiːp/",
+      "vi": "quét",
+      "pos": "verb",
+      "img": "🧹",
+      "connect": "sweep → swept → swept.",
+      "ex": "I sweep the floor every day.",
+      "exVi": "Ngày nào tôi cũng quét nhà."
+    },
+    {
+      "en": "tear",
+      "ipa": "/ter/",
+      "vi": "xé rách",
+      "pos": "verb",
+      "img": "📃",
+      "connect": "tear → tore → torn.",
+      "ex": "He tore the letter in half.",
+      "exVi": "Anh ấy xé đôi lá thư."
+    },
+    {
+      "en": "spread",
+      "ipa": "/spred/",
+      "vi": "lan rộng, phết",
+      "pos": "verb",
+      "img": "🧈",
+      "connect": "spread → spread → spread (không đổi).",
+      "ex": "The news spread quickly.",
+      "exVi": "Tin tức lan đi rất nhanh."
+    },
+    {
+      "en": "hold",
+      "ipa": "/hoʊld/",
+      "vi": "cầm, giữ, tổ chức",
+      "pos": "verb",
+      "img": "🤲",
+      "connect": "hold → held → held.",
+      "ex": "Hold my hand when crossing.",
+      "exVi": "Nắm tay tôi khi qua đường."
+    },
+    {
+      "en": "burn",
+      "ipa": "/bɜːrn/",
+      "vi": "cháy, đốt",
+      "pos": "verb",
+      "img": "🔥",
+      "connect": "burn → burnt/burned.",
+      "ex": "The toast is burning!",
+      "exVi": "Bánh mì cháy rồi kìa!"
+    },
+    {
+      "en": "burst",
+      "ipa": "/bɜːrst/",
+      "vi": "nổ tung, vỡ oà",
+      "pos": "verb",
+      "img": "🎈",
+      "connect": "burst → burst → burst (không đổi).",
+      "ex": "The balloon burst loudly.",
+      "exVi": "Quả bóng nổ đánh bốp."
+    },
+    {
+      "en": "quit",
+      "ipa": "/kwɪt/",
+      "vi": "bỏ, nghỉ (việc)",
+      "pos": "verb",
+      "img": "🚪",
+      "connect": "quit → quit → quit (không đổi).",
+      "ex": "He quit his job last month.",
+      "exVi": "Tháng trước anh ấy nghỉ việc."
+    },
+    {
+      "en": "bet",
+      "ipa": "/bet/",
+      "vi": "cá cược, dám chắc",
+      "pos": "verb",
+      "img": "🎲",
+      "connect": "bet → bet → bet; I bet = tôi cá là.",
+      "ex": "I bet it will rain tomorrow.",
+      "exVi": "Tôi cá là mai trời mưa."
+    }
   ]
 }

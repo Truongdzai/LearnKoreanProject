@@ -138,6 +138,7 @@ export default function RoadmapWeeks({
       case 'speaking': return { label: 'Luyện nói', run: () => setView('speaking') }
       case 'flashcards': return { label: 'Ôn tập', run: () => setView('flashcards') }
       case 'vocab': return { label: 'Kho từ vựng', run: () => setView('vocab') }
+      case 'hsk': return { label: 'Mở HSK', run: () => setView('hsk') }
       case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
       default: return null
     }

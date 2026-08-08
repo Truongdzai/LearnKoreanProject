@@ -6,17 +6,125 @@
   "tone": "tone-b",
   "emoji": "💴",
   "words": [
-    { "zh": "银行", "pinyin": "yín háng", "vi": "Ngân hàng", "pos": "noun", "img": "🏦", "connect": "银行 = ngân hàng, đúng chữ trong tiếng Việt. Lưu ý 行 ở đây đọc là háng.", "ex": "银行几点关门？", "exVi": "Mấy giờ ngân hàng đóng cửa?" },
-    { "zh": "现金", "pinyin": "xiàn jīn", "vi": "Tiền mặt", "pos": "noun", "img": "💵", "connect": "现金 = hiện kim, đúng chữ trong tiếng Việt.", "ex": "这里只收现金。", "exVi": "Ở đây chỉ nhận tiền mặt." },
-    { "zh": "付钱", "pinyin": "fù qián", "vi": "Trả tiền", "pos": "verb", "img": "💳", "connect": "付钱 = phó tiền, chữ phó trong giao phó — đưa tiền cho người ta.", "ex": "我来付钱。", "exVi": "Để tôi trả tiền." },
-    { "zh": "找钱", "pinyin": "zhǎo qián", "vi": "Trả lại tiền thừa", "pos": "verb", "img": "🔄", "connect": "找 nghĩa gốc là tìm — người bán tìm đủ tiền lẻ để trả lại cho bạn.", "ex": "不用找钱了。", "exVi": "Không cần trả lại tiền thừa đâu." },
-    { "zh": "换钱", "pinyin": "huàn qián", "vi": "Đổi tiền", "pos": "verb", "img": "💱", "connect": "换钱 = hoán tiền, chữ hoán trong hoán đổi, giao hoán.", "ex": "哪里可以换钱？", "exVi": "Ở đâu có thể đổi tiền?" },
-    { "zh": "存钱", "pinyin": "cún qián", "vi": "Gửi tiền, để dành", "pos": "verb", "img": "🏧", "connect": "存钱 = tồn tiền, chữ tồn trong tồn kho, bảo tồn — cất tiền lại.", "ex": "我想存一点钱。", "exVi": "Tôi muốn gửi một ít tiền." },
-    { "zh": "卡", "pinyin": "kǎ", "vi": "Thẻ", "pos": "noun", "img": "💳", "connect": "卡 là chữ phiên âm từ card, người Việt cũng nói cái thẻ ca.", "ex": "可以刷卡吗？", "exVi": "Có quẹt thẻ được không?" },
-    { "zh": "密码", "pinyin": "mì mǎ", "vi": "Mật khẩu", "pos": "noun", "img": "🔒", "connect": "密码 = mật mã, đúng chữ trong tiếng Việt.", "ex": "请输入密码。", "exVi": "Xin hãy nhập mật khẩu." },
-    { "zh": "支付宝", "pinyin": "zhī fù bǎo", "vi": "Alipay (ví điện tử)", "pos": "noun", "img": "📲", "connect": "支付宝 = chi phó bảo, chữ chi phó trong chi trả — cái ví báu để chi trả.", "ex": "我用支付宝付钱。", "exVi": "Tôi trả tiền bằng Alipay." },
-    { "zh": "发票", "pinyin": "fā piào", "vi": "Hoá đơn", "pos": "noun", "img": "🧾", "connect": "发票 = phát phiếu, tờ phiếu người bán phát cho mình.", "ex": "请给我发票。", "exVi": "Xin cho tôi hoá đơn." },
-    { "zh": "免费", "pinyin": "miǎn fèi", "vi": "Miễn phí", "pos": "adj", "img": "🆓", "connect": "免费 = miễn phí, đúng chữ trong tiếng Việt.", "ex": "这里的水是免费的。", "exVi": "Nước ở đây là miễn phí." },
-    { "zh": "一共", "pinyin": "yí gòng", "vi": "Tổng cộng", "pos": "adverb", "img": "🧮", "connect": "一共 = nhất cộng, gộp chung lại thành một. Chữ cộng trong cộng đồng, tổng cộng.", "ex": "一共多少钱？", "exVi": "Tổng cộng hết bao nhiêu tiền?" }
+    {
+      "zh": "银行",
+      "pinyin": "yín háng",
+      "vi": "Ngân hàng",
+      "pos": "noun",
+      "img": "🏦",
+      "connect": "银行 = ngân hàng, đúng chữ trong tiếng Việt. Lưu ý 行 ở đây đọc là háng.",
+      "ex": "银行几点关门？",
+      "exVi": "Mấy giờ ngân hàng đóng cửa?"
+    },
+    {
+      "zh": "现金",
+      "pinyin": "xiàn jīn",
+      "vi": "Tiền mặt",
+      "pos": "noun",
+      "img": "💵",
+      "connect": "现金 = hiện kim, đúng chữ trong tiếng Việt.",
+      "ex": "这里只收现金。",
+      "exVi": "Ở đây chỉ nhận tiền mặt."
+    },
+    {
+      "zh": "付钱",
+      "pinyin": "fù qián",
+      "vi": "Trả tiền",
+      "pos": "verb",
+      "img": "💳",
+      "connect": "付钱 = phó tiền, chữ phó trong giao phó — đưa tiền cho người ta.",
+      "ex": "我来付钱。",
+      "exVi": "Để tôi trả tiền."
+    },
+    {
+      "zh": "找钱",
+      "pinyin": "zhǎo qián",
+      "vi": "Trả lại tiền thừa",
+      "pos": "verb",
+      "img": "🔄",
+      "connect": "找 nghĩa gốc là tìm — người bán tìm đủ tiền lẻ để trả lại cho bạn.",
+      "ex": "不用找钱了。",
+      "exVi": "Không cần trả lại tiền thừa đâu."
+    },
+    {
+      "zh": "换钱",
+      "pinyin": "huàn qián",
+      "vi": "Đổi tiền",
+      "pos": "verb",
+      "img": "💱",
+      "connect": "换钱 = hoán tiền, chữ hoán trong hoán đổi, giao hoán.",
+      "ex": "哪里可以换钱？",
+      "exVi": "Ở đâu có thể đổi tiền?"
+    },
+    {
+      "zh": "存钱",
+      "pinyin": "cún qián",
+      "vi": "Gửi tiền, để dành",
+      "pos": "verb",
+      "img": "🏧",
+      "connect": "存钱 = tồn tiền, chữ tồn trong tồn kho, bảo tồn — cất tiền lại.",
+      "ex": "我想存一点钱。",
+      "exVi": "Tôi muốn gửi một ít tiền."
+    },
+    {
+      "zh": "卡",
+      "pinyin": "kǎ",
+      "vi": "Thẻ",
+      "pos": "noun",
+      "img": "💳",
+      "connect": "卡 là chữ phiên âm từ card, người Việt cũng nói cái thẻ ca.",
+      "ex": "可以刷卡吗？",
+      "exVi": "Có quẹt thẻ được không?"
+    },
+    {
+      "zh": "密码",
+      "pinyin": "mì mǎ",
+      "vi": "Mật khẩu",
+      "pos": "noun",
+      "img": "🔒",
+      "connect": "密码 = mật mã, đúng chữ trong tiếng Việt.",
+      "ex": "请输入密码。",
+      "exVi": "Xin hãy nhập mật khẩu."
+    },
+    {
+      "zh": "支付宝",
+      "pinyin": "zhī fù bǎo",
+      "vi": "Alipay (ví điện tử)",
+      "pos": "noun",
+      "img": "📲",
+      "connect": "支付宝 = chi phó bảo, chữ chi phó trong chi trả — cái ví báu để chi trả.",
+      "ex": "我用支付宝付钱。",
+      "exVi": "Tôi trả tiền bằng Alipay."
+    },
+    {
+      "zh": "发票",
+      "pinyin": "fā piào",
+      "vi": "Hoá đơn",
+      "pos": "noun",
+      "img": "🧾",
+      "connect": "发票 = phát phiếu, tờ phiếu người bán phát cho mình.",
+      "ex": "请给我发票。",
+      "exVi": "Xin cho tôi hoá đơn."
+    },
+    {
+      "zh": "免费",
+      "pinyin": "miǎn fèi",
+      "vi": "Miễn phí",
+      "pos": "adj",
+      "img": "🆓",
+      "connect": "免费 = miễn phí, đúng chữ trong tiếng Việt.",
+      "ex": "这里的水是免费的。",
+      "exVi": "Nước ở đây là miễn phí."
+    },
+    {
+      "zh": "一共",
+      "pinyin": "yí gòng",
+      "vi": "Tổng cộng",
+      "pos": "adverb",
+      "img": "🧮",
+      "connect": "一共 = nhất cộng, gộp chung lại thành một. Chữ cộng trong cộng đồng, tổng cộng.",
+      "ex": "一共多少钱？",
+      "exVi": "Tổng cộng hết bao nhiêu tiền?"
+    }
   ]
 }

@@ -6,31 +6,265 @@
   "tone": "tone-a",
   "emoji": "🧩",
   "words": [
-    { "en": "make a decision", "ipa": "/meɪk ə dɪˈsɪʒ.ən/", "vi": "đưa ra quyết định", "pos": "phrase", "img": "⚖️", "connect": "đi với MAKE (không phải do): make a decision.", "ex": "It's time to make a decision.", "exVi": "Đến lúc phải đưa ra quyết định rồi." },
-    { "en": "take a break", "ipa": "/teɪk ə breɪk/", "vi": "nghỉ giải lao", "pos": "phrase", "img": "☕", "connect": "đi với TAKE: take a break — nghỉ một chút.", "ex": "Let's take a break for coffee.", "exVi": "Mình nghỉ giải lao uống cà phê đi." },
-    { "en": "have fun", "ipa": "/hæv fʌn/", "vi": "vui chơi, tận hưởng", "pos": "phrase", "img": "🎉", "connect": "đi với HAVE: have fun — chúc chơi vui.", "ex": "Have fun at the party!", "exVi": "Chơi vui ở bữa tiệc nhé!" },
-    { "en": "pay attention", "ipa": "/peɪ əˈten.ʃən/", "vi": "chú ý, tập trung", "pos": "phrase", "img": "👀", "connect": "\"trả\" (pay) sự chú ý — để tâm vào.", "ex": "Pay attention to the teacher.", "exVi": "Chú ý nghe cô giáo giảng." },
-    { "en": "take a photo", "ipa": "/teɪk ə ˈfoʊ.t̬oʊ/", "vi": "chụp ảnh", "pos": "phrase", "img": "📸", "connect": "đi với TAKE: take a photo (không phải make).", "ex": "Can you take a photo of us?", "exVi": "Bạn chụp giúp bọn mình một tấm được không?" },
-    { "en": "make friends", "ipa": "/meɪk frendz/", "vi": "kết bạn", "pos": "phrase", "img": "🤝", "connect": "đi với MAKE: make friends — làm quen bạn mới.", "ex": "She makes friends easily.", "exVi": "Cô ấy kết bạn rất dễ." },
-    { "en": "catch a cold", "ipa": "/kætʃ ə koʊld/", "vi": "bị cảm lạnh", "pos": "phrase", "img": "🤧", "connect": "\"bắt\" (catch) cơn cảm — dính cảm.", "ex": "I caught a cold last week.", "exVi": "Tuần trước tôi bị cảm lạnh." },
-    { "en": "save time", "ipa": "/seɪv taɪm/", "vi": "tiết kiệm thời gian", "pos": "phrase", "img": "⏱️", "connect": "save (tiết kiệm) + time.", "ex": "Taking the subway saves time.", "exVi": "Đi tàu điện ngầm tiết kiệm thời gian." },
-    { "en": "waste time", "ipa": "/weɪst taɪm/", "vi": "lãng phí thời gian", "pos": "phrase", "img": "⌛", "connect": "waste (phí) + time — ngược với save time.", "ex": "Don't waste time on games.", "exVi": "Đừng lãng phí thời gian vào game." },
-    { "en": "keep a secret", "ipa": "/kiːp ə ˈsiː.krət/", "vi": "giữ bí mật", "pos": "phrase", "img": "🤫", "connect": "keep (giữ) + secret (bí mật).", "ex": "Can you keep a secret?", "exVi": "Bạn giữ bí mật được không?" },
-    { "en": "tell a lie", "ipa": "/tel ə laɪ/", "vi": "nói dối", "pos": "phrase", "img": "🤥", "connect": "đi với TELL: tell a lie.", "ex": "He told a lie to his mom.", "exVi": "Cậu ấy nói dối mẹ." },
-    { "en": "tell the truth", "ipa": "/tel ðə truːθ/", "vi": "nói thật", "pos": "phrase", "img": "😇", "connect": "đi với TELL: tell the truth — ngược với tell a lie.", "ex": "Always tell the truth.", "exVi": "Hãy luôn nói thật." },
-    { "en": "make a mistake", "ipa": "/meɪk ə mɪˈsteɪk/", "vi": "mắc lỗi", "pos": "phrase", "img": "❌", "connect": "đi với MAKE: make a mistake.", "ex": "Everyone makes mistakes.", "exVi": "Ai cũng có lúc mắc lỗi." },
-    { "en": "give a hand", "ipa": "/ɡɪv ə hænd/", "vi": "giúp một tay", "pos": "phrase", "img": "🤲", "connect": "\"đưa một tay\" — phụ giúp.", "ex": "Can you give me a hand?", "exVi": "Giúp tôi một tay được không?" },
-    { "en": "make money", "ipa": "/meɪk ˈmʌn.i/", "vi": "kiếm tiền", "pos": "phrase", "img": "💵", "connect": "đi với MAKE: make money.", "ex": "He makes money selling coffee.", "exVi": "Anh ấy kiếm tiền bằng nghề bán cà phê." },
-    { "en": "take notes", "ipa": "/teɪk noʊts/", "vi": "ghi chép", "pos": "phrase", "img": "📝", "connect": "đi với TAKE: take notes trong giờ học.", "ex": "Take notes during the lecture.", "exVi": "Ghi chép trong giờ giảng nhé." },
-    { "en": "do the dishes", "ipa": "/duː ðə ˈdɪʃ.ɪz/", "vi": "rửa bát", "pos": "phrase", "img": "🍽️", "connect": "việc nhà đi với DO: do the dishes.", "ex": "It's your turn to do the dishes.", "exVi": "Đến lượt bạn rửa bát rồi." },
-    { "en": "do the laundry", "ipa": "/duː ðə ˈlɔːn.dri/", "vi": "giặt đồ", "pos": "phrase", "img": "🧺", "connect": "việc nhà đi với DO: do the laundry.", "ex": "I do the laundry on Sundays.", "exVi": "Tôi giặt đồ vào Chủ nhật." },
-    { "en": "make the bed", "ipa": "/meɪk ðə bed/", "vi": "dọn giường", "pos": "phrase", "img": "🛏️", "connect": "đi với MAKE: make the bed mỗi sáng.", "ex": "Make your bed after getting up.", "exVi": "Dậy xong thì dọn giường nhé." },
-    { "en": "take a nap", "ipa": "/teɪk ə næp/", "vi": "chợp mắt, ngủ trưa", "pos": "phrase", "img": "😴", "connect": "đi với TAKE: take a nap — giấc ngủ ngắn.", "ex": "I take a nap after lunch.", "exVi": "Tôi chợp mắt sau bữa trưa." },
-    { "en": "get dressed", "ipa": "/ɡet drest/", "vi": "mặc quần áo", "pos": "phrase", "img": "👔", "connect": "get + dressed — thay đồ chỉnh tề.", "ex": "Get dressed quickly, we're late!", "exVi": "Mặc đồ nhanh lên, muộn rồi!" },
-    { "en": "go shopping", "ipa": "/ɡoʊ ˈʃɑː.pɪŋ/", "vi": "đi mua sắm", "pos": "phrase", "img": "🛍️", "connect": "go + V-ing: go shopping, go swimming…", "ex": "We go shopping every weekend.", "exVi": "Cuối tuần nào chúng tôi cũng đi mua sắm." },
-    { "en": "go for a walk", "ipa": "/ɡoʊ fɔːr ə wɔːk/", "vi": "đi dạo", "pos": "phrase", "img": "🚶", "connect": "go for a + danh từ: đi dạo một vòng.", "ex": "Let's go for a walk by the lake.", "exVi": "Mình đi dạo quanh hồ đi." },
-    { "en": "have a look", "ipa": "/hæv ə lʊk/", "vi": "xem thử, ngó qua", "pos": "phrase", "img": "🔍", "connect": "have a look = nhìn một cái.", "ex": "Have a look at this photo.", "exVi": "Ngó qua tấm ảnh này xem." },
-    { "en": "keep in mind", "ipa": "/kiːp ɪn maɪnd/", "vi": "ghi nhớ trong đầu", "pos": "phrase", "img": "🧠", "connect": "keep (giữ) + in mind (trong trí) — nhớ kỹ.", "ex": "Keep in mind that it's a secret.", "exVi": "Nhớ kỹ rằng đó là bí mật đấy." },
-    { "en": "take turns", "ipa": "/teɪk tɜːrnz/", "vi": "thay phiên nhau", "pos": "phrase", "img": "🔄", "connect": "take (lấy) + turns (lượt) — luân phiên.", "ex": "We take turns washing the dishes.", "exVi": "Chúng tôi thay phiên nhau rửa bát." }
+    {
+      "en": "make a decision",
+      "ipa": "/meɪk ə dɪˈsɪʒ.ən/",
+      "vi": "đưa ra quyết định",
+      "pos": "phrase",
+      "img": "⚖️",
+      "connect": "đi với MAKE (không phải do): make a decision.",
+      "ex": "It's time to make a decision.",
+      "exVi": "Đến lúc phải đưa ra quyết định rồi."
+    },
+    {
+      "en": "take a break",
+      "ipa": "/teɪk ə breɪk/",
+      "vi": "nghỉ giải lao",
+      "pos": "phrase",
+      "img": "☕",
+      "connect": "đi với TAKE: take a break — nghỉ một chút.",
+      "ex": "Let's take a break for coffee.",
+      "exVi": "Mình nghỉ giải lao uống cà phê đi."
+    },
+    {
+      "en": "have fun",
+      "ipa": "/hæv fʌn/",
+      "vi": "vui chơi, tận hưởng",
+      "pos": "phrase",
+      "img": "🎉",
+      "connect": "đi với HAVE: have fun — chúc chơi vui.",
+      "ex": "Have fun at the party!",
+      "exVi": "Chơi vui ở bữa tiệc nhé!"
+    },
+    {
+      "en": "pay attention",
+      "ipa": "/peɪ əˈten.ʃən/",
+      "vi": "chú ý, tập trung",
+      "pos": "phrase",
+      "img": "👀",
+      "connect": "\"trả\" (pay) sự chú ý — để tâm vào.",
+      "ex": "Pay attention to the teacher.",
+      "exVi": "Chú ý nghe cô giáo giảng."
+    },
+    {
+      "en": "take a photo",
+      "ipa": "/teɪk ə ˈfoʊ.t̬oʊ/",
+      "vi": "chụp ảnh",
+      "pos": "phrase",
+      "img": "📸",
+      "connect": "đi với TAKE: take a photo (không phải make).",
+      "ex": "Can you take a photo of us?",
+      "exVi": "Bạn chụp giúp bọn mình một tấm được không?"
+    },
+    {
+      "en": "make friends",
+      "ipa": "/meɪk frendz/",
+      "vi": "kết bạn",
+      "pos": "phrase",
+      "img": "🤝",
+      "connect": "đi với MAKE: make friends — làm quen bạn mới.",
+      "ex": "She makes friends easily.",
+      "exVi": "Cô ấy kết bạn rất dễ."
+    },
+    {
+      "en": "catch a cold",
+      "ipa": "/kætʃ ə koʊld/",
+      "vi": "bị cảm lạnh",
+      "pos": "phrase",
+      "img": "🤧",
+      "connect": "\"bắt\" (catch) cơn cảm — dính cảm.",
+      "ex": "I caught a cold last week.",
+      "exVi": "Tuần trước tôi bị cảm lạnh."
+    },
+    {
+      "en": "save time",
+      "ipa": "/seɪv taɪm/",
+      "vi": "tiết kiệm thời gian",
+      "pos": "phrase",
+      "img": "⏱️",
+      "connect": "save (tiết kiệm) + time.",
+      "ex": "Taking the subway saves time.",
+      "exVi": "Đi tàu điện ngầm tiết kiệm thời gian."
+    },
+    {
+      "en": "waste time",
+      "ipa": "/weɪst taɪm/",
+      "vi": "lãng phí thời gian",
+      "pos": "phrase",
+      "img": "⌛",
+      "connect": "waste (phí) + time — ngược với save time.",
+      "ex": "Don't waste time on games.",
+      "exVi": "Đừng lãng phí thời gian vào game."
+    },
+    {
+      "en": "keep a secret",
+      "ipa": "/kiːp ə ˈsiː.krət/",
+      "vi": "giữ bí mật",
+      "pos": "phrase",
+      "img": "🤫",
+      "connect": "keep (giữ) + secret (bí mật).",
+      "ex": "Can you keep a secret?",
+      "exVi": "Bạn giữ bí mật được không?"
+    },
+    {
+      "en": "tell a lie",
+      "ipa": "/tel ə laɪ/",
+      "vi": "nói dối",
+      "pos": "phrase",
+      "img": "🤥",
+      "connect": "đi với TELL: tell a lie.",
+      "ex": "He told a lie to his mom.",
+      "exVi": "Cậu ấy nói dối mẹ."
+    },
+    {
+      "en": "tell the truth",
+      "ipa": "/tel ðə truːθ/",
+      "vi": "nói thật",
+      "pos": "phrase",
+      "img": "😇",
+      "connect": "đi với TELL: tell the truth — ngược với tell a lie.",
+      "ex": "Always tell the truth.",
+      "exVi": "Hãy luôn nói thật."
+    },
+    {
+      "en": "make a mistake",
+      "ipa": "/meɪk ə mɪˈsteɪk/",
+      "vi": "mắc lỗi",
+      "pos": "phrase",
+      "img": "❌",
+      "connect": "đi với MAKE: make a mistake.",
+      "ex": "Everyone makes mistakes.",
+      "exVi": "Ai cũng có lúc mắc lỗi."
+    },
+    {
+      "en": "give a hand",
+      "ipa": "/ɡɪv ə hænd/",
+      "vi": "giúp một tay",
+      "pos": "phrase",
+      "img": "🤲",
+      "connect": "\"đưa một tay\" — phụ giúp.",
+      "ex": "Can you give me a hand?",
+      "exVi": "Giúp tôi một tay được không?"
+    },
+    {
+      "en": "make money",
+      "ipa": "/meɪk ˈmʌn.i/",
+      "vi": "kiếm tiền",
+      "pos": "phrase",
+      "img": "💵",
+      "connect": "đi với MAKE: make money.",
+      "ex": "He makes money selling coffee.",
+      "exVi": "Anh ấy kiếm tiền bằng nghề bán cà phê."
+    },
+    {
+      "en": "take notes",
+      "ipa": "/teɪk noʊts/",
+      "vi": "ghi chép",
+      "pos": "phrase",
+      "img": "📝",
+      "connect": "đi với TAKE: take notes trong giờ học.",
+      "ex": "Take notes during the lecture.",
+      "exVi": "Ghi chép trong giờ giảng nhé."
+    },
+    {
+      "en": "do the dishes",
+      "ipa": "/duː ðə ˈdɪʃ.ɪz/",
+      "vi": "rửa bát",
+      "pos": "phrase",
+      "img": "🍽️",
+      "connect": "việc nhà đi với DO: do the dishes.",
+      "ex": "It's your turn to do the dishes.",
+      "exVi": "Đến lượt bạn rửa bát rồi."
+    },
+    {
+      "en": "do the laundry",
+      "ipa": "/duː ðə ˈlɔːn.dri/",
+      "vi": "giặt đồ",
+      "pos": "phrase",
+      "img": "🧺",
+      "connect": "việc nhà đi với DO: do the laundry.",
+      "ex": "I do the laundry on Sundays.",
+      "exVi": "Tôi giặt đồ vào Chủ nhật."
+    },
+    {
+      "en": "make the bed",
+      "ipa": "/meɪk ðə bed/",
+      "vi": "dọn giường",
+      "pos": "phrase",
+      "img": "🛏️",
+      "connect": "đi với MAKE: make the bed mỗi sáng.",
+      "ex": "Make your bed after getting up.",
+      "exVi": "Dậy xong thì dọn giường nhé."
+    },
+    {
+      "en": "take a nap",
+      "ipa": "/teɪk ə næp/",
+      "vi": "chợp mắt, ngủ trưa",
+      "pos": "phrase",
+      "img": "😴",
+      "connect": "đi với TAKE: take a nap — giấc ngủ ngắn.",
+      "ex": "I take a nap after lunch.",
+      "exVi": "Tôi chợp mắt sau bữa trưa."
+    },
+    {
+      "en": "get dressed",
+      "ipa": "/ɡet drest/",
+      "vi": "mặc quần áo",
+      "pos": "phrase",
+      "img": "👔",
+      "connect": "get + dressed — thay đồ chỉnh tề.",
+      "ex": "Get dressed quickly, we're late!",
+      "exVi": "Mặc đồ nhanh lên, muộn rồi!"
+    },
+    {
+      "en": "go shopping",
+      "ipa": "/ɡoʊ ˈʃɑː.pɪŋ/",
+      "vi": "đi mua sắm",
+      "pos": "phrase",
+      "img": "🛍️",
+      "connect": "go + V-ing: go shopping, go swimming…",
+      "ex": "We go shopping every weekend.",
+      "exVi": "Cuối tuần nào chúng tôi cũng đi mua sắm."
+    },
+    {
+      "en": "go for a walk",
+      "ipa": "/ɡoʊ fɔːr ə wɔːk/",
+      "vi": "đi dạo",
+      "pos": "phrase",
+      "img": "🚶",
+      "connect": "go for a + danh từ: đi dạo một vòng.",
+      "ex": "Let's go for a walk by the lake.",
+      "exVi": "Mình đi dạo quanh hồ đi."
+    },
+    {
+      "en": "have a look",
+      "ipa": "/hæv ə lʊk/",
+      "vi": "xem thử, ngó qua",
+      "pos": "phrase",
+      "img": "🔍",
+      "connect": "have a look = nhìn một cái.",
+      "ex": "Have a look at this photo.",
+      "exVi": "Ngó qua tấm ảnh này xem."
+    },
+    {
+      "en": "keep in mind",
+      "ipa": "/kiːp ɪn maɪnd/",
+      "vi": "ghi nhớ trong đầu",
+      "pos": "phrase",
+      "img": "🧠",
+      "connect": "keep (giữ) + in mind (trong trí) — nhớ kỹ.",
+      "ex": "Keep in mind that it's a secret.",
+      "exVi": "Nhớ kỹ rằng đó là bí mật đấy."
+    },
+    {
+      "en": "take turns",
+      "ipa": "/teɪk tɜːrnz/",
+      "vi": "thay phiên nhau",
+      "pos": "phrase",
+      "img": "🔄",
+      "connect": "take (lấy) + turns (lượt) — luân phiên.",
+      "ex": "We take turns washing the dishes.",
+      "exVi": "Chúng tôi thay phiên nhau rửa bát."
+    }
   ]
 }

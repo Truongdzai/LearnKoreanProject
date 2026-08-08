@@ -6,17 +6,125 @@
   "tone": "tone-a",
   "emoji": "🧍",
   "words": [
-    { "ko": "몸", "romaja": "mom", "vi": "Cơ thể / Người", "pos": "noun", "img": "🧍", "connect": "\"Môm\" — cả thân mình gói trong một tiếng.", "ex": "오늘 몸이 안 좋아요.", "exVi": "Hôm nay tôi thấy trong người không khoẻ." },
-    { "ko": "머리", "romaja": "meori", "vi": "Đầu / Tóc", "pos": "noun", "img": "🧠", "connect": "\"Mơ-ri\" — mơ mộng thì dùng cái đầu.", "ex": "머리가 아파요.", "exVi": "Tôi bị đau đầu." },
-    { "ko": "얼굴", "romaja": "eolgul", "vi": "Khuôn mặt", "pos": "noun", "img": "😀", "connect": "\"Ơl-gul\" — cái mặt để người ta ngắm.", "ex": "얼굴이 빨개졌어요.", "exVi": "Mặt tôi đỏ lên rồi." },
-    { "ko": "눈", "romaja": "nun", "vi": "Mắt", "pos": "noun", "img": "👁️", "connect": "\"Nun\" — cũng là tuyết, tuyết trắng như tròng mắt.", "ex": "눈이 참 예뻐요.", "exVi": "Mắt bạn đẹp thật đấy." },
-    { "ko": "코", "romaja": "ko", "vi": "Mũi", "pos": "noun", "img": "👃", "connect": "\"Khô\" — mũi khô thì khó thở.", "ex": "코가 막혔어요.", "exVi": "Tôi bị nghẹt mũi." },
-    { "ko": "입", "romaja": "ip", "vi": "Miệng", "pos": "noun", "img": "👄", "connect": "\"Íp\" — khép môi lại thành chữ íp.", "ex": "입을 크게 벌리세요.", "exVi": "Hãy há miệng thật to." },
-    { "ko": "귀", "romaja": "gwi", "vi": "Tai", "pos": "noun", "img": "👂", "connect": "\"Quy\" — vành tai cong như hình xoáy.", "ex": "귀가 잘 안 들려요.", "exVi": "Tai tôi nghe không rõ." },
-    { "ko": "손", "romaja": "son", "vi": "Bàn tay", "pos": "noun", "img": "✋", "connect": "\"Sơn\" — bàn tay quét sơn.", "ex": "손을 깨끗이 씻어요.", "exVi": "Tôi rửa tay thật sạch." },
-    { "ko": "발", "romaja": "bal", "vi": "Bàn chân", "pos": "noun", "img": "🦶", "connect": "\"Bal\" — bàn chân đi bộ.", "ex": "발이 너무 아파요.", "exVi": "Chân tôi đau quá." },
-    { "ko": "다리", "romaja": "dari", "vi": "Chân (cẳng chân)", "pos": "noun", "img": "🦵", "connect": "\"Đa-ri\" cũng là cây cầu — chân là cầu nối cơ thể với đất.", "ex": "다리가 길어요.", "exVi": "Chân bạn dài ghê." },
-    { "ko": "배", "romaja": "bae", "vi": "Bụng", "pos": "noun", "img": "🫃", "connect": "\"Be\" — cái bụng bè ra khi no.", "ex": "배가 고파요.", "exVi": "Tôi đói bụng." },
-    { "ko": "목", "romaja": "mok", "vi": "Cổ / Họng", "pos": "noun", "img": "🗣️", "connect": "\"Mốc\" — cổ họng khô mốc thì khàn tiếng.", "ex": "목이 아파서 말을 못 해요.", "exVi": "Tôi đau họng nên không nói được." }
+    {
+      "ko": "몸",
+      "romaja": "mom",
+      "vi": "Cơ thể / Người",
+      "pos": "noun",
+      "img": "🧍",
+      "connect": "\"Môm\" — cả thân mình gói trong một tiếng.",
+      "ex": "오늘 몸이 안 좋아요.",
+      "exVi": "Hôm nay tôi thấy trong người không khoẻ."
+    },
+    {
+      "ko": "머리",
+      "romaja": "meori",
+      "vi": "Đầu / Tóc",
+      "pos": "noun",
+      "img": "🧠",
+      "connect": "\"Mơ-ri\" — mơ mộng thì dùng cái đầu.",
+      "ex": "머리가 아파요.",
+      "exVi": "Tôi bị đau đầu."
+    },
+    {
+      "ko": "얼굴",
+      "romaja": "eolgul",
+      "vi": "Khuôn mặt",
+      "pos": "noun",
+      "img": "😀",
+      "connect": "\"Ơl-gul\" — cái mặt để người ta ngắm.",
+      "ex": "얼굴이 빨개졌어요.",
+      "exVi": "Mặt tôi đỏ lên rồi."
+    },
+    {
+      "ko": "눈",
+      "romaja": "nun",
+      "vi": "Mắt",
+      "pos": "noun",
+      "img": "👁️",
+      "connect": "\"Nun\" — cũng là tuyết, tuyết trắng như tròng mắt.",
+      "ex": "눈이 참 예뻐요.",
+      "exVi": "Mắt bạn đẹp thật đấy."
+    },
+    {
+      "ko": "코",
+      "romaja": "ko",
+      "vi": "Mũi",
+      "pos": "noun",
+      "img": "👃",
+      "connect": "\"Khô\" — mũi khô thì khó thở.",
+      "ex": "코가 막혔어요.",
+      "exVi": "Tôi bị nghẹt mũi."
+    },
+    {
+      "ko": "입",
+      "romaja": "ip",
+      "vi": "Miệng",
+      "pos": "noun",
+      "img": "👄",
+      "connect": "\"Íp\" — khép môi lại thành chữ íp.",
+      "ex": "입을 크게 벌리세요.",
+      "exVi": "Hãy há miệng thật to."
+    },
+    {
+      "ko": "귀",
+      "romaja": "gwi",
+      "vi": "Tai",
+      "pos": "noun",
+      "img": "👂",
+      "connect": "\"Quy\" — vành tai cong như hình xoáy.",
+      "ex": "귀가 잘 안 들려요.",
+      "exVi": "Tai tôi nghe không rõ."
+    },
+    {
+      "ko": "손",
+      "romaja": "son",
+      "vi": "Bàn tay",
+      "pos": "noun",
+      "img": "✋",
+      "connect": "\"Sơn\" — bàn tay quét sơn.",
+      "ex": "손을 깨끗이 씻어요.",
+      "exVi": "Tôi rửa tay thật sạch."
+    },
+    {
+      "ko": "발",
+      "romaja": "bal",
+      "vi": "Bàn chân",
+      "pos": "noun",
+      "img": "🦶",
+      "connect": "\"Bal\" — bàn chân đi bộ.",
+      "ex": "발이 너무 아파요.",
+      "exVi": "Chân tôi đau quá."
+    },
+    {
+      "ko": "다리",
+      "romaja": "dari",
+      "vi": "Chân (cẳng chân)",
+      "pos": "noun",
+      "img": "🦵",
+      "connect": "\"Đa-ri\" cũng là cây cầu — chân là cầu nối cơ thể với đất.",
+      "ex": "다리가 길어요.",
+      "exVi": "Chân bạn dài ghê."
+    },
+    {
+      "ko": "배",
+      "romaja": "bae",
+      "vi": "Bụng",
+      "pos": "noun",
+      "img": "🫃",
+      "connect": "\"Be\" — cái bụng bè ra khi no.",
+      "ex": "배가 고파요.",
+      "exVi": "Tôi đói bụng."
+    },
+    {
+      "ko": "목",
+      "romaja": "mok",
+      "vi": "Cổ / Họng",
+      "pos": "noun",
+      "img": "🗣️",
+      "connect": "\"Mốc\" — cổ họng khô mốc thì khàn tiếng.",
+      "ex": "목이 아파서 말을 못 해요.",
+      "exVi": "Tôi đau họng nên không nói được."
+    }
   ]
 }
