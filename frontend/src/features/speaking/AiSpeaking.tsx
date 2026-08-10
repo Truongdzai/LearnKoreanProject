@@ -7,23 +7,27 @@ import { studyLang } from '@/core/constants/languages'
 import { speakLang } from '@/core/tts'
 import { LEARN_GOALS } from '@/features/onboarding/goals'
 import { scenariosFor, randomScenario, type Scenario } from './scenarios'
-import { LEVELS, loadLevel, saveLevel, type SpeakLevel } from './levels'
+import { levelCode, type SpeakLevel } from './levels'
 import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
 interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
+
+interface Props {
+  level: SpeakLevel
+  startTopic: string
+  onExit: () => void
+}
 
 function speak(text: string, locale: string, rate = 0.95) {
   if (!text) return
   speakLang(text, locale, rate)
 }
 
-export default function AiSpeaking() {
+export default function AiSpeaking({ level, startTopic, onExit }: Props) {
   const { recordEvent, learnLang, nativeLang, goal, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
   const all = scenariosFor(learnLang)
   const [filter, setFilter] = useState<string>('')
-  const [level, setLevel] = useState<SpeakLevel>(loadLevel)
-  const [topic, setTopic] = useState('')
   const filters = LEARN_GOALS.filter((g) => all.some((s) => s.tags?.includes(g.id)))
   const scenarios = all
     .filter((s) => !filter || s.tags?.includes(filter))
@@ -45,6 +49,7 @@ export default function AiSpeaking() {
   const [romaShown, setRomaShown] = useState<Set<number>>(new Set())
   const fallbackStep = useRef(0)
   const turns = useRef(0)
+  const booted = useRef(false)
   const endRef = useRef<HTMLDivElement>(null)
   const sr = useSpeechRecognition(cfg.locale)
 
@@ -55,8 +60,6 @@ export default function AiSpeaking() {
   useEffect(() => {
     if (!sr.listening && sr.transcript.trim()) setDraft(sr.transcript.trim())
   }, [sr.listening, sr.transcript])
-
-  const pickLevel = (id: SpeakLevel) => { setLevel(id); saveLevel(id) }
 
   const toggle = (set: React.Dispatch<React.SetStateAction<Set<number>>>, i: number) =>
     set((prev) => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n })
@@ -79,7 +82,7 @@ export default function AiSpeaking() {
     fallbackStep.current = 0; turns.current = 0
     sr.reset()
 
-    if (s.opener && level === 'beginner') {
+    if (s.opener && (level === 'a1' || level === 'a2')) {
       setMsgs([{ who: 'bot', ...s.opener }])
       setSuggestions(s.fallback?.suggestions[0] || [])
       setLoading(false)
@@ -109,8 +112,8 @@ export default function AiSpeaking() {
       .finally(() => setLoading(false))
   }
 
-  const startTopic = () => {
-    const name = topic.trim()
+  const startFreeTopic = (raw: string) => {
+    const name = raw.trim()
     if (!name) return
     start({
       id: 'topic-' + Date.now(),
@@ -123,6 +126,12 @@ export default function AiSpeaking() {
       persona: t('sp.topicPersona', { topic: name }),
     })
   }
+
+  useEffect(() => {
+    if (booted.current) return
+    booted.current = true
+    if (startTopic.trim()) startFreeTopic(startTopic)
+  }, [])
 
   const fallbackReply = (sc: Scenario) => {
     if (!sc.fallback) { endNoAi(); return }
@@ -204,37 +213,12 @@ export default function AiSpeaking() {
   if (!scenario) {
     return (
       <div className="sp-pickscreen">
-        <section className="sp-setup">
-          <div className="sp-setup-row">
-            <span className="sp-setup-label"><Icon name="chart" size={14} /> {t('sp.levelLabel')}</span>
-            <div className="sp-chips">
-              {LEVELS.map((l) => (
-                <button
-                  key={l.id}
-                  className={'sp-chip' + (level === l.id ? ' on' : '')}
-                  onClick={() => pickLevel(l.id)}
-                >
-                  <span className="sp-chip-emoji">{l.emoji}</span> {t(l.labelKey)}
-                </button>
-              ))}
-            </div>
-          </div>
-          <p className="sp-setup-hint">{t(LEVELS.find((l) => l.id === level)!.descKey)}</p>
-
-          <div className="sp-topicbar">
-            <Icon name="sparkles" size={16} />
-            <input
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-              placeholder={t('sp.topicPlaceholder')}
-              aria-label={t('sp.topicPlaceholder')}
-              onKeyDown={(e) => { if (e.key === 'Enter') startTopic() }}
-            />
-            <button className="btn-primary sm" disabled={!topic.trim()} onClick={startTopic}>
-              {t('sp.topicGo')}
-            </button>
-          </div>
-        </section>
+        <div className="sp-pickhead">
+          <button className="btn-ghost sm" onClick={onExit}>
+            <Icon name="chevron-left" size={15} /> {t('sp.backLobby')}
+          </button>
+          <b>{t('sp.pickHead')}</b>
+        </div>
 
         {filters.length > 1 && (
           <div className="sp-filters">
@@ -296,7 +280,7 @@ export default function AiSpeaking() {
             <span>{scenario.emoji} {scenario.role}</span>
           </div>
         </div>
-        <span className="sp-head-level">{t(LEVELS.find((l) => l.id === level)!.labelKey)}</span>
+        <span className="sp-head-level">{levelCode(level)}</span>
         {scenario.id.startsWith('random-') && (
           <button className="btn-ghost sm sp-reroll" disabled={loading} onClick={() => start(randomScenario(learnLang))}>
             {t('sp.reroll')}

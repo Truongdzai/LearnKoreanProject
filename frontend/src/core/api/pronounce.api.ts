@@ -14,6 +14,8 @@ export function fetchPronounceFeedback(input: {
   vi?: string
   lang?: string
   native?: string
+  issues?: string[]
+  weakWords?: string[]
 }): Promise<PronounceFeedback> {
   return apiClient.post<PronounceFeedback>('/api/pronounce', input)
 }

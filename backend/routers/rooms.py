@@ -13,9 +13,10 @@ class CreateIn(BaseModel):
     name: str = ""
     topic: str = ""
     lang: str = "ko"
-    level: str = "beginner"
+    level: str = "a2"
     mode: str = "public"
     password: str = ""
+    max: int = 5
 
 
 class JoinIn(BaseModel):
@@ -25,7 +26,7 @@ class JoinIn(BaseModel):
 
 class MatchIn(BaseModel):
     lang: str = "ko"
-    level: str = "beginner"
+    level: str = "a2"
     topics: list[str] = []
     wide: bool = False
 

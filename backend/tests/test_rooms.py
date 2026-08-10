@@ -3,7 +3,7 @@ from __future__ import annotations
 from .conftest import auth_headers, register
 
 
-def queue(client, headers, level="intermediate", topics=None, wide=False, lang="en"):
+def queue(client, headers, level="b1", topics=None, wide=False, lang="en"):
     r = client.post(
         "/api/rooms/match",
         json={"lang": lang, "level": level, "topics": topics or [], "wide": wide},
@@ -36,8 +36,8 @@ def test_match_never_pairs_across_levels_by_default(client):
     a = auth_headers(register(client, "c@test.vn")["token"])
     b = auth_headers(register(client, "d@test.vn")["token"])
 
-    queue(client, a, level="beginner")
-    later = queue(client, b, level="advanced")
+    queue(client, a, level="a1")
+    later = queue(client, b, level="c1")
     assert later["matched"] is False
     assert later["pool"] == 0
 
@@ -46,8 +46,26 @@ def test_match_pairs_neighbour_level_when_both_opt_in(client):
     a = auth_headers(register(client, "e@test.vn")["token"])
     b = auth_headers(register(client, "f@test.vn")["token"])
 
-    queue(client, a, level="beginner", wide=True)
-    later = queue(client, b, level="intermediate", wide=True)
+    queue(client, a, level="a1", wide=True)
+    later = queue(client, b, level="a2", wide=True)
+    assert later["matched"] is True
+
+
+def test_wide_still_refuses_levels_two_steps_apart(client):
+    a = auth_headers(register(client, "e2@test.vn")["token"])
+    b = auth_headers(register(client, "f2@test.vn")["token"])
+
+    queue(client, a, level="a1", wide=True)
+    later = queue(client, b, level="b1", wide=True)
+    assert later["matched"] is False
+
+
+def test_legacy_level_names_map_onto_cefr(client):
+    a = auth_headers(register(client, "e3@test.vn")["token"])
+    b = auth_headers(register(client, "f3@test.vn")["token"])
+
+    queue(client, a, level="beginner")
+    later = queue(client, b, level="a1")
     assert later["matched"] is True
 
 

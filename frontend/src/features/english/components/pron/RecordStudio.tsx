@@ -2,17 +2,23 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { stopSpeak } from '@/core/tts'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { usePhonetics } from '@/hooks/usePhonetics'
 import { analyzeClip, type ProsodyReport } from '@/core/utils/prosody'
+import { splitWords } from '@/core/utils/speechDiff'
+import { gradeSpeech, topFixes, type SpeechGrade } from '@/core/utils/pronGrade'
+import { phoneLabel } from '@/data/phoneCoach'
 import { pronWords, type PronGroup } from '@/data/englishPronunciation'
 import { PRON_RUBRIC, rubricAdvice } from '@/data/pronMethod'
 import { usePronLog } from '../../pronLog'
-import { CTX } from './reader'
+import { CTX, SR_LANG } from './reader'
 
 type Slot = 'a' | 'b'
 
 interface Clip {
   url: string
   report: ProsodyReport | null
+  grade: SpeechGrade | null
 }
 
 const EMPTY: Record<Slot, Clip | null> = { a: null, b: null }
@@ -32,12 +38,15 @@ function trend(a: number, b: number, better: 'up' | 'down' | 'near'): string {
 export default function RecordStudio({ group, lang }: { group: PronGroup; lang: string }) {
   const clip = useVoiceClip()
   const { log, add, remove } = usePronLog(lang)
+  const sr = useSpeechRecognition(SR_LANG[lang] ?? 'en-US')
 
   const targets = useMemo(() => {
     const words = pronWords(group).slice(0, 6).map((w) => w.w)
     return [...group.sentences.map((s) => s.en), ...words]
   }, [group])
 
+  const ph = usePhonetics(lang, targets)
+  const srSlot = useRef<Slot | null>(null)
   const [target, setTarget] = useState(targets[0] ?? '')
   const [clips, setClips] = useState<Record<Slot, Clip | null>>(EMPTY)
   const [slot, setSlot] = useState<Slot | null>(null)
@@ -78,18 +87,76 @@ export default function RecordStudio({ group, lang }: { group: PronGroup; lang: 
   }
 
   const record = (which: Slot) => {
-    if (clip.recording) { clip.stop(); return }
+    if (clip.recording) { clip.stop(); sr.stop(); return }
     stopPlay(); stopSpeak()
     setSlot(which)
     setSavedTs(0)
+    if (sr.supported) { srSlot.current = which; sr.start() }
     void clip.start((url) => {
       setSlot(null)
       if (!url) return
-      setClips((prev) => ({ ...prev, [which]: { url, report: null } }))
+      setClips((prev) => ({ ...prev, [which]: { url, report: null, grade: prev[which]?.grade ?? null } }))
       analyzeClip(url, 0)
-        .then((report) => setClips((prev) => (prev[which]?.url === url ? { ...prev, [which]: { url, report } } : prev)))
+        .then((report) => setClips((prev) => (prev[which]?.url === url ? { ...prev, [which]: { ...prev[which], report } } : prev)))
         .catch(() => { })
     })
+  }
+
+  useEffect(() => {
+    if (sr.listening) return
+    const which = srSlot.current
+    const said = sr.transcript.trim()
+    if (!which || !said || !target) return
+    srSlot.current = null
+    const alts = sr.alternatives
+    void (async () => {
+      await ph.ensure(splitWords([said, ...alts].join(' '), lang))
+      const grade = gradeSpeech(
+        { lang, phones: ph.phones, read: ph.read },
+        { target, heard: said, alternatives: alts },
+      )
+      setClips((prev) => ({
+        ...prev,
+        [which]: prev[which] ? { ...prev[which], grade } : { url: '', report: null, grade },
+      }))
+      sr.reset()
+    })()
+  }, [sr.listening, sr.transcript])
+
+  const lab = (tok: string) => phoneLabel(lang, tok)
+
+  const soundRow = (which: Slot, label: string) => {
+    const g = clips[which]?.grade
+    if (!g) return null
+    const fix = topFixes(g, 1)[0]?.fix
+    const off = g.words.filter((w) => w.state !== 'ok' && !w.unsure && w.devs.length > 0).slice(0, 3)
+    return (
+      <div className="pst-sound">
+        <div className="pst-sound-h">
+          <b>{label}</b>
+          <span className={'pst-sound-score ' + (g.score >= 85 ? 'good' : g.score >= 60 ? 'mid' : 'low')}>{g.score}%</span>
+        </div>
+        {off.length > 0 ? (
+          <div className="pron-res-off">
+            {off.map((w, k) => (
+              <span key={k} className="pron-res-w">
+                <b lang={lang}>{w.target}</b>
+                {w.cells.filter((c) => c.state !== 'ok').slice(0, 3).map((c, i) => (
+                  c.state === 'miss'
+                    ? <i key={i} className="vl-pc miss">{lab(c.want)}</i>
+                    : c.state === 'extra'
+                      ? <i key={i} className="vl-pc extra">+{lab(c.got)}</i>
+                      : <i key={i} className="vl-pc sub">{lab(c.want)}<b>{lab(c.got)}</b></i>
+                ))}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <span className="pst-note">Không âm nào lệch so với chuỗi âm chuẩn.</span>
+        )}
+        {fix && <p className="pst-fixhint"><Icon name="target" size={13} /> {fix.title}. {fix.how}</p>}
+      </div>
+    )
   }
 
   const score = PRON_RUBRIC.filter((r) => marks[r.id]).length
@@ -186,6 +253,15 @@ export default function RecordStudio({ group, lang }: { group: PronGroup; lang: 
         )}
       </div>
 
+      {(clips.a?.grade || clips.b?.grade) && (
+        <div className="pst-measure">
+          <div className="pst-h"><Icon name="mic" size={14} /> Máy chấm từng âm</div>
+          {soundRow('a', 'Bản 1')}
+          {soundRow('b', 'Bản 2')}
+          <p className="pst-note">Máy so chuỗi âm của từ mà bộ nhận diện giọng nói nghe được với chuỗi âm chuẩn — nó bắt được lỗi làm người nghe hiểu sang từ khác. Những khác biệt nhỏ hơn thế vẫn do tai bạn quyết định ở bước dưới.</p>
+        </div>
+      )}
+
       {clips.a?.report && clips.b?.report && (
         <div className="pst-measure">
           <div className="pst-h"><Icon name="chart" size={14} /> Đo từ chính giọng bạn</div>
@@ -214,7 +290,7 @@ export default function RecordStudio({ group, lang }: { group: PronGroup; lang: 
               </tr>
             </tbody>
           </table>
-          <p className="pst-note">Máy chỉ đo thời lượng, khoảng lặng và độ lên xuống của giọng — phần đúng sai của âm vẫn do tai bạn quyết định ở bước dưới. Tiếng của bạn không được gửi đi đâu cả.</p>
+          <p className="pst-note">Ba chỉ số này đo thời lượng, khoảng lặng và độ lên xuống của giọng — phần đúng sai của từng âm nằm ở khối phía trên. Tiếng của bạn không được gửi đi đâu cả.</p>
         </div>
       )}
 

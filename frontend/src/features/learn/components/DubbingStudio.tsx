@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { usePhonetics } from '@/hooks/usePhonetics'
 import { romanizeLine } from '@/core/utils/romanize'
+import { splitWords } from '@/core/utils/speechDiff'
+import { devLabel, gradeSpeech } from '@/core/utils/pronGrade'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import { detectSpeakers, diarizeVoice } from '@/core/api/learn.api'
@@ -15,6 +19,11 @@ interface Clip {
   delay: number | null
   rhythm: number
   delayScore: number | null
+}
+
+interface SoundStat {
+  score: number
+  notes: string[]
 }
 
 function rhythmScore(dur: number, ref: number): number {
@@ -32,7 +41,13 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const segs = lesson.segments
   const yt = useYouTubePlayer('dub-player')
 
+  const lines = useMemo(() => segs.map((s) => s.ko), [segs])
+  const ph = usePhonetics(learnLang, lines)
+  const sr = useSpeechRecognition(cfg.locale)
+  const srIdx = useRef(-1)
+
   const [clips, setClips] = useState<Record<number, Clip>>({})
+  const [sounds, setSounds] = useState<Record<number, SoundStat>>({})
   const [recording, setRecording] = useState<number | null>(null)
   const [muted, setMuted] = useState(true)
   const [playing, setPlaying] = useState(false)
@@ -183,6 +198,11 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
       }
       mr.start()
       setRecording(idx)
+      if (sr.supported) {
+        setSounds((s) => { const next = { ...s }; delete next[idx]; return next })
+        srIdx.current = idx
+        sr.start()
+      }
     } catch {
       setError(t('dub.micFail'))
       cleanupRec()
@@ -190,7 +210,35 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     }
   }
 
-  const stopRecord = () => { try { mrRef.current?.stop() } catch {} }
+  const stopRecord = () => {
+    try { mrRef.current?.stop() } catch {}
+    if (sr.listening) sr.stop()
+  }
+
+  useEffect(() => {
+    if (sr.listening) return
+    const idx = srIdx.current
+    const said = sr.transcript.trim()
+    if (idx < 0 || !said || !segs[idx]) return
+    srIdx.current = -1
+    const alts = sr.alternatives
+    void (async () => {
+      await ph.ensure(splitWords([said, ...alts].join(' '), learnLang))
+      const g = gradeSpeech(
+        { lang: learnLang, phones: ph.phones, read: ph.read },
+        { target: segs[idx].ko, heard: said, alternatives: alts },
+      )
+      const notes = g.issues.slice(0, 2).map((d) => (
+        d.state === 'miss'
+          ? t('sh.dev.miss', { a: devLabel(learnLang, d.want) })
+          : d.state === 'extra'
+            ? t('sh.dev.extra', { a: devLabel(learnLang, d.got) })
+            : t('sh.dev.sub', { a: devLabel(learnLang, d.want), b: devLabel(learnLang, d.got) })
+      ))
+      setSounds((s) => ({ ...s, [idx]: { score: g.score, notes } }))
+      sr.reset()
+    })()
+  }, [sr.listening, sr.transcript])
 
   const playClip = (idx: number) => {
     const c = clips[idx]
@@ -394,6 +442,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
         <div className="dub-script">
           {segs.map((s, idx) => {
             const clip = clips[idx]
+            const sound = sounds[idx]
             const isRec = recording === idx
             const ref = refDuration(segs, idx)
             const mine = roleChar === null || spkOf(idx) === roleChar
@@ -409,12 +458,18 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                     <span className="dub-scores">
                       <span title={t('dub.rhythm')}><Icon name="trending" size={12} /> {clip.rhythm}%</span>
                       {clip.delayScore !== null && <span title={t('dub.delay')}><Icon name="clock" size={12} /> {clip.delayScore}%</span>}
+                      {sound && <span title={t('dub.sound')}><Icon name="mic" size={12} /> {sound.score}%</span>}
                     </span>
                   )}
                 </div>
                 <div className="dub-ko" lang={learnLang}>{s.ko}</div>
                 {cfg.reading === 'romaja' && <div className="dub-romaja">{romanizeLine(s.ko)}</div>}
                 {s.vi && <div className="dub-vi">{s.vi}</div>}
+                {sound && sound.notes.length > 0 && (
+                  <div className="dub-sound">
+                    <Icon name="target" size={12} /> {t('dub.soundOff', { list: sound.notes.join(' · ') })}
+                  </div>
+                )}
                 <div className="dub-line-actions">
                   <button className="btn-ghost sm" onClick={() => speakLang(s.ko, cfg.locale, 0.9)}>
                     <Icon name="volume" size={14} /> {t('sh.listen')}

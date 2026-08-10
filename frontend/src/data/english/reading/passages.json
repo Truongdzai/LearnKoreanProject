@@ -1,0 +1,417 @@
+[
+  {
+    "id": "r01",
+    "level": "a1",
+    "emoji": "🌅",
+    "title": "My Morning",
+    "titleVi": "Buổi sáng của tôi",
+    "topic": "Thói quen hằng ngày",
+    "minutes": 3,
+    "text": [
+      "I get up at six o'clock every day. It is still dark outside. I wash my face and brush my teeth, and then I make coffee.",
+      "My wife gets up later. She does not like mornings. She drinks tea, not coffee. We eat breakfast together at half past six. We usually have bread and eggs.",
+      "At seven o'clock I leave the house. The street is already busy. Many people are going to work, and the children are going to school.",
+      "I like the morning because it is quiet inside my head. Nobody calls me. Nobody needs me. I have thirty minutes for myself, and that is enough."
+    ],
+    "glossary": [
+      { "w": "get up", "ipa": "/ɡet ʌp/", "vi": "thức dậy" },
+      { "w": "brush my teeth", "ipa": "/brʌʃ maɪ tiːθ/", "vi": "đánh răng" },
+      { "w": "breakfast", "ipa": "/ˈbrekfəst/", "vi": "bữa sáng" },
+      { "w": "leave", "ipa": "/liːv/", "vi": "rời đi, ra khỏi" },
+      { "w": "busy", "ipa": "/ˈbɪzi/", "vi": "đông đúc, bận rộn" },
+      { "w": "quiet", "ipa": "/ˈkwaɪət/", "vi": "yên tĩnh" },
+      { "w": "enough", "ipa": "/ɪˈnʌf/", "vi": "đủ" }
+    ],
+    "questions": [
+      {
+        "q": "What time does the writer get up?",
+        "options": ["At six o'clock", "At half past six", "At seven o'clock"],
+        "answer": 0,
+        "explainVi": "Câu đầu tiên: \"I get up at six o'clock every day.\" Nửa sáu (half past six) là giờ ăn sáng, bảy giờ là giờ ra khỏi nhà."
+      },
+      {
+        "q": "What does his wife drink?",
+        "options": ["Coffee", "Tea", "Nothing"],
+        "answer": 1,
+        "explainVi": "\"She drinks tea, not coffee.\" Chú ý cấu trúc \"A, not B\" — cách nói phủ định rất hay gặp trong hội thoại."
+      },
+      {
+        "q": "Why does he like the morning?",
+        "options": ["Because the street is busy", "Because he has time for himself", "Because he drinks coffee"],
+        "answer": 1,
+        "explainVi": "\"I have thirty minutes for myself, and that is enough.\" Cà phê và phố đông chỉ là chi tiết, không phải lý do."
+      }
+    ]
+  },
+  {
+    "id": "r02",
+    "level": "a1",
+    "emoji": "☕",
+    "title": "At the Coffee Shop",
+    "titleVi": "Ở quán cà phê",
+    "topic": "Gọi món",
+    "minutes": 3,
+    "text": [
+      "\"Good morning. What can I get you?\"",
+      "\"Hi. Can I have an iced coffee, please?\"",
+      "\"Sure. Small, medium, or large?\"",
+      "\"Medium, please. And not too sweet.\"",
+      "\"No problem. Anything else?\"",
+      "\"Yes, one sandwich. How much is it?\"",
+      "\"That's ninety thousand dong. Is it for here or to go?\"",
+      "\"To go, please. Here you are.\"",
+      "\"Thank you. Your name, please?\"",
+      "\"Minh. M-I-N-H.\"",
+      "\"Thanks, Minh. It will be ready in three minutes.\""
+    ],
+    "glossary": [
+      { "w": "What can I get you?", "ipa": "/wɒt kən aɪ ɡet juː/", "vi": "Anh/chị dùng gì ạ?" },
+      { "w": "medium", "ipa": "/ˈmiːdiəm/", "vi": "cỡ vừa" },
+      { "w": "sweet", "ipa": "/swiːt/", "vi": "ngọt" },
+      { "w": "Anything else?", "ipa": "/ˈeniθɪŋ els/", "vi": "Còn gì nữa không ạ?" },
+      { "w": "for here or to go", "ipa": "/fə hɪə ɔː tə ɡəʊ/", "vi": "dùng tại chỗ hay mang đi" },
+      { "w": "Here you are", "ipa": "/hɪə juː ɑː/", "vi": "Của bạn đây (khi đưa đồ)" },
+      { "w": "ready", "ipa": "/ˈredi/", "vi": "sẵn sàng, xong" }
+    ],
+    "questions": [
+      {
+        "q": "What size does Minh order?",
+        "options": ["Small", "Medium", "Large"],
+        "answer": 1,
+        "explainVi": "\"Medium, please.\" Ba cỡ chuẩn ở mọi quán: small – medium – large."
+      },
+      {
+        "q": "Does Minh eat in the shop?",
+        "options": ["Yes, he eats there", "No, he takes it away", "The text does not say"],
+        "answer": 1,
+        "explainVi": "\"To go, please.\" — mang đi. Nếu ăn tại chỗ thì trả lời \"For here.\""
+      },
+      {
+        "q": "How long will Minh wait?",
+        "options": ["Three minutes", "Ninety minutes", "The text does not say"],
+        "answer": 0,
+        "explainVi": "Câu cuối: \"It will be ready in three minutes.\" Chú ý đừng lẫn với \"ninety thousand\" — đó là số tiền, không phải thời gian."
+      }
+    ]
+  },
+  {
+    "id": "r03",
+    "level": "a1",
+    "emoji": "🛏️",
+    "title": "My Small Room",
+    "titleVi": "Căn phòng nhỏ của tôi",
+    "topic": "Mô tả nơi ở",
+    "minutes": 3,
+    "text": [
+      "I live in a small room in District 3. It is not big, but it is enough for one person.",
+      "There is a bed near the window. There is a desk next to the bed, and my computer is on the desk. There are two chairs, but I only use one. The other chair has my clothes on it.",
+      "There is no kitchen in my room. I cook with a small pot on the floor. It is not comfortable, but it is cheap.",
+      "The best thing is the window. In the afternoon the sun comes in, and the whole room turns orange. I sit on the bed and I do nothing. Those ten minutes are my favourite part of the day."
+    ],
+    "glossary": [
+      { "w": "district", "ipa": "/ˈdɪstrɪkt/", "vi": "quận" },
+      { "w": "near", "ipa": "/nɪə/", "vi": "gần" },
+      { "w": "next to", "ipa": "/nekst tuː/", "vi": "bên cạnh" },
+      { "w": "clothes", "ipa": "/kləʊðz/", "vi": "quần áo" },
+      { "w": "comfortable", "ipa": "/ˈkʌmftəbl/", "vi": "thoải mái" },
+      { "w": "cheap", "ipa": "/tʃiːp/", "vi": "rẻ" },
+      { "w": "whole", "ipa": "/həʊl/", "vi": "toàn bộ" }
+    ],
+    "questions": [
+      {
+        "q": "Where is the desk?",
+        "options": ["Near the window", "Next to the bed", "On the floor"],
+        "answer": 1,
+        "explainVi": "\"There is a desk next to the bed.\" Cái ở gần cửa sổ là chiếc giường."
+      },
+      {
+        "q": "How many chairs does he use?",
+        "options": ["One", "Two", "None"],
+        "answer": 0,
+        "explainVi": "\"There are two chairs, but I only use one.\" Chiếc còn lại dùng để vắt quần áo."
+      },
+      {
+        "q": "What does he like most about the room?",
+        "options": ["The price", "The computer", "The light from the window"],
+        "answer": 2,
+        "explainVi": "\"The best thing is the window.\" Rẻ là một ưu điểm, nhưng \"best thing\" mới là câu trả lời."
+      }
+    ]
+  },
+  {
+    "id": "r04",
+    "level": "a1p",
+    "emoji": "🛵",
+    "title": "Getting to Work",
+    "titleVi": "Đường đi làm",
+    "topic": "Đi lại",
+    "minutes": 4,
+    "text": [
+      "It takes me about forty minutes to get to work. I could take the bus, but I ride my motorbike because it is faster — most of the time.",
+      "Last Monday it rained very hard. I stopped under a bridge with about twenty other people. We all waited there for fifteen minutes and nobody said anything. Then the rain stopped and everybody drove away at the same time.",
+      "I was thirty minutes late. My manager looked at me and said, \"Rain again?\" I said yes. He laughed and said, \"Buy a raincoat that actually works.\"",
+      "Now I keep a raincoat under my seat. I have not used it yet, but I feel better knowing it is there."
+    ],
+    "glossary": [
+      { "w": "It takes me…", "ipa": "/ɪt teɪks miː/", "vi": "Tôi mất… (thời gian)" },
+      { "w": "ride", "ipa": "/raɪd/", "vi": "chạy (xe máy, xe đạp)" },
+      { "w": "bridge", "ipa": "/brɪdʒ/", "vi": "cây cầu" },
+      { "w": "at the same time", "ipa": "/ət ðə seɪm taɪm/", "vi": "cùng một lúc" },
+      { "w": "late", "ipa": "/leɪt/", "vi": "trễ, muộn" },
+      { "w": "raincoat", "ipa": "/ˈreɪnkəʊt/", "vi": "áo mưa" },
+      { "w": "yet", "ipa": "/jet/", "vi": "vẫn chưa (dùng ở câu phủ định)" }
+    ],
+    "questions": [
+      {
+        "q": "Why does he ride a motorbike instead of taking the bus?",
+        "options": ["It is cheaper", "It is usually faster", "The bus does not come"],
+        "answer": 1,
+        "explainVi": "\"because it is faster — most of the time.\" Cụm \"most of the time\" (phần lớn thời gian) là lời cảnh báo trước cho chuyện mưa ở đoạn sau."
+      },
+      {
+        "q": "How did the manager react?",
+        "options": ["He was angry", "He joked about it", "He said nothing"],
+        "answer": 1,
+        "explainVi": "\"He laughed and said…\" — sếp cười và đùa về chiếc áo mưa, không hề tức giận."
+      },
+      {
+        "q": "Has he used the new raincoat?",
+        "options": ["Yes, many times", "Yes, once", "No, not yet"],
+        "answer": 2,
+        "explainVi": "\"I have not used it yet.\" Đây là hiện tại hoàn thành + \"yet\" — chuyện chưa xảy ra tính đến bây giờ."
+      }
+    ]
+  },
+  {
+    "id": "r05",
+    "level": "a1p",
+    "emoji": "💬",
+    "title": "A Message from My Boss",
+    "titleVi": "Tin nhắn của sếp",
+    "topic": "Tiếng Anh công sở",
+    "minutes": 4,
+    "text": [
+      "Hi Lan,",
+      "Quick update before tomorrow. The client moved our meeting from 2 p.m. to 10 a.m., so we have less time than I hoped.",
+      "Could you please send me the sales numbers for June and July before you leave today? I do not need the full report — just the two totals and anything strange you noticed.",
+      "If you cannot finish it today, that is fine. Let me know and I will ask Trung instead. Please do not stay late for this.",
+      "Thanks a lot,",
+      "David"
+    ],
+    "glossary": [
+      { "w": "update", "ipa": "/ˈʌpdeɪt/", "vi": "thông tin cập nhật" },
+      { "w": "client", "ipa": "/ˈklaɪənt/", "vi": "khách hàng" },
+      { "w": "Could you please…", "ipa": "/kʊd juː pliːz/", "vi": "Bạn giúp mình… được không? (lịch sự)" },
+      { "w": "totals", "ipa": "/ˈtəʊtlz/", "vi": "các con số tổng" },
+      { "w": "noticed", "ipa": "/ˈnəʊtɪst/", "vi": "để ý thấy" },
+      { "w": "instead", "ipa": "/ɪnˈsted/", "vi": "thay vào đó" },
+      { "w": "stay late", "ipa": "/steɪ leɪt/", "vi": "ở lại làm muộn" }
+    ],
+    "questions": [
+      {
+        "q": "What changed about the meeting?",
+        "options": ["The place", "The time", "The client"],
+        "answer": 1,
+        "explainVi": "\"moved our meeting from 2 p.m. to 10 a.m.\" — động từ \"move\" ở đây nghĩa là dời lịch, không phải di chuyển."
+      },
+      {
+        "q": "What exactly does David want?",
+        "options": ["The full report", "Two totals plus anything unusual", "A meeting summary"],
+        "answer": 1,
+        "explainVi": "\"I do not need the full report — just the two totals and anything strange you noticed.\""
+      },
+      {
+        "q": "What should Lan do if she runs out of time?",
+        "options": ["Stay late and finish it", "Tell him so he can ask Trung", "Send it tomorrow morning"],
+        "answer": 1,
+        "explainVi": "\"Let me know and I will ask Trung instead. Please do not stay late for this.\" Câu này là mẫu rất hay dùng khi từ chối việc mà vẫn lịch sự."
+      }
+    ]
+  },
+  {
+    "id": "r06",
+    "level": "a1p",
+    "emoji": "🧧",
+    "title": "Shopping Before Tet",
+    "titleVi": "Đi chợ trước Tết",
+    "topic": "Mua sắm",
+    "minutes": 4,
+    "text": [
+      "Two days before Tet, the market is the busiest place in the city. My mother goes at five in the morning to get the best flowers.",
+      "This year she took me with her. \"Watch and learn,\" she said. She picked up a branch of yellow apricot blossom and asked the price. The seller said eight hundred thousand. My mother put it down and started walking away. The seller called after her: six hundred.",
+      "\"Never buy the first price,\" my mother told me later. \"And never look happy.\"",
+      "We came home with flowers, three kilos of oranges, and a chicken. I carried everything. My mother carried nothing and looked very pleased with herself.",
+      "I think she was right about the price. I am still not sure about the part where I carry everything."
+    ],
+    "glossary": [
+      { "w": "market", "ipa": "/ˈmɑːkɪt/", "vi": "chợ" },
+      { "w": "branch", "ipa": "/brɑːntʃ/", "vi": "cành cây" },
+      { "w": "blossom", "ipa": "/ˈblɒsəm/", "vi": "hoa (trên cành)" },
+      { "w": "seller", "ipa": "/ˈselə/", "vi": "người bán" },
+      { "w": "called after her", "ipa": "/kɔːld ˈɑːftə hɜː/", "vi": "gọi với theo bà ấy" },
+      { "w": "pleased", "ipa": "/pliːzd/", "vi": "hài lòng" },
+      { "w": "I am not sure about…", "ipa": "/aɪ əm nɒt ʃɔː əˈbaʊt/", "vi": "Tôi chưa chắc về…" }
+    ],
+    "questions": [
+      {
+        "q": "How did the mother get a lower price?",
+        "options": ["She asked for a discount", "She walked away", "She bought more things"],
+        "answer": 1,
+        "explainVi": "\"My mother put it down and started walking away.\" Bỏ đi là chiêu mặc cả — người bán gọi với theo và hạ giá."
+      },
+      {
+        "q": "How much did the flowers finally cost?",
+        "options": ["800,000", "600,000", "The text does not say"],
+        "answer": 1,
+        "explainVi": "Người bán gọi với theo \"six hundred\" — tức 600 nghìn, và họ mang hoa về nhà."
+      },
+      {
+        "q": "What is the tone at the end?",
+        "options": ["Angry", "Gently funny", "Sad"],
+        "answer": 1,
+        "explainVi": "\"I am still not sure about the part where I carry everything\" — cách nói đùa nhẹ, kiểu than phiền vui vẻ."
+      }
+    ]
+  },
+  {
+    "id": "r07",
+    "level": "a2",
+    "emoji": "💼",
+    "title": "The Job Interview",
+    "titleVi": "Buổi phỏng vấn",
+    "topic": "Công việc",
+    "minutes": 5,
+    "text": [
+      "I arrived twenty minutes early, which meant I had twenty minutes to be nervous in the lobby.",
+      "The interviewer was younger than I expected. She started with the usual question: \"Tell me about yourself.\" I had practised that answer forty times, so it came out smoothly. Then she asked something I had not prepared for: \"What is something you are bad at?\"",
+      "I thought about lying. Instead I told the truth. I said I was slow at making decisions because I always want more information first. Then I explained what I had changed: I now give myself a deadline and decide even when the picture is not complete.",
+      "She wrote something down and nodded. \"Good,\" she said. \"Most people say they work too hard.\"",
+      "I got the job. I still think the honest answer was the reason. People can tell when you are reading from a script, and nobody trusts a person with no weaknesses."
+    ],
+    "glossary": [
+      { "w": "nervous", "ipa": "/ˈnɜːvəs/", "vi": "hồi hộp, lo lắng" },
+      { "w": "interviewer", "ipa": "/ˈɪntəvjuːə/", "vi": "người phỏng vấn" },
+      { "w": "smoothly", "ipa": "/ˈsmuːðli/", "vi": "trôi chảy" },
+      { "w": "make a decision", "ipa": "/meɪk ə dɪˈsɪʒn/", "vi": "ra quyết định" },
+      { "w": "deadline", "ipa": "/ˈdedlaɪn/", "vi": "hạn chót" },
+      { "w": "nodded", "ipa": "/ˈnɒdɪd/", "vi": "gật đầu" },
+      { "w": "weakness", "ipa": "/ˈwiːknəs/", "vi": "điểm yếu" }
+    ],
+    "questions": [
+      {
+        "q": "Which question was he not ready for?",
+        "options": ["Tell me about yourself", "What are you bad at?", "Why do you want this job?"],
+        "answer": 1,
+        "explainVi": "\"Then she asked something I had not prepared for: 'What is something you are bad at?'\" Câu đầu thì anh đã luyện 40 lần."
+      },
+      {
+        "q": "What did he do about his weakness?",
+        "options": ["He hid it", "He set himself deadlines", "He asked for more information"],
+        "answer": 1,
+        "explainVi": "\"I now give myself a deadline and decide even when the picture is not complete.\" Công thức trả lời điểm yếu: nói thật + nói cách đang khắc phục."
+      },
+      {
+        "q": "Why does he think honesty worked?",
+        "options": ["Because the interviewer was young", "Because people notice scripted answers", "Because he had no weaknesses"],
+        "answer": 1,
+        "explainVi": "\"People can tell when you are reading from a script, and nobody trusts a person with no weaknesses.\""
+      }
+    ]
+  },
+  {
+    "id": "r08",
+    "level": "a2",
+    "emoji": "🏨",
+    "title": "Booking a Hotel in Da Nang",
+    "titleVi": "Đặt khách sạn ở Đà Nẵng",
+    "topic": "Du lịch",
+    "minutes": 5,
+    "text": [
+      "\"Good afternoon, Blue Sea Hotel. How may I help you?\"",
+      "\"Hello. I'd like to book a room for three nights, from the 14th to the 17th.\"",
+      "\"Certainly. How many guests?\"",
+      "\"Two adults and one child. She's six.\"",
+      "\"We have a deluxe room with a sea view at 1.4 million a night, or a standard room at 950,000. Children under seven stay free.\"",
+      "\"Does the price include breakfast?\"",
+      "\"Yes, breakfast for two is included. Would you like the sea view?\"",
+      "\"Let me think. Is the standard room quiet?\"",
+      "\"It faces the road, so it can be noisy in the morning.\"",
+      "\"Then I'll take the deluxe. Can I pay when I arrive?\"",
+      "\"Of course. Could I have your full name and phone number, please?\""
+    ],
+    "glossary": [
+      { "w": "I'd like to book…", "ipa": "/aɪd laɪk tə bʊk/", "vi": "Tôi muốn đặt…" },
+      { "w": "guest", "ipa": "/ɡest/", "vi": "khách" },
+      { "w": "sea view", "ipa": "/siː vjuː/", "vi": "hướng biển" },
+      { "w": "include", "ipa": "/ɪnˈkluːd/", "vi": "bao gồm" },
+      { "w": "faces the road", "ipa": "/ˈfeɪsɪz ðə rəʊd/", "vi": "quay ra mặt đường" },
+      { "w": "noisy", "ipa": "/ˈnɔɪzi/", "vi": "ồn ào" },
+      { "w": "Let me think", "ipa": "/let miː θɪŋk/", "vi": "Để tôi nghĩ đã (câu câu giờ rất hữu ích)" }
+    ],
+    "questions": [
+      {
+        "q": "How much does the family pay per night?",
+        "options": ["950,000", "1,400,000", "2,350,000"],
+        "answer": 1,
+        "explainVi": "Cuối cùng khách chọn deluxe: \"Then I'll take the deluxe\" — 1,4 triệu/đêm. Bé 6 tuổi miễn phí."
+      },
+      {
+        "q": "Why does he avoid the standard room?",
+        "options": ["It costs more", "It has no breakfast", "It may be noisy"],
+        "answer": 2,
+        "explainVi": "\"It faces the road, so it can be noisy in the morning.\" Phòng standard rẻ hơn, nhưng ồn."
+      },
+      {
+        "q": "When will he pay?",
+        "options": ["Now by card", "On arrival", "After checking out"],
+        "answer": 1,
+        "explainVi": "\"Can I pay when I arrive?\" — \"Of course.\" Cách hỏi này rất hay dùng khi đặt phòng qua điện thoại."
+      }
+    ]
+  },
+  {
+    "id": "r09",
+    "level": "a2",
+    "emoji": "🏃",
+    "title": "Why I Started Running",
+    "titleVi": "Vì sao tôi bắt đầu chạy bộ",
+    "topic": "Sức khoẻ & thói quen",
+    "minutes": 5,
+    "text": [
+      "For years I told myself I would start exercising \"next month\". Next month kept arriving and I kept not running.",
+      "What finally worked was making the goal embarrassingly small. My rule was simple: put on my shoes and go outside. That was the whole goal. I did not have to run. I only had to stand on the street.",
+      "Of course, once you are outside in running shoes, you feel silly going back in. So you run a little. Some days I ran four kilometres. Some days I ran two hundred metres and came home. Both counted as success, because the goal was never the distance.",
+      "That was fourteen months ago. I have missed plenty of days, and I stopped completely for three weeks when I got sick. But I always came back, because coming back to \"put on your shoes\" is much easier than coming back to \"run five kilometres\".",
+      "The habit was never about running. It was about making the first step so small that my lazy brain could not argue with it."
+    ],
+    "glossary": [
+      { "w": "exercise", "ipa": "/ˈeksəsaɪz/", "vi": "tập thể dục" },
+      { "w": "goal", "ipa": "/ɡəʊl/", "vi": "mục tiêu" },
+      { "w": "embarrassingly", "ipa": "/ɪmˈbærəsɪŋli/", "vi": "đến mức ngại (ở đây: nhỏ đến mức buồn cười)" },
+      { "w": "silly", "ipa": "/ˈsɪli/", "vi": "ngớ ngẩn" },
+      { "w": "distance", "ipa": "/ˈdɪstəns/", "vi": "quãng đường" },
+      { "w": "habit", "ipa": "/ˈhæbɪt/", "vi": "thói quen" },
+      { "w": "argue", "ipa": "/ˈɑːɡjuː/", "vi": "tranh cãi" }
+    ],
+    "questions": [
+      {
+        "q": "What was his actual daily goal?",
+        "options": ["To run five kilometres", "To put on shoes and go outside", "To run every single day"],
+        "answer": 1,
+        "explainVi": "\"My rule was simple: put on my shoes and go outside. That was the whole goal.\""
+      },
+      {
+        "q": "How did he treat a 200-metre day?",
+        "options": ["As a failure", "As a success", "He did not count it"],
+        "answer": 1,
+        "explainVi": "\"Both counted as success, because the goal was never the distance.\""
+      },
+      {
+        "q": "What is the main lesson?",
+        "options": ["Running is the best exercise", "Make the first step tiny", "Never take a break"],
+        "answer": 1,
+        "explainVi": "Câu cuối: \"making the first step so small that my lazy brain could not argue with it\". Anh ấy còn thừa nhận đã nghỉ 3 tuần — nên đáp án \"không bao giờ nghỉ\" là sai."
+      }
+    ]
+  }
+]

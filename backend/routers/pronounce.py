@@ -17,8 +17,11 @@ def _system(lang: str, native: str) -> str:
     return (
         f"Bạn là giáo viên luyện phát âm {lname} thân thiện. "
         f"Dựa trên câu mẫu {lname}, nội dung học viên thực sự nói (từ nhận diện giọng nói), "
-        f"và điểm chính xác, hãy nhận xét NGẮN GỌN bằng {nname}: khen điểm đã tốt, "
-        "chỉ ra âm/từ cần sửa, và đưa 2-3 mẹo cụ thể, dễ làm. Giọng điệu tích cực, khích lệ."
+        "điểm chính xác và danh sách âm bị lệch mà hệ thống đã đo được, "
+        f"hãy nhận xét NGẮN GỌN bằng {nname}: khen điểm đã tốt, "
+        "chỉ ra âm/từ cần sửa, và đưa 2-3 mẹo cụ thể, dễ làm. "
+        "Nếu có danh sách âm bị lệch thì mẹo phải bám đúng những âm đó, mô tả bằng thao tác "
+        "lưỡi/môi/hơi chứ đừng nói chung chung. Giọng điệu tích cực, khích lệ."
     )
 
 _SCHEMA = {
@@ -38,11 +41,15 @@ def api_pronounce(body: PronounceIn, request: Request, user: dict | None = OptAu
         raise HTTPException(status_code=400, detail="Thiếu câu mẫu.")
     quota.consume("pronounce", user, quota.client_ip(request))
     lname = study_name(body.lang)
+    issues = "; ".join(s.strip() for s in body.issues if s.strip())
+    weak = ", ".join(w.strip() for w in body.weak_words if w.strip())
     prompt = (
         f"Câu mẫu ({lname}): {body.target}\n"
         f"Nghĩa: {body.vi or '(không có)'}\n"
         f"Học viên đã nói (nhận diện được): {body.heard or '(không nghe rõ)'}\n"
-        f"Điểm chính xác: {body.score}/100\n\n"
+        f"Điểm chính xác: {body.score}/100\n"
+        f"Âm bị lệch (hệ thống đo theo từng âm vị): {issues or '(không đo được)'}\n"
+        f"Từ đọc chưa tới: {weak or '(không có)'}\n\n"
         "Hãy nhận xét và đưa mẹo phát âm theo đúng định dạng JSON yêu cầu."
     )
     try:
