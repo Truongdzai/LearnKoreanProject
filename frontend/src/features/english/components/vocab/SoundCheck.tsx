@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { buildFix, phoneSym, type PhoneFix } from '@/data/phoneCoach'
-import { checkSounds, type SoundReport, type WordCheck } from '@/core/utils/phonemeDiff'
+import { phoneLabel } from '@/data/phoneCoach'
+import {
+  EMPTY_GRADE, gradeSpeech, topFixes, type SpeechGrade, type WordGrade,
+} from '@/core/utils/pronGrade'
 import { splitWords } from '@/core/utils/speechDiff'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
@@ -16,12 +18,6 @@ interface Props {
   accents: boolean
   speak: (text: string) => void
   ph: Phonetics
-}
-
-interface FixRow {
-  fix: PhoneFix
-  words: string[]
-  count: number
 }
 
 const MAX_FIX = 3
@@ -44,30 +40,33 @@ export default function SoundCheck({ label, text, lang, locale, accents, speak, 
   const clip = useVoiceClip()
   const [myClip, setMyClip] = useState('')
   const [said, setSaid] = useState('')
-  const [report, setReport] = useState<SoundReport | null>(null)
+  const [grade, setGrade] = useState<SpeechGrade | null>(null)
   const [blank, setBlank] = useState(false)
   const spoke = useRef(false)
 
   const reset = useCallback(() => {
-    setMyClip(''); setSaid(''); setReport(null); setBlank(false)
+    setMyClip(''); setSaid(''); setGrade(null); setBlank(false)
     sr.reset()
   }, [sr])
 
   useEffect(() => {
-    setMyClip(''); setSaid(''); setReport(null); setBlank(false)
+    setMyClip(''); setSaid(''); setGrade(null); setBlank(false)
   }, [text])
 
-  const run = useCallback(async (heard: string) => {
-    await ph.ensure(splitWords(heard, lang))
+  const run = useCallback(async (heard: string, alts: string[]) => {
+    await ph.ensure(splitWords([heard, ...alts].join(' '), lang))
     setSaid(heard)
-    setReport(checkSounds({ lang, phones: ph.phones, read: ph.read }, text, heard))
+    setGrade(gradeSpeech(
+      { lang, phones: ph.phones, read: ph.read },
+      { target: text, heard, alternatives: alts },
+    ))
   }, [ph, lang, text])
 
   useEffect(() => {
-    if (sr.listening || report) return
+    if (sr.listening || grade) return
     const heard = sr.transcript.trim()
-    if (heard) void run(heard)
-  }, [sr.listening, sr.transcript, report, run])
+    if (heard) void run(heard, sr.alternatives)
+  }, [sr.listening, sr.transcript, grade, run])
 
   useEffect(() => {
     if (sr.listening) { spoke.current = true; return }
@@ -85,39 +84,28 @@ export default function SoundCheck({ label, text, lang, locale, accents, speak, 
     if (clip.supported && !clip.recording) void clip.start(setMyClip)
   }
 
-  const fixes = useMemo<FixRow[]>(() => {
-    if (!report) return []
-    const seen = new Set<string>()
-    const out: FixRow[] = []
-    for (const issue of report.issues) {
-      const fix = buildFix({
-        lang, want: issue.want, got: issue.got, state: issue.state, atEnd: issue.atEnd,
-      })
-      if (!fix || seen.has(fix.key)) continue
-      seen.add(fix.key)
-      out.push({ fix, words: issue.words, count: issue.count })
-      if (out.length >= MAX_FIX) break
-    }
-    return out
-  }, [report, lang])
+  const fixes = useMemo(() => topFixes(grade ?? EMPTY_GRADE, MAX_FIX), [grade])
+  const lab = (tok: string) => phoneLabel(lang, tok)
 
-  const cell = (want: string, got: string, state: string, k: number) => {
-    if (state === 'ok') return <i key={k} className="vl-pc ok">{phoneSym(lang, want)}</i>
-    if (state === 'miss') return <i key={k} className="vl-pc miss">{phoneSym(lang, want)}</i>
-    if (state === 'extra') return <i key={k} className="vl-pc extra">+{phoneSym(lang, got)}</i>
-    return (
-      <i key={k} className="vl-pc sub">
-        {phoneSym(lang, want)}<b>{phoneSym(lang, got)}</b>
-      </i>
-    )
-  }
-
-  const strip = (w: WordCheck, k: number) => (
-    <div key={k} className="vl-sc-word">
-      <b lang={lang}>{w.target}</b>
-      {w.known
-        ? <span className="vl-sc-cells">{w.cells.map((c, i) => cell(c.want, c.got, c.state, i))}</span>
-        : <span className="vl-sc-tag">chưa tra được phiên âm của từ này</span>}
+  const strip = (w: WordGrade, k: number) => (
+    <div key={k} className={'vl-sc-word ' + w.state}>
+      <b lang={lang}>{w.target || w.heard}</b>
+      {w.state === 'extra'
+        ? <span className="vl-sc-tag">thừa từ này</span>
+        : w.unsure
+          ? <span className="vl-sc-tag">máy nghe chưa chắc — không tính là lỗi</span>
+          : !w.known
+            ? <span className="vl-sc-tag">chưa tra được phiên âm nên chỉ so được mặt chữ</span>
+            : (
+              <span className="vl-sc-cells">
+                {w.cells.map((c, i) => {
+                  if (c.state === 'ok') return <i key={i} className="vl-pc ok">{lab(c.want)}</i>
+                  if (c.state === 'miss') return <i key={i} className="vl-pc miss">{lab(c.want)}</i>
+                  if (c.state === 'extra') return <i key={i} className="vl-pc extra">+{lab(c.got)}</i>
+                  return <i key={i} className="vl-pc sub">{lab(c.want)}<b>{lab(c.got)}</b></i>
+                })}
+              </span>
+            )}
     </div>
   )
 
@@ -149,7 +137,7 @@ export default function SoundCheck({ label, text, lang, locale, accents, speak, 
         <button className="vl-mini" disabled={!myClip} onClick={() => { new Audio(myClip).play().catch(() => { }) }}>
           <Icon name="volume" size={14} /> Nghe lại giọng bạn
         </button>
-        {report && (
+        {grade && (
           <button className="vl-mini" onClick={reset}>
             <Icon name="refresh" size={14} /> Làm lại
           </button>
@@ -160,26 +148,26 @@ export default function SoundCheck({ label, text, lang, locale, accents, speak, 
         <p className="vl-note">Trình duyệt này chưa nhận diện được giọng nói nên chỉ ghi âm để tự nghe lại. Dùng Chrome hoặc Edge để được chấm từng âm.</p>
       )}
       {sr.error && <p className="vl-note">{sr.error}</p>}
-      {blank && !report && <p className="vl-note">Chưa nghe rõ tiếng nào. Hãy nói to hơn, cách micro khoảng một gang tay rồi thử lại.</p>}
+      {blank && !grade && <p className="vl-note">Chưa nghe rõ tiếng nào. Hãy nói to hơn, cách micro khoảng một gang tay rồi thử lại.</p>}
 
-      {report && (
+      {grade && (
         <div className="vl-sc">
           <div className="vl-sc-top">
-            {report.covered && <span className={'vl-sc-score ' + tone(report.score)}>{report.score}</span>}
+            {grade.detailed && <span className={'vl-sc-score ' + tone(grade.score)}>{grade.score}</span>}
             <div className="vl-sc-sum">
-              <b>{report.covered ? verdict(report.score) : 'Chưa chấm được lượt này'}</b>
+              <b>{grade.detailed ? verdict(grade.score) : 'Chưa chấm được lượt này'}</b>
               <small>Máy nghe được: <em lang={lang}>{said}</em></small>
             </div>
           </div>
 
-          {report.covered && <div className="vl-sc-strips">{report.words.map(strip)}</div>}
+          {grade.detailed && <div className="vl-sc-strips">{grade.words.map(strip)}</div>}
 
-          {report.covered ? (
+          {grade.detailed ? (
             fixes.length ? (
               <>
                 <div className="vl-sc-h">SAI Ở ÂM NÀO VÀ SỬA THẾ NÀO</div>
                 <ul className="vl-sc-fixes">
-                  {fixes.map(({ fix, words, count }) => (
+                  {fixes.map(({ fix, words, count }) => fix && (
                     <li key={fix.key}>
                       <div className="vl-sc-fixh">
                         <b>{fix.title}</b>
@@ -209,11 +197,11 @@ export default function SoundCheck({ label, text, lang, locale, accents, speak, 
             <p className="vl-note">Máy nghe ra một từ không có trong kho phiên âm nên chưa tách được từng âm để chấm. Hãy nói lại chậm và rõ hơn.</p>
           )}
 
-          {report.covered && report.skipped.length > 0 && (
-            <p className="vl-note">Chưa tra được phiên âm của: {report.skipped.join(', ')} — phần này không được tính vào điểm.</p>
+          {grade.detailed && grade.skipped.length > 0 && (
+            <p className="vl-note">Chưa tra được phiên âm của: {grade.skipped.join(', ')} — phần này chấm theo mặt chữ nên kém chính xác hơn.</p>
           )}
 
-          <p className="vl-note">Máy so chuỗi âm của từ mà bộ nhận diện giọng nói nghe được với chuỗi âm chuẩn, nên nó bắt được lỗi làm người nghe hiểu sang từ khác. Những lỗi nhỏ hơn thế thì tai bạn khi nghe lại bản ghi vẫn là thước đo tốt nhất.</p>
+          <p className="vl-note">Máy so từng âm của từ mà bộ nhận diện giọng nói nghe được với chuỗi âm chuẩn, nên nó bắt được lỗi làm người nghe hiểu sang từ khác. Khi máy phân vân giữa nhiều cách nghe, từ đó được đánh dấu “chưa chắc” và không bị tính là lỗi.</p>
         </div>
       )}
     </div>

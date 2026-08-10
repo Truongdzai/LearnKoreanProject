@@ -1,8 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+interface SRAlternative {
+  transcript: string
+  confidence?: number
+}
+interface SRResult extends ArrayLike<SRAlternative> {
+  isFinal: boolean
+}
 interface SRResultEvent {
   resultIndex: number
-  results: ArrayLike<{ 0: { transcript: string }; isFinal: boolean }>
+  results: ArrayLike<SRResult>
 }
 interface SRInstance {
   lang: string
@@ -23,16 +30,19 @@ function getCtor(): (new () => SRInstance) | null {
 }
 
 const MAX_RETRY = 2
+const ALTS = 5
 
 export function useSpeechRecognition(lang = 'ko-KR') {
   const [supported] = useState(() => !!getCtor())
   const [listening, setListening] = useState(false)
   const [transcript, setTranscript] = useState('')
+  const [alternatives, setAlternatives] = useState<string[]>([])
+  const [confidence, setConfidence] = useState(0)
   const [interim, setInterim] = useState('')
   const [error, setError] = useState('')
   const recRef = useRef<SRInstance | null>(null)
   const retryRef = useRef(0)
-  const gotResultRef = useRef(false)
+  const altRef = useRef<string[]>([])
 
   useEffect(() => () => { try { recRef.current?.abort() } catch {} }, [])
 
@@ -48,17 +58,26 @@ export function useSpeechRecognition(lang = 'ko-KR') {
     rec.lang = lang
     rec.continuous = false
     rec.interimResults = true
-    rec.maxAlternatives = 1
+    rec.maxAlternatives = ALTS
     rec.onresult = (e) => {
-      gotResultRef.current = true
       let fin = ''
       let intr = ''
+      let conf = 0
       for (let i = e.resultIndex; i < e.results.length; i++) {
         const r = e.results[i]
-        if (r.isFinal) fin += r[0].transcript
-        else intr += r[0].transcript
+        if (!r.isFinal) { intr += r[0].transcript; continue }
+        fin += r[0].transcript
+        conf = Math.max(conf, r[0].confidence ?? 0)
+        for (let k = 1; k < ALTS; k++) {
+          const alt = r[k] ?? r[0]
+          altRef.current[k - 1] = (altRef.current[k - 1] ?? '') + alt.transcript
+        }
       }
-      if (fin) setTranscript((prev) => (prev + ' ' + fin).trim())
+      if (fin) {
+        setTranscript((prev) => (prev + ' ' + fin).trim())
+        setAlternatives(altRef.current.filter(Boolean).map((s) => s.trim()))
+        if (conf) setConfidence(conf)
+      }
       setInterim(intr)
     }
     rec.onerror = (ev) => {
@@ -94,18 +113,23 @@ export function useSpeechRecognition(lang = 'ko-KR') {
   const start = useCallback(() => {
     setError('')
     setTranscript('')
+    setAlternatives([])
+    setConfidence(0)
     setInterim('')
     retryRef.current = 0
-    gotResultRef.current = false
+    altRef.current = []
     begin()
   }, [begin])
 
   const stop = useCallback(() => { try { recRef.current?.stop() } catch {} }, [])
   const reset = useCallback(() => {
     setTranscript('')
+    setAlternatives([])
+    setConfidence(0)
     setInterim('')
     setError('')
+    altRef.current = []
   }, [])
 
-  return { supported, listening, transcript, interim, error, start, stop, reset }
+  return { supported, listening, transcript, alternatives, confidence, interim, error, start, stop, reset }
 }

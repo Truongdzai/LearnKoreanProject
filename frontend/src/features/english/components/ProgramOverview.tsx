@@ -8,6 +8,7 @@ import {
 import { PRON_GROUPS } from '@/data/englishPronunciation'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
+import FastMethod from './fast/FastMethod'
 
 const THREE_C: { k: string; vi: string; icon: IconName; tone: string; desc: string }[] = [
   { k: 'Compress', vi: 'Nén', icon: 'target', tone: 'tone-a', desc: 'Không học tràn lan. Chỉ giữ lại từ tần suất cao — dùng tới đâu học tới đó. 3000 từ lõi đủ hiểu ~90% hội thoại hằng ngày.' },
@@ -44,9 +45,13 @@ interface Props {
   onSummary: () => void
   onGrammar: (lessonId?: string) => void
   onPron: (groupId?: string) => void
+  onSkills: () => void
+  onErrors: () => void
 }
 
-export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron }: Props) {
+export default function ProgramOverview({
+  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors,
+}: Props) {
   const { learned } = useLearnedWords()
   const day = Math.min(planDay(readPlan().start), 90)
   const boot = mode === 'boot'
@@ -59,7 +64,7 @@ export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz
         {boot ? (
           <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 18 bài ngữ pháp, 13 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
         ) : (
-          <p>Đi theo <b>Quy tắc 3C</b> và phương pháp <b>ICES</b>: học đúng từ cần học, nhớ bằng hình ảnh – liên tưởng – trải nghiệm – âm thanh, rồi củng cố bằng lặp lại ngắt quãng. Đủ 4 kỹ năng nghe – nói – đọc – viết ngay trong lộ trình.</p>
+          <p>Đi theo phương pháp <b>F.A.S.T</b>: <b>F</b>ocus vào đúng 20% cần học, <b>A</b>ssociate để nhớ bằng liên tưởng, <b>S</b>ystem để chia giờ đều cho 4 kỹ năng, <b>T</b>imely feedback để lỗi được sửa trước khi hoá thạch. Nghe – nói – đọc – viết đều có chỗ trong lộ trình, không bỏ kỹ năng nào.</p>
         )}
         <div className="en-hero-stats">
           {day > 0 && <div><b>{day}</b><span>ngày đã đi / 90</span></div>}
@@ -87,11 +92,13 @@ export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz
           : 'Sự thật về số giờ: 45–60 phút/ngày trong 90 ngày ra mức A2. Muốn GIỎI ngay trong 90 ngày thì phải trả bằng giờ — chế độ Bootcamp 7–8 giờ/ngày dành cho người dồn toàn lực.'}
       </div>
 
+      <FastMethod onGrammar={onGrammar} onPron={onPron} onSkills={onSkills} onErrors={onErrors} />
+
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
 
-      <div className="section-title"><span className="pin" /> Quy tắc 3C (3C Protocol)</div>
+      <div className="section-title"><span className="pin" /> Quy tắc 3C — cách chữ F đi vào từ vựng</div>
       <div className="threec-grid">
         {THREE_C.map((c) => (
           <div key={c.k} className={'threec ' + c.tone}>
@@ -110,7 +117,7 @@ export default function ProgramOverview({ mode, onMode, onStart, onLearn, onQuiz
         </div>
       </div>
 
-      <div className="section-title"><span className="pin" /> Phương pháp ghi nhớ ICES</div>
+      <div className="section-title"><span className="pin" /> ICES — cách chữ A đi vào từng từ</div>
       <div className="ices-grid">
         {ICES.map((x) => (
           <div key={x.k} className="ices-box">

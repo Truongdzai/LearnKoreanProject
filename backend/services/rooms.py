@@ -9,13 +9,15 @@ from . import auth, llm
 from .langs import study_name, native_name
 
 MAX_SIZE = 5
+MIN_SIZE = 2
 IDLE_SECONDS = 150
 KEEP_MSGS = 80
 MSG_TTL_HOURS = 3
 MAX_TEXT = 400
 MAX_AUDIO_CHARS = 420_000
 MAX_ROOMS_LISTED = 40
-LEVELS = ("beginner", "intermediate", "advanced")
+LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
+LEGACY_LEVELS = {"beginner": "a1", "intermediate": "b1", "advanced": "c1"}
 CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
 SIGNAL_KINDS = ("offer", "answer", "ice", "bye")
@@ -25,24 +27,44 @@ MAX_SIGNALS_READ = 60
 
 QUEUE_IDLE_SECONDS = 40
 PAIR_SIZE = 2
-MAX_TOPICS = 5
-NEIGHBOURS = {
-    "beginner": ("intermediate",),
-    "intermediate": ("beginner", "advanced"),
-    "advanced": ("intermediate",),
-}
+MAX_TOPICS = 10
 MATCH_TOPICS = {
+    "ielts": "IELTS Speaking",
+    "toeic": "TOEIC Speaking",
+    "toefl": "TOEFL Speaking",
+    "topik": "TOPIK Nói",
+    "hsk": "HSK Khẩu ngữ",
+    "jlpt": "JLPT Hội thoại",
+    "interview": "Phỏng vấn xin việc",
+    "business": "Tiếng Anh công sở",
+    "academic": "Học thuật",
     "daily": "Đời thường",
     "travel": "Du lịch",
-    "work": "Công việc",
-    "school": "Học tập",
     "food": "Ẩm thực",
-    "movies": "Phim & nhạc",
-    "tech": "Công nghệ",
+    "music": "Âm nhạc",
+    "movies": "Phim ảnh",
     "sport": "Thể thao",
+    "tech": "Công nghệ",
+    "gaming": "Game",
+    "books": "Sách",
+    "science": "Khoa học",
+    "art": "Nghệ thuật",
     "health": "Sức khoẻ",
-    "exam": "Luyện thi",
+    "fashion": "Thời trang",
+    "nature": "Thiên nhiên",
 }
+
+
+def norm_level(value) -> str:
+    raw = str(value or "").strip().lower()
+    if raw in LEVELS:
+        return raw
+    return LEGACY_LEVELS.get(raw, "a2")
+
+
+def _neighbours(level: str) -> tuple[str, ...]:
+    i = LEVELS.index(level)
+    return tuple(LEVELS[j] for j in (i - 1, i + 1) if 0 <= j < len(LEVELS))
 
 
 def _code(n: int = 6) -> str:
@@ -262,7 +284,12 @@ def create(user: dict, body: dict) -> dict:
         raise AppError("ROOM_NAME", "Hãy đặt tên phòng (ít nhất 2 ký tự).", 400)
     topic = _clean(body.get("topic"), 80)
     lang = _clean(body.get("lang"), 8) or "ko"
-    level = body.get("level") if body.get("level") in LEVELS else "beginner"
+    level = norm_level(body.get("level"))
+    try:
+        size = int(body.get("max") or MAX_SIZE)
+    except (TypeError, ValueError):
+        size = MAX_SIZE
+    size = max(MIN_SIZE, min(MAX_SIZE, size))
     mode = "private" if body.get("mode") == "private" else "public"
     password = (body.get("password") or "").strip()
     if mode == "private" and password and len(password) < 4:
@@ -285,7 +312,7 @@ def create(user: dict, body: dict) -> dict:
             (
                 code, name, topic, lang, level, mode,
                 _hash(password) if password else None,
-                _code(14), user["id"], MAX_SIZE,
+                _code(14), user["id"], size,
             ),
         )
         conn.execute(
@@ -507,7 +534,7 @@ def _topic_text(ids: list[str]) -> str:
 def _levels_ok(mine: str, theirs: str, both_wide: bool) -> bool:
     if mine == theirs:
         return True
-    return both_wide and theirs in NEIGHBOURS.get(mine, ())
+    return both_wide and theirs in _neighbours(mine)
 
 
 def _pool(conn, user_id: str, lang: str, level: str, wide: bool) -> int:
@@ -568,7 +595,7 @@ def _pair_up(conn, user: dict, lang: str, level: str, wide: bool, topics: list[s
 
 def match_start(user: dict, body: dict) -> dict:
     lang = _clean(body.get("lang"), 8) or "ko"
-    level = body.get("level") if body.get("level") in LEVELS else "beginner"
+    level = norm_level(body.get("level"))
     wide = bool(body.get("wide"))
     topics = _topic_ids(body.get("topics"))
 
@@ -661,9 +688,12 @@ _PROMPT_SCHEMA = {
 }
 
 _LEVEL_TEXT = {
-    "beginner": "mới bắt đầu (câu rất ngắn, từ vựng cơ bản)",
-    "intermediate": "trung cấp (câu dài vừa, có liên từ)",
-    "advanced": "cao cấp (diễn đạt tự nhiên, ý sâu)",
+    "a1": "A1 (câu rất ngắn, từ vựng cơ bản nhất, nói về bản thân)",
+    "a2": "A2 (câu ngắn về việc quen thuộc: gia đình, mua sắm, chỗ làm)",
+    "b1": "B1 (kể lại trải nghiệm, nêu lý do và dự định bằng câu dài vừa)",
+    "b2": "B2 (bàn luận trôi chảy, nêu quan điểm có lập luận)",
+    "c1": "C1 (diễn đạt linh hoạt, dùng thành ngữ, ý sâu)",
+    "c2": "C2 (gần như người bản xứ, sắc thái tinh tế)",
 }
 
 
@@ -679,15 +709,16 @@ def topic_prompt(user: dict, room_id: str, native: str = "vi", after: int = 0) -
         if not mine:
             raise AppError("ROOM_OUTSIDE", "Bạn không còn ở trong phòng này.", 403)
         lang, level, topic, name = row["lang"], row["level"], row["topic"], row["name"]
+        size = row["max_size"]
     finally:
         conn.close()
 
     lname = study_name(lang)
     nname = native_name(native)
     prompt = (
-        f"Nhóm {MAX_SIZE} người đang luyện nói {lname} cùng nhau trong phòng \"{name}\".\n"
+        f"Nhóm {size} người đang luyện nói {lname} cùng nhau trong phòng \"{name}\".\n"
         f"Chủ đề: {topic or 'trò chuyện đời thường'}\n"
-        f"Trình độ: {_LEVEL_TEXT.get(level, _LEVEL_TEXT['beginner'])}\n\n"
+        f"Trình độ: {_LEVEL_TEXT[norm_level(level)]}\n\n"
         f"Hãy đặt 3 câu hỏi gợi chuyện bằng {lname} để cả nhóm thay phiên trả lời. "
         f"Câu hỏi mở, dễ nói thành 2-3 câu, hợp trình độ trên. "
         f"Trường 'ko' là câu hỏi {lname}, trường 'vi' là bản dịch sang {nname}."

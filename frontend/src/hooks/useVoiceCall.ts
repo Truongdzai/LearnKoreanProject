@@ -189,6 +189,7 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
       meterFor(meId, stream)
       after.current = 0
       on.current = true
+      setMuted(false)
       setActive(true)
       for (const id of members.current) if (id !== meId) offerTo(id)
     } catch (e) {
@@ -235,13 +236,43 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
 
   useEffect(() => () => { if (on.current) hangUp() }, [hangUp])
 
-  const toggleMute = useCallback(() => {
-    const next = !muted
-    local.current?.getAudioTracks().forEach((tr) => { tr.enabled = !next })
-    setMuted(next)
-  }, [muted])
+  const dropMeter = useCallback(() => {
+    const mine = meters.current.get(meId)
+    if (mine) { mine.ctx.close().catch(() => { }); meters.current.delete(meId) }
+    setMySpeaking(false)
+  }, [meId])
+
+  const toggleMute = useCallback(async () => {
+    if (!on.current) return
+    if (!muted) {
+      local.current?.getAudioTracks().forEach((tr) => tr.stop())
+      dropMeter()
+      setMuted(true)
+      return
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+        video: false,
+      })
+      if (!on.current) { stream.getTracks().forEach((tr) => tr.stop()); return }
+      local.current = stream
+      const track = stream.getAudioTracks()[0]
+      for (const w of wires.current.values()) {
+        const sender = w.pc.getSenders().find((s) => s.track?.kind === 'audio')
+        if (sender) sender.replaceTrack(track).catch(() => { })
+        else if (track) { try { w.pc.addTrack(track, stream) } catch { } }
+      }
+      meterFor(meId, stream)
+      setMuted(false)
+    } catch (e) {
+      setError(micError(e))
+    }
+  }, [muted, meId, meterFor, dropMeter])
 
   const streamOf = useCallback((id: string) => wires.current.get(id)?.stream || null, [])
 
   return { supported, secure, active, starting, muted, peers, mySpeaking, error, call, hangUp, toggleMute, streamOf }
 }
+
+export type VoiceCall = ReturnType<typeof useVoiceCall>

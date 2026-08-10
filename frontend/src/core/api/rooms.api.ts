@@ -1,7 +1,7 @@
 import { apiClient } from './client'
 
 export type RoomMode = 'public' | 'private'
-export type RoomLevel = 'beginner' | 'intermediate' | 'advanced'
+export type RoomLevel = 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
 export type RoomMsgKind = 'text' | 'voice' | 'prompt' | 'joined' | 'left'
 
 export interface RoomCard {
@@ -62,6 +62,7 @@ export interface CreateRoomInput {
   level: RoomLevel
   mode: RoomMode
   password?: string
+  max: number
 }
 
 export type SignalKind = 'offer' | 'answer' | 'ice' | 'bye'

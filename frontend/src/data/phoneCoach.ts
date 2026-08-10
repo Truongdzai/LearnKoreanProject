@@ -602,10 +602,6 @@ export function phoneInfo(lang: string, tok: string): PhoneInfo | null {
   return EN[tok] ?? null
 }
 
-export function phoneSym(lang: string, tok: string): string {
-  return phoneInfo(lang, tok)?.sym || tok
-}
-
 export function phoneLabel(lang: string, tok: string): string {
   const info = phoneInfo(lang, tok)
   if (!info) return tok

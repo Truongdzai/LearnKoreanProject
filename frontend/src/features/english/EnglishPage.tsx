@@ -8,18 +8,24 @@ import VocabQuiz from './components/VocabQuiz'
 import EnglishSummary from './components/EnglishSummary'
 import { recordWeekQuiz } from './progress'
 import Expectations, { type ExpectationSpec } from './components/Expectations'
+import { FastProvider } from './fast'
+import SkillHub from './components/fast/SkillHub'
+import ErrorLog from './components/fast/ErrorLog'
+import VocabCircles from './components/fast/VocabCircles'
 import { ALL_WORDS, UNITS, type RoadmapMode } from '@/data/englishCore'
 import { useTabs } from '@/core/a11y'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
 import ViContentNote from '../shared/ViContentNote'
 
-type Tab = 'program' | 'learn' | 'grammar' | 'pron' | 'quiz' | 'summary'
+type Tab = 'program' | 'learn' | 'grammar' | 'pron' | 'skills' | 'errors' | 'quiz' | 'summary'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
+  { id: 'skills', label: '4 kỹ năng', icon: 'chart' },
+  { id: 'errors', label: 'Sổ lỗi', icon: 'bell' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
   { id: 'summary', label: 'Tóm tắt & xuất', icon: 'note' },
 ]
@@ -139,10 +145,11 @@ export default function EnglishPage() {
   const tabs = useTabs('en', TAB_IDS, tab, pickTab, 'Tiếng Anh giao tiếp')
 
   return (
+    <FastProvider>
     <div className="english-page">
       <div className="lesson-head">
         <h2><Icon name="globe" /> Tiếng Anh giao tiếp</h2>
-        <div className="meta">Quy tắc 3C + phương pháp ICES + ôn tập ngắt quãng · giọng đọc US &amp; UK.</div>
+        <div className="meta">Phương pháp F.A.S.T · đủ 4 kỹ năng nghe – nói – đọc – viết · giọng đọc US &amp; UK.</div>
       </div>
 
       <ViContentNote />
@@ -168,9 +175,18 @@ export default function EnglishPage() {
           onSummary={() => setTab('summary')}
           onGrammar={openGrammar}
           onPron={openPron}
+          onSkills={() => setTab('skills')}
+          onErrors={() => setTab('errors')}
         />
       )}
-      {tab === 'learn' && <VocabLab initialUnit={learnUnit} units={UNITS} title="Từ vựng tiếng Anh giao tiếp" />}
+      {tab === 'learn' && (
+        <>
+          <VocabCircles />
+          <VocabLab initialUnit={learnUnit} units={UNITS} title="Từ vựng tiếng Anh giao tiếp" />
+        </>
+      )}
+      {tab === 'skills' && <SkillHub />}
+      {tab === 'errors' && <ErrorLog />}
       {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
       {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
       {tab === 'quiz' && (weekQuiz ? (
@@ -190,5 +206,6 @@ export default function EnglishPage() {
       {tab === 'summary' && <EnglishSummary />}
       </div>
     </div>
+    </FastProvider>
   )
 }

@@ -2,7 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakEN, stopSpeak } from '@/core/tts'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
-import { PRON_PASS, scoreSpoken } from '@/data/englishPronunciation'
+import { usePhonetics } from '@/hooks/usePhonetics'
+import { phoneLabel } from '@/data/phoneCoach'
+import { splitWords } from '@/core/utils/speechDiff'
+import { gradeSpeech, topFixes, type SpeechGrade } from '@/core/utils/pronGrade'
+import { PRON_PASS } from '@/data/englishPronunciation'
 
 export interface PronCtx {
   lang: string
@@ -14,10 +18,19 @@ export const CTX: PronCtx = { lang: 'en', speak: speakEN, srLang: 'en-US' }
 
 export const SR_LANG: Record<string, string> = { ko: 'ko-KR', zh: 'zh-CN', en: 'en-US' }
 
+interface Shot {
+  pct: number
+  heard: string
+  grade: SpeechGrade | null
+}
+
+const NO_SOURCE: string[] = []
+
 export function useReader() {
   const sr = useSpeechRecognition(CTX.srLang)
+  const ph = usePhonetics(CTX.lang, NO_SOURCE)
   const [active, setActive] = useState<string | null>(null)
-  const [results, setResults] = useState<Record<string, { pct: number; heard: string }>>({})
+  const [results, setResults] = useState<Record<string, Shot>>({})
   const targetRef = useRef<Record<string, string>>({})
   const startedRef = useRef(false)
 
@@ -25,12 +38,26 @@ export function useReader() {
     if (sr.listening) { startedRef.current = true; return }
     if (!startedRef.current || !active) return
     startedRef.current = false
+    const id = active
+    const target = targetRef.current[id] ?? ''
     const heard = sr.transcript.trim()
-    const pct = heard ? scoreSpoken(targetRef.current[active] ?? '', heard, CTX.lang) : 0
-    setResults((prev) => ({ ...prev, [active]: { pct, heard } }))
+    const alts = sr.alternatives
     setActive(null)
-    sr.reset()
-  }, [sr.listening, sr.transcript, sr.reset, active])
+    if (!heard) {
+      setResults((prev) => ({ ...prev, [id]: { pct: 0, heard: '', grade: null } }))
+      sr.reset()
+      return
+    }
+    void (async () => {
+      await ph.ensure(splitWords([target, heard, ...alts].join(' '), CTX.lang))
+      const grade = gradeSpeech(
+        { lang: CTX.lang, phones: ph.phones, read: ph.read },
+        { target, heard, alternatives: alts },
+      )
+      setResults((prev) => ({ ...prev, [id]: { pct: grade.score, heard, grade } }))
+      sr.reset()
+    })()
+  }, [sr.listening, sr.transcript, sr.alternatives, sr.reset, active, ph])
 
   const listen = useCallback((id: string, target: string) => {
     if (sr.listening) { sr.stop(); return }
@@ -74,10 +101,33 @@ export function ResultLine({ id, reader }: { id: string; reader: Reader }) {
   if (reader.active === id && reader.sr.listening) return <div className="pron-res listening">Đang nghe… hãy đọc to và rõ</div>
   if (!r) return null
   const v = verdict(r.pct)
+  const lab = (tok: string) => phoneLabel(CTX.lang, tok)
+  const off = r.grade
+    ? r.grade.words.filter((w) => w.state !== 'ok' && !w.unsure && w.devs.length > 0).slice(0, 3)
+    : []
+  const fix = r.grade ? topFixes(r.grade, 1)[0]?.fix : null
+
   return (
     <div className={'pron-res ' + v.cls}>
       <b>{r.pct}% · {v.text}</b>
       {r.heard ? <span>Máy nghe được: “{r.heard}”</span> : <span>Máy không nghe được gì.</span>}
+      {off.length > 0 && (
+        <div className="pron-res-off">
+          {off.map((w, k) => (
+            <span key={k} className="pron-res-w">
+              <b lang={CTX.lang}>{w.target}</b>
+              {w.cells.filter((c) => c.state !== 'ok').slice(0, 3).map((c, i) => (
+                c.state === 'miss'
+                  ? <i key={i} className="vl-pc miss">{lab(c.want)}</i>
+                  : c.state === 'extra'
+                    ? <i key={i} className="vl-pc extra">+{lab(c.got)}</i>
+                    : <i key={i} className="vl-pc sub">{lab(c.want)}<b>{lab(c.got)}</b></i>
+              ))}
+            </span>
+          ))}
+        </div>
+      )}
+      {fix && <span className="pron-res-fix"><b>{fix.title}.</b> {fix.how}</span>}
     </div>
   )
 }

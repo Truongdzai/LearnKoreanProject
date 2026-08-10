@@ -6,10 +6,11 @@ import { useVoiceClip } from '@/hooks/useVoiceClip'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { scoreBand } from '@/core/utils/pronounce'
+import { splitWords } from '@/core/utils/speechDiff'
 import {
-  alignWords, classify, overallScore, splitWords,
-  type ErrorKind, type WordPair,
-} from '@/core/utils/speechDiff'
+  EMPTY_GRADE, devLabel, gradeSpeech, issueNotes, missedWords, topFixes,
+  type SpeechGrade, type WordGrade,
+} from '@/core/utils/pronGrade'
 import { fetchPronounceFeedback, type PronounceFeedback } from '@/core/api/pronounce.api'
 import { addCard } from '@/core/api/srs.api'
 import { useSkillLog } from '@/core/skills'
@@ -48,6 +49,8 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [i, setI] = useState(0)
   const [score, setScore] = useState<number | null>(null)
   const [heard, setHeard] = useState('')
+  const [alts, setAlts] = useState<string[]>([])
+  const [openWord, setOpenWord] = useState(-1)
   const [ai, setAi] = useState<PronounceFeedback | null>(null)
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState('')
@@ -78,25 +81,17 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const ph = usePhonetics(learnLang, lines)
 
   const targetWords = useMemo(() => splitWords(cur.ko, learnLang), [cur.ko, learnLang])
-  const heardWords = useMemo(() => splitWords(heard, learnLang), [heard, learnLang])
 
-  const pairs = useMemo<WordPair[]>(() => {
-    if (score === null || !heardWords.length) return []
+  const grade = useMemo<SpeechGrade>(() => {
+    if (score === null || !heard.trim()) return EMPTY_GRADE
     void ph.version
-    return alignWords({ target: targetWords, heard: heardWords, phones: ph.phones })
-  }, [score, targetWords, heardWords, ph.phones, ph.version])
+    return gradeSpeech(
+      { lang: learnLang, phones: ph.phones, read: ph.read },
+      { target: cur.ko, heard, alternatives: alts },
+    )
+  }, [score, heard, alts, cur.ko, learnLang, ph.phones, ph.read, ph.version])
 
-  const issues = useMemo(
-    () => pairs
-      .filter((p) => p.state !== 'ok')
-      .map((p) => ({
-        ...p,
-        kind: p.state === 'extra'
-          ? ('extra' as ErrorKind)
-          : classify(ph.phones(p.target), p.heard ? ph.phones(p.heard) : [], ph.read(p.target), p.heard ? ph.read(p.heard) : ''),
-      })),
-    [pairs, ph.phones, ph.read, ph.version],
-  )
+  const fixes = useMemo(() => topFixes(grade), [grade])
 
   const speak = (text: string, r = 0.9) => speakLang(text, cfg.locale, r)
 
@@ -167,7 +162,8 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   }
 
   const resetAttempt = () => {
-    setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()
+    setScore(null); setHeard(''); setAlts([]); setOpenWord(-1)
+    setAi(null); setAiError(''); sr.reset()
     setMyClip(''); setSaved(0); setSaveErr(''); setDropped(false)
   }
 
@@ -191,7 +187,8 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const record = () => {
     if (sr.listening) { sr.stop(); return }
     stopOriginal()
-    setScore(null); setAi(null); setAiError(''); setMyClip('')
+    setScore(null); setAlts([]); setOpenWord(-1)
+    setAi(null); setAiError(''); setMyClip('')
     sr.start()
     if (clip.supported && !clip.recording) clip.start((data) => setMyClip(data))
   }
@@ -204,41 +201,43 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     cancelPlay.current = playRange(yt, cur.start, segEnd(segs, i), { times: 1, rate, onEnd: stopOriginal })
   }
 
-  const applyResult = useCallback(async (said: string) => {
-    const words = splitWords(said, learnLang)
-    await ph.ensure(words)
-    const list = alignWords({ target: targetWords, heard: words, phones: ph.phones })
-    const sc = overallScore(list, ph.phones)
+  const applyResult = useCallback(async (said: string, heardAlts: string[]) => {
+    await ph.ensure(splitWords([said, ...heardAlts].join(' '), learnLang))
+    const g = gradeSpeech(
+      { lang: learnLang, phones: ph.phones, read: ph.read },
+      { target: cur.ko, heard: said, alternatives: heardAlts },
+    )
     setHeard(said)
-    setScore(sc)
-    skills.record('speak', sc)
-    prog.record('speak', lesson.id, i, sc, segs.length, lesson.title)
-    const bad = list.filter((p) => p.state === 'wrong' || p.state === 'missing').map((p) => p.target).filter(Boolean)
+    setAlts(heardAlts)
+    setScore(g.score)
+    skills.record('speak', g.score)
+    prog.record('speak', lesson.id, i, g.score, segs.length, lesson.title)
+    const bad = missedWords(g)
     if (bad.length) {
       missBook.add(bad.map((w) => ({ w, ctx: cur.ko, vi: cur.vi || '', lang: learnLang, k: 'speak' as const })))
     }
-    if (sc >= PASS && !rewarded.has(i)) {
+    if (g.score >= PASS && !rewarded.has(i)) {
       recordEvent('pronounce', 1)
       setRewarded((r) => new Set(r).add(i))
     }
-  }, [learnLang, ph, targetWords, skills, prog, lesson.id, lesson.title, i, segs.length, missBook, cur.ko, cur.vi, rewarded, recordEvent])
+  }, [learnLang, ph, skills, prog, lesson.id, lesson.title, i, segs.length, missBook, cur.ko, cur.vi, rewarded, recordEvent])
 
   const discardAttempt = () => {
     if (score === null) return
     skills.undo('speak', score)
     prog.drop('speak', lesson.id, i)
     missBook.undo(
-      pairs.filter((p) => p.state === 'wrong' || p.state === 'missing')
-        .map((p) => ({ w: p.target, lang: learnLang, k: 'speak' as const })),
+      missedWords(grade).map((w) => ({ w, lang: learnLang, k: 'speak' as const })),
     )
     setDropped(true)
-    setScore(null); setHeard(''); setAi(null); setAiError(''); sr.reset()
+    setScore(null); setHeard(''); setAlts([]); setOpenWord(-1)
+    setAi(null); setAiError(''); sr.reset()
   }
 
   useEffect(() => {
     if (sr.listening || score !== null) return
     const said = sr.transcript.trim()
-    if (said) void applyResult(said)
+    if (said) void applyResult(said, sr.alternatives)
   }, [sr.listening, sr.transcript])
 
   useEffect(() => {
@@ -259,7 +258,16 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     if (score === null) return
     setAiLoading(true); setAiError(''); setAi(null)
     try {
-      const fb = await fetchPronounceFeedback({ target: cur.ko, heard, score, vi: cur.vi || '', lang: learnLang, native: nativeLang })
+      const fb = await fetchPronounceFeedback({
+        target: cur.ko,
+        heard,
+        score: grade.score,
+        vi: cur.vi || '',
+        lang: learnLang,
+        native: nativeLang,
+        issues: issueNotes(learnLang, grade),
+        weakWords: missedWords(grade),
+      })
       setAi(fb)
     } catch (e) {
       setAiError((e as Error).message)
@@ -268,11 +276,14 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     }
   }
 
-  const band = score !== null ? scoreBand(score) : null
-  const missed = useMemo(
-    () => Array.from(new Set(pairs.filter((p) => p.state === 'wrong' || p.state === 'missing').map((p) => p.target).filter(Boolean))),
-    [pairs],
-  )
+  const shown = score === null ? null : grade.score
+  const hardErrors = grade.words.filter(
+    (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
+  ).length
+  const band = shown === null
+    ? null
+    : scoreBand(hardErrors >= 2 ? Math.min(shown, 60) : hardErrors === 1 ? Math.min(shown, 80) : shown)
+  const missed = useMemo(() => missedWords(grade), [grade])
   const scores = prog.scoresOf('speak', lesson.id)
   const stat = lessonStat(scores, segs.length, PASS)
 
@@ -306,11 +317,32 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     return () => window.removeEventListener('keydown', onKey)
   })
 
-  const chipTone = (s: WordPair['state']) =>
+  const chipTone = (s: WordGrade['state']) =>
     s === 'ok' ? 'ok' : s === 'near' ? 'near' : s === 'missing' ? 'gone' : 'bad'
 
-  const chipMark = (s: WordPair['state']) =>
+  const chipMark = (s: WordGrade['state']) =>
     s === 'ok' ? '✓' : s === 'near' ? '~' : s === 'missing' ? '–' : '✕'
+
+  const lab = (tok: string) => devLabel(learnLang, tok)
+
+  const devText = (w: WordGrade) => w.devs
+    .map((d) => d.state === 'miss'
+      ? t('sh.dev.miss', { a: lab(d.want) })
+      : d.state === 'extra'
+        ? t('sh.dev.extra', { a: lab(d.got) })
+        : t('sh.dev.sub', { a: lab(d.want), b: lab(d.got) }))
+    .join(' · ')
+
+  const cellsOf = (w: WordGrade) => (
+    <span className="sh2-cells">
+      {w.cells.map((c, k) => {
+        if (c.state === 'ok') return <i key={k} className="vl-pc ok">{lab(c.want)}</i>
+        if (c.state === 'miss') return <i key={k} className="vl-pc miss">{lab(c.want)}</i>
+        if (c.state === 'extra') return <i key={k} className="vl-pc extra">+{lab(c.got)}</i>
+        return <i key={k} className="vl-pc sub">{lab(c.want)}<b>{lab(c.got)}</b></i>
+      })}
+    </span>
+  )
 
   return (
     <div className="shadow2">
@@ -449,16 +481,16 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noRec')}</div>
         )}
 
-        {score !== null && band && (
+        {shown !== null && band && (
           <div className="sh2-result">
             <div className="sh2-chips">
-              {pairs.map((p, k) => {
-                const shown = p.state === 'missing' ? p.target : p.heard
+              {grade.words.map((w, k) => {
+                const face = w.heard || w.target
                 return (
-                  <span key={k} className={'sh2-chip-w ' + chipTone(p.state)}>
-                    <span className="sh2-cw-mark">{chipMark(p.state)}</span>
-                    <b>{shown}</b>
-                    {ph.read(shown) && <i>/{ph.read(shown)}/</i>}
+                  <span key={k} className={'sh2-chip-w ' + chipTone(w.state) + (w.unsure ? ' unsure' : '')}>
+                    <span className="sh2-cw-mark">{chipMark(w.state)}</span>
+                    <b>{face}</b>
+                    {ph.read(face) && <i>/{ph.read(face)}/</i>}
                   </span>
                 )
               })}
@@ -467,27 +499,99 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                   <circle cx="40" cy="40" r="34" className="sh2-ring-bg" />
                   <circle cx="40" cy="40" r="34" className="sh2-ring-fg"
                     strokeDasharray={2 * Math.PI * 34}
-                    strokeDashoffset={2 * Math.PI * 34 * (1 - score / 100)} />
+                    strokeDashoffset={2 * Math.PI * 34 * (1 - shown / 100)} />
                 </svg>
-                <b>{score}</b>
+                <b>{shown}</b>
               </div>
             </div>
 
-            {issues.length > 0 && (
+            {grade.words.some((w) => w.state !== 'ok') && (
               <ul className="sh2-issues">
-                {issues.map((it, k) => (
-                  <li key={k} className={'sh2-issue ' + chipTone(it.state)}>
-                    <span className="sh2-iw">
-                      {it.target || '—'} {it.target && ph.read(it.target) && <em>/{ph.read(it.target)}/</em>}
-                    </span>
-                    <Icon name="arrow-right" size={13} />
-                    <span className="sh2-iw bad">
-                      {it.heard || '—'} {it.heard && ph.read(it.heard) && <em>/{ph.read(it.heard)}/</em>}
-                    </span>
-                    <span className="sh2-ikind">{t('sh.kind.' + it.kind)}</span>
-                  </li>
-                ))}
+                {grade.words.map((w, k) => {
+                  if (w.state === 'ok') return null
+                  const open = openWord === k
+                  const detail = w.devs.length > 0
+                  return (
+                    <li key={k} className={'sh2-issue ' + chipTone(w.state)}>
+                      <div className="sh2-ihead">
+                        <span className="sh2-iw">
+                          {w.target || '—'} {w.target && ph.read(w.target) && <em>/{ph.read(w.target)}/</em>}
+                        </span>
+                        <Icon name="arrow-right" size={13} />
+                        <span className="sh2-iw bad">
+                          {w.heard || '—'} {w.heard && ph.read(w.heard) && <em>/{ph.read(w.heard)}/</em>}
+                        </span>
+                        <span className="sh2-ikind">
+                          {w.unsure ? t('sh.kind.unsure') : t('sh.kind.' + w.kind)}
+                        </span>
+                      </div>
+
+                      {w.unsure ? (
+                        <p className="sh2-idev">{t('sh.unsureNote')}</p>
+                      ) : detail ? (
+                        <>
+                          {cellsOf(w)}
+                          <p className="sh2-idev">{devText(w)}</p>
+                        </>
+                      ) : !w.known ? (
+                        <p className="sh2-idev">{t('sh.noPhone')}</p>
+                      ) : null}
+
+                      {detail && !w.unsure && (
+                        <>
+                          <button className="sh2-imore" onClick={() => setOpenWord(open ? -1 : k)} aria-expanded={open}>
+                            <Icon name={open ? 'chevron-left' : 'bulb'} size={13} />
+                            {open ? t('sh.hideFix') : t('sh.showFix')}
+                          </button>
+                          {open && (
+                            <div className="sh2-drill">
+                              <button className="sh2-dw" onClick={() => speak(w.target, 0.6)}>
+                                <Icon name="volume" size={12} /> {t('sh.slow')}
+                              </button>
+                              <button className="sh2-dw" disabled={!myClip} onClick={playMine}>
+                                <Icon name="play" size={12} /> {t('sh.replayMine')}
+                              </button>
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
+            )}
+
+            {fixes.length > 0 && (
+              <div className="sh2-fixes">
+                <div className="sh2-fixh">{t('sh.fixHead')}</div>
+                <ul>
+                  {fixes.map(({ fix, words, count }) => fix && (
+                    <li key={fix.key}>
+                      <div className="sh2-fixtop">
+                        <b>{fix.title}</b>
+                        {words.length > 0 && <span className="sh2-ftag" lang={learnLang}>{t('sh.fixIn', { w: words.join(', ') })}</span>}
+                        {count > 1 && <span className="sh2-ftag">{t('sh.fixTimes', { n: count })}</span>}
+                      </div>
+                      <p className="sh2-fwhy">{fix.why}</p>
+                      <p className="sh2-fhow"><Icon name="target" size={13} /> {fix.how}</p>
+                      {fix.drill.length > 0 && (
+                        <div className="sh2-drill">
+                          <span>{t('sh.drill')}</span>
+                          {fix.drill.map((d) => (
+                            <button key={d} className="sh2-dw" lang={learnLang} onClick={() => speak(d, 0.75)}>
+                              <Icon name="volume" size={12} /> {d}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {grade.skipped.length > 0 && (
+              <p className="sh2-idev">{t('sh.skipped', { w: grade.skipped.join(', ') })}</p>
             )}
 
             {mode === 'repeat' && myClip && (
@@ -499,7 +603,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
               <span><i className="lg near" /> {t('sh.legend.near')}</span>
               <span><i className="lg bad" /> {t('sh.legend.wrong')}</span>
               <span><i className="lg gone" /> {t('sh.legend.missing')}</span>
-              <span className="sh2-band">{t(band.labelKey)}{score >= PASS && rewarded.has(i) && <em>+{REWARD} XP</em>}</span>
+              <span className="sh2-band">{t(band.labelKey)}{shown >= PASS && rewarded.has(i) && <em>+{REWARD} XP</em>}</span>
             </div>
 
             <div className="sh2-resact">

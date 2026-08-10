@@ -21,7 +21,7 @@ const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'phatam', ic: 'mic', label: 'learn.tab.speak' },
   { id: 'chepchinhta', ic: 'headphones', label: 'learn.tab.dictation' },
   { id: 'dienkhuyet', ic: 'target', label: 'learn.tab.cloze' },
-  { id: 'dubbing', ic: 'mic', label: 'Dubbing Studio' },
+  { id: 'dubbing', ic: 'mic', label: 'learn.tab.dubbing' },
   { id: 'luyendich', ic: 'globe', label: 'learn.tab.translate' },
   { id: 'tomtat', ic: 'note', label: 'learn.tab.summary' },
 ]
@@ -121,7 +121,7 @@ export default function LearnPage() {
       <div className="learn-tabs" {...tabs.list}>
         {TABS.map((tb) => (
           <button key={tb.id} {...tabs.tab(tb.id)} className={tab === tb.id ? 'on' : ''} onClick={() => setTab(tb.id)}>
-            <Icon name={tb.ic} /> {tb.label.includes('.') ? t(tb.label) : tb.label}
+            <Icon name={tb.ic} /> {t(tb.label)}
           </button>
         ))}
       </div>
