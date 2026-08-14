@@ -83,7 +83,7 @@ export const PUBLIC_VIEWS: AppView[] = [
 export const META_DESC: Partial<Record<AppView, string>> = {
   home: 'Học tiếng Hàn, tiếng Anh qua chính video YouTube bạn thích: phụ đề song ngữ, bấm từ là tra nghĩa, lưu thẻ ôn tập SRS. Miễn phí.',
   library: 'Luyện Shadowing trên video thật: dán link YouTube hoặc chọn trong kho video đã kiểm chứng phụ đề tiếng Anh, Hàn, Trung, Nhật.',
-  english: 'Tiếng Anh giao tiếp theo quy tắc 3C: 3000 từ tần suất cao học kiểu flashcard có giọng US và UK, 18 bài ngữ pháp giao tiếp, 13 nhóm phát âm, tự tick theo tiến độ thật.',
+  english: 'Tiếng Anh giao tiếp theo phương pháp F.A.S.T: 3000 từ tần suất cao có giọng US và UK, 18 bài ngữ pháp giao tiếp, 13 nhóm phát âm, ngân sách đủ 4 kỹ năng và trang học sâu từng từ theo 5 mức làm chủ.',
   toeic: 'Luyện thi TOEIC: lộ trình 60 ngày, ngân hàng 504 câu đủ 7 Part, thi thử full test có đồng hồ và sổ tay câu sai.',
   korean: 'Lộ trình tiếng Hàn 90 ngày từ số 0: 805 từ lõi theo phương pháp ICES, 36 mẫu câu, 12 nhóm phát âm người Việt hay sai.',
   chinese: 'Học tiếng Trung từ số 0 cho người Việt: từ vựng lõi theo phương pháp ICES, mẹo nhớ bám âm Hán–Việt, phiên âm pinyin và lộ trình theo khung HSK.',

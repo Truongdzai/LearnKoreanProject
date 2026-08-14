@@ -9,7 +9,8 @@ EXAMPLE_PATH = ROOT / "config.example.toml"
 
 DEFAULTS: dict = {
     "app": {"name": "Hàn Quân", "native_language": "vie", "target_language": "kor", "public_url": ""},
-    "llm": {"provider": "none", "api_key": "", "model": "", "models": []},
+    "llm": {"provider": "none", "api_key": "", "model": "", "models": [], "image_models": []},
+    "wordimage": {"source": "ai"},
     "whisper": {"model": "small"},
     "network": {"proxy": ""},
     "security": {"expose_docs": True, "cors_origins": ["*"]},

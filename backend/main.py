@@ -31,6 +31,7 @@ from .routers import (
     content as content_router,
     admin as admin_router,
     lingo as lingo_router,
+    english as english_router,
     feedback as feedback_router,
     arena as arena_router,
     notify as notify_router,
@@ -132,6 +133,7 @@ app.include_router(me_router.router)
 app.include_router(content_router.router)
 app.include_router(admin_router.router)
 app.include_router(lingo_router.router)
+app.include_router(english_router.router)
 app.include_router(feedback_router.router)
 app.include_router(arena_router.router)
 app.include_router(notify_router.router)

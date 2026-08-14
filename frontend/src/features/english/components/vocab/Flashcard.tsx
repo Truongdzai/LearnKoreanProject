@@ -13,6 +13,7 @@ interface Props extends ModeProps {
   onGrade: (g: Grade) => void
   onMaster: () => void
   onSave: () => void
+  onDeep?: (term: string) => void
 }
 
 const GRADES: { g: Grade; label: string; cls: string }[] = [
@@ -23,7 +24,7 @@ const GRADES: { g: Grade; label: string; cls: string }[] = [
 ]
 
 export default function Flashcard({
-  card, lang, def, accents, speak, box, mastered, saved, onGrade, onMaster, onSave,
+  card, lang, def, accents, speak, box, mastered, saved, onGrade, onMaster, onSave, onDeep,
 }: Props) {
   const [flipped, setFlipped] = useState(false)
   const { w, term } = card
@@ -115,6 +116,11 @@ export default function Flashcard({
           ))}
         </div>
         <div className="vl-card-actions">
+          {onDeep && (
+            <button className="vl-deep" onClick={() => onDeep(term)}>
+              <Icon name="book" size={15} /> Học sâu từ vựng <Icon name="sparkles" size={14} />
+            </button>
+          )}
           <button className={'vl-mini' + (mastered ? ' on' : '')} onClick={onMaster}>
             <Icon name="check-circle" size={14} /> {mastered ? 'Đã thành thạo' : 'Thành thạo'}
           </button>

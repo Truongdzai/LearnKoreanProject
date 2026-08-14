@@ -16,6 +16,7 @@ COST = {
     "level": 1,
     "define": 1,
     "lingo": 2,
+    "encoach": 2,
 }
 
 LABEL = {
@@ -28,6 +29,7 @@ LABEL = {
     "level": "ước lượng trình độ bài học",
     "define": "tra từ sâu",
     "lingo": "làm mới Hot Lingo",
+    "encoach": "chấm câu bạn tự nói hoặc tự viết",
 }
 
 
