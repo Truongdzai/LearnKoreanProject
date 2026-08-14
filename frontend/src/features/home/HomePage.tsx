@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import DailyGoal from './components/DailyGoal'
 import WordOfDay from './components/WordOfDay'
+import MasterWord from './components/MasterWord'
 import VideoCard from '@/features/shared/VideoCard'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { videoUrl } from '@/data/videos'
@@ -79,6 +80,8 @@ export default function HomePage() {
         <DailyGoal />
         <WordOfDay />
       </div>
+
+      <MasterWord />
 
       <div className="section-title">
         <span className="pin" /> {t('home.libTitle', { lang: learnLangName })}

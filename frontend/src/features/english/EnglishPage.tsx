@@ -16,12 +16,15 @@ import { ALL_WORDS, UNITS, type RoadmapMode } from '@/data/englishCore'
 import { useTabs } from '@/core/a11y'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
 import ViContentNote from '../shared/ViContentNote'
+import { MasteryProvider } from './active/mastery'
+import { DeepProvider } from './deep/deep'
+import DeepPage from './deep/DeepPage'
 
-type Tab = 'program' | 'learn' | 'grammar' | 'pron' | 'skills' | 'errors' | 'quiz' | 'summary'
+type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'skills' | 'errors' | 'quiz' | 'summary'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
-  { id: 'program', label: 'Lộ trình', icon: 'map' },
-  { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
+  { id: 'plan', label: 'Lộ trình', icon: 'map' },
+  { id: 'vocab', label: 'Học từ vựng', icon: 'cards' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'skills', label: '4 kỹ năng', icon: 'chart' },
@@ -30,21 +33,6 @@ const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'summary', label: 'Tóm tắt & xuất', icon: 'note' },
 ]
 const TAB_IDS = TABS.map((t) => t.id)
-
-interface WeekQuiz {
-  week: number
-  units: string[]
-  pass: number
-}
-
-interface ModeState {
-  mode: RoadmapMode | null
-}
-
-const normalizeMode = (raw: unknown): ModeState => {
-  const m = (raw as Partial<ModeState> | null)?.mode
-  return { mode: m === 'boot' || m === 'lite' ? m : null }
-}
 
 const SPEC_LITE: ExpectationSpec = {
   daily: '45–60 phút mỗi ngày',
@@ -90,12 +78,27 @@ const SPEC_BOOT: ExpectationSpec = {
   next: 'Sau tốt nghiệp: hạ về 1–2 giờ/ngày để giữ và mở rộng — mỗi ngày 1 video không phụ đề, nói AI duy trì phản xạ, đọc theo sở thích. Mục tiêu C1 cần thêm ~400–500 giờ nữa, nhưng phần khó nhất (0 → nói được) bạn đã đi qua rồi.',
 }
 
-function readJump(): { tab?: string; unit?: string } | null {
+interface WeekQuiz {
+  week: number
+  units: string[]
+  pass: number
+}
+
+interface ModeState {
+  mode: RoadmapMode | null
+}
+
+const normalizeMode = (raw: unknown): ModeState => {
+  const m = (raw as Partial<ModeState> | null)?.mode
+  return { mode: m === 'boot' || m === 'lite' ? m : null }
+}
+
+function readJump(): { tab?: string; unit?: string; word?: string } | null {
   try {
     const raw = sessionStorage.getItem('vyling.en.jump')
     if (!raw) return null
     sessionStorage.removeItem('vyling.en.jump')
-    return JSON.parse(raw) as { tab?: string; unit?: string }
+    return JSON.parse(raw) as { tab?: string; unit?: string; word?: string }
   } catch {
     return null
   }
@@ -103,11 +106,13 @@ function readJump(): { tab?: string; unit?: string } | null {
 
 export default function EnglishPage() {
   const [jump] = useState(readJump)
-  const [tab, setTab] = useState<Tab>(jump?.tab === 'learn' ? 'learn' : 'program')
+  const [tab, setTab] = useState<Tab>(jump?.unit ? 'vocab' : 'plan')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(jump?.unit)
   const [grammarLesson, setGrammarLesson] = useState<string | undefined>(undefined)
   const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)
+  const [deepWord, setDeepWord] = useState<string | null>(jump?.tab === 'word' ? (jump.word ?? '') : null)
+
   const { state: modeState, mutate: mutateMode } = useServerPlan<ModeState>(
     'enmode', 'vyling.en.mode', normalizeMode, (s) => s.mode == null,
   )
@@ -116,7 +121,7 @@ export default function EnglishPage() {
 
   const openLearn = (unitId?: string) => {
     setLearnUnit(unitId)
-    setTab('learn')
+    setTab('vocab')
   }
 
   const openGrammar = (lessonId?: string) => {
@@ -124,25 +129,44 @@ export default function EnglishPage() {
     setTab('grammar')
   }
 
-  const openQuiz = (week: number, units: string[], pass: number) => {
-    setWeekQuiz({ week, units, pass })
-    setTab('quiz')
-  }
-
   const openPron = (groupId?: string) => {
     setPronGroup(groupId)
     setTab('pron')
   }
 
+  const openQuiz = (week: number, units: string[], pass: number) => {
+    setWeekQuiz({ week, units, pass })
+    setTab('quiz')
+  }
+
   const pickTab = (t: Tab) => {
     if (t === 'quiz') setWeekQuiz(null)
-    if (t === 'learn') setLearnUnit(undefined)
+    if (t === 'vocab') setLearnUnit(undefined)
     if (t === 'grammar') setGrammarLesson(undefined)
     if (t === 'pron') setPronGroup(undefined)
     setTab(t)
   }
 
   const tabs = useTabs('en', TAB_IDS, tab, pickTab, 'Tiếng Anh giao tiếp')
+
+  if (deepWord !== null) {
+    return (
+      <FastProvider>
+        <MasteryProvider>
+          <DeepProvider>
+            <div className="english-page">
+              <DeepPage
+                key={deepWord || 'pick'}
+                term={deepWord}
+                onPickWord={setDeepWord}
+                onBack={() => setDeepWord(null)}
+              />
+            </div>
+          </DeepProvider>
+        </MasteryProvider>
+      </FastProvider>
+    )
+  }
 
   return (
     <FastProvider>
@@ -165,45 +189,50 @@ export default function EnglishPage() {
       </div>
 
       <div {...tabs.panel(tab)}>
-      {tab === 'program' && (
-        <ProgramOverview
-          mode={mode}
-          onMode={setMode}
-          onStart={() => openLearn()}
-          onLearn={openLearn}
-          onQuiz={openQuiz}
-          onSummary={() => setTab('summary')}
-          onGrammar={openGrammar}
-          onPron={openPron}
-          onSkills={() => setTab('skills')}
-          onErrors={() => setTab('errors')}
-        />
-      )}
-      {tab === 'learn' && (
-        <>
-          <VocabCircles />
-          <VocabLab initialUnit={learnUnit} units={UNITS} title="Từ vựng tiếng Anh giao tiếp" />
-        </>
-      )}
-      {tab === 'skills' && <SkillHub />}
-      {tab === 'errors' && <ErrorLog />}
-      {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
-      {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
-      {tab === 'quiz' && (weekQuiz ? (
-        <VocabQuiz
-          key={`w${weekQuiz.week}`}
-          units={weekQuiz.units}
-          allUnits={UNITS}
-          allWords={ALL_WORDS}
-          heading={`Bài kiểm tra Tuần ${weekQuiz.week}`}
-          passPct={weekQuiz.pass}
-          onFinish={(pct) => recordWeekQuiz(weekQuiz.week, pct)}
-          onBack={() => { setWeekQuiz(null); setTab('program') }}
-        />
-      ) : (
-        <VocabQuiz allUnits={UNITS} allWords={ALL_WORDS} />
-      ))}
-      {tab === 'summary' && <EnglishSummary />}
+        {tab === 'plan' && (
+          <ProgramOverview
+            mode={mode}
+            onMode={setMode}
+            onStart={() => openLearn()}
+            onLearn={openLearn}
+            onQuiz={openQuiz}
+            onSummary={() => setTab('summary')}
+            onGrammar={openGrammar}
+            onPron={openPron}
+            onSkills={() => setTab('skills')}
+            onErrors={() => setTab('errors')}
+          />
+        )}
+        {tab === 'vocab' && (
+          <>
+            <VocabCircles />
+            <VocabLab
+              initialUnit={learnUnit}
+              units={UNITS}
+              title="Từ vựng tiếng Anh giao tiếp"
+              onDeep={setDeepWord}
+            />
+          </>
+        )}
+        {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
+        {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
+        {tab === 'skills' && <SkillHub />}
+        {tab === 'errors' && <ErrorLog />}
+        {tab === 'quiz' && (weekQuiz ? (
+          <VocabQuiz
+            key={`w${weekQuiz.week}`}
+            units={weekQuiz.units}
+            allUnits={UNITS}
+            allWords={ALL_WORDS}
+            heading={`Bài kiểm tra Tuần ${weekQuiz.week}`}
+            passPct={weekQuiz.pass}
+            onFinish={(pct) => recordWeekQuiz(weekQuiz.week, pct)}
+            onBack={() => { setWeekQuiz(null); setTab('plan') }}
+          />
+        ) : (
+          <VocabQuiz allUnits={UNITS} allWords={ALL_WORDS} />
+        ))}
+        {tab === 'summary' && <EnglishSummary />}
       </div>
     </div>
     </FastProvider>

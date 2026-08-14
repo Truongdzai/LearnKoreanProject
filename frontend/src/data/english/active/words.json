@@ -1,0 +1,441 @@
+{
+  "take": {
+    "ipa": "/teɪk/",
+    "pos": "động từ bất quy tắc · take – took – taken",
+    "core": "Ý lõi: đưa một thứ gì đó từ chỗ này sang chỗ khác, hoặc nhận nó về phía mình. Mọi nghĩa bên dưới đều mọc ra từ ý lõi đó.",
+    "senses": [
+      { "vi": "lấy, cầm", "ex": "Take this pen, I have another one.", "exVi": "Cầm cây bút này đi, tôi còn cây khác." },
+      { "vi": "đưa, mang (ai/cái gì đi đâu)", "ex": "I'll take you to the station.", "exVi": "Tôi sẽ đưa bạn ra ga." },
+      { "vi": "đi bằng (phương tiện)", "ex": "I take the bus to work.", "exVi": "Tôi đi làm bằng xe buýt." },
+      { "vi": "mất (bao nhiêu thời gian)", "ex": "It takes twenty minutes on foot.", "exVi": "Đi bộ mất hai mươi phút." },
+      { "vi": "nhận, chấp nhận", "ex": "Do you take credit cards?", "exVi": "Ở đây có nhận thẻ không ạ?" },
+      { "vi": "chụp (ảnh)", "ex": "Could you take a photo of us?", "exVi": "Bạn chụp giúp bọn tôi một tấm nhé?" },
+      { "vi": "uống (thuốc)", "ex": "Take one tablet twice a day.", "exVi": "Uống một viên, ngày hai lần." },
+      { "vi": "chịu đựng nổi", "ex": "I can't take this heat.", "exVi": "Tôi không chịu nổi cái nóng này." },
+      { "vi": "học (môn), dự (kỳ thi)", "ex": "She's taking three courses this term.", "exVi": "Kỳ này cô ấy học ba môn." }
+    ],
+    "combos": [
+      {
+        "label": "take + giới từ",
+        "note": "Đổi giới từ là đổi hẳn nghĩa, không đoán được từ nghĩa gốc. Đây là nhóm phải học thuộc từng cụm.",
+        "items": [
+          { "form": "take off", "vi": "cất cánh; cởi (đồ) ra", "ex": "The plane takes off at six." },
+          { "form": "take up", "vi": "bắt đầu (sở thích); chiếm (chỗ, thời gian)", "ex": "I took up running last year." },
+          { "form": "take out", "vi": "lấy ra, mang ra ngoài", "ex": "Could you take out the trash?" },
+          { "form": "take after", "vi": "giống (bố mẹ, người thân)", "ex": "She takes after her mother." },
+          { "form": "take over", "vi": "tiếp quản, đảm nhận thay", "ex": "Linh will take over the project." },
+          { "form": "take back", "vi": "rút lại (lời nói); trả lại (hàng)", "ex": "Sorry, I take that back." },
+          { "form": "take in", "vi": "tiếp thu; bóp nhỏ (quần áo); lừa được ai", "ex": "There was too much to take in." },
+          { "form": "take down", "vi": "tháo xuống; ghi lại", "ex": "Let me take down your number." },
+          { "form": "take on", "vi": "nhận thêm (việc); tuyển thêm người", "ex": "Don't take on too much work." }
+        ]
+      },
+      {
+        "label": "take + a/an + danh từ",
+        "note": "Khuôn này biến một danh từ thành một hành động ngắn. Người Việt hay dùng nhầm \"do\" hoặc \"have\" ở đây.",
+        "items": [
+          { "form": "take a break", "vi": "nghỉ giải lao", "ex": "Let's take a ten-minute break." },
+          { "form": "take a look (at)", "vi": "xem qua", "ex": "Could you take a look at my code?" },
+          { "form": "take a shower", "vi": "tắm vòi sen", "ex": "I take a shower every morning." },
+          { "form": "take a seat", "vi": "mời ngồi", "ex": "Please take a seat." },
+          { "form": "take a photo", "vi": "chụp một tấm ảnh", "ex": "Let's take a photo together." },
+          { "form": "take a nap", "vi": "chợp mắt", "ex": "I usually take a nap after lunch." },
+          { "form": "take a walk", "vi": "đi dạo", "ex": "We took a walk by the river." },
+          { "form": "take a chance", "vi": "liều thử", "ex": "I decided to take a chance." }
+        ]
+      },
+      {
+        "label": "take + danh từ trần (không mạo từ)",
+        "note": "Nhóm này không có \"a\". Thêm \"a\" vào là sai: ❌ take a note ở nghĩa ghi chép, ✅ take notes.",
+        "items": [
+          { "form": "take notes", "vi": "ghi chép", "ex": "I'll take notes during the meeting." },
+          { "form": "take care of", "vi": "chăm sóc; lo liệu", "ex": "I'll take care of the deployment." },
+          { "form": "take part in", "vi": "tham gia (hoạt động)", "ex": "I'd like to take part in the hackathon." },
+          { "form": "take place", "vi": "diễn ra (sự kiện)", "ex": "The conference takes place on Friday." },
+          { "form": "take responsibility for", "vi": "nhận trách nhiệm về", "ex": "I take full responsibility for the bug." },
+          { "form": "take action", "vi": "hành động, ra tay", "ex": "We need to take action now." },
+          { "form": "take turns", "vi": "thay phiên nhau", "ex": "We take turns driving." },
+          { "form": "take time", "vi": "cần thời gian", "ex": "Learning a language takes time." }
+        ]
+      },
+      {
+        "label": "Cụm cố định",
+        "note": "Học nguyên cụm, đừng dịch từng chữ.",
+        "items": [
+          { "form": "take your time", "vi": "cứ từ từ, không vội", "ex": "Take your time, I'm not in a hurry." },
+          { "form": "take it easy", "vi": "thư giãn đi, đừng căng", "ex": "Take it easy — you'll do fine." },
+          { "form": "take advantage of", "vi": "tận dụng; lợi dụng", "ex": "Take advantage of the free trial." },
+          { "form": "take my word for it", "vi": "cứ tin tôi đi", "ex": "It's worth it — take my word for it." }
+        ]
+      }
+    ]
+  },
+
+  "get": {
+    "ipa": "/ɡet/",
+    "pos": "động từ bất quy tắc · get – got – got/gotten",
+    "core": "Ý lõi: chuyển sang một trạng thái mới, hoặc có được một thứ chưa có. Đây là động từ đa nghĩa nhất tiếng Anh.",
+    "senses": [
+      { "vi": "nhận được, có được", "ex": "I got your email this morning.", "exVi": "Sáng nay tôi nhận được thư của bạn." },
+      { "vi": "trở nên (+ tính từ)", "ex": "It's getting cold.", "exVi": "Trời đang lạnh dần." },
+      { "vi": "hiểu", "ex": "Sorry, I don't get it.", "exVi": "Xin lỗi, tôi không hiểu." },
+      { "vi": "tới nơi", "ex": "What time do you get to the office?", "exVi": "Mấy giờ bạn tới văn phòng?" },
+      { "vi": "mua, kiếm cho", "ex": "Can you get me a coffee?", "exVi": "Mua giúp tôi ly cà phê nhé?" },
+      { "vi": "bị (bệnh, rắc rối)", "ex": "I got a cold last week.", "exVi": "Tuần trước tôi bị cảm." }
+    ],
+    "combos": [
+      {
+        "label": "get + giới từ",
+        "note": "Nhóm cụm động từ đông nhất tiếng Anh — nghĩa gần như không đoán được.",
+        "items": [
+          { "form": "get up", "vi": "thức dậy; đứng lên", "ex": "I get up at six." },
+          { "form": "get on (with)", "vi": "lên (xe/tàu); hợp nhau", "ex": "We get on really well." },
+          { "form": "get off", "vi": "xuống (xe/tàu); tan làm", "ex": "I get off at the next stop." },
+          { "form": "get over", "vi": "vượt qua, nguôi ngoai", "ex": "It took me weeks to get over it." },
+          { "form": "get along", "vi": "hoà thuận", "ex": "Do you get along with your boss?" },
+          { "form": "get through", "vi": "vượt qua; liên lạc được", "ex": "I couldn't get through to her." },
+          { "form": "get back to", "vi": "trả lời lại sau", "ex": "I'll get back to you tomorrow." },
+          { "form": "get out of", "vi": "thoát khỏi; né tránh", "ex": "He got out of the meeting." },
+          { "form": "get into", "vi": "vào được; đâm mê", "ex": "I'm getting into photography." }
+        ]
+      },
+      {
+        "label": "get + tính từ (trở nên …)",
+        "note": "Khuôn thay cho \"become\" trong lời nói hằng ngày. Ngắn hơn và tự nhiên hơn nhiều.",
+        "items": [
+          { "form": "get ready", "vi": "chuẩn bị xong", "ex": "Give me five minutes to get ready." },
+          { "form": "get tired", "vi": "thấy mệt dần", "ex": "I get tired after lunch." },
+          { "form": "get better / worse", "vi": "khá lên / tệ đi", "ex": "My English is getting better." },
+          { "form": "get lost", "vi": "bị lạc", "ex": "We got lost on the way." },
+          { "form": "get angry", "vi": "nổi giận", "ex": "Don't get angry with me." },
+          { "form": "get used to", "vi": "quen dần với", "ex": "I'm getting used to the weather." }
+        ]
+      },
+      {
+        "label": "get + V3 (bị động thân mật)",
+        "note": "Người bản xứ dùng get thay cho \"be\" ở thể bị động trong lời nói thường ngày.",
+        "items": [
+          { "form": "get married", "vi": "kết hôn", "ex": "They got married last year." },
+          { "form": "get dressed", "vi": "mặc quần áo vào", "ex": "Get dressed, we're leaving." },
+          { "form": "get paid", "vi": "được trả lương", "ex": "We get paid on the 25th." },
+          { "form": "get done", "vi": "được làm xong", "ex": "It'll get done by Friday." },
+          { "form": "get promoted", "vi": "được thăng chức", "ex": "She got promoted last month." }
+        ]
+      }
+    ]
+  },
+
+  "make": {
+    "ipa": "/meɪk/",
+    "pos": "động từ bất quy tắc · make – made – made",
+    "core": "Ý lõi: tạo ra một thứ chưa từng có. Khác với do (thực hiện một việc đã có sẵn): ❌ do a mistake, ✅ make a mistake.",
+    "senses": [
+      { "vi": "làm ra, chế tạo", "ex": "This table is made of wood.", "exVi": "Cái bàn này làm bằng gỗ." },
+      { "vi": "khiến cho, làm cho", "ex": "That song makes me happy.", "exVi": "Bài hát đó khiến tôi vui." },
+      { "vi": "kiếm được (tiền)", "ex": "She makes good money.", "exVi": "Cô ấy kiếm khá tiền." },
+      { "vi": "đạt tới, kịp", "ex": "We made it just in time.", "exVi": "Bọn tôi tới kịp vừa đúng lúc." },
+      { "vi": "bắt buộc ai làm gì", "ex": "My boss made me stay late.", "exVi": "Sếp bắt tôi ở lại muộn." }
+    ],
+    "combos": [
+      {
+        "label": "make + danh từ",
+        "note": "Nhóm quan trọng nhất. Đây chính là chỗ người Việt hay dùng nhầm \"do\".",
+        "items": [
+          { "form": "make a decision", "vi": "ra quyết định", "ex": "We need to make a decision today." },
+          { "form": "make a mistake", "vi": "phạm lỗi", "ex": "Everyone makes mistakes." },
+          { "form": "make progress", "vi": "tiến bộ", "ex": "You're making good progress." },
+          { "form": "make an effort", "vi": "cố gắng", "ex": "Please make an effort to be on time." },
+          { "form": "make a difference", "vi": "tạo khác biệt", "ex": "Small changes make a difference." },
+          { "form": "make sense", "vi": "hợp lý, dễ hiểu", "ex": "Does that make sense?" },
+          { "form": "make friends", "vi": "kết bạn", "ex": "It's hard to make friends here." },
+          { "form": "make a suggestion", "vi": "đưa ra đề xuất", "ex": "Can I make a suggestion?" }
+        ]
+      },
+      {
+        "label": "make + tân ngữ + tính từ / động từ",
+        "note": "Sau tân ngữ là động từ TRẦN, không có \"to\": ❌ make me to laugh.",
+        "items": [
+          { "form": "make sb happy", "vi": "làm ai vui", "ex": "It made her really happy." },
+          { "form": "make it clear", "vi": "nói cho rõ", "ex": "Let me make it clear." },
+          { "form": "make sb laugh", "vi": "làm ai cười", "ex": "He always makes me laugh." },
+          { "form": "make sth work", "vi": "làm cho chạy được", "ex": "We'll make it work somehow." }
+        ]
+      },
+      {
+        "label": "make + giới từ / cụm cố định",
+        "items": [
+          { "form": "make up", "vi": "bịa ra; làm hoà; trang điểm", "ex": "He made up an excuse." },
+          { "form": "make out", "vi": "nhìn/nghe ra được", "ex": "I couldn't make out what she said." },
+          { "form": "make it", "vi": "tới được; thành công", "ex": "Sorry, I can't make it tonight." },
+          { "form": "make sure", "vi": "bảo đảm chắc chắn", "ex": "Make sure you lock the door." },
+          { "form": "make the most of", "vi": "tận dụng tối đa", "ex": "Make the most of your time here." }
+        ]
+      }
+    ]
+  },
+
+  "go": {
+    "ipa": "/ɡoʊ/",
+    "pos": "động từ bất quy tắc · go – went – gone",
+    "core": "Ý lõi: rời khỏi chỗ đang đứng để tới chỗ khác. Nghĩa bóng: chuyển sang một trạng thái khác (thường là xấu đi).",
+    "senses": [
+      { "vi": "đi, rời đi", "ex": "I go to work by bike.", "exVi": "Tôi đi làm bằng xe đạp." },
+      { "vi": "diễn ra (tốt/xấu)", "ex": "How did the interview go?", "exVi": "Buổi phỏng vấn diễn ra thế nào?" },
+      { "vi": "trở nên (thường là xấu)", "ex": "The milk has gone bad.", "exVi": "Sữa hỏng mất rồi." },
+      { "vi": "hợp với, đi cùng", "ex": "This shirt goes well with jeans.", "exVi": "Áo này mặc với quần bò rất hợp." },
+      { "vi": "hết, không còn", "ex": "All the cake is gone.", "exVi": "Bánh hết sạch rồi." }
+    ],
+    "combos": [
+      {
+        "label": "go + giới từ",
+        "items": [
+          { "form": "go on", "vi": "tiếp tục; xảy ra", "ex": "What's going on here?" },
+          { "form": "go out", "vi": "ra ngoài chơi; tắt (đèn/lửa)", "ex": "We're going out for dinner." },
+          { "form": "go through", "vi": "trải qua; xem kỹ lại", "ex": "Let's go through the list." },
+          { "form": "go over", "vi": "rà lại, ôn lại", "ex": "Can we go over that again?" },
+          { "form": "go back", "vi": "quay lại", "ex": "Could you go back one slide?" },
+          { "form": "go off", "vi": "reo (chuông); nổ; hỏng", "ex": "My alarm went off at five." },
+          { "form": "go down / up", "vi": "giảm / tăng", "ex": "Prices went up again." }
+        ]
+      },
+      {
+        "label": "go + V-ing (hoạt động)",
+        "note": "Khuôn dành cho hoạt động giải trí, thể thao. Không dùng \"to\": ❌ go to shopping.",
+        "items": [
+          { "form": "go shopping", "vi": "đi mua sắm", "ex": "We went shopping yesterday." },
+          { "form": "go swimming", "vi": "đi bơi", "ex": "Let's go swimming this weekend." },
+          { "form": "go hiking", "vi": "đi leo núi", "ex": "They go hiking every month." },
+          { "form": "go running", "vi": "đi chạy bộ", "ex": "I go running before work." }
+        ]
+      },
+      {
+        "label": "go + tính từ (chuyển trạng thái)",
+        "note": "Hầu hết mang nghĩa xấu đi. Muốn nói tốt lên thì dùng get: get better.",
+        "items": [
+          { "form": "go bad", "vi": "ôi thiu", "ex": "The fish has gone bad." },
+          { "form": "go wrong", "vi": "hỏng việc, trục trặc", "ex": "Something went wrong." },
+          { "form": "go quiet", "vi": "im bặt", "ex": "The room went quiet." },
+          { "form": "go missing", "vi": "mất tích", "ex": "My keys went missing." }
+        ]
+      }
+    ]
+  },
+
+  "look": {
+    "ipa": "/lʊk/",
+    "pos": "động từ thường · look – looked – looked",
+    "core": "Ý lõi: chủ động hướng mắt về đâu đó. Khác see (nhìn thấy tự nhiên) và watch (dõi theo cái đang chuyển động).",
+    "senses": [
+      { "vi": "nhìn (chủ động)", "ex": "Look at this photo.", "exVi": "Nhìn tấm ảnh này xem." },
+      { "vi": "trông có vẻ", "ex": "You look tired today.", "exVi": "Hôm nay trông bạn mệt đấy." },
+      { "vi": "tìm kiếm", "ex": "I'm looking for my keys.", "exVi": "Tôi đang tìm chìa khoá." }
+    ],
+    "combos": [
+      {
+        "label": "look + giới từ",
+        "note": "look luôn cần giới từ khi có tân ngữ: ❌ look me, ✅ look at me.",
+        "items": [
+          { "form": "look at", "vi": "nhìn vào", "ex": "Look at the screen, please." },
+          { "form": "look for", "vi": "tìm kiếm", "ex": "I'm looking for a new job." },
+          { "form": "look after", "vi": "trông nom, chăm sóc", "ex": "Who looks after your dog?" },
+          { "form": "look into", "vi": "điều tra, xem xét kỹ", "ex": "I'll look into the issue." },
+          { "form": "look up", "vi": "tra (từ điển); khá lên", "ex": "Look it up in the dictionary." },
+          { "form": "look forward to", "vi": "mong chờ", "ex": "I look forward to hearing from you." },
+          { "form": "look out", "vi": "coi chừng!", "ex": "Look out — there's a car!" },
+          { "form": "look through", "vi": "lướt qua, xem lướt", "ex": "I looked through the report." }
+        ]
+      },
+      {
+        "label": "look + tính từ / cụm",
+        "note": "Sau look (nghĩa trông có vẻ) là TÍNH TỪ, không phải trạng từ: ❌ look badly.",
+        "items": [
+          { "form": "look tired / great", "vi": "trông mệt / trông tuyệt", "ex": "You look great in that jacket." },
+          { "form": "look like", "vi": "trông giống", "ex": "It looks like rain." },
+          { "form": "take a look at", "vi": "xem qua một cái", "ex": "Take a look at this." }
+        ]
+      }
+    ]
+  },
+
+  "work": {
+    "ipa": "/wɜːrk/",
+    "pos": "động từ · danh từ không đếm được",
+    "core": "Ý lõi: bỏ công sức ra để có kết quả. Là danh từ thì KHÔNG đếm được: ❌ a work, ✅ a job / some work.",
+    "senses": [
+      { "vi": "làm việc", "ex": "I work at a small company.", "exVi": "Tôi làm ở một công ty nhỏ." },
+      { "vi": "chạy được, hoạt động", "ex": "The lift isn't working.", "exVi": "Thang máy không chạy." },
+      { "vi": "có tác dụng", "ex": "This medicine really works.", "exVi": "Thuốc này công hiệu thật." },
+      { "vi": "tiện, ổn với ai", "ex": "Does Friday work for you?", "exVi": "Thứ Sáu bạn có tiện không?" }
+    ],
+    "combos": [
+      {
+        "label": "work + giới từ",
+        "items": [
+          { "form": "work on", "vi": "đang làm (việc gì)", "ex": "I'm working on the login page." },
+          { "form": "work out", "vi": "tập thể dục; tính ra; ổn thoả", "ex": "It all worked out in the end." },
+          { "form": "work for", "vi": "làm cho (công ty/ai)", "ex": "She works for a bank." },
+          { "form": "work with", "vi": "làm việc cùng", "ex": "I work with three designers." },
+          { "form": "work through", "vi": "giải quyết dần từng phần", "ex": "Let's work through the list." }
+        ]
+      },
+      {
+        "label": "Cụm hay dùng ở công sở",
+        "items": [
+          { "form": "work from home", "vi": "làm việc tại nhà", "ex": "I work from home on Fridays." },
+          { "form": "work overtime", "vi": "làm thêm giờ", "ex": "We worked overtime all week." },
+          { "form": "that works for me", "vi": "vậy tôi ổn", "ex": "Three o'clock works for me." },
+          { "form": "work in progress", "vi": "đang làm dở", "ex": "It's still a work in progress." }
+        ]
+      }
+    ]
+  },
+
+  "run": {
+    "ipa": "/rʌn/",
+    "pos": "động từ bất quy tắc · run – ran – run",
+    "core": "Ý lõi: chuyển động liên tục và nhanh. Nghĩa bóng: một thứ gì đó đang vận hành trơn tru.",
+    "senses": [
+      { "vi": "chạy (bằng chân)", "ex": "I run every morning.", "exVi": "Sáng nào tôi cũng chạy bộ." },
+      { "vi": "điều hành, quản lý", "ex": "She runs her own business.", "exVi": "Cô ấy tự điều hành công ty riêng." },
+      { "vi": "vận hành, chạy (máy, phần mềm)", "ex": "The tests run automatically.", "exVi": "Các bài kiểm thử chạy tự động." },
+      { "vi": "chảy (nước)", "ex": "Don't leave the tap running.", "exVi": "Đừng để vòi nước chảy." }
+    ],
+    "combos": [
+      {
+        "label": "run + giới từ",
+        "items": [
+          { "form": "run out of", "vi": "hết sạch (thứ gì)", "ex": "We've run out of coffee." },
+          { "form": "run into", "vi": "tình cờ gặp; gặp phải (vấn đề)", "ex": "I ran into an old friend." },
+          { "form": "run over", "vi": "cán qua; chạy quá giờ", "ex": "The meeting ran over." },
+          { "form": "run through", "vi": "rà lại nhanh một lượt", "ex": "Let's run through it once more." },
+          { "form": "run late", "vi": "bị muộn", "ex": "Sorry, I'm running late." }
+        ]
+      }
+    ]
+  },
+
+  "say": {
+    "ipa": "/seɪ/",
+    "pos": "động từ bất quy tắc · say – said – said",
+    "core": "Ý lõi: phát ra thành lời. Khác tell: say KHÔNG đi thẳng với người nghe (❌ say me), tell thì có (✅ tell me).",
+    "senses": [
+      { "vi": "nói (ra lời)", "ex": "What did you say?", "exVi": "Bạn vừa nói gì?" },
+      { "vi": "ghi rằng (biển báo, tài liệu)", "ex": "The sign says \"No entry\".", "exVi": "Biển ghi \"Cấm vào\"." },
+      { "vi": "cho là, giả sử", "ex": "Let's say we finish by Friday.", "exVi": "Cứ cho là thứ Sáu xong đi." }
+    ],
+    "combos": [
+      {
+        "label": "Khuôn ngữ pháp",
+        "note": "say something TO somebody — không bao giờ say somebody something.",
+        "items": [
+          { "form": "say sth to sb", "vi": "nói điều gì với ai", "ex": "He said goodbye to everyone." },
+          { "form": "say (that) …", "vi": "nói rằng …", "ex": "She said she was busy." },
+          { "form": "❌ say me → ✅ tell me", "vi": "lỗi kinh điển của người Việt", "ex": "Tell me what happened." }
+        ]
+      },
+      {
+        "label": "Cụm cố định",
+        "items": [
+          { "form": "I'd say …", "vi": "tôi thì cho là …", "ex": "I'd say it'll take two weeks." },
+          { "form": "say sorry / hello", "vi": "nói lời xin lỗi / chào", "ex": "Say hello to your family for me." },
+          { "form": "that is to say", "vi": "tức là, nói cách khác", "ex": "Next Friday, that is to say the 20th." },
+          { "form": "needless to say", "vi": "khỏi phải nói", "ex": "Needless to say, we were late." }
+        ]
+      }
+    ]
+  },
+
+  "let": {
+    "ipa": "/let/",
+    "pos": "động từ bất quy tắc · let – let – let",
+    "core": "Ý lõi: không ngăn cản, để mặc cho xảy ra. Sau let luôn là động từ TRẦN, không có \"to\".",
+    "senses": [
+      { "vi": "để cho, cho phép", "ex": "My parents let me travel alone.", "exVi": "Bố mẹ cho tôi đi du lịch một mình." },
+      { "vi": "cho thuê (nhà, Anh-Anh)", "ex": "They let the flat to students.", "exVi": "Họ cho sinh viên thuê căn hộ." }
+    ],
+    "combos": [
+      {
+        "label": "let + tân ngữ + động từ trần",
+        "note": "❌ let me to know · ❌ let me knowing · ✅ let me know.",
+        "items": [
+          { "form": "let me know", "vi": "cho tôi biết nhé", "ex": "Let me know if you have any questions." },
+          { "form": "let me check", "vi": "để tôi kiểm tra đã", "ex": "Let me check my calendar." },
+          { "form": "let it go", "vi": "bỏ qua đi", "ex": "It's not worth it — let it go." },
+          { "form": "let sb down", "vi": "làm ai thất vọng", "ex": "I won't let you down." }
+        ]
+      },
+      {
+        "label": "Let's + động từ trần",
+        "note": "Let's = let us — lời rủ rê, không phải mệnh lệnh.",
+        "items": [
+          { "form": "Let's get started", "vi": "ta bắt đầu nào", "ex": "Shall we? Let's get started." },
+          { "form": "Let's say …", "vi": "cứ cho là …", "ex": "Let's say it costs $100." },
+          { "form": "Let's not …", "vi": "thôi đừng …", "ex": "Let's not talk about that now." }
+        ]
+      }
+    ]
+  },
+
+  "mean": {
+    "ipa": "/miːn/",
+    "pos": "động từ bất quy tắc · mean – meant – meant · và tính từ",
+    "core": "Ý lõi: điều thật sự nằm sau lời nói hoặc hành động.",
+    "senses": [
+      { "vi": "có nghĩa là", "ex": "What does this word mean?", "exVi": "Từ này nghĩa là gì?" },
+      { "vi": "định, cố ý", "ex": "I didn't mean to hurt you.", "exVi": "Tôi không cố ý làm bạn tổn thương." },
+      { "vi": "kéo theo, đồng nghĩa với việc", "ex": "This means working weekends.", "exVi": "Việc này đồng nghĩa với làm cả cuối tuần." },
+      { "vi": "keo kiệt; xấu tính (tính từ)", "ex": "Don't be so mean to her.", "exVi": "Đừng xấu tính với cô ấy thế." }
+    ],
+    "combos": [
+      {
+        "label": "mean + to V hay + V-ing",
+        "note": "Hai khuôn nghĩa khác hẳn nhau — đây là bẫy hay gặp.",
+        "items": [
+          { "form": "mean to do", "vi": "định làm gì", "ex": "I meant to call you yesterday." },
+          { "form": "mean doing", "vi": "kéo theo việc phải làm gì", "ex": "It means waiting another week." },
+          { "form": "be meant to", "vi": "đáng lẽ phải", "ex": "You're meant to sign here." }
+        ]
+      },
+      {
+        "label": "Cụm hỏi lại khi chưa hiểu",
+        "items": [
+          { "form": "What do you mean by …?", "vi": "ý bạn là gì khi nói …?", "ex": "What do you mean by blocker?" },
+          { "form": "Do you mean …?", "vi": "ý bạn là … phải không?", "ex": "Do you mean we should start over?" },
+          { "form": "I mean …", "vi": "ý tôi là …", "ex": "I mean, it's not urgent." },
+          { "form": "I know what you mean", "vi": "tôi hiểu ý bạn", "ex": "I know what you mean." }
+        ]
+      }
+    ]
+  },
+
+  "agree": {
+    "ipa": "/əˈɡriː/",
+    "pos": "động từ thường · agree – agreed – agreed",
+    "core": "Ý lõi: cùng chung một ý. Là ĐỘNG TỪ nên không đi với \"be\": ❌ I am agree, ✅ I agree.",
+    "senses": [
+      { "vi": "đồng ý", "ex": "I agree with you.", "exVi": "Tôi đồng ý với bạn." },
+      { "vi": "thoả thuận, nhất trí", "ex": "We agreed on a new deadline.", "exVi": "Chúng tôi đã nhất trí một hạn chót mới." },
+      { "vi": "hợp (đồ ăn với người)", "ex": "Spicy food doesn't agree with me.", "exVi": "Đồ cay không hợp với tôi." }
+    ],
+    "combos": [
+      {
+        "label": "agree + giới từ",
+        "note": "Ba giới từ, ba nghĩa khác nhau — đừng dùng lẫn.",
+        "items": [
+          { "form": "agree with sb", "vi": "đồng ý với NGƯỜI nào", "ex": "I agree with you on that." },
+          { "form": "agree on sth", "vi": "thống nhất được VẤN ĐỀ gì", "ex": "We agreed on the price." },
+          { "form": "agree to sth", "vi": "chấp thuận ĐỀ NGHỊ gì", "ex": "She agreed to our proposal." },
+          { "form": "agree to do sth", "vi": "đồng ý sẽ làm gì", "ex": "He agreed to help us." }
+        ]
+      },
+      {
+        "label": "Cụm cố định",
+        "items": [
+          { "form": "I couldn't agree more", "vi": "tôi hoàn toàn đồng ý", "ex": "I couldn't agree more." },
+          { "form": "agree to disagree", "vi": "chấp nhận là mỗi người một ý", "ex": "Let's agree to disagree." },
+          { "form": "❌ I am agree", "vi": "lỗi kinh điển — agree đã là động từ", "ex": "✅ I agree." }
+        ]
+      }
+    ]
+  }
+}

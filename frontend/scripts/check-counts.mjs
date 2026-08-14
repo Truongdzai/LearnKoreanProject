@@ -30,9 +30,17 @@ function videoCounts() {
 
 const vid = videoCounts()
 
+const activePacks = jsonFiles(join(DATA, 'english', 'active'))
+  .filter((f) => Array.isArray(readJson(f).chunks))
+const enChunks = activePacks.reduce((n, f) => n + readJson(f).chunks.length, 0)
+const enWordEntries = Object.keys(readJson(join(DATA, 'english', 'active', 'words.json'))).length
+
 const actual = {
   enWords: en.words,
   enUnits: en.units,
+  enPacks: activePacks.length,
+  enChunks,
+  enWordEntries,
   enGrammar: readJson(join(DATA, 'english', 'grammar', 'lessons.json')).length,
   koWords: ko.words,
   koUnits: ko.units,

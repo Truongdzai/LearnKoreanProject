@@ -71,6 +71,57 @@ def _generate(body: dict, timeout: float) -> dict:
         f"Tất cả model đều không phản hồi (đã thử {n} model). Lỗi cuối: {last_error}"
     )
 
+IMAGE_LADDER = [
+    "gemini-3.1-flash-lite-image",
+    "gemini-3.1-flash-image",
+    "gemini-2.5-flash-image",
+    "gemini-3-pro-image",
+]
+
+
+def _image_models() -> list[str]:
+    cfg = settings["llm"]
+    models = cfg.get("image_models") or []
+    if isinstance(models, str):
+        models = [m.strip() for m in models.split(",") if m.strip()]
+    return models or list(IMAGE_LADDER)
+
+
+def gemini_image(prompt: str) -> tuple[bytes, str, str]:
+    import base64
+
+    last_error = "chưa gọi được model nào"
+    for model in _image_models():
+        url = f"{GEMINI_BASE}/models/{model}:generateContent"
+        try:
+            resp = httpx.post(
+                url,
+                headers={**_headers(), "Content-Type": "application/json"},
+                json={"contents": [{"parts": [{"text": prompt}]}]},
+                timeout=180.0,
+            )
+        except Exception as exc:
+            last_error = f"{model}: {exc}"
+            continue
+
+        if resp.status_code in SKIP_STATUS or resp.status_code in RETRYABLE_STATUS:
+            last_error = f"{model}: HTTP {resp.status_code} {resp.text[:120]}"
+            continue
+        if resp.status_code != 200:
+            last_error = f"{model}: HTTP {resp.status_code} {resp.text[:120]}"
+            continue
+
+        data = resp.json()
+        for cand in data.get("candidates", []):
+            for part in cand.get("content", {}).get("parts", []):
+                inline = part.get("inlineData") or part.get("inline_data")
+                if inline and inline.get("data"):
+                    return base64.b64decode(inline["data"]), inline.get("mimeType", "image/png"), model
+        last_error = f"{model}: phản hồi không có ảnh"
+
+    raise RuntimeError(f"Không tạo được ảnh. Lỗi cuối: {last_error}")
+
+
 def gemini_list_models() -> list[str]:
     resp = httpx.get(f"{GEMINI_BASE}/models", headers=_headers(), timeout=20.0)
     resp.raise_for_status()

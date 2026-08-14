@@ -1,6 +1,9 @@
 export const COUNTS = {
   enWords: 3122,
   enUnits: 121,
+  enPacks: 9,
+  enChunks: 158,
+  enWordEntries: 11,
   enGrammar: 18,
   koWords: 805,
   koUnits: 67,

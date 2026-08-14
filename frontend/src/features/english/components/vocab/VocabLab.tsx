@@ -32,6 +32,7 @@ interface Props {
   sourceLabel?: string
   lang?: string
   title?: string
+  onDeep?: (term: string) => void
 }
 
 export default function VocabLab({
@@ -41,6 +42,7 @@ export default function VocabLab({
   sourceLabel = 'English Core',
   lang = 'en',
   title = 'Từ vựng tiếng Anh giao tiếp',
+  onDeep,
 }: Props) {
   const { isAuthed, recordEvent } = useAppStore()
   const { learned, mark } = useLearnedWords(lang)
@@ -267,6 +269,7 @@ export default function VocabLab({
               onGrade={onGrade}
               onMaster={() => { toggleMastered(card.term); learnTerm(card.term, card.w) }}
               onSave={() => toggleSaved(card.term)}
+              onDeep={onDeep}
             />
           )}
           {mode === 'guess' && <Guess {...common} />}
