@@ -51,10 +51,6 @@
 				// @cloudflare/sandbox đọc đúng khoá này trong env.
 				"name": "Sandbox"
 			},
-			{
-				"class_name": "VylingMcp",
-				"name": "MCP_OBJECT"
-			}
 		]
 	},
 
@@ -64,10 +60,6 @@
 		{
 			"tag": "v1-sandbox",
 			"new_sqlite_classes": ["Sandbox"]
-		},
-		{
-			"tag": "v2-mcp",
-			"new_sqlite_classes": ["VylingMcp"]
 		},
 		{
 			"tag": "flue-class-FlueVylingTutorAgent",

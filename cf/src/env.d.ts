@@ -4,7 +4,6 @@ declare global {
 	namespace Cloudflare {
 		interface Env {
 			Sandbox: DurableObjectNamespace<SandboxDO>
-			MCP_OBJECT: DurableObjectNamespace
 			AI: Ai
 			LOADER?: WorkerLoader
 			MEDIA: R2Bucket
