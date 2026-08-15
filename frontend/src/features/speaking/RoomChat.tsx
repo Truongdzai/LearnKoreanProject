@@ -5,7 +5,7 @@ import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 import { studyLang } from '@/core/constants/languages'
 import { speakLang } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
 import { useVoiceCall } from '@/hooks/useVoiceCall'
 import RoomPeople from './RoomPeople'
@@ -47,7 +47,7 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
   const [pending, setPending] = useState<{ audio: string; at: number } | null>(null)
   const [topicOpen, setTopicOpen] = useState(true)
   const cfg = studyLang(room.lang)
-  const sr = useSpeechRecognition(cfg.locale)
+  const sr = useAsr(cfg.locale)
   const clip = useVoiceClip()
   const endRef = useRef<HTMLDivElement>(null)
   const lastId = useRef(initial.messages.length ? initial.messages[initial.messages.length - 1].id : 0)

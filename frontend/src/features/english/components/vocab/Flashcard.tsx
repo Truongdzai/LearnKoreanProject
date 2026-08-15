@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { posLabel } from '@/data/vocabCore'
+import WordImg from '../WordImg'
 import AudioBtn from './AudioBtn'
 import WordDetail from './WordDetail'
 import { gradeLabel, type Grade } from './store'
@@ -80,7 +81,7 @@ export default function Flashcard({
             </button>
 
             <div className="vl-face-body">
-              <div className={'vl-img big ' + card.unit.tone}>{w.img}</div>
+              <WordImg term={term} emoji={w.img} className={'vl-img big ' + card.unit.tone} />
               <h3 className="vl-word" lang={lang}>{term}</h3>
               <span className="vl-pos">{posLabel(w.pos)}</span>
               {ipaRow}

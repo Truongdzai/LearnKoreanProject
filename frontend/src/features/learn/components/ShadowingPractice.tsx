@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import { usePhonetics } from '@/hooks/usePhonetics'
@@ -56,7 +56,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [aiError, setAiError] = useState('')
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
   const [dropped, setDropped] = useState(false)
-  const sr = useSpeechRecognition(cfg.locale)
+  const sr = useAsr(cfg.locale)
   const skills = useSkillLog()
   const missBook = useMissBook()
   const prog = useLessonProgress()

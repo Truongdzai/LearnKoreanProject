@@ -1,0 +1,9165 @@
+{
+ "version": 1,
+ "images": {
+  "ability": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "able": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "about": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh quá mơ hồ, không thể hiện được nghĩa từ 'about'"
+  },
+  "above": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "absent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "absolutely": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "academic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "accent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "accept": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "acceptable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "access": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "accident": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "accurate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "achieve": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "across": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "act": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "action": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "active": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "actor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "add": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "additional": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "adjust": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "admire": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "adopt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "adult": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa người lớn và trẻ em không phù hợp"
+  },
+  "advanced": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "advantage": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là chơi bóng rổ, không thể hiện lợi thế"
+  },
+  "adventure": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "advertisement": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "advice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "advise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "affect": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện được nghĩa ảnh hưởng"
+  },
+  "affection": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "afraid": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "after": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "after you": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "afternoon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "afterward": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "again": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "age": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến tuổi tác."
+  },
+  "agenda": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "aggressive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "agreement": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "aim": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "air": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa bong bóng, không phải không khí."
+  },
+  "airline": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "airport": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "aisle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "alarm": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "alcohol": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "alive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "allergy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "allow": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa cho phép."
+  },
+  "almost": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang chạy, không rõ nghĩa."
+  },
+  "alone": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "along": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "already": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa đã hoàn thành."
+  },
+  "also": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa nghĩa của từ cũng."
+  },
+  "alternative": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "although": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa nghĩa của từ mặc dù."
+  },
+  "altitude": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "always": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa nghĩa của từ luôn luôn."
+  },
+  "amazed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "amazing": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cầu vồng, không phải nghĩa đáng kinh ngạc."
+  },
+  "ambitious": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "amount": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "analysis": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "analyze": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ancestor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "anchor": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là móc cẩu, không phải mỏ neo tàu."
+  },
+  "ancient": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "and": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là táo và cam, không minh họa từ nối."
+  },
+  "angel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "angry": {
+   "has_text": false,
+   "matches": false,
+   "note": "Cậu bé trông buồn bã, không phải đang tức giận."
+  },
+  "animal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ankle": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa mắt cá chân người."
+  },
+  "anniversary": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "announce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "announcement": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "annoyed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "annoying": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "annual": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa các mùa, không phải hằng năm."
+  },
+  "answer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "anxious": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "anymore": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là cái lồng chim, không liên quan đến từ vựng."
+  },
+  "anyway": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người dưới mưa, không liên quan đến từ vựng."
+  },
+  "anywhere": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "apart": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "appliance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "application": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "appointment": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "appreciate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "approach": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "appropriate": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa thời tiết, không phải sự phù hợp."
+  },
+  "approve": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "architect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "area": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "argue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "argument": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "arise": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa ngọn lửa không phù hợp với từ này"
+  },
+  "arm": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "army": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "around": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "arrange": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cắm hoa, không thể hiện hành động sắp xếp."
+  },
+  "arrest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "arrogant": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự kiêu ngạo."
+  },
+  "art": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "article": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "artificial intelligence": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "artist": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "asleep": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "at": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa rõ nghĩa của từ tại, ở."
+  },
+  "at last": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa việc leo núi, không rõ nghĩa cuối cùng."
+  },
+  "at most": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa một bát đầy, không rõ nghĩa nhiều nhất."
+  },
+  "at the end of the day": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa người ngồi ghế, không rõ nghĩa suy cho cùng."
+  },
+  "atom": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attach": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attack": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attempt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attend": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attention": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attitude": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attract": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "attractive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "audience": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "aunt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "author": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "autumn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "available": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "average": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ minh họa tiền xu, không rõ nghĩa trung bình."
+  },
+  "avocado": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "avoid": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đi bộ, không thể hiện hành động tránh."
+  },
+  "awake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "award": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "aware": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa nhận thức được"
+  },
+  "awesome": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "awful": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự kinh khủng."
+  },
+  "baby": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "babysitter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "back": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "back to square one": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "back up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "background": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "backpack": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là túi xách tay không phải ba lô"
+  },
+  "backward": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa người đang nhảy về phía trước"
+  },
+  "bacon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bad": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bag": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "baggage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bakery": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "balance": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là cái cân, không phải số dư tài khoản."
+  },
+  "balcony": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bald": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ball": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bankrupt": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự phá sản."
+  },
+  "bare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bargain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "barn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "barrel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "basement": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "basic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "basil": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "basis": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa một cái chòi, không phải cơ sở nền tảng"
+  },
+  "basket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "beautiful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "because": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ mưa hoặc ô, không phải bởi vì."
+  },
+  "become": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho con sâu bướm, không phải trở thành."
+  },
+  "bed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bedroom": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bedtime": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bee": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "beef": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "beer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "beetle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "before": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa từ trước"
+  },
+  "begin": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa bắt đầu"
+  },
+  "behave": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa cư xử"
+  },
+  "behavior": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa hành vi"
+  },
+  "behind": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "belief": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa niềm tin"
+  },
+  "believe": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa tin tưởng"
+  },
+  "believe it or not": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của cụm từ này."
+  },
+  "belly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "belong": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là chùm chìa khóa, không rõ nghĩa thuộc về."
+  },
+  "below": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "belt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bend": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "benefit": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang ăn táo, không rõ lợi ích."
+  },
+  "beside": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "besides": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ besides."
+  },
+  "bet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "between": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa của từ between."
+  },
+  "big": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bike": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bilingual": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "billion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "biology": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bird": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống con sóc hơn là con chim"
+  },
+  "birthday": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "biscuit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bite the bullet": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang khám răng, không phải thành ngữ cắn răng chịu đựng"
+  },
+  "black": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh hiển thị màu xanh dương, không phải màu đen."
+  },
+  "blame": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blanket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blender": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bless": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blind": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blink": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blog": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blond": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blood": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blow up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "blue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bluetooth": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa wifi không phải bluetooth"
+  },
+  "board": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boarding pass": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "body": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boil": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bolt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bomb": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bone": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "book": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boots": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "border": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bored": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boring": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh này thể hiện sự ngạc nhiên hoặc đang hát"
+  },
+  "boss": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bottle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bottom": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái hộp, không phải đáy."
+  },
+  "bow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bowl": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "box": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boxing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "boyfriend": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bracelet": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là một chi tiết trang sức, không phải vòng tay."
+  },
+  "brain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brake": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh vô lăng xe, không phải cái phanh."
+  },
+  "branch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brand": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh này không thể hiện rõ khái niệm thương hiệu."
+  },
+  "brave": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một đứa trẻ đang chơi với chó"
+  },
+  "bread": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "break": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "break a leg": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cậu bé vén rèm, không rõ nghĩa."
+  },
+  "break down": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "breakfast": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "breakup": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "breathe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "breeze": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cái cây, không thể hiện được làn gió."
+  },
+  "brick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bridge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brief": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bright": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brilliant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "broken": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brown": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "browse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "browser": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bruise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "brush": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bubble": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bucket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "buddy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "buffalo": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "buffet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "build": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "building": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bulb": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bunny": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "burger": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "burglar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "burn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "burn the midnight oil": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "burst": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bus": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "bush": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "business": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "businessman": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "busy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "but": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ nhưng"
+  },
+  "by chance": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đi dạo, không thể hiện nghĩa tình cờ."
+  },
+  "by heart": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cậu bé đang đọc sách, không rõ thuộc lòng."
+  },
+  "cabbage": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một khối lá cây, không phải bắp cải."
+  },
+  "cabin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "call": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "call it a day": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "call off": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "calm": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "calm down": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "camera": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "canvas": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cap": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là mũ rộng vành, không phải mũ lưỡi trai."
+  },
+  "capable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "capital": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "captain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "car": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "caramel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "card": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "care": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "careful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "careless": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cautious": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ceiling": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang vẽ tường, không phải trần nhà."
+  },
+  "celebrate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "celebration": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "celebrity": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cell": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cement": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "centimeter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "central": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa trung tâm hay chủ chốt."
+  },
+  "century": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến ý nghĩa thế kỷ"
+  },
+  "cereal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ceremony": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "certain": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự chắc chắn hay nhất định."
+  },
+  "certainly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "certificate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chair": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chalk": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ phấn viết bảng"
+  },
+  "challenge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "champion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "change": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "character": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "charger": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "charity": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "charming": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cheap": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa rẻ tiền"
+  },
+  "check out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "checkup": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cheek": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cheer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cheer up": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh thể hiện sự buồn bã, không phải vui lên"
+  },
+  "cheerful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cheese": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chef": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chemical": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chemistry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cherry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chess": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chew": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chicken": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "child": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "childhood": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chili": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chimney": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chocolate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "choice": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ sự lựa chọn."
+  },
+  "choir": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "choose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chopsticks": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "christmas": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "chubby": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "church": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cinema": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "clear": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "clever": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cloudy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cold": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "collect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "college": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "color": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "comb": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một người cầm dao, không phải cái lược."
+  },
+  "combine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "come": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "come across": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người đang quét nhà, không phải tình cờ thấy."
+  },
+  "come back": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "come on": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "come over": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "come up with": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "comedy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "comfort": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "comfortable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "common": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "communicate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "community": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "company": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "compare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "compete": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "competitor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "complex": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "complicated": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "computer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "concentrate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "concept": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "concert": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "conclusion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "concrete": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "condition": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa thợ sửa xe, không rõ nghĩa điều kiện."
+  },
+  "conduct": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "confident": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "confirm": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động xác nhận."
+  },
+  "confused": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "confusing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "congratulations": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "connect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "connecting flight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "consequence": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa hậu quả."
+  },
+  "consider": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "constant": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh vòi nước nhỏ giọt không thể hiện sự liên tục."
+  },
+  "constantly": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện được nghĩa liên tục."
+  },
+  "construct": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "consult": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "contact": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "contain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "content": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "contest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "context": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa ngữ cảnh hay bối cảnh."
+  },
+  "continent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "continue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "contract": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "contrast": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh trống không thể hiện sự tương phản."
+  },
+  "control": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "convenient": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh cái ba lô không thể hiện rõ sự thuận tiện."
+  },
+  "cook": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cookie": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cool": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "copper": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là dụng cụ, không phải kim loại đồng."
+  },
+  "copy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "coral": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "corn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "corner": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là góc tường, không phải góc đường."
+  },
+  "correct": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chìa khóa không thể hiện ý nghĩa chính xác."
+  },
+  "cost": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa giá cả hay chi phí."
+  },
+  "costume": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một con rồng, không phải trang phục hóa trang."
+  },
+  "cotton": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cough": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "count on": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé đang nhìn lên, không rõ nghĩa."
+  },
+  "countdown": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "counter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "country": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "couple": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "courage": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé và con chó, không rõ dũng cảm"
+  },
+  "course": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống như đang học bài, không rõ là một khoá học"
+  },
+  "court": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cousin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cover": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "coward": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự hèn nhát."
+  },
+  "crab": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crack": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người đang đập trứng, không phải vết nứt."
+  },
+  "cracker": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crash": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crawl": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cream": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "create": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "creative": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "credit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crew": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crime": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ hành vi phạm tội."
+  },
+  "crisis": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cross": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crosswalk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crouch": {
+   "has_text": false,
+   "matches": false,
+   "note": "Nhân vật đang ngồi trên tường chứ không phải ngồi xổm."
+  },
+  "crow": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là chim toucan, không phải con quạ."
+  },
+  "crucial": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cây cầu, không thể hiện sự quan trọng."
+  },
+  "cruel": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự độc ác tàn nhẫn"
+  },
+  "cruise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crush": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một nhóm người, không rõ ý nghĩa crush."
+  },
+  "cry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "crystal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cucumber": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cuddle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cuisine": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là các món ăn, không thể hiện nền ẩm thực"
+  },
+  "culture": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là nhóm người chơi nhạc, không rõ văn hoá"
+  },
+  "cup": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cupboard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cure": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa bác sĩ, không rõ nghĩa chữa khỏi."
+  },
+  "curious": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "curly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "currency": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "current": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa hiện tại đương thời"
+  },
+  "currently": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa người đang làm việc, không rõ nghĩa hiện tại."
+  },
+  "curry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cursor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "curtain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cushion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "custom": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "customer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cut": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cut corners": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cấu trúc gỗ, không thể hiện nghĩa."
+  },
+  "cut down": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cute": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "cycle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "damage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dangerous": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dark": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "darling": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "database": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "date": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "daughter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dawn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "day": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dead": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deadline": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deaf": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deal with": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "death": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến cái chết."
+  },
+  "debate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "debt": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người đang giữ nhiều giấy tờ, không phải nợ."
+  },
+  "decide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "decision": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "decorate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "decoration": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "decrease": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deep": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "defeat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "defend": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "delicious": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "demand": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "demolish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "demonstrate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dentist": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deny": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "department": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "departure": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "depend": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa sự phát triển, không phải sự phụ thuộc"
+  },
+  "deposit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "depth": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa thợ lặn, không phải chiều sâu."
+  },
+  "describe": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh người đang vẫy tay, không phải miêu tả."
+  },
+  "desert": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "deserve": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh người cầm cúp, không thể hiện rõ nghĩa xứng đáng."
+  },
+  "design": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "designer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "desk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "despite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dessert": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "destination": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không rõ ràng về điểm đến"
+  },
+  "destroy": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa một cậu bé đang chơi xây lâu đài"
+  },
+  "detail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "detective": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "detergent": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không rõ ràng về bột hay nước giặt"
+  },
+  "determine": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không thể hiện hành động xác định"
+  },
+  "determined": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "develop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "development": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "device": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "diagnose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dial": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "diamond": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "difficult": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dinner": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "diploma": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "direction": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dirt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dirty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disagree": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disappear": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disappointed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disappointing": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một chiếc tất trong hộp quà."
+  },
+  "disaster": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "discover": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "discuss": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disease": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dishwasher": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "distance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "distant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "distinguish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "disturb": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "diverse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "divide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "divorce": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa hai người đi du lịch không phải ly hôn"
+  },
+  "dizzy": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh cậu bé trông bình thường, không có dấu hiệu chóng mặt."
+  },
+  "do": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa rửa bát không phải từ chung chung làm"
+  },
+  "do the dishes": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "do the laundry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "doctor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "document": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "documentary": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dog": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "doll": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dollar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dolphin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "donkey": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "donut": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "door": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "doorbell": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dose": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là cái thìa, không phải liều thuốc."
+  },
+  "double": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dough": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "down": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là cây táo, không thể hiện ý nghĩa xuống."
+  },
+  "draw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "drawer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "drawing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dream": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dress": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dress up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "drill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "drink": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dusk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "dust": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống ánh sáng chiếu qua bụi hơn là bụi bẩn."
+  },
+  "duty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "eagle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ear": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "early": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là hoàng hôn, không thể hiện ý nghĩa sớm."
+  },
+  "earn": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "earring": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "earth": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "earthquake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "east": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một chiếc kim la bàn, không rõ hướng đông."
+  },
+  "easter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "easy": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa dễ dàng"
+  },
+  "easy does it": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đàn ông đang nhìn vào bình hoa."
+  },
+  "eat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "echo": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "economic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "edge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "education": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "effect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "effective": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cái rìu không liên quan đến từ hiệu quả"
+  },
+  "efficient": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cánh tay robot không rõ nghĩa năng suất"
+  },
+  "effort": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "egg": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "eight": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh hiển thị mười ba quả táo thay vì tám."
+  },
+  "eighty": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh hiển thị số lượng bi không phải là tám mươi."
+  },
+  "elderly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "elegant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "embarrassed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "embarrassing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "employer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "empty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "enable": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa cho phép hay giúp đỡ."
+  },
+  "encourage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "end": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "end up": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đứng trong rừng, không rõ nghĩa."
+  },
+  "enemy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "energy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "engaged": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "engine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "engineer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "enjoy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "enormous": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự to lớn kinh khủng."
+  },
+  "enough": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người cầm ly nước, không rõ nghĩa đủ."
+  },
+  "enroll": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ensure": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa đảm bảo."
+  },
+  "enter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "entertain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "entertaining": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "enthusiastic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "entire": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "envelope": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "environment": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "equal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "era": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "eraser": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "escape": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "especially": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là hoa, không thể hiện ý nghĩa đặc biệt."
+  },
+  "essay": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "essential": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "etiquette": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh cái nĩa không thể hiện rõ phép lịch sự."
+  },
+  "eve": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "evening": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "event": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "every cloud has a silver lining": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "evidence": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exact": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exactly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exam": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "excellent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exchange": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "excited": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exciting": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "excuse me": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động xin lỗi hay gây chú ý"
+  },
+  "exercise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "exist": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cái cây, không thể hiện sự tồn tại"
+  },
+  "expand": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé cầm bóng bay"
+  },
+  "expect": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đang đứng đợi tàu"
+  },
+  "expense": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đang nhìn vào đống tiền"
+  },
+  "expensive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "experience": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người già đang dạy trẻ em"
+  },
+  "experienced": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "experiment": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "expert": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "extra": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "extreme": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "face": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "factory": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "faint": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fair": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fairly": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa việc chia bánh, không rõ nghĩa fairly."
+  },
+  "faith": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "faithful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fake": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một bát trái cây bình thường"
+  },
+  "fall": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "false": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ vựng khác"
+  },
+  "familiar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "famous": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fantastic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fast": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fasten": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "father": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "faucet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "favorite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "feast": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "feather": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "feed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "feel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "female": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fence": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ferry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fertilizer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "festival": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fetch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fever": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "field": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fifth": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fifty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "figure out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fill in": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "final": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa quân cờ domino không liên quan đến từ này."
+  },
+  "finally": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh cậu bé trên cầu thang không thể hiện nghĩa cuối cùng."
+  },
+  "financial": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "find": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "find out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "finger": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fire": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "firefighter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fireplace": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "firework": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "first": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fisherman": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "five": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fix": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flag": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flame": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flash": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flashlight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flat": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là bánh xe, không thể hiện sự bằng phẳng hay xẹp"
+  },
+  "flavor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flexible": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flight attendant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flirt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "float": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flock": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flood": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "floor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flour": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flower": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "flu": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fluent": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh người đang ngạc nhiên, không thể hiện sự trôi chảy"
+  },
+  "flute": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không phải là cây sáo, nhạc cụ vẽ sai."
+  },
+  "fly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "foam": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "focus": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fog": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "folder": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "folk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "follow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "food": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "foolish": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh người đi dưới mưa, không thể hiện sự ngốc nghếch"
+  },
+  "foreign": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fork": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "former": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "forty": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ có bốn chồng tiền, không phải bốn mươi."
+  },
+  "forward": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fountain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "four": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fourteen": {
+   "has_text": false,
+   "matches": false,
+   "note": "Số lượng viên bi không phải là mười bốn."
+  },
+  "fox": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "freckle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "free": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ đọc sách không phải miễn phí"
+  },
+  "freedom": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "freeze": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "freezer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "frequently": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "fresh": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "friday": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến thứ Sáu"
+  },
+  "friendly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "frightened": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "frightening": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "frozen": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "full": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "funny": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "garage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "garbage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "garden": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gardener": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "garlic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "garnish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gas": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gas station": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gather": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gear": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gene": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "general": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là các hình khối, không thể hiện nghĩa từ vựng."
+  },
+  "generally": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ này."
+  },
+  "generation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "generous": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đi mua sắm, không thể hiện sự hào phóng."
+  },
+  "gentle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gentleman": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "giant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "glad": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "global": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gloomy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "goat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "god": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là phong cảnh thiên nhiên, không thể hiện thần linh."
+  },
+  "gold": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "golden": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "good": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "good luck": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa chúc may mắn."
+  },
+  "good point": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa một ý kiến hay."
+  },
+  "good-looking": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "goodbye": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "goose": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là con cò hoặc diệc, không phải con ngỗng."
+  },
+  "gorgeous": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là hoàng hôn, không thể hiện sự lộng lẫy."
+  },
+  "government": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grab": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grade": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa học sinh đang viết, không rõ nghĩa điểm số."
+  },
+  "gradually": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "graduate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gram": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grand": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grandfather": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grandmother": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grape": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống quả việt quất hơn là quả nho."
+  },
+  "grateful": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh thể hiện tình yêu thương, không rõ sự biết ơn."
+  },
+  "gray": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là những viên đá màu nâu, không phải màu xám."
+  },
+  "green": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "group": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "grow up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "growth": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guava": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guess": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guess what": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guilty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guitar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "gun": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "guy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "habit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hacker": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hair": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "haircut": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "half": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "halloween": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hallway": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ham": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là miếng thịt bò, không phải giăm bông."
+  },
+  "hammer": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là dụng cụ nhổ đinh, không phải cái búa thông thường."
+  },
+  "hand": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hand in": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hand out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "handcuffs": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một chiếc nhẫn, không phải còng tay."
+  },
+  "handle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "handmade": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "handsome": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hang": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hang in there": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hang out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hang up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "happen": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ vỡ, không phải xảy ra."
+  },
+  "happy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "happy birthday": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "harbor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hardly": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ ly nước, không phải hầu như không."
+  },
+  "hardware": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hardworking": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "harm": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho từ chân, không phải làm hại."
+  },
+  "harvest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "healthy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "heavy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "helpful": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cô bé cầm ô, không thể hiện sự giúp đỡ"
+  },
+  "heritage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hero": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hidden": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "high": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là con chim bay, không thể hiện độ cao"
+  },
+  "highway": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hiking": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hire": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hold your horses": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ minh họa việc cưỡi ngựa, không phải thành ngữ."
+  },
+  "holiday": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hollow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "home": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "homeland": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa du lịch, không phải quê hương."
+  },
+  "homemade": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "honest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "honey": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "honeymoon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "honk": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là vô lăng, không thể hiện hành động bấm còi."
+  },
+  "honor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hook": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hope": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa hy vọng."
+  },
+  "hopeful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "horizon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "horn": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là vô lăng xe, không phải còi xe."
+  },
+  "horrible": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "horror": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "horse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "host": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hot": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hotel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "house": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "how are you": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "huge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "humble": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "humid": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "hungry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "icy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "idea": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ideal": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là mặt trời và mặt nước, không rõ nghĩa."
+  },
+  "identify": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "if": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "if i were you": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ignore": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "illegal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "image": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "imagine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "imitate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "immediate": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé đang reo hò."
+  },
+  "immediately": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa ngay lập tức"
+  },
+  "immigrant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "immigration": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "impact": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "importance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "important": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "impossible": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người cầm tấm bảng trống."
+  },
+  "impressive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "improve": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh vẽ tranh không thể hiện rõ nghĩa cải thiện"
+  },
+  "in": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in a hurry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in common": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in detail": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là vẽ chân dung, không thể hiện sự chi tiết."
+  },
+  "in general": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đàn ông với nhiều loại trái cây."
+  },
+  "in love": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in person": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in short": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa tóm lại."
+  },
+  "in the same boat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "in time": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người mở cửa, không rõ nghĩa kịp lúc."
+  },
+  "in trouble": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "include": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "incredible": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "indeed": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa quả thật"
+  },
+  "independent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "individual": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "indoor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "industry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "infection": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "influence": {
+   "has_text": false,
+   "matches": false,
+   "note": "Nhân vật nữ bị mất đầu và không rõ nghĩa"
+  },
+  "inform": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động thông báo"
+  },
+  "informal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "information": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ingredient": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "injection": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "injure": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "inner": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "innocent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "insect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "inside": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "insist": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa khăng khăng, nài nỉ"
+  },
+  "install": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "instant": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang rót nước, không rõ nghĩa tức thì."
+  },
+  "instead": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa thay vào đó"
+  },
+  "instrument": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "insurance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "interested": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "interesting": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "international": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "internet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "intersection": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "interview": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình vẽ lỗi, nhân vật bên phải chỉ có đầu lơ lửng."
+  },
+  "introduce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "invent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "invest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "investigate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "invitation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "involve": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "iron": {
+   "has_text": false,
+   "matches": false,
+   "note": "Công cụ trong hình là mỏ hàn, không phải bàn là."
+  },
+  "island": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "issue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "it depends": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "it doesn't matter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "it's a long story": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "it's up to you": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "item": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jacket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jealous": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jeans": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jelly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jellyfish": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là con bạch tuộc, không phải con sứa."
+  },
+  "jet lag": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jewelry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jingle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "job": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jog": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "join": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "joint": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "journalist": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "journey": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "judge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "juice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "juicy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jump": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jungle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "junior": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "junk food": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "jury": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "just kidding": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "justice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "kind": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ sự tốt bụng."
+  },
+  "ladder": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lady": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lamb": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lamp": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "land": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "landing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "landmark": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "landscape": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lane": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lantern": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "laptop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "large": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "last": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một chiếc bánh quy, không liên quan đến từ."
+  },
+  "late": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lately": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một người đang đọc sách, không liên quan từ."
+  },
+  "laugh": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "launch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "laundry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "law": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lawsuit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lawyer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lay": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "layover": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lazy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "leave": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lecture": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "left": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đang chỉ tay"
+  },
+  "leftover": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "leg": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lemon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lemonade": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lend": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người đang cầm ô dưới mưa"
+  },
+  "level": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là quả cầu pha lê, không liên quan đến từ vựng."
+  },
+  "librarian": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ có thư viện, không có thủ thư."
+  },
+  "library": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lid": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lie": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "life": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là mầm cây, không minh họa rõ cho từ cuộc sống."
+  },
+  "life jacket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lift": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "light": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lighthouse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lightning": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "like": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "likely": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho thời tiết xấu, không phải khả năng."
+  },
+  "line": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "link": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không minh họa rõ nghĩa đường dẫn hay liên kết"
+  },
+  "lion": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một con báo đốm, không phải sư tử."
+  },
+  "lip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lipstick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "liquid": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "listen": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "liter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "litter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "live": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lively": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "liver": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lizard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "load": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "loan": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lobster": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa là con cua không phải tôm hùm"
+  },
+  "local": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "locate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "location": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lock": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lonely": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "long": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "long time no see": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "look": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "look after": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "look for": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "look into": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "look out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "loose": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa lỏng hay rộng."
+  },
+  "loosen": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "loss": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lot": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "loud": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "low": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "loyal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "lucky": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "magical": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "main": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "manufacture": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "marathon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "marble": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "march": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "marinate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mark": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "market": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "marriage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "marry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "match": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "matter": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa của từ matter"
+  },
+  "mature": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cây cối, không thể hiện sự trưởng thành."
+  },
+  "maximum": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh cái xô không thể hiện khái niệm tối đa."
+  },
+  "maybe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "me too": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "meal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mean": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "meaning": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa tình yêu không liên quan đến ý nghĩa"
+  },
+  "meat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mechanic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "medal": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là quả cầu trang trí, không phải huy chương."
+  },
+  "media": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "medical": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "medicine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "medium": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "meet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "meeting": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "melody": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "melt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "member": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "memo": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "memory": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mental": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho ý tưởng, không phải tinh thần."
+  },
+  "mention": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa núi không liên quan đến việc nhắc đến"
+  },
+  "metal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "meter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "method": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa nội thất không liên quan đến phương pháp."
+  },
+  "microscope": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "microwave": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "midday": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "middle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "midnight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mild": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "milk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "milkshake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "million": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mind": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa phiền hay bận tâm."
+  },
+  "minimum": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "minor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mint": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "minute": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mirror": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cậu bé, không phải cái gương."
+  },
+  "miss": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "miss the boat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "missing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mix": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mixed feelings": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ thể hiện một người đàn ông đang cười."
+  },
+  "mobile": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "model": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "modern": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "modest": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa khiêm tốn."
+  },
+  "molecule": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "moment": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa của từ khoảnh khắc."
+  },
+  "moral": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến đạo đức."
+  },
+  "motorbike": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mount": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mountain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mouse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mouth": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "move": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "move on": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho việc làm việc văn phòng, không phải bước tiếp."
+  },
+  "movie": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mud": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "muffin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "multiply": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa tế bào, không phải phép nhân."
+  },
+  "muscle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "muscular": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "museum": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mushroom": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "mustache": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là bộ râu quai nón, không phải ria mép."
+  },
+  "my pleasure": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa của từ."
+  },
+  "nail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nap": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "napkin": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống như đang cầm một tờ giấy trắng."
+  },
+  "narrow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "national": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "native": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "natural": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "neat": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "necessary": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự cần thiết."
+  },
+  "nervous": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "never mind": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đang vẫy tay chào."
+  },
+  "nevertheless": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện được ý nghĩa của từ này."
+  },
+  "new": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh xe đạp đôi không thể hiện rõ nghĩa 'mới'"
+  },
+  "news": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "newspaper": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nice to meet you": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "niece": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "night": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nightmare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nine": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ có 11 quả táo, không phải 9."
+  },
+  "ninety": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ có một đống đá, không phải 90."
+  },
+  "no big deal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "no pain, no gain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "no wonder": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người cầm ô, không thể hiện nghĩa."
+  },
+  "no worries": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "noble": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự cao quý."
+  },
+  "noise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "noisy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "noodle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "noon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "normal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "normally": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa cho việc đánh răng, không phải từ normally."
+  },
+  "nose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "not yet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "note": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "notebook": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "notice": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động để ý thấy."
+  },
+  "notification": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là mặt trời, không phải thông báo."
+  },
+  "novel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "now": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện khái niệm thời gian bây giờ."
+  },
+  "nowadays": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện khái niệm ngày nay."
+  },
+  "nurse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "nutrition": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "obey": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một chú chó, không thể hiện hành động vâng lời"
+  },
+  "observe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "obtain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "obvious": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé và quả táo."
+  },
+  "obviously": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ nghĩa của từ này"
+  },
+  "occasion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "occur": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "odd": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "official": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "old": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "on sale": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "on second thought": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh hoạ quả táo không liên quan đến từ vựng."
+  },
+  "on the same page": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "on time": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "once in a blue moon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "one": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh hoạ cây nến không liên quan đến số một."
+  },
+  "onion": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh hoạ giống quả xương rồng hơn là củ hành."
+  },
+  "open": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "operate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "operation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "opinion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "opportunity": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không thể hiện rõ nghĩa cơ hội"
+  },
+  "opposite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "optimistic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "option": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "or": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện được nghĩa của từ hoặc"
+  },
+  "orange": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "orchard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "orchestra": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ordinary": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "organize": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "organized": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "original": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ornament": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "otherwise": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa áo mưa, không liên quan đến từ."
+  },
+  "out of stock": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "out of the blue": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa đột ngột, không báo trước."
+  },
+  "outdoor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "outside": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "oven": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "over": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "overall": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người cầm tờ giấy, không rõ nghĩa tổng thể."
+  },
+  "overseas": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "oversleep": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "overtake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "overweight": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "owe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "owl": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "own": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "owner": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "oxygen": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "oyster": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pack": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "painful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "painkiller": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là máy tính bảng và ly nước."
+  },
+  "paint": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "painter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "painting": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pair": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pale": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "patient": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pay back": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "peace": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "peaceful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "peach": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là hình ảnh một viên ngọc trai, không phải quả đào."
+  },
+  "peacock": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là hình ảnh con cò, không phải con công."
+  },
+  "peak": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pear": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pedestrian": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "peel": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "perfect": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cái đĩa trống không rõ nghĩa"
+  },
+  "personal": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ khái niệm cá nhân"
+  },
+  "pessimistic": {
+   "has_text": false,
+   "matches": false,
+   "note": "Biểu cảm không rõ ràng là bi quan"
+  },
+  "philosophy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "phone": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "photo": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "physical": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "physics": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pick up": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang đặt hộp xuống chứ không phải nhặt lên."
+  },
+  "picture": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pie": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "piece": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "piece of cake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pig": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pigeon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pill": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pillow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pinch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pineapple": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pink": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pirate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pizza": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "place": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plan": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plane": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "planet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plastic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plate": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái bát, không phải cái đĩa."
+  },
+  "play": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "player": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "playground": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pleasure": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plow": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là người nông dân đang cuốc đất, không phải cái cày."
+  },
+  "plug": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là ổ cắm điện, không phải phích cắm."
+  },
+  "plum": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plumber": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "plump": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pocket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "podcast": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "poet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "point": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "point out": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "policy": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cuộc họp nhóm bình thường"
+  },
+  "polish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "polite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "political": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pollute": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pollution": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pond": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ponytail": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không có tóc đuôi ngựa."
+  },
+  "pool": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "population": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pork": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "porridge": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "portion": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một ổ bánh mì, không phải khẩu phần ăn."
+  },
+  "position": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa nhóm người, không rõ nghĩa vị trí."
+  },
+  "possible": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "postcard": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là phong cảnh, không phải bưu thiếp."
+  },
+  "pot": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "potato": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pouch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pour": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "poverty": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự nghèo đói."
+  },
+  "power": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "practice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "praise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pray": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prayer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "predict": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động dự đoán."
+  },
+  "prefer": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự lựa chọn ưu tiên."
+  },
+  "prepare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prescription": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là bác sĩ, không có đơn thuốc."
+  },
+  "present": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "presentation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "president": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "press": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pretend": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pretty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prevent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pride": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ thể hiện sự vui mừng, không rõ niềm tự hào"
+  },
+  "prince": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "princess": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "print": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh giống máy in hơn là hành động in ra"
+  },
+  "printer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prison": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prisoner": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "private": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "prize": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "probably": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa mưa, không thể hiện ý nghĩa có lẽ."
+  },
+  "problem": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa người và máy móc, không rõ vấn đề."
+  },
+  "processor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "produce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "product": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa một chiếc hộp, không rõ sản phẩm."
+  },
+  "professor": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "progress": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "project": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "promise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pronounce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "proof": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "proper": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang ngồi, không thể hiện sự chỉnh tề"
+  },
+  "properly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "propose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "protect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "protein": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "protest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "proud": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cậu bé đang xếp gỗ, không thể hiện tự hào"
+  },
+  "prove": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "provide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "psychology": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "public": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "publish": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là chồng sách, không thể hiện hành động xuất bản."
+  },
+  "pudding": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pull": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pull yourself together": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pulse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pump": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "pumpkin": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "punch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "punctual": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "punish": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang chỉ tay, không thể hiện sự trừng phạt"
+  },
+  "punishment": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang ngồi trên ghế, không phải hình phạt"
+  },
+  "purple": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "purpose": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang đóng đinh, không thể hiện ý nghĩa mục đích"
+  },
+  "push": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "push-up": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh người đang giơ tay, không phải động tác hít đất"
+  },
+  "put": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "put on": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "put up with": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "puzzle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quantity": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quarter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "queen": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "question": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "queue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quickly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quiet": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "quite": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một tách cà phê, không thể hiện nghĩa từ."
+  },
+  "rabbit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rain cats and dogs": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rain or shine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rainbow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rainy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "raise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "range": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rarely": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa hiếm khi xảy ra."
+  },
+  "rate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rather": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ rather."
+  },
+  "rating": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "raw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ray": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "razor": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái nĩa, không phải dao cạo."
+  },
+  "reach": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "react": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reaction": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "read": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ready": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "real": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không rõ nghĩa từ thật"
+  },
+  "reality": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ khái niệm thực tế."
+  },
+  "really": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một cậu bé ôm trái tim."
+  },
+  "receipt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "receive": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "recent": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là cậu bé và dấu chân."
+  },
+  "recently": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không liên quan đến nghĩa của từ."
+  },
+  "reception": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "recognize": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động nhận ra ai đó."
+  },
+  "recommend": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động gợi ý hay giới thiệu."
+  },
+  "record": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "recover": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "recruit": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "red": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reduce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "referee": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cậu bé đang thổi còi, không phải trọng tài"
+  },
+  "reflect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reflection": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "refreshing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "refuse": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động từ chối."
+  },
+  "region": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "regret": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "regulation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reindeer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reject": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động từ chối hoặc bác bỏ."
+  },
+  "relationship": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "relative": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "relax": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "relaxed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "relaxing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "release": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reliable": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ minh họa trời mưa, không thể hiện sự tin cậy."
+  },
+  "relief": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự nhẹ nhõm, chỉ là người đang chào."
+  },
+  "religion": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rely": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện sự tin cậy hay dựa vào."
+  },
+  "remain": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là những quả táo, không thể hiện ý nghĩa còn lại."
+  },
+  "remember": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "remind": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "remote": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là tivi, không phải điều khiển từ xa."
+  },
+  "remove": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "renovate": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "repair": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "repeat": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang giơ ngón tay."
+  },
+  "replace": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reply": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reporter": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "request": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "require": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rescue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "research": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reservation": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "resign": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động từ chức."
+  },
+  "resolution": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện quyết tâm năm mới."
+  },
+  "resource": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là vòi nước."
+  },
+  "respect": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "respond": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động phản hồi."
+  },
+  "responsibility": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "responsible": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa có trách nhiệm."
+  },
+  "rest": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "restart": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "restaurant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "resume": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "retail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "retire": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "return": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là người đang mua sắm, không thể hiện sự trở về."
+  },
+  "reveal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "revenue": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reverse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "review": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "reward": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rhythm": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là trống và máy đếm nhịp, không phải nhịp điệu."
+  },
+  "rib": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rice": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rich": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "riddle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ride": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "right": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ring": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rinse": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "ripe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rise": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "risk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "roll": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là quả bóng, không phải hành động lăn hay cuộn."
+  },
+  "romance": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "romantic": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "roof": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "room": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rooster": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "root": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rope": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là bánh quẩy, không phải dây thừng."
+  },
+  "rose": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rotten": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rough": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "roughly": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa táo, không liên quan đến từ vựng."
+  },
+  "round": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "roundabout": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "routine": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện thói quen hằng ngày."
+  },
+  "rub": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện hành động chà xát."
+  },
+  "rubber": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không rõ ràng là cao su."
+  },
+  "rude": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rug": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "run": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "run away": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "run into": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là hai người đang đi bộ cùng nhau."
+  },
+  "runway": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "rush": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sack": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sad": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "safe": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "safety": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sail": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salad": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salary": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salesperson": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salmon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salon": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "salty": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "same here": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sample": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa phô mai không phải mẫu thử"
+  },
+  "sand": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sandals": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sandwich": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sanitizer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "satellite": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "satisfied": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "satisfy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "satisfying": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "saturday": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ngày thứ Bảy."
+  },
+  "sauce": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sausage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "save time": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện việc tiết kiệm thời gian."
+  },
+  "saw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "say": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scale": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scam": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scan": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scarecrow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scared": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh thể hiện sự vui vẻ, không phải sợ hãi."
+  },
+  "scarf": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scholarship": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là học sinh cầm phong bì, không rõ học bổng."
+  },
+  "school": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "science": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scientist": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scissors": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scooter": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là ván trượt có tay cầm, không phải xe tay ga."
+  },
+  "score": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "scratch": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa hành động cọ rửa không phải là gãi"
+  },
+  "scream": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "screen": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là hình ảnh ngọn núi không phải màn hình"
+  },
+  "screw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "screwdriver": {
+   "has_text": false,
+   "matches": false,
+   "note": "Đây là dụng cụ kẹp không phải tuốc-nơ-vít"
+  },
+  "scrub": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sculpture": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sea": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "secure": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seedling": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seek": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seem": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seesaw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seldom": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không thể hiện được nghĩa ít khi"
+  },
+  "select": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "selfish": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sell": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seller": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "servant": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "serve": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "server": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "service": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa thợ sửa xe, không phải dịch vụ chung."
+  },
+  "sesame": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "set": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "set up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "settings": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "settle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "settle down": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seven": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "seventy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shade": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shadow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shake": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang nắm tay, không phải bắt tay hay lắc."
+  },
+  "shallow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shampoo": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shape": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "share": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shark": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sharp": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shave": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sheep": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shelf": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shell": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shepherd": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shield": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một người đang cầm tấm bảng tròn"
+  },
+  "shine": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shiny": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái thìa có mặt trời bên trong"
+  },
+  "ship": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shipping": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shirt": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shiver": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shocked": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shocking": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shoes": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shoot": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "short": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shortage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shortcut": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shoulder": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa bộ xương sườn, không phải vai."
+  },
+  "shout": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "show": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "show up": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shower": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shrimp": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa con tôm hùm, không phải con tôm."
+  },
+  "shut": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "shy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sick": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "side": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một người đứng cạnh cái cây."
+  },
+  "sidewalk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sigh": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sightseeing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "signal": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "silence": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "silent": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "silk": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "silly": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "silver": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "similar": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "simmer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "simple": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái ghế, không thể hiện nghĩa đơn giản."
+  },
+  "since": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một cái cây, không thể hiện nghĩa kể từ."
+  },
+  "sing": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "singer": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "single": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là một bông hoa, không thể hiện nghĩa đơn lẻ."
+  },
+  "sink": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "siren": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "skateboard": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "skill": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ khái niệm kỹ năng."
+  },
+  "skillful": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "skin": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh minh họa không rõ ràng về da."
+  },
+  "skinny": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "skip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "skirt": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là quần đùi, không phải chân váy."
+  },
+  "sky": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là núi, không phải bầu trời."
+  },
+  "sleep": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sleepy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sleigh": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slide": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slim": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slip": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slope": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "slowly": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa chậm rãi."
+  },
+  "small": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smart": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smash": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smell": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smile": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smoke": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "smooth": {
+   "has_text": false,
+   "matches": false,
+   "note": "Bề mặt trong hình có nhiều vết nứt, không mịn."
+  },
+  "snow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "snowflake": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "snowman": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "so": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ so"
+  },
+  "so far so good": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ so far so good"
+  },
+  "so what": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện nghĩa của từ so what"
+  },
+  "soak": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "soap": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sociable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "social": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "society": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "socket": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "socks": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sofa": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "soft": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sometimes": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa thỉnh thoảng"
+  },
+  "somewhat": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa phần nào"
+  },
+  "somewhere": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "son": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "song": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "soon": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện ý nghĩa sớm hay sắp"
+  },
+  "sore": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sour": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "south": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "souvenir": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "space": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "spaghetti": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "spam": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "spare": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "spark": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "sparrow": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "speak": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "speak your mind": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "speaker": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "special": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "speed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "squid": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stable": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stadium": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "staff": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stain": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stairs": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stamina": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh không thể hiện rõ ý nghĩa sức bền"
+  },
+  "steering wheel": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là tay cầm điều khiển, không phải vô lăng."
+  },
+  "stew": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stick": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh là tay đang cầm cục tẩy, không phải cái que."
+  },
+  "sticky": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "still": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stir": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stock": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stocking": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stomach": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stone": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stop": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "storage": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "store": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "storm": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stormy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "story": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stove": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "strange": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stranger": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "strategy": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "straw": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "strawberry": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stream": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "streaming": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "street": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "strength": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stressed": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stretch": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "strike": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh đang khoan gỗ, không phải đánh hay đình công."
+  },
+  "string": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stripe": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh chỉ là một vệt màu, không phải là sọc."
+  },
+  "strong": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "struggle": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "stubborn": {
+   "has_text": false,
+   "matches": false,
+   "note": "Hình ảnh con lừa không thể hiện rõ nghĩa bướng bỉnh."
+  },
+  "stuck": {
+   "has_text": false,
+   "matches": false,
+   "note": "Cậu bé đang mở cửa, không phải bị kẹt."
+  },
+  "student": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "study": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  },
+  "tired": {
+   "has_text": false,
+   "matches": true,
+   "note": ""
+  }
+ }
+}

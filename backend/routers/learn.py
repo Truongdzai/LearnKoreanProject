@@ -8,7 +8,7 @@ from ..errors import AppError
 from ..schemas.learn import (
     TranscriptIn, ExplainIn, ExplainOut, LevelIn, LevelOut, TranslateIn, TranslateOut,
 )
-from ..services import auth, youtube, translate, cache, jobs, llm, quota
+from ..services import asr, auth, youtube, translate, cache, jobs, llm, quota
 from ..services.langs import study_name, native_name
 
 router = APIRouter(prefix="/api/transcript", tags=["Bài học"])
@@ -38,11 +38,28 @@ def api_transcript(body: TranscriptIn, request: Request, user: dict | None = Opt
             try:
                 data = youtube.get_segments(f"https://www.youtube.com/watch?v={vid}", body.lang)
             except Exception as exc:
-                raise AppError("SUBTITLE_NOT_FOUND", str(exc), 404)
+                try:
+                    data = {
+                        "id": vid,
+                        "title": "",
+                        "channel": "",
+                        "source": "tự nghe bằng AI",
+                        "segments": asr.transcribe(vid, body.lang),
+                    }
+                except Exception:
+                    raise AppError("SUBTITLE_NOT_FOUND", str(exc), 404)
             if not data["segments"]:
                 raise AppError("SUBTITLE_NOT_FOUND", "Không tìm thấy nội dung phụ đề.", 404)
+            if "tự động" in (data.get("source") or ""):
+                try:
+                    data["segments"] = translate.repair_segments(data["segments"], body.lang)
+                except Exception:
+                    pass
+            note = ""
+            if data.get("title"):
+                note = f"Bối cảnh: video \"{data['title']}\" của kênh {data.get('channel') or ''}.".strip()
             try:
-                translate.translate_segments(data["segments"])
+                translate.translate_segments(data["segments"], body.lang, note)
             except Exception:
                 for seg in data["segments"]:
                     seg.setdefault("vi", "")

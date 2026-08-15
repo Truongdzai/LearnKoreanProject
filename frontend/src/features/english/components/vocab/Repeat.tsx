@@ -4,6 +4,7 @@ import { posLabel } from '@/data/vocabCore'
 import { studyLang } from '@/core/constants/languages'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import AudioBtn from './AudioBtn'
+import WordImg from '../WordImg'
 import SoundCheck from './SoundCheck'
 import type { ModeProps } from './types'
 
@@ -17,7 +18,7 @@ export default function Repeat({ card, lang, accents, speak, onNext }: ModeProps
     <div className="vl-card-wrap">
       <div className="vl-card wide">
         <div className="vl-repeat-head">
-          <div className="vl-img sm">{w.img}</div>
+          <WordImg term={term} emoji={w.img} className="vl-img sm" />
           <div>
             <div className="vl-term-row">
               <h3 lang={lang}>{term}</h3>

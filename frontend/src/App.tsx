@@ -41,6 +41,7 @@ const GardenPage = lazyPage(() => import('@/features/garden/GardenPage'))
 const LingoRadarPage = lazyPage(() => import('@/features/lingo/LingoRadarPage'))
 const AdminPage = lazyPage(() => import('@/features/admin/AdminPage'))
 const PetWidget = lazyPage(() => import('@/features/pet/PetWidget'))
+const AgentPanel = lazyPage(() => import('@/features/agent/AgentPanel'))
 const LandingPage = lazyPage(() => import('@/features/landing/LandingPage'))
 const LandingTopbar = lazyPage(() => import('@/features/landing/components/LandingTopbar'))
 const HelpPage = lazyPage(() => import('@/features/pages/PublicPages').then((m) => ({ default: m.HelpPage })))
@@ -126,6 +127,7 @@ export default function App() {
       <OnboardingModal />
       <FeedbackWidget />
       <Suspense fallback={null}><PetWidget /></Suspense>
+      <Suspense fallback={null}><AgentPanel /></Suspense>
     </div>
   )
 }

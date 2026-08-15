@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakEN, stopSpeak } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { phoneLabel } from '@/data/phoneCoach'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -27,7 +27,7 @@ interface Shot {
 const NO_SOURCE: string[] = []
 
 export function useReader() {
-  const sr = useSpeechRecognition(CTX.srLang)
+  const sr = useAsr(CTX.srLang)
   const ph = usePhonetics(CTX.lang, NO_SOURCE)
   const [active, setActive] = useState<string | null>(null)
   const [results, setResults] = useState<Record<string, Shot>>({})

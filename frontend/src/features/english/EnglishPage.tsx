@@ -104,7 +104,7 @@ function readJump(): { tab?: string; unit?: string; word?: string } | null {
   }
 }
 
-export default function EnglishPage() {
+function EnglishBody() {
   const [jump] = useState(readJump)
   const [tab, setTab] = useState<Tab>(jump?.unit ? 'vocab' : 'plan')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(jump?.unit)
@@ -151,25 +151,18 @@ export default function EnglishPage() {
 
   if (deepWord !== null) {
     return (
-      <FastProvider>
-        <MasteryProvider>
-          <DeepProvider>
-            <div className="english-page">
-              <DeepPage
-                key={deepWord || 'pick'}
-                term={deepWord}
-                onPickWord={setDeepWord}
-                onBack={() => setDeepWord(null)}
-              />
-            </div>
-          </DeepProvider>
-        </MasteryProvider>
-      </FastProvider>
+      <div className="english-page">
+        <DeepPage
+          key={deepWord || 'pick'}
+          term={deepWord}
+          onPickWord={setDeepWord}
+          onBack={() => setDeepWord(null)}
+        />
+      </div>
     )
   }
 
   return (
-    <FastProvider>
     <div className="english-page">
       <div className="lesson-head">
         <h2><Icon name="globe" /> Tiếng Anh giao tiếp</h2>
@@ -201,6 +194,7 @@ export default function EnglishPage() {
             onPron={openPron}
             onSkills={() => setTab('skills')}
             onErrors={() => setTab('errors')}
+            onDeep={setDeepWord}
           />
         )}
         {tab === 'vocab' && (
@@ -235,6 +229,17 @@ export default function EnglishPage() {
         {tab === 'summary' && <EnglishSummary />}
       </div>
     </div>
+  )
+}
+
+export default function EnglishPage() {
+  return (
+    <FastProvider>
+      <MasteryProvider>
+        <DeepProvider>
+          <EnglishBody />
+        </DeepProvider>
+      </MasteryProvider>
     </FastProvider>
   )
 }

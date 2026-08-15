@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakAccent } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { coachEnglish, type CoachResult, type CoachTask } from '@/core/api/english.api'
 import { ERROR_KINDS } from '@/data/englishFast'
 import { usesChunk, type ActiveChunk } from '@/data/englishActive'
@@ -39,7 +39,7 @@ export default function ProduceCard({
   onResult, onNext, nextLabel = 'Câu tiếp theo',
 }: Props) {
   const { addError } = useFast()
-  const sr = useSpeechRecognition('en-US')
+  const sr = useAsr('en-US')
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState('')

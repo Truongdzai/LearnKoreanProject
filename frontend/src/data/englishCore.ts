@@ -1,4 +1,3 @@
-
 import { GRAMMAR_LESSONS } from './englishGrammar'
 import { PRON_GROUPS, PRON_PASS } from './englishPronunciation'
 import nouns from './english/units/nouns.json'
@@ -123,12 +122,10 @@ import verbs10 from './english/units/verbs10.json'
 import verbs11 from './english/units/verbs11.json'
 import adjectives9 from './english/units/adjectives9.json'
 
-
 import { type IcesWord, type VocabUnit } from './vocabCore'
 
 export type { IcesWord, VocabUnit, WordPos } from './vocabCore'
 export { wTerm, wRead } from './vocabCore'
-
 
 export const UNITS: VocabUnit[] = [
   nouns, verbs, questions, adjectives, places, verbs2, adverbs, preps,
@@ -155,7 +152,6 @@ export const UNITS: VocabUnit[] = [
 export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
 
 export const TARGET_WORDS = 3000
-
 
 import { type WeekTask, type WeekPlan } from './vocabCore'
 
@@ -299,6 +295,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       pn(5, 'th'),
       { id: 'w5-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w5-bank', kind: 'total', label: 'Kho từ đạt 1000', targetTotal: 1000 },
+      { id: 'w5-deep', kind: 'deep', n: 3, label: 'Học sâu 3 động từ nhiều nghĩa (take, get, go…) — nắm đủ mọi nghĩa' },
       { id: 'w5-review', kind: 'review', n: 3, label: 'Ôn tập SRS ít nhất 3 ngày trong tuần' },
     ],
   },
@@ -349,6 +346,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w7-write', kind: 'custom', label: 'Viết 1 email/tin nhắn ngắn (3–5 câu): chào, hỏi thông tin, cảm ơn', go: null },
       { id: 'w7-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w7-bank', kind: 'total', label: 'Kho từ đạt 1650', targetTotal: 1650 },
+      { id: 'w7-deep', kind: 'deep', n: 8, label: 'Nâng lên 8 từ nắm đủ nghĩa — ưu tiên từ bạn hay đoán sai nghĩa' },
       { id: 'w7-speak', kind: 'speak', label: 'Luyện nói: hỏi đường / gọi món / hỏi giá với AI' },
     ],
   },
@@ -389,6 +387,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       pn(9, 'l-n-r'),
       { id: 'w9-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w9-bank', kind: 'total', label: 'Kho từ đạt 2300', targetTotal: 2300 },
+      { id: 'w9-deep', kind: 'deep', n: 15, label: 'Nâng lên 15 từ nắm đủ nghĩa — cụm động từ tuần này là mỏ vàng' },
       { id: 'w9-custom', kind: 'custom', label: 'Viết 10 câu với những từ bạn hay quên nhất', go: null },
       { id: 'w9-read', kind: 'custom', label: 'Đọc 2 bài đọc ngắn trong TOEIC Part 7, tra và lưu từ mới', go: null },
       { id: 'w9-video', kind: 'video', n: 2, label: 'Xem 2 video tiếng Anh không nhìn phụ đề lượt đầu' },
@@ -427,6 +426,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       pn(11, 'stress'),
       { id: 'w11-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w11-bank', kind: 'total', label: 'Kho từ đạt 2800', targetTotal: 2800 },
+      { id: 'w11-deep', kind: 'deep', n: 25, label: 'Nâng lên 25 từ nắm đủ nghĩa — đủ để nghe hiểu không còn hụt vì nghĩa lạ' },
       { id: 'w11-review', kind: 'review', n: 3, label: 'Duy trì SRS ít nhất 3 ngày' },
     ],
   },
@@ -551,6 +551,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw3-video', kind: 'video', n: 5, label: 'Xem 5 video, thử 2 video che phần dịch tiếng Việt' },
       { id: 'bw3-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw3-bank', kind: 'total', label: 'Kho từ đạt 900', targetTotal: 900 },
+      { id: 'bw3-deep', kind: 'deep', n: 5, label: 'Học sâu 5 từ nhiều nghĩa nhất — nắm đủ mọi nghĩa, không chỉ nghĩa đầu' },
       { id: 'bw3-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 80%', passPct: 80 },
     ],
   },
@@ -609,6 +610,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw5-video', kind: 'video', n: 6, label: 'Xem 6 video, 2 video xem không phụ đề lượt đầu' },
       { id: 'bw5-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw5-bank', kind: 'total', label: 'Kho từ đạt 1600', targetTotal: 1600 },
+      { id: 'bw5-deep', kind: 'deep', n: 15, label: 'Nâng lên 15 từ nắm đủ nghĩa (mỗi ngày 2 từ ở trang Học sâu)' },
       { id: 'bw5-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 80%', passPct: 80 },
     ],
   },
@@ -666,6 +668,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw7-video', kind: 'video', n: 6, label: 'Xem 6 video du lịch / ẩm thực, 2 video không phụ đề lượt đầu' },
       { id: 'bw7-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw7-bank', kind: 'total', label: 'Kho từ đạt 2300', targetTotal: 2300 },
+      { id: 'bw7-deep', kind: 'deep', n: 30, label: 'Nâng lên 30 từ nắm đủ nghĩa — gồm cả cụm động từ tuần này' },
       { id: 'bw7-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 85%', passPct: 85 },
     ],
   },
@@ -715,6 +718,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw9-video', kind: 'video', n: 6, label: 'Xem 6 video KHÔNG phụ đề lượt đầu, lượt 2 soi lại chỗ chưa nghe ra' },
       { id: 'bw9-review', kind: 'review', n: 6, label: 'Ôn tập SRS đủ 6 ngày trong tuần' },
       { id: 'bw9-bank', kind: 'total', label: 'Kho từ đạt 2900', targetTotal: 2900 },
+      { id: 'bw9-deep', kind: 'deep', n: 50, label: 'Nâng lên 50 từ nắm đủ nghĩa — đây là vốn từ “nghe không hụt”' },
       { id: 'bw9-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 85%', passPct: 85 },
     ],
   },
@@ -753,6 +757,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw11-speak', kind: 'speak', label: 'Nói tự do 10–15 phút với AI × 3 buổi, không nhìn gợi ý' },
       { id: 'bw11-video', kind: 'video', n: 6, label: 'Xem 6 video tốc độ thật, chép chính tả 2 trong số đó' },
       { id: 'bw11-review', kind: 'review', n: 6, label: 'Ôn tập SRS đủ 6 ngày trong tuần' },
+      { id: 'bw11-deep', kind: 'deep', n: 80, label: 'Nâng lên 80 từ nắm đủ nghĩa — chốt vốn từ chủ động của khoá' },
       { id: 'bw11-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 90%', passPct: 90 },
     ],
   },

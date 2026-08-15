@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import threading
+import time
 
 import httpx
 
@@ -10,9 +11,10 @@ from ..config import settings
 GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 DEFAULT_LADDER = [
+    "gemini-3.1-flash-lite",
+    "gemini-3.5-flash-lite",
+    "gemini-3.6-flash",
     "gemini-2.5-flash",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash",
 ]
 
 RETRYABLE_STATUS = {429, 500, 503}
@@ -40,13 +42,10 @@ def current_model() -> str:
         idx = min(_state["idx"], len(models) - 1)
     return models[idx]
 
-def _generate(body: dict, timeout: float) -> dict:
-    models = _models()
+def _sweep(models: list[str], start: int, body: dict, timeout: float) -> tuple[dict | None, Exception | None, bool]:
     n = len(models)
-    with _lock:
-        start = min(_state["idx"], n - 1)
-
     last_error: Exception | None = None
+    busy = False
     for step in range(n):
         idx = (start + step) % n
         model = models[idx]
@@ -56,16 +55,38 @@ def _generate(body: dict, timeout: float) -> dict:
             resp.raise_for_status()
             with _lock:
                 _state["idx"] = idx
-            return resp.json()
+            return resp.json(), None, False
         except httpx.HTTPStatusError as exc:
             status = exc.response.status_code
             last_error = exc
-            if status in RETRYABLE_STATUS or status in SKIP_STATUS:
+            if status in RETRYABLE_STATUS:
+                busy = True
+                continue
+            if status in SKIP_STATUS:
                 continue
             raise
         except httpx.HTTPError as exc:
             last_error = exc
+            busy = True
             continue
+    return None, last_error, busy
+
+
+def _generate(body: dict, timeout: float) -> dict:
+    models = _models()
+    n = len(models)
+    with _lock:
+        start = min(_state["idx"], n - 1)
+
+    last_error: Exception | None = None
+    for wait in (0.0, 4.0, 12.0):
+        if wait:
+            time.sleep(wait)
+        data, last_error, busy = _sweep(models, start, body, timeout)
+        if data is not None:
+            return data
+        if not busy:
+            break
 
     raise RuntimeError(
         f"Tất cả model đều không phản hồi (đã thử {n} model). Lỗi cuối: {last_error}"
@@ -141,6 +162,59 @@ def gemini_chat(prompt: str, system: str | None = None, temperature: float = 0.7
         body["systemInstruction"] = {"parts": [{"text": system}]}
     data = _generate(body, timeout=60.0)
     return data["candidates"][0]["content"]["parts"][0]["text"]
+
+def gemini_vision_json(
+    prompt: str,
+    images: list[tuple[bytes, str]],
+    schema: dict,
+    system: str | None = None,
+    temperature: float = 0.1,
+):
+    import base64
+
+    parts: list[dict] = [{"text": prompt}]
+    for raw, mime in images:
+        parts.append({"inlineData": {"mimeType": mime, "data": base64.b64encode(raw).decode("ascii")}})
+    body: dict = {
+        "contents": [{"parts": parts}],
+        "generationConfig": {
+            "temperature": temperature,
+            "responseMimeType": "application/json",
+            "responseSchema": schema,
+        },
+    }
+    if system:
+        body["systemInstruction"] = {"parts": [{"text": system}]}
+    data = _generate(body, timeout=180.0)
+    return json.loads(data["candidates"][0]["content"]["parts"][0]["text"])
+
+def gemini_audio_json(
+    prompt: str,
+    audio: bytes,
+    mime: str,
+    schema: dict,
+    system: str | None = None,
+    temperature: float = 0.1,
+):
+    import base64
+
+    parts: list[dict] = [
+        {"text": prompt},
+        {"inlineData": {"mimeType": mime, "data": base64.b64encode(audio).decode("ascii")}},
+    ]
+    body: dict = {
+        "contents": [{"parts": parts}],
+        "generationConfig": {
+            "temperature": temperature,
+            "responseMimeType": "application/json",
+            "responseSchema": schema,
+        },
+    }
+    if system:
+        body["systemInstruction"] = {"parts": [{"text": system}]}
+    data = _generate(body, timeout=300.0)
+    return json.loads(data["candidates"][0]["content"]["parts"][0]["text"])
+
 
 def gemini_json(prompt: str, schema: dict, system: str | None = None, temperature: float = 0.2):
     body: dict = {

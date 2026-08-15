@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { romanizeLine } from '@/core/utils/romanize'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import { speakLang } from '@/core/tts'
@@ -51,7 +51,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
   const turns = useRef(0)
   const booted = useRef(false)
   const endRef = useRef<HTMLDivElement>(null)
-  const sr = useSpeechRecognition(cfg.locale)
+  const sr = useAsr(cfg.locale)
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [msgs, loading])
 

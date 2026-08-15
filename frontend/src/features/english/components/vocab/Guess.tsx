@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { langLabel, posLabel } from '@/data/vocabCore'
 import WordDetail, { highlight } from './WordDetail'
+import WordImg from '../WordImg'
 import type { ModeProps } from './types'
 
 function mask(sentence: string, term: string): string {
@@ -79,7 +80,7 @@ export default function Guess({ card, lang, def, accents, speak, onNext, onDone 
             <span className="vl-face-tag">Mặt trước</span>
 
             <div className="vl-guess-body">
-              <div className={'vl-img big ' + card.unit.tone}>{w.img}</div>
+              <WordImg term={term} emoji={w.img} className={'vl-img big ' + card.unit.tone} />
 
               <div className="vl-term-row">
                 <div className="vl-mean big">{w.vi}</div>

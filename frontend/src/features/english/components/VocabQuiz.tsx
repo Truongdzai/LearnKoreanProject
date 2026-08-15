@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { wTerm, wRead, type IcesWord, type VocabUnit } from '@/data/vocabCore'
 import { useAppStore } from '@/store/app.store'
 import { speakEN } from '../progress'
+import WordImg from './WordImg'
 
 interface Q {
   word: IcesWord
@@ -139,7 +140,7 @@ export default function VocabQuiz({
       <div className="quiz-bar"><div style={{ width: `${(i / quiz.length) * 100}%` }} /></div>
 
       <div className="quiz-card">
-        <div className="quiz-img">{q.word.img}</div>
+        <WordImg term={wTerm(q.word)} emoji={q.word.img} className="quiz-img" />
         <h2 lang={lang}>{wTerm(q.word)} <button className="ices-sound inline" onClick={() => speak(wTerm(q.word))}><Icon name="volume" size={16} /></button></h2>
         <p className="quiz-ask">Từ này nghĩa là gì?</p>
       </div>

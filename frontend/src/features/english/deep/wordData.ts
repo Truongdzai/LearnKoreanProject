@@ -194,7 +194,7 @@ const STATIC_IMAGES: Set<string> = new Set(
 )
 
 export function staticImage(term: string): string | null {
-  const key = term.trim().toLowerCase()
+  const key = term.trim().toLowerCase().replace(/[?:/\\*"<>|]/g, '').trim()
   return STATIC_IMAGES.has(key) ? `/wordimg/${encodeURIComponent(key)}.webp` : null
 }
 

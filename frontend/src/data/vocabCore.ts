@@ -1,4 +1,3 @@
-
 export type WordPos = 'noun' | 'verb' | 'adj' | 'question' | 'phrase' | 'adverb' | 'prep'
 
 export interface IcesWord {
@@ -73,9 +72,9 @@ const LANG_VI: Record<string, string> = {
 
 export const langLabel = (lang: string): string => LANG_VI[lang] ?? 'ngoại ngữ'
 
-export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron'
+export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron' | 'deep'
 
-export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | null
+export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | null
 
 export interface WeekTask {
   id: string

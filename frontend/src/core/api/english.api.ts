@@ -1,5 +1,6 @@
 import { apiClient } from './client'
 import { track } from '@/core/monitor'
+import type { WordProfileResult } from '@/models/wordprofile.model'
 
 export type CoachTask = 'use' | 'respond' | 'retell' | 'email' | 'free'
 export type CoachErrorKind = 'pron' | 'grammar' | 'word' | 'fluency'
@@ -67,6 +68,17 @@ export interface WordReady {
   word: string
   rich: boolean
   image: boolean
+  profile: boolean
+}
+
+export function fetchWordProfile(word: string, pos = '', vi = ''): Promise<WordProfileResult> {
+  const qs = new URLSearchParams({ word })
+  if (pos) qs.set('pos', pos)
+  if (vi) qs.set('vi', vi)
+  return apiClient.get<WordProfileResult>(`/api/en/profile?${qs.toString()}`).then((r) => {
+    track('en_profile', { cached: r.cached, senses: r.profile?.senses.length ?? 0 })
+    return r
+  })
 }
 
 export function fetchWordReady(word: string): Promise<WordReady> {
