@@ -63,17 +63,9 @@ DEFAULT_EN_VIDEOS = [
     ("sN_vqwoC53Q", "We Bare Bears — Ba anh em thân nhất quả đất", "Cartoon Network Asia", "B1", "4:45", "Tình anh em", "tone-b", "en"),
     ("EzZ5Abh8xTM", "We Bare Bears — Màn kết bên chiếc pizza", "Cartoon Network Asia", "B1", "5:34", "Đồ ăn", "tone-c", "en"),
     ("xfc1j4rpw0c", "We Bare Bears — Ba anh em quậy tung", "Cartoon Network Asia", "B1", "8:43", "Hài hước", "tone-d", "en"),
-    ("Oaha-hNJT4E", "We Bare Bears — Đối đầu kẻ phá đám trên mạng", "Cartoon Network Asia", "B2", "13:44", "Internet", "tone-e", "en"),
-    ("RfciUa586VI", "We Bare Bears — Những khoảnh khắc của Ice Bear", "Cartoon Network Asia", "B1", "14:35", "Nhân vật", "tone-f", "en"),
-    ("ZTFnT7IzdBQ", "We Bare Bears — Ăn không ngừng nghỉ", "Cartoon Network Asia", "B1", "16:02", "Đồ ăn", "tone-a", "en"),
     ("4474zOLzD8k", "We Bare Bears — Mùa hè vui ở trại", "Cartoon Network Asia", "B1", "16:57", "Cắm trại", "tone-b", "en"),
     ("Khtdwww58h4", "We Bare Bears — Những lần Panda phải lòng", "Cartoon Network", "B1", "17:10", "Tình cảm", "tone-c", "en"),
-    ("u50iAtNCMQc", "We Bare Bears — Ba anh em đi hẹn hò", "Cartoon Network Asia", "B2", "17:25", "Hẹn hò", "tone-d", "en"),
-    ("iqoEGCxJy3g", "We Bare Bears — Ba anh em lên truyền hình", "Cartoon Network Asia", "B2", "19:16", "Truyền hình", "tone-e", "en"),
-    ("WQO5wXCGNW8", "We Bare Bears — Vì sao Ice Bear ngầu nhất", "Cartoon Network Asia", "B1", "23:07", "Nhân vật", "tone-f", "en"),
     ("C5kR-exHmr4", "We Bare Bears — Nguồn gốc ba anh em (Phần 2)", "Cartoon Network", "B2", "23:55", "Nguồn gốc", "tone-a", "en"),
-    ("EUZnjEEh2DU", "We Bare Bears — Gấu ở những nơi bất ngờ (Phần 1)", "Cartoon Network Asia", "B2", "24:48", "Phiêu lưu", "tone-b", "en"),
-    ("8-gyMEyeC54", "We Bare Bears — Khoảnh khắc mát lạnh ngày hè", "Cartoon Network Asia", "B1", "24:58", "Mùa hè", "tone-c", "en"),
 ]
 
 DEFAULT_JA_VIDEOS = [
@@ -82,7 +74,6 @@ DEFAULT_JA_VIDEOS = [
     ("rjmKQ-fjnyQ", "Nghe hiểu dễ — Cùng học ở công viên", "Nihongo-Learning", "Sơ cấp", "7:29", "公園", "tone-e", "ja"),
     ("Jh2C7JlWGKU", "Nghe hiểu dễ — Thói quen buổi sáng của tôi", "Nihongo-Learning", "Sơ cấp", "6:41", "朝のルーティン", "tone-f", "ja"),
     ("J62Y_9kuP_k", "Nghe hiểu dễ — 5 từ chỉ thời tiết", "Nihongo-Learning", "Sơ cấp", "9:18", "天気", "tone-a", "ja"),
-    ("GUqFU5u7rLQ", "Truyện nghe hiểu #1 — Gia đình (sơ cấp)", "Japarrot", "Sơ cấp", "6:21", "家族", "tone-b", "ja"),
     ("OeQzO5g4Y1o", "Podcast Shun Ep3 — Nhật trình hằng ngày (Genki 1)", "Japanese with Shun", "N5", "6:31", "日課", "tone-c", "ja"),
     ("aczPsLhpDRE", "3 quy tắc lịch sự cần biết ở Nhật", "Nihongo-Learning", "Sơ cấp", "4:04", "マナー", "tone-d", "ja"),
     ("ecG1j5zBcrY", "Những món ăn biểu tượng của Nhật", "Nihongo-Learning", "Sơ cấp", "4:08", "食べ物", "tone-e", "ja"),
@@ -92,10 +83,6 @@ DEFAULT_JA_VIDEOS = [
     ("TfoThmNj_rM", "Bạn biết bao nhiêu từ tượng thanh tiếng Nhật?", "Nihongo-Learning", "Sơ cấp", "6:13", "擬音語", "tone-c", "ja"),
     ("fXdYSlTMZxo", "Màu truyền thống Nhật Bản và câu chuyện phía sau", "Nihongo-Learning", "Sơ–trung cấp", "7:48", "伝統色", "tone-d", "ja"),
     ("ooQNETO4dK0", "Nâng cấp kỹ năng trò chuyện tiếng Nhật", "Nihongo-Learning", "Sơ–trung cấp", "9:48", "会話", "tone-e", "ja"),
-    ("P_1yJRt6dQ4", "Truyện nghe hiểu #5 — 回転寿司 (Sushi băng chuyền)", "Japarrot", "Sơ cấp", "6:58", "回転寿司", "tone-f", "ja"),
-    ("jiKnI3rjx54", "Truyện nghe hiểu #4 — 日本の家 (Nhà ở Nhật)", "Japarrot", "Sơ cấp", "9:11", "日本の家", "tone-a", "ja"),
-    ("dx8o756L7NA", "Truyện nghe hiểu #7 — コンビニ (Cửa hàng tiện lợi)", "Japarrot", "Sơ cấp", "9:28", "コンビニ", "tone-b", "ja"),
-    ("nawe0Nl93IA", "Tuyển tập truyện nghe hiểu #1–#5", "Japarrot", "Sơ cấp", "9:33", "聞き取り", "tone-c", "ja"),
     ("OJdonDT1Um8", "Podcast Shun #147 — 夜のルーティン (Thói quen buổi tối)", "Japanese with Shun", "N5–N4", "9:31", "夜のルーティン", "tone-d", "ja"),
     ("fTlCyr_nh7g", "Nghe tiếng Nhật thật ở Kyoto (N5)", "Japanese with Shun", "N5", "9:49", "京都", "tone-e", "ja"),
 ]

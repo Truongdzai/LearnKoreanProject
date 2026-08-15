@@ -12,7 +12,7 @@ const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 const COLLAPSE_KEY = 'vyling.navCollapsed'
 
 export default function Sidebar({ open = false, onClose }: { open?: boolean; onClose?: () => void }) {
-  const { view, setView, user, learnLang, setLearnLang, requestWizard, t, uiLang } = useAppStore()
+  const { view, setView, user, learnLang, setLearnLang, requestWizard, askGoalOnce, t, uiLang } = useAppStore()
   const [collapsed, setCollapsed] = useState(() => {
     try { return localStorage.getItem(COLLAPSE_KEY) === '1' } catch { return false }
   })
@@ -26,6 +26,11 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
   const pickLang = (code: string) => {
     if (code === learnLang) return
     setLearnLang(code)
+    // Hỏi mục tiêu học ĐÚNG LÚC NÀY, không hỏi ngay khi vào web: người mới
+    // truy cập chưa biết VyLing là gì mà đã bị chặn bằng một câu hỏi thì rất
+    // dễ thoát. Chọn ngôn ngữ xong mới hỏi thì câu hỏi có ngữ cảnh.
+    // askGoalOnce tự bỏ qua nếu người dùng đã chọn hoặc đã từng được hỏi.
+    askGoalOnce()
     requestWizard()
     setView('path')
     onClose?.()
@@ -84,13 +89,27 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
             <button
               key={l.code}
               type="button"
-              className={'lang-flag-btn' + (learnLang === l.code ? ' on' : '')}
-              onClick={() => pickLang(l.code)}
-              title={studyLangName(uiLang, l.code)}
-              aria-label={t('a11y.pickLang', { lang: studyLangName(uiLang, l.code) })}
+              className={
+                'lang-flag-btn'
+                + (learnLang === l.code ? ' on' : '')
+                + (l.soon ? ' is-soon' : '')
+              }
+              onClick={() => (l.soon ? undefined : pickLang(l.code))}
+              disabled={l.soon}
+              title={
+                l.soon
+                  ? t('lang.soonTip', { lang: studyLangName(uiLang, l.code) })
+                  : studyLangName(uiLang, l.code)
+              }
+              aria-label={
+                l.soon
+                  ? t('lang.soonTip', { lang: studyLangName(uiLang, l.code) })
+                  : t('a11y.pickLang', { lang: studyLangName(uiLang, l.code) })
+              }
               aria-pressed={learnLang === l.code}
             >
               <Flag code={l.code} size={26} />
+              {l.soon && <span className="lang-soon-tag">{t('lang.soon')}</span>}
             </button>
           ))}
         </div>

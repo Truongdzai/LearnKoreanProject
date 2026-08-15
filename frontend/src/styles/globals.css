@@ -6513,3 +6513,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (max-width:640px){
   .agent-fab,.agent-panel{right:12px;bottom:76px}
 }
+
+.lang-flag-btn{position:relative}
+.lang-flag-btn.is-soon{cursor:default;opacity:.42;filter:grayscale(1)}
+.lang-flag-btn.is-soon:hover{border-color:var(--line);transform:none}
+.lang-soon-tag{position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+  font-size:8.5px;font-weight:700;letter-spacing:.02em;line-height:1;white-space:nowrap;
+  padding:2px 5px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);
+  color:var(--muted)}

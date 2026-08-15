@@ -41,7 +41,15 @@ export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
           videoId: id,
           height: '100%',
           width: '100%',
-          playerVars: { rel: 0 },
+          // host nocookie + origin: YouTube khuyến nghị khai origin cho IFrame
+          // API; thiếu nó một số nhúng bị chặn không nhất quán giữa localhost
+          // và tên miền thật. Lưu ý: cái này KHÔNG vượt được video mà chủ sở
+          // hữu đã tắt nhúng — loại đó phải gỡ khỏi kho (xem scripts/audit_embed.mjs).
+          host: 'https://www.youtube-nocookie.com',
+          playerVars: {
+            rel: 0,
+            origin: typeof window !== 'undefined' ? window.location.origin : undefined,
+          },
         })
       }
     }
