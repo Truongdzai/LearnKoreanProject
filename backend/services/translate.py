@@ -134,11 +134,23 @@ def _translate_ordered(
             )
         numbered = "\n".join(f"{k + 1}. {l}" for k, l in enumerate(chunk))
         prompt = (
-            "Bạn là người dịch phụ đề chuyên nghiệp. Đây là phụ đề liên tục của MỘT video, "
-            f"hãy dịch từ {lname} sang {nname} sao cho mạch hội thoại liền lạc, xưng hô nhất quán "
-            "giữa các câu, giọng tự nhiên đúng văn nói.\n"
+            f"Bạn là người dịch phụ đề chuyên nghiệp {lname}–{nname}, dịch cho người Việt "
+            "đang HỌC ngoại ngữ qua video. Đây là phụ đề liên tục của MỘT video.\n"
             + (note.strip() + "\n" if note else "")
-            + f"Giữ ĐÚNG thứ tự và ĐÚNG {len(chunk)} dòng. "
+            + "\nYêu cầu về chất lượng:\n"
+            "- Dịch THOÁT Ý, đúng cách người Việt thật sự nói. Tuyệt đối không dịch máy móc "
+            "từng chữ, không giữ trật tự từ của câu gốc nếu tiếng Việt nghe gượng.\n"
+            "- Giữ đúng SẮC THÁI của câu gốc: đùa thì phải ra đùa, cáu thì ra cáu, trang trọng "
+            "thì ra trang trọng. Câu thoại đời thường thì dịch như lời nói, không văn viết.\n"
+            "- XƯNG HÔ nhất quán suốt video và hợp quan hệ nhân vật (tôi/mình/tớ/anh/em/ông/bà). "
+            "Đã chọn cặp xưng hô nào thì giữ nguyên, đừng đổi giữa chừng.\n"
+            "- Thành ngữ, tiếng lóng, chơi chữ: tìm cách nói tương đương trong tiếng Việt, "
+            "không dịch nghĩa đen.\n"
+            "- Ngắn gọn như phụ đề thật, đủ để đọc kịp. Không thêm giải thích, không thêm "
+            "chú thích, không thêm dấu ngoặc.\n"
+            "- Giữ nguyên tên riêng; đừng dịch tên người và địa danh.\n"
+            "- Dòng gốc chỉ có tiếng động hoặc nhạc thì trả về chuỗi rỗng.\n"
+            f"\nGiữ ĐÚNG thứ tự và ĐÚNG {len(chunk)} dòng. "
             f"Trả về một mảng JSON gồm {len(chunk)} chuỗi {nname}.\n\n"
             + ctx_txt
             + "Các câu CẦN DỊCH:\n"
@@ -148,8 +160,12 @@ def _translate_ordered(
             arr = llm.gemini_json(prompt, _ARRAY_OF_STRINGS)
             if not isinstance(arr, list):
                 arr = []
-        except Exception:
-            arr = []
+        except Exception as exc:
+            # KHÔNG nuốt lỗi ở đây. Trước đây trả về [] rồi điền chuỗi rỗng, nên
+            # tầng trên tưởng dịch xong và CACHE LUÔN bài rỗng nghĩa — hết quota
+            # một lần là video đó mất tiếng Việt vĩnh viễn, kể cả sau khi quota
+            # hồi. Ném lên để tầng gọi biết mà không cache.
+            raise RuntimeError(f"dịch lô {i // batch + 1} thất bại: {exc}") from exc
         arr = [str(x) for x in arr]
         if len(arr) < len(chunk):
             arr += [""] * (len(chunk) - len(arr))

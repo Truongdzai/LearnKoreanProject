@@ -61,10 +61,10 @@ export async function ensureBackend(env: Env): Promise<string> {
 		await sandbox.tunnels.destroy(port).catch(() => {})
 	}
 
-	// KHÔNG truyền secret qua env ở đây: `backend/config.py` chỉ đọc TOML
-	// (config.toml, không có thì config.example.toml) và KHÔNG hề đọc biến môi
-	// trường. Truyền vào chỉ tạo cảm giác an toàn giả — app không bao giờ thấy.
-	// Cách nạp secret đúng: xem cf/README.md §15.
+	// Secret đi từ `wrangler secret` → Worker → biến môi trường của tiến trình
+	// uvicorn. `backend/config.py` đọc chúng qua `_apply_env` và ghi đè lên
+	// config.example.toml (file này KHÔNG có khoá — cố ý, để khoá không bị
+	// đóng gói vào image). Thiếu đường này thì mọi tính năng AI tắt câm.
 	await sandbox.startProcess(
 		`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
 		{
@@ -72,6 +72,15 @@ export async function ensureBackend(env: Env): Promise<string> {
 			env: {
 				PYTHONUNBUFFERED: '1',
 				PYTHONIOENCODING: 'utf-8',
+				...(env.LLM_API_KEY ? { VYLING_LLM_API_KEY: env.LLM_API_KEY } : {}),
+				...(env.ADMIN_PASSWORD ? { VYLING_ADMIN_PASSWORD: env.ADMIN_PASSWORD } : {}),
+				...(env.SMTP_PASSWORD ? { VYLING_SMTP_PASSWORD: env.SMTP_PASSWORD } : {}),
+				...(env.GOOGLE_CLIENT_SECRET
+					? { VYLING_GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET }
+					: {}),
+				...(env.FACEBOOK_APP_SECRET
+					? { VYLING_FACEBOOK_APP_SECRET: env.FACEBOOK_APP_SECRET }
+					: {}),
 			},
 		},
 	)
