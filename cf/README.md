@@ -392,6 +392,43 @@ thì `Dockerfile` cũng phải đổi sang `cloudflare/sandbox:0.12.7-python`.
 
 ---
 
+## 15. 🔴 Secret CHƯA nạp được vào backend — phải xử lý trước khi chạy thật
+
+Phát hiện khi rà trước lần deploy đầu. Hai việc còn nợ, **không** chặn deploy
+kiểm chứng nhưng **chặn chạy thật**:
+
+### 15.1 `wrangler secret` không tới được app Python
+
+`backend/config.py` chỉ đọc TOML — `config.toml`, không có thì `config.example.toml`
+— và **không hề đọc biến môi trường**. Nên `wrangler secret put LLM_API_KEY`
+đưa secret vào Worker, còn tiến trình uvicorn trong sandbox thì không thấy gì.
+
+Bản đầu `legacy-proxy.ts` truyền `VYLING_LLM_API_KEY` qua `startProcess({env})`.
+Vô tác dụng, đã gỡ — để lại thì tưởng đã bảo mật xong mà thật ra chưa.
+
+Ba hướng, chưa chọn:
+1. **Ghi `config.toml` vào sandbox** từ secret của Worker trước khi chạy uvicorn
+   (`sandbox.writeFile`). Không đụng backend. Vướng: `config.py` dùng
+   `config.toml` **thay cho** `config.example.toml` chứ không gộp, nên phải sinh
+   file đủ nội dung, không phải vài dòng.
+2. **Cho `config.py` đọc env làm lớp dự phòng** — sạch nhất về lâu dài, nhưng
+   sửa vào code backend hiện có.
+3. **Mount từ R2** — nặng tay hơn mức cần.
+
+### 15.2 Mật khẩu admin bị in ra log
+
+`config.example.toml` để `admin.password = ""`, nên `seed_admin()` tự sinh mật
+khẩu ngẫu nhiên rồi in ra stdout **mỗi lần container khởi động**:
+
+```
+[VyLing] Mật khẩu admin mới cho admin@vyling.vn: … — lưu lại ngay, chỉ hiện 1 lần
+```
+
+Trên máy thì vô hại. Trên Cloudflare, log đó lưu lại và đọc được. Xử lý cùng
+15.1 — đặt `admin.password` thật là hết.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,

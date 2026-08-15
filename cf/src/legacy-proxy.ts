@@ -37,6 +37,10 @@ export async function ensureBackend(env: Env): Promise<string> {
 		return existing.url
 	}
 
+	// KHÔNG truyền secret qua env ở đây: `backend/config.py` chỉ đọc TOML
+	// (config.toml, không có thì config.example.toml) và KHÔNG hề đọc biến môi
+	// trường. Truyền vào chỉ tạo cảm giác an toàn giả — app không bao giờ thấy.
+	// Cách nạp secret đúng: xem cf/README.md §15.
 	await sandbox.startProcess(
 		`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
 		{
@@ -44,8 +48,6 @@ export async function ensureBackend(env: Env): Promise<string> {
 			env: {
 				PYTHONUNBUFFERED: '1',
 				PYTHONIOENCODING: 'utf-8',
-				...(env.LLM_API_KEY ? { VYLING_LLM_API_KEY: env.LLM_API_KEY } : {}),
-				...(env.JWT_SECRET ? { VYLING_JWT_SECRET: env.JWT_SECRET } : {}),
 			},
 		},
 	)
