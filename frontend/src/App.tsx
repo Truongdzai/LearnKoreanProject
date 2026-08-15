@@ -126,7 +126,10 @@ export default function App() {
       <GiftModal />
       <OnboardingModal />
       <FeedbackWidget />
-      <Suspense fallback={null}><PetWidget /></Suspense>
+      {/* Landing là trang giới thiệu công khai: người lần đầu vào chưa học gì,
+          nên thú cưng kèm đồng hồ Pomodoro ở đó chỉ gây rối. Chỉ hiện khi đã
+          vào trong web học. */}
+      {!isLanding && <Suspense fallback={null}><PetWidget /></Suspense>}
       <Suspense fallback={null}><AgentPanel /></Suspense>
     </div>
   )

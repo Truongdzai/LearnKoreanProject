@@ -88,6 +88,7 @@ def api_transcript(body: TranscriptIn, request: Request, user: dict | None = Opt
             note = ""
             if data.get("title"):
                 note = f"Bối cảnh: video \"{data['title']}\" của kênh {data.get('channel') or ''}.".strip()
+            translated = True
             try:
                 translate.translate_segments(data["segments"], body.lang, note)
             except Exception as exc:
@@ -95,10 +96,15 @@ def api_transcript(body: TranscriptIn, request: Request, user: dict | None = Opt
                 # nghĩa mà không biết vì sao, còn người vận hành không có manh
                 # mối nào để lần. Vẫn trả bài học (có phụ đề gốc còn hơn không),
                 # nhưng phải ghi lại lý do.
+                translated = False
                 logs.log(f"[transcript] dịch phụ đề hỏng cho {vid}: {type(exc).__name__}: {exc}")
                 for seg in data["segments"]:
                     seg.setdefault("vi", "")
-            if data.get("id"):
+            # KHÔNG cache bài dịch hỏng. Cache được đọc trước cả hạn mức
+            # (`get_lesson` trả về ngay từ đầu hàm), nên một lần dịch lỗi vì hết
+            # quota mà vẫn ghi cache là bài đó mất tiếng Việt VĨNH VIỄN — lần
+            # sau vào chỉ đọc lại bản hỏng, không bao giờ thử dịch lại.
+            if data.get("id") and translated:
                 cache.save_lesson(data)
             return _attach_speakers(data)
     except jobs.Busy:
