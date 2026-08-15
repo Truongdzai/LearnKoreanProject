@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
 		"target": "ES2022",
-		"lib": ["ES2022"],
+		"lib": [
+			"ES2022"
+		],
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"types": ["@cloudflare/workers-types"],
 		"strict": true,
 		"skipLibCheck": true,
 		"noEmit": true,
@@ -13,5 +14,9 @@
 		"resolveJsonModule": true,
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src", "ai-search"]
+	"include": [
+		"src",
+		"ai-search",
+		"worker-configuration.d.ts"
+	]
 }
