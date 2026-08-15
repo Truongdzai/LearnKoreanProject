@@ -12,8 +12,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Cài dependency trước để tận dụng layer cache.
+# LƯU Ý: image nền chỉ có `python3`/`pip3`, KHÔNG có alias `python`/`pip`
+# (Python 3.11.14 tại /usr/local/bin). Dùng `pip` sẽ lỗi "pip: not found".
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Mã nguồn backend — copy y nguyên, không sửa dòng nào.
 COPY backend/ ./backend/
@@ -38,4 +40,4 @@ ENV PYTHONUNBUFFERED=1 \
 EXPOSE 8000
 
 # Cùng lệnh với start.bat, chỉ đổi host để nghe được từ ngoài container.
-CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python3", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
