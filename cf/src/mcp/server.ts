@@ -1,18 +1,17 @@
-import { McpAgent } from 'agents/mcp'
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { McpServer } from '@modelcontextprotocol/server'
+import { z } from 'zod'
 import { proxyToBackend } from '../legacy-proxy'
 import { TOOLS } from './tools'
 
-export class VylingMcp extends McpAgent<Env> {
-	server = new McpServer({
-		name: 'vyling',
-		version: '1.0.0',
-	})
+export function buildMcpServer(env: Env): McpServer {
+	const server = new McpServer({ name: 'vyling', version: '2.0.0' })
 
-	async init() {
-		for (const tool of TOOLS) {
-			this.server.tool(tool.name, tool.description, tool.schema, async (args) => {
-				const spec = tool.request(args as Record<string, unknown>)
+	for (const tool of TOOLS) {
+		server.registerTool(
+			tool.name,
+			{ description: tool.description, inputSchema: z.object(tool.schema) },
+			async (args) => {
+				const spec = tool.request((args ?? {}) as Record<string, unknown>)
 				const init: RequestInit = { method: spec.method ?? 'GET' }
 				if (spec.body !== undefined) {
 					init.method = spec.method ?? 'POST'
@@ -20,8 +19,10 @@ export class VylingMcp extends McpAgent<Env> {
 					init.headers = { 'Content-Type': 'application/json' }
 				}
 
-				const request = new Request(`https://vyling.internal${spec.path}`, init)
-				const response = await proxyToBackend(request, this.env)
+				const response = await proxyToBackend(
+					new Request(`https://vyling.internal${spec.path}`, init),
+					env,
+				)
 				const text = await response.text()
 
 				if (!response.ok) {
@@ -37,7 +38,9 @@ export class VylingMcp extends McpAgent<Env> {
 				}
 
 				return { content: [{ type: 'text' as const, text }] }
-			})
-		}
+			},
+		)
 	}
+
+	return server
 }

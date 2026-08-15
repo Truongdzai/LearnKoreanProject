@@ -2,7 +2,7 @@
 #
 # Base image của Cloudflare đã set sẵn ENTRYPOINT (sandbox agent mở HTTP API
 # rồi spawn CMD làm tiến trình con) — KHÔNG được ghi đè ENTRYPOINT.
-FROM docker.io/cloudflare/sandbox:0.7.0-python
+FROM docker.io/cloudflare/sandbox:0.12.7-python
 
 # ffmpeg: backend/services/media.py gọi (ensure_ffmpeg khi khởi động).
 RUN apt-get update && apt-get install -y --no-install-recommends \

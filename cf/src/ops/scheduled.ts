@@ -31,7 +31,7 @@ function realFailures(payload: unknown): string[] {
 async function probe(env: Env): Promise<Probe> {
 	const started = Date.now()
 	try {
-		const origin = await ensureBackend(env, new Request(`${env.PUBLIC_URL}/cf/ops`))
+		const origin = await ensureBackend(env)
 		const res = await fetch(`${origin}/api/health`, { method: 'GET' })
 		const ms = Date.now() - started
 		const failed = realFailures(await res.json().catch(() => null))

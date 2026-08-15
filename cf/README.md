@@ -110,6 +110,15 @@ claude mcp add --transport http vyling https://vyling.workers.dev/mcp
 Thêm tool mới = thêm một mục vào `src/mcp/tools.ts`. Cùng lúc nó xuất hiện trong
 Code Mode, vì connector dùng chung mảng đó.
 
+**Dùng MCP v2 (không trạng thái).** Bản đầu viết bằng `McpAgent` — một Durable
+Object giữ phiên. Đặc tả MCP 2026-07-28 bỏ hẳn nhu cầu đó: giao thức nay không
+trạng thái, và `createMcpHandler` từ `agents/mcp/server` chạy thẳng trên Worker.
+Kết quả: **bớt được một Durable Object** (`MCP_OBJECT` + migration của nó) —
+đơn giản hơn, rẻ hơn, ít thứ hỏng hơn. Gói dùng là
+`@modelcontextprotocol/server@2` chứ không phải `@modelcontextprotocol/sdk@1`.
+
+Đường `/sse` cũ đã bỏ; v2 chỉ dùng streamable HTTP tại `/mcp`.
+
 ---
 
 ## 5. Code Mode
@@ -177,10 +186,21 @@ dữ liệu cá nhân — `users`, `srs_cards`, `srs_reviews`, `activity_log`,
 dung riêng của họ bị nhúng (embed) lên hạ tầng Cloudflare và trở thành thứ agent
 truy vấn được. Thêm bảng mới vào corpus thì phải tự hỏi câu đó trước.
 
-Các bước còn lại (tạo instance, chọn model embedding, Sync index) làm ở dashboard —
-AI Search chưa khai báo được trong `wrangler.jsonc`. `ai-search.jsonc` là bản ghi
-cấu hình đúng để dựng lại. Index **không** tự cập nhật khi DB đổi: chạy lại
-corpus → đẩy R2 → Sync.
+Tạo instance bằng CLI (`wrangler ai-search`, open beta) — không phải chỉ dashboard
+như bản README đầu viết nhầm:
+
+```bash
+npx wrangler ai-search create vyling-knowledge --type r2 --source vyling-knowledge --embedding-model @cf/baai/bge-m3 --chunk-size 512 --chunk-overlap 64 --max-num-results 8 --reranking
+```
+
+Thử truy vấn ngay, không cần viết code:
+
+```bash
+npx wrangler ai-search search vyling-knowledge "từ nào nghĩa là mệt mỏi"
+```
+
+Còn `list`, `get`, `update`, `stats`, `delete`. `ai-search.jsonc` là nguồn sự thật
+của cấu hình. Index **không** tự cập nhật khi DB đổi: chạy lại corpus → đẩy R2 → Sync.
 
 ---
 
@@ -337,6 +357,41 @@ kiểm chứng bằng chính payload thật lấy từ container đang chạy: h
 
 ---
 
+## 14. Tunnels thay cho preview URL — bỏ được ràng buộc domain
+
+Bản đầu dùng `exposePort()`, sinh preview URL dạng
+`8000-sandbox-<id>-app.<domain>`. Cách đó **bắt buộc có domain riêng cấu hình
+wildcard DNS**; `.workers.dev` không chạy được. Với người chưa có domain thì
+coi như tắc.
+
+Hai điều phát hiện thêm khi tra tài liệu chính thức:
+1. **`exposePort()` đã bị deprecated**, thay bằng Tunnels API.
+2. Bản SDK ghim ban đầu (`^0.7.0`) quá cũ — chọn theo trang docs viết *"current
+   stable is 0.7.0"*, trong khi npm đã ở **0.12.7**. Bản 0.7 chưa có tunnels.
+
+Nay dùng **quick tunnel**:
+
+```ts
+const tunnel = await sandbox.tunnels.get(port)
+// → https://<ngẫu nhiên>.trycloudflare.com
+```
+
+Không cần domain, không cần DNS, không cần cấu hình gì. Kèm hai ràng buộc:
+
+- **Bắt buộc RPC transport** — `getSandbox(..., { transport: 'rpc' })`. Tunnels
+  không chạy trên transport HTTP/WebSocket cũ (cũng đang deprecated).
+- **URL đổi mỗi lần container khởi động lại.** Nên `proxyToBackend` thử lại một
+  lần: fetch hỏng → xoá cache URL → dựng tunnel mới. Chỉ thử lại với request
+  không có body (body là stream, đọc rồi không phát lại được).
+
+Khi có domain riêng thì đổi sang **named tunnel** cho URL cố định:
+`sandbox.tunnels.get(port, { name: 'vyling' })` → `https://vyling.<zone>`.
+
+Kèm theo: package và image phải **cùng dòng phiên bản** — nâng SDK lên 0.12.7
+thì `Dockerfile` cũng phải đổi sang `cloudflare/sandbox:0.12.7-python`.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
@@ -370,8 +425,8 @@ Desktop từ Start Menu và bấm Accept ở màn hình giấy phép lần đầ
 
 - Tài khoản Cloudflare + `wrangler login`
 - Đăng ký quyền beta Worker Loader (nếu muốn Code Mode chạy production)
-- Domain riêng có **wildcard DNS** — preview URL của Sandbox dùng subdomain
-  (`8000-sandbox-<id>-app.domain.com`), `.workers.dev` **không** hỗ trợ
+- ~~Domain riêng có wildcard DNS~~ — **không còn cần** kể từ khi chuyển sang
+  tunnels, xem §14
 - Tạo instance AI Search trên dashboard
 - Nạp secrets bằng `wrangler secret put`
 

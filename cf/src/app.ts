@@ -1,19 +1,13 @@
-import { proxyToSandbox } from '@cloudflare/sandbox'
 import { createAgentRouter } from '@flue/runtime/routing'
 import { Hono } from 'hono'
 import { VylingOps } from './agents/vyling-ops'
 import { VylingTutor } from './agents/vyling-tutor'
 import { transcribe } from './asr/whisper'
+import { createMcpHandler } from 'agents/mcp/server'
 import { proxyToBackend } from './legacy-proxy'
-import { VylingMcp } from './mcp/server'
+import { buildMcpServer } from './mcp/server'
 
 const app = new Hono<{ Bindings: Env }>()
-
-app.use('*', async (c, next) => {
-	const proxied = await proxyToSandbox(c.req.raw, c.env)
-	if (proxied) return proxied
-	await next()
-})
 
 app.use('/cf/*', async (c, next) => {
 	await next()
@@ -28,8 +22,13 @@ app.options('/cf/*', (c) =>
 	}),
 )
 
-app.all('/mcp', (c) => VylingMcp.serve('/mcp').fetch(c.req.raw, c.env, c.executionCtx as ExecutionContext))
-app.all('/sse/*', (c) => VylingMcp.serveSSE('/sse').fetch(c.req.raw, c.env, c.executionCtx as ExecutionContext))
+app.all('/mcp', (c) =>
+	createMcpHandler(() => buildMcpServer(c.env), { route: '/mcp' })(
+		c.req.raw,
+		c.env,
+		c.executionCtx as ExecutionContext,
+	),
+)
 
 app.route('/agents/vyling-tutor', createAgentRouter(VylingTutor))
 

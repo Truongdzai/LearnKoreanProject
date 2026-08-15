@@ -1,10 +1,20 @@
 {
-	// Cấu hình tham chiếu cho instance Cloudflare AI Search "vyling-knowledge".
+	// Cấu hình cho instance Cloudflare AI Search "vyling-knowledge".
 	//
-	// AI Search (tên cũ: AutoRAG) hiện được tạo và chỉnh trong dashboard hoặc
-	// qua REST API — KHÔNG khai báo được trong wrangler.jsonc. File này là
-	// bản ghi "cấu hình đúng phải như thế nào", để dựng lại instance khi cần
-	// và để review khi đổi tham số. Xem cf/README.md §AI Search cho các bước.
+	// AI Search không khai được trong wrangler.jsonc, NHƯNG có đủ CLI
+	// (open beta): create / update / get / list / delete / stats / search.
+	// File này là nguồn sự thật của cấu hình; lệnh dựng lại tương ứng:
+	//
+	//   npx wrangler ai-search create vyling-knowledge \
+	//     --type r2 --source vyling-knowledge \
+	//     --embedding-model @cf/baai/bge-m3 \
+	//     --generation-model @cf/moonshotai/kimi-k2.6 \
+	//     --chunk-size 512 --chunk-overlap 64 \
+	//     --max-num-results 8 \
+	//     --reranking --reranking-model @cf/baai/bge-reranker-base
+	//
+	// Thử truy vấn ngay từ dòng lệnh, không cần viết code:
+	//   npx wrangler ai-search search vyling-knowledge "từ nào nghĩa là mệt mỏi"
 
 	"name": "vyling-knowledge",
 
@@ -60,6 +70,7 @@
 	"notes": {
 		"corpus_builder": "node cf/ai-search/build-corpus.mjs",
 		"excluded": "Toàn bộ bảng dữ liệu cá nhân (users, srs_cards, activity_log...) bị chặn cứng trong DENY của build-corpus.mjs.",
-		"resync": "Chạy lại build-corpus.mjs → đẩy R2 → Sync index. Chưa có tự động hoá; index KHÔNG tự cập nhật khi DB đổi."
+		"resync": "Chạy lại build-corpus.mjs → đẩy R2 → Sync index. Chưa có tự động hoá; index KHÔNG tự cập nhật khi DB đổi.",
+		"cli": "wrangler ai-search --help để xem đủ lệnh. `stats` xem mức dùng, `get` xem cấu hình đang chạy thật."
 	}
 }
