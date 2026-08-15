@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakAccent } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import {
   ALL_CHUNKS, DIM_BY_ID, KIND_LABEL, familiesOf, familySiblings, levelSpec,
   matchSay, packOfChunk, speedBand, SPEED_LABEL,
@@ -65,7 +65,7 @@ function Timer({ from, stopAt }: { from: number; stopAt: number }) {
 
 export default function Drill({ queue, forceDim, heading, onFinish }: Props) {
   const { recOf, hit, miss } = useMastery()
-  const sr = useSpeechRecognition('en-US')
+  const sr = useAsr('en-US')
   const [i, setI] = useState(0)
   const [phase, setPhase] = useState<Phase>('ask')
   const [picked, setPicked] = useState<string | null>(null)

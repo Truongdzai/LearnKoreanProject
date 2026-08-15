@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { stopSpeak } from '@/core/tts'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { analyzeClip, type ProsodyReport } from '@/core/utils/prosody'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -38,7 +38,7 @@ function trend(a: number, b: number, better: 'up' | 'down' | 'near'): string {
 export default function RecordStudio({ group, lang }: { group: PronGroup; lang: string }) {
   const clip = useVoiceClip()
   const { log, add, remove } = usePronLog(lang)
-  const sr = useSpeechRecognition(SR_LANG[lang] ?? 'en-US')
+  const sr = useAsr(SR_LANG[lang] ?? 'en-US')
 
   const targets = useMemo(() => {
     const words = pronWords(group).slice(0, 6).map((w) => w.w)

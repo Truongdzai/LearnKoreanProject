@@ -1,4 +1,3 @@
-
 export type UiLang = 'vi' | 'en'
 
 export const UI_LANGS: { code: UiLang; label: string }[] = [
@@ -956,20 +955,17 @@ const VI: Record<string, string> = {
   'rv.deckBack': 'Ôn tất cả các bộ',
   'rv.reveal': 'Hiện đáp án',
 
-
   'cz.label': 'Nghe câu rồi chọn từ còn thiếu',
   'cz.empty': 'Video này chưa đủ câu dài để tạo bài điền khuyết — thử video khác nhé.',
   'cz.right': 'Chính xác!',
   'cz.wrong': 'Chưa đúng — đáp án: {w}',
   'cz.done': 'Hoàn thành! Đúng {a}/{b} câu.',
 
-
   'gx.button': 'Giải thích ngữ pháp câu này',
   'gx.close': 'Ẩn giải thích',
   'gx.loading': 'AI đang phân tích câu…',
   'gx.levelBtn': 'Ước lượng độ khó',
   'gx.levelBusy': 'Đang ước lượng…',
-
 
   'mg.back': 'Quay lại',
   'mg.replay': 'Chơi lại',
@@ -1384,6 +1380,20 @@ const VI: Record<string, string> = {
   'pet.break1': 'Hết chặng rồi! Đứng dậy vươn vai, uống miếng nước nha 🥤',
   'pet.break2': 'Giỏi quá đại ca 💕 nghỉ chút cho mắt đỡ mỏi rồi học tiếp!',
   'pet.break3': 'Nghỉ giải lao thôiii~ Shiba duỗi chân cái đã 😌',
+  'agent.title': 'Trợ lý Agent',
+  'agent.open': 'Mở trợ lý Agent',
+  'agent.close': 'Đóng trợ lý',
+  'agent.placeholder': 'Hỏi gì đó về bài học của bạn…',
+  'agent.send': 'Gửi',
+  'agent.empty': 'Nhắn một câu để bắt đầu. Trợ lý đọc được tiến độ ôn tập của bạn.',
+  'agent.reasoning': 'Đang suy luận',
+  'agent.tool': 'Đang dùng công cụ',
+  'agent.retry': 'Thử lại',
+  'agent.status.idle': 'Sẵn sàng',
+  'agent.status.connecting': 'Đang kết nối',
+  'agent.status.submitted': 'Đã gửi',
+  'agent.status.streaming': 'Đang trả lời',
+  'agent.status.error': 'Lỗi kết nối',
 }
 
 const EN: Record<string, string> = {
@@ -2336,20 +2346,17 @@ const EN: Record<string, string> = {
   'rv.deckBack': 'Review every deck',
   'rv.reveal': 'Show answer',
 
-
   'cz.label': 'Listen, then pick the missing word',
   'cz.empty': "This video doesn't have enough long lines for gap-fill practice — try another one.",
   'cz.right': 'Correct!',
   'cz.wrong': 'Not quite — answer: {w}',
   'cz.done': 'Done! {a}/{b} correct.',
 
-
   'gx.button': 'Explain the grammar here',
   'gx.close': 'Hide explanation',
   'gx.loading': 'AI is analyzing the sentence…',
   'gx.levelBtn': 'Estimate difficulty',
   'gx.levelBusy': 'Estimating…',
-
 
   'mg.back': 'Back',
   'mg.replay': 'Play again',
@@ -2764,6 +2771,20 @@ const EN: Record<string, string> = {
   'pet.break1': 'Round done! Stand up, stretch, drink some water 🥤',
   'pet.break2': 'Great job, boss 💕 rest your eyes a bit, then back to it!',
   'pet.break3': 'Break time~ Shiba needs to stretch those paws 😌',
+  'agent.title': 'Agent assistant',
+  'agent.open': 'Open agent assistant',
+  'agent.close': 'Close assistant',
+  'agent.placeholder': 'Ask anything about your lessons…',
+  'agent.send': 'Send',
+  'agent.empty': 'Send a message to start. The assistant can read your review progress.',
+  'agent.reasoning': 'Reasoning',
+  'agent.tool': 'Using tool',
+  'agent.retry': 'Retry',
+  'agent.status.idle': 'Ready',
+  'agent.status.connecting': 'Connecting',
+  'agent.status.submitted': 'Sent',
+  'agent.status.streaming': 'Replying',
+  'agent.status.error': 'Connection error',
 }
 
 export const MESSAGES: Record<UiLang, Record<string, string>> = { vi: VI, en: EN }

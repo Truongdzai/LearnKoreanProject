@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "note": "Uoc luong neuron da tieu moi ngay UTC. 10.000 dau moi ngay mien phi, vuot la tinh tien. So nay tinh lai tay ngay 15/08 sau khi sua loi 4 luong ghi de len nhau.",
+ "overage_neurons": 144576.0,
+ "overage_usd": 1.5903,
+ "days": {
+  "2026-08-14": 10400,
+  "2026-08-15": 154176.0
+ }
+}

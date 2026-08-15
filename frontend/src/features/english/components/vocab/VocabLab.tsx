@@ -6,6 +6,7 @@ import { onVoicesChanged, speakAccent } from '@/core/tts'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, useLearnedWords } from '../../progress'
+import { staticImage } from '../../deep/wordData'
 import Flashcard from './Flashcard'
 import Guess from './Guess'
 import Choice from './Choice'
@@ -150,6 +151,19 @@ export default function VocabLab({
 
   const pickUnit = (id: string) => { setUnitId(id); setI(0) }
 
+  const covers = useMemo(() => {
+    const out: Record<string, string> = {}
+    for (const u of units) {
+      const mid = Math.floor(u.words.length / 2)
+      for (let step = 0; step < u.words.length; step++) {
+        const w = u.words[(mid + step) % u.words.length]
+        const src = staticImage(wTerm(w))
+        if (src) { out[u.id] = src; break }
+      }
+    }
+    return out
+  }, [units])
+
   const activeIdx = units.findIndex((u) => u.id === unit.id)
   const expanded = showAll || units.length <= UNITS_PREVIEW
   const visibleUnits = expanded
@@ -232,7 +246,9 @@ export default function VocabLab({
                   className={'vl-topic' + (u.id === unitId ? ' on' : '')}
                   onClick={() => pickUnit(u.id)}
                 >
-                  <span className={'vl-topic-emoji ' + u.tone}>{u.emoji}</span>
+                  {covers[u.id]
+                    ? <span className="vl-topic-emoji has-pic"><img src={covers[u.id]} alt="" loading="lazy" /></span>
+                    : <span className={'vl-topic-emoji ' + u.tone}>{u.emoji}</span>}
                   <span className="vl-topic-body">
                     <b>{u.name}</b>
                     <small>{done}/{u.words.length} thẻ</small>
@@ -282,6 +298,14 @@ export default function VocabLab({
             <span className="vl-count">Thẻ {i + 1} / {cards.length}</span>
             <button className="vl-mini" onClick={next}>Thẻ sau <Icon name="arrow-right" size={14} /></button>
           </div>
+
+          {onDeep && mode !== 'flash' && (
+            <button className="vl-deeprow" onClick={() => onDeep(card.term)}>
+              <Icon name="book" size={15} />
+              Học sâu “{card.term}” — xem hết mọi nghĩa, cụm đi kèm và từ dễ nhầm
+              <Icon name="arrow-right" size={15} />
+            </button>
+          )}
 
           <div className="vl-foot">
             Chủ đề {activeIdx + 1}/{units.length} · Tổng cộng {totalWords.toLocaleString('vi-VN')} thẻ trong kho

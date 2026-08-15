@@ -59,68 +59,21 @@ DEFAULT_KO_VIDEOS = [
 ]
 
 DEFAULT_EN_VIDEOS = [
-    ("_PIlvBI9rXY", "6 Minute English — How reading shapes your brain", "BBC Learning English", "B1", "6:13", "Đọc sách", "tone-a", "en"),
-    ("QdE63sYqwd8", "6 Minute English — Why are we all so stressed?", "BBC Learning English", "B1", "6:14", "Căng thẳng", "tone-b", "en"),
-    ("-idY8F7LOSE", "6 Minute English — Stress-free family meals", "BBC Learning English", "B1", "6:16", "Gia đình", "tone-c", "en"),
-    ("vOuhs1mA0xo", "6 Minute English — How advertisers make us spend money", "BBC Learning English", "B2", "6:14", "Quảng cáo", "tone-d", "en"),
-    ("26PrgjTboVQ", "6 Minute English — Are you following your dreams?", "BBC Learning English", "B1", "6:19", "Ước mơ", "tone-a", "en"),
-    ("Y681hXWwhQY", "6 Minute English — The benefits of doing nothing", "BBC Learning English", "B1", "6:19", "Thư giãn", "tone-b", "en"),
-    ("m7IlyBEyi3c", "6 Minute English — Limiting screen time for children", "BBC Learning English", "B1", "6:25", "Trẻ em", "tone-c", "en"),
-    ("h_pvijqmolQ", "6 Minute English — Why read books, not screens?", "BBC Learning English", "B1", "6:22", "Đọc sách", "tone-d", "en"),
-    ("G2xWg2ckKHI", "Easy English 8 — What are you doing today? (phỏng vấn đường phố)", "Easy English", "A2", "3:33", "Đường phố", "tone-e", "en"),
-    ("OlyYE6USuO0", "Easy English 29 — Talking about the future", "Easy English", "A2", "5:33", "Tương lai", "tone-f", "en"),
-    ("kf0yY5ZBz6A", "Easy English 26 — If you won the lottery", "Easy English", "A2", "5:07", "Giả định", "tone-a", "en"),
-    ("7_qg_KVByS0", "Mr Duncan — Lesson 1: Introduction (vỡ lòng)", "English Addict with Mr Duncan", "A1", "6:08", "Vỡ lòng", "tone-b", "en"),
-    ("FWI9GEwJNzc", "Mr Duncan — How do I learn English?", "English Addict with Mr Duncan", "A1", "3:25", "Cách học", "tone-c", "en"),
-    ("Uh_-j8BS-NM", "Mr Duncan — Lesson 2: Saying Hello", "English Addict with Mr Duncan", "A1", "3:37", "Chào hỏi", "tone-d", "en"),
-    ("erjMgola4fQ", "A1 Listening Practice — Language Learning (nghe chậm)", "Listening Time", "A1", "3:43", "Nghe chậm", "tone-e", "en"),
-    ("aQ0w2I0Eb9I", "A1 Listening Practice — Daily Routine", "Listening Time", "A1", "4:46", "Thói quen ngày", "tone-f", "en"),
-    ("s2EYIDY8wSM", "Podcast cho người mới bắt đầu — A1 Listening", "English Easy Practice", "A1", "8:54", "Podcast", "tone-b", "en"),
-    ("6xl8PD9gbF8", "Easy English 40 — Have you ever lived abroad?", "Easy Languages", "A2", "4:42", "Đường phố", "tone-e", "en"),
-    ("_5siHrpPnmw", "6 Minute English — The health benefits of apples", "BBC Learning English", "B1", "6:23", "Sức khoẻ", "tone-c", "en"),
-    ("9hus12iCyL8", "6 Minute English — Can we boost the immune system?", "BBC Learning English", "B1", "6:14", "Miễn dịch", "tone-d", "en"),
-    ("H5BVbrZ64bQ", "6 Minute English — Are we getting more allergic?", "BBC Learning English", "B1", "6:13", "Dị ứng", "tone-e", "en"),
-    ("Ty3J0XGNpHg", "6 Minute English — Kiếm & ăn thức ăn hoang dã", "BBC Learning English", "B1", "6:19", "Đồ ăn", "tone-a", "en"),
-    ("5kr5ADrMeYU", "6 Minute English — Làm quen văn hoá ẩm thực mới", "BBC Learning English", "B1", "6:22", "Ẩm thực", "tone-b", "en"),
-    ("j2PdEQpu5js", "6 Minute English — Vì sao cần ngủ đủ giấc", "BBC Learning English", "B1", "6:19", "Giấc ngủ", "tone-c", "en"),
-    ("NwPkZgd6L-o", "6 Minute English — Người sống ẩn dật (Hermits)", "BBC Learning English", "B1", "6:15", "Lối sống", "tone-d", "en"),
-    ("tyvMjvvrq74", "6 Minute English — AI làm được và không làm được gì?", "BBC Learning English", "B2", "6:13", "Trí tuệ nhân tạo", "tone-e", "en"),
-    ("KB4Mn5XHdMc", "6 Minute English — Tổng đài: bạn đang nói với AI?", "BBC Learning English", "B2", "6:14", "Công nghệ", "tone-f", "en"),
-    ("0R9NLQM4ZKA", "6 Minute English — Huấn luyện trí tuệ nhân tạo", "BBC Learning English", "B2", "6:34", "Trí tuệ nhân tạo", "tone-a", "en"),
-    ("tHZRXN_pVi8", "6 Minute English — AI có thể có suy nghĩ riêng?", "BBC Learning English", "B2", "6:20", "Trí tuệ nhân tạo", "tone-b", "en"),
-    ("idrbwnWLJ7w", "TED-Ed — Thức trắng đêm ảnh hưởng não bộ thế nào", "TED-Ed", "B2", "5:37", "Não bộ", "tone-b", "en"),
-    ("QEzlsjAqADA", "TED-Ed — Vì sao ong mật yêu hình lục giác?", "TED-Ed", "B1", "3:58", "Khoa học", "tone-c", "en"),
-    ("2W85Dwxx218", "TED-Ed — Vì sao chúng ta lại nằm mơ?", "TED-Ed", "B1", "5:38", "Giấc mơ", "tone-d", "en"),
-
-    ("o1VxetMgFOQ", "News Review — Nghiên cứu ADN cho cà phê ngon hơn", "BBC Learning English", "B2", "6:02", "Tin tức", "tone-e", "en"),
-
-    ("KwDJnXt3ZVQ", "Tim's Pronunciation Workshop — âm schwa /ə/", "BBC Learning English", "B1", "3:32", "Phát âm", "tone-c", "en"),
-    ("mV_CEIroJs8", "Tim's Pronunciation Workshop — nối phụ âm với nguyên âm", "BBC Learning English", "B1", "3:06", "Nối âm", "tone-d", "en"),
-    ("psI7E_J1zPo", "Tim's Pronunciation Workshop — dạng yếu của 'was' và 'were'", "BBC Learning English", "B1", "3:48", "Trọng âm", "tone-e", "en"),
-    ("i_ohrkQmzdQ", "Tim's Pronunciation Workshop — đồng hoá âm /t/ và /p/", "BBC Learning English", "B2", "3:18", "Phát âm", "tone-f", "en"),
-    ("DzCvN1dJP1Y", "Pronunciation — đồng hoá âm /t/ và /j/", "BBC Learning English", "B2", "3:58", "Phát âm", "tone-a", "en"),
-    ("KJFC6ZgoPKo", "Mẹo phát âm hay hơn — tổng kết cả series", "BBC Learning English", "B1", "4:15", "Phát âm", "tone-b", "en"),
-
-    ("q7jOwW5pe20", "English In A Minute — 4 cách dùng 'like'", "BBC Learning English", "A2", "0:43", "Ngữ pháp", "tone-c", "en"),
-    ("W3d9SfPdS48", "English In A Minute — 5 cách dùng 'set'", "BBC Learning English", "B1", "1:02", "Ngữ pháp", "tone-d", "en"),
-    ("MqjKOZSdG90", "BOX SET English In A Minute 1 — 10 bài ngữ pháp ngắn", "BBC Learning English", "A2", "9:47", "Ngữ pháp", "tone-e", "en"),
-    ("d6J0OMjcQfc", "BOX SET English In A Minute 5 — 10 bài ngữ pháp ngắn", "BBC Learning English", "A2", "8:59", "Ngữ pháp", "tone-f", "en"),
-    ("Dxq-SqReU0M", "BOX SET English In A Minute 13 — 10 bài ngữ pháp ngắn", "BBC Learning English", "B1", "9:45", "Ngữ pháp", "tone-a", "en"),
-    ("LppAASWtUZU", "BOX SET English In A Minute 16 — 10 bài ngữ pháp ngắn", "BBC Learning English", "B1", "9:51", "Ngữ pháp", "tone-b", "en"),
-
-    ("gUhe6Rku500", "Planet Pop — bài hát về lớp học", "Planet Pop", "A1", "2:07", "Bài hát", "tone-e", "en"),
-    ("uVXQfSzI9N0", "Planet Pop — bài hát về thể thao", "Planet Pop", "A1", "2:20", "Bài hát", "tone-f", "en"),
-    ("ggkuCDrbHfI", "Planet Pop — bài hát về đồ dùng học tập", "Planet Pop", "A1", "2:30", "Bài hát", "tone-a", "en"),
-    ("VPvLduIe_lI", "Planet Pop — bài hát hỏi về quốc tịch", "Planet Pop", "A1", "1:58", "Bài hát", "tone-b", "en"),
-    ("168xwPpHF-s", "Planet Pop — bài hát về các phòng trong nhà", "Planet Pop", "A1", "2:12", "Bài hát", "tone-c", "en"),
-    ("vjJuXqvFBD0", "Planet Pop — bài hát hỏi về sở thích", "Planet Pop", "A1", "2:56", "Bài hát", "tone-d", "en"),
-    ("26gvR2GYMJ4", "Planet Pop — bài hát về các tháng trong năm", "Planet Pop", "A1", "2:42", "Bài hát", "tone-e", "en"),
-    ("Xi8I9bi2Wp8", "Cách học tiếng Anh qua bài hát", "English Fluency Journey", "B1", "5:46", "Học qua nhạc", "tone-f", "en"),
-
-    ("xN--gGkS8aU", "Tiểu phẩm hài — hiểu lầm vì ngôn ngữ", "Nick Michelioudakis", "B1", "1:37", "Hài", "tone-a", "en"),
-    ("sAhcL-5guHA", "Tiểu phẩm hài — Bác sĩ có nhà không?", "Learn English With Dave", "A2", "2:51", "Hài", "tone-b", "en"),
-    ("SgQ4HXP0eS8", "Tiểu phẩm hài — thành ngữ 'Made My Day'", "Learn English Idioms", "B1", "2:25", "Hài & thành ngữ", "tone-c", "en"),
-    ("8Kb9tRoB6EI", "Thử tiếng Anh-Anh qua một tiểu phẩm hài", "Simple English Videos", "B2", "4:55", "Hài", "tone-d", "en"),
+    ("aN78Tz_e5c4", "We Bare Bears — Một ngày ở biển", "Cartoon Network Asia", "B1", "3:24", "Đi biển", "tone-a", "en"),
+    ("sN_vqwoC53Q", "We Bare Bears — Ba anh em thân nhất quả đất", "Cartoon Network Asia", "B1", "4:45", "Tình anh em", "tone-b", "en"),
+    ("EzZ5Abh8xTM", "We Bare Bears — Màn kết bên chiếc pizza", "Cartoon Network Asia", "B1", "5:34", "Đồ ăn", "tone-c", "en"),
+    ("xfc1j4rpw0c", "We Bare Bears — Ba anh em quậy tung", "Cartoon Network Asia", "B1", "8:43", "Hài hước", "tone-d", "en"),
+    ("Oaha-hNJT4E", "We Bare Bears — Đối đầu kẻ phá đám trên mạng", "Cartoon Network Asia", "B2", "13:44", "Internet", "tone-e", "en"),
+    ("RfciUa586VI", "We Bare Bears — Những khoảnh khắc của Ice Bear", "Cartoon Network Asia", "B1", "14:35", "Nhân vật", "tone-f", "en"),
+    ("ZTFnT7IzdBQ", "We Bare Bears — Ăn không ngừng nghỉ", "Cartoon Network Asia", "B1", "16:02", "Đồ ăn", "tone-a", "en"),
+    ("4474zOLzD8k", "We Bare Bears — Mùa hè vui ở trại", "Cartoon Network Asia", "B1", "16:57", "Cắm trại", "tone-b", "en"),
+    ("Khtdwww58h4", "We Bare Bears — Những lần Panda phải lòng", "Cartoon Network", "B1", "17:10", "Tình cảm", "tone-c", "en"),
+    ("u50iAtNCMQc", "We Bare Bears — Ba anh em đi hẹn hò", "Cartoon Network Asia", "B2", "17:25", "Hẹn hò", "tone-d", "en"),
+    ("iqoEGCxJy3g", "We Bare Bears — Ba anh em lên truyền hình", "Cartoon Network Asia", "B2", "19:16", "Truyền hình", "tone-e", "en"),
+    ("WQO5wXCGNW8", "We Bare Bears — Vì sao Ice Bear ngầu nhất", "Cartoon Network Asia", "B1", "23:07", "Nhân vật", "tone-f", "en"),
+    ("C5kR-exHmr4", "We Bare Bears — Nguồn gốc ba anh em (Phần 2)", "Cartoon Network", "B2", "23:55", "Nguồn gốc", "tone-a", "en"),
+    ("EUZnjEEh2DU", "We Bare Bears — Gấu ở những nơi bất ngờ (Phần 1)", "Cartoon Network Asia", "B2", "24:48", "Phiêu lưu", "tone-b", "en"),
+    ("8-gyMEyeC54", "We Bare Bears — Khoảnh khắc mát lạnh ngày hè", "Cartoon Network Asia", "B1", "24:58", "Mùa hè", "tone-c", "en"),
 ]
 
 DEFAULT_JA_VIDEOS = [
@@ -179,7 +132,7 @@ DEFAULT_LANG_VIDEOS = {
     "zh": DEFAULT_ZH_VIDEOS,
 }
 
-MAX_DUR_SECONDS = 600
+MAX_DUR_SECONDS = 1800
 
 
 def dur_seconds(dur: str) -> int:

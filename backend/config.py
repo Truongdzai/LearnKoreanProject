@@ -11,6 +11,8 @@ DEFAULTS: dict = {
     "app": {"name": "Hàn Quân", "native_language": "vie", "target_language": "kor", "public_url": ""},
     "llm": {"provider": "none", "api_key": "", "model": "", "models": [], "image_models": []},
     "wordimage": {"source": "ai"},
+    "together": {"api_key": "", "model": ""},
+    "cloudflare": {"account_id": "", "api_token": ""},
     "whisper": {"model": "small"},
     "network": {"proxy": ""},
     "security": {"expose_docs": True, "cors_origins": ["*"]},

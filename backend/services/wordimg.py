@@ -186,8 +186,9 @@ AI_STYLE = (
     "Flat vector clipart illustration in a friendly educational flashcard style. "
     "One single centered subject, bold simple shapes, bright cheerful colours, "
     "soft rounded edges, solid plain white background. "
-    "Absolutely no text, no letters, no numbers, no watermark, no signature, no border. "
-    "Fully clothed, modest, suitable for children."
+    "The picture contains no writing of any kind: no text, no letters, no numbers, "
+    "no captions, no labels, no watermark, no signature, no border. "
+    "Non-explicit: no nudity, no sexual content, no graphic gore."
 )
 
 AI_BY_POS = {
@@ -196,6 +197,8 @@ AI_BY_POS = {
     "adj": "Show a simple scene where this quality is the most obvious thing in the picture.",
     "adverb": "Show a simple scene where this manner is the most obvious thing in the picture.",
     "prep": "Show two simple objects arranged so the spatial relation is unmistakable.",
+    "phrase": "Show one simple everyday scene where people would naturally say this, so the situation is obvious.",
+    "question": "Show one simple everyday scene where people would naturally ask this, so the situation is obvious.",
 }
 
 
@@ -207,6 +210,10 @@ def ai_prompt(word: str, meaning: str = "", pos: str = "noun", hint: str = "") -
         f"Do not draw anything that merely sounds like the word or shares its spelling — "
         f"draw the meaning itself. {AI_STYLE}"
     )
+
+
+def scene_prompt(scene: str) -> str:
+    return f"{scene.strip().rstrip('.')}. {AI_STYLE}"
 
 
 def _store_bytes(raw: bytes, tag: str) -> str:

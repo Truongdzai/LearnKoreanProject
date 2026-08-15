@@ -1,18 +1,21 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { speakAccent } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { UNITS } from '@/data/englishCore'
 import { wTerm } from '@/data/vocabCore'
 import { normalizeAnswer, type ActiveChunk } from '@/data/englishActive'
 import ProduceCard from '../active/ProduceCard'
 import { useDeep } from './deep'
 import type { DeepExample, DeepWord } from './wordData'
+import type { ProfileItem, WordProfile } from '@/models/wordprofile.model'
 
-type Kind = 'quiz' | 'listen' | 'speak' | 'write'
+type Kind = 'sense' | 'quiz' | 'colloc' | 'listen' | 'speak' | 'write'
 
 const KINDS: { id: Kind; name: string; sub: string; icon: IconName }[] = [
+  { id: 'sense', name: 'Nghĩa nào ở đây?', sub: 'Đọc câu, chọn đúng nghĩa đang dùng', icon: 'book' },
   { id: 'quiz', name: 'Trắc nghiệm', sub: 'Chọn đáp án đúng', icon: 'target' },
+  { id: 'colloc', name: 'Ghép cụm', sub: 'Chọn từ đi cùng cho đúng', icon: 'letters' },
   { id: 'listen', name: 'Nghe & điền', sub: 'Nghe và điền từ còn thiếu', icon: 'headphones' },
   { id: 'speak', name: 'Nói câu với từ', sub: 'Luyện nói với từ này', icon: 'mic' },
   { id: 'write', name: 'Viết câu', sub: 'Viết câu có dùng từ này', icon: 'note' },
@@ -35,13 +38,36 @@ function blankOut(sentence: string, term: string): { masked: string; hit: boolea
 
 interface Props {
   dw: DeepWord
+  profile: WordProfile | null
   examples: DeepExample[]
   start?: string
   onDone: () => void
 }
 
-export default function Practice({ dw, examples, start, onDone }: Props) {
+export default function Practice({ dw, profile, examples, start, onDone }: Props) {
   const { addAnswer, addHeard } = useDeep()
+  const senseItems = useMemo(
+    () => (profile?.senses ?? []).filter((s) => s.ex && s.vi),
+    [profile],
+  )
+  const comboItems = useMemo<ProfileItem[]>(() => {
+    const all = [
+      ...(profile?.combos ?? []).flatMap((g) => g.items),
+      ...(profile?.phrasals ?? []),
+      ...(profile?.idioms ?? []),
+    ].filter((it) => it.form && it.vi)
+    return all.filter((it, i, xs) => xs.findIndex((x) => x.form.toLowerCase() === it.form.toLowerCase()) === i)
+  }, [profile])
+
+  const kinds = useMemo(
+    () => KINDS.filter((k) => {
+      if (k.id === 'sense') return senseItems.length >= 3
+      if (k.id === 'colloc') return comboItems.length >= 4
+      return true
+    }),
+    [senseItems.length, comboItems.length],
+  )
+
   const [kind, setKind] = useState<Kind>(
     KINDS.some((k) => k.id === start) ? (start as Kind) : 'quiz',
   )
@@ -49,7 +75,7 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
   const [typed, setTyped] = useState('')
   const [checked, setChecked] = useState<boolean | null>(null)
   const [round, setRound] = useState(0)
-  const sr = useSpeechRecognition('en-US')
+  const sr = useAsr('en-US')
   const seen = useRef('')
 
   const term = dw.term
@@ -57,6 +83,10 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
   useEffect(() => {
     if (start && KINDS.some((k) => k.id === start)) setKind(start as Kind)
   }, [start])
+
+  useEffect(() => {
+    if (!kinds.some((k) => k.id === kind)) setKind('quiz')
+  }, [kinds, kind])
 
   useEffect(() => {
     setPicked(null)
@@ -72,6 +102,33 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
     const picks = [...shuffle(pool).slice(0, 3), ...shuffle(extra)].slice(0, 3)
     return shuffle([{ vi: dw.w.vi, ok: true }, ...picks.map((w) => ({ vi: w.vi, ok: false }))])
   }, [dw, term, round])
+
+  const senseQ = useMemo(() => {
+    if (senseItems.length < 3) return null
+    const right = senseItems[round % senseItems.length]
+    const wrong = shuffle(senseItems.filter((s) => s.vi !== right.vi)).slice(0, 3)
+    const sentence = round % 2 === 1 && right.ex2 ? right.ex2 : right.ex
+    const sentenceVi = round % 2 === 1 && right.ex2 ? right.ex2Vi : right.exVi
+    return {
+      sentence,
+      sentenceVi,
+      options: shuffle([{ vi: right.vi, ok: true }, ...wrong.map((s) => ({ vi: s.vi, ok: false }))]),
+      right: right.vi,
+      en: right.en,
+    }
+  }, [senseItems, round])
+
+  const collocQ = useMemo(() => {
+    if (comboItems.length < 4) return null
+    const right = comboItems[round % comboItems.length]
+    const wrong = shuffle(comboItems.filter((c) => c.form !== right.form)).slice(0, 3)
+    return {
+      vi: right.vi,
+      ex: right.ex,
+      options: shuffle([{ form: right.form, ok: true }, ...wrong.map((c) => ({ form: c.form, ok: false }))]),
+      right: right.form,
+    }
+  }, [comboItems, round])
 
   const listenItem = useMemo(() => {
     const pool = examples.map((e) => blankOut(e.en, term)).filter((x) => x.hit)
@@ -111,7 +168,7 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
   return (
     <div className="dp-practice">
       <div className="dp-ptabs">
-        {KINDS.map((k) => (
+        {kinds.map((k) => (
           <button key={k.id} className={'dp-ptab' + (kind === k.id ? ' on' : '')} onClick={() => setKind(k.id)}>
             <span className="dp-pic"><Icon name={k.icon} size={16} /></span>
             <div>
@@ -121,6 +178,71 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
           </button>
         ))}
       </div>
+
+      {kind === 'sense' && senseQ && (
+        <div className="dp-pbox">
+          <p className="dp-pq">Trong câu này, “{term}” mang nghĩa nào?</p>
+          <div className="dp-qsentence">
+            <button className="ac-play tiny" onClick={() => { speakAccent(senseQ.sentence, 'us'); addHeard(term) }}>
+              <Icon name="volume" size={13} />
+            </button>
+            <b>{senseQ.sentence}</b>
+          </div>
+          <div className="ac-options">
+            {senseQ.options.map((o, i) => (
+              <button
+                key={i}
+                className={'ac-option'
+                  + (checked !== null && o.ok ? ' right' : '')
+                  + (checked !== null && picked === o.vi && !o.ok ? ' wrong' : '')}
+                disabled={checked !== null}
+                onClick={() => { setPicked(o.vi); answer(o.ok) }}
+              >
+                {o.vi}
+              </button>
+            ))}
+          </div>
+          {checked !== null && (
+            <div className="dp-pafter">
+              <span>
+                {checked ? 'Đúng nghĩa.' : `Ở câu này “${term}” nghĩa là: ${senseQ.right}.`}
+                {senseQ.sentenceVi ? ` (${senseQ.sentenceVi})` : ''}
+              </span>
+              <button className="ac-next" onClick={next}>Câu tiếp <Icon name="arrow-right" size={15} /></button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {kind === 'colloc' && collocQ && (
+        <div className="dp-pbox">
+          <p className="dp-pq">Cụm nào mang nghĩa “{collocQ.vi}”?</p>
+          <p className="dp-phint">Biết nghĩa của từ chưa đủ — phải nhớ nó đi cùng từ nào thì câu mới tự nhiên.</p>
+          <div className="ac-options">
+            {collocQ.options.map((o, i) => (
+              <button
+                key={i}
+                className={'ac-option'
+                  + (checked !== null && o.ok ? ' right' : '')
+                  + (checked !== null && picked === o.form && !o.ok ? ' wrong' : '')}
+                disabled={checked !== null}
+                onClick={() => { setPicked(o.form); answer(o.ok) }}
+              >
+                {o.form}
+              </button>
+            ))}
+          </div>
+          {checked !== null && (
+            <div className="dp-pafter">
+              <span>
+                {checked ? 'Chuẩn.' : `Đáp án đúng: ${collocQ.right}.`}
+                {collocQ.ex ? ` Ví dụ: ${collocQ.ex}` : ''}
+              </span>
+              <button className="ac-next" onClick={next}>Câu tiếp <Icon name="arrow-right" size={15} /></button>
+            </div>
+          )}
+        </div>
+      )}
 
       {kind === 'quiz' && (
         <div className="dp-pbox">
@@ -241,7 +363,7 @@ export default function Practice({ dw, examples, start, onDone }: Props) {
       )}
 
       <div className="dp-pfoot">
-        <span>Làm đủ bốn dạng là bạn đã soi từ này từ bốn phía khác nhau.</span>
+        <span>Làm đủ {kinds.length} dạng là bạn đã soi từ này từ đủ mọi phía — hiểu nghĩa, nhớ cụm, nghe ra, nói và viết được.</span>
         <button className="ac-next" onClick={onDone}>Đánh dấu đã luyện xong <Icon name="check" size={15} /></button>
       </div>
     </div>

@@ -13,8 +13,6 @@ import { useServerPlan } from '@/core/hooks/useServerPlan'
 export { speakEN } from '@/core/tts'
 export { useLearnedWords, readLearned, writeLearned } from './learned'
 
-
-
 const planKey = (lang: string) => `vyling.${lang}.plan`
 const planId = (lang: string) => `${lang}90`
 
@@ -45,7 +43,6 @@ function writePlan(p: PlanState, lang: string): void {
   } catch {
   }
 }
-
 
 const planPushTimers: Record<string, number | undefined> = {}
 
@@ -241,7 +238,6 @@ export function grammarTaskDone(t: WeekTask, best: Record<string, number>): bool
   return GRAMMAR_LESSONS.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
 }
 
-
 export interface DayPlan {
   day: number
   theme: string
@@ -255,7 +251,7 @@ export interface WeekSchedule {
 }
 
 const LEARN_KINDS: WeekTask['kind'][] = ['vocab', 'grammar', 'pron', 'video', 'speak', 'custom']
-const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic']
+const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic', 'deep']
 
 const DAY_THEME: Partial<Record<WeekTask['kind'], string>> = {
   vocab: 'Học từ vựng',
@@ -400,6 +396,7 @@ export interface TaskExtra {
   toeic: ToeicBridge
   units?: VocabUnit[]
   pronGroups?: PronGroup[]
+  deepFull?: number
 }
 
 export function taskDone(
@@ -415,6 +412,7 @@ export function taskDone(
     const b = ext?.toeic ?? readToeicLocal()
     return t.n ? b.days >= t.n : b.started
   }
+  if (t.kind === 'deep') return (ext?.deepFull ?? 0) >= (t.n ?? 1)
   if (t.kind === 'video' && act && t.n && act.videos >= t.n) return true
   if (t.kind === 'review' && act && t.n && act.reviewDays >= t.n) return true
   return plan.manual.includes(t.id)
@@ -451,5 +449,3 @@ export function useWordBank(learned: Set<string>, lang = 'en'): number {
     return bank.size
   }, [learned, srsFronts])
 }
-
-

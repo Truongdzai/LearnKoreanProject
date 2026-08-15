@@ -1,0 +1,363 @@
+# VyLing trên Cloudflare
+
+Lớp tích hợp Cloudflare cho VyLing. **Toàn bộ thư mục này là code MỚI, thêm vào.**
+Không có dòng nào trong `backend/` bị sửa, và `frontend/` chỉ thêm file mới cộng
+4 chỗ móc nối được liệt kê ở cuối.
+
+---
+
+## 1. Kiến trúc: vì sao KHÔNG port backend sang Workers
+
+Điều đầu tiên cần nói rõ, vì nó quyết định mọi thứ còn lại.
+
+`backend/` là **Python + FastAPI + SQLite + ffmpeg + yt-dlp + từ điển KRDICT offline**
+(10.600 dòng, 82 file, DB 24 MB, media 420 MB). Workers chạy isolate JS/WASM —
+không có Python runtime đầy đủ, không có filesystem ghi được, không có ffmpeg.
+Port sang Workers nghĩa là **viết lại toàn bộ backend**, tức là đúng thứ bạn dặn
+tuyệt đối không làm.
+
+Nên cách làm ở đây là ngược lại: backend chạy **y nguyên** trong Cloudflare Sandbox
+(container Linux, GA từ 04/2026), Worker chỉ đứng trước.
+
+```
+Người dùng
+    │
+    ▼
+┌─────────────────────── Cloudflare Worker (edge) ────────────────────────┐
+│  src/app.ts                                                             │
+│    /mcp, /sse      → MCP server  (Claude & client MCP ngoài cắm vào)     │
+│    /agents/*       → Agent Flue  (Durable Object riêng, state bền)       │
+│    /cf/ping        → liveness edge, không đánh thức container            │
+│    * (còn lại)     → chuyển thẳng xuống dưới, KHÔNG đụng vào             │
+└──────────────────────────────┬──────────────────────────────────────────┘
+                               │ reverse proxy
+                               ▼
+              ┌──── Cloudflare Sandbox (container Linux) ────┐
+              │  uvicorn backend.main:app --port 8000        │
+              │  ↑ NGUYÊN VẸN app hiện tại                   │
+              │  /api/*, /media/*, SPA, sitemap.xml…         │
+              └──────────────────────────────────────────────┘
+```
+
+Mọi URL cũ vẫn do chính `backend/` trả lời. Nếu gỡ Worker đi, app chạy y như trước.
+
+---
+
+## 2. File trong thư mục này
+
+| File | Việc |
+|---|---|
+| `wrangler.jsonc` | Cấu hình Worker: Sandbox container, Durable Object, migration, AI, R2, Worker Loader |
+| `Dockerfile` | Image chạy backend FastAPI (base `cloudflare/sandbox:0.7.0-python` + ffmpeg) |
+| `Dockerfile.dockerignore` | Chặn media/, data/, config.toml… khỏi image — **tên file quan trọng, xem §12** |
+| `vite.config.ts` | `flue()` → `codemode()` → `cloudflare()` (thứ tự bắt buộc) |
+| `src/app.ts` | Bản đồ route |
+| `src/legacy-proxy.ts` | Khởi động uvicorn trong sandbox + reverse proxy |
+| `src/cloudflare.ts` | Export Durable Object class ra Worker entry |
+| `src/mcp/tools.ts` | 8 tool MCP, mỗi tool ánh xạ 1-1 với endpoint đang chạy |
+| `src/mcp/server.ts` | MCP server (Durable Object) |
+| `src/codemode/vyling.codemode.ts` | Connector Code Mode dùng chung schema với MCP |
+| `src/codemode/runtime.ts` | Runtime Code Mode (log bền, phê duyệt, rollback) |
+| `src/agents/vyling-tutor.ts` | Agent Flue, cắm vào MCP của chính nó |
+| `ai-search/build-corpus.mjs` | Xuất corpus từ SQLite → NDJSON |
+| `ai-search/ai-search.jsonc` | Cấu hình tham chiếu cho instance AI Search |
+| `flue.config.ts` | Giới hạn nhà cung cấp model — xem §11 |
+| `src/asr/whisper.ts` | Nhận diện giọng nói bằng Workers AI Whisper |
+| `src/agents/vyling-ops.ts` | Agent trực ca (chỉ đọc) |
+| `src/ops/scheduled.ts` | Handler Cron Trigger — agent vận hành dự án |
+
+---
+
+## 3. Chạy thử và deploy
+
+```bash
+npm install --prefix cf
+```
+
+```bash
+npm run dev --prefix cf
+```
+
+```bash
+npm run deploy --prefix cf
+```
+
+Secrets (KHÔNG để trong `wrangler.jsonc`):
+
+```bash
+npx wrangler secret put LLM_API_KEY --cwd cf
+```
+
+Dữ liệu nặng nạp lên R2 một lần:
+
+```bash
+npx wrangler r2 bucket create vyling-media
+```
+
+---
+
+## 4. MCP: cắm Claude vào hệ thống
+
+Sau khi deploy, thêm vào cấu hình MCP client (Claude Desktop / `claude mcp`):
+
+```bash
+claude mcp add --transport http vyling https://vyling.workers.dev/mcp
+```
+
+8 tool: `tra_tu`, `tra_tu_chi_tiet`, `them_the_srs`, `the_den_han`,
+`thong_ke_srs`, `kho_video`, `phu_de_video`, `suc_khoe_he_thong`.
+
+Thêm tool mới = thêm một mục vào `src/mcp/tools.ts`. Cùng lúc nó xuất hiện trong
+Code Mode, vì connector dùng chung mảng đó.
+
+---
+
+## 5. Code Mode
+
+Code Mode đảo ngược cách agent dùng tool: thay vì gọi từng tool qua protocol,
+model **viết TypeScript** rồi chạy trong isolate không có mạng. Một vòng lặp
+6 bước là một lần chạy sandbox, thay vì 6 vòng qua model.
+
+> ### ⚠️ Cần quyền beta
+> Code Mode chạy trên **Worker Loader API — đang ở beta kín**. Tài khoản chưa
+> được cấp quyền thì `worker_loaders` trong `wrangler.jsonc` sẽ deploy lỗi.
+>
+> **Cách xử lý:** comment dòng `"worker_loaders": [{ "binding": "LOADER" }]`.
+> Proxy app, MCP server và agent Flue **vẫn chạy bình thường**; chỉ Code Mode
+> báo lỗi rõ ràng khi được gọi (`src/codemode/runtime.ts` kiểm tra sẵn).
+> Đăng ký quyền: https://developers.cloudflare.com/workers/runtime-apis/bindings/worker-loader/
+
+`them_the_srs` và `phu_de_video` đặt `requiresApproval: true` — agent phải chờ
+người duyệt trước khi ghi vào thẻ của người học hoặc tiêu quota dịch.
+
+---
+
+## 6. Flue SDK trên giao diện
+
+`@flue/react` + `@flue/sdk` đã cài vào `frontend/`. Hook `useFlueAgent` giữ SSE
+tới Durable Object của agent, đồng bộ transcript vào state React — thấy được cả
+tiến trình (đang suy luận, đang gọi tool nào), không chỉ câu trả lời cuối.
+
+**Mặc định TẮT.** Bật bằng cách đặt trong `frontend/.env`:
+
+```bash
+VITE_AGENT_BASE=https://vyling.workers.dev
+```
+
+Đo thực tế trên build hiện tại:
+
+| | `react-vendor` | chunk `AgentPanel` |
+|---|---|---|
+| Chưa đặt biến (mặc định) | 141.671 B | 110 B — Vite loại sạch |
+| Đã đặt biến | 197.813 B | 2.652 B |
+
+Nghĩa là **khi chưa bật, người dùng tải đúng số byte như trước**, không thêm gì.
+
+### Vì sao tách workspace `cf/` riêng
+
+`@flue/vite` yêu cầu **Vite ^8**, còn `frontend/` đang ở **Vite 5.4**. Nhét Flue
+vào build frontend sẽ ép nâng Vite 5 → 8, một bước nhảy 3 major có khả năng làm
+hỏng build đang chạy tốt. Nên phần server của Flue sống trong `cf/` với Vite 8 của
+riêng nó, còn frontend chỉ lấy `@flue/react` + `@flue/sdk` (peer `react >=18`,
+khớp React 18.3.1 sẵn có). Đây cũng đúng cách example `react-chat` của Flue làm.
+
+---
+
+## 7. AI Search
+
+```bash
+node cf/ai-search/build-corpus.mjs
+```
+
+Đã chạy thử: **91.622 tài liệu** (91.481 mục từ điển, 103 video, 31 bài học, 7 nhiệm vụ).
+
+**Về riêng tư:** `build-corpus.mjs` có danh sách `DENY` chặn cứng mọi bảng chứa
+dữ liệu cá nhân — `users`, `srs_cards`, `srs_reviews`, `activity_log`,
+`admin_audit`, `feedback`… Đưa thẻ SRS của người học vào AI Search nghĩa là nội
+dung riêng của họ bị nhúng (embed) lên hạ tầng Cloudflare và trở thành thứ agent
+truy vấn được. Thêm bảng mới vào corpus thì phải tự hỏi câu đó trước.
+
+Các bước còn lại (tạo instance, chọn model embedding, Sync index) làm ở dashboard —
+AI Search chưa khai báo được trong `wrangler.jsonc`. `ai-search.jsonc` là bản ghi
+cấu hình đúng để dựng lại. Index **không** tự cập nhật khi DB đổi: chạy lại
+corpus → đẩy R2 → Sync.
+
+---
+
+## 7b. Workers AI Whisper — chấm phát âm chính xác hơn
+
+Web đang nhận diện giọng nói bằng Web Speech API của trình duyệt. Chính chuỗi
+i18n `sh.srNote` đã thừa nhận điểm yếu:
+
+> "chạy trong trình duyệt nên có thể nghe sai dù bạn đọc đúng… Hãy dùng Chrome/Edge"
+
+Và phải có nút **"Máy nghe sai — không tính"** để gỡ oan cho người học. Đó là
+một khiếm khuyết có thật, không phải chỗ để tô vẽ.
+
+`@cf/openai/whisper-large-v3-turbo` chạy phía máy chủ nên:
+- chính xác hơn hẳn, nhất là người Việt nói tiếng Hàn/Anh;
+- chạy được trên **Safari và Firefox** — hai trình duyệt hiện KHÔNG dùng được
+  tính năng luyện phát âm;
+- đủ cả 6 ngôn ngữ web đang dạy.
+
+**Cách nối vào mà không đổi logic cũ:** `useWhisperRecognition` trả về **đúng
+hình dạng** của `useSpeechRecognition` (`supported / listening / transcript /
+alternatives / confidence / interim / error / start / stop / reset`), rồi
+`useAsr` chọn giữa hai bản. 11 component chỉ đổi đúng 2 dòng: tên import và tên
+hook. Chưa đặt `VITE_AGENT_BASE` thì `useAsr` trả thẳng hook cũ — hành vi không
+lệch một chút nào.
+
+**Chi phí khi tắt:** hook Whisper vẫn nằm trong bundle (~4,3 KB nguồn, gộp vào
+một chunk 5,9 KB), vì quy tắc hook của React bắt phải gọi cả hai vô điều kiện,
+nên không tree-shake được. Nó nằm im hoàn toàn. `@flue/react` thì vẫn bị loại
+sạch như cũ — `react-vendor` giữ nguyên 141.671 B.
+
+Whisper nhận `audio` dạng **base64**, trần 8 MB mỗi clip (luyện phát âm chỉ vài
+giây ≈ 100 KB). Endpoint `/cf/asr` chạy ở edge, **không đánh thức container**,
+nên chấm phát âm không phải chờ uvicorn khởi động.
+
+---
+
+## 7c. Agent vận hành dự án (Cron Triggers)
+
+`VylingOps` là "trực ca": nhận tín hiệu theo lịch, tự kiểm tra, rồi kết luận.
+
+| Lịch (UTC) | Việc |
+|---|---|
+| `*/30 * * * *` | Kiểm tra sức khoẻ. **Im lặng khi bình thường.** |
+| `0 3 * * *` (10h sáng VN) | Báo cáo vận hành ngày |
+
+**Đừng gọi model khi không cần.** Cách làm ngây thơ là mỗi nhịp cron lại đánh
+thức agent — tốn tiền model 48 lần/ngày để 47 lần nhận về câu "mọi thứ ổn". Nên
+nhịp 30 phút do chính handler kiểm tra bằng một HTTP request rẻ tới
+`/api/health`, và **chỉ đánh thức agent khi có sự cố**. Nhịp ngày mới cần suy
+luận thật.
+
+Mỗi loại việc dùng một `id` hội thoại cố định (`health-watch`, `daily-report`)
+nên Durable Object giữ được trí nhớ — agent biết "lỗi này hôm qua đã báo rồi",
+không kêu lại như mới.
+
+**Agent vận hành CHỈ ĐỌC:** `useMcpConnection` giới hạn `tools` còn 3 tool đọc
+(`suc_khoe_he_thong`, `thong_ke_srs`, `kho_video`). Một con cron chạy sai giờ mà
+có quyền ghi là cách nhanh nhất để hỏng dữ liệu thật.
+
+---
+
+## 8. Bốn chỗ móc nối trong `frontend/`
+
+Ngoài các file mới trong `src/features/agent/`:
+
+1. `src/config/env.ts` — thêm `agentBase`
+2. `src/App.tsx` — thêm 2 dòng (lazy import + `<AgentPanel />`)
+3. `src/core/i18n/translations.ts` — thêm 14 khoá `agent.*` (VI + EN)
+4. `src/styles/globals.css` — thêm CSS `.agent-*` ở cuối file
+5. 11 component đổi `useSpeechRecognition` → `useAsr` (đúng 2 dòng mỗi file)
+
+Không sửa logic nào có sẵn. `useSpeechRecognition.ts` giữ nguyên, không đụng tới.
+
+---
+
+## 12. Ba cái bẫy đã sập (ghi lại để đừng lặp lại)
+
+### 12.1 `.dockerignore` phải nằm ở gốc build context
+
+Build context là `../` (gốc repo), nên Docker tìm `.dockerignore` ở **gốc repo** —
+đặt ở `cf/.dockerignore` thì nó **bị bỏ qua hoàn toàn**, không báo lỗi gì.
+
+Hậu quả nếu không phát hiện: build context nuốt trọn `media/` (420MB),
+`data/hanquan.db`, `node_modules/`, `.venv/` — **và cả `config.toml` chứa API
+key**, đưa thẳng secret vào image.
+
+Cách sửa: đổi tên thành **`Dockerfile.dockerignore`** — BuildKit ưu tiên file
+ignore riêng đặt cạnh Dockerfile, và mọi thứ vẫn gọn trong `cf/`.
+
+### 12.2 Không được tạo `frontend/dist` rỗng trong image
+
+`backend/main.py` mount SPA theo `if _DIST.exists()`. Thư mục **rỗng vẫn tính là
+tồn tại**, nên nó mount `SpaStaticFiles` lên chỗ không có file nào — mọi request
+về `/` rơi vào nhánh fallback `index.html` không tồn tại và đổ lỗi, thay vì 404
+sạch. Nay `Dockerfile` `COPY frontend/dist/` thật.
+
+**Nhớ chạy `npm run build --prefix frontend` trước khi build image.**
+
+### 12.3 Workers Assets không dùng được trên đường build này
+
+Đã thử khai `"assets": { "directory": "../frontend/dist", … }` trong
+`wrangler.jsonc`. `@cloudflare/vite-plugin` **bỏ im lặng** khối đó — kiểm tra
+`dist/vyling/wrangler.json` sinh ra thì `assets: undefined`, trong khi
+`triggers`, `containers`, `durable_objects` đều qua bình thường. Plugin tự quản
+static assets từ client build của chính nó, mà `frontend/` là project Vite 5
+riêng (xem §6), không nằm trong build này.
+
+Nên SPA do FastAPI phục vụ trong container, đúng như hôm nay. Đánh đổi: image
+nặng thêm ~104MB.
+
+**Tối ưu sau nếu cold start chậm:** trong 104MB đó, app thật chỉ ~15MB
+(`assets/` + 18 trang prerender); 97MB còn lại là `wordimg/` (46MB), `audio/`
+(38MB), `cosmetics/` (13MB) — toàn file tĩnh bất biến, chuyển sang R2 và phục vụ
+ở edge được, y hệt cách `/media/*` đang làm trong `src/app.ts`.
+
+---
+
+## 11. Kích thước bundle Worker
+
+Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
+Mistral, Azure, Copilot…). Cả hai agent ở đây đều chạy qua Workers AI binding,
+nên `flue.config.ts` đặt `providers: ['cloudflare']` để loại phần còn lại.
+
+Số đo thật của `wrangler deploy --dry-run`:
+
+```
+Total Upload: 4649.29 KiB / gzip: 1043.43 KiB
+```
+
+Trần Workers: **3 MB gzip (Free)**, 10 MB (Paid) → còn rất nhiều chỗ. Nếu sau
+này thêm nhà cung cấp model khác, nhớ đo lại.
+
+---
+
+## 9. Việc chỉ bạn làm được
+
+**Bật Docker (đang chặn việc build container):** Docker Desktop 29.4.2 đã cài
+sẵn, nhưng WSL2 chưa có distro nên engine không chạy. Cần quyền admin và phải
+bấm đồng ý giấy phép — hai thứ nên do bạn tự làm:
+
+```bash
+wsl --install --no-distribution
+```
+
+Chạy trong PowerShell **Run as Administrator**, khởi động lại máy, rồi mở Docker
+Desktop từ Start Menu và bấm Accept ở màn hình giấy phép lần đầu. Xong thì
+`docker info` phải ra phiên bản engine.
+
+- Tài khoản Cloudflare + `wrangler login`
+- Đăng ký quyền beta Worker Loader (nếu muốn Code Mode chạy production)
+- Domain riêng có **wildcard DNS** — preview URL của Sandbox dùng subdomain
+  (`8000-sandbox-<id>-app.domain.com`), `.workers.dev` **không** hỗ trợ
+- Tạo instance AI Search trên dashboard
+- Nạp secrets bằng `wrangler secret put`
+
+## 10. Đã kiểm chứng và chưa kiểm chứng
+
+**Đã chạy thật, kết quả xanh:**
+- `tsc --noEmit` trong `cf/` — sạch (lần đầu tìm ra 3 lỗi thật: `Cloudflare.Env`
+  namespace, tên binding `Sandbox`, và kiểu `ExecutionContext` — đã sửa)
+- `vite build` trong `cf/` — Worker bundle thành công
+- `wrangler deploy --dry-run` — **gzip 1043 KiB**, xác nhận đủ 11 binding, và
+  entry export đúng 4 class: `FlueVylingOpsAgent`, `FlueVylingTutorAgent`,
+  `Sandbox`, `VylingMcp` (khớp migration tag trong `wrangler.jsonc`)
+- `scheduled` handler + model id Whisper có mặt trong bundle đã build
+- `frontend` type-check sạch, build đầy đủ, chạy được cả hai chế độ bật/tắt
+- `backend.main` import bình thường, **43/43 test backend xanh**
+- corpus builder ra 91.622 tài liệu
+
+**Chưa kiểm chứng — cần deploy thật mới biết:**
+- **Container build**: Docker Desktop 29.4.2 CÓ cài trên máy, nhưng **WSL2 chưa
+  có distro nào** (`wsl --list` báo "no installed distributions") nên engine
+  Linux không khởi động được. `Dockerfile` vẫn **chưa từng build thử** — đây là
+  rủi ro lớn nhất còn lại. Cách gỡ ở §9.
+- Thời gian cold start thật của sandbox (lifespan chạy `init_db` + seed + import
+  từ điển — có thể lâu hơn timeout 120s đang đặt trong `legacy-proxy.ts`)
+- Hành vi preview URL (cần wildcard DNS)
+- Chất lượng Whisper thực tế trên giọng người Việt nói tiếng Hàn
+- Cron có bắn đúng giờ không, và agent trực ca báo cáo có dùng được không

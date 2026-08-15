@@ -17,6 +17,8 @@ interface Props {
   onSummary?: () => void
   onGrammar?: (lessonId?: string) => void
   onPron?: (groupId?: string) => void
+  onDeep?: (term: string) => void
+  deepFull?: number
   lang?: string
   weeks: WeekPlan[]
   taskTotal: number
@@ -30,13 +32,14 @@ const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
 const KIND_ICON: Record<WeekTask['kind'], IconName> = {
   vocab: 'cards', total: 'chart', quiz: 'target', video: 'film', speak: 'mic', review: 'letters', custom: 'note',
-  grammar: 'book', toeic: 'trophy', pron: 'volume',
+  grammar: 'book', toeic: 'trophy', pron: 'volume', deep: 'bulb',
 }
 
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
 
 export default function RoadmapWeeks({
-  onLearn, onQuiz, onSummary, onGrammar, onPron,
+  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep,
+  deepFull = 0,
   lang = 'en',
   weeks,
   taskTotal,
@@ -53,7 +56,7 @@ export default function RoadmapWeeks({
   const { grammar } = useGrammarProgress()
   const { pron } = usePronProgress(lang)
   const toeic = useToeicBridge()
-  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups }
+  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, deepFull }
   const [open, setOpen] = useState<number | null>(() => {
     const p = readPlan(lang)
     return p.start ? planWeek(p.start) : null
@@ -115,6 +118,10 @@ export default function RoadmapWeeks({
       if (!toeic.started) return 'chưa bắt đầu'
       return t.n ? `${Math.min(toeic.days, t.n)}/${t.n} ngày hoàn thành` : 'đã bắt đầu'
     }
+    if (t.kind === 'deep') {
+      const target = t.n ?? 1
+      return `${Math.min(deepFull, target)}/${target} từ nắm đủ nghĩa`
+    }
     return ''
   }
 
@@ -122,6 +129,7 @@ export default function RoadmapWeeks({
     if (t.kind === 'grammar') return onGrammar ? { label: 'Học ngay', run: () => onGrammar(t.lessonId) } : null
     if (t.kind === 'pron') return onPron ? { label: 'Luyện ngay', run: () => onPron(t.groupId) } : null
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
+    if (t.kind === 'deep') return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
     const go = t.go !== undefined ? t.go : (
       t.kind === 'vocab' ? 'learn'
       : t.kind === 'total' ? 'vocab'
@@ -139,6 +147,7 @@ export default function RoadmapWeeks({
       case 'flashcards': return { label: 'Ôn tập', run: () => setView('flashcards') }
       case 'vocab': return { label: 'Kho từ vựng', run: () => setView('vocab') }
       case 'hsk': return { label: 'Mở HSK', run: () => setView('hsk') }
+      case 'deep': return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
       case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
       default: return null
     }

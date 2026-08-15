@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { posLabel } from '@/data/vocabCore'
 import AudioBtn from './AudioBtn'
+import WordImg from '../WordImg'
 import type { Card, ModeProps } from './types'
 
 interface Props extends ModeProps {
@@ -45,7 +46,7 @@ export default function Choice({ card, pool, lang, def, accents, speak, onNext, 
       <div className="vl-card">
         {reverse ? (
           <>
-            <div className="vl-img">{w.img}</div>
+            <WordImg term={term} emoji={w.img} />
             <div className="vl-term-row">
               <h3 lang={lang}>{term}</h3>
               <span className="vl-pos">{posLabel(w.pos)}</span>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { romanizeLine } from '@/core/utils/romanize'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -43,7 +43,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
 
   const lines = useMemo(() => segs.map((s) => s.ko), [segs])
   const ph = usePhonetics(learnLang, lines)
-  const sr = useSpeechRecognition(cfg.locale)
+  const sr = useAsr(cfg.locale)
   const srIdx = useRef(-1)
 
   const [clips, setClips] = useState<Record<number, Clip>>({})

@@ -1,0 +1,32 @@
+{
+	"name": "vyling-cf",
+	"private": true,
+	"type": "module",
+	"description": "Lớp Cloudflare cho VyLing: Sandbox chạy backend FastAPI nguyên vẹn, MCP server, Code Mode, agent Flue.",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"deploy": "vite build && wrangler deploy",
+		"check:types": "tsc --noEmit",
+		"tail": "wrangler tail",
+		"corpus": "node ai-search/build-corpus.mjs"
+	},
+	"dependencies": {
+		"@cloudflare/codemode": "^0.5.0",
+		"@cloudflare/sandbox": "^0.7.0",
+		"@flue/runtime": "^2.0.3",
+		"@modelcontextprotocol/sdk": "1.30.0",
+		"agents": "^0.20.1",
+		"hono": "^4.12.0",
+		"zod": "^4.0.0"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "^1.39.2",
+		"@cloudflare/workers-types": "^5.20260721.1",
+		"@flue/cli": "^2.0.3",
+		"@flue/vite": "^2.0.3",
+		"typescript": "^5.6.3",
+		"vite": "^8.0.14",
+		"wrangler": "^4.113.0"
+	}
+}

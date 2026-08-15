@@ -15,6 +15,7 @@ COST = {
     "explain": 1,
     "level": 1,
     "define": 1,
+    "profile": 2,
     "lingo": 2,
     "encoach": 2,
 }
@@ -28,6 +29,7 @@ LABEL = {
     "explain": "giải thích ngữ pháp",
     "level": "ước lượng trình độ bài học",
     "define": "tra từ sâu",
+    "profile": "dựng hồ sơ đầy đủ các nghĩa của một từ",
     "lingo": "làm mới Hot Lingo",
     "encoach": "chấm câu bạn tự nói hoặc tự viết",
 }

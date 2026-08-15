@@ -5,7 +5,7 @@ import {
   EMPTY_GRADE, gradeSpeech, topFixes, type SpeechGrade, type WordGrade,
 } from '@/core/utils/pronGrade'
 import { splitWords } from '@/core/utils/speechDiff'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
 import type { Phonetics } from '@/hooks/usePhonetics'
 import AudioBtn from './AudioBtn'
@@ -36,7 +36,7 @@ function verdict(score: number): string {
 }
 
 export default function SoundCheck({ label, text, lang, locale, accents, speak, ph }: Props) {
-  const sr = useSpeechRecognition(locale)
+  const sr = useAsr(locale)
   const clip = useVoiceClip()
   const [myClip, setMyClip] = useState('')
   const [said, setSaid] = useState('')

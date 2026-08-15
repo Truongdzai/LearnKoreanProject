@@ -139,13 +139,34 @@ def _download_subs(track: list) -> list[dict]:
     raise RuntimeError(f"không đọc được phụ đề ({last})")
 
 
-def get_segments(url: str, lang: str = "ko") -> dict:
-    ydl_opts = {"skip_download": True, "quiet": True, "no_warnings": True}
+_PLAYER_CLIENTS = (None, "android", "ios")
+
+
+def _extract_info(url: str) -> dict:
+    base = {"skip_download": True, "quiet": True, "no_warnings": True}
     if proxy():
-        ydl_opts["proxy"] = proxy()
+        base["proxy"] = proxy()
+    last: Exception | None = None
+    for client in _PLAYER_CLIENTS:
+        opts = dict(base)
+        if client:
+            opts["extractor_args"] = {"youtube": {"player_client": [client]}}
+        try:
+            with yt_dlp.YoutubeDL(opts) as ydl:
+                return ydl.extract_info(url, download=False)
+        except Exception as exc:
+            last = exc
+            msg = str(exc).lower()
+            if "not a bot" in msg or "sign in to confirm" in msg:
+                break
+            if "429" in msg or "too many requests" in msg:
+                break
+    raise last
+
+
+def get_segments(url: str, lang: str = "ko") -> dict:
     try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=False)
+        info = _extract_info(url)
     except Exception as exc:
         msg = str(exc).lower()
         if "not a bot" in msg or "sign in to confirm" in msg:

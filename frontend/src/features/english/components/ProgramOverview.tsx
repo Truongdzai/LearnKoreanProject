@@ -9,6 +9,8 @@ import { PRON_GROUPS } from '@/data/englishPronunciation'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
 import FastMethod from './fast/FastMethod'
+import MasteryRoom from '../deep/MasteryRoom'
+import { useDeep } from '../deep/deep'
 
 const THREE_C: { k: string; vi: string; icon: IconName; tone: string; desc: string }[] = [
   { k: 'Compress', vi: 'Nén', icon: 'target', tone: 'tone-a', desc: 'Không học tràn lan. Chỉ giữ lại từ tần suất cao — dùng tới đâu học tới đó. 3000 từ lõi đủ hiểu ~90% hội thoại hằng ngày.' },
@@ -47,12 +49,14 @@ interface Props {
   onPron: (groupId?: string) => void
   onSkills: () => void
   onErrors: () => void
+  onDeep: (term: string) => void
 }
 
 export default function ProgramOverview({
-  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors,
+  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep,
 }: Props) {
   const { learned } = useLearnedWords()
+  const { deepFull, mastered } = useDeep()
   const day = Math.min(planDay(readPlan().start), 90)
   const boot = mode === 'boot'
 
@@ -70,6 +74,7 @@ export default function ProgramOverview({
           {day > 0 && <div><b>{day}</b><span>ngày đã đi / 90</span></div>}
           <div><b>{ALL_WORDS.length}</b><span>từ lõi sẵn sàng</span></div>
           <div><b>{learned.size}</b><span>từ bạn đã thuộc</span></div>
+          <div><b>{mastered}</b><span>từ đã làm chủ đủ nghĩa</span></div>
           <div><b>{TARGET_WORDS.toLocaleString('vi-VN')}</b><span>mục tiêu (hiểu ~90%)</span></div>
         </div>
         <button className="btn-primary lg" onClick={onStart}><Icon name="play" size={16} /> Bắt đầu học từ vựng</button>
@@ -96,7 +101,11 @@ export default function ProgramOverview({
 
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
-        onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron} />
+        onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron}
+        onDeep={onDeep} deepFull={deepFull} />
+
+      <div className="section-title"><span className="pin" /> Làm chủ từng từ — không chỉ thuộc một nghĩa</div>
+      <MasteryRoom onOpen={onDeep} />
 
       <div className="section-title"><span className="pin" /> Quy tắc 3C — cách chữ F đi vào từ vựng</div>
       <div className="threec-grid">

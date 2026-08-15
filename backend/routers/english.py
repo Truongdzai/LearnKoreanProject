@@ -5,7 +5,7 @@ from fastapi.responses import FileResponse
 
 from ..errors import AppError
 from ..schemas.english import CoachIn
-from ..services import auth, dictionary, encoach, quota, wordimg
+from ..services import auth, dictionary, encoach, quota, wordimg, wordprofile
 
 router = APIRouter(prefix="/api/en", tags=["Tiếng Anh chủ động"])
 OptAuth = Depends(auth.get_optional_user)
@@ -60,4 +60,26 @@ def api_en_ready(word: str = Query(..., min_length=1, max_length=40), q: str = Q
         "word": word.lower(),
         "rich": dictionary.has_rich_cache(word, "en", "vi"),
         "image": wordimg.cached_only(word, q) is not None,
+        "profile": wordprofile.has_cache(word),
     }
+
+
+@router.get("/profile")
+def api_en_profile(
+    request: Request,
+    word: str = Query(..., min_length=1, max_length=40),
+    pos: str = Query("", max_length=20),
+    vi: str = Query("", max_length=120),
+    only_cached: bool = Query(False),
+    user: dict | None = OptAuth,
+):
+    if only_cached:
+        return {"word": word.strip().lower(), "profile": wordprofile.cached_only(word), "cached": True}
+    if not wordprofile.has_cache(word):
+        quota.consume("profile", user, quota.client_ip(request))
+    try:
+        return wordprofile.get(word, pos, vi)
+    except AppError:
+        raise
+    except Exception as exc:
+        raise AppError("UPSTREAM_AI", f"Chưa dựng được hồ sơ từ lúc này: {exc}", 502)

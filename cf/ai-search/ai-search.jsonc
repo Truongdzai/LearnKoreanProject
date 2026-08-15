@@ -1,0 +1,65 @@
+{
+	// Cấu hình tham chiếu cho instance Cloudflare AI Search "vyling-knowledge".
+	//
+	// AI Search (tên cũ: AutoRAG) hiện được tạo và chỉnh trong dashboard hoặc
+	// qua REST API — KHÔNG khai báo được trong wrangler.jsonc. File này là
+	// bản ghi "cấu hình đúng phải như thế nào", để dựng lại instance khi cần
+	// và để review khi đổi tham số. Xem cf/README.md §AI Search cho các bước.
+
+	"name": "vyling-knowledge",
+
+	// Nguồn dữ liệu chốt lúc tạo, KHÔNG đổi được sau đó.
+	// R2 vì corpus do build-corpus.mjs sinh ra; chọn "Website" sẽ index cả
+	// trang cá nhân (/tong-quan, /on-tap) — không nên.
+	"data_source": {
+		"type": "r2",
+		"bucket": "vyling-knowledge"
+	},
+
+	"indexing": {
+		// Tài liệu ở đây ngắn và độc lập (1 mục từ điển ≈ 1 chunk).
+		// Chunk lớn sẽ trộn nhiều mục từ khác nhau vào cùng vector → tra từ
+		// bị lẫn nghĩa của từ bên cạnh.
+		"chunk_tokens": 512,
+		"chunk_overlap_tokens": 64,
+
+		// Hybrid: vector bắt ngữ nghĩa ("từ nào nghĩa là mệt mỏi"), BM25 bắt
+		// khớp chính xác (tra đúng chuỗi "피곤하다"). Học ngoại ngữ cần cả hai
+		// — chỉ vector thôi sẽ trượt khi người học gõ đúng nguyên từ.
+		"search": "hybrid",
+
+		"metadata_fields": [
+			{ "name": "lang", "type": "string" },
+			{ "name": "kind", "type": "string" },
+			{ "name": "title", "type": "string" }
+		]
+	},
+
+	"retrieval": {
+		"match_threshold": 0.5,
+		"max_results": 8,
+		"rerank": true,
+		"query_rewrite": true,
+		"cache_similar_prompts": true
+	},
+
+	"models": {
+		// CHỐT lúc tạo — đổi embedding model = phải index lại từ đầu.
+		// Bắt buộc model đa ngữ: corpus có tiếng Hàn, Việt, Anh, Trung lẫn lộn.
+		"embedding": "@cf/baai/bge-m3",
+		"generation": "@cf/moonshotai/kimi-k2.6",
+		"query_rewrite": "@cf/meta/llama-3.1-8b-instruct",
+		"rerank": "@cf/baai/bge-reranker-base"
+	},
+
+	// Bộ lọc gợi ý khi truy vấn — dùng metadata ở trên.
+	// Ví dụ chỉ tra từ điển tiếng Hàn:
+	//   { "type": "and", "filters": [
+	//       { "type": "eq", "key": "lang", "value": "ko" },
+	//       { "type": "eq", "key": "kind", "value": "tu-dien" } ] }
+	"notes": {
+		"corpus_builder": "node cf/ai-search/build-corpus.mjs",
+		"excluded": "Toàn bộ bảng dữ liệu cá nhân (users, srs_cards, activity_log...) bị chặn cứng trong DENY của build-corpus.mjs.",
+		"resync": "Chạy lại build-corpus.mjs → đẩy R2 → Sync index. Chưa có tự động hoá; index KHÔNG tự cập nhật khi DB đổi."
+	}
+}

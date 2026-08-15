@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { speakAccent } from '@/core/tts'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useAsr } from '@/hooks/useAsr'
 import {
   KIND_LABEL, matchAny, normalizeAnswer,
   type ActiveChunk, type ActivePack, type SceneLine,
@@ -84,7 +84,7 @@ function Highlighted({ text, chunks, onPick }: { text: string; chunks: ActiveChu
 }
 
 function ShadowLine({ line }: { line: SceneLine }) {
-  const sr = useSpeechRecognition('en-US')
+  const sr = useAsr('en-US')
   const [score, setScore] = useState<number | null>(null)
   const seen = useRef('')
 
