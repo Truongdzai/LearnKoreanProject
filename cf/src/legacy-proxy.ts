@@ -17,7 +17,7 @@ export async function ensureBackend(env: Env, request: Request): Promise<string>
 		})
 
 		const server = await sandbox.startProcess(
-			`python -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
+			`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
 			{
 				cwd: '/app',
 				env: {

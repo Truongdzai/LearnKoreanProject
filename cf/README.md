@@ -299,6 +299,44 @@ nặng thêm ~104MB.
 
 ---
 
+## 13. Bốn lỗi mà lần build container đầu tiên tìm ra
+
+Cả bốn đều đi lọt qua type-check, `vite build` và `wrangler --dry-run`.
+
+### 13.1 Image nền không có `python`/`pip`
+
+`cloudflare/sandbox:0.7.0-python` chỉ có **`python3`** và **`pip3`**
+(`/usr/local/bin`, Python 3.11.14). Không có alias `python`/`pip`.
+
+| Chỗ | Sai | Nếu không bắt được |
+|---|---|---|
+| `Dockerfile` RUN | `pip install` | Build đỏ ngay — dễ thấy |
+| `Dockerfile` CMD | `python -m uvicorn` | Image build **xanh**, container chết lúc khởi động |
+| `legacy-proxy.ts` | `python -m uvicorn` | Worker deploy **xanh**, backend không bao giờ lên |
+
+Hai dòng dưới mới là loại nguy hiểm: hỏng lúc *chạy*, không phải lúc build.
+
+### 13.2 `probe()` hiểu sai `/api/health`
+
+`/api/health` trả về **mảng** `[{name, ok, detail, optional}]`, không phải
+object. Code cũ dùng `Object.entries` nên báo lỗi ra **chỉ số** (`"1"`, `"6"`)
+thay vì tên hạng mục.
+
+Tệ hơn: nó coi **mọi** `ok:false` là sự cố. Nhưng trong container luôn có hai
+mục false một cách hợp lệ:
+- **`Môi trường ảo (.venv)`** — container không cần venv, đây là cảnh báo dành
+  cho máy dev Windows (`"Hãy khởi động bằng start.bat"`)
+- **`Bộ não AI (LLM)`** — `optional: true`, chưa nạp API key thì luôn false
+
+Nghĩa là cron 30 phút sẽ **báo sự cố giả suốt đời**, đốt tiền model để kêu nhầm —
+đúng thứ mà thiết kế "đừng gọi model khi không cần" ở §7c muốn tránh.
+
+Nay `realFailures()` bỏ qua mục `optional` và danh sách `IGNORED_CHECKS`, và đã
+kiểm chứng bằng chính payload thật lấy từ container đang chạy: health thật → `[]`
+(không báo giả), giả lập SQLite hỏng → báo đúng tên mục.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
@@ -351,11 +389,14 @@ Desktop từ Start Menu và bấm Accept ở màn hình giấy phép lần đầ
 - `backend.main` import bình thường, **43/43 test backend xanh**
 - corpus builder ra 91.622 tài liệu
 
-**Chưa kiểm chứng — cần deploy thật mới biết:**
-- **Container build**: Docker Desktop 29.4.2 CÓ cài trên máy, nhưng **WSL2 chưa
-  có distro nào** (`wsl --list` báo "no installed distributions") nên engine
-  Linux không khởi động được. `Dockerfile` vẫn **chưa từng build thử** — đây là
-  rủi ro lớn nhất còn lại. Cách gỡ ở §9.
+**Container ĐÃ build và chạy được (15/08):**
+- `docker build -f cf/Dockerfile -t vyling-sandbox .` → image **2,52 GB**
+- Container chạy: sandbox entrypoint spawn `python3 -m uvicorn`, uvicorn lên,
+  **`/api/health` trả 200 sau ~6 giây**
+- Trong container: Python 3.11.14, FFmpeg ✓, FFprobe ✓, yt-dlp ✓, edge-tts ✓,
+  SQLite ✓, `import backend.main` ✓
+
+Lần build đầu tiên đó tìm ra **4 lỗi thật** — xem §13.
 - Thời gian cold start thật của sandbox (lifespan chạy `init_db` + seed + import
   từ điển — có thể lâu hơn timeout 120s đang đặt trong `legacy-proxy.ts`)
 - Hành vi preview URL (cần wildcard DNS)
