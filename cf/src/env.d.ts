@@ -14,6 +14,7 @@ declare global {
 		// `!!env.LOADER` vẫn biên dịch được, và tự bật lại khi có quyền beta.
 		LOADER?: WorkerLoader
 
+		DEPLOY_TOKEN?: string
 		LLM_API_KEY?: string
 		JWT_SECRET?: string
 		SMTP_PASSWORD?: string

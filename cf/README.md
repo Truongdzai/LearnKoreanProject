@@ -506,6 +506,55 @@ Deploy này trả lời "chạy được trên Cloudflare không", chưa phải 
 
 ---
 
+## 18. 🔴 Deploy KHÔNG tự cập nhật container đang chạy
+
+Cái bẫy tốn thời gian nhất cho tới giờ. Sau `wrangler deploy` thành công, web
+thật **vẫn chạy code cũ**. Kiểm bằng:
+
+```bash
+npx wrangler containers instances <APPLICATION_ID>
+```
+
+Cột `VERSION` đứng nguyên ở 1 dù đã deploy nhiều lần — vì `keepAlive: true`
+giữ instance cũ sống, Cloudflare không ép thay.
+
+Tệ hơn: khi Cloudflare có dừng container (state `inactive`), **bản ghi tunnel
+vẫn còn**. Bản đầu của `ensureBackend` tin `tunnels.list()` mà không kiểm, nên
+trả về URL của một origin đã chết → proxy mãi vào đó → **không bao giờ dựng lại
+container**, web đứng ở bản cũ vĩnh viễn.
+
+Và origin chết thì Cloudflare trả **530**, tức một HTTP response HỢP LỆ — `fetch`
+không ném lỗi, nên nhánh `catch` để thử lại cũng không chạy. Phải xét mã trạng
+thái mới bắt được.
+
+Nay đã sửa cả ba:
+1. `originAlive()` gọi thử `/api/health` trước khi tin tunnel cũ; chết thì
+   `tunnels.destroy(port)` rồi dựng lại.
+2. `proxyToBackend` coi `status >= 500` là origin chết và thử lại một lần
+   (chỉ với request không có body — body là stream, đọc rồi không phát lại được).
+3. `POST /cf/recycle` (cần header `X-Deploy-Token` khớp secret `DEPLOY_TOKEN`)
+   để chủ động huỷ container sau khi deploy code backend.
+
+**Quy trình deploy đúng:**
+
+```bash
+npm run build --prefix frontend
+```
+
+```bash
+npm run deploy --prefix cf
+```
+
+Rồi gọi một request bất kỳ vào `/api/health` để container dựng lại — lần đầu
+mất ~10–60s và có thể trả 500 giữa chừng, đó là bình thường. Kiểm chứng bằng dữ
+liệu thật, đừng tin mỗi dòng "Deployed":
+
+```bash
+curl -s https://vyling.qvantruong205.workers.dev/api/content/videos | head -c 200
+```
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,

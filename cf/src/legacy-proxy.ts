@@ -21,6 +21,22 @@ function sandboxFor(env: Env) {
 	})
 }
 
+/**
+ * Origin phía sau tunnel còn sống không.
+ *
+ * Chú ý: origin chết thì Cloudflare trả 530/1033 — đó vẫn là HTTP response
+ * hợp lệ nên `fetch` KHÔNG ném lỗi. Phải xét mã trạng thái mới biết, đây đúng
+ * là chỗ bản đầu làm sai.
+ */
+async function originAlive(url: string): Promise<boolean> {
+	try {
+		const res = await fetch(`${url}/api/health`, { signal: AbortSignal.timeout(8_000) })
+		return res.status < 500
+	} catch {
+		return false
+	}
+}
+
 export async function ensureBackend(env: Env): Promise<string> {
 	if (cachedOrigin) return cachedOrigin
 
@@ -30,11 +46,19 @@ export async function ensureBackend(env: Env): Promise<string> {
 	// Container có thể đã chạy từ request trước (isolate này mới, nhưng
 	// Durable Object thì không). Hỏi tunnel sẵn có trước khi spawn thêm
 	// uvicorn — tránh hai tiến trình tranh nhau cùng một cổng.
+	//
+	// NHƯNG phải kiểm tunnel còn sống thật. Sau khi deploy image mới,
+	// Cloudflare dừng container cũ mà BẢN GHI TUNNEL VẪN CÒN. Tin nó mà không
+	// kiểm thì proxy mãi vào một origin đã chết và không bao giờ dựng lại
+	// container — web đứng ở bản cũ vĩnh viễn.
 	const running = await sandbox.tunnels.list().catch(() => [])
 	const existing = running.find((t) => t.port === port)
 	if (existing?.url) {
-		cachedOrigin = existing.url
-		return existing.url
+		if (await originAlive(existing.url)) {
+			cachedOrigin = existing.url
+			return existing.url
+		}
+		await sandbox.tunnels.destroy(port).catch(() => {})
 	}
 
 	// KHÔNG truyền secret qua env ở đây: `backend/config.py` chỉ đọc TOML
@@ -61,6 +85,19 @@ function invalidate() {
 	cachedOrigin = null
 }
 
+/**
+ * Huỷ container đang chạy để lần gọi sau dựng lại bằng image mới nhất.
+ *
+ * Cần vì `keepAlive: true`: deploy image mới KHÔNG thay được instance đang
+ * sống — nó cứ chạy tiếp bản cũ (kiểm bằng `wrangler containers instances`,
+ * cột VERSION đứng yên). Nên mỗi lần deploy có đổi `backend/` hoặc
+ * `frontend/dist` đều phải gọi cái này, nếu không web thật vẫn là bản cũ.
+ */
+export async function recycleBackend(env: Env): Promise<void> {
+	invalidate()
+	await sandboxFor(env).destroy()
+}
+
 export async function proxyToBackend(request: Request, env: Env): Promise<Response> {
 	const incoming = new URL(request.url)
 
@@ -72,8 +109,11 @@ export async function proxyToBackend(request: Request, env: Env): Promise<Respon
 		headers.set('X-Forwarded-Host', incoming.host)
 		headers.set('X-Forwarded-Proto', incoming.protocol.replace(':', ''))
 
+		// Có body thì không thử lại được: body là stream, đọc rồi không phát lại.
+		const canRetry = attempt === 0 && !request.body
+
 		try {
-			return await fetch(
+			const res = await fetch(
 				new Request(target, {
 					method: request.method,
 					headers,
@@ -81,10 +121,16 @@ export async function proxyToBackend(request: Request, env: Env): Promise<Respon
 					redirect: 'manual',
 				}),
 			)
+			// 530/1033/502… = tunnel còn bản ghi nhưng origin đã chết. Đây là
+			// response HỢP LỆ nên không rơi vào catch — phải xét riêng, nếu
+			// không sẽ trả thẳng trang lỗi Cloudflare cho người dùng.
+			if (res.status >= 500 && canRetry) {
+				invalidate()
+				continue
+			}
+			return res
 		} catch (error) {
-			// Quick tunnel URL đổi mỗi lần container khởi động lại, nên URL đã
-			// nhớ có thể chết. Bỏ cache rồi dựng lại đúng một lần.
-			if (attempt === 1 || request.body) throw error
+			if (!canRetry) throw error
 			invalidate()
 		}
 	}

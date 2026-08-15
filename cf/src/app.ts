@@ -4,7 +4,7 @@ import { VylingOps } from './agents/vyling-ops'
 import { VylingTutor } from './agents/vyling-tutor'
 import { transcribe } from './asr/whisper'
 import { createMcpHandler } from 'agents/mcp/server'
-import { proxyToBackend } from './legacy-proxy'
+import { proxyToBackend, recycleBackend } from './legacy-proxy'
 import { buildMcpServer } from './mcp/server'
 
 const app = new Hono<{ Bindings: Env }>()
@@ -35,6 +35,17 @@ app.route('/agents/vyling-tutor', createAgentRouter(VylingTutor))
 app.route('/agents/vyling-ops', createAgentRouter(VylingOps))
 
 app.get('/cf/ping', (c) => c.json({ pong: true, at: new Date().toISOString() }))
+
+// Thay container sau khi deploy code backend mới. Bảo vệ bằng secret
+// DEPLOY_TOKEN: đây là nút gây gián đoạn dịch vụ, để mở là ai cũng khởi động
+// lại được web. Chưa đặt secret thì endpoint đóng hẳn, không phải mở sẵn.
+app.post('/cf/recycle', async (c) => {
+	const token = c.env.DEPLOY_TOKEN
+	if (!token) return c.json({ detail: 'Chưa cấu hình DEPLOY_TOKEN.' }, 503)
+	if (c.req.header('X-Deploy-Token') !== token) return c.json({ detail: 'Không có quyền.' }, 403)
+	await recycleBackend(c.env)
+	return c.json({ recycled: true, at: new Date().toISOString() })
+})
 
 app.post('/cf/asr', async (c) => {
 	const lang = c.req.query('lang') ?? 'en'
