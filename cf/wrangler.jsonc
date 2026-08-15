@@ -6,13 +6,15 @@
 	// trong vite.config.ts.
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "vyling",
-	"compatibility_date": "2026-06-01",
+	"compatibility_date": "2026-08-15",
 
 	// nodejs_compat: Flue runtime + MCP SDK cần.
 	// experimental: bắt buộc cho Worker Loader (Code Mode).
 	"compatibility_flags": ["nodejs_compat", "experimental"],
 
-	"observability": { "enabled": true },
+	// head_sampling_rate = 1 (giữ mọi log) cho tới khi chạy thật và biết lưu
+	// lượng; lúc đó hạ xuống để đỡ tốn.
+	"observability": { "enabled": true, "head_sampling_rate": 1 },
 
 	// ─── KHÔNG dùng Workers Assets ở đây ────────────────────────────────
 	// Đã thử `"assets": { "directory": "../frontend/dist", ... }` và

@@ -1,12 +1,21 @@
-import { getSandbox } from '@cloudflare/sandbox'
+import { getSandbox, type Sandbox } from '@cloudflare/sandbox'
 
 const SANDBOX_ID = 'vyling-app'
 
+// Chỉ nhớ một chuỗi URL, KHÔNG bao giờ nhớ Promise ở phạm vi module: một
+// Promise đang chờ mà bị request khác await sẽ ném "Cannot perform I/O on
+// behalf of a different request". Chuỗi thì không mang I/O nên an toàn, và
+// URL cũ hết hiệu lực đã có nhánh thử lại bên dưới xử lý.
 let cachedOrigin: string | null = null
-let booting: Promise<string> | null = null
 
 function sandboxFor(env: Env) {
-	return getSandbox(env.Sandbox, SANDBOX_ID, {
+	// `wrangler types` sinh `DurableObjectNamespace<undefined>` cho binding này:
+	// nó chỉ suy được kiểu từ class export trong repo, mà `Sandbox` đến từ
+	// package `@cloudflare/sandbox`. Hai kiểu không đủ chồng lấn nên TypeScript
+	// bắt buộc phải đi qua `unknown`. Ép kiểu gói gọn đúng một chỗ này; phần
+	// còn lại của Env vẫn do wrangler sinh nên không thể lệch với wrangler.jsonc.
+	const ns = env.Sandbox as unknown as DurableObjectNamespace<Sandbox>
+	return getSandbox(ns, SANDBOX_ID, {
 		transport: 'rpc',
 		keepAlive: true,
 	})
@@ -14,44 +23,40 @@ function sandboxFor(env: Env) {
 
 export async function ensureBackend(env: Env): Promise<string> {
 	if (cachedOrigin) return cachedOrigin
-	if (booting) return booting
 
-	booting = (async () => {
-		const port = Number(env.APP_PORT || '8000')
-		const sandbox = sandboxFor(env)
+	const port = Number(env.APP_PORT || '8000')
+	const sandbox = sandboxFor(env)
 
-		await sandbox.startProcess(
-			`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
-			{
-				cwd: '/app',
-				env: {
-					PYTHONUNBUFFERED: '1',
-					PYTHONIOENCODING: 'utf-8',
-					...(env.LLM_API_KEY ? { VYLING_LLM_API_KEY: env.LLM_API_KEY } : {}),
-					...(env.JWT_SECRET ? { VYLING_JWT_SECRET: env.JWT_SECRET } : {}),
-				},
-			},
-		)
-
-		const tunnel = await sandbox.tunnels.get(port)
-		cachedOrigin = tunnel.url
-		return tunnel.url
-	})()
-
-	try {
-		return await booting
-	} catch (error) {
-		booting = null
-		cachedOrigin = null
-		throw error
-	} finally {
-		if (cachedOrigin) booting = null
+	// Container có thể đã chạy từ request trước (isolate này mới, nhưng
+	// Durable Object thì không). Hỏi tunnel sẵn có trước khi spawn thêm
+	// uvicorn — tránh hai tiến trình tranh nhau cùng một cổng.
+	const running = await sandbox.tunnels.list().catch(() => [])
+	const existing = running.find((t) => t.port === port)
+	if (existing?.url) {
+		cachedOrigin = existing.url
+		return existing.url
 	}
+
+	await sandbox.startProcess(
+		`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
+		{
+			cwd: '/app',
+			env: {
+				PYTHONUNBUFFERED: '1',
+				PYTHONIOENCODING: 'utf-8',
+				...(env.LLM_API_KEY ? { VYLING_LLM_API_KEY: env.LLM_API_KEY } : {}),
+				...(env.JWT_SECRET ? { VYLING_JWT_SECRET: env.JWT_SECRET } : {}),
+			},
+		},
+	)
+
+	const tunnel = await sandbox.tunnels.get(port)
+	cachedOrigin = tunnel.url
+	return tunnel.url
 }
 
 function invalidate() {
 	cachedOrigin = null
-	booting = null
 }
 
 export async function proxyToBackend(request: Request, env: Env): Promise<Response> {

@@ -1,27 +1,19 @@
-import type { Sandbox as SandboxDO } from '@cloudflare/sandbox'
-
+// Binding lấy từ worker-configuration.d.ts do `wrangler types` sinh ra từ
+// wrangler.jsonc — KHÔNG khai lại ở đây, viết tay là chắc chắn lệch.
+// File này chỉ bổ sung secret: secret nạp bằng `wrangler secret put` nên không
+// nằm trong wrangler.jsonc, wrangler không thể biết để sinh kiểu.
+//
+// Bổ sung vào `Env` toàn cục chứ không phải `Cloudflare.Env`: file sinh ra khai
+// `interface Env extends __BaseEnv_Env {}` ở phạm vi global, và code dùng chính
+// interface đó. Ghi vào `Cloudflare.Env` sẽ không với tới nó.
 declare global {
-	namespace Cloudflare {
-		interface Env {
-			Sandbox: DurableObjectNamespace<SandboxDO>
-			AI: Ai
-			LOADER?: WorkerLoader
-			MEDIA: R2Bucket
-			KNOWLEDGE_BASE: R2Bucket
-
-			APP_PORT: string
-			AI_SEARCH_NAME: string
-			PUBLIC_URL: string
-
-			LLM_API_KEY?: string
-			JWT_SECRET?: string
-			SMTP_PASSWORD?: string
-			GOOGLE_CLIENT_SECRET?: string
-			FACEBOOK_APP_SECRET?: string
-		}
+	interface Env {
+		LLM_API_KEY?: string
+		JWT_SECRET?: string
+		SMTP_PASSWORD?: string
+		GOOGLE_CLIENT_SECRET?: string
+		FACEBOOK_APP_SECRET?: string
 	}
-
-	type Env = Cloudflare.Env
 }
 
 export {}
