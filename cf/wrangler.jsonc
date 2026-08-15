@@ -9,8 +9,12 @@
 	"compatibility_date": "2026-08-15",
 
 	// nodejs_compat: Flue runtime + MCP SDK cần.
-	// experimental: bắt buộc cho Worker Loader (Code Mode).
-	"compatibility_flags": ["nodejs_compat", "experimental"],
+	//
+	// KHÔNG thêm "experimental": Cloudflare từ chối deploy Worker có cờ này
+	// ("The compatibility flag experimental is experimental and cannot yet be
+	// used in Workers deployed to Cloudflare", code 10021). Nó chỉ chạy ở dev
+	// cục bộ. Cờ đó đi kèm `worker_loaders` bên dưới — xem §5 và §16.
+	"compatibility_flags": ["nodejs_compat"],
 
 	// head_sampling_rate = 1 (giữ mọi log) cho tới khi chạy thật và biết lưu
 	// lượng; lúc đó hạ xuống để đỡ tốn.
@@ -92,7 +96,7 @@
 	// không có mạng ra ngoài — chỉ gọi được MCP qua binding.
 	// Tài khoản chưa được cấp quyền beta: comment 3 dòng dưới, phần còn lại
 	// vẫn deploy bình thường (xem cf/README.md §Code Mode).
-	"worker_loaders": [{ "binding": "LOADER" }],
+	// "worker_loaders": [{ "binding": "LOADER" }],
 
 	// ─── R2: dữ liệu nặng KHÔNG nhét vào image ──────────────────────────
 	// media/ (~420MB) + dictionaries/ (~18MB) + corpus cho AI Search.
@@ -115,8 +119,10 @@
 		// Tên instance AI Search (tạo ở dashboard, xem cf/ai-search/).
 		"AI_SEARCH_NAME": "vyling-knowledge",
 		// Origin công khai — agent Flue dùng để tự cắm vào /mcp của chính nó.
-		// Đổi thành domain thật khi có (vd "https://vyling.vn").
-		"PUBLIC_URL": "https://vyling.workers.dev"
+		// PHẢI là URL thật: subdomain workers.dev gồm cả tên tài khoản, đặt sai
+		// thì agent vẫn chạy nhưng không gọi được tool nào.
+		// Đổi thành domain riêng khi có (vd "https://vyling.vn").
+		"PUBLIC_URL": "https://vyling.qvantruong205.workers.dev"
 	}
 
 	// Secrets (KHÔNG để trong file này — dùng `wrangler secret put`):

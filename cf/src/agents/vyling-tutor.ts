@@ -7,7 +7,7 @@ export function VylingTutor() {
 
 	useMcpConnection({
 		name: 'vyling',
-		url: new URL('/mcp', env.PUBLIC_URL ?? 'https://vyling.workers.dev').toString(),
+		url: new URL('/mcp', env.PUBLIC_URL).toString(),
 		transport: 'streamable-http',
 	})
 

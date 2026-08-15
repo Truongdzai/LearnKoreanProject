@@ -8,6 +8,12 @@
 // interface đó. Ghi vào `Cloudflare.Env` sẽ không với tới nó.
 declare global {
 	interface Env {
+		// Binding Worker Loader (Code Mode). Đang comment trong wrangler.jsonc
+		// vì nó kéo theo cờ `experimental` mà Cloudflare không cho deploy, nên
+		// wrangler không sinh kiểu cho nó. Khai optional ở đây để code kiểm tra
+		// `!!env.LOADER` vẫn biên dịch được, và tự bật lại khi có quyền beta.
+		LOADER?: WorkerLoader
+
 		LLM_API_KEY?: string
 		JWT_SECRET?: string
 		SMTP_PASSWORD?: string
