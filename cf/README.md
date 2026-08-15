@@ -429,6 +429,83 @@ Trên máy thì vô hại. Trên Cloudflare, log đó lưu lại và đọc đư
 
 ---
 
+## 16. Cờ `experimental` chặn TOÀN BỘ deploy, không chỉ Code Mode
+
+Lần deploy đầu tiên đỏ ngay ở bước gọi API:
+
+```
+The compatibility flag experimental is experimental and cannot yet be used
+in Workers deployed to Cloudflare.  [code: 10021]
+```
+
+Cờ `experimental` chỉ chạy được ở **dev cục bộ**. Tôi thêm nó theo example
+`cloudflare` của Flue, nơi ghi rõ là cần cho Worker Loader. Nhưng Worker Loader
+đang beta kín (§5), và điều tôi không lường được: cờ đó không chỉ vô hiệu hoá
+Code Mode — nó làm **cả Worker không deploy nổi**.
+
+Nay `compatibility_flags` chỉ còn `nodejs_compat`, và `worker_loaders` bị comment.
+Hệ quả: **Code Mode không chạy trên production**, `createVylingCodemode()` ném lỗi
+rõ ràng khi được gọi. Mọi thứ khác chạy bình thường.
+
+Bật lại khi có quyền beta Worker Loader: bỏ comment `worker_loaders`, thêm
+`"experimental"` vào `compatibility_flags`, chạy `npm run types`.
+
+Kiểu của `LOADER` khai optional trong `src/env.d.ts` chứ không để `wrangler types`
+sinh — vì binding đang tắt thì wrangler không sinh, mà code vẫn cần kiểm tra
+`!!env.LOADER`.
+
+---
+
+## 17. Trạng thái sau lần deploy đầu (15/08/2026)
+
+**Đã chạy thật trên Cloudflare:** https://vyling.qvantruong205.workers.dev
+
+| Đường | Kết quả |
+|---|---|
+| `/cf/ping` | ✅ 200 — edge, không đánh thức container |
+| `/cf/asr` (Whisper) | ✅ 200, ~1,6s — chép **chính xác tuyệt đối** cả Anh lẫn Hàn |
+| `/api/health` | ✅ 200 qua container + quick tunnel |
+| `/` (SPA) | ✅ 200 text/html |
+| `/api/content/videos` | ✅ có dữ liệu (seed từ code) |
+| `/api/define?word=공부` | ⚠️ 200 nhưng **rỗng** — xem dưới |
+
+Kết quả Whisper thật:
+
+```
+"Hello, my name is Truong. I am learning English every day."   (en, 5.4s)
+"안녕하세요. 저는 베트남 사람입니다. 한국어를 공부하고 있어요."      (ko, 7.2s)
+"오늘 날씨가 정말 좋네요. 같이 산책할까요?"                        (ko, 6.1s)
+```
+
+Cả ba đúng từng ký tự, kể cả tên riêng và dấu câu.
+
+### 17.1 🔴 Container CHƯA CÓ DỮ LIỆU
+
+`/app/dictionaries/` và `/app/data/` **rỗng**. `Dockerfile.dockerignore` cố tình
+loại chúng (§12), dự tính nạp từ R2 lúc chạy — nhưng **phần nạp đó chưa viết**.
+
+Hệ quả cụ thể:
+- Từ điển KRDICT **91.481 mục → 0**. `/api/define` trả rỗng, và tool MCP `tra_tu`
+  cũng vậy.
+- SQLite là DB mới tinh mỗi lần container dựng lại, không phải `data/hanquan.db`
+  24MB có sẵn. Tài khoản, thẻ SRS, tiến độ đều không có.
+- `/media/*` phục vụ từ R2 nhưng **bucket đang rỗng**.
+
+Nói cho đúng: **kiến trúc đã kiểm chứng, đường dẫn dữ liệu thì chưa dựng.**
+Deploy này trả lời "chạy được trên Cloudflare không", chưa phải "web dùng được chưa".
+
+### 17.2 Ba việc còn nợ, theo thứ tự
+
+1. **Nạp dữ liệu** — đẩy `dictionaries/` + `media/` lên R2, mount hoặc tải lúc
+   container khởi động. Quyết định luôn: SQLite dùng chung một volume bền hay
+   chuyển sang D1.
+2. **Secret tới được backend** (§15) — chưa có thì mọi tính năng cần LLM đều tắt.
+3. **Cold start**: lần gọi đầu trả 500 rồi 530 trong lúc container dựng và tunnel
+   chưa sẵn sàng; ~2,2s khi đã ấm. Cần chặn lỗi đó bằng trang chờ hoặc thử lại,
+   đừng để người học thấy 500.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
