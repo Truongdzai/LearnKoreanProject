@@ -44,15 +44,44 @@ def _merge(base: dict, over: dict) -> dict:
             out[key] = value
     return out
 
+_ENV_SECRETS = {
+    ("llm", "api_key"): "VYLING_LLM_API_KEY",
+    ("together", "api_key"): "VYLING_TOGETHER_API_KEY",
+    ("cloudflare", "api_token"): "VYLING_CLOUDFLARE_API_TOKEN",
+    ("admin", "password"): "VYLING_ADMIN_PASSWORD",
+    ("smtp", "password"): "VYLING_SMTP_PASSWORD",
+    ("oauth", "google_client_secret"): "VYLING_GOOGLE_CLIENT_SECRET",
+    ("oauth", "facebook_app_secret"): "VYLING_FACEBOOK_APP_SECRET",
+}
+
+
+def _apply_env(cfg: dict) -> dict:
+    """Nạp bí mật từ biến môi trường, ưu tiên hơn file.
+
+    Khi chạy trên máy thì config.toml là đủ. Nhưng khi chạy trong container
+    (Cloudflare Sandbox) thì config.toml KHÔNG nằm trong image — cố ý, để khoá
+    API không bị đóng gói vào image. Không có lối này thì `wrangler secret`
+    dừng ở Worker và tiến trình Python không bao giờ thấy khoá: web chạy nhưng
+    mọi tính năng cần AI đều tắt câm, kể cả dịch phụ đề.
+    """
+    import os
+
+    for (section, key), var in _ENV_SECRETS.items():
+        val = os.environ.get(var, "").strip()
+        if val:
+            cfg.setdefault(section, {})[key] = val
+    return cfg
+
+
 def load() -> dict:
     path = CONFIG_PATH if CONFIG_PATH.exists() else (EXAMPLE_PATH if EXAMPLE_PATH.exists() else None)
     if not path:
-        return DEFAULTS
+        return _apply_env(dict(DEFAULTS))
     try:
         with open(path, "rb") as f:
-            return _merge(DEFAULTS, tomllib.load(f))
+            return _apply_env(_merge(DEFAULTS, tomllib.load(f)))
     except Exception:
-        return DEFAULTS
+        return _apply_env(dict(DEFAULTS))
 
 settings = load()
 

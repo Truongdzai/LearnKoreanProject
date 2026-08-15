@@ -16,6 +16,7 @@ declare global {
 
 		DEPLOY_TOKEN?: string
 		LLM_API_KEY?: string
+		ADMIN_PASSWORD?: string
 		JWT_SECRET?: string
 		SMTP_PASSWORD?: string
 		GOOGLE_CLIENT_SECRET?: string

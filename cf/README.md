@@ -392,7 +392,30 @@ thì `Dockerfile` cũng phải đổi sang `cloudflare/sandbox:0.12.7-python`.
 
 ---
 
-## 15. 🔴 Secret CHƯA nạp được vào backend — phải xử lý trước khi chạy thật
+## 15. ✅ Secret đã nạp được vào backend (đã xử lý 16/08)
+
+**Đường đi:** `wrangler secret put` → Worker env → biến môi trường của tiến
+trình uvicorn (`legacy-proxy.ts`) → `backend/config.py` đọc qua `_apply_env()`.
+
+Cần đặt các secret sau; **bạn tự gõ giá trị**, không dán vào chat:
+
+```bash
+npx wrangler secret put LLM_API_KEY --cwd cf
+```
+
+Còn `ADMIN_PASSWORD` (chặn việc app tự sinh mật khẩu rồi in ra log — xem 15.2),
+`SMTP_PASSWORD`, `GOOGLE_CLIENT_SECRET`, `FACEBOOK_APP_SECRET`, `DEPLOY_TOKEN`.
+
+Bản đồ tên biến nằm ở `_ENV_SECRETS` trong `backend/config.py`. Biến môi trường
+ghi đè giá trị trong file, nên chạy trên máy vẫn dùng `config.toml` như cũ.
+
+**Chưa đặt `LLM_API_KEY` thì mọi tính năng AI tắt câm** — kể cả dịch phụ đề, và
+người học chỉ thấy tiếng Anh.
+
+<details>
+<summary>Ghi chép cũ (trước khi sửa)</summary>
+
+## 15-cũ. Secret CHƯA nạp được vào backend
 
 Phát hiện khi rà trước lần deploy đầu. Hai việc còn nợ, **không** chặn deploy
 kiểm chứng nhưng **chặn chạy thật**:
@@ -426,6 +449,8 @@ khẩu ngẫu nhiên rồi in ra stdout **mỗi lần container khởi động**
 
 Trên máy thì vô hại. Trên Cloudflare, log đó lưu lại và đọc được. Xử lý cùng
 15.1 — đặt `admin.password` thật là hết.
+
+</details>
 
 ---
 
