@@ -14,7 +14,7 @@ import {
 } from '@/core/api/me.api'
 import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
 import { META_DESC, PUBLIC_VIEWS, pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
-import { studyLang, STUDY_LANGS, NATIVE_CODE } from '@/core/constants/languages'
+import { studyLang, AVAILABLE_STUDY_LANGS, NATIVE_CODE } from '@/core/constants/languages'
 import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { pageview } from '@/core/analytics'
 import { announce } from '@/core/a11y'
@@ -70,10 +70,13 @@ function loadTheme(): ThemeMode {
 }
 
 function loadLang(): string {
+  // Chỉ nhận ngôn ngữ ĐANG MỞ. Người dùng cũ đã lưu 'ko' phải rơi về ngôn ngữ
+  // mở, nếu không họ mở web lên là vào thẳng một ngôn ngữ chưa có nội dung.
+  const fallback = AVAILABLE_STUDY_LANGS[0]?.code || 'en'
   try {
-    const saved = localStorage.getItem(LANG_KEY) || 'ko'
-    return STUDY_LANGS.some((l) => l.code === saved) ? saved : 'ko'
-  } catch { return 'ko' }
+    const saved = localStorage.getItem(LANG_KEY) || fallback
+    return AVAILABLE_STUDY_LANGS.some((l) => l.code === saved) ? saved : fallback
+  } catch { return fallback }
 }
 
 function loadNative(): string {
@@ -128,6 +131,7 @@ interface AppStore {
   setGoal: (g: string) => void
   onboardingOpen: boolean
   openOnboarding: () => void
+  askGoalOnce: () => void
   closeOnboarding: () => void
 
   dailyGoalXp: number
@@ -185,7 +189,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [uiLang, setUiLangState] = useState<UiLang>(() => loadUiLang(loadNative()))
   const [wizardRequested, setWizardRequested] = useState(false)
   const [goal, setGoalState] = useState<string>(loadGoal)
-  const [onboardingOpen, setOnboardingOpen] = useState<boolean>(() => !loadGoal() && !goalAsked())
+  const [onboardingOpen, setOnboardingOpen] = useState<boolean>(false)
   const [dailyGoalXp, setDailyGoalXpState] = useState<number>(loadDailyGoal)
   const [todayXp, setTodayXp] = useState<number>(loadTodayXp)
   const [goalBonusClaimed, setGoalBonusClaimed] = useState(false)
@@ -350,6 +354,10 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   }, [isAuthed, setAccount])
 
   const openOnboarding = useCallback(() => setOnboardingOpen(true), [])
+  const askGoalOnce = useCallback(() => {
+    if (loadGoal() || goalAsked()) return
+    setOnboardingOpen(true)
+  }, [])
   const closeOnboarding = useCallback(() => {
     setOnboardingOpen(false)
     try { localStorage.setItem(GOAL_ASKED_KEY, '1') } catch {  }
@@ -528,7 +536,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     nativeLang, setNativeLang,
     uiLang, setUiLang, t, learnLangName,
     wizardRequested, requestWizard, clearWizard,
-    goal, setGoal, onboardingOpen, openOnboarding, closeOnboarding,
+    goal, setGoal, onboardingOpen, openOnboarding, askGoalOnce, closeOnboarding,
     dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
     user, isAuthed,
     videos,
