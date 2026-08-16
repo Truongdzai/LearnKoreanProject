@@ -1,6 +1,9 @@
 import { getSandbox, type Sandbox } from '@cloudflare/sandbox'
 
-const SANDBOX_ID = 'vyling-app'
+// Đổi giá trị này (qua biến SANDBOX_ID trong wrangler.jsonc) là cách khôi phục
+// khi container/tunnel kẹt: Cloudflare dựng một sandbox hoàn toàn mới thay vì
+// cố cứu cái cũ. Cái cũ tự bị dọn sau khi hết hạn nhàn rỗi.
+const DEFAULT_SANDBOX_ID = 'vyling-app'
 
 // Chỉ nhớ một chuỗi URL, KHÔNG bao giờ nhớ Promise ở phạm vi module: một
 // Promise đang chờ mà bị request khác await sẽ ném "Cannot perform I/O on
@@ -15,9 +18,17 @@ function sandboxFor(env: Env) {
 	// bắt buộc phải đi qua `unknown`. Ép kiểu gói gọn đúng một chỗ này; phần
 	// còn lại của Env vẫn do wrangler sinh nên không thể lệch với wrangler.jsonc.
 	const ns = env.Sandbox as unknown as DurableObjectNamespace<Sandbox>
-	return getSandbox(ns, SANDBOX_ID, {
-		transport: 'rpc',
-		keepAlive: true,
+	// Transport KHÔNG đặt được ở đây: `SandboxOptions` không có trường đó, nên
+	// `transport: 'rpc'` bị bỏ qua âm thầm. Đặt bằng biến `SANDBOX_TRANSPORT`
+	// trong wrangler.jsonc — tunnels bắt buộc RPC.
+	// keepAlive: false + sleepAfter là CỐ Ý, dù app có vòng lặp nền.
+	// Với keepAlive:true, container không bao giờ tự ngủ — mỗi lần đổi
+	// SANDBOX_ID để khôi phục sẽ để lại một container mồ côi chạy mãi và tính
+	// tiền mãi. Cho ngủ thì cái cũ tự bị dọn, đổi lại là cold start sau khi
+	// nhàn rỗi (proxyToBackend đã có nhánh thử lại để che).
+	return getSandbox(ns, env.SANDBOX_ID || DEFAULT_SANDBOX_ID, {
+		keepAlive: false,
+		sleepAfter: '15m',
 	})
 }
 
@@ -58,6 +69,11 @@ export async function ensureBackend(env: Env): Promise<string> {
 			cachedOrigin = existing.url
 			return existing.url
 		}
+		// Chỉ bỏ BẢN GHI TUNNEL đã chết, KHÔNG gọi sandbox.destroy().
+		// Đã thử destroy() và nó làm hỏng nặng hơn: hệ thống tunnel kẹt ở
+		// "Tunnel recovery attempts were exhausted", startProcess bị Canceled,
+		// và web trả 500 liên tục cho tới khi phải dựng sandbox mới.
+		// startProcess dưới đây tự khởi động lại container nếu nó đã dừng.
 		await sandbox.tunnels.destroy(port).catch(() => {})
 	}
 
@@ -65,24 +81,24 @@ export async function ensureBackend(env: Env): Promise<string> {
 	// uvicorn. `backend/config.py` đọc chúng qua `_apply_env` và ghi đè lên
 	// config.example.toml (file này KHÔNG có khoá — cố ý, để khoá không bị
 	// đóng gói vào image). Thiếu đường này thì mọi tính năng AI tắt câm.
+	// Trường đúng tên là `envVars`, KHÔNG phải `env`. Dùng `env` thì TypeScript
+	// không kêu nhưng SDK bỏ qua im lặng — uvicorn chạy mà không có khoá nào,
+	// và mọi tính năng AI tắt câm dù `wrangler secret` đã đặt đúng.
+	// Đặt ở cấp sandbox để mọi tiến trình sau này cũng thấy.
+	const secretEnv: Record<string, string> = {
+		PYTHONUNBUFFERED: '1',
+		PYTHONIOENCODING: 'utf-8',
+	}
+	if (env.LLM_API_KEY) secretEnv.VYLING_LLM_API_KEY = env.LLM_API_KEY
+	if (env.ADMIN_PASSWORD) secretEnv.VYLING_ADMIN_PASSWORD = env.ADMIN_PASSWORD
+	if (env.SMTP_PASSWORD) secretEnv.VYLING_SMTP_PASSWORD = env.SMTP_PASSWORD
+	if (env.GOOGLE_CLIENT_SECRET) secretEnv.VYLING_GOOGLE_CLIENT_SECRET = env.GOOGLE_CLIENT_SECRET
+	if (env.FACEBOOK_APP_SECRET) secretEnv.VYLING_FACEBOOK_APP_SECRET = env.FACEBOOK_APP_SECRET
+
+	await sandbox.setEnvVars(secretEnv)
 	await sandbox.startProcess(
 		`python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${port}`,
-		{
-			cwd: '/app',
-			env: {
-				PYTHONUNBUFFERED: '1',
-				PYTHONIOENCODING: 'utf-8',
-				...(env.LLM_API_KEY ? { VYLING_LLM_API_KEY: env.LLM_API_KEY } : {}),
-				...(env.ADMIN_PASSWORD ? { VYLING_ADMIN_PASSWORD: env.ADMIN_PASSWORD } : {}),
-				...(env.SMTP_PASSWORD ? { VYLING_SMTP_PASSWORD: env.SMTP_PASSWORD } : {}),
-				...(env.GOOGLE_CLIENT_SECRET
-					? { VYLING_GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET }
-					: {}),
-				...(env.FACEBOOK_APP_SECRET
-					? { VYLING_FACEBOOK_APP_SECRET: env.FACEBOOK_APP_SECRET }
-					: {}),
-			},
-		},
+		{ cwd: '/app', env: secretEnv },
 	)
 
 	const tunnel = await sandbox.tunnels.get(port)

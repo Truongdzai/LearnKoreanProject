@@ -34,7 +34,21 @@ app.route('/agents/vyling-tutor', createAgentRouter(VylingTutor))
 
 app.route('/agents/vyling-ops', createAgentRouter(VylingOps))
 
-app.get('/cf/ping', (c) => c.json({ pong: true, at: new Date().toISOString() }))
+app.get('/cf/ping', (c) =>
+	c.json({
+		pong: true,
+		at: new Date().toISOString(),
+		// Chỉ báo CÓ/KHÔNG, không bao giờ lộ giá trị — để chẩn đoán khi tính
+		// năng AI im lặng tắt mà không rõ khoá đã tới Worker chưa.
+		secrets: {
+			llm: !!c.env.LLM_API_KEY,
+			admin: !!c.env.ADMIN_PASSWORD,
+			google: !!c.env.GOOGLE_CLIENT_SECRET,
+		},
+		sandboxId: c.env.SANDBOX_ID || '(mặc định)',
+		transport: c.env.SANDBOX_TRANSPORT || '(mặc định)',
+	}),
+)
 
 // Thay container sau khi deploy code backend mới. Bảo vệ bằng secret
 // DEPLOY_TOKEN: đây là nút gây gián đoạn dịch vụ, để mở là ai cũng khởi động
