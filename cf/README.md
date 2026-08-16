@@ -580,6 +580,65 @@ curl -s https://vyling.qvantruong205.workers.dev/api/content/videos | head -c 20
 
 ---
 
+## 19. 🔴 Hai lỗi im lặng khiến mọi tính năng AI tắt câm
+
+Cả hai đều **type-check sạch, deploy xanh**, và chỉ lộ ra khi đọc log Worker.
+
+### 19.1 `transport` không đặt được qua `getSandbox()`
+
+```ts
+getSandbox(ns, id, { transport: 'rpc' })   // ❌ BỊ BỎ QUA
+```
+
+`SandboxOptions` **không có** trường `transport`. Worker chạy HTTP transport,
+log ghi `Using http transport`, và vì **tunnels bắt buộc RPC** nên mọi lệnh
+tunnel hỏng với `Tunnel recovery attempts were exhausted`.
+
+Đúng cách là biến môi trường trong `wrangler.jsonc`:
+
+```jsonc
+"vars": { "SANDBOX_TRANSPORT": "rpc" }
+```
+
+Chính SDK có sẵn câu này trong thông báo lỗi: *"requires the rpc transport.
+Set SANDBOX_TRANSPORT=rpc."*
+
+### 19.2 Tên trường biến môi trường
+
+```ts
+startProcess(cmd, { env: {...} })          // ❌ SDK bỏ qua
+await sandbox.setEnvVars({...})            // ✅ đúng
+```
+
+Hệ quả: `wrangler secret` tới được Worker (`/cf/ping` báo `llm: true`) nhưng
+**không tới tiến trình uvicorn**, nên `/api/health` luôn báo `✗ Bộ não AI`.
+Dịch phụ đề im lặng trả về tiếng Anh trần.
+
+### 19.3 Đừng gọi `sandbox.destroy()` trong đường request
+
+Thử dùng `destroy()` để ép container nhận code mới. Kết quả: hệ thống tunnel
+kẹt (`ensureTunnelRun was interrupted`), `startProcess` bị Canceled, web trả
+500 liên tục. Chỉ nên `tunnels.destroy(port)` — `startProcess` tự khởi động lại
+container đã dừng.
+
+### 19.4 `keepAlive: true` để lại container mồ côi
+
+Khi khôi phục bằng cách đổi `SANDBOX_ID`, sandbox cũ **không bao giờ tự ngủ**
+và tính tiền mãi. Nay dùng `keepAlive: false` + `sleepAfter: '15m'`: đổi lại là
+cold start sau khi nhàn rỗi, nhưng `proxyToBackend` đã có nhánh thử lại để che.
+
+### 19.5 Khôi phục khi container application hỏng hẳn
+
+```bash
+npx wrangler containers delete <APPLICATION_ID>
+```
+
+Cần gõ `y` xác nhận (không có cờ `--force`). Sau đó Worker sẽ báo *"There is no
+container application assigned to this Durable Object namespace"* cho tới khi
+`npm run deploy --prefix cf` dựng lại nó.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
