@@ -7,6 +7,7 @@ import { createMcpHandler } from 'agents/mcp/server'
 import { backendLogs, backendReady, proxyToBackend, recycleBackend } from './legacy-proxy'
 import { prebuiltLesson } from './lessons'
 import { lookupEn } from './dict'
+import { serveStatic } from './site'
 import { buildMcpServer } from './mcp/server'
 
 const app = new Hono<{ Bindings: Env }>()
@@ -116,6 +117,10 @@ app.get('/media/*', async (c) => {
 	return new Response(object.body, { headers })
 })
 
-app.all('*', (c) => proxyToBackend(c.req.raw, c.env))
+app.all('*', async (c) => {
+	const asset = await serveStatic(c.env, c.req.raw, c.executionCtx as ExecutionContext)
+	if (asset) return asset
+	return proxyToBackend(c.req.raw, c.env)
+})
 
 export default app

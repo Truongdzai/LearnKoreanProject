@@ -70,6 +70,7 @@ Mọi URL cũ vẫn do chính `backend/` trả lời. Nếu gỡ Worker đi, app
 | `src/waiting.ts` | Trang chờ cold start thay cho trang lỗi Cloudflare (§21) |
 | `src/lessons.ts` | Bài học dựng sẵn phục vụ thẳng từ R2 ở edge (§23) |
 | `src/dict.ts` | Tra từ tiếng Anh miễn phí ở edge, cache R2 (§24) |
+| `src/site.ts` | Phục vụ SPA thẳng từ R2 ở edge (§26) |
 
 ---
 
@@ -1027,6 +1028,87 @@ Kèm theo: `originAlive` đổi từ **1 lần / 8 giây** sang **2 lần / 15 g
 cũ quá chặt cho chuỗi *khôi phục DB → `init_db` → seed*, nên nó **huỷ nhầm
 tunnel đang lành** rồi dựng cái mới với URL khác — chính là thứ châm ngòi cho
 vòng luẩn quẩn ở §25.2.
+
+---
+
+## 26. Phục vụ SPA từ R2 ở edge (`src/site.ts`)
+
+### 26.1 Đo trước khi sửa
+
+| Đo | Số liệu |
+|---|---|
+| Mở trang khi container ngủ | **31,5s** (bắt tay mạng chỉ 0,24s — còn lại là chờ container) |
+| Mở trang khi container ấm | 1,69s cho một HTML **8,9 KB** |
+| Tải `assets/index-*.js` | 1,93s |
+| `CF-Cache-Status` | **DYNAMIC** |
+
+Nén vẫn có (zstd) và trang chỉ gọi 3 file, nên **không** phải lỗi kích thước hay
+số lượng request. Vấn đề là **đường đi**: mọi file tĩnh đều do FastAPI trong
+container phục vụ, nên phải chạy `trình duyệt → edge → tunnel → uvicorn → về`.
+Riêng chặng đó ~1,5s dù file chỉ 9 KB. Và `DYNAMIC` nghĩa là Cloudflare **không
+cache** — mỗi người, mỗi lần, mỗi file đều đi trọn vòng, dù header đã ghi
+`immutable`. Response đi ra từ `fetch()` của Worker nên không rơi vào cache của
+zone, mà `workers.dev` cũng không có quy tắc cache nào.
+
+### 26.2 Cách sửa
+
+Đúng như §12.3 đã ghi sẵn: đẩy lên R2 và phục vụ ở edge, y hệt `/media/*`.
+
+Trong 104 MB của `frontend/dist`, **vỏ ứng dụng chỉ ~140 file** (`assets/`,
+`index.html`, `sw.js`, manifest, `icons/`, `img/`, 18 trang prerender). Nhóm đó
+lên bucket `vyling-site` qua `scripts/upload_site_r2.mjs`.
+
+`src/site.ts` xử lý ba trường hợp:
+
+| Đường vào | Xử lý |
+|---|---|
+| `/api/*`, `/cf/*`, `/media/*`, `/mcp`, `/agents/*` | trả `null` ngay — không đụng vào |
+| Có file trên R2 | trả thẳng từ edge |
+| Không có file, đường dẫn **không** có đuôi | trả `index.html` (SPA fallback) |
+| Không có file, đường dẫn **có** đuôi | trả `null` → rơi xuống container |
+
+Nhánh cuối là **đường lùi cố ý**: `wordimg/` (46 MB), `audio/` (38 MB),
+`cosmetics/` (13 MB) chưa đẩy lên R2 nên vẫn do container phục vụ như cũ. Không
+có thời điểm nào web bị trống. Đẩy nốt sau bằng `--all`.
+
+`assets/*` là tên có băm nên đặt `immutable, max-age=31536000`; HTML đặt
+`max-age=0, must-revalidate` để deploy mới được nhận ngay.
+
+### 26.3 Đo sau khi sửa
+
+Cách đo đáng tin nhất là **ba request liên tiếp trên cùng một kết nối** — mỗi lần
+gọi `curl` riêng lại phải bắt tay TLS lại nên số bị nhiễu:
+
+```
+1,22s → 0,143s → 0,146s
+```
+
+Chi phí thật mỗi request còn **~0,15s**, so với 1,69s trước đó. `assets/*` có
+tên băm nên còn được `caches.default` giữ ở edge, khỏi đọc lại R2.
+
+| | Trước | Sau |
+|---|---|---|
+| HTML (ấm) | 1,69s | ~0,15s |
+| `assets/index-*.js` | 1,93s | 0,28–0,79s |
+| Container đang ngủ | **31,5s** | không liên quan nữa — trang không cần container |
+
+Điều đáng giá nhất không phải con số mà là **thay đổi cấu trúc**: mở trang không
+còn chạm vào container. Cold start giờ chỉ ảnh hưởng `/api/*` (đăng nhập, SRS),
+mà chỗ đó đã có trang chờ và cơ chế thử lại ở §25.3 che.
+
+Đường lùi cũng đã kiểm: `/wordimg/…` chưa lên R2 vẫn trả 200 qua container.
+
+### 26.4 ⚠️ Deploy nay có THÊM một bước
+
+Từ giờ `frontend/dist` nằm ở **hai nơi**: R2 (phục vụ thật) và image container
+(đường lùi). Đổi frontend mà quên đẩy R2 thì người dùng vẫn thấy bản cũ, vì R2
+được hỏi trước.
+
+```bash
+npm run build --prefix frontend
+node scripts/upload_site_r2.mjs
+npm run deploy --prefix cf
+```
 
 ---
 

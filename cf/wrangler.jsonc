@@ -64,6 +64,11 @@
 			"binding": "LESSONS",
 			"bucket_name": "vyling-lessons",
 			"preview_bucket_name": "vyling-lessons-dev"
+		},
+		{
+			"binding": "SITE",
+			"bucket_name": "vyling-site",
+			"preview_bucket_name": "vyling-site-dev"
 		}
 	],
 
