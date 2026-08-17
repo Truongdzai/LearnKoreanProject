@@ -1,12 +1,11 @@
-import { env } from '@/config/env'
+import { useEdgeAsr } from '@/core/asr'
 import { useSpeechRecognition } from './useSpeechRecognition'
 import { useWhisperRecognition } from './useWhisperRecognition'
-
-export const whisperEnabled = !!env.agentBase
 
 export function useAsr(lang = 'ko-KR') {
 	const browser = useSpeechRecognition(lang)
 	const whisper = useWhisperRecognition(lang)
+	const edge = useEdgeAsr()
 
-	return whisperEnabled && whisper.supported ? whisper : browser
+	return edge && whisper.supported ? whisper : browser
 }

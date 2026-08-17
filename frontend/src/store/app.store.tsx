@@ -70,8 +70,6 @@ function loadTheme(): ThemeMode {
 }
 
 function loadLang(): string {
-  // Chỉ nhận ngôn ngữ ĐANG MỞ. Người dùng cũ đã lưu 'ko' phải rơi về ngôn ngữ
-  // mở, nếu không họ mở web lên là vào thẳng một ngôn ngữ chưa có nội dung.
   const fallback = AVAILABLE_STUDY_LANGS[0]?.code || 'en'
   try {
     const saved = localStorage.getItem(LANG_KEY) || fallback
@@ -507,12 +505,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       return
     }
     setStatusError(false)
-    setStatus('Đang lấy phụ đề & dịch... (10–60 giây tùy độ dài video)')
+    setStatus(translate(uiLang, 'learn.preparing'))
+    const slowNotice = setTimeout(() => setStatus(translate(uiLang, 'learn.fetching')), 1500)
     setLesson(null)
     setView('learn')
     track('lesson_start', { lang, from: opts?.video ? 'catalog' : 'paste' })
     try {
       const d = await fetchTranscript(u, lang)
+      clearTimeout(slowNotice)
       setLesson(d)
       setStatus('')
       track('lesson_ready', { lang, segments: d.segments?.length || 0 })
@@ -523,11 +523,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
       }
     } catch (e) {
+      clearTimeout(slowNotice)
       setStatusError(true)
       setStatus((e as Error).message)
       track('lesson_failed', { lang, reason: (e as Error).message.slice(0, 60) })
     }
-  }, [recordEvent, learnLang, nativeLang, saveVideo])
+  }, [recordEvent, learnLang, nativeLang, saveVideo, uiLang])
 
   const value: AppStore = {
     view, setView,

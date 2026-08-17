@@ -1,0 +1,9 @@
+dbs:
+  - path: /app/data/hanquan.db
+    replica:
+      type: s3
+      bucket: ${LITESTREAM_BUCKET}
+      path: hanquan
+      endpoint: ${LITESTREAM_ENDPOINT}
+      region: auto
+      sync-interval: 1s

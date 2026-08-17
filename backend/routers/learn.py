@@ -14,34 +14,8 @@ from ..services.langs import study_name, native_name
 router = APIRouter(prefix="/api/transcript", tags=["Bài học"])
 OptAuth = Depends(auth.get_optional_user)
 
-_CAPTION_NOISE = (">>", "[music]", "[Music]", "[MUSIC]", "[applause]", "[Applause]",
-                  "[laughter]", "[Laughter]", "♪")
-
-
 def _needs_repair(segments: list[dict], source: str) -> bool:
-    """Phụ đề có cần dọn lại bằng AI không.
-
-    Trước đây chỉ dọn khi source là "tự động". Nhưng phụ đề CHÍNH THỨC của nhiều
-    kênh lại là bản chép kiểu truyền hình: có ">>" đánh dấu đổi người nói,
-    "[music]", và cắt dòng theo độ dài chứ không theo câu — người học đọc thì
-    đứt mạch, mà máy dịch cũng dịch sai vì nửa câu không đủ nghĩa.
-
-    Nên quyết định theo NỘI DUNG chứ không theo nhãn nguồn: thấy dấu hiệu nhiễu,
-    hoặc phần lớn dòng không kết thúc bằng dấu câu, thì dọn.
-    """
-    if "tự động" in (source or ""):
-        return True
-    if not segments:
-        return False
-
-    texts = [str(s.get("ko") or "") for s in segments]
-    if any(any(n in t for n in _CAPTION_NOISE) for t in texts):
-        return True
-
-    # Chép kiểu truyền hình cắt dòng giữa câu. Bản chép theo câu thì đa số dòng
-    # kết thúc bằng dấu câu; dưới một nửa là dấu hiệu bị cắt vụn.
-    ended = sum(1 for t in texts if t.rstrip().endswith((".", "!", "?", "…", "。", "！", "？")))
-    return ended * 2 < len(texts)
+    return translate.needs_repair([str(s.get("ko") or "") for s in segments], source)
 
 
 def _attach_speakers(lesson: dict) -> dict:

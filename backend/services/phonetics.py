@@ -42,6 +42,32 @@ def _norm(word: str) -> str:
     return _STRIP.sub("", (word or "").lower().replace("’", "'"))
 
 
+_STRESS_PRIMARY = "ˈ"
+_STRESS_SECONDARY = "ˌ"
+_MIN_PART = 3
+
+
+def _join(parts: list[tuple[str, str]]) -> tuple[str, str]:
+    ipas: list[str] = []
+    for n, (ipa, _) in enumerate(parts):
+        if n == 0:
+            ipas.append(ipa if _STRESS_PRIMARY in ipa else _STRESS_PRIMARY + ipa)
+        else:
+            ipas.append(ipa.replace(_STRESS_PRIMARY, _STRESS_SECONDARY, 1))
+    return "".join(ipas), " ".join(p[1] for p in parts)
+
+
+def _split_compound(table: dict[str, tuple[str, str]], key: str) -> tuple[str, str] | None:
+    best: tuple[int, tuple[str, str]] | None = None
+    for cut in range(_MIN_PART, len(key) - _MIN_PART + 1):
+        head, tail = key[:cut], key[cut:]
+        if head in table and tail in table:
+            balance = min(len(head), len(tail))
+            if best is None or balance > best[0]:
+                best = (balance, _join([table[head], table[tail]]))
+    return best[1] if best else None
+
+
 def _entry(table: dict[str, tuple[str, str]], key: str) -> tuple[str, str] | None:
     if key in table:
         return table[key]
@@ -52,7 +78,17 @@ def _entry(table: dict[str, tuple[str, str]], key: str) -> tuple[str, str] | Non
     if "-" in key:
         parts = [table[p] for p in key.split("-") if p in table]
         if len(parts) == len(key.split("-")):
-            return "".join(p[0] for p in parts), " ".join(p[1] for p in parts)
+            return _join(parts)
+
+    hit = _split_compound(table, key)
+    if hit:
+        return hit
+
+    if len(key) > 4 and key.endswith("s") and not key.endswith("ss"):
+        base = _entry(table, key[:-1])
+        if base:
+            tail = "s" if base[1].split()[-1] in ("P", "T", "K", "F", "TH") else "z"
+            return base[0] + tail, base[1] + " " + tail.upper()
     return None
 
 

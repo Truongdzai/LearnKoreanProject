@@ -1,49 +1,17 @@
 {
-	// Cấu hình Worker cho VyLing trên Cloudflare.
-	//
-	// `main` KHÔNG khai ở đây: plugin @flue/vite tự đóng góp Worker entry
-	// (và Durable Object binding của từng agent) qua flueWorkerConfig()
-	// trong vite.config.ts.
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "vyling",
 	"compatibility_date": "2026-08-15",
 
-	// nodejs_compat: Flue runtime + MCP SDK cần.
-	//
-	// KHÔNG thêm "experimental": Cloudflare từ chối deploy Worker có cờ này
-	// ("The compatibility flag experimental is experimental and cannot yet be
-	// used in Workers deployed to Cloudflare", code 10021). Nó chỉ chạy ở dev
-	// cục bộ. Cờ đó đi kèm `worker_loaders` bên dưới — xem §5 và §16.
 	"compatibility_flags": ["nodejs_compat"],
 
-	// head_sampling_rate = 1 (giữ mọi log) cho tới khi chạy thật và biết lưu
-	// lượng; lúc đó hạ xuống để đỡ tốn.
 	"observability": { "enabled": true, "head_sampling_rate": 1 },
 
-	// ─── KHÔNG dùng Workers Assets ở đây ────────────────────────────────
-	// Đã thử `"assets": { "directory": "../frontend/dist", ... }` và
-	// @cloudflare/vite-plugin BỎ IM LẶNG khối đó — config sinh ra ở
-	// dist/vyling/wrangler.json có `assets: undefined` (crons/containers/DO
-	// thì vẫn qua). Plugin tự quản assets từ client build của chính nó, mà
-	// frontend/ là project Vite 5 riêng, không nằm trong build này.
-	//
-	// Nên frontend/dist đi vào image và FastAPI phục vụ y như hôm nay
-	// (SpaStaticFiles, trang prerender, cache header — không lệch gì).
-	// Xem cf/README.md §12 nếu muốn tối ưu sau.
-
-	// ─── Sandbox: nơi chạy NGUYÊN VẸN app FastAPI hiện tại ──────────────
-	// Không port sang Workers. Toàn bộ backend/ Python chạy trong container
-	// Linux, Worker chỉ đứng trước làm reverse proxy.
 	"containers": [
 		{
 			"class_name": "Sandbox",
 			"image": "./Dockerfile",
-			// Dockerfile COPY backend/, requirements.txt ở GỐC repo, nên
-			// build context phải trỏ lên trên (mặc định là thư mục chứa
-			// Dockerfile, tức cf/ — sẽ báo "file not found").
 			"image_build_context": "../",
-			// Hợp lệ: lite | basic | standard-1..standard-4 (mặc định lite).
-			// standard-2 cho ffmpeg; hạ xuống basic nếu chỉ chạy API thuần.
 			"instance_type": "standard-2",
 			"max_instances": 5
 		}
@@ -53,15 +21,11 @@
 		"bindings": [
 			{
 				"class_name": "Sandbox",
-				// Tên binding phải đúng là "Sandbox": proxyToSandbox() của
-				// @cloudflare/sandbox đọc đúng khoá này trong env.
 				"name": "Sandbox"
 			},
 		]
 	},
 
-	// Mỗi agent Flue = thêm 1 tag migration cho class sinh ra
-	// (`Flue<PascalName>Agent`, lấy từ tên hàm agent).
 	"migrations": [
 		{
 			"tag": "v1-sandbox",
@@ -77,29 +41,14 @@
 		}
 	],
 
-	// ─── Agent vận hành dự án ───────────────────────────────────────────
-	// Nhịp 30 phút TỰ kiểm tra bằng một HTTP request rẻ và im lặng khi mọi
-	// thứ ổn — chỉ đánh thức model khi có sự cố. Nhịp 3h sáng viết báo cáo
-	// ngày. Xem src/ops/scheduled.ts.
-	// Giờ theo UTC: "0 3 * * *" = 10h sáng giờ Việt Nam (UTC+7).
 	"triggers": {
 		"crons": ["*/30 * * * *", "0 3 * * *"]
 	},
 
-	// Workers AI binding — Flue định tuyến model `cloudflare/...` qua đây.
 	"ai": {
 		"binding": "AI"
 	},
 
-	// ─── Code Mode (BETA) ───────────────────────────────────────────────
-	// Worker Loader chạy code TypeScript agent sinh ra trong isolate riêng,
-	// không có mạng ra ngoài — chỉ gọi được MCP qua binding.
-	// Tài khoản chưa được cấp quyền beta: comment 3 dòng dưới, phần còn lại
-	// vẫn deploy bình thường (xem cf/README.md §Code Mode).
-	// "worker_loaders": [{ "binding": "LOADER" }],
-
-	// ─── R2: dữ liệu nặng KHÔNG nhét vào image ──────────────────────────
-	// media/ (~420MB) + dictionaries/ (~18MB) + corpus cho AI Search.
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
@@ -110,29 +59,20 @@
 			"binding": "KNOWLEDGE_BASE",
 			"bucket_name": "vyling-knowledge",
 			"preview_bucket_name": "vyling-knowledge-dev"
+		},
+		{
+			"binding": "LESSONS",
+			"bucket_name": "vyling-lessons",
+			"preview_bucket_name": "vyling-lessons-dev"
 		}
 	],
 
 	"vars": {
-		// Cổng uvicorn bên trong sandbox — khớp start.bat hiện tại.
 		"APP_PORT": "8000",
-		// BẮT BUỘC cho tunnels. SandboxOptions KHÔNG có trường  —
-		// đặt qua getSandbox() bị bỏ qua âm thầm, Worker chạy HTTP transport và
-		// mọi lệnh tunnel hỏng với "Tunnel recovery attempts were exhausted".
+		"DB_BUCKET": "vyling-db",
 		"SANDBOX_TRANSPORT": "rpc",
-		// Đổi giá trị này rồi deploy = dựng sandbox hoàn toàn mới. Dùng khi
-		// container hoặc tunnel kẹt (xem cf/README.md §19).
-		"SANDBOX_ID": "vyling-app",
-		// Tên instance AI Search (tạo ở dashboard, xem cf/ai-search/).
+		"SANDBOX_ID": "vyling-app-2",
 		"AI_SEARCH_NAME": "vyling-knowledge",
-		// Origin công khai — agent Flue dùng để tự cắm vào /mcp của chính nó.
-		// PHẢI là URL thật: subdomain workers.dev gồm cả tên tài khoản, đặt sai
-		// thì agent vẫn chạy nhưng không gọi được tool nào.
-		// Đổi thành domain riêng khi có (vd "https://vyling.vn").
 		"PUBLIC_URL": "https://vyling.qvantruong205.workers.dev"
 	}
-
-	// Secrets (KHÔNG để trong file này — dùng `wrangler secret put`):
-	//   LLM_API_KEY, JWT_SECRET, SMTP_PASSWORD,
-	//   GOOGLE_CLIENT_SECRET, FACEBOOK_APP_SECRET
 }

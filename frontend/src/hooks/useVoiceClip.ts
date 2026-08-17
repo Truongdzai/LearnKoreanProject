@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { openMic } from '@/core/mic'
 
 const MAX_MS = 20000
 const MAX_CHARS = 400000
@@ -41,7 +42,7 @@ export function useVoiceClip() {
       setError('')
       let stream: MediaStream
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+        stream = await openMic()
       } catch {
         setError('mic')
         return

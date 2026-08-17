@@ -19,12 +19,20 @@ def _tokens(text: str) -> list[str]:
     return _TOKEN_RE.findall((text or "").lower())
 
 
-def needs_repair(lines: list[str]) -> bool:
+_CAPTION_NOISE = (">>", "[music]", "[Music]", "[MUSIC]", "[applause]", "[Applause]",
+                  "[laughter]", "[Laughter]", "♪")
+
+
+def needs_repair(lines: list[str], source: str = "") -> bool:
+    if "tự động" in (source or ""):
+        return True
     real = [l.strip() for l in lines if l and l.strip()]
     if len(real) < 8:
         return False
+    if any(any(n in l for n in _CAPTION_NOISE) for l in real):
+        return True
     ended = sum(1 for l in real if l[-1] in _SENT_END)
-    return ended / len(real) < 0.3
+    return ended * 2 < len(real)
 
 
 def _repair_window(chunk: list[str], lname: str) -> list[str]:
@@ -96,9 +104,6 @@ def _spread_ties(rows: list[dict]) -> list[dict]:
 
 
 def repair_segments(segments: list[dict], lang: str = "en", window: int = 80) -> list[dict]:
-    lines = [s.get("ko", "") for s in segments]
-    if not needs_repair(lines):
-        return segments
     lname = study_name(lang)
     merged: list[dict] = []
     for i in range(0, len(segments), window):

@@ -3,7 +3,7 @@ import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useAsr } from '@/hooks/useAsr'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
-import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
+import { useYouTubePlayer, YT_STATE } from '@/hooks/useYouTubePlayer'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { scoreBand } from '@/core/utils/pronounce'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -63,14 +63,15 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
 
   const [mode, setMode] = useState<Mode>('repeat')
   const [rate, setRate] = useState(loadRate)
-  const [autoPause, setAutoPause] = useState(() => loadFlag(AUTOPAUSE_KEY, true))
+  const [autoPause, setAutoPause] = useState(() => loadFlag(AUTOPAUSE_KEY, false))
   const [playing, setPlaying] = useState(false)
   const [panel, setPanel] = useState<'' | 'gear' | 'keys'>('')
   const [myClip, setMyClip] = useState('')
   const [saved, setSaved] = useState(0)
   const [saveErr, setSaveErr] = useState('')
   const clip = useVoiceClip()
-  const yt = useYouTubePlayer('shadow-player')
+  const onPlayerState = useRef<(s: number) => void>(() => {})
+  const yt = useYouTubePlayer('shadow-player', { onState: (s) => onPlayerState.current(s) })
   const cancelPlay = useRef<(() => void) | null>(null)
   const myAudio = useRef<HTMLAudioElement | null>(null)
   const tick = useRef<number | null>(null)
@@ -114,10 +115,24 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     return 0
   }, [segs])
 
-  const startTick = useCallback((from: number) => {
+  const followTick = useCallback(() => {
+    stopTick()
+    let cursor = -1
+    tick.current = window.setInterval(() => {
+      const now = yt.getTime()
+      if (now == null) return
+      const at = indexAt(now)
+      if (at !== cursor) {
+        if (cursor !== -1) resetAttempt()
+        cursor = at
+        setI(at)
+      }
+    }, 120)
+  }, [yt, indexAt])
+
+  const lineTick = useCallback((from: number) => {
     stopTick()
     let entered = false
-    let cursor = from
     tick.current = window.setInterval(() => {
       const now = yt.getTime()
       if (now == null) return
@@ -125,30 +140,42 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
         if (now >= segs[from].start - 0.4) entered = true
         return
       }
-      if (autoPause) {
-        if (now >= segEnd(segs, from) - 0.06) stopOriginal()
-        return
-      }
-      const at = indexAt(now)
-      if (at !== cursor) {
-        cursor = at
-        setI(at)
-        resetAttempt()
-      }
+      if (now >= segEnd(segs, from) - 0.06) stopOriginal()
     }, 120)
-  }, [yt, segs, autoPause, indexAt, stopOriginal])
+  }, [yt, segs, stopOriginal])
 
   const playFrom = useCallback((idx: number) => {
     stopOriginal()
     setPlaying(true)
     yt.setRate(rate)
     yt.seek(segs[idx].start)
-    startTick(idx)
-  }, [yt, rate, segs, startTick, stopOriginal])
+    if (autoPause) lineTick(idx)
+    else followTick()
+  }, [yt, rate, segs, autoPause, lineTick, followTick, stopOriginal])
+
+  const playLine = useCallback((idx: number, r = rate) => {
+    stopOriginal()
+    setPlaying(true)
+    cancelPlay.current = playRange(yt, segs[idx].start, segEnd(segs, idx), {
+      times: 1, rate: r, onEnd: stopOriginal,
+    })
+  }, [yt, rate, segs, stopOriginal])
 
   const togglePlay = () => {
     if (playing) stopOriginal()
     else playFrom(i)
+  }
+
+  onPlayerState.current = (s: number) => {
+    if (s === YT_STATE.playing) {
+      setPlaying(true)
+      if (!tick.current && !cancelPlay.current) followTick()
+      return
+    }
+    if (s === YT_STATE.paused || s === YT_STATE.ended) {
+      setPlaying(false)
+      if (!cancelPlay.current) stopTick()
+    }
   }
 
   const stopMine = () => { myAudio.current?.pause(); myAudio.current = null }
@@ -375,7 +402,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           <button className="sh2-tbtn" disabled={i === 0} onClick={() => go(i - 1)} title={t('sh.prevLine')} aria-label={t('sh.prevLine')}>
             <Icon name="chevron-left" size={18} />
           </button>
-          <button className="sh2-tbtn" onClick={() => playFrom(i)} title={t('sh.replayLine')} aria-label={t('sh.replayLine')}>
+          <button className="sh2-tbtn" onClick={() => playLine(i)} title={t('sh.replayLine')} aria-label={t('sh.replayLine')}>
             <Icon name="refresh" size={18} />
           </button>
           <button className={'sh2-tbtn play' + (playing ? ' on' : '')} onClick={togglePlay} title={playing ? t('sh.pauseLine') : t('sh.playLine')} aria-label={playing ? t('sh.pauseLine') : t('sh.playLine')}>
@@ -404,6 +431,11 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                     <button className={'sh2-chip' + (mode === 'overlay' ? ' on' : '')} onClick={() => setMode('overlay')}>{t('sh.modeOverlay')}</button>
                   </div>
                   <p className="sh2-pop-hint">{t(mode === 'repeat' ? 'sh.modeRepeatHint' : 'sh.modeOverlayHint')}</p>
+                  <div className="sh2-pop-h">{t('sh.videoGroup')}</div>
+                  <div className="sh2-pop-chips">
+                    <button className="sh2-chip" onClick={() => playLine(i, 1)}><Icon name="volume" size={13} /> {t('sh.listenVideo')}</button>
+                    <button className="sh2-chip" onClick={() => playLine(i, 0.5)}><Icon name="volume" size={13} /> {t('sh.slowVideo')}</button>
+                  </div>
                   <div className="sh2-pop-h">{t('sh.ttsGroup')}</div>
                   <div className="sh2-pop-chips">
                     <button className="sh2-chip" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={13} /> {t('sh.listen')}</button>
@@ -458,6 +490,12 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                   <Icon name="arrow-right" size={15} /> {t('sh.skipLine')}
                 </button>
               </div>
+              {sr.listening && sr.level > 0 && (
+                <div className="sh2-level" role="presentation">
+                  <span><i style={{ width: Math.round(sr.level * 100) + '%' }} /></span>
+                  <b>{sr.level < 0.12 ? t('sh.micWeak') : t('sh.micOk')}</b>
+                </div>
+              )}
               {(sr.listening || sr.interim) && <div className="sh2-interim" lang={learnLang}>{sr.interim || '…'}</div>}
               {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
               {dropped && <div className="shadow-dropped"><Icon name="check-circle" size={14} /> {t('sh.misheardOk')}</div>}

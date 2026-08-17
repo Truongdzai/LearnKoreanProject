@@ -3,7 +3,7 @@ import Icon from '@/core/components/Icon'
 import Spinner from '@/core/components/Spinner'
 import { speakLang } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
-import { defineWordRich } from '@/core/api/dict.api'
+import { defineWordRich, fetchEdgeDict, type EdgeDict } from '@/core/api/dict.api'
 import { addCard } from '@/core/api/srs.api'
 import { romanizeWord } from '@/core/utils/romanize'
 import { studyLang } from '@/core/constants/languages'
@@ -54,6 +54,7 @@ export default function LookupModal() {
   const cfg = studyLang(learnLang)
   const [q, setQ] = useState('')
   const [view, setView] = useState<View | null>(null)
+  const [quick, setQuick] = useState<EdgeDict | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [saved, setSaved] = useState(false)
@@ -64,7 +65,13 @@ export default function LookupModal() {
     setLoading(true)
     setError('')
     setView(null)
+    setQuick(null)
     setSaved(false)
+
+    if (learnLang === 'en') {
+      void fetchEdgeDict(term).then((d) => { if (d) setQuick(d) })
+    }
+
     try {
       const r = await defineWordRich(term, learnLang, nativeLang)
       setView(toView(r))
@@ -122,7 +129,34 @@ export default function LookupModal() {
           <button type="button" className="lookup-go" onClick={() => run(q)}><Icon name="sparkles" size={15} /> {t('lk.go')}</button>
         </div>
 
-        {loading ? (
+        {loading && quick ? (
+          <div className="lk-quick">
+            <div className="lk-quick-head">
+              <b lang="en">{quick.word}</b>
+              {quick.ipa && <i>{quick.ipa}</i>}
+              {quick.audio && (
+                <button
+                  type="button"
+                  className="lk-quick-play"
+                  onClick={() => { void new Audio(quick.audio).play().catch(() => {}) }}
+                  aria-label={t('lk.playAudio')}
+                >
+                  <Icon name="volume" size={15} />
+                </button>
+              )}
+            </div>
+            <ul className="lk-quick-senses">
+              {quick.senses.map((s, k) => (
+                <li key={k}>
+                  {s.pos && <em>{s.pos}</em>}
+                  <span lang="en">{s.def}</span>
+                  {s.ex && <q lang="en">{s.ex}</q>}
+                </li>
+              ))}
+            </ul>
+            <p className="lk-quick-wait"><Spinner /> {t('lk.viComing')}</p>
+          </div>
+        ) : loading ? (
           <div className="lookup-empty"><Spinner /><p>{t('lk.searching', { q: q.trim() })}</p></div>
         ) : error && !view ? (
           <div className="lookup-empty">

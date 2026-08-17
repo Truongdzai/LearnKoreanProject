@@ -131,5 +131,5 @@ export function useSpeechRecognition(lang = 'ko-KR') {
     altRef.current = []
   }, [])
 
-  return { supported, listening, transcript, alternatives, confidence, interim, error, start, stop, reset }
+  return { supported, listening, transcript, alternatives, confidence, interim, error, level: 0, start, stop, reset }
 }

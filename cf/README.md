@@ -65,6 +65,11 @@ Mọi URL cũ vẫn do chính `backend/` trả lời. Nếu gỡ Worker đi, app
 | `src/asr/whisper.ts` | Nhận diện giọng nói bằng Workers AI Whisper |
 | `src/agents/vyling-ops.ts` | Agent trực ca (chỉ đọc) |
 | `src/ops/scheduled.ts` | Handler Cron Trigger — agent vận hành dự án |
+| `litestream.yml` | Cấu hình sao lưu liên tục SQLite → R2 (xem §20) |
+| `start-backend.sh` | Khôi phục DB rồi chạy uvicorn dưới quyền Litestream |
+| `src/waiting.ts` | Trang chờ cold start thay cho trang lỗi Cloudflare (§21) |
+| `src/lessons.ts` | Bài học dựng sẵn phục vụ thẳng từ R2 ở edge (§23) |
+| `src/dict.ts` | Tra từ tiếng Anh miễn phí ở edge, cache R2 (§24) |
 
 ---
 
@@ -504,7 +509,7 @@ Kết quả Whisper thật:
 
 Cả ba đúng từng ký tự, kể cả tên riêng và dấu câu.
 
-### 17.1 🔴 Container CHƯA CÓ DỮ LIỆU
+### 17.1 🔴 Container CHƯA CÓ DỮ LIỆU *(đã xử lý 16/08 — xem §20)*
 
 `/app/dictionaries/` và `/app/data/` **rỗng**. `Dockerfile.dockerignore` cố tình
 loại chúng (§12), dự tính nạp từ R2 lúc chạy — nhưng **phần nạp đó chưa viết**.
@@ -514,20 +519,20 @@ Hệ quả cụ thể:
   cũng vậy.
 - SQLite là DB mới tinh mỗi lần container dựng lại, không phải `data/hanquan.db`
   24MB có sẵn. Tài khoản, thẻ SRS, tiến độ đều không có.
-- `/media/*` phục vụ từ R2 nhưng **bucket đang rỗng**.
 
 Nói cho đúng: **kiến trúc đã kiểm chứng, đường dẫn dữ liệu thì chưa dựng.**
 Deploy này trả lời "chạy được trên Cloudflare không", chưa phải "web dùng được chưa".
 
+`/media/*` thì **đã xong** — `vyling-media` có 934 object / 438 MB, kiểm bằng
+`wrangler r2 bucket info vyling-media`, và một file thật trả 200 đúng
+`audio/mpeg`. Câu "bucket đang rỗng" ở bản README trước là viết sai lúc chưa đẩy.
+
 ### 17.2 Ba việc còn nợ, theo thứ tự
 
-1. **Nạp dữ liệu** — đẩy `dictionaries/` + `media/` lên R2, mount hoặc tải lúc
-   container khởi động. Quyết định luôn: SQLite dùng chung một volume bền hay
-   chuyển sang D1.
-2. **Secret tới được backend** (§15) — chưa có thì mọi tính năng cần LLM đều tắt.
-3. **Cold start**: lần gọi đầu trả 500 rồi 530 trong lúc container dựng và tunnel
-   chưa sẵn sàng; ~2,2s khi đã ấm. Cần chặn lỗi đó bằng trang chờ hoặc thử lại,
-   đừng để người học thấy 500.
+1. ~~**Nạp dữ liệu**~~ — **xong 16/08**: từ điển vào image (§20.1), SQLite bền
+   nhờ Litestream → R2 (§20.2), media đã ở R2 từ trước.
+2. ~~**Secret tới được backend**~~ — **xong 16/08** (§15).
+3. ~~**Cold start** trả 500~~ — **xong 16/08**: trang chờ ở §21.
 
 ---
 
@@ -559,6 +564,33 @@ Nay đã sửa cả ba:
    (chỉ với request không có body — body là stream, đọc rồi không phát lại được).
 3. `POST /cf/recycle` (cần header `X-Deploy-Token` khớp secret `DEPLOY_TOKEN`)
    để chủ động huỷ container sau khi deploy code backend.
+
+### 18.1 Đẩy image lên registry hay timeout — cứ chạy lại
+
+Image 2,65 GB đẩy lên `registry.cloudflare.com` mất khá lâu và có thể chết giữa
+chừng:
+
+```
+failed commit on ref "layer-sha256:…": net/http: timeout awaiting response headers
+X [ERROR] Docker command exited with code: 1
+```
+
+Cũng gặp biến thể `X [ERROR] Unauthorized` — thẻ đăng nhập registry mà wrangler
+cấp có hạn ngắn, deploy nhiều lần liên tiếp là hết hạn giữa chừng.
+
+Và biến thể thứ ba: **Docker Desktop đã tắt** (`failed to connect to the docker
+API at npipe:…`). Wrangler cần Docker để build image, nên phải mở Docker Desktop
+rồi đợi engine lên hẳn mới deploy được. Nếu chỉ sửa code Worker (không đụng
+`backend/` hay `frontend/dist`) thì đi đường tắt, không cần Docker:
+
+```bash
+npx wrangler deploy --containers-rollout=none --cwd cf
+```
+
+Cả hai đều là lỗi tạm, không phải lỗi cấu hình. **Chạy lại `npm run deploy --prefix cf`**
+— các layer đã đẩy xong được giữ lại nên lần sau nhanh hơn nhiều. Điểm cần nhớ:
+lần deploy hỏng ở bước này thì Worker **không** được thay, web thật vẫn chạy bản
+cũ nguyên vẹn. Đừng tưởng đã lên rồi mà bỏ qua bước kiểm chứng.
 
 **Quy trình deploy đúng:**
 
@@ -639,6 +671,388 @@ container application assigned to this Durable Object namespace"* cho tới khi
 
 ---
 
+## 20. Đường dữ liệu (16/08) — từ "chạy được" sang "dùng được"
+
+§17.1 nói kiến trúc đã kiểm chứng nhưng đường dữ liệu chưa dựng. Mục này dựng nó.
+
+### 20.1 Từ điển: vào image, và nạp sẵn NGAY LÚC BUILD
+
+Từ điển đi ngược quyết định "dữ liệu nặng để ngoài image" của §12, có lý do:
+
+| | media/ | dictionaries/ |
+|---|---|---|
+| Nặng | 420 MB | 18 MB |
+| Ai đọc | trình duyệt, từng file một | tiến trình Python, đọc một lần lúc khởi động |
+| Để ở R2 | phục vụ thẳng ở edge, **nhanh hơn** | phải tải về rồi mới parse, **chậm hơn** |
+
+Nên `Dockerfile.dockerignore` mở đúng một khe `!dictionaries/KO-VI.KRDICT.zip`
+(`Frequency.CC100.Korean.zip` không có chỗ nào trong code dùng — để ngoài).
+
+Nhưng chỉ copy zip vào thì chưa đủ. `ensure_imported()` chạy lúc khởi động và
+parse **91.481 mục**; cold start vốn đã 10–60 giây, cộng thêm chục giây nữa là
+người học nhìn trang trắng. Nên Dockerfile chạy `import_zip()` **lúc build**:
+
+```dockerfile
+RUN python3 -c "from backend.services import dictionary; ..."
+```
+
+DB trong image do đó ra lò đã có sẵn `dict_entries`, và `ensure_imported()` lúc
+chạy thấy `count() != 0` nên không làm gì. Bước này cũng bật luôn `PRAGMA
+journal_mode=WAL` — Litestream chỉ theo dõi được DB ở chế độ WAL, mà bước khôi
+phục chạy **trước** uvicorn nên không thể trông chờ `init_db()` bật hộ.
+
+### 20.2 SQLite: Litestream sao lưu liên tục lên R2
+
+Đây là thứ chặn web thành sản phẩm nhiều người dùng. Tài liệu Containers ghi
+thẳng **"Disk persistence: None"** — đĩa container là tạm, ngủ 15 phút dậy là
+trắng tinh. Mỗi lần như thế là mọi tài khoản, thẻ SRS, XP, tiến độ biến mất.
+
+Ba hướng đã cân:
+
+| Hướng | Vướng |
+|---|---|
+| Mount R2 vào `/app/data` (`mountBucket`) | SQLite cần khoá POSIX + ghi ngẫu nhiên giữa file; FUSE trên object storage không đáp ứng → **hỏng dữ liệu**, không phải chậm |
+| Chuyển sang D1 | Viết lại toàn bộ tầng dữ liệu của `backend/` (sqlite3 → binding HTTP), đúng thứ đã chốt là không làm |
+| **Litestream** ✅ | Thêm một binary vào image; cần khoá S3 của R2 |
+
+Litestream đứng ngoài đọc WAL và đẩy lên R2 mỗi giây. `backend/` **không biết nó
+tồn tại** — không sửa một dòng nào, đúng nguyên tắc của cả thư mục `cf/` này.
+
+Đường chạy trong `start-backend.sh`:
+
+```
+litestream restore -if-replica-exists → thay DB → litestream replicate -exec "uvicorn …"
+```
+
+Ba chỗ dễ sai đã xử lý sẵn:
+
+1. **Khôi phục ra file tạm rồi mới thay.** `restore` từ chối ghi đè DB đang có
+   (đúng), còn `-force` thì lỡ replica rỗng là xoá mất bản trong image.
+2. **Xoá `-wal`/`-shm` của bản cũ trước khi `mv`.** Bỏ sót là SQLite lấy WAL của
+   DB này áp vào DB kia — hỏng dữ liệu âm thầm, không báo lỗi.
+3. **Sao lưu hỏng KHÔNG được làm sập web.** Thiếu khoá, sai endpoint, Litestream
+   chết trong 15 giây đầu → script lùi về `uvicorn` trần và kêu to trong log.
+   Thà chạy không có sao lưu còn hơn trả 500 cho mọi người học.
+
+### 20.3 🔴 `CMD` phải BIẾN MẤT khỏi Dockerfile — bẫy tốn một vòng deploy
+
+Đọc `node_modules/@cloudflare/sandbox/Dockerfile` mới thấy: image nền chỉ đặt
+`ENTRYPOINT ["/container-server/sandbox"]` và **không đặt `CMD`**. Nên `CMD` của
+`cf/Dockerfile` trở thành *userCmd*, và sandbox agent tự chạy nó **ngay khi
+container lên** — log ghi thẳng `Spawning user command`. Rồi `legacy-proxy.ts`
+lại gọi `startProcess('/app/start-backend.sh')` một lần nữa.
+
+Hai vấn đề, và vấn đề thứ hai nặng hơn nhiều:
+
+1. **Hai Litestream cùng ghi một DB lên cùng một đường R2** — hai bên tranh nhau
+   viết lịch sử WAL. (Hai uvicorn tranh cổng thì vô hại: cái sau chết vì
+   "address already in use".)
+2. **Bản do `CMD` chạy KHÔNG có một khoá API nào.** Nó khởi động trước khi Worker
+   kịp gọi `setEnvVars()`, mà nó lại chiếm cổng 8000 trước.
+
+Điểm 2 đã xảy ra thật và bắt được lúc kiểm chứng sau deploy: `/api/health` báo
+**`✗ Bộ não AI (LLM)`** trong khi `/cf/ping` báo `llm: true` — tức khoá tới được
+Worker nhưng không tới tiến trình phục vụ. Triệu chứng giống hệt §19.2 nhưng
+nguyên nhân khác hẳn, và nó **chỉ lộ ra khi thêm chốt cổng vào script**: trước đó
+hai bản cùng chạy nên đôi khi bản có secret giành được cổng, tức là một lỗi *lúc
+lúc đúng lúc lúc sai* — loại tệ nhất.
+
+Cách sửa: **bỏ hẳn `CMD`**, để đúng một nơi được khởi động backend là
+`startProcess`, chạy sau `setEnvVars`. Chốt cổng trong `start-backend.sh` vẫn
+giữ làm lớp phòng thân. Chạy thử trên máy thì truyền script làm tham số:
+
+```bash
+docker run -p 8000:8000 vyling-sandbox /app/start-backend.sh
+```
+
+### 20.4 Bỏ `CMD` kéo theo: phải chờ cổng trước khi dựng tunnel
+
+Một hệ quả không hiển nhiên. Trước đây container vừa lên là đã có sẵn một uvicorn
+nghe cổng 8000 (bản do `CMD` chạy), nên `tunnels.get(port)` gọi ngay sau
+`startProcess` cũng trúng. Nay **không còn ai nghe lúc container vừa lên**, mà
+chuỗi khôi phục DB từ R2 + lifespan của FastAPI mất hàng chục giây — dựng tunnel
+trỏ vào chỗ chưa có ai là ăn 530 ngay lần đầu.
+
+Nên `ensureBackend` chờ bằng `proc.waitForPort(port, { path: '/api/health' })`.
+Chấp nhận `status` tới 499 chứ không chỉ 2xx: điều cần biết là *uvicorn đã trả
+lời chưa*, một mã 4xx cũng đã trả lời rồi. Và lỗi ở bước chờ này **không được
+ném ra** — nhánh thử lại của `proxyToBackend` cùng trang chờ đã che, còn ném thì
+mất luôn tunnel vừa dựng.
+
+Bucket riêng `vyling-db` (đã tạo), tách khỏi `vyling-media` để bản sao dữ liệu
+người dùng không nằm chung chỗ với file tĩnh phục vụ công khai.
+
+**Cửa sổ mất dữ liệu ~1 giây** (`sync-interval: 1s`). Lưu ý `POST /cf/recycle` và
+`sandbox.destroy()` giết container đột ngột nên có thể mất đúng cửa sổ đó — chấp
+nhận được, nhưng đừng recycle giữa lúc đông người dùng.
+
+---
+
+## 21. Trang chờ cold start
+
+Container ngủ sau 15 phút nhàn rỗi (§19.4). Người đầu tiên quay lại sau đó phải
+chờ Cloudflare kéo image, chạy uvicorn, chờ lifespan, chờ tunnel — và trong suốt
+khoảng đó Cloudflare trả **530**, tức đúng trang lỗi màu cam trông y như web hỏng
+hẳn. Trạng thái "đang khởi động" phải trông khác hẳn "hỏng", vì với người dùng
+thì khác biệt đó là tất cả.
+
+`src/waiting.ts` trả 503 + `Retry-After`, kèm trang tự tải lại (gradient + blob,
+cùng ngôn ngữ hình ảnh với web; có nhánh `prefers-color-scheme` và
+`prefers-reduced-motion`). Request `/api/*` thì nhận JSON `{detail, starting}`
+đúng hình dạng lỗi của backend, không phải một đống HTML làm `response.json()`
+ném lỗi khó hiểu.
+
+Hai chi tiết quan trọng:
+
+- **Phân biệt "không tới được backend" với "backend trả lỗi".** Đây là chỗ bản
+  đầu viết sai và suýt lọt: tôi lấy cả `502/503/504` làm dấu hiệu origin chết,
+  trong khi **backend dùng thật đúng những mã đó** — `502` cho *"AI không phản
+  hồi"* (`learn.py`, `english.py`, `speaking.py`, `pronounce.py`), `503` cho
+  *"Máy chủ đang bận xử lý video khác"* (`learn.py`, `lingo.py`). Đổi những câu
+  đó thành "đang khởi động" là xoá mất thông tin người dùng cần và bắt họ chờ
+  một thứ sẽ không bao giờ xong.
+
+  Nay chia hai nhóm: `521–524` và `530` là **mã chỉ Cloudflare sinh ra**, ứng
+  dụng không bao giờ trả → chắc chắn origin chết. Còn `502/503/504` thì xét thêm
+  `content-type`: lỗi của FastAPI luôn là JSON (`HTTPException`/`AppError` →
+  `JSONResponse`), trang lỗi của Cloudflare là HTML. Header `server` **không**
+  dùng được để phân biệt, vì cả hai đều đi qua cùng một edge.
+
+  **Cố ý không có 500**: FastAPI trả 500 nghĩa là app *sống* và có bug thật —
+  che nó bằng "đang khởi động" là giấu lỗi.
+- **Trang chờ hỏi `/cf/ready`, không phải `/cf/ping`.** Ping trả lời ngay ở edge
+  nên lúc nào cũng 200 → tải lại theo nó là quay vòng vô tận. Và `/cf/ready`
+  **không** gọi `ensureBackend`: nếu có, mỗi nhịp hỏi lại spawn thêm một uvicorn
+  nữa vào cùng một cổng, tức trang chờ tự phá thứ nó đang chờ.
+
+---
+
+## 23. Bài học dựng sẵn — bỏ hẳn cái chờ 10–60 giây
+
+Bấm một video trong kho, người học thấy dòng
+*"Đang lấy phụ đề & dịch... (10–60 giây tùy độ dài video)"* rồi ngồi đợi. Cái
+chờ đó **vô nghĩa với video trong kho**: video là do mình chọn sẵn, biết trước
+mã, hoàn toàn dựng trước được. Đo thực tế lúc bắt đầu: **6/7 video tiếng Anh
+chưa có bài học nào dựng sẵn**, nên mỗi người bấm vào là máy lại đi lấy phụ đề
+YouTube rồi gọi AI dịch lại từ đầu — chờ lâu, tốn lượt AI nhân theo số người, và
+hỏng hẳn nếu YouTube chặn máy chủ đúng lúc đó.
+
+Hai bước:
+
+| Bước | Việc | Chạy khi nào |
+|---|---|---|
+| `scripts/prebuild_lessons.py` | Đi đúng đường của `/api/transcript` (lấy phụ đề → dọn → dịch) rồi lưu vào `lesson_cache` **trên máy** | Khi thêm video vào kho |
+| `scripts/publish_lessons.py` | Xuất `lesson_cache` (+ người nói) ra JSON, đẩy lên bucket `vyling-lessons` | Sau mỗi lần dựng |
+
+### 23.1 Vì sao để ở R2 chứ không nướng vào image
+
+1. **Bấm là có kể cả khi container đang ngủ** — bài học nằm ở edge nên
+   `/api/transcript` không cần đánh thức container, không dính cold start.
+2. **Thêm bài không phải deploy lại** — nướng vào image thì mỗi video mới là một
+   lần build và đẩy 2,65 GB.
+3. **Không đụng vào DB.** Từ khi có Litestream (§20.2), DB trong image bị thay
+   bằng bản khôi phục từ R2 — thứ gì nướng vào image cũng biến mất ở lần khôi
+   phục đầu tiên. Bài học là **nội dung dựng sẵn**, không phải dữ liệu người
+   dùng; để riêng mới đúng chỗ.
+
+`src/lessons.ts` đọc `<video_id>.json` từ bucket. Không có thì trả `null` và
+request rơi xuống container y như cũ — người học tự dán link video lạ vẫn chạy
+đúng đường cũ.
+
+### 23.2 Hai chi tiết dễ sai
+
+- **Body chỉ đọc được một lần.** `/api/transcript` là POST và phải đọc body mới
+  biết video nào. Body là stream — đọc rồi không phát lại được, nên `app.ts` đọc
+  đúng một lần thành chuỗi rồi **tự dựng lại `Request`** cho nhánh chuyển tiếp
+  xuống container (và xoá `content-length` cũ).
+- **Hạn mức không bị tính, và đó là đúng.** `learn.py` trả cache **trước** khi
+  gọi `quota.consume`, nên bài đã cache xưa nay vẫn không tốn lượt. Đường edge
+  giữ nguyên hành vi đó.
+
+### 23.3 🔴 Lỗi tìm ra khi soi bài dựng sẵn: hai cổng "có cần dọn phụ đề không" chỏi nhau
+
+Nhìn file JSON xuất ra mới thấy: bài `aN78Tz_e5c4` còn **37/72 dòng có `>>`** và
+câu bị cắt làm đôi giữa chừng — đúng thứ mà `_needs_repair` trong
+`backend/routers/learn.py` được viết ra để chặn.
+
+Nguyên nhân: **có hai cổng, và cổng trong huỷ quyết định của cổng ngoài.**
+
+| Nơi | Luật | Với bài này |
+|---|---|---|
+| `routers/learn.py::_needs_repair` | nguồn "tự động", hoặc có `>>`/`[music]`, hoặc dưới **50%** dòng kết thúc bằng dấu câu | **True** → gọi dọn |
+| `services/translate.py::needs_repair` (bên trong `repair_segments`) | dưới **30%** dòng kết thúc bằng dấu câu | **False** → thoát ngay, không làm gì |
+
+51/72 dòng (71%) có dấu câu nên cổng trong nói "không cần", và `repair_segments`
+`return segments` mà không báo gì. Người học nhận nguyên bản chép kiểu truyền
+hình; máy dịch cũng dịch sai vì nửa câu không đủ nghĩa.
+
+Sửa: **một luật, ở một chỗ.** `translate.needs_repair(lines, source)` giờ là nơi
+duy nhất trả lời câu hỏi đó (đã gộp cả kiểm tra nhiễu và ngưỡng 50%);
+`repair_segments` **không hỏi lại** — bên gọi đã quyết; `learn._needs_repair`
+chỉ còn chuyển tiếp. 43/43 test backend vẫn xanh.
+
+Đo trên bài `aN78Tz_e5c4` sau khi sửa và dựng lại:
+
+| | Trước | Sau |
+|---|---|---|
+| Dòng còn `>>` | 37/72 | **0/71** |
+| Dòng là câu trọn vẹn | 51/72 (71%) | **71/71 (100%)** |
+
+Cả 7 bài tiếng Anh: 1.596 dòng, **93% là câu trọn vẹn**. Số `>>` còn sót nằm ở
+những cửa sổ mà `repair_segments` tự lùi về bản thô vì bản dọn ngắn hơn 60% bản
+gốc — chốt an toàn đó giữ nguyên, thà giữ bản thô còn hơn mất nội dung.
+
+Đây là lý do nên soi dữ liệu trước khi đóng băng: bài dựng sẵn nằm ở R2 lâu dài,
+đóng băng bản phụ đề hỏng vào đó thì sai đó ở lại rất lâu.
+
+### 23.4 Sửa luôn câu thông báo doạ người
+
+Báo ngay "10–60 giây" cho mọi trường hợp là doạ bằng một cái chờ không có thật.
+Nay `app.store.tsx` hiện `learn.preparing` ("Đang chuẩn bị bài học…") trước, và
+chỉ đổi sang câu "10–60 giây" khi **đã chờ quá 1,5 giây** — tức là khi máy thật
+sự đang phải đi lấy phụ đề. Hẹn giờ này phải được huỷ ở **cả nhánh lỗi**: hỏng
+nhanh (link sai, hết hạn mức) mà quên huỷ thì 1,5 giây sau câu "đang lấy phụ đề"
+ghi đè mất câu báo lỗi thật.
+
+---
+
+### 23.5 Đo trên web thật sau khi deploy
+
+| Video | Dựng mất | Bấm vào giờ mất |
+|---|---|---|
+| `aN78Tz_e5c4` (3:24) | 53s | **1,16s** |
+| `4474zOLzD8k` (16:57) | 77s | **0,65s** |
+| `C5kR-exHmr4` (23:55) | 115s | **0,41s** |
+
+Header `X-Vyling-Lesson: prebuilt` xác nhận trả từ edge. Nội dung đủ: 71/71,
+437/441 và 305/306 dòng có tiếng Việt, **0 dòng còn `>>`**.
+
+Đường rơi xuống container vẫn đúng: gửi một chuỗi không phải link thì nhận
+`{"detail":"Hãy dán một link video YouTube hợp lệ.","code":"INVALID_URL"}` — tức
+là request đã xuống tận backend, không bị route edge nuốt.
+
+**Lưu ý deploy:** lần recycle NGAY sau `wrangler deploy` thường vẫn dựng lại
+bằng image cũ (Cloudflare rollout container là rolling, không tức thì). Kiểm
+bằng cách so tên file bundle:
+
+```bash
+curl -s https://vyling.qvantruong205.workers.dev/ | grep -o 'assets/index-[A-Za-z0-9_-]*\.js'
+```
+
+Khác với `frontend/dist/index.html` trên máy thì đợi 2–3 phút rồi recycle lần nữa.
+
+---
+
+## 24. Tra từ tiếng Anh ở edge (`src/dict.ts`)
+
+Với tiếng Anh, bấm vào một từ trong phụ đề đang đi đường rất tệ: `/api/define`
+trả **rỗng** (bảng `dict_entries` chỉ có KRDICT tiếng Hàn), nên giao diện rơi
+sang `/api/define/rich` — **gọi thẳng LLM cho từng từ mới**. Ba cái giá: chờ vài
+giây, tốn lượt AI theo từng người học, và phải đánh thức container.
+
+Nguồn thay thế: **Free Dictionary API** (`dictionaryapi.dev`) — miễn phí, không
+cần khoá, có IPA, file phát âm, từ loại, định nghĩa và ví dụ. Đo thật:
+`sandcastle` 0,42s · `castle` 0,22s · `bewildered` 0,21s.
+
+`GET /cf/dict?word=…` gọt bản trả về xuống đúng phần dùng được rồi cache **hai
+tầng**: R2 (`dict/en/<word>.json`) để tra một lần dùng mãi kể cả khi nguồn cộng
+đồng đó chết, và `Cache-Control` để chính edge giữ bản trả về. Ghi R2 đặt trong
+`ctx.waitUntil` nên người học không phải chờ thao tác lưu.
+
+**Không thay thế `/api/define/rich`.** Từ điển Anh–Anh không có nghĩa tiếng
+Việt, thứ người học Việt cần nhất. Nên giao diện chạy **song song**: bản edge về
+trước, hiện ngay để có cái đọc; bản AI về sau, bổ sung phần tiếng Việt. Cái đổi
+là người học không còn nhìn vòng xoay trống trong lúc chờ.
+
+---
+
+## 25. Bật Litestream thật (17/08) — và ba lỗi lộ ra khi bật
+
+Sao lưu **đã chạy trên production**. Bằng chứng, không phải suy đoán:
+
+```
+tạo tài khoản        → user id uc18bc900d746a181
+POST /cf/recycle     → huỷ sạch container, đĩa trắng
+đăng nhập lại        → user id uc18bc900d746a181
+```
+
+Lần đăng nhập đó **không hâm nóng trước**, tức nó gặp đúng container vừa dựng
+lại — chứng minh luôn cả nhánh thử lại ở §25.3.
+
+### 25.1 `/cf/logs` — endpoint chẩn đoán (cần `X-Deploy-Token`)
+
+Không có nó thì không thể biết vì sao Litestream im lặng: log của tiến trình
+nằm trong container, `wrangler tail` chỉ thấy log Worker. Endpoint này trả về
+ba khối: Worker thấy secret nào, container thấy biến nào và có binary
+`litestream` không, danh sách tunnel kèm kết quả probe, và log từng tiến trình.
+
+Chỉ in `SET`/`EMPTY`, **không bao giờ in giá trị**.
+
+### 25.2 Ba lỗi cấu hình đã gặp, theo đúng thứ tự lộ ra
+
+| Triệu chứng | Nguyên nhân thật |
+|---|---|
+| Script báo *"KHÔNG có sao lưu"* | Hai secret **tồn tại nhưng rỗng ruột** — giá trị bị đưa vào chỗ TÊN (`wrangler secret put <giá-trị>`), sinh ra hai secret rác mang tên chính là khoá |
+| `tls: handshake failure` | `R2_ACCOUNT_ID` giữ nhầm **Access Key ID**, nên endpoint trỏ vào một tên miền không tồn tại |
+| Web 503 kéo dài | Hệ thống tunnel kẹt sau nhiều lần huỷ container liên tiếp lúc chẩn đoán — đúng bẫy §19.3. Cứu bằng đổi `SANDBOX_ID` |
+
+Bài học rút ra cho lần sau: **đặt secret qua dashboard, không qua terminal.**
+Terminal ẩn ký tự khi dán nên không có cách nào biết mình vừa dán hụt; ô nhập
+trên dashboard thì nhìn thấy được.
+
+### 25.3 🔴 Hai lỗi thật trong `proxyToBackend`
+
+Cả hai đều có sẵn từ trước, chỉ lộ ra khi cold start dài thêm vì Litestream
+phải khôi phục DB trước khi uvicorn chạy.
+
+**(a) POST không bao giờ được thử lại.** `canRetry` cũ đòi `!request.body`, nên
+`/api/health` (GET) được thử lần hai còn đăng ký/đăng nhập (POST) hỏng phát đầu
+là trả trang chờ. Ghi dữ liệu mong manh hơn hẳn đọc — mà ghi mới là thứ người
+dùng quan tâm. Nay body được đọc vào bộ nhớ một lần (trần 12 MB) để POST cũng
+thử lại được; body lớn hơn vẫn truyền thẳng như cũ.
+
+**(b) Nhánh `ensureBackend` hỏng thì thoát ngay, bỏ qua hẳn `canRetry`:**
+
+```ts
+try { origin = await ensureBackend(env) }
+catch { invalidate(); return waitingResponse(request) }   // ❌ không thử lại
+```
+
+Container đang dựng thì `ensureBackend` **luôn** ném lỗi, nên mọi request đầu
+tiên sau mỗi lần container ngủ dậy chỉ có đúng một cơ hội — dù cơ chế thử lại
+nằm ngay bên dưới. Nay cả ba nhánh hỏng đều tôn trọng `canRetry`, và mỗi lần
+thử lại chờ 2,5 giây cho container kịp lên thay vì đâm lại tức thì.
+
+Kèm theo: `originAlive` đổi từ **1 lần / 8 giây** sang **2 lần / 15 giây**. Ngưỡng
+cũ quá chặt cho chuỗi *khôi phục DB → `init_db` → seed*, nên nó **huỷ nhầm
+tunnel đang lành** rồi dựng cái mới với URL khác — chính là thứ châm ngòi cho
+vòng luẩn quẩn ở §25.2.
+
+---
+
+## 22. Trạng thái sau đợt 16/08 — đo trên web thật
+
+| Đường | Kết quả |
+|---|---|
+| `/api/define?word=공부` | ✅ `matched: "exact"` — **từ điển đã sống**, trước đó rỗng |
+| `/api/health` → Bộ não AI | ✅ `gemini · model mặc định` |
+| `/api/health` → SQLite | ✅ `/app/data/hanquan.db` |
+| `/` (SPA) | ✅ 200, 0,54s khi container đã ấm |
+| `/media/toeic/…mp3` | ✅ 200 `audio/mpeg` từ R2 ở edge |
+| `/api/content/videos` | ✅ 200 |
+| `/cf/ready` | ✅ `{"ready":true}` |
+| Request đầu sau `recycle` | ✅ **503 + trang chờ của mình**, không còn 530 màu cam |
+
+Hai mục `✗` còn lại trong `/api/health` là **đúng và vô hại**: `.venv` (container
+không cần) — `realFailures()` đã bỏ qua từ §13.2.
+
+**Còn nợ đúng một việc, và nó cần bạn:** khoá S3 của R2 (§9). Chưa có thì
+Litestream nằm im, log container ghi *"KHÔNG có sao lưu"*, và dữ liệu người học
+vẫn mất mỗi lần container ngủ dậy. Cơ chế đã kiểm chứng chạy đúng (§20.2), chỉ
+thiếu khoá.
+
+---
+
 ## 11. Kích thước bundle Worker
 
 Mặc định Flue nạp **tất cả** nhà cung cấp model (OpenAI, Anthropic, Vertex,
@@ -669,6 +1083,20 @@ wsl --install --no-distribution
 Chạy trong PowerShell **Run as Administrator**, khởi động lại máy, rồi mở Docker
 Desktop từ Start Menu và bấm Accept ở màn hình giấy phép lần đầu. Xong thì
 `docker info` phải ra phiên bản engine.
+
+**🔴 Tạo khoá S3 cho R2 (đang chặn việc sao lưu dữ liệu người dùng):** Litestream
+chạy trong container nên nói chuyện S3 thẳng với R2 — binding R2 của Worker
+không dùng được. Vào **Cloudflare Dashboard → R2 → API → Manage API tokens →
+Create API token**, quyền **Object Read & Write**, giới hạn vào bucket
+`vyling-db`. Nhận về Access Key ID, Secret Access Key, và Account ID:
+
+```bash
+npx wrangler secret put R2_ACCESS_KEY_ID --cwd cf
+```
+
+Rồi `R2_SECRET_ACCESS_KEY` và `R2_ACCOUNT_ID` y hệt. **Chưa đặt đủ ba cái thì web
+vẫn chạy nhưng KHÔNG có sao lưu** — log container ghi rõ dòng cảnh báo, và mỗi
+lần container ngủ dậy là mất sạch tài khoản người học (xem §20.2).
 
 - Tài khoản Cloudflare + `wrangler login`
 - Đăng ký quyền beta Worker Loader (nếu muốn Code Mode chạy production)

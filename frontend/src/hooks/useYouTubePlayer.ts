@@ -1,5 +1,14 @@
 import { useEffect, useRef } from 'react'
 
+export const YT_STATE = {
+  unstarted: -1,
+  ended: 0,
+  playing: 1,
+  paused: 2,
+  buffering: 3,
+  cued: 5,
+} as const
+
 export interface YouTubePlayer {
   load: (id: string) => void
   seek: (sec: number) => void
@@ -11,8 +20,14 @@ export interface YouTubePlayer {
   setRate: (rate: number) => void
 }
 
-export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
+interface Options {
+  onState?: (state: number) => void
+}
+
+export function useYouTubePlayer(elementId = 'player', opts: Options = {}): YouTubePlayer {
   const playerRef = useRef<any>(null)
+  const stateRef = useRef(opts.onState)
+  stateRef.current = opts.onState
 
   useEffect(() => {
     if (!window.YT) {
@@ -41,14 +56,13 @@ export function useYouTubePlayer(elementId = 'player'): YouTubePlayer {
           videoId: id,
           height: '100%',
           width: '100%',
-          // host nocookie + origin: YouTube khuyến nghị khai origin cho IFrame
-          // API; thiếu nó một số nhúng bị chặn không nhất quán giữa localhost
-          // và tên miền thật. Lưu ý: cái này KHÔNG vượt được video mà chủ sở
-          // hữu đã tắt nhúng — loại đó phải gỡ khỏi kho (xem scripts/audit_embed.mjs).
           host: 'https://www.youtube-nocookie.com',
           playerVars: {
             rel: 0,
             origin: typeof window !== 'undefined' ? window.location.origin : undefined,
+          },
+          events: {
+            onStateChange: (e: { data: number }) => stateRef.current?.(e.data),
           },
         })
       }
