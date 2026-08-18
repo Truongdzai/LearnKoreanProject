@@ -9,6 +9,8 @@ const CF = resolve(ROOT, 'cf')
 const WRANGLER = resolve(CF, 'node_modules', 'wrangler', 'bin', 'wrangler.js')
 const BUCKET = 'vyling-site'
 const PARALLEL = 8
+const PROBE_PARALLEL = 24
+const SITE = 'https://vyling.qvantruong205.workers.dev'
 
 const HEAVY = ['wordimg/', 'audio/', 'cosmetics/']
 
@@ -51,8 +53,35 @@ function run(args) {
 	})
 }
 
+async function onR2(key) {
+	try {
+		const res = await fetch(`${SITE}/${key.split('/').map(encodeURIComponent).join('/')}`, {
+			method: 'HEAD',
+			signal: AbortSignal.timeout(15000),
+		})
+		return res.ok && res.headers.get('x-vyling-static') === 'r2'
+	} catch {
+		return false
+	}
+}
+
+async function missingOnly(keys) {
+	const missing = []
+	let seen = 0
+	for (let i = 0; i < keys.length; i += PROBE_PARALLEL) {
+		const batch = keys.slice(i, i + PROBE_PARALLEL)
+		const found = await Promise.all(batch.map(onR2))
+		batch.forEach((k, n) => { if (!found[n]) missing.push(k) })
+		seen += batch.length
+		process.stdout.write(`\r  do: ${seen}/${keys.length} — thieu ${missing.length}   `)
+	}
+	console.log()
+	return missing
+}
+
 async function main() {
 	const all = process.argv.includes('--all')
+	const force = process.argv.includes('--force')
 	const only = process.argv.find((a) => !a.startsWith('--') && a !== process.argv[0] && a !== process.argv[1]) || ''
 
 	let files = walk(DIST)
@@ -68,9 +97,18 @@ async function main() {
 	}
 
 	const totalMb = files.reduce((n, k) => n + statSync(join(DIST, k)).size, 0) / 1024 / 1024
-	console.log(`${files.length} file · ${totalMb.toFixed(1)} MB → r2://${BUCKET}`)
+	console.log(`${files.length} file · ${totalMb.toFixed(1)} MB`)
 	if (!all) console.log(`(bỏ qua ${HEAVY.join(', ')} — dùng --all để đẩy cả)`)
-	console.log()
+
+	if (!force) {
+		console.log('Dò xem file nào đã lên R2 rồi...')
+		files = await missingOnly(files)
+		if (!files.length) {
+			console.log('Tất cả đã có trên R2. Không phải đẩy gì.')
+			return
+		}
+	}
+	console.log(`\n${files.length} file cần đẩy → r2://${BUCKET}\n`)
 
 	let done = 0
 	let failed = 0
