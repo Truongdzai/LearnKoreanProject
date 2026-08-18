@@ -8,17 +8,26 @@ export function isWorkerPath(path: string): boolean {
 }
 
 function keyFor(path: string): string {
-	const clean = path.replace(/^\/+/, '').replace(/\/+$/, '')
+	let raw = path
+	try {
+		raw = decodeURIComponent(path)
+	} catch {
+	}
+	const clean = raw.replace(/^\/+/, '').replace(/\/+$/, '')
 	if (!clean) return 'index.html'
 	return HAS_EXT.test(clean) ? clean : `${clean}/index.html`
 }
 
-function headersFor(path: string, object: R2ObjectBody): Headers {
+const MEDIA_CACHE = /^\/(wordimg|audio|cosmetics|img|icons)\//
+
+function headersFor(path: string, object: R2Object): Headers {
 	const headers = new Headers()
 	object.writeHttpMetadata(headers)
 	headers.set('etag', object.httpEtag)
 	if (IMMUTABLE.test(path)) {
 		headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+	} else if (MEDIA_CACHE.test(path)) {
+		headers.set('Cache-Control', 'public, max-age=604800')
 	} else {
 		headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
 	}
@@ -45,12 +54,24 @@ export async function serveStatic(
 		if (hit) return hit
 	}
 
-	const object = await env.SITE.get(keyFor(path)).catch(() => null)
+	const wantsRange = request.headers.has('range')
+	const object = await env.SITE
+		.get(keyFor(path), wantsRange ? { range: request.headers } : undefined)
+		.catch(() => null)
+
 	if (object) {
-		const res = new Response(request.method === 'HEAD' ? null : object.body, {
-			headers: headersFor(path, object),
-		})
-		if (cacheable && request.method === 'GET' && ctx) {
+		const headers = headersFor(path, object)
+		headers.set('accept-ranges', 'bytes')
+
+		let status = 200
+		const part = object.range as { offset?: number; length?: number } | undefined
+		if (wantsRange && part && typeof part.offset === 'number' && typeof part.length === 'number') {
+			headers.set('content-range', `bytes ${part.offset}-${part.offset + part.length - 1}/${object.size}`)
+			status = 206
+		}
+
+		const res = new Response(request.method === 'HEAD' ? null : object.body, { status, headers })
+		if (cacheable && status === 200 && request.method === 'GET' && ctx) {
 			ctx.waitUntil(cache.put(request, res.clone()))
 		}
 		return res
