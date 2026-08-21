@@ -105,3 +105,34 @@ def save_speakers(video_id: str, result: dict) -> None:
         conn.commit()
     finally:
         conn.close()
+
+
+def get_pronounce(sig: str) -> dict | None:
+    if not sig:
+        return None
+    conn = db.get_conn()
+    try:
+        r = conn.execute("SELECT payload FROM pronounce_cache WHERE sig = ?", (sig,)).fetchone()
+        if not r:
+            return None
+        conn.execute("UPDATE pronounce_cache SET hits = hits + 1 WHERE sig = ?", (sig,))
+        conn.commit()
+        return json.loads(r["payload"])
+    except Exception:
+        return None
+    finally:
+        conn.close()
+
+
+def put_pronounce(sig: str, payload: dict) -> None:
+    if not sig or not payload.get("feedback"):
+        return
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "INSERT OR REPLACE INTO pronounce_cache (sig, payload) VALUES (?,?)",
+            (sig, json.dumps(payload, ensure_ascii=False)),
+        )
+        conn.commit()
+    finally:
+        conn.close()

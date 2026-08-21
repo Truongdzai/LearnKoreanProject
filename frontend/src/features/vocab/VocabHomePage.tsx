@@ -1,6 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react'
 import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
+import { readGuestDeck, subscribeGuestDeck } from '@/core/guestDeck'
 import { fetchAllCards, fetchStats } from '@/core/api/srs.api'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
 import { getTopics } from '@/core/utils/topics'
@@ -28,6 +30,8 @@ export default function VocabHomePage() {
   const [myTopics, setMyTopics] = useState<MyTopic[]>([])
   const [flash, setFlash] = useState('')
   const [query, setQuery] = useState('')
+  const { isAuthed, openAuth } = useAuth()
+  const guestCount = useSyncExternalStore(subscribeGuestDeck, () => readGuestDeck().length, () => 0)
 
   const showFlash = (msg: string) => {
     setFlash(msg)
@@ -107,6 +111,14 @@ export default function VocabHomePage() {
       <p className="page-sub">{learnLang === 'ko' ? t('vc.subKo') : t('vc.sub')}</p>
 
       {flash && <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>{flash}</div>}
+
+      {!isAuthed && guestCount > 0 && (
+        <div className="guest-deck-note">
+          <Icon name="cards" size={15} />
+          <span>{t('vc.guestDeck', { n: guestCount })}</span>
+          <button type="button" className="btn-primary sm" onClick={openAuth}>{t('vc.guestDeckCta')}</button>
+        </div>
+      )}
 
       <div className="vc-stats">
         {STAT_CARDS.map((c) => (

@@ -3,6 +3,7 @@ import { Hono } from 'hono'
 import { VylingOps } from './agents/vyling-ops'
 import { VylingTutor } from './agents/vyling-tutor'
 import { transcribe } from './asr/whisper'
+import { clientKey, limitPerMinute, overLimit } from './asr/limit'
 import { createMcpHandler } from 'agents/mcp/server'
 import { backendLogs, backendReady, proxyToBackend, recycleBackend } from './legacy-proxy'
 import { prebuiltLesson } from './lessons'
@@ -51,6 +52,17 @@ app.get('/cf/ping', (c) =>
 	}),
 )
 
+app.get('/api/auth/providers', (c) =>
+	c.json(
+		{
+			google: !!(c.env.GOOGLE_CLIENT_ID && c.env.GOOGLE_CLIENT_SECRET),
+			facebook: !!(c.env.FACEBOOK_APP_ID && c.env.FACEBOOK_APP_SECRET),
+		},
+		200,
+		{ 'Cache-Control': 'public, max-age=300' },
+	),
+)
+
 app.get('/cf/ready', async (c) =>
 	(await backendReady(c.env))
 		? c.json({ ready: true })
@@ -74,6 +86,12 @@ app.get('/cf/logs', async (c) => {
 
 app.post('/cf/asr', async (c) => {
 	const lang = c.req.query('lang') ?? 'en'
+	if (overLimit(clientKey(c.req.raw))) {
+		return c.json(
+			{ detail: `Bạn đang gửi quá nhanh — tối đa ${limitPerMinute} lần ghi âm mỗi phút. Hãy chờ một chút.` },
+			429,
+		)
+	}
 	try {
 		const audio = await c.req.arrayBuffer()
 		const result = await transcribe(c.env, audio, lang)
@@ -106,7 +124,11 @@ app.get('/cf/dict', async (c) => {
 })
 
 app.get('/media/*', async (c) => {
-	const key = c.req.path.replace(/^\/media\//, '')
+	const cache = caches.default
+	const hit = await cache.match(c.req.raw).catch(() => undefined)
+	if (hit) return hit
+
+	const key = decodeURIComponent(c.req.path.replace(/^\/media\//, ''))
 	const object = await c.env.MEDIA.get(key)
 	if (!object) return c.notFound()
 
@@ -114,7 +136,10 @@ app.get('/media/*', async (c) => {
 	object.writeHttpMetadata(headers)
 	headers.set('etag', object.httpEtag)
 	headers.set('Cache-Control', 'public, max-age=604800')
-	return new Response(object.body, { headers })
+
+	const res = new Response(object.body, { headers })
+	c.executionCtx.waitUntil(cache.put(c.req.raw, res.clone()))
+	return res
 })
 
 app.all('*', async (c) => {

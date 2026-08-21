@@ -772,8 +772,9 @@ def admin_update_user(user_id: str, fields: dict) -> dict:
 
 USER_TABLES = (
     "user_items", "user_garden", "user_paths", "user_videos", "quest_progress",
-    "activity_log", "coin_gifts", "srs_cards", "srs_reviews", "user_plans",
-    "league_members", "email_log", "speak_room_members", "speak_room_msgs", "speak_queue",
+    "activity_log", "activity_lang", "coin_gifts", "srs_cards", "srs_reviews",
+    "user_plans", "user_words", "exam_takes", "league_members", "email_log",
+    "speak_room_members", "speak_room_msgs", "speak_queue",
 )
 
 

@@ -3,6 +3,7 @@ export interface SrsCard {
   front: string
   back?: string
   source?: string
+  lang: string
   reps: number
   ivl: number
   ease: number
@@ -22,4 +23,15 @@ export interface DueResponse extends SrsStats {
   cards: SrsCard[]
 }
 
+export interface AllCardsResponse {
+  cards: SrsCard[]
+  byLang: Record<string, number>
+}
+
 export type SrsRating = 1 | 2 | 3 | 4
+
+export interface AsrWord {
+  word: string
+  start: number
+  end: number
+}

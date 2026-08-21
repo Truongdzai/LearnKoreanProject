@@ -129,3 +129,96 @@ def client_ip(request) -> str:
     if fwd:
         return fwd.split(",")[0].strip()
     return request.client.host if request.client else ""
+
+
+GUEST_LESSONS_PER_DAY = 1
+FREE_VIDEOS = 20
+FREE_EXAMS_PER_MONTH = 2
+
+
+def guest_lesson_left(ip: str) -> int:
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT used FROM guest_lessons WHERE ip = ? AND day = ?", (ip or "unknown", today)
+        ).fetchone()
+    finally:
+        conn.close()
+    return max(0, GUEST_LESSONS_PER_DAY - (row["used"] if row else 0))
+
+
+def take_guest_lesson(ip: str) -> None:
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT used FROM guest_lessons WHERE ip = ? AND day = ?", (ip or "unknown", today)
+        ).fetchone()
+        used = row["used"] if row else 0
+        if used >= GUEST_LESSONS_PER_DAY:
+            raise AppError(
+                "SIGNUP_REQUIRED",
+                "Bạn đã học xong bài dùng thử hôm nay. Đăng ký miễn phí để học tiếp và lưu tiến độ.",
+                403,
+            )
+        conn.execute(
+            "INSERT INTO guest_lessons (ip, day, used) VALUES (?,?,1) "
+            "ON CONFLICT(ip, day) DO UPDATE SET used = used + 1",
+            (ip or "unknown", today),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def is_plus(user: dict | None) -> bool:
+    return bool(user and (user.get("isPlus") or user.get("is_plus") or user.get("plus_until")))
+
+
+def exam_status(user: dict | None, kind: str) -> dict:
+    if is_plus(user):
+        return {"left": -1, "limit": -1, "used": 0, "plus": True}
+    if not user:
+        return {"left": 0, "limit": FREE_EXAMS_PER_MONTH, "used": 0, "plus": False}
+    month = date.today().strftime("%Y-%m")
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT used FROM exam_takes WHERE user_id = ? AND month = ? AND kind = ?",
+            (user["id"], month, kind),
+        ).fetchone()
+    finally:
+        conn.close()
+    used = row["used"] if row else 0
+    return {"left": max(0, FREE_EXAMS_PER_MONTH - used), "limit": FREE_EXAMS_PER_MONTH,
+            "used": used, "plus": False}
+
+
+def take_exam(user: dict, kind: str) -> dict:
+    if is_plus(user):
+        return {"ok": True, "left": -1}
+    month = date.today().strftime("%Y-%m")
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT used FROM exam_takes WHERE user_id = ? AND month = ? AND kind = ?",
+            (user["id"], month, kind),
+        ).fetchone()
+        used = row["used"] if row else 0
+        if used >= FREE_EXAMS_PER_MONTH:
+            raise AppError(
+                "PLUS_REQUIRED",
+                f"Gói Miễn phí làm được {FREE_EXAMS_PER_MONTH} đề đầy đủ mỗi tháng. "
+                "Nâng cấp Plus để luyện đề không giới hạn.",
+                403,
+            )
+        conn.execute(
+            "INSERT INTO exam_takes (user_id, month, kind, used) VALUES (?,?,?,1) "
+            "ON CONFLICT(user_id, month, kind) DO UPDATE SET used = used + 1",
+            (user["id"], month, kind),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return {"ok": True, "left": max(0, FREE_EXAMS_PER_MONTH - used - 1)}

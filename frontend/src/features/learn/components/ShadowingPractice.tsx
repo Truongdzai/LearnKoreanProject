@@ -26,6 +26,7 @@ import type { Lesson } from '@/models/lesson.model'
 const REWARD = 5
 const RATES = [0.5, 0.75, 1, 1.25]
 const PASS = 65
+const AI_SKIP_SCORE = 90
 const AUTOPAUSE_KEY = 'vyling.sh.autoPause'
 const RATE_KEY = 'vyling.sh.rate'
 
@@ -281,8 +282,38 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     }
   }, [mode, sr.listening, clip.recording, clip.stop])
 
+  const pace = useMemo(() => {
+    const spoken = sr.words
+    if (score === null || spoken.length < 2) return null
+    const mine = spoken[spoken.length - 1].end - spoken[0].start
+    const original = Math.max(0.6, segEnd(segs, i) - cur.start)
+    if (!(mine > 0)) return null
+    const gaps = spoken.slice(1).map((w, k) => w.start - spoken[k].end)
+    const longest = gaps.length ? Math.max(...gaps) : 0
+    const slowest = spoken.reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a))
+    return {
+      mine, original,
+      ratio: mine / original,
+      longestGap: longest,
+      slowWord: slowest.end - slowest.start >= 0.55 ? slowest.word.trim() : '',
+    }
+  }, [sr.words, score, segs, i, cur.start])
+
+  const hardErrors = grade.words.filter(
+    (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
+  ).length
+
   const askAI = async () => {
     if (score === null) return
+    if (grade.score >= AI_SKIP_SCORE && hardErrors === 0) {
+      setAiError('')
+      setAi({
+        feedback: t('sh.aiGoodFeedback'),
+        tips: [t('sh.aiGoodTip1'), t('sh.aiGoodTip2')],
+        encouragement: t('sh.aiGoodCheer'),
+      })
+      return
+    }
     setAiLoading(true); setAiError(''); setAi(null)
     try {
       const fb = await fetchPronounceFeedback({
@@ -304,9 +335,6 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   }
 
   const shown = score === null ? null : grade.score
-  const hardErrors = grade.words.filter(
-    (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
-  ).length
   const band = shown === null
     ? null
     : scoreBand(hardErrors >= 2 ? Math.min(shown, 60) : hardErrors === 1 ? Math.min(shown, 80) : shown)
@@ -674,6 +702,18 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           </div>
         )}
 
+        {pace && (
+          <div className="sh2-pace">
+            <span className="sh2-pace-main">
+              {t(pace.ratio > 1.25 ? 'sh.paceSlow' : pace.ratio < 0.8 ? 'sh.paceFast' : 'sh.paceGood', {
+                a: pace.mine.toFixed(1), b: pace.original.toFixed(1),
+              })}
+            </span>
+            {pace.slowWord && <span className="sh2-pace-tag">{t('sh.paceWord', { w: pace.slowWord })}</span>}
+            {pace.longestGap >= 0.7 && <span className="sh2-pace-tag">{t('sh.paceGap', { s: pace.longestGap.toFixed(1) })}</span>}
+          </div>
+        )}
+
         {ai && (
           <div className="ai-feedback">
             <div className="ai-fb-head"><Icon name="vyling" size={18} /> {t('sh.aiHead')} {ai.model && <span className="ai-model">{ai.model}</span>}</div>
@@ -684,6 +724,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
               </ul>
             )}
             {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}
+            {!ai.model && <div className="ai-fb-note">{t('sh.aiGoodNote')}</div>}
           </div>
         )}
       </div>

@@ -8,6 +8,8 @@ import { romanizeLine } from '@/core/utils/romanize'
 import { splitWords } from '@/core/utils/speechDiff'
 import { devLabel, gradeSpeech } from '@/core/utils/pronGrade'
 import { useAppStore } from '@/store/app.store'
+import { takeTaste } from '@/core/taste'
+import { track } from '@/core/monitor'
 import { studyLang } from '@/core/constants/languages'
 import { detectSpeakers, diarizeVoice } from '@/core/api/learn.api'
 import { refDuration } from '../segments'
@@ -85,8 +87,20 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const nSpk = speakers.length ? Math.max(2, Math.max(...speakers) + 1) : 2
   const nameOf = (c: number) => names[c] || t('dub.char', { c: charLabel(c) })
 
+  const allowPlus = (): boolean => {
+    if (user.isPlus) return true
+    if (takeTaste('dubbing')) {
+      track('taste_used', { feature: 'dubbing' })
+      setError(t('dub.tasteOnce'))
+      return true
+    }
+    track('upgrade_click', { from: 'dubbing' })
+    setView('pricing')
+    return false
+  }
+
   const detect = async () => {
-    if (!user.isPlus) { setView('pricing'); return }
+    if (!allowPlus()) return
     setDetecting(true)
     setError('')
     try {
@@ -108,7 +122,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   }
 
   const detectVoice = async () => {
-    if (!user.isPlus) { setView('pricing'); return }
+    if (!allowPlus()) return
     setVoiceDetecting(true)
     setError('')
     try {

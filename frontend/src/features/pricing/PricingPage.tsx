@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { fetchPlans, type PlanCard } from '@/core/api/content.api'
 import { formatDate } from '@/core/utils/format'
 import { useAppStore } from '@/store/app.store'
+import { track } from '@/core/monitor'
 import { useAuth } from '@/store/auth.store'
 
 const DEFAULT_PLANS: PlanCard[] = [
@@ -44,11 +45,13 @@ export default function PricingPage() {
   const isLifetime = user.isPlus && !user.plusUntil
 
   const choose = async (planId: string) => {
+    track('upgrade_click', { planId, authed: isAuthed, from: 'pricing' })
     if (!isAuthed) { openAuth(); return }
     if (isLifetime) { setFlash(t('pr.alreadyLifetime')); return }
     setBusy(true)
     try {
       await upgradePlus(planId)
+      track('purchase', { planId, renew: user.isPlus })
       setFlash(user.isPlus ? t('pr.renewed') : t('pr.upgraded'))
     } catch (e) {
       setFlash((e as Error).message)

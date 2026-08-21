@@ -143,12 +143,25 @@ button{font-family:inherit}
   .sidebar.collapsed .nav a:hover{transform:none}
   .sidebar.collapsed .upgrade-btn{padding:12px 0}
   .sidebar.collapsed .upgrade-btn .lbl{display:none}
+  .sidebar.collapsed .quota-meter{padding:8px 6px}
+  .sidebar.collapsed .quota-head{justify-content:center}
+  .sidebar.collapsed .quota-head .lbl{display:none}
 }
 @media(max-width:760px){
   .side-toggle{display:none}
 }
 
 .sidebar-spacer{flex:1;min-height:10px}
+.quota-meter{display:flex;flex-direction:column;gap:6px;padding:9px 11px;margin-bottom:9px;
+  border:1px solid var(--line);border-radius:11px;background:var(--panel2)}
+.quota-head{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.quota-head .ic{display:flex;color:var(--accent)}
+.quota-bar{height:5px;border-radius:3px;background:var(--line);overflow:hidden}
+.quota-bar span{display:block;height:100%;border-radius:3px;background:var(--accent);transition:width .3s}
+.quota-meter.low .quota-head,.quota-meter.low .quota-head .ic{color:var(--pending)}
+.quota-meter.low .quota-bar span{background:var(--pending)}
+.quota-meter.empty .quota-head,.quota-meter.empty .quota-head .ic{color:var(--bad)}
+.quota-meter.empty .quota-bar span{background:var(--bad)}
 .upgrade-btn{display:flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
   font-weight:800;font-size:14px;color:#fff;border-radius:13px;padding:12px;
   background:linear-gradient(135deg,#a855f7,#6366f1,#3b82f6);background-size:200% 100%;
@@ -1724,6 +1737,7 @@ button{font-family:inherit}
 .ai-fb-tips li{display:flex;align-items:flex-start;gap:7px;font-size:13.5px;color:var(--text2)}
 .ai-fb-tips li svg{color:var(--good);flex-shrink:0;margin-top:2px}
 .ai-fb-enc{margin-top:10px;font-size:13.5px;font-weight:600;color:var(--accent-d)}
+.ai-fb-note{margin-top:9px;font-size:12.5px;color:var(--muted)}
 .shadow-manual{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;text-align:left}
 .shadow-manual-lbl{display:block;font-size:12.5px;color:var(--muted);margin-bottom:8px}
 .shadow-manual-row{display:flex;gap:9px}
@@ -6536,3 +6550,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-size:8.5px;font-weight:700;letter-spacing:.02em;line-height:1;white-space:nowrap;
   padding:2px 5px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);
   color:var(--muted)}
+
+.sh2-pace{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;padding:9px 12px;
+  border:1px solid var(--line);border-radius:11px;background:var(--panel2);font-size:13.5px}
+.sh2-pace-main{color:var(--text2);font-weight:600}
+.sh2-pace-tag{font-size:12px;padding:2px 8px;border-radius:6px;
+  background:var(--accent-soft);color:var(--accent-d);border:1px solid var(--accent-ring)}
+
+.lang-prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.lang-prog{display:flex;flex-direction:column;gap:10px;padding:14px 16px;text-align:left;cursor:pointer;
+  border:1px solid var(--line);border-radius:14px;background:var(--panel);transition:.15s;font:inherit;color:inherit}
+.lang-prog:hover{border-color:var(--accent-ring);transform:translateY(-2px)}
+.lang-prog.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-ring)}
+.lp-head{display:flex;align-items:center;gap:9px;font-size:15px}
+.lp-now{margin-left:auto;font-size:11px;padding:2px 7px;border-radius:6px;
+  background:var(--accent-soft);color:var(--accent-d)}
+.lp-rows{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-size:13px;color:var(--text2)}
+.lp-rows span{display:flex;align-items:center;gap:6px}
+.lp-rows svg{color:var(--accent);flex:none}
+.lp-due{font-size:12.5px;font-weight:600;color:var(--accent-d);
+  background:var(--accent-soft);border-radius:8px;padding:5px 9px}
+
+.guest-deck-note{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px;
+  padding:11px 14px;border:1px solid var(--accent-ring);border-radius:12px;
+  background:var(--accent-soft);font-size:13.5px;color:var(--text2)}
+.guest-deck-note svg{color:var(--accent);flex:none}
+.guest-deck-note button{margin-left:auto}
+
+.exam-gate{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:11px 14px;
+  border:1px solid var(--accent-ring);border-radius:12px;background:var(--accent-soft);
+  font-size:13.5px;color:var(--text2)}
+.exam-gate svg{color:var(--accent);flex:none}
+.exam-gate button{margin-left:auto;padding:2px 9px;font-size:16px;line-height:1}

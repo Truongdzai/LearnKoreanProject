@@ -32,11 +32,15 @@ def api_transcript(body: TranscriptIn, request: Request, user: dict | None = Opt
     if not vid:
         raise AppError("INVALID_URL", "Hãy dán một link video YouTube hợp lệ.", 400)
 
+    ip = quota.client_ip(request)
+    if not user:
+        quota.take_guest_lesson(ip)
+
     cached = cache.get_lesson(vid)
     if cached and cached["segments"]:
         return _attach_speakers(cached)
 
-    quota.consume("transcript", user, quota.client_ip(request))
+    quota.consume("transcript", user, ip)
     try:
         with jobs.heavy_slot(timeout=45.0):
             try:

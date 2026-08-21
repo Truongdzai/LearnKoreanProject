@@ -3,6 +3,7 @@ import { env } from '@/config/env'
 import { getToken, setToken } from '@/core/api/client'
 import { syncUserScope, forgetUserScope } from '@/core/utils/userScope'
 import { loginApi, meApi, registerApi, providersApi, type PendingGift } from '@/core/api/auth.api'
+import { pushGuestDeck } from '@/core/api/srs.api'
 import { takeRefCode } from '@/core/utils/referral'
 import { track } from '@/core/monitor'
 import type { Account } from '@/models/account.model'
@@ -89,7 +90,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
   const closeAuth = useCallback(() => setModalOpen(false), [])
   const openChangePw = useCallback(() => setChangePwOpen(true), [])
   const closeChangePw = useCallback(() => setChangePwOpen(false), [])
-  const applyToken = useCallback((token: string) => setToken(token), [])
+  const applyToken = useCallback((token: string) => { setToken(token); void pushGuestDeck() }, [])
   const clearAuthError = useCallback(() => setAuthError(''), [])
 
   const signUpEmail = useCallback(async (name: string, email: string, password: string) => {
@@ -101,6 +102,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
     setAccountState(res.user)
     setBonusAvailable(true)
     setModalOpen(false)
+    void pushGuestDeck()
   }, [])
 
   const signInEmail = useCallback(async (email: string, password: string) => {
@@ -112,6 +114,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
     const me = await meApi().catch(() => null)
     if (me) { setBonusAvailable(me.bonusAvailable); setPendingGift(me.pendingGift); setAccountState(me.user) }
     setModalOpen(false)
+    void pushGuestDeck()
   }, [])
 
   const clearPendingGift = useCallback(() => setPendingGift(null), [])

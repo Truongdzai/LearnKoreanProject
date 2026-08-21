@@ -46,7 +46,8 @@ export async function serveStatic(
 	const path = new URL(request.url).pathname
 	if (isWorkerPath(path)) return null
 
-	const cacheable = IMMUTABLE.test(path)
+	const wantsRange = request.headers.has('range')
+	const cacheable = !wantsRange && (IMMUTABLE.test(path) || MEDIA_CACHE.test(path))
 	const cache = caches.default
 
 	if (cacheable) {
@@ -54,7 +55,6 @@ export async function serveStatic(
 		if (hit) return hit
 	}
 
-	const wantsRange = request.headers.has('range')
 	const object = await env.SITE
 		.get(keyFor(path), wantsRange ? { range: request.headers } : undefined)
 		.catch(() => null)

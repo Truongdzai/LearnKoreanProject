@@ -1,4 +1,5 @@
 import { apiClient } from './client'
+import { getLearnLang } from '@/core/lang'
 import type { Account } from '@/models/account.model'
 import type { PlantedSeed, Quest } from '@/models/gamification.model'
 import type { Video } from '@/models/video.model'
@@ -87,8 +88,32 @@ export const dailyBonusApi = () =>
 export const ackGiftApi = () =>
   apiClient.post<{ ok: boolean }>('/api/me/gift/ack')
 
-export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words = 0) =>
-  apiClient.post<{ ok: boolean; user: Account }>('/api/me/event', { type, amount, minutes, words })
+export const recordEventApi = (type: EventType, amount = 1, minutes = 0, words = 0, lang = getLearnLang()) =>
+  apiClient.post<{ ok: boolean; user: Account }>('/api/me/event', { type, amount, minutes, words, lang })
+
+export interface LangProgress {
+  lang: string
+  minutes: number
+  words: number
+  xp: number
+  lessons: number
+  videos: number
+  reviews: number
+  activeDays: number
+  lastDay: string | null
+  cards: { total: number; due: number; learned: number }
+  learnedWords: number
+  savedVideos: number
+}
+
+export const fetchProgressApi = (days = 30) =>
+  apiClient.get<{ since: string; days: number; langs: LangProgress[] }>(`/api/me/progress?days=${days}`)
+
+export const fetchWordsApi = (lang: string) =>
+  apiClient.get<{ lang: string; words: string[] }>(`/api/me/words?lang=${encodeURIComponent(lang)}`)
+
+export const markWordsApi = (lang: string, add: string[], remove: string[]) =>
+  apiClient.post<{ ok: boolean; total: number }>('/api/me/words', { lang, add, remove })
 
 export const setGoalApi = (goal: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/goal', { goal })
@@ -110,3 +135,11 @@ export const savePlanApi = (planId: string, data: unknown) =>
 
 export const fetchActivityDaysApi = (since: string) =>
   apiClient.get<{ days: ActivityDay[] }>(`/api/me/activity-days?since=${encodeURIComponent(since)}`)
+
+export const startExamApi = (kind: string) =>
+  apiClient.post<{ ok: boolean; left: number }>('/api/me/exam-start', { kind })
+
+export const examStatusApi = (kind: string) =>
+  apiClient.get<{ left: number; limit: number; used: number; plus: boolean }>(
+    `/api/me/exam-status?kind=${encodeURIComponent(kind)}`,
+  )

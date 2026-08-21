@@ -42,7 +42,7 @@
 	],
 
 	"triggers": {
-		"crons": ["*/30 * * * *", "0 3 * * *"]
+		"crons": []
 	},
 
 	"ai": {
@@ -77,6 +77,8 @@
 		"DB_BUCKET": "vyling-db",
 		"SANDBOX_TRANSPORT": "rpc",
 		"SANDBOX_ID": "vyling-app-2",
+		"SANDBOX_SLEEP_AFTER": "5m",
+		"OPS_AGENT": "off",
 		"AI_SEARCH_NAME": "vyling-knowledge",
 		"PUBLIC_URL": "https://vyling.qvantruong205.workers.dev"
 	}

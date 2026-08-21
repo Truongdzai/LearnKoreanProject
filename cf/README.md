@@ -1112,6 +1112,107 @@ npm run deploy --prefix cf
 
 ---
 
+## 27. Hoá đơn Cloudflare (20/08) — ba cái vòi rò, không cái nào do người dùng
+
+Câu hỏi là "vì sao tốn tiền". Câu trả lời không nằm ở lưu lượng: **hạ tầng tự
+tiêu tiền của chính nó khi web hoàn toàn vắng người**.
+
+### 27.1 Bảng giá cần thuộc trước khi đọc tiếp
+
+| Khoản | Đơn giá | Miễn phí mỗi tháng (gói Paid) |
+|---|---|---|
+| Container — RAM | 0,0000025 USD / GiB-giây | 25 GiB-giờ |
+| Container — đĩa | 0,00000007 USD / GB-giây | 200 GB-giờ |
+| Container — CPU | 0,000020 USD / vCPU-giây | 375 vCPU-phút |
+| `@cf/moonshotai/kimi-k2.6` | 0,95 USD / M token vào · 4,00 USD / M token ra | 10.000 neuron/ngày |
+| R2 — Class A (ghi) | 4,50 USD / triệu | 1 triệu |
+
+RAM và đĩa tính theo **toàn bộ thời gian container thức**, không phải theo mức
+dùng thật. CPU thì chỉ tính lúc chạy thật. `standard-2` = **1 vCPU · 6 GiB RAM ·
+12 GB đĩa** → mỗi giây thức tốn `6 × 0,0000025 + 12 × 0,00000007` ≈ **0,0000159 USD**.
+Nghe nhỏ, nhưng một tháng có 2,59 triệu giây.
+
+### 27.2 Vòi 1 — con cron 30 phút **bật** container, không phải kiểm nó
+
+`handleScheduled` gọi `probe()`, mà `probe()` gọi `ensureBackend()` — chính là
+hàm **khởi động** backend. `sleepAfter` khi đó là `15m`. Ghép hai cái lại thành
+một chu kỳ vĩnh cửu:
+
+```
+:00  cron → dựng container dậy (cold start 10–60s)
+:15  hết 15 phút không ai gọi → ngủ
+:30  cron → dựng dậy lần nữa
+```
+
+**Container thức đúng 50% thời gian, mãi mãi, kể cả khi không có một người dùng nào.**
+1,296,000 giây/tháng × 0,0000159 ≈ **20 USD/tháng cho không khí**.
+
+§7c của chính README này viết *"đừng gọi model khi không cần… nhịp 30 phút do
+chính handler kiểm bằng một HTTP request rẻ"*. Ý đúng, nhưng "request rẻ" lại
+được cài thành lệnh bật cả một máy Linux.
+
+### 27.3 Vòi 2 — cũng con cron đó gọi LLM 48 lần/ngày
+
+Đọc kỹ thứ tự trong `probe()` cũ:
+
+```ts
+const started = Date.now()
+const origin = await ensureBackend(env)   // cold start 10–60 GIÂY nằm trong này
+const res = await fetch(`${origin}/api/health`)
+const ms = Date.now() - started           // nên ms luôn > 10.000
+if (ms > SLOW_MS) return { ok: false, ... }  // SLOW_MS = 5.000
+```
+
+Bấm giờ **trước** cold start rồi so với ngưỡng 5 giây → **không nhịp nào có thể
+đạt**. Mọi nhịp đều thành "phản hồi chậm" → đánh thức `VylingOps` chạy
+`kimi-k2.6` kèm 3 tool MCP. **1.440 lượt gọi model mỗi tháng để báo một sự cố
+không tồn tại**, ước ~10 USD/tháng — đúng cái §7c được viết ra để tránh.
+
+### 27.4 Vòi 3 — khách vãng lai cũng đánh thức container
+
+`frontend/src/store/auth.store.tsx` gọi `providersApi()` trong một `useEffect`
+**không có điều kiện**, tức là mọi lượt tải trang, kể cả người chưa đăng nhập và
+bot quét sitemap. `/api/auth/providers` không có route ở Worker → rơi xuống
+`proxyToBackend` → cold start.
+
+Nghĩa là toàn bộ công của §23/§24/§26 (bài học, từ điển, SPA ra edge) **bị vô
+hiệu ngay ở request đầu tiên của mỗi khách**.
+
+### 27.5 Đã sửa gì
+
+| Chỗ | Trước | Sau |
+|---|---|---|
+| `src/ops/scheduled.ts` — nhịp 30' | `ensureBackend()` → bật container | `SITE.head('index.html')` — **chỉ đọc R2, không đụng Sandbox**; 3 lần thử cách nhau 3s mới báo động |
+| `src/ops/scheduled.ts` — nhịp ngày | Cold start bị tính là "chậm" | `probeBackend()` tách `coldMs` (thông tin) khỏi `ms` (mới đem so ngưỡng) |
+| `src/app.ts` | `/api/auth/providers` xuống container | Trả thẳng ở edge từ biến môi trường Worker |
+| `src/legacy-proxy.ts` | `sleepAfter: '15m'` | `sleepAfter: env.SANDBOX_SLEEP_AFTER \|\| '5m'` |
+| `src/app.ts` — `/media/*` | Không cache, không giải mã `%20` | `caches.default` + `decodeURIComponent` |
+| `src/site.ts` | Chỉ cache `/assets/` | Cache thêm `wordimg\|audio\|cosmetics\|img\|icons`, **bỏ qua request có `Range`** |
+
+Lối tắt `/api/auth/providers` ở edge đọc `GOOGLE_CLIENT_ID + GOOGLE_CLIENT_SECRET`
+(và cặp Facebook), **khớp đúng luật `id && secret` của `backend/services/oauth.py`**.
+Thiếu biến thì trả `false` — trùng khớp với thứ container đang trả hôm nay, vì
+image chỉ có `config.example.toml` với id rỗng.
+
+⚠️ **`cache.put` không nhận phản hồi 206.** Đó là lý do `site.ts` phải tính
+`wantsRange` **trước** rồi mới quyết `cacheable`, chứ không phải chỉ lọc lúc ghi.
+
+### 27.6 Hai thứ đã cân rồi cố ý KHÔNG đổi
+
+- **`sync-interval: 1s` của Litestream.** Nới lên 10s cắt được ~10 lần số Class A
+  op, nhưng đổi lại là **mất tối đa 10 giây bài làm của người học** mỗi lần
+  container sập. Cứ mở Dashboard → R2 → `vyling-db` xem số op thật rồi hãy quyết;
+  dưới ~1 triệu/tháng thì khoản này chưa tới 5 USD, không đáng đánh đổi.
+- **Hạ `standard-2` → `standard-1`.** `standard-1` chỉ có **½ vCPU** nên cold
+  start dài gấp đôi, mà RAM tính theo **GiB × giây**: `4 × 2t` gần bằng `6 × t`.
+  Phần tiết kiệm bị chính cold start ăn lại, đổi lại web chậm đi. Sau khi bịt ba
+  vòi trên thì tiền container chỉ còn vài USD — kích cỡ máy không còn là đòn bẩy.
+
+Thứ tự đúng là **sửa chu kỳ thức trước, chỉnh kích cỡ máy sau**. Một cái máy nhỏ
+hơn nhưng vẫn thức 50% thời gian thì vẫn là thức 50% thời gian.
+
+---
+
 ## 22. Trạng thái sau đợt 16/08 — đo trên web thật
 
 | Đường | Kết quả |

@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import hashlib
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 
 from ..errors import AppError
 from ..schemas.pronounce import PronounceIn
-from ..services import auth, llm, quota
+from ..services import auth, cache, llm, quota
 from ..services.langs import study_name, native_name
 
 router = APIRouter(prefix="/api/pronounce", tags=["Phát âm"])
@@ -35,10 +37,27 @@ _SCHEMA = {
 }
 
 
+def _signature(body: PronounceIn) -> str:
+    issues = sorted(s.strip().lower() for s in body.issues if s.strip())
+    weak = sorted(w.strip().lower() for w in body.weak_words if w.strip())
+    band = min(9, max(0, int(body.score) // 10))
+    raw = "|".join([
+        body.lang, body.native, body.target.strip().lower(),
+        str(band), ",".join(issues), ",".join(weak),
+    ])
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
 @router.post("")
 def api_pronounce(body: PronounceIn, request: Request, user: dict | None = OptAuth):
     if not body.target.strip():
         raise HTTPException(status_code=400, detail="Thiếu câu mẫu.")
+
+    sig = _signature(body)
+    hit = cache.get_pronounce(sig)
+    if hit:
+        return {**hit, "cached": True}
+
     quota.consume("pronounce", user, quota.client_ip(request))
     lname = study_name(body.lang)
     issues = "; ".join(s.strip() for s in body.issues if s.strip())
@@ -56,9 +75,11 @@ def api_pronounce(body: PronounceIn, request: Request, user: dict | None = OptAu
         data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native), temperature=0.4)
     except Exception as exc:
         raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
-    return {
+    out = {
         "feedback": data.get("feedback", ""),
         "tips": data.get("tips", []),
         "encouragement": data.get("encouragement", ""),
         "model": llm.current_model(),
     }
+    cache.put_pronounce(sig, out)
+    return out

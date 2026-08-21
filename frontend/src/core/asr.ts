@@ -17,7 +17,9 @@ export function hasEdgeAsr(): Promise<boolean> {
 			const res = await fetch(`${edgeAsrBase()}/cf/ping`, {
 				signal: AbortSignal.timeout(EDGE_TIMEOUT_MS),
 			})
-			return res.ok
+			if (!res.ok) return false
+			const data = (await res.json()) as { pong?: boolean }
+			return data.pong === true
 		} catch {
 			return false
 		}

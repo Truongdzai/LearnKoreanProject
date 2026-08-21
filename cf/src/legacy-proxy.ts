@@ -9,7 +9,7 @@ function sandboxFor(env: Env) {
 	const ns = env.Sandbox as unknown as DurableObjectNamespace<Sandbox>
 	return getSandbox(ns, env.SANDBOX_ID || DEFAULT_SANDBOX_ID, {
 		keepAlive: false,
-		sleepAfter: '15m',
+		sleepAfter: env.SANDBOX_SLEEP_AFTER || '5m',
 	})
 }
 
