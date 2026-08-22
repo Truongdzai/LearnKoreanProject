@@ -6582,3 +6582,5 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-size:13.5px;color:var(--text2)}
 .exam-gate svg{color:var(--accent);flex:none}
 .exam-gate button{margin-left:auto;padding:2px 9px;font-size:16px;line-height:1}
+
+.cloze-player-hide{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}

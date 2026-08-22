@@ -12,7 +12,7 @@ import { takeTaste } from '@/core/taste'
 import { track } from '@/core/monitor'
 import { studyLang } from '@/core/constants/languages'
 import { detectSpeakers, diarizeVoice } from '@/core/api/learn.api'
-import { refDuration } from '../segments'
+import { playRange, refDuration, segEnd } from '../segments'
 import type { Lesson } from '@/models/lesson.model'
 
 interface Clip {
@@ -42,6 +42,16 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const cfg = studyLang(learnLang)
   const segs = lesson.segments
   const yt = useYouTubePlayer('dub-player')
+  const samplePlay = useRef<(() => void) | null>(null)
+
+  const playSample = (idx: number) => {
+    samplePlay.current?.()
+    if (yt.getTime() == null) {
+      speakLang(segs[idx].ko, cfg.locale, 0.9)
+      return
+    }
+    samplePlay.current = playRange(yt, segs[idx].start, segEnd(segs, idx), { times: 1, rate: 1 })
+  }
 
   const lines = useMemo(() => segs.map((s) => s.ko), [segs])
   const ph = usePhonetics(learnLang, lines)
@@ -485,7 +495,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
                   </div>
                 )}
                 <div className="dub-line-actions">
-                  <button className="btn-ghost sm" onClick={() => speakLang(s.ko, cfg.locale, 0.9)}>
+                  <button className="btn-ghost sm" onClick={() => playSample(idx)}>
                     <Icon name="volume" size={14} /> {t('sh.listen')}
                   </button>
                   {isRec ? (

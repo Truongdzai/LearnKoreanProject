@@ -1,6 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
+import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
+import { isNoiseLine, playRange, segEnd } from '../segments'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
 import { isNoSpaceLang, words } from '@/core/segment'
@@ -12,6 +14,8 @@ const EN_STOP = new Set(['the', 'and', 'that', 'this', 'with', 'for', 'you', 'yo
 
 interface ClozeItem {
   segIndex: number
+  start: number
+  end: number
   text: string
   vi: string
   words: string[]
@@ -45,6 +49,7 @@ function buildItems(lesson: Lesson, lang: string): ClozeItem[] {
 
   const items: ClozeItem[] = []
   lesson.segments.forEach((seg, segIndex) => {
+    if (isNoiseLine(seg.ko)) return
     const toks = words(seg.ko, lang)
     if (toks.length < 4) return
     const candidates = toks
@@ -62,6 +67,8 @@ function buildItems(lesson: Lesson, lang: string): ClozeItem[] {
     if (distractors.length < 3) return
     items.push({
       segIndex,
+      start: seg.start,
+      end: segEnd(lesson.segments, segIndex),
       text: seg.ko,
       vi: seg.vi || '',
       words: toks,
@@ -82,6 +89,11 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
   const [picked, setPicked] = useState<string | null>(null)
   const [rewarded, setRewarded] = useState<Set<number>>(new Set())
   const [correct, setCorrect] = useState(0)
+  const cancelPlay = useRef<(() => void) | null>(null)
+  const yt = useYouTubePlayer('cloze-player')
+
+  useEffect(() => { yt.load(lesson.id) }, [lesson.id])
+  useEffect(() => () => cancelPlay.current?.(), [])
 
   if (!items.length) {
     return <div className="empty"><div className="big">🧩</div>{t('cz.empty')}</div>
@@ -91,7 +103,14 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
   const done = picked !== null
   const isRight = done && picked === cur.answer.toLowerCase()
 
-  const speak = (rate = 0.9) => speakLang(cur.text, cfg.locale, rate)
+  const speak = (rate = 0.9) => {
+    cancelPlay.current?.()
+    if (yt.getTime() == null) {
+      speakLang(cur.text, cfg.locale, rate)
+      return
+    }
+    cancelPlay.current = playRange(yt, cur.start, cur.end, { times: 1, rate })
+  }
 
   const pick = (opt: string) => {
     if (done) return
@@ -113,6 +132,7 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
 
   return (
     <div className="dictation cloze">
+      <div className="cloze-player-hide"><div id="cloze-player" /></div>
       <div className="shadow-bar">
         <button className="btn-ghost sm" disabled={i === 0} onClick={() => go(i - 1)}><Icon name="chevron-left" size={15} /> {t('sh.prev')}</button>
         <div className="shadow-prog">

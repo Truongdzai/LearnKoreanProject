@@ -7,6 +7,29 @@ export function segEnd(segs: Lesson['segments'], idx: number): number {
   return b > a ? b : a + 3.5
 }
 
+const NOISE_TAG = /^[\[(【]\s*(music|nhac|nhạc|âm nhạc|applause|clapping|vỗ tay|laughter|laughs|cười|sound|sounds|noise|silence|inaudible|unintelligible|foreign|instrumental|singing|hát|beep|sighs|music playing|音楽|ミュージック|음악|拍手)[^\])】]*[\])】]$/i
+
+export function isNoiseLine(text: string): boolean {
+  const t = (text || '').trim()
+  if (!t) return true
+  if (/^[♪♫♬♩~\-–—.·\s]+$/.test(t)) return true
+  return NOISE_TAG.test(t)
+}
+
+export interface TimedSegment {
+  start: number
+  end: number
+  ko: string
+  vi?: string
+  speaker?: number
+}
+
+export function speakableSegments(segs: Lesson['segments']): TimedSegment[] {
+  return segs
+    .map((s, idx) => ({ ...s, end: segEnd(segs, idx) }))
+    .filter((s) => !isNoiseLine(s.ko))
+}
+
 export function refDuration(segs: Lesson['segments'], idx: number): number {
   return Math.max(1.2, Math.min(8, segEnd(segs, idx) - segs[idx].start))
 }
