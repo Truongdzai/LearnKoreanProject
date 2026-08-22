@@ -8,11 +8,11 @@ export const COUNTS = {
   koWords: 805,
   koUnits: 67,
   topikCapsules: 20,
-  videos: 90,
+  videos: 115,
   zhWords: 324,
   zhUnits: 27,
   hskCapsules: 18,
   koVideos: 45,
-  enVideos: 7,
+  enVideos: 32,
   zhVideos: 22,
 }
