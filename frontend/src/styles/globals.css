@@ -6584,3 +6584,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .exam-gate button{margin-left:auto;padding:2px 9px;font-size:16px;line-height:1}
 
 .cloze-player-hide{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+
+.sm-words button .sm-count{margin-left:6px;font-style:normal;font-size:11px;font-weight:700;
+  color:var(--accent-d);opacity:.85}
+.sm-phrases .sm-rep{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:6px;
+  font-size:11px;font-weight:700;color:var(--accent-d);background:var(--accent-soft);
+  border:1px solid var(--accent-ring);vertical-align:1px}

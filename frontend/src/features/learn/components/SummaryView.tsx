@@ -1,30 +1,7 @@
 import Icon from '@/core/components/Icon'
 import { useAppStore } from '@/store/app.store'
 import type { Lesson } from '@/models/lesson.model'
-import { isNoSpaceLang, words } from '@/core/segment'
-
-const KO_STOP = new Set(['저는', '오늘', '정말', '또'])
-const CJK_STOP = new Set(['的', '了', '是', '在', '和', '就', '也', '很', '不', '我', '你', '他',
-  'です', 'ます', 'した', 'する', 'して', 'こと', 'これ', 'それ'])
-
-function keywords(lesson: Lesson, lang: string): string[] {
-  const cjk = isNoSpaceLang(lang)
-  const stop = cjk ? CJK_STOP : KO_STOP
-  const seen = new Set<string>()
-  const out: string[] = []
-  for (const seg of lesson.segments) {
-    for (let w of words(seg.ko, lang)) {
-      if (!cjk) w = w.replace(/[.,!?]/g, '')
-      if (lang === 'ko') w = w.replace(/(을|를|이|가|은|는|에서|에게|에|와|과|도)$/u, '')
-      if (w.length >= 2 && !/^\d+$/.test(w) && !stop.has(w) && !seen.has(w)) {
-        seen.add(w)
-        out.push(w)
-      }
-      if (out.length >= 10) return out
-    }
-  }
-  return out
-}
+import { clockLabel, lessonFacts, notableWords, usefulPhrases } from '@/core/utils/summary'
 
 const GRAMMAR = [
   { p: '–아요/어요', d: 'sm.g1', ex: 'sm.g1ex' },
@@ -35,8 +12,9 @@ const GRAMMAR = [
 
 export default function SummaryView({ lesson }: { lesson: Lesson }) {
   const { openLookup, learnLang, t } = useAppStore()
-  const keys = keywords(lesson, learnLang)
-  const phrases = lesson.segments.slice(0, 5)
+  const facts = lessonFacts(lesson, learnLang)
+  const keys = notableWords(lesson, learnLang)
+  const phrases = usefulPhrases(lesson, learnLang)
 
   return (
     <div className="summary">
@@ -45,16 +23,24 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
       <div className="sm-grid">
         <div className="sm-card span2">
           <div className="sm-label"><Icon name="bulb" size={15} /> {t('sm.overview')}</div>
-          <p>{t('sm.overviewText', { title: lesson.title, n: lesson.segments.length })}</p>
+          <p>{t('sm.overviewText', {
+            title: lesson.title,
+            n: facts.spokenLines,
+            dur: clockLabel(facts.seconds),
+            wpm: facts.wpm,
+          })}</p>
         </div>
 
         <div className="sm-card">
           <div className="sm-label"><Icon name="note" size={15} /> {t('sm.info')}</div>
           <ul className="sm-info">
-            <li><span>{t('sm.goal')}</span><b>{t('sm.goalV')}</b></li>
-            <li><span>{t('sm.audience')}</span><b>{t('sm.audienceV')}</b></li>
-            <li><span>{t('sm.lines')}</span><b>{t('sm.linesV', { n: lesson.segments.length })}</b></li>
-            <li><span>{t('sm.concepts')}</span><b>{t('sm.conceptsV', { n: Math.max(3, Math.round(lesson.segments.length / 2)) })}</b></li>
+            <li><span>{t('sm.duration')}</span><b>{clockLabel(facts.seconds)}</b></li>
+            <li><span>{t('sm.lines')}</span><b>{t('sm.linesV', { n: facts.spokenLines })}</b></li>
+            {facts.noiseLines > 0 && (
+              <li><span>{t('sm.noise')}</span><b>{t('sm.noiseV', { n: facts.noiseLines })}</b></li>
+            )}
+            <li><span>{t('sm.uniqueWords')}</span><b>{t('sm.uniqueWordsV', { n: facts.uniqueWords })}</b></li>
+            <li><span>{t('sm.pace')}</span><b>{t('sm.paceV', { n: facts.wpm })}</b></li>
           </ul>
         </div>
 
@@ -62,8 +48,11 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
           <div className="sm-label"><Icon name="cards" size={15} /> {t('sm.vocab')}</div>
           <p className="sm-sub">{t('sm.vocabSub')}</p>
           <div className="sm-words">
-            {keys.map((w) => (
-              <button key={w} lang={learnLang} onClick={() => openLookup(w)}>{w}</button>
+            {keys.map((k) => (
+              <button key={k.word} lang={learnLang} onClick={() => openLookup(k.word)}>
+                {k.word}
+                {k.count > 1 && <em className="sm-count">{k.count}</em>}
+              </button>
             ))}
           </div>
         </div>
@@ -82,8 +71,12 @@ export default function SummaryView({ lesson }: { lesson: Lesson }) {
         <div className="sm-card">
           <div className="sm-label"><Icon name="volume" size={15} /> {t('sm.phrases')}</div>
           <ul className="sm-phrases">
-            {phrases.map((s, i) => (
-              <li key={i}><span lang={learnLang}>{s.ko}</span><em>{s.vi}</em></li>
+            {phrases.map((p) => (
+              <li key={p.text}>
+                <span lang={learnLang}>{p.text}</span>
+                {p.count > 1 && <b className="sm-rep">{t('sm.repeat', { n: p.count })}</b>}
+                <em>{p.vi}</em>
+              </li>
             ))}
           </ul>
         </div>
