@@ -1,4 +1,5 @@
 import { normWord, splitWords } from './speechDiff'
+import { isNoSpaceLang } from '@/core/segment'
 import { alignPhones, hasSounds, soundsOf, type PhoneCell, type SoundSource } from './phonemeDiff'
 import { buildFix, isToneTok, isVowelTok, phoneLabel, type PhoneFix } from '@/data/phoneCoach'
 
@@ -227,6 +228,31 @@ function altWords(src: SoundSource, alts: string[]): Set<string> {
   return set
 }
 
+const SENTENCE_END = /[.!?…:;"“”)]$/
+const SELF_WORDS = new Set(['i', "i'm", "i've", "i'll", "i'd"])
+const LATIN_START = /^[A-Za-zÀ-ÖØ-öø-ÿ]/
+
+function looksProperNoun(raw: string, idx: number, all: string[]): boolean {
+  const bare = raw.replace(/^[¿¡"“'(\[]+/, '')
+  if (!LATIN_START.test(bare)) return false
+  const first = bare[0]
+  if (first !== first.toUpperCase() || first === first.toLowerCase()) return false
+  if (SELF_WORDS.has(normWord(bare))) return false
+  if (idx === 0) return false
+  const prev = all[idx - 1] ?? ''
+  return !SENTENCE_END.test(prev)
+}
+
+export function properNouns(lang: string, target: string): Set<string> {
+  const out = new Set<string>()
+  if (isNoSpaceLang(lang)) return out
+  const toks = splitWords(target, lang)
+  toks.forEach((tok, idx) => {
+    if (looksProperNoun(tok, idx, toks)) out.add(normWord(tok))
+  })
+  return out
+}
+
 export function gradeSpeech(src: SoundSource, input: GradeInput): SpeechGrade {
   const lang = src.lang
   const want = prep(src, splitWords(input.target, lang))
@@ -235,10 +261,12 @@ export function gradeSpeech(src: SoundSource, input: GradeInput): SpeechGrade {
 
   const words = pairWords(lang, want, got)
   const heardAlt = altWords(src, input.alternatives ?? [])
+  const names = properNouns(lang, input.target)
 
   for (const w of words) {
     if (w.state === 'ok' || w.state === 'extra' || !w.target) continue
-    if (!heardAlt.has(normWord(w.target))) continue
+    const key = normWord(w.target)
+    if (!heardAlt.has(key) && !names.has(key)) continue
     w.unsure = true
     w.devs = []
     w.kind = 'other'

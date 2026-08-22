@@ -1,43 +1,43 @@
-# Image cho Cloudflare Sandbox chạy NGUYÊN VẸN backend FastAPI hiện tại.
-#
-# Base image của Cloudflare đã set sẵn ENTRYPOINT (sandbox agent mở HTTP API
-# rồi spawn CMD làm tiến trình con) — KHÔNG được ghi đè ENTRYPOINT.
 FROM docker.io/cloudflare/sandbox:0.12.7-python
 
-# ffmpeg: backend/services/media.py gọi (ensure_ffmpeg khi khởi động).
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	ffmpeg \
+	ca-certificates \
+	curl \
 	&& rm -rf /var/lib/apt/lists/*
+
+ARG LITESTREAM_VERSION=0.5.16
+RUN curl -fsSL "https://github.com/benbjohnson/litestream/releases/download/v${LITESTREAM_VERSION}/litestream-${LITESTREAM_VERSION}-linux-x86_64.tar.gz" \
+	| tar -xz -C /usr/local/bin litestream \
+	&& litestream version
 
 WORKDIR /app
 
-# Cài dependency trước để tận dụng layer cache.
-# LƯU Ý: image nền chỉ có `python3`/`pip3`, KHÔNG có alias `python`/`pip`
-# (Python 3.11.14 tại /usr/local/bin). Dùng `pip` sẽ lỗi "pip: not found".
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Mã nguồn backend — copy y nguyên, không sửa dòng nào.
 COPY backend/ ./backend/
 COPY config.example.toml ./
 
-# Frontend đã build. PHẢI có thật, không được là thư mục rỗng:
-# backend/main.py mount SPA theo điều kiện `if _DIST.exists()`, mà thư mục
-# rỗng vẫn tính là tồn tại — khi đó nó mount SPA lên chỗ không có file nào và
-# mọi request về "/" đổ lỗi thay vì 404 sạch.
-#
-# Nhớ chạy `npm run build --prefix frontend` TRƯỚC khi build image.
 COPY frontend/dist/ ./frontend/dist/
 
-# data/, media/, dictionaries/ KHÔNG nằm trong image (xem
-# Dockerfile.dockerignore) — 420MB media đi vào image thì cold start rất chậm
-# và mỗi lần deploy phải đẩy lại toàn bộ. /media/* phục vụ từ R2 ở edge.
 RUN mkdir -p /app/data /app/dictionaries
+COPY dictionaries/KO-VI.KRDICT.zip ./dictionaries/
+
+RUN python3 -c "\
+from backend.services import dictionary; \
+from backend import db; \
+n = dictionary.import_zip(); \
+conn = db.get_conn(); \
+conn.execute('PRAGMA journal_mode=WAL'); \
+conn.close(); \
+print('[build] dict_entries:', n)"
+
+COPY cf/litestream.yml /etc/litestream.yml
+COPY cf/start-backend.sh /app/start-backend.sh
+RUN chmod +x /app/start-backend.sh
 
 ENV PYTHONUNBUFFERED=1 \
 	PYTHONIOENCODING=utf-8
 
 EXPOSE 8000
-
-# Cùng lệnh với start.bat, chỉ đổi host để nghe được từ ngoài container.
-CMD ["python3", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

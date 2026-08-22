@@ -7,6 +7,8 @@ import { navForLang } from '@/core/constants/nav'
 import { pathForView } from '@/core/constants/routes'
 import { STUDY_LANGS } from '@/core/constants/languages'
 import { studyLangName } from '@/core/i18n/translations'
+import { refreshQuota, useQuota } from '@/core/quota'
+import { track } from '@/core/monitor'
 
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 const COLLAPSE_KEY = 'vyling.navCollapsed'
@@ -18,6 +20,11 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
   })
   const todayIdx = (new Date().getDay() + 6) % 7
   const nav = navForLang(learnLang)
+  const quota = useQuota()
+  const lowMark = quota ? Math.max(5, Math.round(quota.limit * 0.2)) : 0
+  const pct = quota && quota.limit > 0 ? Math.max(0, Math.min(100, (quota.left / quota.limit) * 100)) : 0
+
+  useEffect(() => { void refreshQuota() }, [])
 
   useEffect(() => {
     try { localStorage.setItem(COLLAPSE_KEY, collapsed ? '1' : '0') } catch {  }
@@ -138,10 +145,23 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
 
       <div className="sidebar-spacer" />
 
+      {quota && (
+        <div
+          className={'quota-meter' + (quota.left <= 0 ? ' empty' : quota.left <= lowMark ? ' low' : '')}
+          title={t('side.quotaTip', { a: quota.used, b: quota.limit })}
+        >
+          <div className="quota-head">
+            <span className="ic"><Icon name="sparkles" size={13} /></span>
+            <span className="lbl">{t('side.quotaLeft', { n: quota.left })}</span>
+          </div>
+          <div className="quota-bar"><span style={{ width: pct + '%' }} /></div>
+        </div>
+      )}
+
       {!user.isPlus && (
         <button
           className="upgrade-btn"
-          onClick={() => { setView('pricing'); onClose?.() }}
+          onClick={() => { track('upgrade_click', { from: 'sidebar' }); setView('pricing'); onClose?.() }}
           title={t('side.upgrade')}
         >
           <Icon name="sparkles" size={16} /> <span className="lbl">{t('side.upgrade')}</span>

@@ -19,10 +19,11 @@ import { translate, studyLangName, type UiLang } from '@/core/i18n/translations'
 import { pageview } from '@/core/analytics'
 import { announce } from '@/core/a11y'
 import { track } from '@/core/monitor'
+import { getLearnLang, LEARN_LANG_KEY } from '@/core/lang'
 import { useAuth } from '@/store/auth.store'
 
 const THEME_KEY = 'vyling.theme'
-const LANG_KEY = 'vyling.learnLang'
+const LANG_KEY = LEARN_LANG_KEY
 const NATIVE_KEY = 'vyling.nativeLang'
 const GOAL_KEY = 'vyling.goal'
 const GOAL_ASKED_KEY = 'vyling.goalAsked'
@@ -70,13 +71,7 @@ function loadTheme(): ThemeMode {
 }
 
 function loadLang(): string {
-  // Chỉ nhận ngôn ngữ ĐANG MỞ. Người dùng cũ đã lưu 'ko' phải rơi về ngôn ngữ
-  // mở, nếu không họ mở web lên là vào thẳng một ngôn ngữ chưa có nội dung.
-  const fallback = AVAILABLE_STUDY_LANGS[0]?.code || 'en'
-  try {
-    const saved = localStorage.getItem(LANG_KEY) || fallback
-    return AVAILABLE_STUDY_LANGS.some((l) => l.code === saved) ? saved : fallback
-  } catch { return fallback }
+  return getLearnLang()
 }
 
 function loadNative(): string {
@@ -164,7 +159,7 @@ interface AppStore {
   addPath: (p: LearningPath) => Promise<void>
   claimQuest: (id: string) => Promise<void>
   dailyBonus: () => Promise<number>
-  recordEvent: (type: EventType, amount?: number, minutes?: number, words?: number) => void
+  recordEvent: (type: EventType, amount?: number, minutes?: number, words?: number, lang?: string) => void
 
   lookupOpen: boolean
   openLookup: (term?: string) => void
@@ -209,13 +204,26 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const user = account ?? GUEST
 
+  const urlFor = (v: AppView, code: string) => {
+    const path = pathForView(v)
+    const langs = langsForView(v)
+    return langs && langs.length <= 1 ? path : `${path}?lang=${encodeURIComponent(code)}`
+  }
+
   const setView = useCallback((v: AppView) => {
     setViewState(v)
-    const path = pathForView(v)
-    if (window.location.pathname !== path) window.history.pushState({ view: v }, '', path)
+    const url = urlFor(v, loadLang())
+    if (window.location.pathname + window.location.search !== url) {
+      window.history.pushState({ view: v }, '', url)
+    }
   }, [])
 
-  const applyPath = useCallback((pathname: string) => {
+  const applyPath = useCallback((pathname: string, search = '') => {
+    const wanted = new URLSearchParams(search).get('lang')
+    if (wanted && AVAILABLE_STUDY_LANGS.some((l) => l.code === wanted) && wanted !== loadLang()) {
+      setLearnLangState(wanted)
+      try { localStorage.setItem(LANG_KEY, wanted) } catch {  }
+    }
     const v = viewForPath(pathname)
     if (!v) {
       setViewState('notfound')
@@ -232,8 +240,8 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    applyPath(window.location.pathname)
-    const onPop = () => applyPath(window.location.pathname)
+    applyPath(window.location.pathname, window.location.search)
+    const onPop = () => applyPath(window.location.pathname, window.location.search)
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [applyPath])
@@ -272,8 +280,12 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const setLearnLang = useCallback((code: string) => {
     setLearnLangState(code)
     try { localStorage.setItem(LANG_KEY, code) } catch {  }
-    if (!viewAllowedForLang(view, code)) setView('home')
-  }, [view])
+    if (!viewAllowedForLang(view, code)) { setView('home'); return }
+    const url = urlFor(view, code)
+    if (window.location.pathname + window.location.search !== url) {
+      window.history.replaceState({ view }, '', url)
+    }
+  }, [view, setView])
 
   const setNativeLang = useCallback((code: string) => {
     setNativeLangState(code)
@@ -464,7 +476,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     return r.reward
   }, [guard, setAccount, setBonusAvailable])
 
-  const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0) => {
+  const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0, lang?: string) => {
     const gain = (EVENT_XP[type] || 0) * Math.max(0, amount)
     if (gain) {
       setTodayXp((x) => {
@@ -474,10 +486,10 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       })
     }
     if (!isAuthed) return
-    recordEventApi(type, amount, minutes, words)
+    recordEventApi(type, amount, minutes, words, lang || learnLang)
       .then((r) => setAccount(r.user))
       .catch(() => {  })
-  }, [isAuthed, setAccount])
+  }, [isAuthed, setAccount, learnLang])
 
   const setDailyGoalXp = useCallback((n: number) => {
     setDailyGoalXpState(n)
@@ -507,27 +519,35 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       return
     }
     setStatusError(false)
-    setStatus('Đang lấy phụ đề & dịch... (10–60 giây tùy độ dài video)')
+    setStatus(translate(uiLang, 'learn.preparing'))
+    const slowNotice = setTimeout(() => setStatus(translate(uiLang, 'learn.fetching')), 1500)
     setLesson(null)
     setView('learn')
     track('lesson_start', { lang, from: opts?.video ? 'catalog' : 'paste' })
     try {
       const d = await fetchTranscript(u, lang)
+      clearTimeout(slowNotice)
       setLesson(d)
       setStatus('')
       track('lesson_ready', { lang, segments: d.segments?.length || 0 })
-      recordEvent('video', 1, 0, 0)
+      recordEvent('video', 1, 0, 0, lang)
       if (opts?.video) saveVideo(opts.video)
       if (nativeLang !== 'vi' && nativeLang !== lang) {
         const nd = await applyNativeTranslation(d, lang, nativeLang)
         setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
       }
     } catch (e) {
+      clearTimeout(slowNotice)
       setStatusError(true)
       setStatus((e as Error).message)
-      track('lesson_failed', { lang, reason: (e as Error).message.slice(0, 60) })
+      const code = (e as { code?: string }).code
+      track('lesson_failed', { lang, code: code ?? null, reason: (e as Error).message.slice(0, 60) })
+      if (code === 'SIGNUP_REQUIRED') {
+        track('gate_hit', { gate: 'guest_lesson', lang })
+        openAuth()
+      }
     }
-  }, [recordEvent, learnLang, nativeLang, saveVideo])
+  }, [recordEvent, learnLang, nativeLang, saveVideo, uiLang, openAuth])
 
   const value: AppStore = {
     view, setView,

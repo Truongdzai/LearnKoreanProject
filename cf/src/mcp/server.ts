@@ -3,6 +3,17 @@ import { z } from 'zod'
 import { proxyToBackend } from '../legacy-proxy'
 import { TOOLS } from './tools'
 
+const MAX_TOOL_CHARS = 4000
+
+function clip(text: string): string {
+	if (text.length <= MAX_TOOL_CHARS) return text
+	return (
+		text.slice(0, MAX_TOOL_CHARS) +
+		`
+… (đã cắt ${text.length - MAX_TOOL_CHARS} ký tự — gọi lại với tham số hẹp hơn nếu cần thêm)`
+	)
+}
+
 export function buildMcpServer(env: Env): McpServer {
 	const server = new McpServer({ name: 'vyling', version: '2.0.0' })
 
@@ -23,7 +34,7 @@ export function buildMcpServer(env: Env): McpServer {
 					new Request(`https://vyling.internal${spec.path}`, init),
 					env,
 				)
-				const text = await response.text()
+				const text = clip(await response.text())
 
 				if (!response.ok) {
 					return {

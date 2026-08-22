@@ -9,7 +9,7 @@ export function VylingOps() {
 		name: 'vyling',
 		url: new URL('/mcp', env.PUBLIC_URL).toString(),
 		transport: 'streamable-http',
-		tools: ['suc_khoe_he_thong', 'thong_ke_srs', 'kho_video'],
+		tools: ['suc_khoe_he_thong', 'thong_ke_srs'],
 	})
 
 	return [

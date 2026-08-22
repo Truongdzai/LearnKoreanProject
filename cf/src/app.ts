@@ -3,8 +3,12 @@ import { Hono } from 'hono'
 import { VylingOps } from './agents/vyling-ops'
 import { VylingTutor } from './agents/vyling-tutor'
 import { transcribe } from './asr/whisper'
+import { clientKey, limitPerMinute, overLimit } from './asr/limit'
 import { createMcpHandler } from 'agents/mcp/server'
-import { proxyToBackend, recycleBackend } from './legacy-proxy'
+import { backendLogs, backendReady, proxyToBackend, recycleBackend } from './legacy-proxy'
+import { prebuiltLesson } from './lessons'
+import { lookupEn } from './dict'
+import { serveStatic } from './site'
 import { buildMcpServer } from './mcp/server'
 
 const app = new Hono<{ Bindings: Env }>()
@@ -38,8 +42,6 @@ app.get('/cf/ping', (c) =>
 	c.json({
 		pong: true,
 		at: new Date().toISOString(),
-		// Chỉ báo CÓ/KHÔNG, không bao giờ lộ giá trị — để chẩn đoán khi tính
-		// năng AI im lặng tắt mà không rõ khoá đã tới Worker chưa.
 		secrets: {
 			llm: !!c.env.LLM_API_KEY,
 			admin: !!c.env.ADMIN_PASSWORD,
@@ -50,9 +52,23 @@ app.get('/cf/ping', (c) =>
 	}),
 )
 
-// Thay container sau khi deploy code backend mới. Bảo vệ bằng secret
-// DEPLOY_TOKEN: đây là nút gây gián đoạn dịch vụ, để mở là ai cũng khởi động
-// lại được web. Chưa đặt secret thì endpoint đóng hẳn, không phải mở sẵn.
+app.get('/api/auth/providers', (c) =>
+	c.json(
+		{
+			google: !!(c.env.GOOGLE_CLIENT_ID && c.env.GOOGLE_CLIENT_SECRET),
+			facebook: !!(c.env.FACEBOOK_APP_ID && c.env.FACEBOOK_APP_SECRET),
+		},
+		200,
+		{ 'Cache-Control': 'public, max-age=300' },
+	),
+)
+
+app.get('/cf/ready', async (c) =>
+	(await backendReady(c.env))
+		? c.json({ ready: true })
+		: c.json({ ready: false }, 503, { 'Retry-After': '5', 'Cache-Control': 'no-store' }),
+)
+
 app.post('/cf/recycle', async (c) => {
 	const token = c.env.DEPLOY_TOKEN
 	if (!token) return c.json({ detail: 'Chưa cấu hình DEPLOY_TOKEN.' }, 503)
@@ -61,8 +77,21 @@ app.post('/cf/recycle', async (c) => {
 	return c.json({ recycled: true, at: new Date().toISOString() })
 })
 
+app.get('/cf/logs', async (c) => {
+	const token = c.env.DEPLOY_TOKEN
+	if (!token) return c.json({ detail: 'Chưa cấu hình DEPLOY_TOKEN.' }, 503)
+	if (c.req.header('X-Deploy-Token') !== token) return c.json({ detail: 'Không có quyền.' }, 403)
+	return c.text(await backendLogs(c.env), 200, { 'Cache-Control': 'no-store' })
+})
+
 app.post('/cf/asr', async (c) => {
 	const lang = c.req.query('lang') ?? 'en'
+	if (overLimit(clientKey(c.req.raw))) {
+		return c.json(
+			{ detail: `Bạn đang gửi quá nhanh — tối đa ${limitPerMinute} lần ghi âm mỗi phút. Hãy chờ một chút.` },
+			429,
+		)
+	}
 	try {
 		const audio = await c.req.arrayBuffer()
 		const result = await transcribe(c.env, audio, lang)
@@ -72,8 +101,34 @@ app.post('/cf/asr', async (c) => {
 	}
 })
 
+app.post('/api/transcript', async (c) => {
+	const body = await c.req.raw.text()
+
+	const hit = await prebuiltLesson(c.env, body)
+	if (hit) return hit
+
+	const headers = new Headers(c.req.raw.headers)
+	headers.delete('content-length')
+	return proxyToBackend(
+		new Request(c.req.url, { method: 'POST', headers, body }),
+		c.env,
+	)
+})
+
+app.get('/cf/dict', async (c) => {
+	const found = await lookupEn(c.env, c.req.query('word') ?? '', c.executionCtx as ExecutionContext)
+	if (!found) return c.json({ detail: 'Không tìm thấy từ này.' }, 404)
+	return c.json(found, 200, {
+		'Cache-Control': 'public, max-age=86400, s-maxage=2592000',
+	})
+})
+
 app.get('/media/*', async (c) => {
-	const key = c.req.path.replace(/^\/media\//, '')
+	const cache = caches.default
+	const hit = await cache.match(c.req.raw).catch(() => undefined)
+	if (hit) return hit
+
+	const key = decodeURIComponent(c.req.path.replace(/^\/media\//, ''))
 	const object = await c.env.MEDIA.get(key)
 	if (!object) return c.notFound()
 
@@ -81,9 +136,16 @@ app.get('/media/*', async (c) => {
 	object.writeHttpMetadata(headers)
 	headers.set('etag', object.httpEtag)
 	headers.set('Cache-Control', 'public, max-age=604800')
-	return new Response(object.body, { headers })
+
+	const res = new Response(object.body, { headers })
+	c.executionCtx.waitUntil(cache.put(c.req.raw, res.clone()))
+	return res
 })
 
-app.all('*', (c) => proxyToBackend(c.req.raw, c.env))
+app.all('*', async (c) => {
+	const asset = await serveStatic(c.env, c.req.raw, c.executionCtx as ExecutionContext)
+	if (asset) return asset
+	return proxyToBackend(c.req.raw, c.env)
+})
 
 export default app

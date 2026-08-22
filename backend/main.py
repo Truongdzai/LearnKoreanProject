@@ -7,7 +7,7 @@ import sys
 from contextlib import asynccontextmanager
 from datetime import date
 
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -16,7 +16,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from .config import settings, ROOT
 from .errors import AppError
 from . import db
-from .services import health, media, dictionary, catalog, accounts, backup, notify
+from .services import health, media, dictionary, catalog, accounts, backup, notify, auth, quota, events
 from .routers import (
     learn,
     dict as dict_router,
@@ -141,6 +141,25 @@ app.include_router(notify_router.router)
 @app.get("/api/health", tags=["Hệ thống"])
 def api_health():
     return JSONResponse(health.run_checks())
+
+
+@app.get("/api/quota", tags=["Hệ thống"])
+def api_quota(request: Request, user: dict | None = Depends(auth.get_optional_user)):
+    return quota.status(user, quota.client_ip(request))
+
+
+@app.post("/api/events", tags=["Hệ thống"], include_in_schema=False)
+async def api_events(request: Request, user: dict | None = Depends(auth.get_optional_user)):
+    try:
+        body = await request.json()
+    except Exception:
+        return {"ok": True, "saved": 0}
+    items = body.get("events") if isinstance(body, dict) else body
+    if isinstance(body, dict) and not isinstance(items, list):
+        items = [body]
+    if not isinstance(items, list):
+        return {"ok": True, "saved": 0}
+    return events.record(items, user["id"] if user else None)
 
 
 @app.get("/api/site", tags=["Hệ thống"])

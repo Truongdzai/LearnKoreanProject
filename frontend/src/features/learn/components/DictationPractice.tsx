@@ -10,7 +10,7 @@ import { useMissBook } from '@/core/missBook'
 import { useLessonProgress, lessonStat } from '@/core/lessonProgress'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
-import { playRange, segEnd } from '../segments'
+import { playRange, speakableSegments } from '../segments'
 import TranscriptRail from './TranscriptRail'
 import type { Lesson } from '@/models/lesson.model'
 
@@ -41,7 +41,7 @@ function readLevel(): Level {
 export default function DictationPractice({ lesson }: { lesson: Lesson }) {
   const { recordEvent, learnLang, t, learnLangName } = useAppStore()
   const cfg = studyLang(learnLang)
-  const segs = lesson.segments
+  const segs = useMemo(() => speakableSegments(lesson.segments), [lesson.segments])
   const [i, setI] = useState(0)
   const [val, setVal] = useState('')
   const [checked, setChecked] = useState(false)
@@ -90,7 +90,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
     cancelPlay.current?.()
     started.current = true
     setPlaying(true)
-    cancelPlay.current = playRange(yt, segs[idx].start, segEnd(segs, idx), { times, rate, onEnd: stopSegment })
+    cancelPlay.current = playRange(yt, segs[idx].start, segs[idx].end, { times, rate, onEnd: stopSegment })
   }
 
   const playChunk = (c: number) => {
@@ -98,7 +98,7 @@ export default function DictationPractice({ lesson }: { lesson: Lesson }) {
     started.current = true
     setPlaying(true)
     const from = cur.start
-    const to = segEnd(segs, i)
+    const to = cur.end
     const span = to - from
     const a = from + (span * c) / chunks.length
     const b = from + (span * (c + 1)) / chunks.length

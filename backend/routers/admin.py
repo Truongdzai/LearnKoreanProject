@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel
 
 from .. import db
-from ..services import analytics, auth, accounts, audit, catalog, feedback, quota
+from ..services import analytics, auth, accounts, audit, catalog, events, feedback, quota
 
 router = APIRouter(prefix="/api/admin", tags=["Quản trị"])
 Admin = Depends(auth.get_admin)
@@ -46,6 +46,11 @@ class PlusIn(BaseModel):
     action: str = "keep"
     until: str = ""
     plan_id: str = ""
+
+
+@router.get("/funnel")
+def api_funnel(days: int = 30, admin: dict = Admin):
+    return events.funnel(days)
 
 
 @router.get("/stats")

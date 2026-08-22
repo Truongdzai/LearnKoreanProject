@@ -150,15 +150,10 @@ DEFAULT_PLANS = [
 
 DEFAULT_PERKS = [
     "Toàn bộ tính năng trong gói Miễn phí",
-    "Thêm bất kỳ video yêu thích nào",
-    "Truy cập toàn bộ video trong kho",
-    "Hỗ trợ video dài đến 2 giờ",
-    "Phiên âm 30 giờ/tháng (tải video & luyện phát âm)",
-    "Luyện phát âm với AI thông minh",
-    "Mở khoá các tính năng kết hợp AI",
-    "Không quảng cáo",
-    "Học được tất cả ngôn ngữ",
-    "Hỗ trợ 4 thiết bị: web, app mobile, iPad & hơn thế nữa",
+    "250 lượt AI mỗi ngày, gấp hơn 3 lần gói Miễn phí",
+    "Xưởng lồng tiếng: thu giọng đè lên video theo từng câu",
+    "Vật phẩm và nhiệm vụ riêng chỉ Plus mới nhận được",
+    "Huy hiệu Plus trên bảng xếp hạng",
 ]
 
 DEFAULT_SHOP = [
@@ -298,7 +293,8 @@ def quests(active_only: bool = True) -> list[dict]:
     return [
         {"id": r["id"], "title": r["title"], "desc": r["descr"], "period": r["period"],
          "metric": r["metric"], "reward": r["reward"], "target": r["target"],
-         "plus": bool(r["plus"]), "active": bool(r["active"])}
+         "plus": bool(r["plus"]), "lang": r["lang"] if "lang" in r.keys() else "",
+         "active": bool(r["active"])}
         for r in rows
     ]
 
@@ -357,7 +353,7 @@ def shop_item(item_id: str) -> dict | None:
 
 _TABLES = {
     "videos": ("catalog_videos", {"id", "title", "channel", "level", "dur", "topic", "tone", "lang", "tags", "sort", "active"}),
-    "quests": ("catalog_quests", {"id", "title", "descr", "period", "metric", "reward", "target", "plus", "sort", "active"}),
+    "quests": ("catalog_quests", {"id", "title", "descr", "period", "metric", "reward", "target", "plus", "lang", "sort", "active"}),
     "shop": ("catalog_shop", {"id", "name", "descr", "price", "category", "art", "plus", "sort", "active"}),
     "plans": ("catalog_plans", {"id", "name", "tagline", "original", "price", "unit", "note", "cta", "days", "featured", "sort", "active"}),
 }

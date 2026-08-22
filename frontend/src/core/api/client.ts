@@ -37,7 +37,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
     const { detail, code } = data as { detail?: string; code?: string }
-    if (res.status === 429) track('quota_blocked', { path, authed: !!token })
+    if (res.status === 429) {
+      track('quota_blocked', { path, authed: !!token })
+      window.dispatchEvent(new CustomEvent('vyling:quota-stale'))
+    }
     throw new ApiError(detail || 'Đã có lỗi xảy ra, hãy thử lại.', res.status, code || 'UNKNOWN')
   }
   return data as T

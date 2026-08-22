@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { fetchPlanApi, savePlanApi } from '@/core/api/me.api'
+import { fetchPlanApi, fetchWordsApi, markWordsApi, savePlanApi } from '@/core/api/me.api'
 import { getToken } from '@/core/api/client'
 
 
@@ -21,16 +21,29 @@ export function writeLearned(lang: string, list: string[]): void {
   }
 }
 
-const wordsPlanId = (lang: string) => `${lang}words`
-const wordsPushTimers: Record<string, number | undefined> = {}
+const legacyPlanId = (lang: string) => `${lang}words`
 const wordsPulled: Record<string, boolean> = {}
 
-function pushWordsToServer(lang: string, list: string[]): void {
+function pushWord(lang: string, word: string, on: boolean): void {
   if (!getToken()) return
-  window.clearTimeout(wordsPushTimers[lang])
-  wordsPushTimers[lang] = window.setTimeout(() => {
-    savePlanApi(wordsPlanId(lang), { words: list }).catch(() => {  })
-  }, 1500)
+  markWordsApi(lang, on ? [word] : [], on ? [] : [word]).catch(() => {  })
+}
+
+function pushMany(lang: string, words: string[]): void {
+  if (!getToken() || !words.length) return
+  markWordsApi(lang, words, []).catch(() => {  })
+}
+
+async function pullRemote(lang: string): Promise<string[]> {
+  const fresh = await fetchWordsApi(lang)
+  if (fresh.words.length) return fresh.words
+  const legacy = await fetchPlanApi<{ words?: string[] }>(legacyPlanId(lang)).catch(() => null)
+  const old = legacy?.data?.words ?? []
+  if (old.length) {
+    await markWordsApi(lang, old, []).catch(() => {  })
+    savePlanApi(legacyPlanId(lang), {}).catch(() => {  })
+  }
+  return old
 }
 
 export function useLearnedWords(lang = 'en') {
@@ -51,16 +64,16 @@ export function useLearnedWords(lang = 'en') {
   useEffect(() => {
     if (wordsPulled[lang] || !getToken()) return
     wordsPulled[lang] = true
-    fetchPlanApi<{ words?: string[] }>(wordsPlanId(lang))
-      .then((r) => {
-        const remote = r.data?.words ?? []
+    pullRemote(lang)
+      .then((remote) => {
         const local = readLearned(lang)
         const merged = [...new Set([...local, ...remote])]
         if (merged.length !== local.length) {
           writeLearned(lang, merged)
           setLearned(new Set(merged))
         }
-        if (merged.length !== remote.length) pushWordsToServer(lang, merged)
+        const missing = local.filter((w) => !remote.includes(w))
+        if (missing.length) pushMany(lang, missing)
       })
       .catch(() => { wordsPulled[lang] = false })
   }, [lang])
@@ -70,9 +83,8 @@ export function useLearnedWords(lang = 'en') {
       const next = new Set(prev)
       if (on) next.add(word)
       else next.delete(word)
-      const list = [...next]
-      writeLearned(lang, list)
-      pushWordsToServer(lang, list)
+      writeLearned(lang, [...next])
+      pushWord(lang, word, on)
       return next
     })
   }, [lang])

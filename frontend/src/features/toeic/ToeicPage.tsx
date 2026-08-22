@@ -3,6 +3,9 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
+import { startExamApi } from '@/core/api/me.api'
+import { track } from '@/core/monitor'
 import { GRAMMAR_CAPSULES, SKILLS, TOEIC_TARGET, estimateScore, estimateScoreFull } from '@/data/toeicCore'
 import { useLearnedWords } from '../english/learned'
 import { buildFixedTest, buildFullTest, buildMiniTest, buildPartRun, buildReviewRun, buildWeakRun, rebuildTest, skillStats, weakestSkills, type RunGroup, type RunResult } from './engine'
@@ -67,7 +70,9 @@ async function mediaReady(url: string): Promise<boolean> {
 }
 
 export default function ToeicPage() {
-  const { recordEvent } = useAppStore()
+  const { recordEvent, setView, t } = useAppStore()
+  const { isAuthed, openAuth } = useAuth()
+  const [gate, setGate] = useState('')
   const { state, startPlan, toggleTask, recordCapsule, recordAttempt, recordWrong, clearWrong, tagWrong, recordSw, recordFixedTest, grantDayReward, latestEstimate } = useToeicState()
   const { learned } = useLearnedWords()
   const { activity, refresh } = useActivitySince(state.start)
@@ -135,7 +140,31 @@ export default function ToeicPage() {
     return () => { alive = false }
   }, [session])
 
-  const startSession = (s: Session) => {
+  const isFullExam = (s: Session) =>
+    (s.kind === 'test' && (s.full || s.fixed != null)) || (s.kind === 'ets' && s.mode === 'exam')
+
+  const startSession = async (s: Session) => {
+    if (isFullExam(s)) {
+      if (!isAuthed) {
+        track('gate_hit', { gate: 'exam_full', authed: false })
+        setGate(t('ex.needAccount'))
+        openAuth()
+        return
+      }
+      try {
+        const r = await startExamApi('toeic-full')
+        setGate(r.left > 0 ? t('ex.leftThisMonth', { n: r.left }) : '')
+      } catch (e) {
+        const err = e as { code?: string; message?: string }
+        track('gate_hit', { gate: 'exam_full', authed: true, code: err.code ?? null })
+        setGate(err.message || '')
+        if (err.code === 'PLUS_REQUIRED') {
+          track('upgrade_click', { from: 'exam' })
+          setView('pricing')
+        }
+        return
+      }
+    }
     setResult(null)
     setReviewing(false)
     setResumed(null)
@@ -366,6 +395,13 @@ export default function ToeicPage() {
 
   return (
     <div className="toeic-page">
+      {gate && (
+        <div className="exam-gate">
+          <Icon name="trophy" size={15} />
+          <span>{gate}</span>
+          <button type="button" className="btn-ghost sm" onClick={() => setGate('')}>×</button>
+        </div>
+      )}
       <div className="lesson-head">
         <h2><Icon name="book" /> Luyện thi TOEIC · bốn kỹ năng</h2>
         <div className="meta">

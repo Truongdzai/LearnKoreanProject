@@ -3,7 +3,7 @@ import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useAsr } from '@/hooks/useAsr'
 import { useVoiceClip } from '@/hooks/useVoiceClip'
-import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
+import { useYouTubePlayer, YT_STATE } from '@/hooks/useYouTubePlayer'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { scoreBand } from '@/core/utils/pronounce'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -26,6 +26,7 @@ import type { Lesson } from '@/models/lesson.model'
 const REWARD = 5
 const RATES = [0.5, 0.75, 1, 1.25]
 const PASS = 65
+const AI_SKIP_SCORE = 90
 const AUTOPAUSE_KEY = 'vyling.sh.autoPause'
 const RATE_KEY = 'vyling.sh.rate'
 
@@ -63,14 +64,15 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
 
   const [mode, setMode] = useState<Mode>('repeat')
   const [rate, setRate] = useState(loadRate)
-  const [autoPause, setAutoPause] = useState(() => loadFlag(AUTOPAUSE_KEY, true))
+  const [autoPause, setAutoPause] = useState(() => loadFlag(AUTOPAUSE_KEY, false))
   const [playing, setPlaying] = useState(false)
   const [panel, setPanel] = useState<'' | 'gear' | 'keys'>('')
   const [myClip, setMyClip] = useState('')
   const [saved, setSaved] = useState(0)
   const [saveErr, setSaveErr] = useState('')
   const clip = useVoiceClip()
-  const yt = useYouTubePlayer('shadow-player')
+  const onPlayerState = useRef<(s: number) => void>(() => {})
+  const yt = useYouTubePlayer('shadow-player', { onState: (s) => onPlayerState.current(s) })
   const cancelPlay = useRef<(() => void) | null>(null)
   const myAudio = useRef<HTMLAudioElement | null>(null)
   const tick = useRef<number | null>(null)
@@ -114,10 +116,24 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     return 0
   }, [segs])
 
-  const startTick = useCallback((from: number) => {
+  const followTick = useCallback(() => {
+    stopTick()
+    let cursor = -1
+    tick.current = window.setInterval(() => {
+      const now = yt.getTime()
+      if (now == null) return
+      const at = indexAt(now)
+      if (at !== cursor) {
+        if (cursor !== -1) resetAttempt()
+        cursor = at
+        setI(at)
+      }
+    }, 120)
+  }, [yt, indexAt])
+
+  const lineTick = useCallback((from: number) => {
     stopTick()
     let entered = false
-    let cursor = from
     tick.current = window.setInterval(() => {
       const now = yt.getTime()
       if (now == null) return
@@ -125,30 +141,42 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
         if (now >= segs[from].start - 0.4) entered = true
         return
       }
-      if (autoPause) {
-        if (now >= segEnd(segs, from) - 0.06) stopOriginal()
-        return
-      }
-      const at = indexAt(now)
-      if (at !== cursor) {
-        cursor = at
-        setI(at)
-        resetAttempt()
-      }
+      if (now >= segEnd(segs, from) - 0.06) stopOriginal()
     }, 120)
-  }, [yt, segs, autoPause, indexAt, stopOriginal])
+  }, [yt, segs, stopOriginal])
 
   const playFrom = useCallback((idx: number) => {
     stopOriginal()
     setPlaying(true)
     yt.setRate(rate)
     yt.seek(segs[idx].start)
-    startTick(idx)
-  }, [yt, rate, segs, startTick, stopOriginal])
+    if (autoPause) lineTick(idx)
+    else followTick()
+  }, [yt, rate, segs, autoPause, lineTick, followTick, stopOriginal])
+
+  const playLine = useCallback((idx: number, r = rate) => {
+    stopOriginal()
+    setPlaying(true)
+    cancelPlay.current = playRange(yt, segs[idx].start, segEnd(segs, idx), {
+      times: 1, rate: r, onEnd: stopOriginal,
+    })
+  }, [yt, rate, segs, stopOriginal])
 
   const togglePlay = () => {
     if (playing) stopOriginal()
     else playFrom(i)
+  }
+
+  onPlayerState.current = (s: number) => {
+    if (s === YT_STATE.playing) {
+      setPlaying(true)
+      if (!tick.current && !cancelPlay.current) followTick()
+      return
+    }
+    if (s === YT_STATE.paused || s === YT_STATE.ended) {
+      setPlaying(false)
+      if (!cancelPlay.current) stopTick()
+    }
   }
 
   const stopMine = () => { myAudio.current?.pause(); myAudio.current = null }
@@ -254,8 +282,38 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     }
   }, [mode, sr.listening, clip.recording, clip.stop])
 
+  const pace = useMemo(() => {
+    const spoken = sr.words
+    if (score === null || spoken.length < 2) return null
+    const mine = spoken[spoken.length - 1].end - spoken[0].start
+    const original = Math.max(0.6, segEnd(segs, i) - cur.start)
+    if (!(mine > 0)) return null
+    const gaps = spoken.slice(1).map((w, k) => w.start - spoken[k].end)
+    const longest = gaps.length ? Math.max(...gaps) : 0
+    const slowest = spoken.reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a))
+    return {
+      mine, original,
+      ratio: mine / original,
+      longestGap: longest,
+      slowWord: slowest.end - slowest.start >= 0.55 ? slowest.word.trim() : '',
+    }
+  }, [sr.words, score, segs, i, cur.start])
+
+  const hardErrors = grade.words.filter(
+    (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
+  ).length
+
   const askAI = async () => {
     if (score === null) return
+    if (grade.score >= AI_SKIP_SCORE && hardErrors === 0) {
+      setAiError('')
+      setAi({
+        feedback: t('sh.aiGoodFeedback'),
+        tips: [t('sh.aiGoodTip1'), t('sh.aiGoodTip2')],
+        encouragement: t('sh.aiGoodCheer'),
+      })
+      return
+    }
     setAiLoading(true); setAiError(''); setAi(null)
     try {
       const fb = await fetchPronounceFeedback({
@@ -277,9 +335,6 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   }
 
   const shown = score === null ? null : grade.score
-  const hardErrors = grade.words.filter(
-    (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
-  ).length
   const band = shown === null
     ? null
     : scoreBand(hardErrors >= 2 ? Math.min(shown, 60) : hardErrors === 1 ? Math.min(shown, 80) : shown)
@@ -375,7 +430,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           <button className="sh2-tbtn" disabled={i === 0} onClick={() => go(i - 1)} title={t('sh.prevLine')} aria-label={t('sh.prevLine')}>
             <Icon name="chevron-left" size={18} />
           </button>
-          <button className="sh2-tbtn" onClick={() => playFrom(i)} title={t('sh.replayLine')} aria-label={t('sh.replayLine')}>
+          <button className="sh2-tbtn" onClick={() => playLine(i)} title={t('sh.replayLine')} aria-label={t('sh.replayLine')}>
             <Icon name="refresh" size={18} />
           </button>
           <button className={'sh2-tbtn play' + (playing ? ' on' : '')} onClick={togglePlay} title={playing ? t('sh.pauseLine') : t('sh.playLine')} aria-label={playing ? t('sh.pauseLine') : t('sh.playLine')}>
@@ -404,6 +459,11 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                     <button className={'sh2-chip' + (mode === 'overlay' ? ' on' : '')} onClick={() => setMode('overlay')}>{t('sh.modeOverlay')}</button>
                   </div>
                   <p className="sh2-pop-hint">{t(mode === 'repeat' ? 'sh.modeRepeatHint' : 'sh.modeOverlayHint')}</p>
+                  <div className="sh2-pop-h">{t('sh.videoGroup')}</div>
+                  <div className="sh2-pop-chips">
+                    <button className="sh2-chip" onClick={() => playLine(i, 1)}><Icon name="volume" size={13} /> {t('sh.listenVideo')}</button>
+                    <button className="sh2-chip" onClick={() => playLine(i, 0.5)}><Icon name="volume" size={13} /> {t('sh.slowVideo')}</button>
+                  </div>
                   <div className="sh2-pop-h">{t('sh.ttsGroup')}</div>
                   <div className="sh2-pop-chips">
                     <button className="sh2-chip" onClick={() => speak(cur.ko, 0.9)}><Icon name="volume" size={13} /> {t('sh.listen')}</button>
@@ -458,6 +518,12 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                   <Icon name="arrow-right" size={15} /> {t('sh.skipLine')}
                 </button>
               </div>
+              {sr.listening && sr.level > 0 && (
+                <div className="sh2-level" role="presentation">
+                  <span><i style={{ width: Math.round(sr.level * 100) + '%' }} /></span>
+                  <b>{sr.level < 0.12 ? t('sh.micWeak') : t('sh.micOk')}</b>
+                </div>
+              )}
               {(sr.listening || sr.interim) && <div className="sh2-interim" lang={learnLang}>{sr.interim || '…'}</div>}
               {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
               {dropped && <div className="shadow-dropped"><Icon name="check-circle" size={14} /> {t('sh.misheardOk')}</div>}
@@ -636,6 +702,18 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
           </div>
         )}
 
+        {pace && (
+          <div className="sh2-pace">
+            <span className="sh2-pace-main">
+              {t(pace.ratio > 1.25 ? 'sh.paceSlow' : pace.ratio < 0.8 ? 'sh.paceFast' : 'sh.paceGood', {
+                a: pace.mine.toFixed(1), b: pace.original.toFixed(1),
+              })}
+            </span>
+            {pace.slowWord && <span className="sh2-pace-tag">{t('sh.paceWord', { w: pace.slowWord })}</span>}
+            {pace.longestGap >= 0.7 && <span className="sh2-pace-tag">{t('sh.paceGap', { s: pace.longestGap.toFixed(1) })}</span>}
+          </div>
+        )}
+
         {ai && (
           <div className="ai-feedback">
             <div className="ai-fb-head"><Icon name="vyling" size={18} /> {t('sh.aiHead')} {ai.model && <span className="ai-model">{ai.model}</span>}</div>
@@ -646,6 +724,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
               </ul>
             )}
             {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}
+            {!ai.model && <div className="ai-fb-note">{t('sh.aiGoodNote')}</div>}
           </div>
         )}
       </div>

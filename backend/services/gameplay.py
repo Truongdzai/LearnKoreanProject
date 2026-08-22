@@ -197,8 +197,25 @@ def add_path(user: dict, title: str, data: dict) -> dict:
 
 
 def save_video(user: dict, v: dict) -> dict:
+    from . import quota
+
     conn = db.get_conn()
     try:
+        if not quota.is_plus(user):
+            have = conn.execute(
+                "SELECT COUNT(*) AS n FROM user_videos WHERE user_id = ?", (user["id"],)
+            ).fetchone()["n"]
+            already = conn.execute(
+                "SELECT 1 FROM user_videos WHERE user_id = ? AND video_id = ?",
+                (user["id"], v.get("id")),
+            ).fetchone()
+            if not already and have >= quota.FREE_VIDEOS:
+                raise AppError(
+                    "PLUS_REQUIRED",
+                    f"Gói Miễn phí lưu được {quota.FREE_VIDEOS} video. "
+                    "Xoá bớt một video cũ, hoặc nâng cấp Plus để lưu không giới hạn.",
+                    403,
+                )
         conn.execute(
             "INSERT OR IGNORE INTO user_videos (user_id, video_id, title, channel, level, dur, topic, tone, lang) "
             "VALUES (?,?,?,?,?,?,?,?,?)",
@@ -371,9 +388,11 @@ def goal_bonus(user: dict, goal: int) -> dict:
 _EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0, "toeic": 10, "grammar": 10}
 
 
-def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, words: int = 0) -> dict:
+def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, words: int = 0,
+                 lang: str = "") -> dict:
     amount = max(0, int(amount))
     minutes = max(0, int(minutes))
+    lang = (lang or "").strip().lower()[:8]
     today = date.today().isoformat()
     xp_gain = _EVENT_XP.get(etype, 0) * amount
     lessons = amount if etype == "lesson" else 0
@@ -391,7 +410,18 @@ def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, word
             (user["id"], today, minutes, word_gain, xp_gain, lessons, videos, reviews,
              minutes, word_gain, xp_gain, lessons, videos, reviews),
         )
+        if lang:
+            conn.execute(
+                "INSERT INTO activity_lang (user_id, day, lang, minutes, words, xp, lessons, videos, reviews) "
+                "VALUES (?,?,?,?,?,?,?,?,?) "
+                "ON CONFLICT(user_id, day, lang) DO UPDATE SET minutes = minutes + ?, words = words + ?, "
+                "xp = xp + ?, lessons = lessons + ?, videos = videos + ?, reviews = reviews + ?",
+                (user["id"], today, lang, minutes, word_gain, xp_gain, lessons, videos, reviews,
+                 minutes, word_gain, xp_gain, lessons, videos, reviews),
+            )
         for q in catalog.quests():
+            if q.get("lang") and lang and q["lang"] != lang:
+                continue
             if q["metric"] == etype and q["metric"] not in {"streak", "login"}:
                 pk = period_key(q["period"])
                 conn.execute(
@@ -479,6 +509,116 @@ def set_plan(user_id: str, plan_id: str, data: dict) -> dict:
     finally:
         conn.close()
     return {"ok": True}
+
+
+MAX_WORDS_PER_LANG = 20000
+
+
+def learned_words(user_id: str, lang: str) -> list[str]:
+    conn = db.get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT word FROM user_words WHERE user_id = ? AND lang = ? ORDER BY word",
+            (user_id, lang),
+        ).fetchall()
+        return [r["word"] for r in rows]
+    finally:
+        conn.close()
+
+
+def mark_words(user_id: str, lang: str, add: list[str], remove: list[str]) -> dict:
+    lang = (lang or "").strip().lower()[:8]
+    if not lang:
+        raise AppError("VALIDATION", "Thiếu mã ngôn ngữ.", 422)
+    add = [w.strip()[:120] for w in add if w and w.strip()][:2000]
+    remove = [w.strip()[:120] for w in remove if w and w.strip()][:2000]
+    conn = db.get_conn()
+    try:
+        if add:
+            have = conn.execute(
+                "SELECT COUNT(*) AS n FROM user_words WHERE user_id = ? AND lang = ?",
+                (user_id, lang),
+            ).fetchone()["n"]
+            room = max(0, MAX_WORDS_PER_LANG - have)
+            conn.executemany(
+                "INSERT INTO user_words (user_id, lang, word) VALUES (?,?,?) "
+                "ON CONFLICT(user_id, lang, word) DO UPDATE SET updated_at = datetime('now','localtime')",
+                [(user_id, lang, w) for w in add[:room]],
+            )
+        if remove:
+            conn.executemany(
+                "DELETE FROM user_words WHERE user_id = ? AND lang = ? AND word = ?",
+                [(user_id, lang, w) for w in remove],
+            )
+        conn.commit()
+        total = conn.execute(
+            "SELECT COUNT(*) AS n FROM user_words WHERE user_id = ? AND lang = ?",
+            (user_id, lang),
+        ).fetchone()["n"]
+    finally:
+        conn.close()
+    return {"ok": True, "total": total}
+
+
+def progress_by_lang(user_id: str, days: int = 30) -> dict:
+    span = max(1, min(int(days or 30), 400))
+    start = (date.today() - timedelta(days=span - 1)).isoformat()
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        acts = conn.execute(
+            "SELECT lang, COALESCE(SUM(minutes),0) AS minutes, COALESCE(SUM(words),0) AS words, "
+            "COALESCE(SUM(xp),0) AS xp, COALESCE(SUM(lessons),0) AS lessons, "
+            "COALESCE(SUM(videos),0) AS videos, COALESCE(SUM(reviews),0) AS reviews, "
+            "COUNT(DISTINCT day) AS activeDays, MAX(day) AS lastDay "
+            "FROM activity_lang WHERE user_id = ? AND day >= ? GROUP BY lang",
+            (user_id, start),
+        ).fetchall()
+        cards = conn.execute(
+            "SELECT lang, COUNT(*) AS total, "
+            "COALESCE(SUM(CASE WHEN due <= ? THEN 1 ELSE 0 END),0) AS due, "
+            "COALESCE(SUM(CASE WHEN reps >= 2 THEN 1 ELSE 0 END),0) AS learned "
+            "FROM srs_cards WHERE user_id = ? GROUP BY lang",
+            (today, user_id),
+        ).fetchall()
+        words = conn.execute(
+            "SELECT lang, COUNT(*) AS n FROM user_words WHERE user_id = ? GROUP BY lang",
+            (user_id,),
+        ).fetchall()
+        videos = conn.execute(
+            "SELECT lang, COUNT(*) AS n FROM user_videos WHERE user_id = ? GROUP BY lang",
+            (user_id,),
+        ).fetchall()
+    finally:
+        conn.close()
+
+    out: dict[str, dict] = {}
+
+    def slot(code: str) -> dict:
+        key = (code or "").strip().lower() or "khac"
+        if key not in out:
+            out[key] = {
+                "lang": key, "minutes": 0, "words": 0, "xp": 0, "lessons": 0,
+                "videos": 0, "reviews": 0, "activeDays": 0, "lastDay": None,
+                "cards": {"total": 0, "due": 0, "learned": 0},
+                "learnedWords": 0, "savedVideos": 0,
+            }
+        return out[key]
+
+    for r in acts:
+        s = slot(r["lang"])
+        for k in ("minutes", "words", "xp", "lessons", "videos", "reviews", "activeDays"):
+            s[k] = r[k]
+        s["lastDay"] = r["lastDay"]
+    for r in cards:
+        slot(r["lang"])["cards"] = {"total": r["total"], "due": r["due"], "learned": r["learned"]}
+    for r in words:
+        slot(r["lang"])["learnedWords"] = r["n"]
+    for r in videos:
+        slot(r["lang"])["savedVideos"] = r["n"]
+
+    ranked = sorted(out.values(), key=lambda x: (x["xp"], x["cards"]["total"]), reverse=True)
+    return {"since": start, "days": span, "langs": ranked}
 
 
 def activity_days(user_id: str, since: str) -> dict:

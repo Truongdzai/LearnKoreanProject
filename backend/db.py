@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS srs_cards (
     front         TEXT NOT NULL,
     back          TEXT,
     source        TEXT,
+    lang          TEXT NOT NULL DEFAULT 'ko',
     reps          INTEGER NOT NULL DEFAULT 0,
     ivl           INTEGER NOT NULL DEFAULT 0,
     ease          REAL    NOT NULL DEFAULT 2.5,
@@ -210,6 +211,7 @@ CREATE TABLE IF NOT EXISTS catalog_quests (
     reward   INTEGER NOT NULL DEFAULT 0,
     target   INTEGER NOT NULL DEFAULT 1,
     plus     INTEGER NOT NULL DEFAULT 0,
+    lang     TEXT NOT NULL DEFAULT '',
     sort     INTEGER NOT NULL DEFAULT 0,
     active   INTEGER NOT NULL DEFAULT 1
 );
@@ -392,6 +394,62 @@ CREATE TABLE IF NOT EXISTS admin_audit (
     created_at TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE INDEX IF NOT EXISTS idx_admin_audit_time ON admin_audit(created_at DESC);
+
+CREATE TABLE IF NOT EXISTS activity_lang (
+    user_id  TEXT NOT NULL,
+    day      TEXT NOT NULL,
+    lang     TEXT NOT NULL,
+    minutes  INTEGER NOT NULL DEFAULT 0,
+    words    INTEGER NOT NULL DEFAULT 0,
+    xp       INTEGER NOT NULL DEFAULT 0,
+    lessons  INTEGER NOT NULL DEFAULT 0,
+    videos   INTEGER NOT NULL DEFAULT 0,
+    reviews  INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (user_id, day, lang)
+);
+CREATE INDEX IF NOT EXISTS idx_activity_lang_user ON activity_lang(user_id, lang, day);
+
+CREATE TABLE IF NOT EXISTS user_words (
+    user_id    TEXT NOT NULL,
+    lang       TEXT NOT NULL,
+    word       TEXT NOT NULL,
+    level      INTEGER NOT NULL DEFAULT 1,
+    updated_at TEXT DEFAULT (datetime('now','localtime')),
+    PRIMARY KEY (user_id, lang, word)
+);
+CREATE INDEX IF NOT EXISTS idx_user_words_lang ON user_words(user_id, lang);
+
+CREATE TABLE IF NOT EXISTS pronounce_cache (
+    sig        TEXT PRIMARY KEY,
+    payload    TEXT NOT NULL,
+    hits       INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+
+CREATE TABLE IF NOT EXISTS guest_lessons (
+    ip         TEXT NOT NULL,
+    day        TEXT NOT NULL,
+    used       INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (ip, day)
+);
+
+CREATE TABLE IF NOT EXISTS exam_takes (
+    user_id  TEXT NOT NULL,
+    month    TEXT NOT NULL,
+    kind     TEXT NOT NULL,
+    used     INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (user_id, month, kind)
+);
+
+CREATE TABLE IF NOT EXISTS app_events (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    day        TEXT NOT NULL,
+    name       TEXT NOT NULL,
+    user_id    TEXT,
+    props      TEXT,
+    created_at TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_app_events_day ON app_events(day, name);
 """
 
 def ensure_dirs() -> None:
@@ -472,6 +530,32 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE activity_log ADD COLUMN videos INTEGER NOT NULL DEFAULT 0")
     if "reviews" not in acols:
         conn.execute("ALTER TABLE activity_log ADD COLUMN reviews INTEGER NOT NULL DEFAULT 0")
+    qcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_quests)").fetchall()}
+    if "lang" not in qcols:
+        conn.execute("ALTER TABLE catalog_quests ADD COLUMN lang TEXT NOT NULL DEFAULT ''")
+    ccols = {r["name"] for r in conn.execute("PRAGMA table_info(srs_cards)").fetchall()}
+    if "lang" not in ccols:
+        conn.execute("ALTER TABLE srs_cards ADD COLUMN lang TEXT NOT NULL DEFAULT ''")
+        _backfill_card_langs(conn)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_srs_due_lang ON srs_cards(user_id, lang, due)")
+
+
+def guess_lang(text: str) -> str:
+    for ch in text or "":
+        code = ord(ch)
+        if 0xAC00 <= code <= 0xD7A3 or 0x1100 <= code <= 0x11FF or 0x3130 <= code <= 0x318F:
+            return "ko"
+        if 0x3040 <= code <= 0x30FF:
+            return "ja"
+        if 0x4E00 <= code <= 0x9FFF or 0x3400 <= code <= 0x4DBF:
+            return "zh"
+    return "en"
+
+
+def _backfill_card_langs(conn: sqlite3.Connection) -> None:
+    rows = conn.execute("SELECT id, front FROM srs_cards WHERE lang = ''").fetchall()
+    for r in rows:
+        conn.execute("UPDATE srs_cards SET lang = ? WHERE id = ?", (guess_lang(r["front"]), r["id"]))
 
 
 def init_db() -> None:

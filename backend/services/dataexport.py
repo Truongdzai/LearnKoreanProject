@@ -29,6 +29,13 @@ def export_user(user_id: str) -> dict:
             "theTuVung": _rows(conn, "SELECT * FROM srs_cards WHERE user_id = ? ORDER BY id", user_id),
             "lichSuOnTap": _rows(conn, "SELECT * FROM srs_reviews WHERE user_id = ? ORDER BY id", user_id),
             "nhatKyHocTap": _rows(conn, "SELECT * FROM activity_log WHERE user_id = ? ORDER BY day", user_id),
+            "nhatKyTheoNgonNgu": _rows(
+                conn, "SELECT * FROM activity_lang WHERE user_id = ? ORDER BY day, lang", user_id
+            ),
+            "tuDaThuoc": _rows(
+                conn, "SELECT * FROM user_words WHERE user_id = ? ORDER BY lang, word", user_id
+            ),
+            "luotThiThu": _rows(conn, "SELECT * FROM exam_takes WHERE user_id = ? ORDER BY month", user_id),
             "loTrinh": [
                 {**p, "data": json.loads(p["data"] or "{}")}
                 for p in _rows(conn, "SELECT * FROM user_plans WHERE user_id = ?", user_id)

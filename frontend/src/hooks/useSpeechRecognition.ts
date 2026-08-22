@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { wakeBackend } from '@/core/quota'
+import type { AsrWord } from '@/models/srs.model'
 
 interface SRAlternative {
   transcript: string
@@ -53,6 +55,7 @@ export function useSpeechRecognition(lang = 'ko-KR') {
       return
     }
     try { recRef.current?.abort() } catch {}
+    wakeBackend()
 
     const rec = new Ctor()
     rec.lang = lang
@@ -131,5 +134,8 @@ export function useSpeechRecognition(lang = 'ko-KR') {
     altRef.current = []
   }, [])
 
-  return { supported, listening, transcript, alternatives, confidence, interim, error, start, stop, reset }
+  return {
+    supported, listening, transcript, words: [] as AsrWord[], alternatives,
+    confidence, interim, error, level: 0, start, stop, reset,
+  }
 }

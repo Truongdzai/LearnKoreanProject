@@ -3,6 +3,7 @@ import { fetchHealth } from '@/core/api/health.api'
 import Icon from '@/core/components/Icon'
 import type { HealthCheck } from '@/models/health.model'
 import { useAppStore } from '@/store/app.store'
+import LangProgressCards from './LangProgressCards'
 
 export default function DashboardPage() {
   const { t } = useAppStore()
@@ -35,6 +36,8 @@ export default function DashboardPage() {
           )}
         </p>
       </section>
+
+      <LangProgressCards />
 
       <div className="section-title"><span className="pin" /> {t('dash.detail')}</div>
       <div className="grid">

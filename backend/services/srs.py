@@ -12,44 +12,63 @@ def _row(conn, card_id: int) -> dict | None:
     r = conn.execute("SELECT * FROM srs_cards WHERE id = ?", (card_id,)).fetchone()
     return dict(r) if r else None
 
-def add_card(front: str, back: str = "", source: str = "", user_id: str = USER) -> dict:
+def _lang_filter(lang: str) -> tuple[str, tuple]:
+    if not lang or lang == "all":
+        return "", ()
+    return " AND lang = ?", (lang,)
+
+def add_card(front: str, back: str = "", source: str = "", user_id: str = USER, lang: str = "") -> dict:
+    lang = lang or db.guess_lang(front)
     conn = db.get_conn()
     try:
         existing = conn.execute(
-            "SELECT * FROM srs_cards WHERE user_id = ? AND front = ? LIMIT 1",
-            (user_id, front),
+            "SELECT * FROM srs_cards WHERE user_id = ? AND lang = ? AND front = ? LIMIT 1",
+            (user_id, lang, front),
         ).fetchone()
         if existing:
             return dict(existing)
         cur = conn.execute(
-            "INSERT INTO srs_cards (user_id, front, back, source) VALUES (?,?,?,?)",
-            (user_id, front, back, source),
+            "INSERT INTO srs_cards (user_id, front, back, source, lang) VALUES (?,?,?,?,?)",
+            (user_id, front, back, source, lang),
         )
         conn.commit()
         return _row(conn, cur.lastrowid)
     finally:
         conn.close()
 
-def due_cards(user_id: str = USER, limit: int = 300) -> list[dict]:
+def due_cards(user_id: str = USER, limit: int = 300, lang: str = "") -> list[dict]:
+    where, args = _lang_filter(lang)
     conn = db.get_conn()
     try:
         today = date.today().isoformat()
         cur = conn.execute(
-            "SELECT * FROM srs_cards WHERE user_id = ? AND due <= ? ORDER BY due, id LIMIT ?",
-            (user_id, today, limit),
+            f"SELECT * FROM srs_cards WHERE user_id = ? AND due <= ?{where} ORDER BY due, id LIMIT ?",
+            (user_id, today, *args, limit),
         )
         return [dict(r) for r in cur.fetchall()]
     finally:
         conn.close()
 
-def all_cards(user_id: str = USER, limit: int = 2000) -> list[dict]:
+def all_cards(user_id: str = USER, limit: int = 2000, lang: str = "") -> list[dict]:
+    where, args = _lang_filter(lang)
     conn = db.get_conn()
     try:
         cur = conn.execute(
-            "SELECT * FROM srs_cards WHERE user_id = ? ORDER BY id LIMIT ?",
-            (user_id, limit),
+            f"SELECT * FROM srs_cards WHERE user_id = ?{where} ORDER BY id LIMIT ?",
+            (user_id, *args, limit),
         )
         return [dict(r) for r in cur.fetchall()]
+    finally:
+        conn.close()
+
+def lang_counts(user_id: str = USER) -> dict[str, int]:
+    conn = db.get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT lang, COUNT(*) AS n FROM srs_cards WHERE user_id = ? GROUP BY lang",
+            (user_id,),
+        ).fetchall()
+        return {r["lang"]: r["n"] for r in rows}
     finally:
         conn.close()
 
@@ -94,23 +113,26 @@ def review(card_id: int, rating: int, user_id: str = USER) -> dict:
     finally:
         conn.close()
 
-def stats(user_id: str = USER) -> dict:
+def stats(user_id: str = USER, lang: str = "") -> dict:
+    where, args = _lang_filter(lang)
     conn = db.get_conn()
     try:
         today = date.today().isoformat()
 
-        def n(sql: str, *args) -> int:
-            return conn.execute(sql, args).fetchone()[0]
+        def n(sql: str, *a) -> int:
+            return conn.execute(sql, a).fetchone()[0]
 
+        joined = " AND c.lang = ?" if args else ""
+        reviewed = (
+            "SELECT COUNT(*) FROM srs_reviews r JOIN srs_cards c ON c.id = r.card_id "
+            f"WHERE r.user_id=? AND date(r.reviewed_at)=?{joined}"
+        )
         return {
-            "total": n("SELECT COUNT(*) FROM srs_cards WHERE user_id=?", user_id),
-            "due": n("SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND due<=?", user_id, today),
-            "new": n("SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps=0", user_id),
-            "learned": n("SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps>=2", user_id),
-            "reviewed_today": n(
-                "SELECT COUNT(*) FROM srs_reviews WHERE user_id=? AND date(reviewed_at)=?",
-                user_id, today,
-            ),
+            "total": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=?{where}", user_id, *args),
+            "due": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND due<=?{where}", user_id, today, *args),
+            "new": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps=0{where}", user_id, *args),
+            "learned": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps>=2{where}", user_id, *args),
+            "reviewed_today": n(reviewed, user_id, today, *args),
         }
     finally:
         conn.close()

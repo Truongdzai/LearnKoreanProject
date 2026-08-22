@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from ..schemas.account import MeState
-from ..services import auth, accounts, dataexport, gameplay
+from ..services import auth, accounts, dataexport, gameplay, quota
 
 router = APIRouter(prefix="/api/me", tags=["Người dùng"])
 Auth = Depends(auth.get_current_user)
@@ -75,6 +75,7 @@ class EventIn(BaseModel):
     amount: int = 1
     minutes: int = 0
     words: int = 0
+    lang: str = ""
 
 
 class GoalIn(BaseModel):
@@ -183,7 +184,7 @@ def api_gift_ack(user: dict = Auth):
 
 @router.post("/event")
 def api_event(body: EventIn, user: dict = Auth):
-    return gameplay.record_event(user, body.type, body.amount, body.minutes, body.words)
+    return gameplay.record_event(user, body.type, body.amount, body.minutes, body.words, body.lang)
 
 
 @router.post("/goal")
@@ -239,3 +240,38 @@ def api_set_plan(plan_id: str, body: PlanDataIn, user: dict = Auth):
 @router.get("/activity-days")
 def api_activity_days(since: str, user: dict = Auth):
     return gameplay.activity_days(user["id"], since)
+
+
+class ExamIn(BaseModel):
+    kind: str = "full"
+
+
+@router.get("/exam-status")
+def api_exam_status(kind: str = "full", user: dict = Auth):
+    return quota.exam_status(user, kind)
+
+
+@router.post("/exam-start")
+def api_exam_start(body: ExamIn, user: dict = Auth):
+    return quota.take_exam(user, body.kind.strip()[:24] or "full")
+
+
+@router.get("/progress")
+def api_progress(days: int = 30, user: dict = Auth):
+    return gameplay.progress_by_lang(user["id"], days)
+
+
+class WordsIn(BaseModel):
+    lang: str
+    add: list[str] = []
+    remove: list[str] = []
+
+
+@router.get("/words")
+def api_words(lang: str, user: dict = Auth):
+    return {"lang": lang, "words": gameplay.learned_words(user["id"], lang)}
+
+
+@router.post("/words")
+def api_mark_words(body: WordsIn, user: dict = Auth):
+    return gameplay.mark_words(user["id"], body.lang, body.add, body.remove)

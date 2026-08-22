@@ -433,7 +433,7 @@ export function useWordBank(learned: Set<string>, lang = 'en'): number {
   useEffect(() => {
     let alive = true
     const re = frontRe(lang)
-    fetchAllCards()
+    fetchAllCards(lang)
       .then((r) => {
         if (!alive) return
         setSrsFronts(r.cards.map((c) => c.front.trim()).filter((f) => re.test(f)))

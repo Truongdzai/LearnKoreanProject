@@ -1,17 +1,14 @@
-# Build context là GỐC repo (image_build_context: "../").
-# Loại hết những thứ nặng / bí mật / không cần trong container.
-
-# Dữ liệu nặng — nạp lúc chạy từ R2, không nhét vào image
 data/
 media/
-dictionaries/
+
+dictionaries/*
+!dictionaries/KO-VI.KRDICT.zip
+
 frontend/public/wordimg/
 khungavatar/
 nenkhungbangxephang/
 TailieuToeic/
 
-# Frontend: CHỈ lấy dist/ đã build (FastAPI phục vụ SPA từ đó).
-# Loại src/, public/, node_modules — container không build lại frontend.
 frontend/*
 !frontend/dist
 frontend/dist/**/*.map
@@ -20,13 +17,11 @@ dist/
 node_modules/
 **/node_modules/
 
-# Bí mật — dùng `wrangler secret put`, tuyệt đối không copy vào image
 config.toml
 .env
 .env.*
 !.env.example
 
-# Rác
 .git/
 .venv/
 **/__pycache__/
