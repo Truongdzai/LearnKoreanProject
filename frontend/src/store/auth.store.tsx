@@ -1,6 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { env } from '@/config/env'
-import { getToken, setToken } from '@/core/api/client'
+import { AUTH_EXPIRED_EVENT, getToken, setToken } from '@/core/api/client'
 import { syncUserScope, forgetUserScope } from '@/core/utils/userScope'
 import { loginApi, meApi, registerApi, providersApi, type PendingGift } from '@/core/api/auth.api'
 import { pushGuestDeck } from '@/core/api/srs.api'
@@ -86,6 +86,24 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
     providersApi().then(setProviders).catch(() => {})
   }, [])
 
+  useEffect(() => {
+    const onExpired = (e: Event) => {
+      const code = (e as CustomEvent<{ code?: string }>).detail?.code
+      forgetUserScope()
+      setAccountState(null)
+      setBonusAvailable(false)
+      setPendingGift(null)
+      setAuthError(
+        code === 'ACCOUNT_LOCKED'
+          ? 'Tài khoản đã bị khoá. Hãy liên hệ hỗ trợ.'
+          : 'Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại để tiếp tục.',
+      )
+      setModalOpen(true)
+    }
+    window.addEventListener(AUTH_EXPIRED_EVENT, onExpired)
+    return () => window.removeEventListener(AUTH_EXPIRED_EVENT, onExpired)
+  }, [])
+
   const openAuth = useCallback(() => setModalOpen(true), [])
   const closeAuth = useCallback(() => setModalOpen(false), [])
   const openChangePw = useCallback(() => setChangePwOpen(true), [])
@@ -132,31 +150,38 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
     window.location.reload()
   }, [])
 
-  const value: AuthStore = {
-    account,
-    isAuthed: !!account,
-    isAdmin: account?.role === 'admin',
-    ready,
-    providers,
-    modalOpen,
-    bonusAvailable,
-    pendingGift,
-    clearPendingGift,
-    authError,
-    clearAuthError,
-    openAuth,
-    closeAuth,
-    changePwOpen,
-    openChangePw,
-    closeChangePw,
-    applyToken,
-    setAccount,
-    setBonusAvailable,
-    signUpEmail,
-    signInEmail,
-    signInOAuth,
-    signOut,
-  }
+  const value = useMemo<AuthStore>(
+    () => ({
+      account,
+      isAuthed: !!account,
+      isAdmin: account?.role === 'admin',
+      ready,
+      providers,
+      modalOpen,
+      bonusAvailable,
+      pendingGift,
+      clearPendingGift,
+      authError,
+      clearAuthError,
+      openAuth,
+      closeAuth,
+      changePwOpen,
+      openChangePw,
+      closeChangePw,
+      applyToken,
+      setAccount,
+      setBonusAvailable,
+      signUpEmail,
+      signInEmail,
+      signInOAuth,
+      signOut,
+    }),
+    [
+      account, ready, providers, modalOpen, bonusAvailable, pendingGift, clearPendingGift,
+      authError, clearAuthError, openAuth, closeAuth, changePwOpen, openChangePw, closeChangePw,
+      applyToken, setAccount, signUpEmail, signInEmail, signInOAuth, signOut,
+    ],
+  )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

@@ -96,7 +96,7 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
   useEffect(() => () => cancelPlay.current?.(), [])
 
   if (!items.length) {
-    return <div className="empty"><div className="big">🧩</div>{t('cz.empty')}</div>
+    return <div className="empty"><Icon name="target" size={30} />{t('cz.empty')}</div>
   }
 
   const cur = items[i]
@@ -192,7 +192,7 @@ export default function ClozePractice({ lesson }: { lesson: Lesson }) {
             </button>
           )}
           {done && i === items.length - 1 && (
-            <span className="cz-final">🎉 {t('cz.done', { a: correct, b: items.length })}</span>
+            <span className="cz-final"><Icon name="party" size={15} /> {t('cz.done', { a: correct, b: items.length })}</span>
           )}
         </div>
       </div>

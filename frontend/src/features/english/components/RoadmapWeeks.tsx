@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import type { VocabUnit, WeekTask, WeekPlan } from '@/data/englishCore'
-import { GRAMMAR_LESSONS, GRAMMAR_PASS } from '@/data/englishGrammar'
-import { PRON_GROUPS, PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
+import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
+import { PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
 import { useAppStore } from '@/store/app.store'
 import {
   speakEN, usePlan, useLearnedWords, useWordBank, readPlan,
@@ -26,7 +26,11 @@ interface Props {
   speak?: (text: string) => void
   firstUnitId?: string
   pronGroups?: PronGroup[]
+  grammarLessons?: GrammarLesson[]
 }
+
+const NO_LESSONS: GrammarLesson[] = []
+const NO_GROUPS: PronGroup[] = []
 
 const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
@@ -46,7 +50,8 @@ export default function RoadmapWeeks({
   vocabUnits,
   speak = speakEN,
   firstUnitId = 'nouns',
-  pronGroups = PRON_GROUPS,
+  pronGroups = NO_GROUPS,
+  grammarLessons = NO_LESSONS,
 }: Props) {
   const { setView, recordEvent } = useAppStore()
   const { plan, startPlan, toggleTask, grantReward } = usePlan(lang)
@@ -56,7 +61,7 @@ export default function RoadmapWeeks({
   const { grammar } = useGrammarProgress()
   const { pron } = usePronProgress(lang)
   const toeic = useToeicBridge()
-  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, deepFull }
+  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, grammarLessons, deepFull }
   const [open, setOpen] = useState<number | null>(() => {
     const p = readPlan(lang)
     return p.start ? planWeek(p.start) : null
@@ -100,8 +105,8 @@ export default function RoadmapWeeks({
     }
     if (t.kind === 'grammar') {
       if (!t.lessonId) {
-        const passed = GRAMMAR_LESSONS.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
-        return `${passed}/${GRAMMAR_LESSONS.length} bài đạt`
+        const passed = grammarLessons.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
+        return `${passed}/${grammarLessons.length} bài đạt`
       }
       const best = grammar.best[t.lessonId]
       return best != null ? `tốt nhất: ${best}%` : ''

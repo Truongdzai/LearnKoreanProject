@@ -1,4 +1,5 @@
 import Icon from '@/core/components/Icon'
+import { useDialog } from '@/core/a11y'
 import type { AdminPlan, AdminUser, CatalogKind } from '@/core/api/admin.api'
 import { FIELDS, KIND_LABEL, addDaysISO, daysLeft, planLabel, planStatus, todayISO } from '../fields'
 
@@ -161,10 +162,18 @@ export function GiftModal({ user, amount, onAmount, message, onMessage, onClose,
 }
 
 function Backdrop({ children, onClose, small }: { children: React.ReactNode; onClose: () => void; small?: boolean }) {
+  const box = useDialog<HTMLDivElement>(true, onClose)
   return (
     <div className="adm-backdrop" onClick={onClose}>
-      <div className={'adm-modal' + (small ? ' sm' : '')} role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-        <button type="button" className="adm-modal-x" onClick={onClose} aria-label="Đóng"><Icon name="x" size={16} /></button>
+      <div
+        ref={box}
+        tabIndex={-1}
+        className={'adm-modal' + (small ? ' sm' : '')}
+        role="dialog"
+        aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button type="button" className="adm-modal-x" onClick={onClose} aria-label="Đóng" data-skip-focus><Icon name="x" size={16} /></button>
         {children}
       </div>
     </div>

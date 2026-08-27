@@ -13,6 +13,7 @@ import GiftModal from '@/features/gift/GiftModal'
 import OnboardingModal from '@/features/onboarding/OnboardingModal'
 import FeedbackWidget from '@/features/feedback/FeedbackWidget'
 import NoAccess from '@/features/shared/NoAccess'
+import { ErrorBoundary } from '@/providers/ErrorBoundary'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
@@ -61,9 +62,11 @@ export default function App() {
     return (
       <>
         <a className="skip-link" href="#main">{t('a11y.skip')}</a>
-        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
-          <AdminPage />
-        </Suspense>
+        <ErrorBoundary scope="page:admin" resetKey="admin">
+          <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+            <AdminPage />
+          </Suspense>
+        </ErrorBoundary>
         <ChangePasswordModal />
       </>
     )
@@ -82,6 +85,7 @@ export default function App() {
         <div className="content">
           <VerifyEmailBanner />
           <main id="main" tabIndex={-1} aria-label={t('a11y.main')}>
+          <ErrorBoundary scope={`page:${view}`} resetKey={view}>
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>
             {view === 'home' && (isAuthed ? <HomePage /> : <LandingPage />)}
             {view === 'help' && <HelpPage />}
@@ -115,6 +119,7 @@ export default function App() {
             {view === 'pricing' && <PricingPage />}
             {view === 'admin' && <NoAccess />}
           </Suspense>
+          </ErrorBoundary>
           </main>
           <Footer />
         </div>

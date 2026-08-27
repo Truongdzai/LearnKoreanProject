@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import sqlite3
 import secrets
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 from .config import DB_PATH, DATA_DIR, MEDIA_DIR, BACKUP_DIR
@@ -59,6 +61,8 @@ CREATE TABLE IF NOT EXISTS srs_reviews (
     rating      INTEGER NOT NULL,
     reviewed_at TEXT DEFAULT (datetime('now','localtime'))
 );
+CREATE INDEX IF NOT EXISTS idx_srs_reviews_user ON srs_reviews(user_id, reviewed_at);
+CREATE INDEX IF NOT EXISTS idx_srs_reviews_card ON srs_reviews(card_id);
 
 CREATE TABLE IF NOT EXISTS users (
     id             TEXT PRIMARY KEY,
@@ -178,6 +182,7 @@ CREATE TABLE IF NOT EXISTS activity_log (
     reviews  INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (user_id, day)
 );
+CREATE INDEX IF NOT EXISTS idx_activity_day ON activity_log(day);
 
 CREATE TABLE IF NOT EXISTS user_plans (
     user_id    TEXT NOT NULL,
@@ -201,6 +206,7 @@ CREATE TABLE IF NOT EXISTS catalog_videos (
     active   INTEGER NOT NULL DEFAULT 1,
     custom   INTEGER NOT NULL DEFAULT 0
 );
+CREATE INDEX IF NOT EXISTS idx_catalog_videos_list ON catalog_videos(active, lang, sort);
 
 CREATE TABLE IF NOT EXISTS catalog_quests (
     id       TEXT PRIMARY KEY,
@@ -461,6 +467,23 @@ def get_conn() -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA busy_timeout=10000")
     return conn
+
+
+@contextmanager
+def write_conn() -> Iterator[sqlite3.Connection]:
+    conn = sqlite3.connect(DB_PATH, timeout=10.0, isolation_level=None)
+    conn.row_factory = sqlite3.Row
+    try:
+        conn.execute("PRAGMA busy_timeout=10000")
+        conn.execute("BEGIN IMMEDIATE")
+        try:
+            yield conn
+        except BaseException:
+            conn.execute("ROLLBACK")
+            raise
+        conn.execute("COMMIT")
+    finally:
+        conn.close()
 
 def get_setting(key: str, default: str | None = None) -> str | None:
     conn = get_conn()

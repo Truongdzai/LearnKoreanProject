@@ -4,24 +4,28 @@ from urllib.parse import urlsplit
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..schemas.account import AuthMeOut, ProvidersOut, SessionOut
 from ..services import accounts, audit, auth, gameplay, oauth, quota
 
 router = APIRouter(prefix="/api/auth", tags=["Tài khoản"])
 
+MAX_EMAIL = 190
+MAX_PASSWORD = 128
+MAX_NAME = 80
+
 
 class RegisterIn(BaseModel):
-    name: str = ""
-    email: str
-    password: str
-    ref: str = ""
+    name: str = Field(default="", max_length=MAX_NAME)
+    email: str = Field(max_length=MAX_EMAIL)
+    password: str = Field(max_length=MAX_PASSWORD)
+    ref: str = Field(default="", max_length=40)
 
 
 class LoginIn(BaseModel):
-    email: str
-    password: str
+    email: str = Field(max_length=MAX_EMAIL)
+    password: str = Field(max_length=MAX_PASSWORD)
 
 
 def _session(row: dict) -> dict:
@@ -33,34 +37,32 @@ def _session(row: dict) -> dict:
 
 @router.post("/register", response_model=SessionOut)
 def api_register(body: RegisterIn, request: Request):
-    ip = request.client.host if request.client else ""
-    row = accounts.register(body.name, body.email, body.password, ip, body.ref)
+    row = accounts.register(body.name, body.email, body.password, quota.client_ip(request), body.ref)
     return _session(row)
 
 
 @router.post("/login", response_model=SessionOut)
 def api_login(body: LoginIn, request: Request):
-    ip = request.client.host if request.client else ""
-    row = accounts.login(body.email, body.password, ip)
+    row = accounts.login(body.email, body.password, quota.client_ip(request))
     if row.get("role") == "admin":
         audit.log(row, "admin.login", str(row["id"]), None, quota.client_ip(request))
     return _session(row)
 
 
 class ForgotIn(BaseModel):
-    email: str
+    email: str = Field(max_length=MAX_EMAIL)
 
 
 class ResetIn(BaseModel):
-    email: str
-    code: str
-    password: str
+    email: str = Field(max_length=MAX_EMAIL)
+    code: str = Field(max_length=16)
+    password: str = Field(max_length=MAX_PASSWORD)
 
 
 class ChangeIn(BaseModel):
-    current_password: str
-    code: str
-    new_password: str
+    current_password: str = Field(max_length=MAX_PASSWORD)
+    code: str = Field(max_length=16)
+    new_password: str = Field(max_length=MAX_PASSWORD)
 
 
 @router.post("/password/forgot")
@@ -88,7 +90,7 @@ def api_change(body: ChangeIn, user: dict = Depends(auth.get_current_user)):
 
 
 class CodeIn(BaseModel):
-    code: str
+    code: str = Field(max_length=16)
 
 
 @router.post("/email/verify/send")

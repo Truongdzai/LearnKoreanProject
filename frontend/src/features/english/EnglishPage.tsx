@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
+import { loadStaticImages } from './deep/staticImage'
 import ProgramOverview from './components/ProgramOverview'
 import VocabLab from './components/vocab/VocabLab'
 import GrammarLessons from './components/GrammarLessons'
@@ -13,6 +14,7 @@ import SkillHub from './components/fast/SkillHub'
 import ErrorLog from './components/fast/ErrorLog'
 import VocabCircles from './components/fast/VocabCircles'
 import { ALL_WORDS, UNITS, type RoadmapMode } from '@/data/englishCore'
+import { PRON_GROUPS } from '@/data/englishPronunciationData'
 import { useTabs } from '@/core/a11y'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
 import ViContentNote from '../shared/ViContentNote'
@@ -209,7 +211,7 @@ function EnglishBody() {
           </>
         )}
         {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
-        {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} />}
+        {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} groups={PRON_GROUPS} />}
         {tab === 'skills' && <SkillHub />}
         {tab === 'errors' && <ErrorLog />}
         {tab === 'quiz' && (weekQuiz ? (
@@ -233,6 +235,8 @@ function EnglishBody() {
 }
 
 export default function EnglishPage() {
+  useEffect(() => { void loadStaticImages() }, [])
+
   return (
     <FastProvider>
       <MasteryProvider>

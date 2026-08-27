@@ -118,21 +118,30 @@ def stats(user_id: str = USER, lang: str = "") -> dict:
     conn = db.get_conn()
     try:
         today = date.today().isoformat()
+        tomorrow = (date.today() + timedelta(days=1)).isoformat()
 
-        def n(sql: str, *a) -> int:
-            return conn.execute(sql, a).fetchone()[0]
+        card = conn.execute(
+            "SELECT COUNT(*) AS total, "
+            "SUM(CASE WHEN due <= ? THEN 1 ELSE 0 END) AS due, "
+            "SUM(CASE WHEN reps = 0 THEN 1 ELSE 0 END) AS new, "
+            "SUM(CASE WHEN reps >= 2 THEN 1 ELSE 0 END) AS learned "
+            f"FROM srs_cards WHERE user_id = ?{where}",
+            (today, user_id, *args),
+        ).fetchone()
 
         joined = " AND c.lang = ?" if args else ""
-        reviewed = (
+        reviewed = conn.execute(
             "SELECT COUNT(*) FROM srs_reviews r JOIN srs_cards c ON c.id = r.card_id "
-            f"WHERE r.user_id=? AND date(r.reviewed_at)=?{joined}"
-        )
+            f"WHERE r.user_id = ? AND r.reviewed_at >= ? AND r.reviewed_at < ?{joined}",
+            (user_id, today, tomorrow, *args),
+        ).fetchone()[0]
+
         return {
-            "total": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=?{where}", user_id, *args),
-            "due": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND due<=?{where}", user_id, today, *args),
-            "new": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps=0{where}", user_id, *args),
-            "learned": n(f"SELECT COUNT(*) FROM srs_cards WHERE user_id=? AND reps>=2{where}", user_id, *args),
-            "reviewed_today": n(reviewed, user_id, today, *args),
+            "total": card["total"] or 0,
+            "due": card["due"] or 0,
+            "new": card["new"] or 0,
+            "learned": card["learned"] or 0,
+            "reviewed_today": reviewed,
         }
     finally:
         conn.close()

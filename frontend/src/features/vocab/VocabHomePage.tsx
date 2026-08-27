@@ -22,7 +22,7 @@ type Modal = null | 'add' | 'topic' | 'import'
 const EMPTY_STATS: SrsStats = { total: 0, due: 0, new: 0, learned: 0, reviewed_today: 0 }
 
 export default function VocabHomePage() {
-  const { user, setView, learnLang, goal, t } = useAppStore()
+  const { user, setView, learnLang, learnLangName, goal, t } = useAppStore()
   const [exporting, setExporting] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
   const [openPack, setOpenPack] = useState<ContextPack | null>(null)
@@ -107,8 +107,17 @@ export default function VocabHomePage() {
 
   return (
     <div className="vocab-home">
-      <h1 className="page-title"><Icon name="cards" /> {t('vc.title')}</h1>
-      <p className="page-sub">{learnLang === 'ko' ? t('vc.subKo') : t('vc.sub')}</p>
+      <div className="drawer-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('vc.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{hasStats ? s.total : '—'}</b>
+          <span>{t('vc.cardsUnit')}</span>
+        </div>
+      </div>
+      <p className="drawer-note">{learnLang === 'ko' ? t('vc.subKo') : t('vc.sub')}</p>
 
       {flash && <div className="shop-flash" style={{ position: 'static', marginBottom: 12 }}>{flash}</div>}
 
@@ -120,17 +129,14 @@ export default function VocabHomePage() {
         </div>
       )}
 
-      <div className="vc-stats">
+      <dl className="srs-record vc-record">
         {STAT_CARDS.map((c) => (
-          <div key={c.key} className={'vc-stat ' + c.tone}>
-            <span className="vc-stat-ic"><Icon name={c.ic} size={18} /></span>
-            <div>
-              <b>{hasStats ? c.val : '—'}</b>
-              <span>{c.label}</span>
-            </div>
+          <div key={c.key}>
+            <dt>{c.label}</dt>
+            <dd>{hasStats ? c.val : '—'}</dd>
           </div>
         ))}
-      </div>
+      </dl>
 
       <div className="vc-cta">
         <button className="vc-cta-main" onClick={() => setView('flashcards')}>
@@ -187,7 +193,7 @@ export default function VocabHomePage() {
           <div className="deck-grid">
             {packs.map((p) => (
               <button key={p.id} className={'deck-card' + (goal && p.goal === goal ? ' deck-hot' : '')} onClick={() => setOpenPack(p)}>
-                <span className={'deck-thumb ' + p.tone}><span className="deck-emoji">{p.emoji}</span></span>
+                <span className={'deck-thumb ' + p.tone}><Icon name={p.icon} size={20} /></span>
                 <span className="deck-body">
                   <b>{p.name}{goal && p.goal === goal && <span className="deck-goal">{t('sp.goalBadge')}</span>}</b>
                   <span className="deck-meta">{t('vc.packMeta', { n: (p.words[learnLang] || []).length })}</span>
@@ -196,10 +202,10 @@ export default function VocabHomePage() {
             ))}
           </div>
         ) : (
-          <div className="empty" style={{ marginTop: 8 }}><div className="big">🔍</div>{t('vc.noMatch')}</div>
+          <div className="empty" style={{ marginTop: 8 }}><Icon name="search" size={28} />{t('vc.noMatch')}</div>
         )
       ) : (
-        <div className="empty"><div className="big">📦</div>{t('vc.packEmpty')}</div>
+        <div className="empty"><Icon name="cards" size={28} />{t('vc.packEmpty')}</div>
       )}
 
       {modal === 'add' && (

@@ -3,16 +3,25 @@ import { thumbUrl, videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 
 export default function MyVideosPage() {
-  const { savedVideos, removeVideo, loadLesson, setView, t } = useAppStore()
+  const { savedVideos, removeVideo, loadLesson, setView, t, learnLangName } = useAppStore()
 
   return (
     <div className="myvideos">
-      <h1 className="page-title"><Icon name="tv" /> {t('top.myvideos')}</h1>
-      <p className="page-sub">{t('mv.sub')}</p>
+      <div className="drawer-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('mv.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{savedVideos.length}</b>
+          <span>{t('mv.cardsUnit')}</span>
+        </div>
+      </div>
+      <p className="drawer-note">{t('mv.sub')}</p>
 
       {savedVideos.length === 0 ? (
         <div className="empty">
-          <div className="big">📺</div>
+          <Icon name="tv" size={30} />
           {t('mv.empty')}
           <div style={{ marginTop: 14 }}>
             <button className="btn-primary" onClick={() => setView('home')}><Icon name="plus" size={15} /> {t('mv.first')}</button>
@@ -25,7 +34,7 @@ export default function MyVideosPage() {
               <div className={'thumb ' + v.tone} onClick={() => loadLesson(videoUrl(v.id), { lang: v.lang || 'ko' })}>
                 <img src={thumbUrl(v.id)} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none' }} />
                 <span className="ko-tag" lang="ko">{v.topic}</span>
-                <span className="play">▶</span>
+                <span className="play"><Icon name="play" size={17} /></span>
                 <span className="dur">{v.dur}</span>
               </div>
               <div className="vcard-body">

@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { AppView, ThemeMode } from '@/core/constants/enum'
 import type { Lesson } from '@/models/lesson.model'
 import type { Video } from '@/models/video.model'
@@ -549,25 +549,39 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     }
   }, [recordEvent, learnLang, nativeLang, saveVideo, uiLang, openAuth])
 
-  const value: AppStore = {
-    view, setView,
-    theme, toggleTheme,
-    learnLang, setLearnLang,
-    nativeLang, setNativeLang,
-    uiLang, setUiLang, t, learnLangName,
-    wizardRequested, requestWizard, clearWizard,
-    goal, setGoal, onboardingOpen, openOnboarding, askGoalOnce, closeOnboarding,
-    dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
-    user, isAuthed,
-    videos,
-    owned, savedVideos, paths, garden,
-    buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
-    plantSeed, waterPlant, removePlant,
-    saveVideo, removeVideo, addPath,
-    claimQuest, dailyBonus, recordEvent,
-    lookupOpen, openLookup, closeLookup, lookupSeed,
-    lesson, status, statusError, loadLesson,
-  }
+  const value = useMemo<AppStore>(
+    () => ({
+      view, setView,
+      theme, toggleTheme,
+      learnLang, setLearnLang,
+      nativeLang, setNativeLang,
+      uiLang, setUiLang, t, learnLangName,
+      wizardRequested, requestWizard, clearWizard,
+      goal, setGoal, onboardingOpen, openOnboarding, askGoalOnce, closeOnboarding,
+      dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
+      user, isAuthed,
+      videos,
+      owned, savedVideos, paths, garden,
+      buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
+      plantSeed, waterPlant, removePlant,
+      saveVideo, removeVideo, addPath,
+      claimQuest, dailyBonus, recordEvent,
+      lookupOpen, openLookup, closeLookup, lookupSeed,
+      lesson, status, statusError, loadLesson,
+    }),
+    [
+      view, setView, theme, toggleTheme, learnLang, setLearnLang, nativeLang, setNativeLang,
+      uiLang, setUiLang, t, learnLangName, wizardRequested, requestWizard, clearWizard,
+      goal, setGoal, onboardingOpen, openOnboarding, askGoalOnce, closeOnboarding,
+      dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
+      user, isAuthed, videos, owned, savedVideos, paths, garden,
+      buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
+      plantSeed, waterPlant, removePlant, saveVideo, removeVideo, addPath,
+      claimQuest, dailyBonus, recordEvent,
+      lookupOpen, openLookup, closeLookup, lookupSeed,
+      lesson, status, statusError, loadLesson,
+    ],
+  )
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }

@@ -3,6 +3,7 @@ import { thumbUrl } from '@/data/videos'
 import Icon from '@/core/components/Icon'
 import type { Video } from '@/models/video.model'
 import type { FitScore } from '@/core/api/tutor.api'
+import { useAppStore } from '@/store/app.store'
 
 interface Props {
   video: Video
@@ -14,9 +15,10 @@ interface Props {
   rv?: CSSProperties
 }
 
-const FIT_LABEL: Record<string, string> = { fit: 'Vừa sức', easy: 'Dễ', hard: 'Hơi khó' }
+const FIT_KEY: Record<string, string> = { fit: 'lib.fit.fit', easy: 'lib.fit.easy', hard: 'lib.fit.hard' }
 
 export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabel, fit, rv }: Props) {
+  const { t } = useAppStore()
   return (
     <div className="vcard" data-rv={rv ? '' : undefined} style={rv} onClick={() => onPick(video)} title={video.title}>
       <div className={'thumb ' + video.tone}>
@@ -29,12 +31,12 @@ export default function VideoCard({ video, onPick, saved, onToggleSave, saveLabe
           }}
         />
         <span className="ko-tag" lang="ko">{video.topic}</span>
-        {fit && FIT_LABEL[fit.band] && (
-          <span className={'fit-badge lib-fit ' + fit.band} title={`${fit.known_pct}% từ trong video này bạn đã biết`}>
-            {FIT_LABEL[fit.band]} · {fit.known_pct}%
+        {fit && FIT_KEY[fit.band] && (
+          <span className={'fit-badge lib-fit ' + fit.band} title={t('lib.fit.hint', { n: fit.known_pct })}>
+            {t(FIT_KEY[fit.band])} · {fit.known_pct}%
           </span>
         )}
-        <span className="play">▶</span>
+        <span className="play"><Icon name="play" size={17} /></span>
         <span className="dur">{video.dur}</span>
         {onToggleSave && (
           <button

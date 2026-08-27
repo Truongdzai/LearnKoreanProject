@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { UNITS, ALL_WORDS, PLAN_12_WEEKS, TARGET_WORDS, wTerm, wRead } from '@/data/englishCore'
+import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
+import { PRON_GROUPS } from '@/data/englishPronunciationData'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
-import { useLearnedWords, useWordBank, readPlan, planDay, planWeek, weekDone } from '../progress'
+import { useLearnedWords, useWordBank, readPlan, planDay, planWeek, weekDone, type TaskExtra } from '../progress'
 
 type Scope = 'learned' | 'all'
 
@@ -14,7 +16,8 @@ export default function EnglishSummary() {
   const plan = readPlan()
   const day = Math.min(planDay(plan.start), 90)
   const week = planWeek(plan.start)
-  const doneWeeks = PLAN_12_WEEKS.filter((w) => weekDone(w, learned, plan, bank)).length
+  const ext: TaskExtra = { units: UNITS, pronGroups: PRON_GROUPS, grammarLessons: GRAMMAR_LESSONS }
+  const doneWeeks = PLAN_12_WEEKS.filter((w) => weekDone(w, learned, plan, bank, undefined, ext)).length
 
   const learnedList = useMemo(() => ALL_WORDS.filter((w) => learned.has(wTerm(w))), [learned])
   const source = scope === 'learned' ? learnedList : ALL_WORDS

@@ -78,8 +78,7 @@ def consume(kind: str, user: dict | None, ip: str = "") -> dict:
     today = date.today().isoformat()
     minute = now.strftime("%Y-%m-%dT%H:%M")
 
-    conn = db.get_conn()
-    try:
+    with db.write_conn() as conn:
         row = conn.execute(
             "SELECT used, minute_key, minute_n FROM ai_usage WHERE subject=? AND day=?",
             (subject, today),
@@ -110,16 +109,14 @@ def consume(kind: str, user: dict | None, ip: str = "") -> dict:
         conn.execute(
             "INSERT INTO ai_usage (subject, day, used, minute_key, minute_n, updated_at) "
             "VALUES (?,?,?,?,?,?) "
-            "ON CONFLICT(subject, day) DO UPDATE SET used=?, minute_key=?, minute_n=?, updated_at=?",
-            (
-                subject, today, used + cost, minute, minute_n + cost, now.isoformat(),
-                used + cost, minute, minute_n + cost, now.isoformat(),
-            ),
+            "ON CONFLICT(subject, day) DO UPDATE SET "
+            "used = ai_usage.used + excluded.used, "
+            "minute_n = CASE WHEN ai_usage.minute_key = excluded.minute_key "
+            "THEN ai_usage.minute_n + excluded.minute_n ELSE excluded.minute_n END, "
+            "minute_key = excluded.minute_key, updated_at = excluded.updated_at",
+            (subject, today, cost, minute, cost, now.isoformat()),
         )
         conn.execute("DELETE FROM ai_usage WHERE day < date('now','localtime','-7 day')")
-        conn.commit()
-    finally:
-        conn.close()
 
     return {"used": used + cost, "limit": limit, "left": max(0, limit - used - cost)}
 
@@ -150,8 +147,7 @@ def guest_lesson_left(ip: str) -> int:
 
 def take_guest_lesson(ip: str) -> None:
     today = date.today().isoformat()
-    conn = db.get_conn()
-    try:
+    with db.write_conn() as conn:
         row = conn.execute(
             "SELECT used FROM guest_lessons WHERE ip = ? AND day = ?", (ip or "unknown", today)
         ).fetchone()
@@ -164,12 +160,10 @@ def take_guest_lesson(ip: str) -> None:
             )
         conn.execute(
             "INSERT INTO guest_lessons (ip, day, used) VALUES (?,?,1) "
-            "ON CONFLICT(ip, day) DO UPDATE SET used = used + 1",
+            "ON CONFLICT(ip, day) DO UPDATE SET used = guest_lessons.used + 1",
             (ip or "unknown", today),
         )
-        conn.commit()
-    finally:
-        conn.close()
+        conn.execute("DELETE FROM guest_lessons WHERE day < date('now','localtime','-3 day')")
 
 
 def is_plus(user: dict | None) -> bool:
@@ -199,8 +193,7 @@ def take_exam(user: dict, kind: str) -> dict:
     if is_plus(user):
         return {"ok": True, "left": -1}
     month = date.today().strftime("%Y-%m")
-    conn = db.get_conn()
-    try:
+    with db.write_conn() as conn:
         row = conn.execute(
             "SELECT used FROM exam_takes WHERE user_id = ? AND month = ? AND kind = ?",
             (user["id"], month, kind),
@@ -215,10 +208,7 @@ def take_exam(user: dict, kind: str) -> dict:
             )
         conn.execute(
             "INSERT INTO exam_takes (user_id, month, kind, used) VALUES (?,?,?,1) "
-            "ON CONFLICT(user_id, month, kind) DO UPDATE SET used = used + 1",
+            "ON CONFLICT(user_id, month, kind) DO UPDATE SET used = exam_takes.used + 1",
             (user["id"], month, kind),
         )
-        conn.commit()
-    finally:
-        conn.close()
     return {"ok": True, "left": max(0, FREE_EXAMS_PER_MONTH - used - 1)}

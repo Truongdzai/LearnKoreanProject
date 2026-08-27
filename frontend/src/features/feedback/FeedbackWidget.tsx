@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { useDialog } from '@/core/a11y'
 import { sendFeedbackApi, type FeedbackKind } from '@/core/api/feedback.api'
 import { useAppStore } from '@/store/app.store'
 
@@ -12,12 +13,8 @@ export default function FeedbackWidget() {
   const [done, setDone] = useState(false)
   const [err, setErr] = useState('')
 
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+  const close = useCallback(() => setOpen(false), [])
+  const box = useDialog<HTMLDivElement>(open, close)
 
   const show = () => {
     setKind('idea'); setMessage(''); setDone(false); setErr('')
@@ -43,9 +40,17 @@ export default function FeedbackWidget() {
       </button>
 
       {open && (
-        <div className="auth-backdrop" onClick={() => setOpen(false)}>
-          <div className="auth-modal feedback-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="lookup-close auth-close" onClick={() => setOpen(false)}><Icon name="x" /></button>
+        <div className="auth-backdrop" onClick={close}>
+          <div
+            ref={box}
+            tabIndex={-1}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t('fb.title')}
+            className="auth-modal feedback-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="lookup-close auth-close" onClick={close} aria-label={t('fb.close')} data-skip-focus><Icon name="x" /></button>
 
             {done ? (
               <div className="feedback-done">

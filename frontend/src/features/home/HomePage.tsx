@@ -17,6 +17,8 @@ const QUICK: { id: string; icon: IconName; to: AppView }[] = [
   { id: 'tutor', icon: 'bulb', to: 'tutor' },
 ]
 
+const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
+
 export default function HomePage() {
   const {
     loadLesson, setView, videos, learnLang, goal, openOnboarding,
@@ -29,6 +31,7 @@ export default function HomePage() {
   )
   const g = goalById(goal)
   const resume = savedVideos.filter((v) => (v.lang || 'ko') === learnLang)[0]
+  const todayIdx = (new Date().getDay() + 6) % 7
 
   const pick = (v: Video) => {
     loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
@@ -36,12 +39,34 @@ export default function HomePage() {
 
   return (
     <div className="hm">
-      <section className="hm-top">
-        <div className="hm-hi">
-          <span className="hm-kicker">{t('home.kicker')}</span>
-          <h1>{t('home.hi', { name: user.name })}</h1>
-          <p>{t('home.hiSub', { lang: learnLangName })}</p>
-          <div className="hm-hi-row">
+      <div className="drawer-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('home.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{langVideos.length}</b>
+          <span>{t('home.drawerCount')}</span>
+        </div>
+        <div className="drawer-tabs">
+          {QUICK.map((q) => (
+            <button key={q.id} onClick={() => setView(q.to)} title={t(`home.quick.${q.id}Sub`)}>
+              <Icon name={q.icon} size={14} /> {t(`home.quick.${q.id}`)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <section className="hm-open">
+        <article className="standing-card">
+          <div className="standing-hole" aria-hidden="true" />
+          <div className="standing-rod" aria-hidden="true" />
+          <header className="standing-head">
+            <h1><span className="callno">{t('home.callno', { lang: learnLang.toUpperCase() })}</span>{t('home.hi', { name: user.name })}</h1>
+          </header>
+          <p className="standing-body">{t('home.hiSub', { lang: learnLangName })}</p>
+          <div className="standing-rule" aria-hidden="true" />
+          <div className="standing-actions">
             <button className="btn-primary" onClick={() => setView('library')}>
               <Icon name="mic" size={15} /> {t('home.startShadow')}
             </button>
@@ -54,27 +79,45 @@ export default function HomePage() {
                 <Icon name="tv" size={15} /> {t('home.myVideos')}
               </button>
             )}
-            <button className="hm-goal" onClick={openOnboarding} title={t('home.goalChip.hint')}>
-              {g ? <>{t('home.goalChip.set')} <b>{g.emoji} {t(`goal.${g.id}.label`)}</b></> : t('home.goalChip.none')}
-            </button>
           </div>
-        </div>
-        <div className="hm-streak">
-          <div className="hm-stat"><b>{user.streak}</b><span>{t('home.stat.streak')}</span></div>
-          <div className="hm-stat"><b>{user.xp.toLocaleString('vi')}</b><span>{t('home.stat.xp')}</span></div>
-          <div className="hm-stat"><b>{user.level}</b><span>{t('home.stat.level')}</span></div>
-        </div>
-      </section>
-
-      <div className="hm-quick">
-        {QUICK.map((q) => (
-          <button key={q.id} onClick={() => setView(q.to)}>
-            <span className="hm-quick-ic"><Icon name={q.icon} size={18} /></span>
-            <b>{t(`home.quick.${q.id}`)}</b>
-            <small>{t(`home.quick.${q.id}Sub`)}</small>
+          <button className="hm-goal" onClick={openOnboarding} title={t('home.goalChip.hint')}>
+            <Icon name="target" size={13} />
+            {g ? <>{t('home.goalChip.set')} <b>{t(`goal.${g.id}.label`)}</b></> : t('home.goalChip.none')}
           </button>
-        ))}
-      </div>
+        </article>
+
+        <aside className="slip">
+          <div className="slip-head">
+            <span>{t('home.slip.title')}</span>
+            <b>{user.name}</b>
+          </div>
+          <div className="slip-week">
+            {DAYS.map((d, i) => {
+              const on = i <= todayIdx && i >= todayIdx - user.streak + 1
+              return (
+                <div key={d} className={'stamp-box' + (on ? ' on' : '')}>
+                  <span className="lbl">{d}</span>
+                  {on && <span className="stamp-mark" aria-hidden="true" />}
+                </div>
+              )
+            })}
+          </div>
+          <dl className="slip-rows">
+            <div>
+              <dt>{t('home.stat.streak')}</dt>
+              <dd>{user.streak}</dd>
+            </div>
+            <div>
+              <dt>{t('home.stat.xp')}</dt>
+              <dd>{user.xp.toLocaleString('vi')}</dd>
+            </div>
+            <div>
+              <dt>{t('home.stat.level')}</dt>
+              <dd>{user.level}</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
 
       <div className="home-duo">
         <DailyGoal />
@@ -94,7 +137,7 @@ export default function HomePage() {
           ))}
         </div>
       ) : (
-        <div className="empty"><div className="big">📺</div>{t('home.empty', { lang: learnLangName })}</div>
+        <div className="empty"><Icon name="tv" size={30} />{t('home.empty', { lang: learnLangName })}</div>
       )}
     </div>
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { GRAMMAR_LESSONS } from '@/data/englishGrammar'
-import { PRON_GROUPS } from '@/data/englishPronunciation'
+import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
+import { PRON_GROUPS } from '@/data/englishPronunciationData'
 import {
   FAST_PILLARS, MINDSET, PRON_PRIORITY, PRON_SIGNATURE,
   SPOKEN_GRAMMAR_CORE, SPOKEN_GRAMMAR_NOTE, VOCAB_CIRCLES, VOCAB_CIRCLE_NOTE,

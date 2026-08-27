@@ -3,7 +3,7 @@ import { useAppStore } from '@/store/app.store'
 import Icon from '@/core/components/Icon'
 import Logo from '@/core/components/Logo'
 import Flag from '@/core/components/Flag'
-import { navForLang } from '@/core/constants/nav'
+import { navGroupsForLang } from '@/core/constants/nav'
 import { pathForView } from '@/core/constants/routes'
 import { STUDY_LANGS } from '@/core/constants/languages'
 import { studyLangName } from '@/core/i18n/translations'
@@ -19,7 +19,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
     try { return localStorage.getItem(COLLAPSE_KEY) === '1' } catch { return false }
   })
   const todayIdx = (new Date().getDay() + 6) % 7
-  const nav = navForLang(learnLang)
+  const groups = navGroupsForLang(learnLang)
   const quota = useQuota()
   const lowMark = quota ? Math.max(5, Math.round(quota.limit * 0.2)) : 0
   const pct = quota && quota.limit > 0 ? Math.max(0, Math.min(100, (quota.left / quota.limit) * 100)) : 0
@@ -53,7 +53,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
     >
       <div className="side-head">
         <button type="button" className="brand" onClick={() => { setView('home'); onClose?.() }} aria-label={t('a11y.home')}>
-          <div className="brand-logo"><Logo size={42} /></div>
+          <div className="brand-logo"><Logo size={38} /></div>
           <div className="name">
             <b>VyLing</b>
             <small>{t('brand.tagline')}</small>
@@ -73,24 +73,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
       </div>
 
       <div className="side-block">
-        <div className="s-label"><Icon name="flame" size={12} /> {t('side.streak', { n: user.streak })}</div>
-        <div className="streak" role="img" aria-label={t('a11y.streak', { n: user.streak })}>
-          <div className="streak-days" aria-hidden="true">
-            {DAYS.map((d, i) => (
-              <div key={d} className={'day' + (i <= todayIdx && i >= todayIdx - user.streak + 1 ? ' on' : '')}>
-                <span className="star"><Icon name="star" size={14} /></span>
-                <span className="lbl">{d}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="streak-mini" title={t('side.streak', { n: user.streak })} aria-hidden="true">
-          <Icon name="flame" size={14} /><b>{user.streak}</b>
-        </div>
-      </div>
-
-      <div className="side-block">
-        <div className="s-label"><Icon name="globe" size={12} /> {t('side.langs')}</div>
+        <div className="s-label">{t('side.langs')}</div>
         <div className="lang-row">
           {STUDY_LANGS.map((l) => (
             <button
@@ -115,7 +98,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
               }
               aria-pressed={learnLang === l.code}
             >
-              <Flag code={l.code} size={26} />
+              <Flag code={l.code} size={24} />
               {l.soon && <span className="lang-soon-tag">{t('lang.soon')}</span>}
             </button>
           ))}
@@ -123,27 +106,55 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
       </div>
 
       <nav className="nav" aria-label={t('a11y.nav')}>
-        {nav.map((n) => (
-          <a
-            key={n.id}
-            href={pathForView(n.id)}
-            className={view === n.id ? 'active' : ''}
-            aria-current={view === n.id ? 'page' : undefined}
-            title={t('nav.' + n.id)}
-            onClick={(e) => {
-              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
-              e.preventDefault()
-              setView(n.id)
-              onClose?.()
-            }}
+        {groups.map((g) => (
+          <div
+            key={g.group}
+            className={'nav-div nav-div-' + g.group + (g.items.some((n) => n.id === view) ? ' open' : '')}
           >
-            <span className="ic"><Icon name={n.icon} size={19} /></span>
-            <span className="lbl">{t('nav.' + n.id)}</span>
-          </a>
+            <div className="nav-div-tab" aria-hidden="true">
+              <span>{t('side.group.' + g.group)}</span>
+            </div>
+            <ul className="nav-div-list">
+              {g.items.map((n) => (
+                <li key={n.id}>
+                  <a
+                    href={pathForView(n.id)}
+                    className={view === n.id ? 'active' : ''}
+                    aria-current={view === n.id ? 'page' : undefined}
+                    title={t('nav.' + n.id)}
+                    onClick={(e) => {
+                      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+                      e.preventDefault()
+                      setView(n.id)
+                      onClose?.()
+                    }}
+                  >
+                    <span className="ic"><Icon name={n.icon} size={17} /></span>
+                    <span className="lbl">{t('nav.' + n.id)}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
       </nav>
 
       <div className="sidebar-spacer" />
+
+      <div className="side-foot">
+      <div className="side-slip" title={t('side.streak', { n: user.streak })}>
+        <div className="side-slip-head">{t('side.streak', { n: user.streak })}</div>
+        <div className="side-slip-days" aria-hidden="true">
+          {DAYS.map((d, i) => (
+            <div key={d} className={'stamp-box' + (i <= todayIdx && i >= todayIdx - user.streak + 1 ? ' on' : '')}>
+              <span className="lbl">{d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="streak-mini" title={t('side.streak', { n: user.streak })} aria-hidden="true">
+        <Icon name="flame" size={14} /><b>{user.streak}</b>
+      </div>
 
       {quota && (
         <div
@@ -151,7 +162,6 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
           title={t('side.quotaTip', { a: quota.used, b: quota.limit })}
         >
           <div className="quota-head">
-            <span className="ic"><Icon name="sparkles" size={13} /></span>
             <span className="lbl">{t('side.quotaLeft', { n: quota.left })}</span>
           </div>
           <div className="quota-bar"><span style={{ width: pct + '%' }} /></div>
@@ -164,9 +174,10 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
           onClick={() => { track('upgrade_click', { from: 'sidebar' }); setView('pricing'); onClose?.() }}
           title={t('side.upgrade')}
         >
-          <Icon name="sparkles" size={16} /> <span className="lbl">{t('side.upgrade')}</span>
+          <Icon name="sparkles" size={15} /> <span className="lbl">{t('side.upgrade')}</span>
         </button>
       )}
+      </div>
     </aside>
     </>
   )

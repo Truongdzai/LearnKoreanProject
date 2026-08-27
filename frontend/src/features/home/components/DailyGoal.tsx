@@ -73,13 +73,13 @@ export default function DailyGoal() {
           isAuthed ? (
             !goalBonusClaimed ? (
               <button className="btn-primary sm dgoal-chest" disabled={claiming} onClick={claim}>
-                🎁 {claiming ? t('dgoal.chestOpening') : t('dgoal.chest', { n: dailyGoalXp / 2 })}
+                <Icon name="gift" size={14} /> {claiming ? t('dgoal.chestOpening') : t('dgoal.chest', { n: dailyGoalXp / 2 })}
               </button>
             ) : (
               <span className="dgoal-claimed">{t('dgoal.claimed')}</span>
             )
           ) : (
-            <button className="btn-primary sm dgoal-chest" onClick={openAuth}>🎁 {t('dgoal.chestLogin')}</button>
+            <button className="btn-primary sm dgoal-chest" onClick={openAuth}><Icon name="gift" size={14} /> {t('dgoal.chestLogin')}</button>
           )
         )}
 
@@ -93,7 +93,7 @@ export default function DailyGoal() {
 
       {isAuthed && (
         <div className="dgoal-level">
-          <span>⭐ {t('dgoal.level', { n: user.level })}</span>
+          <span><Icon name="star" size={13} /> {t('dgoal.level', { n: user.level })}</span>
           <div className="dgoal-level-bar"><span style={{ width: Math.round((intoLevel / LEVEL_XP) * 100) + '%' }} /></div>
           <span className="dgoal-level-next">{t('dgoal.levelNext', { xp: LEVEL_XP - intoLevel, n: user.level + 1 })}</span>
         </div>

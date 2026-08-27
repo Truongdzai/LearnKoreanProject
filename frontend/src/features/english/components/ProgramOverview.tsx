@@ -5,7 +5,8 @@ import {
   PLAN_12_WEEKS_BOOT, PLAN_BOOT_TASK_TOTAL,
   type RoadmapMode,
 } from '@/data/englishCore'
-import { PRON_GROUPS } from '@/data/englishPronunciation'
+import { PRON_GROUPS } from '@/data/englishPronunciationData'
+import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
 import { useLearnedWords, readPlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
 import FastMethod from './fast/FastMethod'
@@ -101,6 +102,7 @@ export default function ProgramOverview({
 
       <div className="section-title"><span className="pin" /> Hành trình 12 tuần của bạn</div>
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
+        pronGroups={PRON_GROUPS} grammarLessons={GRAMMAR_LESSONS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron}
         onDeep={onDeep} deepFull={deepFull} />
 

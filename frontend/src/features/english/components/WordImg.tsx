@@ -1,4 +1,4 @@
-import { staticImage } from '../deep/wordData'
+import { staticImage, useStaticImages } from '../deep/staticImage'
 
 interface Props {
   term: string
@@ -7,6 +7,7 @@ interface Props {
 }
 
 export default function WordImg({ term, emoji, className = 'vl-img' }: Props) {
+  useStaticImages()
   const src = staticImage(term)
   return (
     <div className={src ? `${className} has-pic` : className}>

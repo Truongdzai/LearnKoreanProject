@@ -2,7 +2,6 @@ import { UNITS } from '@/data/englishCore'
 import { wTerm, type IcesWord, type VocabUnit } from '@/data/vocabCore'
 import { ukIpa } from '@/core/ukIpa'
 import { ALL_CHUNKS, wordEntry, type ActiveChunk, type WordEntry } from '@/data/englishActive'
-import wordImages from '@/data/english/wordImages.json'
 
 export interface DeepWord {
   term: string
@@ -188,17 +187,6 @@ export function localSenses(term: string, vi: string, defVi: string, ex: string,
   }
   return [{ title: vi, desc: defVi, ex, exVi }]
 }
-
-const STATIC_IMAGES: Set<string> = new Set(
-  ((wordImages as { words?: string[] }).words ?? []).map((w) => w.toLowerCase()),
-)
-
-export function staticImage(term: string): string | null {
-  const key = term.trim().toLowerCase().replace(/[?:/\\*"<>|]/g, '').trim()
-  return STATIC_IMAGES.has(key) ? `/wordimg/${encodeURIComponent(key)}.webp` : null
-}
-
-export const STATIC_IMAGE_COUNT = STATIC_IMAGES.size
 
 export function coreNote(term: string): string {
   return wordEntry(term.toLowerCase())?.core ?? ''

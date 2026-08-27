@@ -1,3 +1,5 @@
+import type { IconName } from '@/core/components/Icon'
+
 export interface PackWord {
   term: string
   sub: string
@@ -10,6 +12,7 @@ export interface ContextPack {
   id: string
   name: string
   emoji: string
+  icon: IconName
   tone: string
   desc: string
   goal: string
@@ -338,32 +341,32 @@ const ZH_SMALLTALK: PackWord[] = [
 
 export const CONTEXT_PACKS: ContextPack[] = [
   {
-    id: 'work', name: 'Công việc & văn phòng', emoji: '💼', tone: 'tone-f', goal: 'work',
+    id: 'work', name: 'Công việc & văn phòng', emoji: '💼', icon: 'tool', tone: 'tone-f', goal: 'work',
     desc: 'Họp hành, deadline, email — nói chuyện công sở tự tin.',
     words: { ko: KO_WORK, en: EN_WORK, zh: ZH_WORK },
   },
   {
-    id: 'travel', name: 'Du lịch & di chuyển', emoji: '✈️', tone: 'tone-d', goal: 'travel',
+    id: 'travel', name: 'Du lịch & di chuyển', emoji: '✈️', icon: 'map', tone: 'tone-d', goal: 'travel',
     desc: 'Sân bay, khách sạn, hỏi đường — đủ dùng cho cả chuyến đi.',
     words: { ko: KO_TRAVEL, en: EN_TRAVEL, zh: ZH_TRAVEL },
   },
   {
-    id: 'restaurant', name: 'Nhà hàng & quán xá', emoji: '🍽️', tone: 'tone-c', goal: 'talk',
+    id: 'restaurant', name: 'Nhà hàng & quán xá', emoji: '🍽️', icon: 'store', tone: 'tone-c', goal: 'talk',
     desc: 'Gọi món, khen ngon, xin hoá đơn — ăn uống không lo bí từ.',
     words: { ko: KO_RESTAURANT, en: EN_RESTAURANT, zh: ZH_RESTAURANT },
   },
   {
-    id: 'interview', name: 'Phỏng vấn xin việc', emoji: '🤝', tone: 'tone-b', goal: 'work',
+    id: 'interview', name: 'Phỏng vấn xin việc', emoji: '🤝', icon: 'user', tone: 'tone-b', goal: 'work',
     desc: 'Giới thiệu bản thân, điểm mạnh yếu, deal lương — sẵn sàng trúng tuyển.',
     words: { ko: KO_INTERVIEW, en: EN_INTERVIEW, zh: ZH_INTERVIEW },
   },
   {
-    id: 'exam', name: 'Luyện thi & phòng thi', emoji: '🎓', tone: 'tone-a', goal: 'exam',
+    id: 'exam', name: 'Luyện thi & phòng thi', emoji: '🎓', icon: 'book', tone: 'tone-a', goal: 'exam',
     desc: 'Đăng ký, đề thi, điểm số, chứng chỉ — bộ từ sống còn mùa ôn thi TOPIK/TOEIC.',
     words: { ko: KO_EXAM, en: EN_EXAM, zh: ZH_EXAM },
   },
   {
-    id: 'smalltalk', name: 'Tán gẫu & kết bạn', emoji: '☕', tone: 'tone-e', goal: 'talk',
+    id: 'smalltalk', name: 'Tán gẫu & kết bạn', emoji: '☕', icon: 'party', tone: 'tone-e', goal: 'talk',
     desc: 'Cuối tuần, sở thích, thời tiết — bắt chuyện tự nhiên với bất kỳ ai.',
     words: { ko: KO_SMALLTALK, en: EN_SMALLTALK, zh: ZH_SMALLTALK },
   },

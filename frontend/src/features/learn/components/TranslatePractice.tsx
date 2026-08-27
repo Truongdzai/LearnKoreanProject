@@ -33,7 +33,7 @@ export default function TranslatePractice({ lesson }: { lesson: Lesson }) {
   const [done, setDone] = useState(false)
   const [scores, setScores] = useState<number[]>([])
 
-  if (!items.length) return <div className="empty"><div className="big">📝</div>{t('tp.empty')}</div>
+  if (!items.length) return <div className="empty"><Icon name="note" size={30} />{t('tp.empty')}</div>
 
   const cur = items[i]
   const sc = revealed ? score(val, cur.vi || '') : 0

@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { wTerm } from '@/data/vocabCore'
 import type { VocabUnit, WeekPlan, WeekTask } from '@/data/englishCore'
-import EN_UNIT_TERMS from '@/data/english/unitTerms.json'
-import { GRAMMAR_LESSONS, GRAMMAR_PASS } from '@/data/englishGrammar'
-import { PRON_GROUPS, PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
+import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
+import { PRON_PASS, type PronGroup } from '@/data/englishPronunciation'
 import { fetchAllCards } from '@/core/api/srs.api'
 import { fetchActivityDaysApi, fetchPlanApi, savePlanApi, type ActivityDay } from '@/core/api/me.api'
 import { getToken } from '@/core/api/client'
@@ -233,9 +232,10 @@ export function usePronProgress(lang = 'en') {
   return { pron: state, record }
 }
 
-export function grammarTaskDone(t: WeekTask, best: Record<string, number>): boolean {
+export function grammarTaskDone(t: WeekTask, best: Record<string, number>, lessons?: GrammarLesson[]): boolean {
   if (t.lessonId) return (best[t.lessonId] ?? 0) >= GRAMMAR_PASS
-  return GRAMMAR_LESSONS.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
+  if (!lessons?.length) return false
+  return lessons.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
 }
 
 export interface DayPlan {
@@ -339,8 +339,7 @@ export function useToeicBridge(): ToeicBridge {
 }
 
 function unitTerms(unitId: string, units?: VocabUnit[]): string[] {
-  if (units) return units.find((u) => u.id === unitId)?.words.map(wTerm) ?? []
-  return (EN_UNIT_TERMS as Record<string, string[]>)[unitId] ?? []
+  return units?.find((u) => u.id === unitId)?.words.map(wTerm) ?? []
 }
 
 export function learnedInUnit(unitId: string, learned: Set<string>, units?: VocabUnit[]): number {
@@ -385,17 +384,19 @@ export function weekActivity(days: ActivityDay[], start: string | null, week: nu
   return { videos, reviewDays }
 }
 
-export function pronTaskDone(t: WeekTask, best: Record<string, number>, groups = PRON_GROUPS): boolean {
+export function pronTaskDone(t: WeekTask, best: Record<string, number>, groups?: PronGroup[]): boolean {
   if (t.groupId) return (best[t.groupId] ?? 0) >= PRON_PASS
+  if (!groups?.length) return false
   return groups.every((g) => (best[g.id] ?? 0) >= PRON_PASS)
 }
 
 export interface TaskExtra {
-  grammar: Record<string, number>
-  pron: Record<string, number>
-  toeic: ToeicBridge
+  grammar?: Record<string, number>
+  pron?: Record<string, number>
+  toeic?: ToeicBridge
   units?: VocabUnit[]
   pronGroups?: PronGroup[]
+  grammarLessons?: GrammarLesson[]
   deepFull?: number
 }
 
@@ -406,7 +407,7 @@ export function taskDone(
   if (t.kind === 'vocab') return learnedInUnit(t.unitId ?? '', learned, units) >= vocabTarget(t, units)
   if (t.kind === 'quiz') return (plan.quiz[`w${week}`] ?? -1) >= (t.passPct ?? 70)
   if (t.kind === 'total') return bank >= (t.targetTotal ?? Infinity)
-  if (t.kind === 'grammar') return grammarTaskDone(t, ext?.grammar ?? readGrammarBest())
+  if (t.kind === 'grammar') return grammarTaskDone(t, ext?.grammar ?? readGrammarBest(), ext?.grammarLessons)
   if (t.kind === 'pron') return pronTaskDone(t, ext?.pron ?? readPronBest(), ext?.pronGroups)
   if (t.kind === 'toeic') {
     const b = ext?.toeic ?? readToeicLocal()

@@ -80,7 +80,7 @@ export default function CurrentLine({ segment }: { segment?: Segment }) {
                   <li key={k}><b lang={learnLang}>{p.piece}</b><span>{p.explain}</span></li>
                 ))}
               </ul>
-              {data.tip && <div className="gx-tip">💡 {data.tip}</div>}
+              {data.tip && <div className="gx-tip"><Icon name="bulb" size={14} /> {data.tip}</div>}
             </>
           ) : null}
         </div>

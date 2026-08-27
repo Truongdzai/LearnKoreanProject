@@ -51,15 +51,22 @@ async def lifespan(app: FastAPI):
     accounts.seed_admin()
     media.ensure_ffmpeg()
     dictionary.ensure_imported()
-    backup_task = asyncio.create_task(backup.backup_loop())
-    notify_task = asyncio.create_task(notify.notify_loop())
+    tasks = [
+        asyncio.create_task(backup.backup_loop()),
+        asyncio.create_task(notify.notify_loop()),
+    ]
     yield
-    backup_task.cancel()
-    notify_task.cancel()
+    for task in tasks:
+        task.cancel()
+    await asyncio.gather(*tasks, return_exceptions=True)
 
 _SEC = settings.get("security", {}) or {}
 _EXPOSE_DOCS = bool(_SEC.get("expose_docs", True))
 _CORS_ORIGINS = _SEC.get("cors_origins") or ["*"]
+
+_APP_URL = str((settings.get("app", {}) or {}).get("public_url", "") or "").strip().rstrip("/")
+if _CORS_ORIGINS == ["*"] and _APP_URL:
+    _CORS_ORIGINS = [_APP_URL]
 
 _ANALYTICS = settings.get("analytics", {}) or {}
 _GA4_ID = str(_ANALYTICS.get("ga4_id", "") or "").strip()
@@ -105,6 +112,9 @@ _CSP = (
 )
 
 
+_HSTS = _APP_URL.startswith("https://")
+
+
 @app.middleware("http")
 async def security_headers(request: Request, call_next):
     resp: Response = await call_next(request)
@@ -112,6 +122,8 @@ async def security_headers(request: Request, call_next):
     resp.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
     resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     resp.headers.setdefault("Permissions-Policy", "geolocation=(), payment=()")
+    if _HSTS:
+        resp.headers.setdefault("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
     if not request.url.path.startswith("/api/"):
         resp.headers.setdefault("Content-Security-Policy", _CSP)
     return resp
@@ -159,7 +171,7 @@ async def api_events(request: Request, user: dict | None = Depends(auth.get_opti
         items = [body]
     if not isinstance(items, list):
         return {"ok": True, "saved": 0}
-    return events.record(items, user["id"] if user else None)
+    return events.record(items, user["id"] if user else None, quota.client_ip(request))
 
 
 @app.get("/api/site", tags=["Hệ thống"])

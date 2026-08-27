@@ -8,8 +8,9 @@ import type { WordProfile } from '@/models/wordprofile.model'
 import { masteryOf, pctOf, useDeep, type DeepPart } from './deep'
 import {
   chunkUses, coreNote, corpusExamples, DEEP_WORD_COUNT, findDeepWord, localCollocations, localSenses,
-  minedCollocations, staticImage, suggestWords, type DeepWord,
+  minedCollocations, suggestWords, type DeepWord,
 } from './wordData'
+import { loadStaticImages, staticImage } from './staticImage'
 import { curatedProfile, loadProfile, RICHEST_WORDS } from './profiles'
 import SenseMap from './SenseMap'
 import WordUse from './WordUse'
@@ -172,17 +173,20 @@ export default function DeepPage({ term, onPickWord, onBack }: Props) {
       })
       .catch(() => { if (alive) setState('fail') })
 
-    const local = staticImage(found.term)
-    if (local) {
-      setImg({
-        url: local, full: local, title: `Hình cho “${found.term}”`, author: '', author_url: '',
-        license: 'AI', license_url: '', source: '', provider: 'repo', query: found.term, ai: true,
-      })
-    } else {
+    void loadStaticImages().then(() => {
+      if (!alive) return
+      const local = staticImage(found.term)
+      if (local) {
+        setImg({
+          url: local, full: local, title: `Hình cho “${found.term}”`, author: '', author_url: '',
+          license: 'AI', license_url: '', source: '', provider: 'repo', query: found.term, ai: true,
+        })
+        return
+      }
       fetchWordImage(found.term, found.term)
         .then((r) => { if (alive) setImg(r.image) })
         .catch(() => {  })
-    }
+    })
 
     return () => { alive = false }
   }, [term])
