@@ -36,7 +36,7 @@ function deckLabel(source: string): string {
 }
 
 export default function ReviewPage() {
-  const { t, learnLang } = useAppStore()
+  const { t, learnLang, learnLangName } = useAppStore()
   const [loading, setLoading] = useState(true)
   const [queue, setQueue] = useState<SrsCard[]>([])
   const [i, setI] = useState(0)
@@ -125,18 +125,39 @@ export default function ReviewPage() {
 
   return (
     <>
-      <div className="lesson-head">
-        <h2><Icon name="cards" /> {t('rv.title')}</h2>
-        <div className="meta">{t('rv.meta')}</div>
+      <div className="drawer-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('rv.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{view.length - i}</b>
+          <span>{t('rv.cardsUnit')}</span>
+        </div>
+        {mode === 'cards' && gameCards.length >= 4 && (
+          <div className="drawer-tabs">
+            <button onClick={() => setMode('daily')} disabled={dailyDone()} title={t('mg.dailyTitle')}>
+              <Icon name="flame" size={14} /> {dailyDone() ? t('mg.dailyClaimed') : t('mg.dailyTitle')}
+            </button>
+            {gameCards.length >= 6 && (
+              <button onClick={() => setMode('match')} title={t('mg.matchTitle')}>
+                <Icon name="cards" size={14} /> {t('mg.matchTitle')}
+              </button>
+            )}
+            <button onClick={() => setMode('listen')} title={t('mg.listenTitle')}>
+              <Icon name="headphones" size={14} /> {t('mg.listenTitle')}
+            </button>
+          </div>
+        )}
       </div>
 
       {stats && (
-        <div className="srs-stats">
-          <div className="stat"><b>{stats.due}</b><span>{t('rv.due')}</span></div>
-          <div className="stat"><b>{stats.total}</b><span>{t('rv.total')}</span></div>
-          <div className="stat"><b>{stats.new}</b><span>{t('rv.new')}</span></div>
-          <div className="stat"><b>{stats.reviewed_today}</b><span>{t('rv.today')}</span></div>
-        </div>
+        <dl className="srs-record">
+          <div><dt>{t('rv.due')}</dt><dd>{stats.due}</dd></div>
+          <div><dt>{t('rv.total')}</dt><dd>{stats.total}</dd></div>
+          <div><dt>{t('rv.new')}</dt><dd>{stats.new}</dd></div>
+          <div><dt>{t('rv.today')}</dt><dd>{stats.reviewed_today}</dd></div>
+        </dl>
       )}
 
       {mode === 'cards' && decks.length > 1 && (
@@ -150,18 +171,6 @@ export default function ReviewPage() {
               {key ? deckLabel(key) : t('rv.deckOther')} <b>{n}</b>
             </button>
           ))}
-        </div>
-      )}
-
-      {mode === 'cards' && gameCards.length >= 4 && (
-        <div className="mg-row">
-          <button className={'mg-launch' + (dailyDone() ? ' done' : '')} onClick={() => setMode('daily')} disabled={dailyDone()}>
-            ⚡ {dailyDone() ? t('mg.dailyClaimed') : t('mg.dailyTitle')}
-          </button>
-          {gameCards.length >= 6 && (
-            <button className="mg-launch" onClick={() => setMode('match')}>🧩 {t('mg.matchTitle')}</button>
-          )}
-          <button className="mg-launch" onClick={() => setMode('listen')}>🎧 {t('mg.listenTitle')}</button>
         </div>
       )}
 
@@ -193,20 +202,25 @@ export default function ReviewPage() {
         </div>
       ) : (
         <div className="review-wrap">
-          <div className="review-progress">{t('rv.left', { n: view.length - i })}</div>
-          <div className="flashcard">
-            <div className="fc-front" lang={learnLang}>{card.front}</div>
-            {revealed ? (
-              <>
-                <div className="fc-divider" />
-                <div className="fc-back">{card.back || '—'}</div>
-                {card.source && <div className="fc-source">{card.source}</div>}
-              </>
-            ) : (
-              <button className="reveal-btn" onClick={() => setRevealed(true)}>
-                {t('rv.reveal')} <span className="kbd">Space</span>
-              </button>
-            )}
+          <div className="review-drawer">
+            <div className="flashcard">
+              <div className="fc-hole" aria-hidden="true" />
+              <div className="fc-rod" aria-hidden="true" />
+              <div className="fc-body">
+                <div className="fc-front" lang={learnLang}>{card.front}</div>
+                {revealed ? (
+                  <>
+                    <div className="fc-divider" />
+                    <div className="fc-back">{card.back || '—'}</div>
+                    {card.source && <div className="fc-source">{card.source}</div>}
+                  </>
+                ) : (
+                  <button className="reveal-btn" onClick={() => setRevealed(true)}>
+                    {t('rv.reveal')} <span className="kbd">Space</span>
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
           {revealed && (

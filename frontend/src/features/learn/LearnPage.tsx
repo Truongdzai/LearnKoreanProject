@@ -28,7 +28,7 @@ const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
 const TAB_IDS = TABS.map((t) => t.id)
 
 export default function LearnPage() {
-  const { lesson, status, statusError, setView, t, learnLang } = useAppStore()
+  const { lesson, status, statusError, setView, t, learnLang, learnLangName } = useAppStore()
   const [tab, setTab] = useState<LearnTab>('shadowing')
   const [active, setActive] = useState(-1)
   const [level, setLevel] = useState<LevelResult | null>(null)
@@ -101,19 +101,28 @@ export default function LearnPage() {
 
   return (
     <>
-      <div className="lesson-head">
-        <h2>{lesson.title}</h2>
-        <div className="meta">
-          {t('learn.source', { src: lesson.source, n: lesson.segments.length })}
-          {' · '}
+      <div className="drawer-plate lesson-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('learn.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{lesson.segments.length}</b>
+          <span>{t('learn.linesUnit')}</span>
+        </div>
+        <div className="lesson-plate-lvl">
           {level ? (
-            <span className="cefr-chip on" title={level.reason}>📊 CEFR {level.level}</span>
+            <span className="cefr-chip on" title={level.reason}><Icon name="chart" size={13} /> CEFR {level.level}</span>
           ) : (
             <button className="cefr-chip" disabled={levelBusy} onClick={askLevel}>
-              📊 {levelBusy ? t('gx.levelBusy') : t('gx.levelBtn')}
+              <Icon name="chart" size={13} /> {levelBusy ? t('gx.levelBusy') : t('gx.levelBtn')}
             </button>
           )}
         </div>
+      </div>
+      <div className="lesson-head">
+        <h2>{lesson.title}</h2>
+        <div className="meta">{t('learn.source', { src: lesson.source, n: lesson.segments.length })}</div>
         {level?.reason && <div className="cefr-reason">{level.reason}</div>}
         <FitBadge videoId={lesson.id} lang={learnLang} />
       </div>

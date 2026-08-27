@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { speakEN, stopSpeak, englishVoiceStatus, koreanVoiceStatus, chineseVoiceStatus, onVoicesChanged, VOICE_HELP, VOICE_HELP_KO, VOICE_HELP_ZH } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
-import { PRON_GROUPS, PRON_PASS, pronWords, type PronGroup } from '@/data/englishPronunciation'
+import { PRON_PASS, pronWords, type PronGroup } from '@/data/englishPronunciation'
 import { MINIMAL_STEPS } from '@/data/pronMethod'
 import { usePronProgress } from '../progress'
 import { CTX, MicButton, ResultLine, SR_LANG, useReader } from './pron/reader'
@@ -15,7 +15,7 @@ import VoicingTest from './pron/VoicingTest'
 interface Props {
   initialGroup?: string
   lang?: string
-  groups?: PronGroup[]
+  groups: PronGroup[]
   speak?: (text: string, rate?: number) => void
   intro?: string
 }
@@ -29,7 +29,7 @@ const VOICE_INFO: Record<string, { name: string; check: () => 'ready' | 'none' |
 export default function PronunciationLab({
   initialGroup,
   lang = 'en',
-  groups = PRON_GROUPS,
+  groups,
   speak = speakEN,
   intro = 'Mỗi nhóm là một lỗi người Việt hay mắc khi nói tiếng Anh: nghe mẫu → phân biệt bằng tai → ghi âm hai bản để đối chiếu → tự chấm theo 5 tiêu chí.',
 }: Props) {

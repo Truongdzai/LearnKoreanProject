@@ -120,17 +120,23 @@ export default function LibraryPage() {
 
   return (
     <div className="lib" ref={reveal}>
-      <header className="lib-head">
-        <span className="lib-head-glow" aria-hidden="true" />
-        <span className="lib-head-ic" aria-hidden="true"><Icon name="mic" size={22} /></span>
-        <h1>{t('lib.title', { lang: learnLangName })}</h1>
-      </header>
+      <div className="drawer-plate">
+        <div className="drawer-label">
+          <span className="drawer-label-sub">{t('lib.drawer')}</span>
+          <b>{learnLangName}</b>
+        </div>
+        <div className="drawer-count">
+          <b>{langVideos.length}</b>
+          <span>{t('lib.cardsUnit')}</span>
+        </div>
+      </div>
+      <p className="drawer-note">{t('lib.title', { lang: learnLangName })}</p>
 
       <LinkMaker />
 
       {langVideos.length === 0 ? (
         <div className="empty" style={{ marginTop: 18 }}>
-          <div className="big">📺</div>
+          <Icon name="tv" size={30} />
           {t('lib.empty', { lang: learnLangName })}
         </div>
       ) : (
@@ -171,7 +177,7 @@ export default function LibraryPage() {
 
           {list.length === 0 ? (
             <div className="empty" style={{ marginTop: 8 }}>
-              <div className="big">🔍</div>
+              <Icon name="search" size={28} />
               {t('lib.noMatch')}
             </div>
           ) : showRows ? (

@@ -103,7 +103,7 @@ export function MatchGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => v
     <div className="mg-wrap">
       <div className="mg-head">
         <button className="btn-ghost sm" onClick={onExit}><Icon name="arrow-left" size={14} /> {t('mg.back')}</button>
-        <b>🧩 {t('mg.matchTitle')}</b>
+        <b><Icon name="cards" size={15} /> {t('mg.matchTitle')}</b>
         <span className="mg-moves">{t('mg.moves', { n: moves })}</span>
       </div>
       <div className="mg-grid">
@@ -186,7 +186,7 @@ export function ListenGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => 
     <div className="mg-wrap">
       <div className="mg-head">
         <button className="btn-ghost sm" onClick={onExit}><Icon name="arrow-left" size={14} /> {t('mg.back')}</button>
-        <b>🎧 {t('mg.listenTitle')}</b>
+        <b><Icon name="headphones" size={15} /> {t('mg.listenTitle')}</b>
         <span className="mg-moves">{finished ? '' : `${i + 1}/${rounds.length}`}</span>
       </div>
 
@@ -257,7 +257,7 @@ export function DailyChallenge({ cards, onExit }: { cards: SrsCard[]; onExit: ()
     <div className="mg-wrap">
       <div className="mg-head">
         <button className="btn-ghost sm" onClick={onExit}><Icon name="arrow-left" size={14} /> {t('mg.back')}</button>
-        <b>⚡ {t('mg.dailyTitle')}</b>
+        <b><Icon name="flame" size={15} /> {t('mg.dailyTitle')}</b>
         <span className="mg-moves">{finished ? '' : `${i + 1}/${rounds.length}`}</span>
       </div>
 

@@ -6,7 +6,7 @@ import { onVoicesChanged, speakAccent } from '@/core/tts'
 import { addCard } from '@/core/api/srs.api'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, useLearnedWords } from '../../progress'
-import { staticImage } from '../../deep/wordData'
+import { staticImage, useStaticImages } from '../../deep/staticImage'
 import Flashcard from './Flashcard'
 import Guess from './Guess'
 import Choice from './Choice'
@@ -46,6 +46,7 @@ export default function VocabLab({
   onDeep,
 }: Props) {
   const { isAuthed, recordEvent } = useAppStore()
+  const imagesReady = useStaticImages()
   const { learned, mark } = useLearnedWords(lang)
   const { grade, toggleMastered, toggleSaved, mastered, saved, boxOf } = useDeck(lang)
 
@@ -153,6 +154,7 @@ export default function VocabLab({
 
   const covers = useMemo(() => {
     const out: Record<string, string> = {}
+    if (!imagesReady) return out
     for (const u of units) {
       const mid = Math.floor(u.words.length / 2)
       for (let step = 0; step < u.words.length; step++) {
@@ -162,7 +164,7 @@ export default function VocabLab({
       }
     }
     return out
-  }, [units])
+  }, [units, imagesReady])
 
   const activeIdx = units.findIndex((u) => u.id === unit.id)
   const expanded = showAll || units.length <= UNITS_PREVIEW

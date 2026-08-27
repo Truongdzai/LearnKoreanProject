@@ -130,7 +130,7 @@ export default function PathPage() {
             <h2>{created.language} · {created.level}</h2>
             <div className="ps-tags">
               {created.learnGoal && goalById(created.learnGoal) && (
-                <span className="ps-tag focus">🎯 {goalById(created.learnGoal)!.emoji} {t('goal.' + created.learnGoal + '.label')}</span>
+                <span className="ps-tag focus"><Icon name="target" size={12} /> {t('goal.' + created.learnGoal + '.label')}</span>
               )}
               {created.goals.slice(0, 4).map((g) => <span key={g} className="ps-tag">{g}</span>)}
               {created.interests.slice(0, 3).map((i) => <span key={i} className="ps-tag soft">{i}</span>)}

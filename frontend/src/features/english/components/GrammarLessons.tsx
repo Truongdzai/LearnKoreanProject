@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { GRAMMAR_LESSONS, GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
+import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
+import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, stopSpeak } from '@/core/tts'
 import { useGrammarProgress } from '../progress'

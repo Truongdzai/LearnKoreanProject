@@ -1,5 +1,6 @@
 import { env } from '@/config/env'
 import { sendEvent } from '@/core/analytics'
+import { TOKEN_KEY } from '@/core/api/token'
 
 
 type Payload = Record<string, unknown>
@@ -12,17 +13,21 @@ const FLUSH_MS = 30000
 let buffer: Payload[] = []
 let timer: number | undefined
 
+function authToken(): string | null {
+  try { return localStorage.getItem(TOKEN_KEY) } catch { return null }
+}
+
 function post(items: Payload[], beacon: boolean): void {
   const body = JSON.stringify({ events: items })
+  const token = authToken()
   try {
-    if (beacon && typeof navigator.sendBeacon === 'function') {
+    if (beacon && !token && typeof navigator.sendBeacon === 'function') {
       navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' }))
       return
     }
-    void fetch(ENDPOINT, {
-      method: 'POST', body, keepalive: true,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+    if (token) headers.Authorization = 'Bearer ' + token
+    void fetch(ENDPOINT, { method: 'POST', body, keepalive: true, headers }).catch(() => {})
   } catch {
   }
 }

@@ -48,11 +48,17 @@ def read_token(token: str) -> dict | None:
     except ValueError:
         return None
     expected = hmac.new(db.get_secret().encode(), body.encode(), hashlib.sha256).digest()
-    if not hmac.compare_digest(_unb64(sig), expected):
+    try:
+        given = _unb64(sig)
+    except Exception:
+        return None
+    if not hmac.compare_digest(given, expected):
         return None
     try:
         payload = json.loads(_unb64(body))
     except Exception:
+        return None
+    if not isinstance(payload, dict) or not payload.get("uid"):
         return None
     if payload.get("exp", 0) < int(time.time()):
         return None
@@ -95,7 +101,11 @@ def get_optional_user(authorization: str | None = Header(default=None)) -> dict 
     if not payload:
         return None
     user = _load_user(payload["uid"])
-    if user and payload.get("ver", 0) != _token_ver(user):
+    if not user:
+        return None
+    if payload.get("ver", 0) != _token_ver(user):
+        return None
+    if user["status"] != "active":
         return None
     return user
 

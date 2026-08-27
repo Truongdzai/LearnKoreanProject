@@ -13,13 +13,13 @@ export default function WordOfDay() {
 
   return (
     <div className="wod">
-      <div className="wod-head">
-        <b>📖 {t('wod.title')}</b>
-        <span className="wod-lang">{learnLangName}</span>
-      </div>
       <div className="wod-term">
-        <span className="wod-word">{w.term}</span>
-        <button className="wod-speak" onClick={speak} title={t('wod.listen')}><Icon name="volume" size={16} /></button>
+        <b className="wod-field">{t('wod.title')}</b>
+        <span className="wod-word-wrap">
+          <span className="wod-word">{w.term}</span>
+          <button className="wod-speak" onClick={speak} title={t('wod.listen')}><Icon name="volume" size={16} /></button>
+        </span>
+        <span className="wod-lang">{learnLangName}</span>
       </div>
       <div className="wod-sub">{w.sub}</div>
       <div className="wod-vi">{w.vi}</div>

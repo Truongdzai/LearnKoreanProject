@@ -560,14 +560,9 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                   </span>
                 )
               })}
-              <div className={'sh2-ring ' + band.tone}>
-                <svg viewBox="0 0 80 80">
-                  <circle cx="40" cy="40" r="34" className="sh2-ring-bg" />
-                  <circle cx="40" cy="40" r="34" className="sh2-ring-fg"
-                    strokeDasharray={2 * Math.PI * 34}
-                    strokeDashoffset={2 * Math.PI * 34 * (1 - shown / 100)} />
-                </svg>
-                <b>{shown}</b>
+              <div className={'sh2-score ' + band.tone}>
+                <b>{shown}<small>%</small></b>
+                <span className="sh2-score-gauge"><i style={{ width: shown + '%' }} /></span>
               </div>
             </div>
 
@@ -723,7 +718,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
                 {ai.tips.map((tip, k) => <li key={k}><Icon name="check" size={14} /> {tip}</li>)}
               </ul>
             )}
-            {ai.encouragement && <div className="ai-fb-enc">💪 {ai.encouragement}</div>}
+            {ai.encouragement && <div className="ai-fb-enc"><Icon name="heart" size={14} /> {ai.encouragement}</div>}
             {!ai.model && <div className="ai-fb-note">{t('sh.aiGoodNote')}</div>}
           </div>
         )}

@@ -1,5 +1,6 @@
-import { GRAMMAR_LESSONS } from './englishGrammar'
-import { PRON_GROUPS, PRON_PASS } from './englishPronunciation'
+import { GRAMMAR_LESSONS } from './englishGrammarData'
+import { PRON_PASS } from './englishPronunciation'
+import { PRON_GROUPS } from './englishPronunciationData'
 import nouns from './english/units/nouns.json'
 import verbs from './english/units/verbs.json'
 import questions from './english/units/questions.json'

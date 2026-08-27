@@ -1,5 +1,3 @@
-import sounds from './english/pronunciation/sounds.json'
-
 export interface PronPair {
   a: string
   aIpa: string
@@ -84,8 +82,6 @@ export interface PronGroup {
   focus?: PronFocus[]
   sentences: PronSentence[]
 }
-
-export const PRON_GROUPS = sounds as PronGroup[]
 
 export const PRON_PASS = 70
 

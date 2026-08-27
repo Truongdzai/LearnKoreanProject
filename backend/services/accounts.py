@@ -15,6 +15,20 @@ from .logs import log
 WELCOME_COINS = 50
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
+PASSWORD_MIN = 6
+PASSWORD_MAX = 128
+NAME_MAX = 80
+EMAIL_MAX = 190
+
+
+def check_password_shape(password: str) -> str:
+    pw = password or ""
+    if len(pw) < PASSWORD_MIN:
+        raise HTTPException(status_code=400, detail=f"Mật khẩu cần ít nhất {PASSWORD_MIN} ký tự.")
+    if len(pw) > PASSWORD_MAX:
+        raise HTTPException(status_code=400, detail=f"Mật khẩu tối đa {PASSWORD_MAX} ký tự.")
+    return pw
+
 
 LEGACY_ADMIN_PASSWORD = "Admin@123"
 
@@ -149,10 +163,10 @@ def _apply_referral(conn, new_uid: str, ref: str) -> None:
 
 def register(name: str, email: str, password: str, ip: str = "", ref: str = "") -> dict:
     email = (email or "").strip().lower()
-    if not EMAIL_RE.match(email):
+    if len(email) > EMAIL_MAX or not EMAIL_RE.match(email):
         raise HTTPException(status_code=400, detail="Email không hợp lệ.")
-    if len(password) < 6:
-        raise HTTPException(status_code=400, detail="Mật khẩu cần ít nhất 6 ký tự.")
+    check_password_shape(password)
+    name = (name or "").strip()[:NAME_MAX]
     conn = db.get_conn()
     try:
         _register_rl(conn, ip)
@@ -163,7 +177,7 @@ def register(name: str, email: str, password: str, ip: str = "", ref: str = "") 
         conn.execute(
             "INSERT INTO users (id, name, email, pass_hash, pass_salt, provider, role, coins) "
             "VALUES (?,?,?,?,?,?,?,?)",
-            (uid, (name or "").strip() or email.split("@")[0], email, pass_hash, salt, "email", "user", WELCOME_COINS),
+            (uid, name or email.split("@")[0], email, pass_hash, salt, "email", "user", WELCOME_COINS),
         )
         _apply_referral(conn, uid, ref)
         conn.commit()
@@ -326,8 +340,7 @@ def set_email_optout(user_id: str, optout: bool) -> dict:
 
 def reset_password(email: str, code: str, new_password: str) -> None:
     email = (email or "").strip().lower()
-    if len(new_password or "") < 6:
-        raise HTTPException(status_code=400, detail="Mật khẩu mới cần ít nhất 6 ký tự.")
+    check_password_shape(new_password)
     if not verify.check_code(email, "reset", code):
         raise AppError("BAD_CODE", "Mã xác nhận không đúng hoặc đã hết hạn.", 400)
     conn = db.get_conn()
@@ -335,9 +348,11 @@ def reset_password(email: str, code: str, new_password: str) -> None:
         row = _by_email(conn, email)
         if not row or row["provider"] != "email":
             raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản.")
+        if row["status"] != "active":
+            raise AppError("ACCOUNT_LOCKED", "Tài khoản đã bị khoá.", 403)
         pass_hash, salt = auth.hash_password(new_password)
         conn.execute(
-            "UPDATE users SET pass_hash = ?, pass_salt = ?, token_version = token_version + 1, status = 'active' WHERE id = ?",
+            "UPDATE users SET pass_hash = ?, pass_salt = ?, token_version = token_version + 1 WHERE id = ?",
             (pass_hash, salt, row["id"]),
         )
         conn.commit()
@@ -359,8 +374,7 @@ def request_change(user: dict) -> None:
 
 
 def change_password(user_id: str, current_password: str, code: str, new_password: str) -> dict:
-    if len(new_password or "") < 6:
-        raise HTTPException(status_code=400, detail="Mật khẩu mới cần ít nhất 6 ký tự.")
+    check_password_shape(new_password)
     conn = db.get_conn()
     try:
         row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
@@ -389,7 +403,8 @@ def upsert_oauth_user(provider: str, info: dict) -> dict:
     email = (info.get("email") or "").strip().lower()
     if not email:
         email = f"{provider}.{oauth_id}@vyling.local"
-    name = (info.get("name") or "").strip() or email.split("@")[0]
+    email = email[:EMAIL_MAX]
+    name = ((info.get("name") or "").strip() or email.split("@")[0])[:NAME_MAX]
     avatar = info.get("avatar")
     conn = db.get_conn()
     try:
@@ -749,11 +764,15 @@ def admin_list_users(
 
 def admin_update_user(user_id: str, fields: dict) -> dict:
     allowed = {"name", "role", "status", "is_plus", "coins", "xp", "streak"}
+    enums = {"role": {"user", "admin"}, "status": {"active", "locked"}}
+    for key, valid in enums.items():
+        if fields.get(key) is not None and fields[key] not in valid:
+            raise HTTPException(status_code=400, detail=f"Giá trị {key} không hợp lệ.")
     sets, vals = [], []
     for k, v in fields.items():
         if k in allowed and v is not None:
             sets.append(f"{k} = ?")
-            vals.append(int(v) if k in {"is_plus", "coins", "xp", "streak"} else v)
+            vals.append(int(v) if k in {"is_plus", "coins", "xp", "streak"} else str(v)[:NAME_MAX])
     if not sets:
         return reload(user_id)
     if fields.get("status") and fields["status"] != "active":
