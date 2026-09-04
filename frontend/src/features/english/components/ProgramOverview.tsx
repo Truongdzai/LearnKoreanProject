@@ -7,11 +7,12 @@ import {
 } from '@/data/englishCore'
 import { PRON_GROUPS } from '@/data/englishPronunciationData'
 import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
-import { useLearnedWords, readPlan, planDay } from '../progress'
+import { useLearnedWords, usePlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
 import FastMethod from './fast/FastMethod'
 import MasteryRoom from '../deep/MasteryRoom'
 import { useDeep } from '../deep/deep'
+import { useMastery } from '../active/mastery'
 
 const THREE_C: { k: string; vi: string; icon: IconName; tone: string; desc: string }[] = [
   { k: 'Compress', vi: 'Nén', icon: 'target', tone: 'tone-a', desc: 'Không học tràn lan. Chỉ giữ lại từ tần suất cao — dùng tới đâu học tới đó. 3000 từ lõi đủ hiểu ~90% hội thoại hằng ngày.' },
@@ -51,14 +52,17 @@ interface Props {
   onSkills: () => void
   onErrors: () => void
   onDeep: (term: string) => void
+  onActive: () => void
 }
 
 export default function ProgramOverview({
-  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep,
+  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep, onActive,
 }: Props) {
   const { learned } = useLearnedWords()
   const { deepFull, mastered } = useDeep()
-  const day = Math.min(planDay(readPlan().start), 90)
+  const { stats: activeStats } = useMastery()
+  const { plan } = usePlan()
+  const day = Math.min(planDay(plan.start), 90)
   const boot = mode === 'boot'
 
   return (
@@ -104,7 +108,7 @@ export default function ProgramOverview({
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
         pronGroups={PRON_GROUPS} grammarLessons={GRAMMAR_LESSONS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron}
-        onDeep={onDeep} deepFull={deepFull} />
+        onDeep={onDeep} deepFull={deepFull} onActive={onActive} activeAuto={activeStats.automatic} />
 
       <div className="section-title"><span className="pin" /> Làm chủ từng từ — không chỉ thuộc một nghĩa</div>
       <MasteryRoom onOpen={onDeep} />

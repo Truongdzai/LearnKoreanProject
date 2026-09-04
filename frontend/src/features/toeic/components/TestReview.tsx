@@ -10,7 +10,7 @@ interface Props {
 }
 
 const LETTERS = ['A', 'B', 'C', 'D']
-const SPEAKER_ICON: Record<string, string> = { M: '👨', W: '👩', M2: '🧔', W2: '👩‍🦰' }
+const SPEAKER_ICON: Record<string, string> = { M: 'M', W: 'W', M2: 'M2', W2: 'W2' }
 const partName = (p: number) => PART_META.find((m) => m.part === p)?.name ?? `Part ${p}`
 
 export default function TestReview({ res, onBack, saveToWrongBook = true }: Props) {
@@ -80,7 +80,7 @@ export default function TestReview({ res, onBack, saveToWrongBook = true }: Prop
                   <summary>Xem lời thoại</summary>
                   <div className="tr-script">
                     {g.audio.map((l, i) => (
-                      <p key={i}><b>{SPEAKER_ICON[l.s] ?? '👨'}</b> <span lang="en">{l.text}</span></p>
+                      <p key={i}><b>{SPEAKER_ICON[l.s] ?? 'M'}</b> <span lang="en">{l.text}</span></p>
                     ))}
                   </div>
                 </details>
@@ -145,18 +145,18 @@ export default function TestReview({ res, onBack, saveToWrongBook = true }: Prop
                       })}
                     </div>
                     <p className="tv-verdict">
-                      {skipped ? '⚠️ Bạn bỏ trống câu này.' : wrong ? '❌ Bạn chọn sai.' : '✅ Bạn chọn đúng.'}
+                      {skipped ? 'Bạn bỏ trống câu này.' : wrong ? 'Bạn chọn sai.' : 'Bạn chọn đúng.'}
                     </p>
                     {(q.vi || q.explain || q.trap) && (
                       <div className="tr-explain">
                         {q.vi && <p>🇻🇳 {q.vi}</p>}
-                        {q.explain && <p>💡 {q.explain}</p>}
-                        {q.trap && <p>⚠️ {q.trap}</p>}
+                        {q.explain && <p><Icon name="bulb" size={14} /> {q.explain}</p>}
+                        {q.trap && <p><Icon name="bell" size={14} /> {q.trap}</p>}
                       </div>
                     )}
                     {SKILLS[q.skill] && (
                       <div className="tr-tip">
-                        <b>🎯 Mẹo dạng "{SKILLS[q.skill].vi}":</b> {SKILLS[q.skill].advice}
+                        <b>Mẹo dạng "{SKILLS[q.skill].vi}":</b> {SKILLS[q.skill].advice}
                       </div>
                     )}
                   </div>

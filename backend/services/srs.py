@@ -113,6 +113,66 @@ def review(card_id: int, rating: int, user_id: str = USER) -> dict:
     finally:
         conn.close()
 
+def delete_card(card_id: int, user_id: str = USER) -> dict:
+    conn = db.get_conn()
+    try:
+        gone = conn.execute(
+            "DELETE FROM srs_cards WHERE id = ? AND user_id = ?", (card_id, user_id)
+        ).rowcount
+        if not gone:
+            raise ValueError("Không tìm thấy thẻ")
+        conn.execute("DELETE FROM srs_reviews WHERE card_id = ? AND user_id = ?", (card_id, user_id))
+        conn.commit()
+        return {"ok": True, "deleted": 1}
+    finally:
+        conn.close()
+
+
+def delete_deck(source: str, user_id: str = USER, lang: str = "") -> dict:
+    where, args = _lang_filter(lang)
+    conn = db.get_conn()
+    try:
+        ids = [
+            r["id"] for r in conn.execute(
+                f"SELECT id FROM srs_cards WHERE user_id = ? AND source = ?{where}",
+                (user_id, source, *args),
+            ).fetchall()
+        ]
+        if not ids:
+            return {"ok": True, "deleted": 0}
+        marks = ",".join("?" for _ in ids)
+        conn.execute(f"DELETE FROM srs_reviews WHERE user_id = ? AND card_id IN ({marks})", (user_id, *ids))
+        conn.execute(f"DELETE FROM srs_cards WHERE user_id = ? AND id IN ({marks})", (user_id, *ids))
+        conn.commit()
+        return {"ok": True, "deleted": len(ids)}
+    finally:
+        conn.close()
+
+
+def update_card(card_id: int, front: str, back: str, source: str, user_id: str = USER) -> dict:
+    conn = db.get_conn()
+    try:
+        card = conn.execute(
+            "SELECT lang FROM srs_cards WHERE id = ? AND user_id = ?", (card_id, user_id)
+        ).fetchone()
+        if not card:
+            raise ValueError("Không tìm thấy thẻ")
+        clash = conn.execute(
+            "SELECT id FROM srs_cards WHERE user_id = ? AND lang = ? AND front = ? AND id <> ?",
+            (user_id, card["lang"], front, card_id),
+        ).fetchone()
+        if clash:
+            raise ValueError("Đã có thẻ khác với mặt trước này")
+        conn.execute(
+            "UPDATE srs_cards SET front = ?, back = ?, source = ? WHERE id = ? AND user_id = ?",
+            (front, back, source, card_id, user_id),
+        )
+        conn.commit()
+        return _row(conn, card_id)
+    finally:
+        conn.close()
+
+
 def stats(user_id: str = USER, lang: str = "") -> dict:
     where, args = _lang_filter(lang)
     conn = db.get_conn()

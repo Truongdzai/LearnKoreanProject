@@ -110,7 +110,7 @@ export default function CapsuleView({ capsule, best, onDone, onBack }: Props) {
           </div>
           {picked != null && (
             <div className="quiz-foot">
-              <div className="quiz-ex">{picked === q.answer ? '✅ ' : '❌ '}{q.explain}</div>
+              <div className="quiz-ex"><Icon name={picked === q.answer ? 'check' : 'x'} size={13} /> {q.explain}</div>
               <button className="btn-primary" onClick={next}>
                 {i + 1 >= drills.length ? 'Xem kết quả' : 'Câu tiếp'} <Icon name="arrow-right" size={15} />
               </button>
@@ -125,7 +125,7 @@ export default function CapsuleView({ capsule, best, onDone, onBack }: Props) {
             <b>{Math.round((score / drills.length) * 100)}%</b>
             <span>{score}/{drills.length}</span>
           </div>
-          <h3>{score / drills.length >= CAPSULE_PASS / 100 ? '🎉 Viên ngữ pháp này đạt rồi!' : 'Chưa đạt — đọc lại phần trên rồi thử lần nữa'}</h3>
+          <h3>{score / drills.length >= CAPSULE_PASS / 100 ? 'Viên ngữ pháp này đạt rồi!' : 'Chưa đạt — đọc lại phần trên rồi thử lần nữa'}</h3>
           <div className="quiz-done-actions">
             <button className="btn-primary" onClick={start}><Icon name="rocket" size={15} /> Làm lại</button>
             <button className="btn-ghost" onClick={onBack}>Về danh sách</button>

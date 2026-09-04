@@ -42,7 +42,6 @@ export interface ActivePack {
   id: string
   name: string
   sub: string
-  emoji: string
   tone: string
   cefr: string
   goal: string

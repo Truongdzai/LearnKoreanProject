@@ -122,8 +122,17 @@ CREATE INDEX IF NOT EXISTS idx_verify_email ON verify_codes(email, purpose);
 CREATE TABLE IF NOT EXISTS user_items (
     user_id    TEXT NOT NULL,
     item_id    TEXT NOT NULL,
+    qty        INTEGER NOT NULL DEFAULT 1,
     created_at TEXT DEFAULT (datetime('now','localtime')),
     PRIMARY KEY (user_id, item_id)
+);
+
+CREATE TABLE IF NOT EXISTS user_water (
+    user_id TEXT NOT NULL,
+    day     TEXT NOT NULL,
+    used    INTEGER NOT NULL DEFAULT 0,
+    bonus   INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (user_id, day)
 );
 
 CREATE TABLE IF NOT EXISTS user_garden (
@@ -215,6 +224,7 @@ CREATE TABLE IF NOT EXISTS catalog_quests (
     period   TEXT NOT NULL DEFAULT 'daily',
     metric   TEXT NOT NULL DEFAULT 'lesson',
     reward   INTEGER NOT NULL DEFAULT 0,
+    water    INTEGER NOT NULL DEFAULT 0,
     target   INTEGER NOT NULL DEFAULT 1,
     plus     INTEGER NOT NULL DEFAULT 0,
     lang     TEXT NOT NULL DEFAULT '',
@@ -513,6 +523,12 @@ def get_secret() -> str:
     return secret
 
 def _migrate(conn: sqlite3.Connection) -> None:
+    qcols = {r["name"] for r in conn.execute("PRAGMA table_info(catalog_quests)").fetchall()}
+    if "water" not in qcols:
+        conn.execute("ALTER TABLE catalog_quests ADD COLUMN water INTEGER NOT NULL DEFAULT 0")
+    icols = {r["name"] for r in conn.execute("PRAGMA table_info(user_items)").fetchall()}
+    if "qty" not in icols:
+        conn.execute("ALTER TABLE user_items ADD COLUMN qty INTEGER NOT NULL DEFAULT 1")
     cols = {r["name"] for r in conn.execute("PRAGMA table_info(users)").fetchall()}
     if "plus_until" not in cols:
         conn.execute("ALTER TABLE users ADD COLUMN plus_until TEXT")
@@ -560,6 +576,7 @@ def _migrate(conn: sqlite3.Connection) -> None:
     if "lang" not in ccols:
         conn.execute("ALTER TABLE srs_cards ADD COLUMN lang TEXT NOT NULL DEFAULT ''")
         _backfill_card_langs(conn)
+    _fix_saved_video_langs(conn)
     conn.execute("CREATE INDEX IF NOT EXISTS idx_srs_due_lang ON srs_cards(user_id, lang, due)")
 
 
@@ -579,6 +596,14 @@ def _backfill_card_langs(conn: sqlite3.Connection) -> None:
     rows = conn.execute("SELECT id, front FROM srs_cards WHERE lang = ''").fetchall()
     for r in rows:
         conn.execute("UPDATE srs_cards SET lang = ? WHERE id = ?", (guess_lang(r["front"]), r["id"]))
+
+
+def _fix_saved_video_langs(conn: sqlite3.Connection) -> None:
+    conn.execute(
+        "UPDATE user_videos SET lang = (SELECT c.lang FROM catalog_videos c WHERE c.id = user_videos.video_id) "
+        "WHERE EXISTS (SELECT 1 FROM catalog_videos c WHERE c.id = user_videos.video_id AND c.lang <> '' "
+        "AND c.lang <> user_videos.lang)"
+    )
 
 
 def init_db() -> None:

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useSyncExternalStore } from 'react'
 import { fetchPlanApi, fetchWordsApi, markWordsApi, savePlanApi } from '@/core/api/me.api'
 import { getToken } from '@/core/api/client'
 
@@ -19,6 +19,24 @@ export function writeLearned(lang: string, list: string[]): void {
     localStorage.setItem(learnedKey(lang), JSON.stringify(list))
   } catch {
   }
+}
+
+const snapshots: Record<string, Set<string>> = {}
+const listeners = new Set<() => void>()
+
+function snapshotOf(lang: string): Set<string> {
+  if (!snapshots[lang]) snapshots[lang] = new Set(readLearned(lang))
+  return snapshots[lang]
+}
+
+function publish(lang: string, list: string[]): void {
+  snapshots[lang] = new Set(list)
+  listeners.forEach((fn) => fn())
+}
+
+function subscribe(fn: () => void): () => void {
+  listeners.add(fn)
+  return () => { listeners.delete(fn) }
 }
 
 const legacyPlanId = (lang: string) => `${lang}words`
@@ -47,15 +65,11 @@ async function pullRemote(lang: string): Promise<string[]> {
 }
 
 export function useLearnedWords(lang = 'en') {
-  const [learned, setLearned] = useState<Set<string>>(() => new Set(readLearned(lang)))
-
-  useEffect(() => {
-    setLearned(new Set(readLearned(lang)))
-  }, [lang])
+  const learned = useSyncExternalStore(subscribe, () => snapshotOf(lang))
 
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
-      if (e.key === learnedKey(lang)) setLearned(new Set(readLearned(lang)))
+      if (e.key === learnedKey(lang)) publish(lang, readLearned(lang))
     }
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)
@@ -70,7 +84,7 @@ export function useLearnedWords(lang = 'en') {
         const merged = [...new Set([...local, ...remote])]
         if (merged.length !== local.length) {
           writeLearned(lang, merged)
-          setLearned(new Set(merged))
+          publish(lang, merged)
         }
         const missing = local.filter((w) => !remote.includes(w))
         if (missing.length) pushMany(lang, missing)
@@ -79,14 +93,13 @@ export function useLearnedWords(lang = 'en') {
   }, [lang])
 
   const mark = useCallback((word: string, on = true) => {
-    setLearned((prev) => {
-      const next = new Set(prev)
-      if (on) next.add(word)
-      else next.delete(word)
-      writeLearned(lang, [...next])
-      pushWord(lang, word, on)
-      return next
-    })
+    const next = new Set(snapshotOf(lang))
+    if (on) next.add(word)
+    else next.delete(word)
+    const list = [...next]
+    writeLearned(lang, list)
+    publish(lang, list)
+    pushWord(lang, word, on)
   }, [lang])
 
   const has = useCallback((word: string) => learned.has(word), [learned])

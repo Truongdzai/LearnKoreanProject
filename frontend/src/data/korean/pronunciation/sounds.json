@@ -1,278 +1,902 @@
 [
   {
     "id": "ko-aspirate",
-    "emoji": "💨",
     "title": "ㄱ–ㅋ · ㄷ–ㅌ · ㅂ–ㅍ · ㅈ–ㅊ",
     "sub": "Âm thường – âm bật hơi",
     "why": "Tiếng Việt không phân biệt bật hơi mạnh như tiếng Hàn. Người Việt đọc 카 và 가 gần như nhau, nên 사고 (tai nạn) dễ thành 사코, 달 (mặt trăng) thành 탈 (mặt nạ).",
     "tip": "Đặt bàn tay trước miệng: đọc ㅋ ㅌ ㅍ ㅊ phải thấy luồng hơi thổi mạnh vào tay; đọc ㄱ ㄷ ㅂ ㅈ thì hơi gần như không ra. Cách khác: kẹp tờ giấy trước miệng, âm bật hơi làm giấy bay.",
     "pairs": [
-      { "a": "가다", "aIpa": "ga-da", "aVi": "đi", "b": "카드", "bIpa": "ka-deu", "bVi": "thẻ" },
-      { "a": "달", "aIpa": "dal", "aVi": "mặt trăng", "b": "탈", "bIpa": "tal", "bVi": "mặt nạ" },
-      { "a": "불", "aIpa": "bul", "aVi": "lửa", "b": "풀", "bIpa": "pul", "bVi": "cỏ; hồ dán" },
-      { "a": "자다", "aIpa": "ja-da", "aVi": "ngủ", "b": "차다", "bIpa": "cha-da", "bVi": "lạnh; đá (chân)" },
-      { "a": "곰", "aIpa": "gom", "aVi": "con gấu", "b": "콤", "bIpa": "kom", "bVi": "âm bật hơi tương ứng" },
-      { "a": "대", "aIpa": "dae", "aVi": "cái (đếm máy móc)", "b": "태", "bIpa": "tae", "bVi": "âm bật hơi tương ứng" },
-      { "a": "방", "aIpa": "bang", "aVi": "căn phòng", "b": "팡", "bIpa": "pang", "bVi": "âm bật hơi tương ứng" },
-      { "a": "조금", "aIpa": "jo-geum", "aVi": "một chút", "b": "초금", "bIpa": "cho-geum", "bVi": "âm bật hơi tương ứng" }
+      {
+        "a": "가다",
+        "aIpa": "ga-da",
+        "aVi": "đi",
+        "b": "카드",
+        "bIpa": "ka-deu",
+        "bVi": "thẻ"
+      },
+      {
+        "a": "달",
+        "aIpa": "dal",
+        "aVi": "mặt trăng",
+        "b": "탈",
+        "bIpa": "tal",
+        "bVi": "mặt nạ"
+      },
+      {
+        "a": "불",
+        "aIpa": "bul",
+        "aVi": "lửa",
+        "b": "풀",
+        "bIpa": "pul",
+        "bVi": "cỏ; hồ dán"
+      },
+      {
+        "a": "자다",
+        "aIpa": "ja-da",
+        "aVi": "ngủ",
+        "b": "차다",
+        "bIpa": "cha-da",
+        "bVi": "lạnh; đá (chân)"
+      },
+      {
+        "a": "곰",
+        "aIpa": "gom",
+        "aVi": "con gấu",
+        "b": "콤",
+        "bIpa": "kom",
+        "bVi": "âm bật hơi tương ứng"
+      },
+      {
+        "a": "대",
+        "aIpa": "dae",
+        "aVi": "cái (đếm máy móc)",
+        "b": "태",
+        "bIpa": "tae",
+        "bVi": "âm bật hơi tương ứng"
+      },
+      {
+        "a": "방",
+        "aIpa": "bang",
+        "aVi": "căn phòng",
+        "b": "팡",
+        "bIpa": "pang",
+        "bVi": "âm bật hơi tương ứng"
+      },
+      {
+        "a": "조금",
+        "aIpa": "jo-geum",
+        "aVi": "một chút",
+        "b": "초금",
+        "bIpa": "cho-geum",
+        "bVi": "âm bật hơi tương ứng"
+      }
     ],
     "sentences": [
-      { "en": "커피 한 잔 주세요.", "vi": "Cho tôi một ly cà phê ạ." },
-      { "en": "친구가 카드를 가져왔어요.", "vi": "Bạn tôi đã mang thẻ tới." },
-      { "en": "탈춤을 처음 봤어요.", "vi": "Tôi lần đầu xem múa mặt nạ." }
+      {
+        "en": "커피 한 잔 주세요.",
+        "vi": "Cho tôi một ly cà phê ạ."
+      },
+      {
+        "en": "친구가 카드를 가져왔어요.",
+        "vi": "Bạn tôi đã mang thẻ tới."
+      },
+      {
+        "en": "탈춤을 처음 봤어요.",
+        "vi": "Tôi lần đầu xem múa mặt nạ."
+      }
     ]
   },
   {
     "id": "ko-tense",
-    "emoji": "🔒",
     "title": "ㄲ ㄸ ㅃ ㅆ ㅉ · Phụ âm căng",
     "sub": "Âm căng (đôi)",
     "why": "Phụ âm căng không có trong tiếng Việt. Người Việt thường đọc 짜다 (mặn) thành 자다 (ngủ), 싸다 (rẻ) thành 사다 (mua) — sai hẳn nghĩa câu.",
     "tip": "Siết chặt cổ họng như đang nín thở rồi bật ra thật gọn, KHÔNG có hơi thoát. Ba mức của cùng một âm: 자 (thường) – 차 (bật hơi) – 짜 (căng, gọn và đanh).",
     "pairs": [
-      { "a": "사다", "aIpa": "sa-da", "aVi": "mua", "b": "싸다", "bIpa": "ssa-da", "bVi": "rẻ" },
-      { "a": "자다", "aIpa": "ja-da", "aVi": "ngủ", "b": "짜다", "bIpa": "jja-da", "bVi": "mặn" },
-      { "a": "달", "aIpa": "dal", "aVi": "mặt trăng", "b": "딸", "bIpa": "ttal", "bVi": "con gái" },
-      { "a": "방", "aIpa": "bang", "aVi": "căn phòng", "b": "빵", "bIpa": "ppang", "bVi": "bánh mì" },
-      { "a": "굴", "aIpa": "gul", "aVi": "con hàu", "b": "꿀", "bIpa": "kkul", "bVi": "mật ong" },
-      { "a": "조금", "aIpa": "jo-geum", "aVi": "một chút", "b": "쪼금", "bIpa": "jjo-geum", "bVi": "một tí ti (nhấn mạnh)" },
-      { "a": "다르다", "aIpa": "da-reu-da", "aVi": "khác nhau", "b": "따르다", "bIpa": "tta-reu-da", "bVi": "đi theo; rót" },
-      { "a": "새다", "aIpa": "sae-da", "aVi": "rò rỉ", "b": "쌔다", "bIpa": "ssae-da", "bVi": "âm căng tương ứng" }
+      {
+        "a": "사다",
+        "aIpa": "sa-da",
+        "aVi": "mua",
+        "b": "싸다",
+        "bIpa": "ssa-da",
+        "bVi": "rẻ"
+      },
+      {
+        "a": "자다",
+        "aIpa": "ja-da",
+        "aVi": "ngủ",
+        "b": "짜다",
+        "bIpa": "jja-da",
+        "bVi": "mặn"
+      },
+      {
+        "a": "달",
+        "aIpa": "dal",
+        "aVi": "mặt trăng",
+        "b": "딸",
+        "bIpa": "ttal",
+        "bVi": "con gái"
+      },
+      {
+        "a": "방",
+        "aIpa": "bang",
+        "aVi": "căn phòng",
+        "b": "빵",
+        "bIpa": "ppang",
+        "bVi": "bánh mì"
+      },
+      {
+        "a": "굴",
+        "aIpa": "gul",
+        "aVi": "con hàu",
+        "b": "꿀",
+        "bIpa": "kkul",
+        "bVi": "mật ong"
+      },
+      {
+        "a": "조금",
+        "aIpa": "jo-geum",
+        "aVi": "một chút",
+        "b": "쪼금",
+        "bIpa": "jjo-geum",
+        "bVi": "một tí ti (nhấn mạnh)"
+      },
+      {
+        "a": "다르다",
+        "aIpa": "da-reu-da",
+        "aVi": "khác nhau",
+        "b": "따르다",
+        "bIpa": "tta-reu-da",
+        "bVi": "đi theo; rót"
+      },
+      {
+        "a": "새다",
+        "aIpa": "sae-da",
+        "aVi": "rò rỉ",
+        "b": "쌔다",
+        "bIpa": "ssae-da",
+        "bVi": "âm căng tương ứng"
+      }
     ],
     "sentences": [
-      { "en": "이 빵은 정말 싸요.", "vi": "Bánh mì này rẻ thật đấy." },
-      { "en": "국이 너무 짜요.", "vi": "Canh mặn quá." },
-      { "en": "딸이 꿀을 좋아해요.", "vi": "Con gái tôi thích mật ong." }
+      {
+        "en": "이 빵은 정말 싸요.",
+        "vi": "Bánh mì này rẻ thật đấy."
+      },
+      {
+        "en": "국이 너무 짜요.",
+        "vi": "Canh mặn quá."
+      },
+      {
+        "en": "딸이 꿀을 좋아해요.",
+        "vi": "Con gái tôi thích mật ong."
+      }
     ]
   },
   {
     "id": "ko-eo-o",
-    "emoji": "👄",
     "title": "ㅓ – ㅗ · 어 hay 오?",
     "sub": "Cặp nguyên âm dễ lẫn nhất",
     "why": "Người Việt nghe cả hai đều ra \"ô\". Nhưng 서울 (Seoul) khác 소울, 벌 (con ong / hình phạt) khác 볼 (má). Đây là lỗi khiến người Hàn nghe ra ngay bạn là người nước ngoài.",
     "tip": "ㅓ: miệng mở rộng, môi KHÔNG tròn, âm nằm giữa \"ơ\" và \"o\" của tiếng Việt. ㅗ: môi chụm tròn hẳn lại như huýt sáo, giống \"ô\" tiếng Việt. Soi gương: đọc ㅓ môi phải bẹt.",
     "pairs": [
-      { "a": "서", "aIpa": "seo", "aVi": "(âm ㅓ) đứng", "b": "소", "bIpa": "so", "bVi": "(âm ㅗ) con bò" },
-      { "a": "벌", "aIpa": "beol", "aVi": "con ong", "b": "볼", "bIpa": "bol", "bVi": "má (khuôn mặt)" },
-      { "a": "정", "aIpa": "jeong", "aVi": "tình cảm", "b": "종", "bIpa": "jong", "bVi": "cái chuông" },
-      { "a": "덜", "aIpa": "deol", "aVi": "ít hơn", "b": "돌", "bIpa": "dol", "bVi": "hòn đá" },
-      { "a": "머리", "aIpa": "meo-ri", "aVi": "đầu / tóc", "b": "모리", "bIpa": "mo-ri", "bVi": "(âm ㅗ để so sánh)" },
-      { "a": "널", "aIpa": "neol", "aVi": "cậu (tân ngữ)", "b": "놀", "bIpa": "nol", "bVi": "(gốc của 놀다 chơi)" },
-      { "a": "적", "aIpa": "jeok", "aVi": "kẻ địch; lúc", "b": "족", "bIpa": "jok", "bVi": "chân giò; tộc" },
-      { "a": "설", "aIpa": "seol", "aVi": "Tết âm lịch", "b": "솔", "bIpa": "sol", "bVi": "cây thông; bàn chải" }
+      {
+        "a": "서",
+        "aIpa": "seo",
+        "aVi": "(âm ㅓ) đứng",
+        "b": "소",
+        "bIpa": "so",
+        "bVi": "(âm ㅗ) con bò"
+      },
+      {
+        "a": "벌",
+        "aIpa": "beol",
+        "aVi": "con ong",
+        "b": "볼",
+        "bIpa": "bol",
+        "bVi": "má (khuôn mặt)"
+      },
+      {
+        "a": "정",
+        "aIpa": "jeong",
+        "aVi": "tình cảm",
+        "b": "종",
+        "bIpa": "jong",
+        "bVi": "cái chuông"
+      },
+      {
+        "a": "덜",
+        "aIpa": "deol",
+        "aVi": "ít hơn",
+        "b": "돌",
+        "bIpa": "dol",
+        "bVi": "hòn đá"
+      },
+      {
+        "a": "머리",
+        "aIpa": "meo-ri",
+        "aVi": "đầu / tóc",
+        "b": "모리",
+        "bIpa": "mo-ri",
+        "bVi": "(âm ㅗ để so sánh)"
+      },
+      {
+        "a": "널",
+        "aIpa": "neol",
+        "aVi": "cậu (tân ngữ)",
+        "b": "놀",
+        "bIpa": "nol",
+        "bVi": "(gốc của 놀다 chơi)"
+      },
+      {
+        "a": "적",
+        "aIpa": "jeok",
+        "aVi": "kẻ địch; lúc",
+        "b": "족",
+        "bIpa": "jok",
+        "bVi": "chân giò; tộc"
+      },
+      {
+        "a": "설",
+        "aIpa": "seol",
+        "aVi": "Tết âm lịch",
+        "b": "솔",
+        "bIpa": "sol",
+        "bVi": "cây thông; bàn chải"
+      }
     ],
     "sentences": [
-      { "en": "서울에서 소고기를 먹었어요.", "vi": "Tôi đã ăn thịt bò ở Seoul." },
-      { "en": "정말 좋은 소식이에요.", "vi": "Đúng là tin tốt lành." },
-      { "en": "머리가 조금 아파요.", "vi": "Tôi hơi đau đầu." }
+      {
+        "en": "서울에서 소고기를 먹었어요.",
+        "vi": "Tôi đã ăn thịt bò ở Seoul."
+      },
+      {
+        "en": "정말 좋은 소식이에요.",
+        "vi": "Đúng là tin tốt lành."
+      },
+      {
+        "en": "머리가 조금 아파요.",
+        "vi": "Tôi hơi đau đầu."
+      }
     ]
   },
   {
     "id": "ko-eu-u",
-    "emoji": "😬",
     "title": "ㅡ – ㅜ · 으 hay 우?",
     "sub": "Nguyên âm không có trong tiếng Việt",
     "why": "ㅡ gần với \"ư\" nhưng bẹt hơn nhiều; người Việt hay đọc thành \"u\" khiến 그 (cái đó) thành 구 (số chín), 슬프다 (buồn) nghe thành 술프다.",
     "tip": "ㅡ: kéo hai môi sang ngang như đang cười gượng, lưỡi dẹt, tuyệt đối KHÔNG chụm môi. ㅜ: chụm tròn môi đẩy ra trước như \"u\" tiếng Việt.",
     "pairs": [
-      { "a": "그", "aIpa": "geu", "aVi": "cái đó", "b": "구", "bIpa": "gu", "bVi": "số chín" },
-      { "a": "들", "aIpa": "deul", "aVi": "(đuôi số nhiều)", "b": "둘", "bIpa": "dul", "bVi": "số hai" },
-      { "a": "쓰다", "aIpa": "sseu-da", "aVi": "viết; đắng", "b": "수다", "bIpa": "su-da", "bVi": "chuyện phiếm" },
-      { "a": "즘", "aIpa": "jeum", "aVi": "(trong 요즘 dạo này)", "b": "줌", "bIpa": "jum", "bVi": "nắm tay; thu phóng" },
-      { "a": "글", "aIpa": "geul", "aVi": "bài viết, chữ", "b": "굴", "bIpa": "gul", "bVi": "con hàu; hang" },
-      { "a": "느리다", "aIpa": "neu-ri-da", "aVi": "chậm", "b": "누리다", "bIpa": "nu-ri-da", "bVi": "tận hưởng" },
-      { "a": "슬프다", "aIpa": "seul-peu-da", "aVi": "buồn", "b": "술", "bIpa": "sul", "bVi": "rượu" },
-      { "a": "믿다", "aIpa": "mit-da", "aVi": "tin tưởng", "b": "묻다", "bIpa": "mut-da", "bVi": "hỏi; chôn" }
+      {
+        "a": "그",
+        "aIpa": "geu",
+        "aVi": "cái đó",
+        "b": "구",
+        "bIpa": "gu",
+        "bVi": "số chín"
+      },
+      {
+        "a": "들",
+        "aIpa": "deul",
+        "aVi": "(đuôi số nhiều)",
+        "b": "둘",
+        "bIpa": "dul",
+        "bVi": "số hai"
+      },
+      {
+        "a": "쓰다",
+        "aIpa": "sseu-da",
+        "aVi": "viết; đắng",
+        "b": "수다",
+        "bIpa": "su-da",
+        "bVi": "chuyện phiếm"
+      },
+      {
+        "a": "즘",
+        "aIpa": "jeum",
+        "aVi": "(trong 요즘 dạo này)",
+        "b": "줌",
+        "bIpa": "jum",
+        "bVi": "nắm tay; thu phóng"
+      },
+      {
+        "a": "글",
+        "aIpa": "geul",
+        "aVi": "bài viết, chữ",
+        "b": "굴",
+        "bIpa": "gul",
+        "bVi": "con hàu; hang"
+      },
+      {
+        "a": "느리다",
+        "aIpa": "neu-ri-da",
+        "aVi": "chậm",
+        "b": "누리다",
+        "bIpa": "nu-ri-da",
+        "bVi": "tận hưởng"
+      },
+      {
+        "a": "슬프다",
+        "aIpa": "seul-peu-da",
+        "aVi": "buồn",
+        "b": "술",
+        "bIpa": "sul",
+        "bVi": "rượu"
+      },
+      {
+        "a": "믿다",
+        "aIpa": "mit-da",
+        "aVi": "tin tưởng",
+        "b": "묻다",
+        "bIpa": "mut-da",
+        "bVi": "hỏi; chôn"
+      }
     ],
     "sentences": [
-      { "en": "그 글을 다 읽었어요.", "vi": "Tôi đã đọc hết bài viết đó." },
-      { "en": "요즘 너무 바쁘고 슬퍼요.", "vi": "Dạo này tôi bận và buồn quá." },
-      { "en": "친구 둘이 술을 마셔요.", "vi": "Hai người bạn đang uống rượu." }
+      {
+        "en": "그 글을 다 읽었어요.",
+        "vi": "Tôi đã đọc hết bài viết đó."
+      },
+      {
+        "en": "요즘 너무 바쁘고 슬퍼요.",
+        "vi": "Dạo này tôi bận và buồn quá."
+      },
+      {
+        "en": "친구 둘이 술을 마셔요.",
+        "vi": "Hai người bạn đang uống rượu."
+      }
     ]
   },
   {
     "id": "ko-e-ae",
-    "emoji": "🔤",
     "title": "ㅐ – ㅔ · 애 hay 에?",
     "sub": "Hai âm gần giống nhau",
     "why": "Người Hàn trẻ ngày nay đọc hai âm này gần như một, nên lỗi này KHÔNG gây hiểu nhầm khi nói — nhưng viết sai chính tả thì rất lộ: 개 (con chó) và 게 (con cua), 새 (chim) và 세 (ba).",
     "tip": "Chuẩn gốc: ㅐ mở miệng rộng hơn (như \"e\" trong \"em\"), ㅔ hẹp hơn (như \"ê\" tiếng Việt). Mẹo nhớ chính tả: nhớ theo TỪ chứ đừng nhớ theo âm — 개 (chó), 사과 없이 게 (cua).",
     "pairs": [
-      { "a": "개", "aIpa": "gae", "aVi": "con chó; cái (đếm)", "b": "게", "bIpa": "ge", "bVi": "con cua" },
-      { "a": "새", "aIpa": "sae", "aVi": "con chim; mới", "b": "세", "bIpa": "se", "bVi": "ba (thuần Hàn)" },
-      { "a": "내", "aIpa": "nae", "aVi": "của tôi", "b": "네", "bIpa": "ne", "bVi": "vâng; của bạn" },
-      { "a": "때", "aIpa": "ttae", "aVi": "lúc, khi", "b": "떼", "bIpa": "tte", "bVi": "bầy, đàn" },
-      { "a": "배", "aIpa": "bae", "aVi": "bụng; quả lê; thuyền", "b": "베", "bIpa": "be", "bVi": "vải thô" },
-      { "a": "매다", "aIpa": "mae-da", "aVi": "buộc, thắt", "b": "메다", "bIpa": "me-da", "bVi": "đeo (vai)" },
-      { "a": "대다", "aIpa": "dae-da", "aVi": "chạm vào", "b": "데다", "bIpa": "de-da", "bVi": "bị bỏng" },
-      { "a": "재", "aIpa": "jae", "aVi": "tro", "b": "제", "bIpa": "je", "bVi": "của tôi (khiêm tốn)" }
+      {
+        "a": "개",
+        "aIpa": "gae",
+        "aVi": "con chó; cái (đếm)",
+        "b": "게",
+        "bIpa": "ge",
+        "bVi": "con cua"
+      },
+      {
+        "a": "새",
+        "aIpa": "sae",
+        "aVi": "con chim; mới",
+        "b": "세",
+        "bIpa": "se",
+        "bVi": "ba (thuần Hàn)"
+      },
+      {
+        "a": "내",
+        "aIpa": "nae",
+        "aVi": "của tôi",
+        "b": "네",
+        "bIpa": "ne",
+        "bVi": "vâng; của bạn"
+      },
+      {
+        "a": "때",
+        "aIpa": "ttae",
+        "aVi": "lúc, khi",
+        "b": "떼",
+        "bIpa": "tte",
+        "bVi": "bầy, đàn"
+      },
+      {
+        "a": "배",
+        "aIpa": "bae",
+        "aVi": "bụng; quả lê; thuyền",
+        "b": "베",
+        "bIpa": "be",
+        "bVi": "vải thô"
+      },
+      {
+        "a": "매다",
+        "aIpa": "mae-da",
+        "aVi": "buộc, thắt",
+        "b": "메다",
+        "bIpa": "me-da",
+        "bVi": "đeo (vai)"
+      },
+      {
+        "a": "대다",
+        "aIpa": "dae-da",
+        "aVi": "chạm vào",
+        "b": "데다",
+        "bIpa": "de-da",
+        "bVi": "bị bỏng"
+      },
+      {
+        "a": "재",
+        "aIpa": "jae",
+        "aVi": "tro",
+        "b": "제",
+        "bIpa": "je",
+        "bVi": "của tôi (khiêm tốn)"
+      }
     ],
     "sentences": [
-      { "en": "제 개는 게를 무서워해요.", "vi": "Con chó của tôi sợ cua." },
-      { "en": "새 가방 세 개를 샀어요.", "vi": "Tôi đã mua ba cái cặp mới." },
-      { "en": "네, 내일 만나요.", "vi": "Vâng, mai gặp nhé." }
+      {
+        "en": "제 개는 게를 무서워해요.",
+        "vi": "Con chó của tôi sợ cua."
+      },
+      {
+        "en": "새 가방 세 개를 샀어요.",
+        "vi": "Tôi đã mua ba cái cặp mới."
+      },
+      {
+        "en": "네, 내일 만나요.",
+        "vi": "Vâng, mai gặp nhé."
+      }
     ]
   },
   {
     "id": "ko-batchim-stop",
-    "emoji": "🛑",
     "title": "Batchim ㄱ ㄷ ㅂ · Âm cuối câm",
     "sub": "Phụ âm cuối không bung hơi",
     "why": "Người Việt có âm cuối c/t/p nên phần này dễ — nhưng lỗi hay gặp là bung hơi ra thành \"밥으\", \"먹으\". Batchim phải NGẬM lại, chặn hơi ở đúng vị trí rồi dừng.",
     "tip": "ㄱ (ㄲ ㅋ) → chặn ở cuống họng như \"c\" trong \"bác\". ㄷ (ㅅ ㅆ ㅈ ㅊ ㅌ ㅎ) → chặn bằng đầu lưỡi như \"t\" trong \"mát\". ㅂ (ㅍ) → mím chặt hai môi như \"p\" trong \"đẹp\". Đừng thêm nguyên âm phía sau.",
     "words": [
-      { "w": "밥", "ipa": "bap", "vi": "cơm" },
-      { "w": "책", "ipa": "chaek", "vi": "sách" },
-      { "w": "옷", "ipa": "ot", "vi": "quần áo" },
-      { "w": "꽃", "ipa": "kkot", "vi": "hoa" },
-      { "w": "부엌", "ipa": "bu-eok", "vi": "bếp" },
-      { "w": "앞", "ipa": "ap", "vi": "phía trước" },
-      { "w": "낮", "ipa": "nat", "vi": "ban ngày" },
-      { "w": "숲", "ipa": "sup", "vi": "rừng" }
+      {
+        "w": "밥",
+        "ipa": "bap",
+        "vi": "cơm"
+      },
+      {
+        "w": "책",
+        "ipa": "chaek",
+        "vi": "sách"
+      },
+      {
+        "w": "옷",
+        "ipa": "ot",
+        "vi": "quần áo"
+      },
+      {
+        "w": "꽃",
+        "ipa": "kkot",
+        "vi": "hoa"
+      },
+      {
+        "w": "부엌",
+        "ipa": "bu-eok",
+        "vi": "bếp"
+      },
+      {
+        "w": "앞",
+        "ipa": "ap",
+        "vi": "phía trước"
+      },
+      {
+        "w": "낮",
+        "ipa": "nat",
+        "vi": "ban ngày"
+      },
+      {
+        "w": "숲",
+        "ipa": "sup",
+        "vi": "rừng"
+      }
     ],
     "sentences": [
-      { "en": "밥을 먹고 책을 읽어요.", "vi": "Tôi ăn cơm rồi đọc sách." },
-      { "en": "옷을 입고 앞으로 가세요.", "vi": "Bạn mặc quần áo rồi đi về phía trước nhé." },
-      { "en": "꽃이 부엌에 있어요.", "vi": "Bông hoa ở trong bếp." }
+      {
+        "en": "밥을 먹고 책을 읽어요.",
+        "vi": "Tôi ăn cơm rồi đọc sách."
+      },
+      {
+        "en": "옷을 입고 앞으로 가세요.",
+        "vi": "Bạn mặc quần áo rồi đi về phía trước nhé."
+      },
+      {
+        "en": "꽃이 부엌에 있어요.",
+        "vi": "Bông hoa ở trong bếp."
+      }
     ]
   },
   {
     "id": "ko-batchim-nasal",
-    "emoji": "👃",
     "title": "Batchim ㄴ – ㅁ – ㅇ",
     "sub": "Ba âm mũi cuối",
     "why": "Tiếng Việt có đủ ba âm này (n, m, ng) nên nghe thì dễ, nhưng nói nhanh người Việt hay lẫn ㄴ với ㅇ: 산 (núi) thành 상 (giải thưởng), 안 (không) thành 앙.",
     "tip": "ㄴ: đầu lưỡi chạm lợi trên như \"n\". ㅁ: mím hai môi như \"m\". ㅇ cuối: lưỡi lùi về sau, âm ngân trong mũi như \"ng\". Đặt tay lên mũi — cả ba đều phải thấy rung.",
     "pairs": [
-      { "a": "산", "aIpa": "san", "aVi": "núi", "b": "상", "bIpa": "sang", "bVi": "giải thưởng; cái bàn" },
-      { "a": "안", "aIpa": "an", "aVi": "bên trong; không", "b": "암", "bIpa": "am", "bVi": "ung thư; con cái (giống)" },
-      { "a": "돈", "aIpa": "don", "aVi": "tiền", "b": "동", "bIpa": "dong", "bVi": "phường; phía đông" },
-      { "a": "밤", "aIpa": "bam", "aVi": "đêm; hạt dẻ", "b": "방", "bIpa": "bang", "bVi": "căn phòng" },
-      { "a": "문", "aIpa": "mun", "aVi": "cửa", "b": "뭉", "bIpa": "mung", "bVi": "(âm ㅇ để so sánh)" },
-      { "a": "신", "aIpa": "sin", "aVi": "thần; giày", "b": "심", "bIpa": "sim", "bVi": "lõi, ruột" },
-      { "a": "간", "aIpa": "gan", "aVi": "gan; độ mặn", "b": "강", "bIpa": "gang", "bVi": "con sông" },
-      { "a": "천", "aIpa": "cheon", "aVi": "nghìn; vải", "b": "청", "bIpa": "cheong", "bVi": "màu xanh; sở, cục" }
+      {
+        "a": "산",
+        "aIpa": "san",
+        "aVi": "núi",
+        "b": "상",
+        "bIpa": "sang",
+        "bVi": "giải thưởng; cái bàn"
+      },
+      {
+        "a": "안",
+        "aIpa": "an",
+        "aVi": "bên trong; không",
+        "b": "암",
+        "bIpa": "am",
+        "bVi": "ung thư; con cái (giống)"
+      },
+      {
+        "a": "돈",
+        "aIpa": "don",
+        "aVi": "tiền",
+        "b": "동",
+        "bIpa": "dong",
+        "bVi": "phường; phía đông"
+      },
+      {
+        "a": "밤",
+        "aIpa": "bam",
+        "aVi": "đêm; hạt dẻ",
+        "b": "방",
+        "bIpa": "bang",
+        "bVi": "căn phòng"
+      },
+      {
+        "a": "문",
+        "aIpa": "mun",
+        "aVi": "cửa",
+        "b": "뭉",
+        "bIpa": "mung",
+        "bVi": "(âm ㅇ để so sánh)"
+      },
+      {
+        "a": "신",
+        "aIpa": "sin",
+        "aVi": "thần; giày",
+        "b": "심",
+        "bIpa": "sim",
+        "bVi": "lõi, ruột"
+      },
+      {
+        "a": "간",
+        "aIpa": "gan",
+        "aVi": "gan; độ mặn",
+        "b": "강",
+        "bIpa": "gang",
+        "bVi": "con sông"
+      },
+      {
+        "a": "천",
+        "aIpa": "cheon",
+        "aVi": "nghìn; vải",
+        "b": "청",
+        "bIpa": "cheong",
+        "bVi": "màu xanh; sở, cục"
+      }
     ],
     "sentences": [
-      { "en": "밤에 방에서 돈을 세요.", "vi": "Buổi tối tôi đếm tiền trong phòng." },
-      { "en": "산 앞에 강이 있어요.", "vi": "Trước núi có một con sông." },
-      { "en": "문을 열고 안으로 들어가요.", "vi": "Tôi mở cửa rồi bước vào trong." }
+      {
+        "en": "밤에 방에서 돈을 세요.",
+        "vi": "Buổi tối tôi đếm tiền trong phòng."
+      },
+      {
+        "en": "산 앞에 강이 있어요.",
+        "vi": "Trước núi có một con sông."
+      },
+      {
+        "en": "문을 열고 안으로 들어가요.",
+        "vi": "Tôi mở cửa rồi bước vào trong."
+      }
     ]
   },
   {
     "id": "ko-batchim-l",
-    "emoji": "👅",
     "title": "Batchim ㄹ · Âm L cuối",
     "sub": "Âm khó nhất với người Việt",
     "why": "Tiếng Việt KHÔNG có phụ âm cuối \"l\". Người Việt thường bỏ luôn hoặc đọc thành \"n\": 물 (nước) thành \"mu\" hay \"mun\", 서울 thành \"Seou\". Người Hàn nghe là hiểu sai ngay.",
     "tip": "Cong đầu lưỡi lên chạm vòm miệng phía trên và GIỮ nguyên ở đó khi kết thúc — giống \"l\" cuối trong tiếng Anh \"ball\", \"call\". Tập chậm: 무-울, 서우-울.",
     "words": [
-      { "w": "물", "ipa": "mul", "vi": "nước" },
-      { "w": "서울", "ipa": "seo-ul", "vi": "Seoul" },
-      { "w": "일", "ipa": "il", "vi": "việc; số một" },
-      { "w": "얼굴", "ipa": "eol-gul", "vi": "khuôn mặt" },
-      { "w": "가을", "ipa": "ga-eul", "vi": "mùa thu" },
-      { "w": "겨울", "ipa": "gyeo-ul", "vi": "mùa đông" },
-      { "w": "열쇠", "ipa": "yeol-soe", "vi": "chìa khoá" },
-      { "w": "빨리", "ipa": "ppal-li", "vi": "nhanh lên" }
+      {
+        "w": "물",
+        "ipa": "mul",
+        "vi": "nước"
+      },
+      {
+        "w": "서울",
+        "ipa": "seo-ul",
+        "vi": "Seoul"
+      },
+      {
+        "w": "일",
+        "ipa": "il",
+        "vi": "việc; số một"
+      },
+      {
+        "w": "얼굴",
+        "ipa": "eol-gul",
+        "vi": "khuôn mặt"
+      },
+      {
+        "w": "가을",
+        "ipa": "ga-eul",
+        "vi": "mùa thu"
+      },
+      {
+        "w": "겨울",
+        "ipa": "gyeo-ul",
+        "vi": "mùa đông"
+      },
+      {
+        "w": "열쇠",
+        "ipa": "yeol-soe",
+        "vi": "chìa khoá"
+      },
+      {
+        "w": "빨리",
+        "ipa": "ppal-li",
+        "vi": "nhanh lên"
+      }
     ],
     "sentences": [
-      { "en": "서울의 겨울은 정말 추워요.", "vi": "Mùa đông ở Seoul lạnh thật đấy." },
-      { "en": "물 한 잔 빨리 주세요.", "vi": "Cho tôi một ly nước nhanh với ạ." },
-      { "en": "얼굴을 씻고 일을 시작해요.", "vi": "Tôi rửa mặt rồi bắt đầu làm việc." }
+      {
+        "en": "서울의 겨울은 정말 추워요.",
+        "vi": "Mùa đông ở Seoul lạnh thật đấy."
+      },
+      {
+        "en": "물 한 잔 빨리 주세요.",
+        "vi": "Cho tôi một ly nước nhanh với ạ."
+      },
+      {
+        "en": "얼굴을 씻고 일을 시작해요.",
+        "vi": "Tôi rửa mặt rồi bắt đầu làm việc."
+      }
     ]
   },
   {
     "id": "ko-linking",
-    "emoji": "🔗",
     "title": "Nối âm (연음) · batchim chạy sang",
     "sub": "Quy tắc nghe – nói quan trọng nhất",
     "why": "Đây là lý do số một khiến người mới KHÔNG nghe ra người Hàn nói gì: chữ viết là 한국어 nhưng đọc là \"han-gu-gơ\". Không nắm nối âm thì học thuộc bao nhiêu từ cũng vẫn nghe không kịp.",
     "tip": "Khi âm tiết sau bắt đầu bằng ㅇ (câm), batchim của âm tiết trước NHẢY sang làm phụ âm đầu: 한국+어 → 한구거, 밥+을 → 바블, 옷+이 → 오시. Đọc theo cách PHÁT ÂM, không đọc theo cách viết.",
     "words": [
-      { "w": "한국어", "ipa": "han-gu-geo", "vi": "tiếng Hàn (đọc: han-gu-gơ)" },
-      { "w": "밥을", "ipa": "ba-beul", "vi": "cơm (tân ngữ) — đọc: ba-bưl" },
-      { "w": "옷이", "ipa": "o-si", "vi": "quần áo (chủ ngữ) — đọc: ô-si" },
-      { "w": "음악", "ipa": "eu-mak", "vi": "âm nhạc — đọc: ư-mak" },
-      { "w": "직업", "ipa": "ji-geop", "vi": "nghề nghiệp — đọc: chi-gớp" },
-      { "w": "월요일", "ipa": "wo-ryo-il", "vi": "thứ Hai — đọc: uô-ryô-il" },
-      { "w": "무엇이", "ipa": "mu-eo-si", "vi": "cái gì (chủ ngữ) — đọc: mu-ơ-si" },
-      { "w": "앉아요", "ipa": "an-ja-yo", "vi": "ngồi — đọc: an-cha-yô" }
+      {
+        "w": "한국어",
+        "ipa": "han-gu-geo",
+        "vi": "tiếng Hàn (đọc: han-gu-gơ)"
+      },
+      {
+        "w": "밥을",
+        "ipa": "ba-beul",
+        "vi": "cơm (tân ngữ) — đọc: ba-bưl"
+      },
+      {
+        "w": "옷이",
+        "ipa": "o-si",
+        "vi": "quần áo (chủ ngữ) — đọc: ô-si"
+      },
+      {
+        "w": "음악",
+        "ipa": "eu-mak",
+        "vi": "âm nhạc — đọc: ư-mak"
+      },
+      {
+        "w": "직업",
+        "ipa": "ji-geop",
+        "vi": "nghề nghiệp — đọc: chi-gớp"
+      },
+      {
+        "w": "월요일",
+        "ipa": "wo-ryo-il",
+        "vi": "thứ Hai — đọc: uô-ryô-il"
+      },
+      {
+        "w": "무엇이",
+        "ipa": "mu-eo-si",
+        "vi": "cái gì (chủ ngữ) — đọc: mu-ơ-si"
+      },
+      {
+        "w": "앉아요",
+        "ipa": "an-ja-yo",
+        "vi": "ngồi — đọc: an-cha-yô"
+      }
     ],
     "sentences": [
-      { "en": "한국어 발음이 재미있어요.", "vi": "Phát âm tiếng Hàn thú vị lắm." },
-      { "en": "음악을 들으면서 밥을 먹어요.", "vi": "Tôi vừa nghe nhạc vừa ăn cơm." },
-      { "en": "직업이 무엇입니까?", "vi": "Nghề nghiệp của bạn là gì ạ?" }
+      {
+        "en": "한국어 발음이 재미있어요.",
+        "vi": "Phát âm tiếng Hàn thú vị lắm."
+      },
+      {
+        "en": "음악을 들으면서 밥을 먹어요.",
+        "vi": "Tôi vừa nghe nhạc vừa ăn cơm."
+      },
+      {
+        "en": "직업이 무엇입니까?",
+        "vi": "Nghề nghiệp của bạn là gì ạ?"
+      }
     ]
   },
   {
     "id": "ko-nasalize",
-    "emoji": "🔄",
     "title": "Biến âm mũi (비음화)",
     "sub": "ㄱㄷㅂ + ㄴㅁ → ㅇㄴㅁ",
     "why": "Chữ viết 감사합니다 nhưng người Hàn đọc \"kam-sa-ham-ni-da\"; 학년 đọc \"hang-nyơn\". Không biết quy tắc này thì đọc đúng chữ viết lại thành sai, và nghe cũng không khớp.",
     "tip": "Trước ㄴ hoặc ㅁ: batchim ㄱ→ㅇ, ㄷ→ㄴ, ㅂ→ㅁ. Nhớ theo cặp: 합니다 → 함니다 · 학년 → 항년 · 닫는 → 단는. Miệng lười tự làm vậy cho dễ đọc — cứ đọc thuận miệng là đúng.",
     "words": [
-      { "w": "감사합니다", "ipa": "gam-sa-ham-ni-da", "vi": "cảm ơn — đọc: kam-sa-HAM-ni-da" },
-      { "w": "입니다", "ipa": "im-ni-da", "vi": "là — đọc: im-ni-da" },
-      { "w": "학년", "ipa": "hang-nyeon", "vi": "khối lớp — đọc: hang-nyơn" },
-      { "w": "국물", "ipa": "gung-mul", "vi": "nước dùng — đọc: kung-mul" },
-      { "w": "작년", "ipa": "jang-nyeon", "vi": "năm ngoái — đọc: chang-nyơn" },
-      { "w": "닫는", "ipa": "dan-neun", "vi": "đang đóng — đọc: đan-nưn" },
-      { "w": "십만", "ipa": "sim-man", "vi": "một trăm nghìn — đọc: sim-man" },
-      { "w": "몇 명", "ipa": "myeon-myeong", "vi": "mấy người — đọc: myơn-myơng" }
+      {
+        "w": "감사합니다",
+        "ipa": "gam-sa-ham-ni-da",
+        "vi": "cảm ơn — đọc: kam-sa-HAM-ni-da"
+      },
+      {
+        "w": "입니다",
+        "ipa": "im-ni-da",
+        "vi": "là — đọc: im-ni-da"
+      },
+      {
+        "w": "학년",
+        "ipa": "hang-nyeon",
+        "vi": "khối lớp — đọc: hang-nyơn"
+      },
+      {
+        "w": "국물",
+        "ipa": "gung-mul",
+        "vi": "nước dùng — đọc: kung-mul"
+      },
+      {
+        "w": "작년",
+        "ipa": "jang-nyeon",
+        "vi": "năm ngoái — đọc: chang-nyơn"
+      },
+      {
+        "w": "닫는",
+        "ipa": "dan-neun",
+        "vi": "đang đóng — đọc: đan-nưn"
+      },
+      {
+        "w": "십만",
+        "ipa": "sim-man",
+        "vi": "một trăm nghìn — đọc: sim-man"
+      },
+      {
+        "w": "몇 명",
+        "ipa": "myeon-myeong",
+        "vi": "mấy người — đọc: myơn-myơng"
+      }
     ],
     "sentences": [
-      { "en": "감사합니다, 저는 학생입니다.", "vi": "Cảm ơn ạ, tôi là học sinh." },
-      { "en": "국물이 맛있습니다.", "vi": "Nước dùng ngon ạ." },
-      { "en": "몇 명이 오십니까?", "vi": "Mấy người sẽ tới ạ?" }
+      {
+        "en": "감사합니다, 저는 학생입니다.",
+        "vi": "Cảm ơn ạ, tôi là học sinh."
+      },
+      {
+        "en": "국물이 맛있습니다.",
+        "vi": "Nước dùng ngon ạ."
+      },
+      {
+        "en": "몇 명이 오십니까?",
+        "vi": "Mấy người sẽ tới ạ?"
+      }
     ]
   },
   {
     "id": "ko-palatal",
-    "emoji": "🍬",
     "title": "Ngạc hoá & ㅎ rơi",
     "sub": "같이 → 가치 · 좋아 → 조아",
     "why": "같이 (cùng nhau) đọc là \"ka-chi\" chứ không phải \"ka-ti\"; 좋아요 đọc \"chô-a-yô\" chứ không có âm h. Đọc theo mặt chữ là người Hàn nghe ra ngay giọng người nước ngoài.",
     "tip": "Ngạc hoá: batchim ㄷ/ㅌ gặp 이 → thành ㅈ/ㅊ (굳이 → 구지, 같이 → 가치). ㅎ đứng giữa nguyên âm thì gần như biến mất (좋아 → 조아, 많이 → 마니); nhưng ㅎ gặp ㄱㄷㅂㅈ thì gộp thành âm bật hơi (좋다 → 조타).",
     "words": [
-      { "w": "같이", "ipa": "ga-chi", "vi": "cùng nhau — đọc: ka-chi" },
-      { "w": "굳이", "ipa": "gu-ji", "vi": "nhất thiết — đọc: ku-chi" },
-      { "w": "해돋이", "ipa": "hae-do-ji", "vi": "bình minh — đọc: he-đô-chi" },
-      { "w": "좋아요", "ipa": "jo-a-yo", "vi": "tốt / thích — đọc: chô-a-yô" },
-      { "w": "많이", "ipa": "ma-ni", "vi": "nhiều — đọc: ma-ni" },
-      { "w": "괜찮아요", "ipa": "gwaen-cha-na-yo", "vi": "không sao — đọc: quen-cha-na-yô" },
-      { "w": "좋다", "ipa": "jo-ta", "vi": "tốt (nguyên thể) — đọc: chô-tha" },
-      { "w": "축하해요", "ipa": "chu-ka-hae-yo", "vi": "chúc mừng — đọc: chu-kha-he-yô" }
+      {
+        "w": "같이",
+        "ipa": "ga-chi",
+        "vi": "cùng nhau — đọc: ka-chi"
+      },
+      {
+        "w": "굳이",
+        "ipa": "gu-ji",
+        "vi": "nhất thiết — đọc: ku-chi"
+      },
+      {
+        "w": "해돋이",
+        "ipa": "hae-do-ji",
+        "vi": "bình minh — đọc: he-đô-chi"
+      },
+      {
+        "w": "좋아요",
+        "ipa": "jo-a-yo",
+        "vi": "tốt / thích — đọc: chô-a-yô"
+      },
+      {
+        "w": "많이",
+        "ipa": "ma-ni",
+        "vi": "nhiều — đọc: ma-ni"
+      },
+      {
+        "w": "괜찮아요",
+        "ipa": "gwaen-cha-na-yo",
+        "vi": "không sao — đọc: quen-cha-na-yô"
+      },
+      {
+        "w": "좋다",
+        "ipa": "jo-ta",
+        "vi": "tốt (nguyên thể) — đọc: chô-tha"
+      },
+      {
+        "w": "축하해요",
+        "ipa": "chu-ka-hae-yo",
+        "vi": "chúc mừng — đọc: chu-kha-he-yô"
+      }
     ],
     "sentences": [
-      { "en": "같이 가면 좋아요.", "vi": "Cùng đi thì tốt quá." },
-      { "en": "많이 드세요, 괜찮아요.", "vi": "Bạn ăn nhiều vào, không sao đâu." },
-      { "en": "생일 축하해요!", "vi": "Chúc mừng sinh nhật!" }
+      {
+        "en": "같이 가면 좋아요.",
+        "vi": "Cùng đi thì tốt quá."
+      },
+      {
+        "en": "많이 드세요, 괜찮아요.",
+        "vi": "Bạn ăn nhiều vào, không sao đâu."
+      },
+      {
+        "en": "생일 축하해요!",
+        "vi": "Chúc mừng sinh nhật!"
+      }
     ]
   },
   {
     "id": "ko-intonation",
-    "emoji": "🎵",
     "title": "Ngữ điệu & nhịp câu",
     "sub": "Câu hỏi lên, câu kể xuống",
     "why": "Tiếng Việt có thanh điệu nên người Việt hay lên xuống giọng trong từng chữ, làm câu tiếng Hàn nghe \"gập ghềnh\". Tiếng Hàn giữ giọng khá bằng và chỉ lên/xuống ở CUỐI câu.",
     "tip": "Giữ đều các âm tiết, đừng bỏ dấu tiếng Việt vào từng chữ. Cuối câu: 해요? lên giọng (hỏi) · 해요. xuống giọng (kể) · 하세요! xuống dứt khoát (đề nghị). Nhấn nhẹ ở âm tiết đầu của mỗi cụm từ.",
     "words": [
-      { "w": "밥 먹었어요?", "ipa": "bap meo-geo-sseo-yo?", "vi": "Bạn ăn cơm chưa? (lên giọng)" },
-      { "w": "밥 먹었어요.", "ipa": "bap meo-geo-sseo-yo.", "vi": "Tôi ăn cơm rồi. (xuống giọng)" },
-      { "w": "여기 앉으세요.", "ipa": "yeo-gi an-jeu-se-yo.", "vi": "Mời ngồi đây. (xuống dứt khoát)" },
-      { "w": "정말요?", "ipa": "jeong-ma-ryo?", "vi": "Thật á? (lên cao)" },
-      { "w": "아니요.", "ipa": "a-ni-yo.", "vi": "Không. (xuống)" },
-      { "w": "어디 가세요?", "ipa": "eo-di ga-se-yo?", "vi": "Bạn đi đâu vậy? (lên giọng)" },
-      { "w": "잠깐만요!", "ipa": "jam-kkan-man-yo!", "vi": "Đợi chút đã! (gấp, dứt)" },
-      { "w": "괜찮아요…", "ipa": "gwaen-cha-na-yo…", "vi": "Không sao đâu… (kéo nhẹ, an ủi)" }
+      {
+        "w": "밥 먹었어요?",
+        "ipa": "bap meo-geo-sseo-yo?",
+        "vi": "Bạn ăn cơm chưa? (lên giọng)"
+      },
+      {
+        "w": "밥 먹었어요.",
+        "ipa": "bap meo-geo-sseo-yo.",
+        "vi": "Tôi ăn cơm rồi. (xuống giọng)"
+      },
+      {
+        "w": "여기 앉으세요.",
+        "ipa": "yeo-gi an-jeu-se-yo.",
+        "vi": "Mời ngồi đây. (xuống dứt khoát)"
+      },
+      {
+        "w": "정말요?",
+        "ipa": "jeong-ma-ryo?",
+        "vi": "Thật á? (lên cao)"
+      },
+      {
+        "w": "아니요.",
+        "ipa": "a-ni-yo.",
+        "vi": "Không. (xuống)"
+      },
+      {
+        "w": "어디 가세요?",
+        "ipa": "eo-di ga-se-yo?",
+        "vi": "Bạn đi đâu vậy? (lên giọng)"
+      },
+      {
+        "w": "잠깐만요!",
+        "ipa": "jam-kkan-man-yo!",
+        "vi": "Đợi chút đã! (gấp, dứt)"
+      },
+      {
+        "w": "괜찮아요…",
+        "ipa": "gwaen-cha-na-yo…",
+        "vi": "Không sao đâu… (kéo nhẹ, an ủi)"
+      }
     ],
     "sentences": [
-      { "en": "지금 어디 가세요?", "vi": "Bây giờ bạn đi đâu vậy?" },
-      { "en": "저는 회사에 가요.", "vi": "Tôi đi đến công ty." },
-      { "en": "그럼 이따가 봐요!", "vi": "Vậy lát nữa gặp nhé!" }
+      {
+        "en": "지금 어디 가세요?",
+        "vi": "Bây giờ bạn đi đâu vậy?"
+      },
+      {
+        "en": "저는 회사에 가요.",
+        "vi": "Tôi đi đến công ty."
+      },
+      {
+        "en": "그럼 이따가 봐요!",
+        "vi": "Vậy lát nữa gặp nhé!"
+      }
     ]
   }
-]
+]

@@ -20,6 +20,9 @@ function durationMins(dur: string): number {
 
 const d = (ms: number) => ({ '--d': `${ms}ms` } as CSSProperties)
 
+const FIT_MAX = 60
+const FIT_DELAY_MS = 500
+
 export default function LibraryPage() {
   const { loadLesson, videos, learnLang, t, learnLangName, savedVideos, saveVideo, removeVideo } = useAppStore()
   const [level, setLevel] = useState<string>('all')
@@ -80,14 +83,18 @@ export default function LibraryPage() {
 
   const reset = () => { setLevel('all'); setLength('all'); setQuery(''); setTopic('') }
 
+  const fitIds = useMemo(() => list.slice(0, FIT_MAX).map((v) => v.id).join(','), [list])
+
   useEffect(() => {
-    if (!getToken() || !list.length) { setFits({}); return }
+    if (!getToken() || !fitIds) { setFits({}); return }
     let alive = true
-    fetchFit(list.slice(0, 60).map((v) => v.id), learnLang)
-      .then((r) => { if (alive) setFits(r.fit) })
-      .catch(() => {  })
-    return () => { alive = false }
-  }, [list, learnLang])
+    const timer = window.setTimeout(() => {
+      fetchFit(fitIds.split(','), learnLang)
+        .then((r) => { if (alive) setFits((prev) => ({ ...prev, ...r.fit })) })
+        .catch(() => {  })
+    }, FIT_DELAY_MS)
+    return () => { alive = false; window.clearTimeout(timer) }
+  }, [fitIds, learnLang])
 
   const filtered = level !== 'all' || length !== 'all' || query.trim() !== '' || topic !== ''
   const showRows = grouped && !filtered && openTopics.length > 1

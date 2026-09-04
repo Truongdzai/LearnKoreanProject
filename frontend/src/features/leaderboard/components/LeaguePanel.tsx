@@ -5,6 +5,8 @@ import { fetchLeague, type LeagueState } from '@/core/api/arena.api'
 import { useAppStore } from '@/store/app.store'
 
 const pad = (n: number) => String(n).padStart(2, '0')
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI']
+const tierMark = (id: number) => ROMAN[id] || String(id + 1)
 
 function useCountdown(endsAt: string) {
   const target = endsAt ? new Date(endsAt).getTime() : 0
@@ -33,8 +35,8 @@ export default function LeaguePanel({ reloadKey = 0 }: { reloadKey?: number }) {
 
   const cd = useCountdown(data?.endsAt || '')
 
-  if (loading) return <div className="empty"><div className="big">🏆</div>{t('lb.loading')}</div>
-  if (!data) return <div className="empty"><div className="big">🏆</div>{t('lb.empty')}</div>
+  if (loading) return <div className="empty"><div className="big"><Icon name="trophy" /></div>{t('lb.loading')}</div>
+  if (!data) return <div className="empty"><div className="big"><Icon name="trophy" /></div>{t('lb.empty')}</div>
 
   const last = data.lastResult
   return (
@@ -42,7 +44,7 @@ export default function LeaguePanel({ reloadKey = 0 }: { reloadKey?: number }) {
       {last && (
         <div className={'lg-result ' + last.result}>
           <span className="lg-result-ic">
-            {last.result === 'up' ? '⬆️' : last.result === 'down' ? '⬇️' : '➖'}
+            <Icon name={last.result === 'up' ? 'chevron-up' : last.result === 'down' ? 'chevron-down' : 'minus'} size={18} />
           </span>
           <div>
             <b>
@@ -68,7 +70,7 @@ export default function LeaguePanel({ reloadKey = 0 }: { reloadKey?: number }) {
             style={{ ['--tier' as string]: x.color }}
             title={x.name}
           >
-            <span className="lg-tier-ic">{x.emoji}</span>
+            <span className="lg-tier-ic">{tierMark(x.id)}</span>
             <span className="lg-tier-name">{x.name}</span>
           </div>
         ))}
@@ -76,7 +78,7 @@ export default function LeaguePanel({ reloadKey = 0 }: { reloadKey?: number }) {
 
       <div className="lg-head" style={{ ['--tier' as string]: data.tier.color }}>
         <div className="lg-head-main">
-          <span className="lg-head-ic">{data.tier.emoji}</span>
+          <span className="lg-head-ic">{tierMark(data.tier.id)}</span>
           <div>
             <b>{t('lg.tierTitle', { tier: data.tier.name })}</b>
             <span>{t('lg.rules', { top: data.promote, reward: data.rewards[0] })}</span>
@@ -89,7 +91,7 @@ export default function LeaguePanel({ reloadKey = 0 }: { reloadKey?: number }) {
       </div>
 
       {data.entries.length === 0 ? (
-        <div className="empty"><div className="big">🥉</div>{t('lg.emptyTier')}</div>
+        <div className="empty"><div className="big"><Icon name="trophy" /></div>{t('lg.emptyTier')}</div>
       ) : (
         <div className="lg-list">
           {data.entries.map((e, i) => (

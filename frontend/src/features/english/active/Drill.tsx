@@ -335,7 +335,7 @@ export default function Drill({ queue, forceDim, heading, onFinish }: Props) {
           {chunk.note && <p className="ac-reveal-note"><Icon name="bulb" size={14} /> {chunk.note}</p>}
           {chunk.trap && <p className="ac-reveal-trap"><Icon name="frown" size={14} /> {chunk.trap}</p>}
           <div className="ac-reveal-foot">
-            <span>{pack?.emoji} {pack?.name}</span>
+            <span>{pack?.name}</span>
             <button className="ac-next" onClick={next}>
               {finished ? 'Xong lượt này' : 'Câu tiếp theo'} <Icon name="arrow-right" size={15} />
             </button>

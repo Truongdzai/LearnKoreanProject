@@ -173,7 +173,7 @@ export default function Roadmap({
         </div>
       )}
 
-      <p className="toeic-hint">💡 {WEEK_RULE}</p>
+      <p className="toeic-hint"><Icon name="bulb" size={14} /> {WEEK_RULE}</p>
 
       <div className="toeic-road-cols">
         <div className="toeic-road-main">
@@ -290,7 +290,7 @@ export default function Roadmap({
 
               {dDone(sel) && (
                 <div className="wk-congrats">
-                  🎉 Ngày {sel.d} hoàn thành! {sel.d < TOEIC_TOTAL_DAYS ? 'Hẹn mai tiếp tục giữ nhịp nhé.' : 'BẠN ĐÃ ĐI HẾT 12 TUẦN — giờ là lúc đi thi thật!'}
+                  Ngày {sel.d} hoàn thành! {sel.d < TOEIC_TOTAL_DAYS ? 'Hẹn mai tiếp tục giữ nhịp nhé.' : 'BẠN ĐÃ ĐI HẾT 12 TUẦN — giờ là lúc đi thi thật!'}
                 </div>
               )}
             </div>

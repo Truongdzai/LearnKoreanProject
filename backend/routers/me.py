@@ -4,7 +4,7 @@ from datetime import datetime
 
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..schemas.account import MeState
 from ..services import auth, accounts, dataexport, gameplay, quota
@@ -13,57 +13,64 @@ router = APIRouter(prefix="/api/me", tags=["Người dùng"])
 Auth = Depends(auth.get_current_user)
 
 
+MAX_ID = 64
+MAX_NAME = 120
+MAX_URL = 2048
+
+
 class BuyIn(BaseModel):
-    item_id: str
+    item_id: str = Field(max_length=MAX_ID)
+    qty: int = Field(default=1, ge=1, le=99)
 
 
 class EquipIn(BaseModel):
-    frame: str | None = None
+    frame: str | None = Field(default=None, max_length=MAX_ID)
 
 
 class EquipPetIn(BaseModel):
-    pet: str | None = None
+    pet: str | None = Field(default=None, max_length=MAX_ID)
 
 
 class EquipBgIn(BaseModel):
-    bg: str | None = None
+    bg: str | None = Field(default=None, max_length=MAX_ID)
 
 
 class AvatarIn(BaseModel):
-    avatar: str | None = None
+    avatar: str | None = Field(default=None, max_length=MAX_URL)
 
 
 class PlantIn(BaseModel):
-    item_id: str = ""
-    art: str
-    name: str
+    item_id: str = Field(default="", max_length=MAX_ID)
+    art: str = Field(default="", max_length=MAX_ID)
+    name: str = Field(default="", max_length=MAX_NAME)
 
 
 class PlantRefIn(BaseModel):
-    plant_id: str
+    plant_id: str = Field(max_length=MAX_ID)
 
 
 class PathIn(BaseModel):
-    title: str
+    title: str = Field(max_length=MAX_NAME)
     data: dict = {}
 
 
 class VideoIn(BaseModel):
-    id: str
-    title: str = ""
-    channel: str = ""
-    level: str = ""
-    dur: str = ""
-    topic: str = ""
-    tone: str = ""
+    id: str = Field(max_length=MAX_ID)
+    title: str = Field(default="", max_length=200)
+    channel: str = Field(default="", max_length=120)
+    level: str = Field(default="", max_length=24)
+    dur: str = Field(default="", max_length=16)
+    topic: str = Field(default="", max_length=60)
+    tone: str = Field(default="", max_length=24)
+    lang: str = Field(default="", max_length=8)
 
 
 class VideoRefIn(BaseModel):
-    id: str
+    id: str = Field(max_length=MAX_ID)
 
 
 class ClaimIn(BaseModel):
-    quest_id: str
+    quest_id: str = Field(max_length=MAX_ID)
 
 
 class PlusIn(BaseModel):
@@ -97,7 +104,11 @@ def api_state(user: dict = Auth):
 
 @router.get("/quests")
 def api_quests(user: dict = Auth):
-    return {"quests": gameplay.quests_for(user), "bonusAvailable": gameplay.bonus_available(user["id"])}
+    return {
+        "quests": gameplay.quests_for(user),
+        "bonusAvailable": gameplay.bonus_available(user["id"]),
+        "bonusReward": gameplay.DAILY_BONUS,
+    }
 
 
 @router.get("/activities")
@@ -107,7 +118,7 @@ def api_activities(user: dict = Auth):
 
 @router.post("/buy")
 def api_buy(body: BuyIn, user: dict = Auth):
-    return gameplay.buy(user, body.item_id)
+    return gameplay.buy(user, body.item_id, body.qty)
 
 
 @router.post("/equip")

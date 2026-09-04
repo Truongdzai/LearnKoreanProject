@@ -40,12 +40,19 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const controller = new AbortController()
   const limit = timeoutFor(path)
   const timer = window.setTimeout(() => controller.abort(), limit)
+  const outer = init?.signal
+  const relay = () => controller.abort()
+  if (outer) {
+    if (outer.aborted) controller.abort()
+    else outer.addEventListener('abort', relay, { once: true })
+  }
 
   let res: Response
   try {
     res = await fetch(env.apiBase + path, { ...init, headers, signal: controller.signal })
   } catch (e) {
     if ((e as Error)?.name === 'AbortError') {
+      if (outer?.aborted) throw new ApiError('Đã dừng yêu cầu.', 0, 'ABORTED')
       throw new ApiError(
         `Máy chủ phản hồi quá lâu (hơn ${Math.round(limit / 1000)} giây). Hãy thử lại.`,
         0,
@@ -55,6 +62,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiError('Không kết nối được máy chủ. Hãy kiểm tra kết nối mạng.', 0, 'OFFLINE')
   } finally {
     window.clearTimeout(timer)
+    outer?.removeEventListener('abort', relay)
   }
 
   const data = await res.json().catch(() => ({}))
@@ -74,14 +82,16 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return data as T
 }
 
-const jsonInit = (method: string, body?: unknown): RequestInit => ({
+const jsonInit = (method: string, body?: unknown, signal?: AbortSignal): RequestInit => ({
   method,
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body ?? {}),
+  signal,
 })
 
 export const apiClient = {
-  get: <T>(path: string) => request<T>(path),
-  post: <T>(path: string, body?: unknown) => request<T>(path, jsonInit('POST', body)),
+  get: <T>(path: string, signal?: AbortSignal) => request<T>(path, { signal }),
+  post: <T>(path: string, body?: unknown, signal?: AbortSignal) => request<T>(path, jsonInit('POST', body, signal)),
   put: <T>(path: string, body?: unknown) => request<T>(path, jsonInit('PUT', body)),
+  del: <T>(path: string) => request<T>(path, { method: 'DELETE' }),
 }

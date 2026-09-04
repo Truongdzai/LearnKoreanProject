@@ -14,7 +14,8 @@ export default function Avatar({ size = 40, frame, src, initials }: AvatarProps)
   const vid = frameVideoSources(frame)
   const showImg = !!src && errSrc !== src
   const cls =
-    'avatar-wrap' + (frame ? ' framed' : '') + (frame ? (vid ? ' frame-vid' : ' frame-' + frame) : '')
+    'avatar-wrap' + (frame ? ' framed' : '') +
+    (frame ? (vid ? ' frame-vid frame-' + frame : ' frame-' + frame) : '')
   return (
     <span className={cls} style={{ width: size, height: size }}>
       <span className="avatar-inner">

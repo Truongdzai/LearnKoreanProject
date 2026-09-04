@@ -126,7 +126,7 @@ export default function RoomsColumn({
     return (
       <div className="sp-col">
         <div className="sp-panel room-gate">
-          <span className="room-gate-emoji">🎧</span>
+          <span className="room-gate-icon"><Icon name="headphones" size={22} /></span>
           <b>{t('room.gateTitle')}</b>
           <p>{t('room.gateText')}</p>
           <button className="btn-primary" onClick={openAuth}>{t('top.login')}</button>
@@ -245,7 +245,7 @@ export default function RoomsColumn({
           <div className="rooms-loading"><Spinner /> {t('room.loading')}</div>
         ) : rooms.length === 0 ? (
           <div className="rooms-none">
-            <span>🫧</span>
+            <span className="rooms-none-plate"><Icon name="cards" size={20} /></span>
             <b>{t('room.noneTitle')}</b>
             <p>{t('room.noneText')}</p>
           </div>
@@ -258,12 +258,13 @@ export default function RoomsColumn({
                   <div className="sp-roomtop">
                     <Icon name={r.mode === 'private' ? 'lock' : 'globe'} size={14} />
                     <b>{r.name}</b>
+                    <span className="sp-roomcode">{r.id}</span>
                     <span className="sp-roomsize">{r.size}/{r.max}</span>
                     <span className="sp-roomlv">{levelCode(r.level)}</span>
                   </div>
                   {r.topic && <p className="sp-roomtopic">{r.topic}</p>}
                   <div className="sp-roomfoot">
-                    <span className="sp-roomhost">👑 {r.hostName}</span>
+                    <span className="sp-roomhost"><Icon name="crown" size={12} /> {r.hostName}</span>
                     <button className="btn-primary sm" disabled={busy || full} onClick={() => go(r)}>
                       {full ? t('room.full') : t('room.join')}
                     </button>

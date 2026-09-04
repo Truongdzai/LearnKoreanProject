@@ -9,23 +9,10 @@ interface Props {
   lang: string
 }
 
-const BAND_TEXT: Record<string, { label: string; note: string }> = {
-  fit: {
-    label: 'Vừa sức (i+1)',
-    note: 'Đúng vùng học hiệu quả nhất: hiểu gần hết, còn vài từ mới để nhặt.',
-  },
-  easy: {
-    label: 'Dễ với bạn',
-    note: 'Bạn đã biết gần hết từ trong video — hợp để luyện nghe nhanh và phát âm.',
-  },
-  hard: {
-    label: 'Hơi khó',
-    note: 'Nhiều từ chưa biết. Cứ xem nhưng nên bấm lưu từ mới, hoặc chọn video dễ hơn trước.',
-  },
-}
+const BANDS = ['fit', 'easy', 'hard']
 
 export default function FitBadge({ videoId, lang }: Props) {
-  const { setView } = useAppStore()
+  const { setView, t } = useAppStore()
   const [fit, setFit] = useState<FitScore | null>(null)
   const [known, setKnown] = useState(0)
 
@@ -42,24 +29,22 @@ export default function FitBadge({ videoId, lang }: Props) {
     return () => { alive = false }
   }, [videoId, lang])
 
-  if (!fit || fit.band === 'unknown') return null
-  const text = BAND_TEXT[fit.band]
-  if (!text) return null
+  if (!fit || !BANDS.includes(fit.band)) return null
 
   return (
     <div className="fit-row">
       <span className={'fit-badge ' + fit.band}>
-        <Icon name="target" size={13} /> {fit.known_pct}% từ bạn đã biết · {text.label}
+        <Icon name="target" size={13} /> {t('fit.pct', { n: fit.known_pct })} · {t('fit.' + fit.band)}
       </span>
-      <span className="fit-note">{text.note}</span>
+      <span className="fit-note">{t('fit.' + fit.band + 'Note')}</span>
       {!!fit.new_words.length && (
         <span className="fit-new">
-          <span className="fit-note">Từ mới hay gặp:</span>
+          <span className="fit-note">{t('fit.newWords')}</span>
           {fit.new_words.slice(0, 6).map((w) => <b key={w} lang={lang}>{w}</b>)}
         </span>
       )}
-      <button className="btn-ghost sm" onClick={() => setView('vocab')} title={`Kho từ của bạn: ${known} từ`}>
-        <Icon name="cards" size={13} /> Kho từ: {known}
+      <button className="btn-ghost sm" onClick={() => setView('vocab')} title={t('fit.storeTitle', { n: known })}>
+        <Icon name="cards" size={13} /> {t('fit.store', { n: known })}
       </button>
     </div>
   )

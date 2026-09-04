@@ -52,9 +52,18 @@ class UserPath(BaseModel):
     title: str
 
 
+class WaterState(BaseModel):
+    left: int
+    max: int
+    used: int
+    bonus: int
+
+
 class MeState(BaseModel):
     user: PublicUser
     owned: list[str]
+    seeds: dict[str, int] = {}
+    water: WaterState
     garden: list[GardenPlant]
     paths: list[UserPath]
     savedVideos: list[SavedVideo]

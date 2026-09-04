@@ -10,7 +10,7 @@ import { fetchVideos } from '@/core/api/content.api'
 import {
   fetchState, buyItemApi, equipFrameApi, equipPetApi, equipBgApi, setAvatarApi, upgradePlusApi, plantSeedApi, waterPlantApi,
   removePlantApi, addPathApi, saveVideoApi, removeVideoApi, claimQuestApi, dailyBonusApi,
-  recordEventApi, setGoalApi, goalBonusApi, type EventType,
+  recordEventApi, setGoalApi, goalBonusApi, type EventType, type WaterState,
 } from '@/core/api/me.api'
 import { langsForView, viewAllowedForLang } from '@/core/constants/nav'
 import { META_DESC, PUBLIC_VIEWS, pathForView, titleKeyForView, viewForPath } from '@/core/constants/routes'
@@ -39,7 +39,9 @@ function loadUiLang(nativeCode: string): UiLang {
   return nativeCode === 'vi' ? 'vi' : 'en'
 }
 
-const EVENT_XP: Record<string, number> = { lesson: 30, pronounce: 5, review: 2, video: 25, word: 4, login: 0, toeic: 10 }
+const NO_WATER: WaterState = { left: 0, max: 0, used: 0, bonus: 0 }
+
+const EVENT_XP: Record<string, number> = { lesson: 30, pronounce: 5, review: 2, video: 25, word: 4, login: 0, toeic: 10, grammar: 10, tutor: 3 }
 
 function todayKey(): string {
   const d = new Date()
@@ -141,11 +143,13 @@ interface AppStore {
   videos: Video[]
 
   owned: string[]
+  seeds: Record<string, number>
+  water: WaterState
   savedVideos: Video[]
   paths: LearningPath[]
   garden: PlantedSeed[]
 
-  buyItem: (itemId: string) => Promise<void>
+  buyItem: (itemId: string, qty?: number) => Promise<void>
   equipFrame: (frame: string | null) => Promise<void>
   equipPet: (pet: string | null) => Promise<void>
   equipBg: (bg: string | null) => Promise<void>
@@ -191,6 +195,8 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
+  const [seeds, setSeeds] = useState<Record<string, number>>({})
+  const [water, setWater] = useState<WaterState>(NO_WATER)
   const [savedVideos, setSavedVideos] = useState<Video[]>([])
   const [paths, setPaths] = useState<LearningPath[]>([])
   const [garden, setGarden] = useState<PlantedSeed[]>([])
@@ -258,11 +264,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isAuthed) {
       setOwned([]); setSavedVideos([]); setPaths([]); setGarden([])
+      setSeeds({}); setWater(NO_WATER)
       return
     }
     fetchState()
       .then((s) => {
         setOwned(s.owned)
+        setSeeds(s.seeds ?? {})
+        setWater(s.water ?? NO_WATER)
         setSavedVideos(s.savedVideos)
         setPaths(s.paths)
         setGarden(s.garden)
@@ -392,10 +401,11 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     return false
   }, [isAuthed, openAuth])
 
-  const buyItem = useCallback(async (itemId: string) => {
+  const buyItem = useCallback(async (itemId: string, qty = 1) => {
     if (!guard()) throw new Error('Hãy đăng nhập để mua vật phẩm.')
-    const r = await buyItemApi(itemId)
+    const r = await buyItemApi(itemId, qty)
     setOwned(r.owned)
+    setSeeds(r.seeds ?? {})
     setAccount(r.user)
   }, [guard, setAccount])
 
@@ -433,11 +443,14 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     if (!guard()) return
     const r = await plantSeedApi(itemId, art, name)
     setGarden(r.garden)
+    setOwned(r.owned)
+    setSeeds(r.seeds ?? {})
   }, [guard])
 
   const waterPlant = useCallback(async (id: string) => {
     const r = await waterPlantApi(id)
     setGarden(r.garden)
+    setWater(r.water)
   }, [])
 
   const removePlant = useCallback(async (id: string) => {
@@ -466,6 +479,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
     const r = await claimQuestApi(id)
     setAccount(r.user)
+    if (r.water) setWater(r.water)
   }, [guard, setAccount])
 
   const dailyBonus = useCallback(async (): Promise<number> => {
@@ -561,7 +575,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
       user, isAuthed,
       videos,
-      owned, savedVideos, paths, garden,
+      owned, seeds, water, savedVideos, paths, garden,
       buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
       plantSeed, waterPlant, removePlant,
       saveVideo, removeVideo, addPath,
@@ -574,7 +588,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       uiLang, setUiLang, t, learnLangName, wizardRequested, requestWizard, clearWizard,
       goal, setGoal, onboardingOpen, openOnboarding, askGoalOnce, closeOnboarding,
       dailyGoalXp, setDailyGoalXp, todayXp, goalBonusClaimed, claimGoalBonus,
-      user, isAuthed, videos, owned, savedVideos, paths, garden,
+      user, isAuthed, videos, owned, seeds, water, savedVideos, paths, garden,
       buyItem, equipFrame, equipPet, equipBg, setAvatar, upgradePlus,
       plantSeed, waterPlant, removePlant, saveVideo, removeVideo, addPath,
       claimQuest, dailyBonus, recordEvent,

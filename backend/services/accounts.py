@@ -245,7 +245,6 @@ def login(email: str, password: str, ip: str = "") -> dict:
         row = dict(row)
     finally:
         conn.close()
-    touch_streak(row["id"])
     return reload(row["id"])
 
 
@@ -426,7 +425,6 @@ def upsert_oauth_user(provider: str, info: dict) -> dict:
             conn.commit()
     finally:
         conn.close()
-    touch_streak(uid)
     return reload(uid)
 
 

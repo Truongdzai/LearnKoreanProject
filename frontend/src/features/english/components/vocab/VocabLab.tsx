@@ -26,6 +26,36 @@ const MODES: { id: Mode; label: string; icon: IconName }[] = [
 
 const UNITS_PREVIEW = 24
 
+const posKey = (lang: string) => `vyling.${lang}.vocabPos`
+
+interface VocabPos {
+  unit: string
+  mode: Mode
+  i: number
+}
+
+function readPos(lang: string, units: VocabUnit[]): VocabPos | null {
+  try {
+    const raw = localStorage.getItem(posKey(lang))
+    if (!raw) return null
+    const p = JSON.parse(raw) as Partial<VocabPos>
+    const unit = units.find((u) => u.id === p.unit)
+    if (!unit) return null
+    const mode = MODES.some((m) => m.id === p.mode) ? (p.mode as Mode) : 'flash'
+    const i = Math.min(Math.max(0, Math.trunc(Number(p.i) || 0)), unit.words.length - 1)
+    return { unit: unit.id, mode, i }
+  } catch {
+    return null
+  }
+}
+
+function writePos(lang: string, pos: VocabPos): void {
+  try {
+    localStorage.setItem(posKey(lang), JSON.stringify(pos))
+  } catch {
+  }
+}
+
 interface Props {
   initialUnit?: string
   units: VocabUnit[]
@@ -50,9 +80,10 @@ export default function VocabLab({
   const { learned, mark } = useLearnedWords(lang)
   const { grade, toggleMastered, toggleSaved, mastered, saved, boxOf } = useDeck(lang)
 
-  const [unitId, setUnitId] = useState(initialUnit || units[0].id)
-  const [mode, setMode] = useState<Mode>('flash')
-  const [i, setI] = useState(0)
+  const [resume] = useState(() => (initialUnit ? null : readPos(lang, units)))
+  const [unitId, setUnitId] = useState(initialUnit || resume?.unit || units[0].id)
+  const [mode, setMode] = useState<Mode>(resume?.mode ?? 'flash')
+  const [i, setI] = useState(resume?.i ?? 0)
   const [showAll, setShowAll] = useState(false)
   const [panel, setPanel] = useState<'keys' | 'setup' | null>(null)
   const [autoPlay, setAutoPlay] = useState(true)
@@ -72,6 +103,10 @@ export default function VocabLab({
   useEffect(() => {
     if (initialUnit) { setUnitId(initialUnit); setI(0) }
   }, [initialUnit])
+
+  useEffect(() => {
+    writePos(lang, { unit: unitId, mode, i })
+  }, [lang, unitId, mode, i])
 
   const unit = units.find((u) => u.id === unitId) ?? units[0]
 

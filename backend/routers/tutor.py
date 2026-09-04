@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..errors import AppError
 from ..services import auth, tutor, cache, quota
@@ -11,21 +11,27 @@ OptAuth = Depends(auth.get_optional_user)
 Auth = Depends(auth.get_current_user)
 
 
+MAX_MESSAGE = 1200
+MAX_TURN = 900
+MAX_TURNS = 20
+MAX_VIDEOS = 60
+
+
 class TutorTurn(BaseModel):
-    role: str = "bot"
-    text: str = ""
+    role: str = Field(default="bot", max_length=8)
+    text: str = Field(default="", max_length=MAX_TURN)
 
 
 class TutorIn(BaseModel):
-    message: str = ""
-    history: list[TutorTurn] = []
-    lang: str = "ko"
-    native: str = "vi"
+    message: str = Field(default="", max_length=MAX_MESSAGE)
+    history: list[TutorTurn] = Field(default_factory=list, max_length=MAX_TURNS)
+    lang: str = Field(default="ko", max_length=8)
+    native: str = Field(default="vi", max_length=8)
 
 
 class FitIn(BaseModel):
-    video_ids: list[str] = []
-    lang: str = "ko"
+    video_ids: list[str] = Field(default_factory=list, max_length=MAX_VIDEOS)
+    lang: str = Field(default="ko", max_length=8)
 
 
 @router.get("/profile")
@@ -54,7 +60,7 @@ def api_tutor_chat(body: TutorIn, request: Request, user: dict | None = OptAuth)
 def api_tutor_fit(body: FitIn, user: dict = Auth):
     known = tutor.known_words(user["id"], body.lang)
     out: dict[str, dict] = {}
-    for vid in body.video_ids[:60]:
+    for vid in body.video_ids[:MAX_VIDEOS]:
         lesson = cache.get_lesson(vid)
         if not lesson or not lesson.get("segments"):
             continue

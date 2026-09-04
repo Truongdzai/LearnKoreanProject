@@ -80,7 +80,7 @@ export default function FastMethod({ onGrammar, onPron, onSkills, onErrors }: Pr
                     <div className="fast-chips">
                       {groups.map((g) => (
                         <button key={g.id} className="fast-chip" onClick={() => onPron(g.id)}>
-                          {g.emoji} {g.title}
+                          {g.title}
                         </button>
                       ))}
                     </div>

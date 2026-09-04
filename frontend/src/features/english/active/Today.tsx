@@ -101,7 +101,7 @@ export default function Today({ onGoBoard, onGoErrors, onGoPacks }: Props) {
             <span>GÓI TÌNH HUỐNG</span>
             <select value={packId} onChange={(e) => { picked.current = true; setPackId(e.target.value); setBlock('input'); setDone({ input: false, recall: false, output: false, review: false }) }}>
               {PACKS.map((p) => (
-                <option key={p.id} value={p.id}>{p.emoji} {p.name}</option>
+                <option key={p.id} value={p.id}>{p.name} · {p.cefr}</option>
               ))}
             </select>
             <small>{pack.goal}</small>

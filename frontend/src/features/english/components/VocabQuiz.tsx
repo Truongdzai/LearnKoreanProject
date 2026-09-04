@@ -37,10 +37,12 @@ function shuffle<T>(arr: T[]): T[] {
 function buildQuiz(pool: IcesWord[], allWords: IcesWord[]): Q[] {
   const picked = shuffle(pool).slice(0, Math.min(QUIZ_LEN, pool.length))
   return picked.map((word) => {
-    const distractors = shuffle(allWords.filter((w) => w.vi !== word.vi))
-      .slice(0, 3)
-      .map((w) => w.vi)
-    return { word, options: shuffle([word.vi, ...distractors]), answer: word.vi }
+    const seen = new Set([word.vi])
+    for (const w of shuffle(allWords)) {
+      if (seen.size >= 4) break
+      seen.add(w.vi)
+    }
+    return { word, options: shuffle([...seen]), answer: word.vi }
   })
 }
 
@@ -100,7 +102,21 @@ export default function VocabQuiz({
     }
   }
 
-  const pct = useMemo(() => Math.round((score / quiz.length) * 100), [score, quiz.length])
+  const pct = useMemo(() => (quiz.length ? Math.round((score / quiz.length) * 100) : 0), [score, quiz.length])
+
+  if (!quiz.length) {
+    return (
+      <div className="quiz-done">
+        <h3>Chưa có từ nào để kiểm tra</h3>
+        <p>Nhóm từ của bài kiểm tra này đang trống. Hãy học vài nhóm từ ở tab “Học từ vựng” rồi quay lại.</p>
+        {onBack && (
+          <div className="quiz-done-actions">
+            <button className="btn-primary" onClick={onBack}><Icon name="map" size={15} /> Về lộ trình</button>
+          </div>
+        )}
+      </div>
+    )
+  }
 
   if (finished) {
     const band = pct >= 80 ? 'Xuất sắc!' : pct >= 50 ? 'Khá tốt, ôn thêm nhé' : 'Cần ôn lại'
@@ -114,7 +130,7 @@ export default function VocabQuiz({
         <h3>{band}</h3>
         {passPct != null && (
           <div className={'quiz-pass' + (passed ? ' ok' : '')}>
-            {passed ? <>✅ Đạt yêu cầu ({passPct}%) — nhiệm vụ kiểm tra của tuần đã hoàn thành!</> : <>Chưa chạm mốc {passPct}% — ôn lại từ rồi làm lại nhé.</>}
+            {passed ? <>Đạt yêu cầu ({passPct}%) — nhiệm vụ kiểm tra của tuần đã hoàn thành!</> : <>Chưa chạm mốc {passPct}% — ôn lại từ rồi làm lại nhé.</>}
           </div>
         )}
         <p>Bạn trả lời đúng {score} trên {quiz.length} câu. Ôn lại bằng phương pháp lặp ngắt quãng để nhớ lâu hơn.</p>

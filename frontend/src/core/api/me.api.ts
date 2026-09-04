@@ -5,9 +5,18 @@ import type { PlantedSeed, Quest } from '@/models/gamification.model'
 import type { Video } from '@/models/video.model'
 import type { LearningPath } from '@/models/path.model'
 
+export interface WaterState {
+  left: number
+  max: number
+  used: number
+  bonus: number
+}
+
 export interface MeState {
   user: Account
   owned: string[]
+  seeds: Record<string, number>
+  water: WaterState
   garden: PlantedSeed[]
   paths: LearningPath[]
   savedVideos: Video[]
@@ -25,7 +34,7 @@ export interface Activities {
   srsTotal: number
 }
 
-export type EventType = 'lesson' | 'pronounce' | 'review' | 'video' | 'word' | 'login' | 'toeic' | 'grammar'
+export type EventType = 'lesson' | 'pronounce' | 'review' | 'video' | 'word' | 'login' | 'toeic' | 'grammar' | 'tutor'
 
 export interface ActivityDay {
   day: string
@@ -39,12 +48,14 @@ export interface ActivityDay {
 export const fetchState = () => apiClient.get<MeState>('/api/me/state')
 
 export const fetchMyQuests = () =>
-  apiClient.get<{ quests: Quest[]; bonusAvailable: boolean }>('/api/me/quests')
+  apiClient.get<{ quests: Quest[]; bonusAvailable: boolean; bonusReward?: number }>('/api/me/quests')
 
 export const fetchActivities = () => apiClient.get<Activities>('/api/me/activities')
 
-export const buyItemApi = (item_id: string) =>
-  apiClient.post<{ ok: boolean; owned: string[]; user: Account }>('/api/me/buy', { item_id })
+export const buyItemApi = (item_id: string, qty = 1) =>
+  apiClient.post<{ ok: boolean; owned: string[]; seeds: Record<string, number>; user: Account }>(
+    '/api/me/buy', { item_id, qty },
+  )
 
 export const equipFrameApi = (frame: string | null) =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/equip', { frame })
@@ -62,10 +73,14 @@ export const upgradePlusApi = (plan_id = '') =>
   apiClient.post<{ ok: boolean; user: Account }>('/api/me/plus', { plan_id })
 
 export const plantSeedApi = (item_id: string, art: string, name: string) =>
-  apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/plant', { item_id, art, name })
+  apiClient.post<{ ok: boolean; garden: PlantedSeed[]; owned: string[]; seeds: Record<string, number> }>(
+    '/api/me/garden/plant', { item_id, art, name },
+  )
 
 export const waterPlantApi = (plant_id: string) =>
-  apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/water', { plant_id })
+  apiClient.post<{ ok: boolean; garden: PlantedSeed[]; water: WaterState }>(
+    '/api/me/garden/water', { plant_id },
+  )
 
 export const removePlantApi = (plant_id: string) =>
   apiClient.post<{ ok: boolean; garden: PlantedSeed[] }>('/api/me/garden/remove', { plant_id })
@@ -80,7 +95,7 @@ export const removeVideoApi = (id: string) =>
   apiClient.post<{ ok: boolean; savedVideos: Video[] }>('/api/me/videos/remove', { id })
 
 export const claimQuestApi = (quest_id: string) =>
-  apiClient.post<{ ok: boolean; user: Account }>('/api/me/quests/claim', { quest_id })
+  apiClient.post<{ ok: boolean; user: Account; water: WaterState }>('/api/me/quests/claim', { quest_id })
 
 export const dailyBonusApi = () =>
   apiClient.post<{ ok: boolean; reward: number; user: Account }>('/api/me/daily-bonus')

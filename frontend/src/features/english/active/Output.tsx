@@ -96,7 +96,7 @@ export default function Output() {
         <div className="ac-pickrow">
           <label>Tình huống</label>
           <select value={packId} onChange={(e) => setPackId(e.target.value)}>
-            {PACKS.map((p) => <option key={p.id} value={p.id}>{p.emoji} {p.name}</option>)}
+            {PACKS.map((p) => <option key={p.id} value={p.id}>{p.name} · {p.cefr}</option>)}
           </select>
         </div>
       )}
@@ -119,7 +119,7 @@ export default function Output() {
           placeholder="Nói hoặc gõ đoạn 45–60 giây của bạn…"
           brief={
             <>
-              <b>{pack.emoji} {pack.scene.setting}</b>
+              <b>{pack.scene.setting}</b>
               <span>
                 Nói liền mạch 45–60 giây: mở đầu, một hai ý chính có ví dụ, rồi kết.
                 Đừng soạn sẵn trong đầu bằng tiếng Việt — cứ bắt đầu rồi sửa dần.

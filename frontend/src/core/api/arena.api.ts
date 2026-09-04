@@ -4,7 +4,6 @@ import { track } from '@/core/monitor'
 export interface TierInfo {
   id: number
   name: string
-  emoji: string
   color: string
 }
 

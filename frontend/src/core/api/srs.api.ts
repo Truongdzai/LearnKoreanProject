@@ -1,7 +1,7 @@
 import { apiClient, getToken } from './client'
 import { track } from '@/core/monitor'
 import { getLearnLang } from '@/core/lang'
-import { addGuestCard, clearGuestDeck, guestCardsAsSrs, readGuestDeck } from '@/core/guestDeck'
+import { addGuestCard, clearGuestDeck, guestCardsAsSrs, readGuestDeck, removeGuestCard } from '@/core/guestDeck'
 import type { SrsCard, DueResponse, SrsStats, SrsRating, AllCardsResponse } from '@/models/srs.model'
 
 export interface AddCardPayload {
@@ -60,6 +60,20 @@ export const reviewCard = (card_id: number, rating: SrsRating) =>
     track('srs_review', { rating, lang: card.lang })
     return card
   })
+
+export const deleteCard = (card: SrsCard): Promise<{ ok: boolean; deleted: number }> => {
+  if (!getToken() || card.id < 0) {
+    removeGuestCard(card.front, card.lang)
+    return Promise.resolve({ ok: true, deleted: 1 })
+  }
+  return apiClient.del<{ ok: boolean; deleted: number }>(`/api/srs/card/${card.id}`)
+}
+
+export const updateCard = (id: number, patch: { front: string; back: string; source: string }): Promise<SrsCard> =>
+  apiClient.put<SrsCard>(`/api/srs/card/${id}`, patch)
+
+export const deleteDeck = (source: string, lang?: string): Promise<{ ok: boolean; deleted: number }> =>
+  apiClient.post<{ ok: boolean; deleted: number }>('/api/srs/deck/delete', { source, lang: scope(lang) })
 
 export const fetchStats = (lang?: string): Promise<SrsStats> => {
   if (!getToken()) return Promise.resolve(guestStats(lang))

@@ -22,7 +22,7 @@ const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 export default function HomePage() {
   const {
     loadLesson, setView, videos, learnLang, goal, openOnboarding,
-    t, learnLangName, user, savedVideos,
+    t, learnLangName, user, savedVideos, todayXp,
   } = useAppStore()
 
   const langVideos = useMemo(
@@ -93,7 +93,8 @@ export default function HomePage() {
           </div>
           <div className="slip-week">
             {DAYS.map((d, i) => {
-              const on = i <= todayIdx && i >= todayIdx - user.streak + 1
+              const last = todayXp > 0 ? todayIdx : todayIdx - 1
+              const on = i <= last && i >= last - user.streak + 1
               return (
                 <div key={d} className={'stamp-box' + (on ? ' on' : '')}>
                   <span className="lbl">{d}</span>

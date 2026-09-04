@@ -61,7 +61,7 @@ export default function Gym() {
           <div className="ac-cfg">
             <label>Gói</label>
             <select value={packId} onChange={(e) => setPackId(e.target.value)}>
-              {PACKS.map((p) => <option key={p.id} value={p.id}>{p.emoji} {p.name}</option>)}
+              {PACKS.map((p) => <option key={p.id} value={p.id}>{p.name} · {p.cefr}</option>)}
             </select>
           </div>
         )}

@@ -12,12 +12,14 @@ import AddVocabModal from './AddVocabModal'
 import CreateTopicModal from './CreateTopicModal'
 import ImportVocabModal from './ImportVocabModal'
 import ContextPackModal from './ContextPackModal'
+import ManageCardsModal from './ManageCardsModal'
+import { askReviewDeck } from '@/core/reviewDeck'
 
 const TONES = ['tone-a', 'tone-b', 'tone-c', 'tone-d', 'tone-e', 'tone-f']
 
 interface MyTopic { name: string; count: number }
 
-type Modal = null | 'add' | 'topic' | 'import'
+type Modal = null | 'add' | 'topic' | 'import' | 'manage'
 
 const EMPTY_STATS: SrsStats = { total: 0, due: 0, new: 0, learned: 0, reviewed_today: 0 }
 
@@ -36,6 +38,11 @@ export default function VocabHomePage() {
   const showFlash = (msg: string) => {
     setFlash(msg)
     setTimeout(() => setFlash(''), 2600)
+  }
+
+  const openDeck = (name: string) => {
+    askReviewDeck(name)
+    setView('flashcards')
   }
 
   const reload = useCallback(async () => {
@@ -151,6 +158,7 @@ export default function VocabHomePage() {
           <button onClick={() => setModal('add')}><Icon name="plus" size={16} /> {t('vc.add')}</button>
           <button onClick={() => setModal('topic')}><Icon name="cards" size={16} /> {t('vc.topic')}</button>
           <button onClick={() => setModal('import')}><Icon name="upload" size={16} /> {t('vc.import')}</button>
+          <button onClick={() => setModal('manage')}><Icon name="tool" size={16} /> {t('vc.manage')}</button>
           <button disabled={exporting} onClick={exportVocab('word')}><Icon name="download" size={16} /> {t('vc.exportWord')}</button>
           <button disabled={exporting} onClick={exportVocab('pdf')}><Icon name="copy" size={16} /> {t('vc.exportPdf')}</button>
         </div>
@@ -169,7 +177,7 @@ export default function VocabHomePage() {
           <div className="section-title"><span className="pin" /> {t('vc.myTopics')}</div>
           <div className="deck-grid">
             {topics.map((tp, i) => (
-              <button key={tp.name} className="deck-card" onClick={() => setView('flashcards')}>
+              <button key={tp.name} className="deck-card" onClick={() => openDeck(tp.name)}>
                 <span className={'deck-thumb ' + TONES[i % TONES.length]}><Icon name="cards" size={22} /></span>
                 <span className="deck-body">
                   <b>{tp.name}</b>
@@ -227,6 +235,12 @@ export default function VocabHomePage() {
           topics={myTopics.map((tp) => tp.name)}
           onClose={() => setModal(null)}
           onImported={(n) => { reload(); showFlash(t('vc.importFlash', { n })) }}
+        />
+      )}
+      {modal === 'manage' && (
+        <ManageCardsModal
+          onClose={() => setModal(null)}
+          onChanged={() => { reload(); showFlash(t('vc.manageFlash')) }}
         />
       )}
       {openPack && (

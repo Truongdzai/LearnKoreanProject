@@ -151,7 +151,7 @@ export default function Scene({ pack, onGoDrill }: Props) {
     <div className="ac-scene">
       <div className="ac-scene-head">
         <div>
-          <span className="ac-scene-kicker">{pack.emoji} {pack.name} · {pack.cefr}</span>
+          <span className="ac-scene-kicker">{pack.name} · {pack.cefr}</span>
           <h3>{pack.scene.title}</h3>
           <p>{pack.scene.setting}</p>
         </div>

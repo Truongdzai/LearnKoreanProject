@@ -11,6 +11,7 @@ import RecordStudio from './pron/RecordStudio'
 import RhythmBoard from './pron/RhythmBoard'
 import StressBoard from './pron/StressBoard'
 import VoicingTest from './pron/VoicingTest'
+import { useUrlParam } from '@/core/hooks/useTabParam'
 
 interface Props {
   initialGroup?: string
@@ -39,7 +40,9 @@ export default function PronunciationLab({
 
   const { recordEvent } = useAppStore()
   const { pron, record } = usePronProgress(lang)
-  const [openId, setOpenId] = useState<string | null>(initialGroup ?? null)
+  const [openId, setOpenId] = useUrlParam(
+    'sound', initialGroup ?? null, (v) => groups.some((g) => g.id === v),
+  )
 
   const passed = groups.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
   const group = openId ? groups.find((g) => g.id === openId) ?? null : null
@@ -95,7 +98,7 @@ export default function PronunciationLab({
                 <span className="cap-tag">{g.sub}</span>
                 {ok && <Icon name="check-circle" size={15} />}
               </div>
-              <b><span className="pron-emoji">{g.emoji}</span> {g.title}</b>
+              <b>{g.title}</b>
               <small>{best != null ? `Tốt nhất: ${best}%` : 'Chưa luyện'}</small>
             </button>
           )
@@ -168,7 +171,7 @@ function GroupView({ group, lang, best, onDone, onBack }: ViewProps) {
         </button>
         <div>
           <div className="cap-tag">{group.sub}</div>
-          <h3>{group.emoji} {group.title}</h3>
+          <h3>{group.title}</h3>
         </div>
         {best != null && <span className={'cap-best' + (best >= PRON_PASS ? ' ok' : '')}>Tốt nhất: {best}%</span>}
       </div>
@@ -333,7 +336,7 @@ function EarTraining({ group }: { group: PronGroup }) {
           <b>{pct}%</b>
           <span>{score}/{qs.length}</span>
         </div>
-        <h3>{pct >= PRON_PASS ? '👂 Tai bạn đã phân biệt được cặp âm này!' : 'Nghe lại vài lần nữa rồi thử lại nhé'}</h3>
+        <h3>{pct >= PRON_PASS ? 'Tai bạn đã phân biệt được cặp âm này!' : 'Nghe lại vài lần nữa rồi thử lại nhé'}</h3>
         <p className="pron-ear-note">Nghe ra được thì mới đọc đúng được — luyện tai trước khi luyện miệng.</p>
         <div className="quiz-done-actions">
           <button className="btn-primary" onClick={restart}><Icon name="rocket" size={15} /> Nghe lại lượt mới</button>
@@ -380,7 +383,7 @@ function EarTraining({ group }: { group: PronGroup }) {
       </div>
       {picked && (
         <div className="quiz-foot">
-          <div className="quiz-ex">{picked === q.target ? '✅ Chính xác.' : `❌ Từ đúng là “${q.target}”.`} Nghe lại cả hai để so sánh:
+          <div className="quiz-ex">{picked === q.target ? 'Chính xác.' : `Từ đúng là “${q.target}”.`} Nghe lại cả hai để so sánh:
             <button className="pron-play inline" onClick={() => CTX.speak(first, 0.8)}>{first}</button>
             <button className="pron-play inline" onClick={() => CTX.speak(second, 0.8)}>{second}</button>
           </div>
@@ -446,7 +449,7 @@ function PronTest({ group, words, onDone }: { group: PronGroup; words: ReturnTyp
           <b>{pct}%</b>
           <span>{items.length} câu</span>
         </div>
-        <h3>{pct >= PRON_PASS ? '🎤 Nhóm âm này đạt rồi!' : 'Chưa đạt — đọc lại phần mẹo rồi thử lần nữa'}</h3>
+        <h3>{pct >= PRON_PASS ? 'Nhóm âm này đạt rồi!' : 'Chưa đạt — đọc lại phần mẹo rồi thử lần nữa'}</h3>
         <div className="quiz-done-actions">
           <button className="btn-primary" onClick={start}><Icon name="rocket" size={15} /> Kiểm tra lại</button>
         </div>

@@ -139,8 +139,8 @@ export default function GuideBook({ initialChapter }: { initialChapter?: string 
             <div className="tg-myths">
               {MISCONCEPTIONS.map((m) => (
                 <div key={m.wrong}>
-                  <p className="tgm-x">✗ {m.wrong}</p>
-                  <p className="tgm-v">✓ {m.right}</p>
+                  <p className="tgm-x"><Icon name="x" size={12} /> {m.wrong}</p>
+                  <p className="tgm-v"><Icon name="check" size={12} /> {m.right}</p>
                 </div>
               ))}
             </div>

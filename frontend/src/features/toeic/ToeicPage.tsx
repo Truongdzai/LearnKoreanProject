@@ -25,6 +25,7 @@ import TestLibrary from './components/TestLibrary'
 import SpeakingLab from './components/SpeakingLab'
 import WritingLab from './components/WritingLab'
 import GuideBook from './components/GuideBook'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'road' | 'grammar' | 'test' | 'speaking' | 'writing' | 'report' | 'wrongbook' | 'guide'
 
@@ -69,6 +70,38 @@ async function mediaReady(url: string): Promise<boolean> {
   }
 }
 
+async function prepareEts(test: number, parts: number[]): Promise<{ groups: EtsRunGroup[]; skippedP1: number }> {
+  const doc = await loadEtsTest(test)
+  const want = new Set(parts)
+  const listening = parts.some((p) => p <= 4) ? buildEtsListening(doc) : null
+  const reading = parts.some((p) => p >= 5) ? buildEtsReading(doc) : []
+  const groups = [...(listening?.groups ?? []), ...reading].filter((g) => want.has(g.part))
+  const probe = groups.find((g) => g.mp3?.length)?.mp3?.[0] ?? groups.find((g) => g.imgs?.length)?.imgs?.[0]
+  if (probe && !(await mediaReady(probe))) throw new Error(MEDIA_MISSING)
+  if (!groups.length) throw new Error('Đề này chưa có câu hỏi cho các phần bạn chọn.')
+  return { groups, skippedP1: want.has(1) ? listening?.skipped.part1 ?? 0 : 0 }
+}
+
+const EST_MIN_Q = 40
+
+function examLabel(s: Session): string {
+  if (s.kind === 'ets') {
+    const full = s.parts.length === 7
+    return `ETS 2026 · Test ${s.test}${full ? ' · FULL TEST' : ` · Part ${s.parts.join(', ')}`}`
+  }
+  if (s.kind === 'test') {
+    if (s.fixed != null) return `Đề số ${s.fixed + 1}`
+    return s.full ? 'Đề ngẫu nhiên 200 câu' : 'Thi thử rút gọn'
+  }
+  return 'Lượt luyện'
+}
+
+function estimateFor(res: RunResult) {
+  if (res.total < EST_MIN_Q) return undefined
+  if (res.totalL === 100 && res.totalR === 100) return estimateScoreFull(res.rawL, res.rawR)
+  return estimateScore(res.rawL, res.totalL, res.rawR, res.totalR)
+}
+
 export default function ToeicPage() {
   const { recordEvent, setView, t } = useAppStore()
   const { isAuthed, openAuth } = useAuth()
@@ -77,7 +110,7 @@ export default function ToeicPage() {
   const { learned } = useLearnedWords()
   const { activity, refresh } = useActivitySince(state.start)
 
-  const [tab, setTab] = useState<Tab>('road')
+  const [tab, setTab] = useTabParam<Tab>(TAB_IDS, 'road')
   const [capsuleId, setCapsuleId] = useState<string | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [nonce, setNonce] = useState(0)
@@ -119,24 +152,15 @@ export default function ToeicPage() {
     let alive = true
     setEtsGroups([])
     setEtsError(null)
-    loadEtsTest(session.test)
-      .then(async (doc) => {
-        if (!alive) return
-        const want = new Set(session.parts)
-        const listening = session.parts.some((p) => p <= 4) ? buildEtsListening(doc) : null
-        const reading = session.parts.some((p) => p >= 5) ? buildEtsReading(doc) : []
-        const all = [...(listening?.groups ?? []), ...reading].filter((g) => want.has(g.part))
-        const probe = all.find((g) => g.mp3?.length)?.mp3?.[0]
-          ?? all.find((g) => g.imgs?.length)?.imgs?.[0]
-        if (probe && !(await mediaReady(probe))) {
-          if (alive) setEtsError(MEDIA_MISSING)
-          return
-        }
+    prepareEts(session.test, session.parts)
+      .then(({ groups: all, skippedP1 }) => {
         if (!alive) return
         setEtsGroups(all)
-        setEtsSkippedP1(want.has(1) ? listening?.skipped.part1 ?? 0 : 0)
+        setEtsSkippedP1(skippedP1)
       })
-      .catch(() => { if (alive) setEtsError('Không tải được đề này. Thử lại sau nhé.') })
+      .catch((e: Error) => {
+        if (alive) setEtsError(e.message || 'Không tải được đề này. Thử lại sau nhé.')
+      })
     return () => { alive = false }
   }, [session])
 
@@ -144,6 +168,17 @@ export default function ToeicPage() {
     (s.kind === 'test' && (s.full || s.fixed != null)) || (s.kind === 'ets' && s.mode === 'exam')
 
   const startSession = async (s: Session) => {
+    if (s.kind === 'ets') {
+      setEtsError(null)
+      try {
+        await prepareEts(s.test, s.parts)
+      } catch (e) {
+        setEtsGroups([])
+        setEtsError((e as Error).message)
+        setSession(s)
+        return
+      }
+    }
     if (isFullExam(s)) {
       if (!isAuthed) {
         track('gate_hit', { gate: 'exam_full', authed: false })
@@ -198,11 +233,7 @@ export default function ToeicPage() {
 
   const onFinish = (res: RunResult) => {
     if (!session) return
-    const est = session.kind === 'test'
-      ? (session.full
-        ? estimateScoreFull(res.rawL, res.rawR)
-        : estimateScore(res.rawL, res.totalL, res.rawR, res.totalR))
-      : undefined
+    const est = session.kind === 'test' || session.kind === 'ets' ? estimateFor(res) : undefined
     recordAttempt({
       t: new Date().toISOString(),
       mode: session.kind === 'practice' ? 'practice' : session.kind === 'weak' ? 'weak' : session.kind === 'review' ? 'review' : 'test',
@@ -248,7 +279,7 @@ export default function ToeicPage() {
       <div className="toeic-page">
         {etsSkippedP1 > 0 && (
           <div className="tr-pace">
-            📸 {etsSkippedP1} câu Part 1 của đề này chưa có ảnh nên đã được bỏ ra khỏi lượt thi.
+            {etsSkippedP1} câu Part 1 của đề này chưa có ảnh nên đã được bỏ ra khỏi lượt thi.
           </div>
         )}
         <Runner
@@ -320,13 +351,13 @@ export default function ToeicPage() {
                   <b className={est.total >= TOEIC_TARGET ? 'hit' : ''}>{est.total}</b>
                   <span>/ 990 · mục tiêu {TOEIC_TARGET}+</span>
                 </div>
-                <div className="tr-score-card"><small>🎧 Listening</small><b>{est.listening}</b><span>{res.rawL}/{res.totalL} câu đúng</span></div>
-                <div className="tr-score-card"><small>📖 Reading</small><b>{est.reading}</b><span>{res.rawR}/{res.totalR} câu đúng</span></div>
+                <div className="tr-score-card"><small>Listening</small><b>{est.listening}</b><span>{res.rawL}/{res.totalL} câu đúng</span></div>
+                <div className="tr-score-card"><small>Reading</small><b>{est.reading}</b><span>{res.rawR}/{res.totalR} câu đúng</span></div>
               </div>
               <p className="toeic-disclaimer">
-                {result.session.kind === 'test' && result.session.full
-                  ? `${result.session.fixed != null ? `Đề số ${result.session.fixed + 1}` : 'Đề ngẫu nhiên'} · ${res.total} câu — quy đổi theo bảng neo sát bảng điểm thật (Nghe ${res.rawL}/100 · Đọc ${res.rawR}/100).${result.session.fixed != null ? ' Đề này cố định nên lần sau làm lại là so được điểm.' : ''}`
-                  : `Ước lượng từ đề rút gọn ${res.total} câu — chỉ mang tính tham khảo. Muốn số liệu sát nhất, làm FULL TEST 200 câu / 120 phút.`}
+                {res.totalL === 100 && res.totalR === 100
+                  ? `${examLabel(result.session)} · ${res.total} câu — quy đổi theo bảng neo sát bảng điểm thật (Nghe ${res.rawL}/100 · Đọc ${res.rawR}/100).${result.session.kind === 'test' && result.session.fixed != null ? ' Đề này cố định nên lần sau làm lại là so được điểm.' : ''}`
+                  : `${examLabel(result.session)} · ước lượng từ ${res.total} câu — chỉ mang tính tham khảo. Muốn số liệu sát nhất, làm FULL TEST 200 câu / 120 phút.`}
               </p>
             </>
           ) : (
@@ -336,19 +367,19 @@ export default function ToeicPage() {
             </div>
           )}
           <h3>
-            {pct >= 85 ? 'Xuất sắc! 🎉' : pct >= 65 ? 'Tốt lắm, tiếp tục giữ nhịp!' : 'Sai là cách não học — xem lại giải thích bên dưới nhé.'}
+            {pct >= 85 ? 'Xuất sắc! ' : pct >= 65 ? 'Tốt lắm, tiếp tục giữ nhịp!' : 'Sai là cách não học — xem lại giải thích bên dưới nhé.'}
           </h3>
 
           <p className="toeic-wb-note">
             {result.session.kind === 'ets'
-              ? '📓 Đề ETS chưa vào Sổ tay câu sai — bấm “Ôn lại từng câu” để xem transcript và giải thích.'
+              ? 'Đề ETS chưa vào Sổ tay câu sai — bấm “Ôn lại từng câu” để xem transcript và giải thích.'
               : result.session.kind === 'review'
               ? res.rightKeys.length > 0
-                ? `📓 Đã gạch ${res.rightKeys.length} câu khỏi sổ tay câu sai.`
-                : '📓 Chưa câu nào được gạch khỏi sổ — cứ luyện lại lần nữa nhé.'
+                ? `Đã gạch ${res.rightKeys.length} câu khỏi sổ tay câu sai.`
+                : 'Chưa câu nào được gạch khỏi sổ — cứ luyện lại lần nữa nhé.'
               : res.wrong.length > 0
-                ? `📓 ${res.wrong.length} câu sai đã được ghi vào Sổ tay câu sai để luyện lại sau.`
-                : '📓 Không có câu nào phải ghi vào sổ tay câu sai.'}
+                ? `${res.wrong.length} câu sai đã được ghi vào Sổ tay câu sai để luyện lại sau.`
+                : 'Không có câu nào phải ghi vào sổ tay câu sai.'}
           </p>
 
           {res.wrong.length > 0 && (
@@ -359,9 +390,9 @@ export default function ToeicPage() {
                   <small>Part {w.part}</small>
                   <p lang="en">{w.q}</p>
                   <p className="tw-picked">Bạn chọn: <span lang="en">{w.picked}</span> → Đúng: <b lang="en">{w.right}</b></p>
-                  {w.explain && <p className="tw-explain">💡 {w.explain}</p>}
+                  {w.explain && <p className="tw-explain"><Icon name="bulb" size={14} /> {w.explain}</p>}
                   {w.skill && SKILLS[w.skill] && (
-                    <p className="tw-tip">🎯 Mẹo dạng "{SKILLS[w.skill].vi}": {SKILLS[w.skill].advice}</p>
+                    <p className="tw-tip">Mẹo dạng "{SKILLS[w.skill].vi}": {SKILLS[w.skill].advice}</p>
                   )}
                 </div>
               ))}
@@ -408,8 +439,8 @@ export default function ToeicPage() {
           Mục tiêu {TOEIC_TARGET}+ điểm (Nghe – Đọc) · thêm Speaking và Writing theo thang 0–200
           {state.start ? ` · Ngày ${day}/60` : ' · Chưa bắt đầu'}
           {latestEstimate ? ` · Ước lượng gần nhất: ${latestEstimate.total} điểm` : ''}
-          {swDone ? ` · 🎤✍️ ${swDone} câu Speaking/Writing đã luyện` : ''}
-          {state.wrong.length ? ` · 📓 ${state.wrong.length} câu sai chờ ôn` : ''}
+          {swDone ? ` · ${swDone} câu Speaking/Writing đã luyện` : ''}
+          {state.wrong.length ? ` · ${state.wrong.length} câu sai chờ ôn` : ''}
           {due.length ? ` · ⏰ ${due.length} câu đến hạn ôn hôm nay` : ''}
         </div>
       </div>

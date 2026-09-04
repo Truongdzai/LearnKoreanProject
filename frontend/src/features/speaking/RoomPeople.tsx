@@ -29,27 +29,36 @@ interface Props {
 
 export default function RoomPeople({ call, members, meId, hostId, slots }: Props) {
   const { t } = useAppStore()
-  const phaseOf = (id: string) => call.peers.find((p) => p.id === id)?.phase
+  const peerOf = (id: string) => call.peers.find((p) => p.id === id)
+  const isMuted = (id: string) => (id === meId ? call.active && call.muted : !!peerOf(id)?.muted)
   const speaking = (id: string) => (
-    id === meId ? call.active && !call.muted && call.mySpeaking : !!call.peers.find((p) => p.id === id)?.speaking
+    id === meId ? call.active && !call.muted && call.mySpeaking : !!peerOf(id)?.speaking
   )
+
+  const label = (id: string, phase?: string) => {
+    if (isMuted(id)) return t('rm.muted')
+    if (phase === 'live') return t('rm.live')
+    if (phase === 'lost') return t('call.lost')
+    if (phase === 'connecting') return t('call.connecting')
+    return t('rm.silent')
+  }
 
   return (
     <div className="rm-people">
       {members.map((m) => {
-        const phase = m.id === meId ? (call.active ? 'live' : undefined) : phaseOf(m.id)
+        const phase = m.id === meId ? (call.active ? 'live' : undefined) : peerOf(m.id)?.phase
         return (
           <div key={m.id} className={'rm-person' + (speaking(m.id) ? ' talking' : '')}>
             <div className="rm-ava">
               <Avatar size={46} frame={m.frame} src={m.avatar} initials={m.name.charAt(0)} />
-              {m.id === hostId && <span className="rm-crown" title={t('room.host')}>👑</span>}
-              {m.id === meId && call.active && call.muted && (
+              {m.id === hostId && <span className="rm-crown" title={t('room.host')}><Icon name="crown" size={11} /></span>}
+              {isMuted(m.id) && (
                 <span className="rm-mutedot" title={t('call.mute')}><Icon name="mute" size={11} /></span>
               )}
             </div>
             <span className="rm-name">{m.id === meId ? t('call.you') : m.name}</span>
-            <span className={'rm-state ' + (phase || 'off')}>
-              {phase === 'live' ? t('rm.live') : phase === 'lost' ? t('call.lost') : phase === 'connecting' ? t('call.connecting') : t('rm.silent')}
+            <span className={'rm-state ' + (isMuted(m.id) ? 'off' : phase || 'off')}>
+              {label(m.id, phase)}
             </span>
           </div>
         )

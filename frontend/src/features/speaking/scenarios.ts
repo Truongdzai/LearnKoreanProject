@@ -5,10 +5,8 @@ import koLines from '@/data/korean/speaking/lines.json'
 export interface Scenario {
   id: string
   title: string
-  emoji: string
   character: string
   role: string
-  avatar: string
   situation: string
   persona: string
   tags?: string[]
@@ -20,86 +18,86 @@ export interface Scenario {
 function extraScenarios(character: (name: string) => string): Scenario[] {
   return [
     {
-      id: 'interview', title: 'Phỏng vấn xin việc', emoji: '💼',
-      character: character('interview'), role: 'Người phỏng vấn', avatar: '🤝', tags: ['work'],
+      id: 'interview', title: 'Phỏng vấn xin việc',
+      character: character('interview'), role: 'Người phỏng vấn', tags: ['work'],
       situation: 'Bạn tham gia buổi phỏng vấn xin việc và trả lời các câu hỏi của nhà tuyển dụng.',
       persona: 'Bạn là người phỏng vấn thân thiện nhưng chuyên nghiệp. Hãy mời ứng viên giới thiệu bản thân, hỏi về kinh nghiệm, điểm mạnh, lý do ứng tuyển, rồi kết thúc tích cực.',
     },
     {
-      id: 'hotel', title: 'Nhận phòng khách sạn', emoji: '🏨',
-      character: character('hotel'), role: 'Lễ tân khách sạn', avatar: '🛎️', tags: ['travel'],
+      id: 'hotel', title: 'Nhận phòng khách sạn',
+      character: character('hotel'), role: 'Lễ tân khách sạn', tags: ['travel'],
       situation: 'Bạn đến khách sạn đã đặt trước và làm thủ tục nhận phòng.',
       persona: 'Bạn là lễ tân khách sạn. Hãy xác nhận đặt phòng, xin hộ chiếu, giới thiệu giờ ăn sáng & wifi, rồi chúc khách nghỉ ngơi vui vẻ.',
     },
     {
-      id: 'coworker', title: 'Trò chuyện với đồng nghiệp', emoji: '👔',
-      character: character('coworker'), role: 'Đồng nghiệp cùng phòng', avatar: '💻', tags: ['work'],
+      id: 'coworker', title: 'Trò chuyện với đồng nghiệp',
+      character: character('coworker'), role: 'Đồng nghiệp cùng phòng', tags: ['work'],
       situation: 'Giờ nghỉ trưa, bạn trò chuyện thân mật với đồng nghiệp về công việc và cuối tuần.',
       persona: 'Bạn là đồng nghiệp vui tính. Hãy hỏi thăm dự án đang làm, than nhẹ về deadline, rủ ăn trưa và hỏi kế hoạch cuối tuần.',
     },
     {
-      id: 'airport', title: 'Ở sân bay & taxi', emoji: '🛫',
-      character: character('airport'), role: 'Nhân viên sân bay / tài xế', avatar: '🧳', tags: ['travel'],
+      id: 'airport', title: 'Ở sân bay & taxi',
+      character: character('airport'), role: 'Nhân viên sân bay / tài xế', tags: ['travel'],
       situation: 'Bạn làm thủ tục ở sân bay rồi bắt taxi về khách sạn.',
       persona: 'Bạn lần lượt đóng vai nhân viên check-in (hỏi hộ chiếu, hành lý, chỗ ngồi) rồi tài xế taxi (hỏi điểm đến, trò chuyện ngắn, báo giá).',
     },
     {
-      id: 'meeting', title: 'Họp nhóm & báo cáo tiến độ', emoji: '📊',
-      character: character('meeting'), role: 'Trưởng nhóm', avatar: '📊', tags: ['work'],
+      id: 'meeting', title: 'Họp nhóm & báo cáo tiến độ',
+      character: character('meeting'), role: 'Trưởng nhóm', tags: ['work'],
       situation: 'Cuộc họp đầu tuần: bạn báo cáo tiến độ công việc và nêu vướng mắc.',
       persona: 'Bạn là trưởng nhóm điều hành cuộc họp đầu tuần, nói ngắn gọn và chuyên nghiệp. Hãy hỏi tiến độ tuần qua, hỏi có gì đang cản trở, chốt trọng tâm tuần này rồi cảm ơn cả nhóm.',
     },
     {
-      id: 'phonecall', title: 'Gọi điện công việc', emoji: '📞',
-      character: character('phonecall'), role: 'Đối tác qua điện thoại', avatar: '📞', tags: ['work'],
+      id: 'phonecall', title: 'Gọi điện công việc',
+      character: character('phonecall'), role: 'Đối tác qua điện thoại', tags: ['work'],
       situation: 'Bạn gọi điện cho đối tác để xác nhận lịch hẹn — nghe không nhìn được khẩu hình nên khó hơn nói trực tiếp.',
       persona: 'Bạn nghe điện thoại công việc. Hãy chào theo kiểu điện thoại công sở, xác nhận người gọi là ai, có lúc xin nhắc lại vì đường dây không rõ, thống nhất lịch hẹn rồi chốt lại và chào tạm biệt.',
     },
     {
-      id: 'presentation', title: 'Thuyết trình & hỏi đáp', emoji: '🎤',
-      character: character('presentation'), role: 'Người nghe thuyết trình', avatar: '🎤', tags: ['work'],
+      id: 'presentation', title: 'Thuyết trình & hỏi đáp',
+      character: character('presentation'), role: 'Người nghe thuyết trình', tags: ['work'],
       situation: 'Bạn trình bày ngắn về kế hoạch của mình rồi trả lời câu hỏi của người nghe.',
       persona: 'Bạn là khán giả trong buổi thuyết trình. Hãy mời người học bắt đầu, lắng nghe rồi đặt 2–3 câu hỏi làm rõ (con số, thời gian, chi phí), cuối cùng khen phần trình bày.',
     },
     {
-      id: 'customer', title: 'Xử lý khiếu nại khách hàng', emoji: '🛟',
-      character: character('customer'), role: 'Khách hàng đang bực', avatar: '🛟', tags: ['work'],
+      id: 'customer', title: 'Xử lý khiếu nại khách hàng',
+      character: character('customer'), role: 'Khách hàng đang bực', tags: ['work'],
       situation: 'Một khách hàng phàn nàn vì đơn hàng giao muộn — bạn xin lỗi và đưa ra hướng xử lý.',
       persona: 'Bạn là khách hàng đang khó chịu vì đơn hàng giao muộn. Hãy nêu vấn đề, hỏi bao giờ nhận được, đòi giải pháp; khi người học xin lỗi và đưa hướng xử lý hợp lý thì nguôi giận và cảm ơn.',
     },
     {
-      id: 'boss', title: 'Trao đổi với sếp', emoji: '🧑‍💼',
-      character: character('boss'), role: 'Quản lý trực tiếp', avatar: '🧑‍💼', tags: ['work'],
+      id: 'boss', title: 'Trao đổi với sếp',
+      character: character('boss'), role: 'Quản lý trực tiếp', tags: ['work'],
       situation: 'Bạn gặp riêng quản lý để xin nghỉ phép hoặc xin thêm thời gian cho dự án.',
       persona: 'Bạn là quản lý trực tiếp, nghiêm túc nhưng thấu hiểu. Hãy hỏi người học cần gì, hỏi lý do và ảnh hưởng tới tiến độ, đề nghị phương án rồi chốt lại.',
     },
     {
-      id: 'networking', title: 'Làm quen ở sự kiện nghề nghiệp', emoji: '🥂',
-      character: character('networking'), role: 'Người dự hội thảo', avatar: '🥂', tags: ['work', 'talk'],
+      id: 'networking', title: 'Làm quen ở sự kiện nghề nghiệp',
+      character: character('networking'), role: 'Người dự hội thảo', tags: ['work', 'talk'],
       situation: 'Giờ giải lao một hội thảo, bạn bắt chuyện với người tham dự khác.',
       persona: 'Bạn là một người dự hội thảo cởi mở. Hãy bắt chuyện tự nhiên, hỏi họ làm nghề gì và ở công ty nào, hỏi cảm nhận về hội thảo, rồi đề nghị giữ liên lạc.',
     },
     {
-      id: 'bank', title: 'Ngân hàng & giấy tờ', emoji: '🏦',
-      character: character('bank'), role: 'Giao dịch viên ngân hàng', avatar: '🏦', tags: ['talk', 'travel'],
+      id: 'bank', title: 'Ngân hàng & giấy tờ',
+      character: character('bank'), role: 'Giao dịch viên ngân hàng', tags: ['talk', 'travel'],
       situation: 'Bạn đến ngân hàng để mở tài khoản hoặc đổi tiền.',
       persona: 'Bạn là giao dịch viên ngân hàng. Hãy hỏi khách cần gì, yêu cầu giấy tờ tuỳ thân, giải thích phí và thời gian chờ, rồi hướng dẫn khách ký giấy tờ.',
     },
     {
-      id: 'rent', title: 'Thuê nhà & gọi thợ sửa', emoji: '🔧',
-      character: character('rent'), role: 'Chủ nhà', avatar: '🏠', tags: ['talk'],
+      id: 'rent', title: 'Thuê nhà & gọi thợ sửa',
+      character: character('rent'), role: 'Chủ nhà', tags: ['talk'],
       situation: 'Đồ trong phòng trọ bị hỏng, bạn gọi chủ nhà để báo và hẹn thợ đến sửa.',
       persona: 'Bạn là chủ nhà thân thiện. Hãy hỏi hỏng cái gì, hỏng từ khi nào, xin lỗi vì bất tiện, hẹn ngày giờ thợ tới rồi xác nhận lại.',
     },
     {
-      id: 'pharmacy', title: 'Ở hiệu thuốc', emoji: '💊',
-      character: character('pharmacy'), role: 'Dược sĩ', avatar: '💊', tags: ['travel', 'talk'],
+      id: 'pharmacy', title: 'Ở hiệu thuốc',
+      character: character('pharmacy'), role: 'Dược sĩ', tags: ['travel', 'talk'],
       situation: 'Bạn bị ốm khi đang ở nước ngoài và vào hiệu thuốc mua thuốc.',
       persona: 'Bạn là dược sĩ. Hãy hỏi triệu chứng, hỏi có sốt không, hỏi có dị ứng thuốc nào không, giới thiệu thuốc phù hợp kèm liều dùng rồi chúc mau khỏe.',
     },
     {
-      id: 'emergency', title: 'Tình huống khẩn cấp', emoji: '🚨',
-      character: character('emergency'), role: 'Tổng đài khẩn cấp', avatar: '🚨', tags: ['travel', 'talk'],
+      id: 'emergency', title: 'Tình huống khẩn cấp',
+      character: character('emergency'), role: 'Tổng đài khẩn cấp', tags: ['travel', 'talk'],
       situation: 'Bạn gặp sự cố khi ở nước ngoài và gọi tổng đài khẩn cấp nhờ trợ giúp.',
       persona: 'Bạn là nhân viên tổng đài khẩn cấp, bình tĩnh và rõ ràng. Hãy hỏi chuyện gì xảy ra, hỏi vị trí chính xác, hỏi có ai bị thương không, trấn an và báo đã cử người tới.',
     },
@@ -108,8 +106,8 @@ function extraScenarios(character: (name: string) => string): Scenario[] {
 
 const KO_SCENARIOS: Scenario[] = [
   {
-    id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: '지우', role: 'Người bạn Hàn Quốc', avatar: '🧑', tags: ['talk'],
+    id: 'greet', title: 'Chào hỏi & làm quen',
+    character: '지우', role: 'Người bạn Hàn Quốc', tags: ['talk'],
     situation: 'Bạn gặp một người bạn Hàn Quốc lần đầu và làm quen.',
     persona: 'Bạn là 지우, một người Hàn Quốc trẻ, thân thiện, đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học tiếng Hàn rồi động viên họ.',
     opener: { ko: '안녕하세요! 만나서 반갑습니다. 이름이 뭐예요?', vi: 'Xin chào! Rất vui được gặp. Bạn tên gì?' },
@@ -128,8 +126,8 @@ const KO_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: '지우', role: 'Lễ tân phòng khám 햇살 내과', avatar: '🩺', tags: ['talk'],
+    id: 'clinic', title: 'Đặt lịch khám bệnh',
+    character: '지우', role: 'Lễ tân phòng khám 햇살 내과', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám nội khoa để đặt lịch khám.',
     persona: 'Bạn là 지우, lễ tân phòng khám nội khoa 햇살 내과. Hãy hỏi triệu chứng, sắp xếp giờ hẹn, rồi xin tên và số điện thoại của bệnh nhân.',
     opener: { ko: '안녕하세요. 햇살 내과입니다. 오늘 진료 예약 때문에 전화하셨나요?', vi: 'Xin chào. Đây là phòng khám nội khoa Haetsal. Bạn gọi điện để đặt lịch khám hôm nay phải không?' },
@@ -152,8 +150,8 @@ const KO_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: '민준', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
+    id: 'cafe', title: 'Gọi món ở quán cà phê',
+    character: '민준', role: 'Nhân viên quán cà phê', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là 민준, nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/lạnh, hỏi cỡ ly rồi báo khách đợi.',
     opener: { ko: '어서 오세요! 무엇을 드릴까요?', vi: 'Mời vào! Bạn muốn dùng gì ạ?' },
@@ -172,8 +170,8 @@ const KO_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍜',
-    character: '서연', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
+    id: 'restaurant', title: 'Ăn ở nhà hàng',
+    character: '서연', role: 'Nhân viên nhà hàng', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng Hàn Quốc và gọi món ăn.',
     persona: 'Bạn là 서연, nhân viên nhà hàng Hàn Quốc. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
     opener: { ko: '어서 오세요! 몇 분이세요?', vi: 'Mời vào! Quý khách mấy người ạ?' },
@@ -192,8 +190,8 @@ const KO_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: '하준', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
+    id: 'shopping', title: 'Mua sắm',
+    character: '하준', role: 'Nhân viên cửa hàng', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là 하준, nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
     opener: { ko: '어서 오세요! 무엇을 찾으세요?', vi: 'Mời vào! Bạn tìm gì ạ?' },
@@ -212,8 +210,8 @@ const KO_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: '행인', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
+    id: 'direction', title: 'Hỏi đường',
+    character: '행인', role: 'Người qua đường', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng ở Hàn Quốc. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
     opener: { ko: '저기요, 무엇을 찾으세요?', vi: 'Xin lỗi, bạn đang tìm gì vậy?' },
@@ -234,8 +232,8 @@ const KO_SCENARIOS: Scenario[] = [
 
 const EN_SCENARIOS: Scenario[] = [
   {
-    id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: 'Emma', role: 'Người bạn nói tiếng Anh', avatar: '🧑', tags: ['talk'],
+    id: 'greet', title: 'Chào hỏi & làm quen',
+    character: 'Emma', role: 'Người bạn nói tiếng Anh', tags: ['talk'],
     situation: 'Bạn gặp một người bạn nói tiếng Anh lần đầu và làm quen.',
     persona: 'Bạn là Emma, một người trẻ thân thiện đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học tiếng Anh rồi động viên họ.',
     opener: { ko: "Hi! Nice to meet you. What's your name?", vi: 'Chào! Rất vui được gặp bạn. Bạn tên gì?' },
@@ -254,8 +252,8 @@ const EN_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: 'Jack', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
+    id: 'cafe', title: 'Gọi món ở quán cà phê',
+    character: 'Jack', role: 'Nhân viên quán cà phê', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là Jack, nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/đá, hỏi cỡ ly rồi báo khách đợi.',
     opener: { ko: 'Hi there! What can I get for you?', vi: 'Chào bạn! Bạn muốn dùng gì ạ?' },
@@ -274,8 +272,8 @@ const EN_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍽️',
-    character: 'Olivia', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
+    id: 'restaurant', title: 'Ăn ở nhà hàng',
+    character: 'Olivia', role: 'Nhân viên nhà hàng', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng và gọi món ăn.',
     persona: 'Bạn là Olivia, nhân viên nhà hàng. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
     opener: { ko: 'Welcome! How many people?', vi: 'Mời vào! Quý khách mấy người ạ?' },
@@ -294,8 +292,8 @@ const EN_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: 'Liam', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
+    id: 'shopping', title: 'Mua sắm',
+    character: 'Liam', role: 'Nhân viên cửa hàng', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là Liam, nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
     opener: { ko: 'Hi! Are you looking for anything in particular?', vi: 'Chào bạn! Bạn đang tìm gì ạ?' },
@@ -314,8 +312,8 @@ const EN_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: 'Passerby', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
+    id: 'direction', title: 'Hỏi đường',
+    character: 'Passerby', role: 'Người qua đường', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
     opener: { ko: 'Excuse me, are you looking for something?', vi: 'Xin lỗi, bạn đang tìm gì vậy?' },
@@ -333,8 +331,8 @@ const EN_SCENARIOS: Scenario[] = [
     },
   },
   {
-    id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: 'Sophia', role: 'Lễ tân phòng khám Sunshine', avatar: '🩺', tags: ['talk'],
+    id: 'clinic', title: 'Đặt lịch khám bệnh',
+    character: 'Sophia', role: 'Lễ tân phòng khám Sunshine', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám để đặt lịch khám.',
     persona: 'Bạn là Sophia, lễ tân phòng khám Sunshine. Hãy hỏi triệu chứng, sắp xếp giờ hẹn rồi xin tên và số điện thoại của bệnh nhân.',
     opener: { ko: 'Hello, Sunshine Clinic. Are you calling to book an appointment?', vi: 'Xin chào, phòng khám Sunshine. Bạn gọi để đặt lịch khám ạ?' },
@@ -356,38 +354,38 @@ const EN_SCENARIOS: Scenario[] = [
 
 const GENERIC_SCENARIOS: Scenario[] = [
   {
-    id: 'greet', title: 'Chào hỏi & làm quen', emoji: '👋',
-    character: 'Alex', role: 'Người bạn bản xứ', avatar: '🧑', tags: ['talk'],
+    id: 'greet', title: 'Chào hỏi & làm quen',
+    character: 'Alex', role: 'Người bạn bản xứ', tags: ['talk'],
     situation: 'Bạn gặp một người bạn bản xứ lần đầu và làm quen.',
     persona: 'Bạn là một người bản xứ trẻ, thân thiện đang làm quen với người học. Hãy hỏi tên, quê quán, lý do học ngoại ngữ rồi động viên họ.',
   },
   {
-    id: 'cafe', title: 'Gọi món ở quán cà phê', emoji: '☕',
-    character: 'Sam', role: 'Nhân viên quán cà phê', avatar: '☕', tags: ['talk', 'travel'],
+    id: 'cafe', title: 'Gọi món ở quán cà phê',
+    character: 'Sam', role: 'Nhân viên quán cà phê', tags: ['talk', 'travel'],
     situation: 'Bạn vào quán cà phê và gọi đồ uống.',
     persona: 'Bạn là nhân viên một quán cà phê. Hãy nhận order, hỏi nóng/đá, hỏi cỡ ly rồi báo khách đợi.',
   },
   {
-    id: 'restaurant', title: 'Ăn ở nhà hàng', emoji: '🍽️',
-    character: 'Mia', role: 'Nhân viên nhà hàng', avatar: '🍽️', tags: ['talk', 'travel'],
+    id: 'restaurant', title: 'Ăn ở nhà hàng',
+    character: 'Mia', role: 'Nhân viên nhà hàng', tags: ['talk', 'travel'],
     situation: 'Bạn vào một nhà hàng và gọi món ăn.',
     persona: 'Bạn là nhân viên nhà hàng. Hãy hỏi số người, mời thực đơn, nhận order rồi chúc khách ngon miệng.',
   },
   {
-    id: 'shopping', title: 'Mua sắm', emoji: '🛍️',
-    character: 'Leo', role: 'Nhân viên cửa hàng', avatar: '🛍️', tags: ['travel', 'talk'],
+    id: 'shopping', title: 'Mua sắm',
+    character: 'Leo', role: 'Nhân viên cửa hàng', tags: ['travel', 'talk'],
     situation: 'Bạn vào cửa hàng quần áo và muốn mua đồ.',
     persona: 'Bạn là nhân viên cửa hàng quần áo. Hãy giới thiệu sản phẩm, hỏi cỡ, mời khách thử đồ và báo giá.',
   },
   {
-    id: 'direction', title: 'Hỏi đường', emoji: '🧭',
-    character: 'Jamie', role: 'Người qua đường', avatar: '🧭', tags: ['travel'],
+    id: 'direction', title: 'Hỏi đường',
+    character: 'Jamie', role: 'Người qua đường', tags: ['travel'],
     situation: 'Bạn bị lạc và hỏi đường một người qua đường.',
     persona: 'Bạn là một người qua đường tốt bụng. Hãy chỉ đường, cho biết khoảng cách/thời gian rồi chào tạm biệt thân thiện.',
   },
   {
-    id: 'clinic', title: 'Đặt lịch khám bệnh', emoji: '🏥',
-    character: 'Robin', role: 'Lễ tân phòng khám', avatar: '🩺', tags: ['talk'],
+    id: 'clinic', title: 'Đặt lịch khám bệnh',
+    character: 'Robin', role: 'Lễ tân phòng khám', tags: ['talk'],
     situation: 'Bạn gọi điện đến phòng khám để đặt lịch khám.',
     persona: 'Bạn là lễ tân phòng khám. Hãy hỏi triệu chứng, sắp xếp giờ hẹn rồi xin tên và số điện thoại của bệnh nhân.',
   },
@@ -438,25 +436,25 @@ export function scenariosFor(lang: string): Scenario[] {
 }
 
 
-const RANDOM_TOPICS: { emoji: string; topic: string; hint: string }[] = [
-  { emoji: '🌦️', topic: 'thời tiết hôm nay', hint: 'Hỏi cảm nhận về thời tiết, gợi ý hoạt động phù hợp với trời hôm nay.' },
-  { emoji: '🍜', topic: 'món ăn yêu thích', hint: 'Hỏi món ăn người học thích nhất, tả món bạn thích, rủ đi ăn thử.' },
-  { emoji: '🎬', topic: 'phim & series đang xem', hint: 'Hỏi phim gần đây họ xem, kể một phim bạn mê, tranh luận nhẹ nhàng thể loại hay nhất.' },
-  { emoji: '🎵', topic: 'âm nhạc & ca sĩ yêu thích', hint: 'Hỏi gu nhạc, ca sĩ yêu thích, concert trong mơ.' },
-  { emoji: '✈️', topic: 'nơi muốn du lịch nhất', hint: 'Hỏi nơi họ mơ ước đến, kể nơi bạn từng đi, lên kế hoạch chuyến đi tưởng tượng.' },
-  { emoji: '📅', topic: 'kế hoạch cuối tuần', hint: 'Hỏi cuối tuần này làm gì, gợi ý hoạt động thú vị, hẹn gặp thử.' },
-  { emoji: '🐶', topic: 'thú cưng', hint: 'Hỏi họ có nuôi thú cưng không, kể về thú cưng của bạn, tranh luận vui chó hay mèo.' },
-  { emoji: '💪', topic: 'thể thao & vận động', hint: 'Hỏi môn thể thao họ chơi/xem, thói quen tập luyện, rủ tập cùng.' },
-  { emoji: '📚', topic: 'sách & thói quen đọc', hint: 'Hỏi cuốn sách gần đây, thể loại yêu thích, xin gợi ý một cuốn.' },
-  { emoji: '☕', topic: 'cà phê hay trà', hint: 'Tranh luận vui cà phê vs trà, hỏi quán ruột, mô tả đồ uống yêu thích.' },
-  { emoji: '💼', topic: 'công việc & một ngày điển hình', hint: 'Hỏi công việc/ngành học, một ngày điển hình, điều thích nhất trong việc đang làm.' },
-  { emoji: '🎮', topic: 'game & giải trí', hint: 'Hỏi có chơi game không, game/ứng dụng đang nghiện, thời gian màn hình.' },
-  { emoji: '🌟', topic: 'ước mơ & mục tiêu năm nay', hint: 'Hỏi mục tiêu năm nay, ước mơ lớn nhất, động viên nhau.' },
-  { emoji: '👨‍🍳', topic: 'nấu ăn', hint: 'Hỏi họ có hay nấu ăn không, món tủ, thảm hoạ bếp núc từng gặp.' },
-  { emoji: '🛍️', topic: 'mua sắm & món đồ mới', hint: 'Hỏi món đồ mua gần đây, thích mua online hay tại cửa hàng.' },
-  { emoji: '🌙', topic: 'thói quen buổi sáng & buổi tối', hint: 'Hỏi họ là cú đêm hay chim sớm, thói quen trước khi ngủ/dậy sớm.' },
-  { emoji: '📱', topic: 'mạng xã hội & điện thoại', hint: 'Hỏi app dùng nhiều nhất, chuyện vui trên mạng gần đây.' },
-  { emoji: '🎉', topic: 'ngày lễ & kỷ niệm đáng nhớ', hint: 'Hỏi ngày lễ yêu thích, kỷ niệm vui nhất từng có.' },
+const RANDOM_TOPICS: { topic: string; hint: string }[] = [
+  { topic: 'thời tiết hôm nay', hint: 'Hỏi cảm nhận về thời tiết, gợi ý hoạt động phù hợp với trời hôm nay.' },
+  { topic: 'món ăn yêu thích', hint: 'Hỏi món ăn người học thích nhất, tả món bạn thích, rủ đi ăn thử.' },
+  { topic: 'phim & series đang xem', hint: 'Hỏi phim gần đây họ xem, kể một phim bạn mê, tranh luận nhẹ nhàng thể loại hay nhất.' },
+  { topic: 'âm nhạc & ca sĩ yêu thích', hint: 'Hỏi gu nhạc, ca sĩ yêu thích, concert trong mơ.' },
+  { topic: 'nơi muốn du lịch nhất', hint: 'Hỏi nơi họ mơ ước đến, kể nơi bạn từng đi, lên kế hoạch chuyến đi tưởng tượng.' },
+  { topic: 'kế hoạch cuối tuần', hint: 'Hỏi cuối tuần này làm gì, gợi ý hoạt động thú vị, hẹn gặp thử.' },
+  { topic: 'thú cưng', hint: 'Hỏi họ có nuôi thú cưng không, kể về thú cưng của bạn, tranh luận vui chó hay mèo.' },
+  { topic: 'thể thao & vận động', hint: 'Hỏi môn thể thao họ chơi/xem, thói quen tập luyện, rủ tập cùng.' },
+  { topic: 'sách & thói quen đọc', hint: 'Hỏi cuốn sách gần đây, thể loại yêu thích, xin gợi ý một cuốn.' },
+  { topic: 'cà phê hay trà', hint: 'Tranh luận vui cà phê vs trà, hỏi quán ruột, mô tả đồ uống yêu thích.' },
+  { topic: 'công việc & một ngày điển hình', hint: 'Hỏi công việc/ngành học, một ngày điển hình, điều thích nhất trong việc đang làm.' },
+  { topic: 'game & giải trí', hint: 'Hỏi có chơi game không, game/ứng dụng đang nghiện, thời gian màn hình.' },
+  { topic: 'ước mơ & mục tiêu năm nay', hint: 'Hỏi mục tiêu năm nay, ước mơ lớn nhất, động viên nhau.' },
+  { topic: 'nấu ăn', hint: 'Hỏi họ có hay nấu ăn không, món tủ, thảm hoạ bếp núc từng gặp.' },
+  { topic: 'mua sắm & món đồ mới', hint: 'Hỏi món đồ mua gần đây, thích mua online hay tại cửa hàng.' },
+  { topic: 'thói quen buổi sáng & buổi tối', hint: 'Hỏi họ là cú đêm hay chim sớm, thói quen trước khi ngủ/dậy sớm.' },
+  { topic: 'mạng xã hội & điện thoại', hint: 'Hỏi app dùng nhiều nhất, chuyện vui trên mạng gần đây.' },
+  { topic: 'ngày lễ & kỷ niệm đáng nhớ', hint: 'Hỏi ngày lễ yêu thích, kỷ niệm vui nhất từng có.' },
 ]
 
 const RANDOM_CHARACTERS: Record<string, string[]> = {
@@ -478,10 +476,9 @@ export function randomScenario(lang: string): Scenario {
   return {
     id: 'random-' + Date.now(),
     title: `Tán gẫu: ${t.topic}`,
-    emoji: t.emoji,
     character: name,
     role: `Tán gẫu: ${t.topic}`,
-    avatar: '🎲',
+   
     tags: ['talk'],
     situation: `Hai người bạn tán gẫu tự nhiên về ${t.topic}.`,
     persona: `Bạn là ${name}, một người bạn bản xứ vui tính đang tán gẫu với người học. Đề tài hôm nay: ${t.topic}. ${t.hint} Nói câu ngắn, tự nhiên như bạn bè, thỉnh thoảng hỏi ngược lại để người học nói nhiều hơn.`,

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react'
 import { wTerm } from '@/data/vocabCore'
 import type { VocabUnit, WeekPlan, WeekTask } from '@/data/englishCore'
 import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
@@ -27,7 +27,7 @@ function normalizePlan(raw: unknown): PlanState {
   return { start: p.start ?? null, manual: p.manual ?? [], quiz: p.quiz ?? {}, rewarded: p.rewarded ?? [] }
 }
 
-export function readPlan(lang = 'en'): PlanState {
+function loadPlan(lang: string): PlanState {
   try {
     const raw = localStorage.getItem(planKey(lang))
     return normalizePlan(raw ? JSON.parse(raw) : null)
@@ -36,11 +36,26 @@ export function readPlan(lang = 'en'): PlanState {
   }
 }
 
+const planSnapshots: Record<string, PlanState> = {}
+const planListeners = new Set<() => void>()
+
+export function readPlan(lang = 'en'): PlanState {
+  if (!planSnapshots[lang]) planSnapshots[lang] = loadPlan(lang)
+  return planSnapshots[lang]
+}
+
+function subscribePlan(fn: () => void): () => void {
+  planListeners.add(fn)
+  return () => { planListeners.delete(fn) }
+}
+
 function writePlan(p: PlanState, lang: string): void {
+  planSnapshots[lang] = p
   try {
     localStorage.setItem(planKey(lang), JSON.stringify(p))
   } catch {
   }
+  planListeners.forEach((fn) => fn())
 }
 
 const planPushTimers: Record<string, number | undefined> = {}
@@ -82,16 +97,16 @@ export function planWeek(start: string | null): number {
 }
 
 export function recordWeekQuiz(week: number, pct: number, lang = 'en'): void {
-  const p = readPlan(lang)
+  const prev = readPlan(lang)
   const key = `w${week}`
-  p.quiz[key] = Math.max(p.quiz[key] ?? 0, pct)
-  writePlan(p, lang)
-  pushPlanToServer(p, lang)
+  const next: PlanState = { ...prev, quiz: { ...prev.quiz, [key]: Math.max(prev.quiz[key] ?? 0, pct) } }
+  writePlan(next, lang)
+  pushPlanToServer(next, lang)
   track('week_quiz', { lang, week, pct })
 }
 
 export function usePlan(lang = 'en') {
-  const [plan, setPlan] = useState<PlanState>(() => readPlan(lang))
+  const plan = useSyncExternalStore(subscribePlan, () => readPlan(lang))
 
   useEffect(() => {
     if (!getToken()) return
@@ -103,7 +118,6 @@ export function usePlan(lang = 'en') {
         if (r.data != null) {
           const merged = mergePlan(normalizePlan(r.data), local)
           writePlan(merged, lang)
-          setPlan(merged)
           pushPlanToServer(merged, lang)
         } else if (local.start || local.manual.length || Object.keys(local.quiz).length) {
           savePlanApi(planId(lang), local).catch(() => {  })
@@ -114,12 +128,9 @@ export function usePlan(lang = 'en') {
   }, [lang])
 
   const mutate = useCallback((fn: (p: PlanState) => PlanState) => {
-    setPlan((prev) => {
-      const next = fn(prev)
-      writePlan(next, lang)
-      pushPlanToServer(next, lang)
-      return next
-    })
+    const next = fn(readPlan(lang))
+    writePlan(next, lang)
+    pushPlanToServer(next, lang)
   }, [lang])
 
   const startPlan = useCallback(() => {
@@ -251,7 +262,7 @@ export interface WeekSchedule {
 }
 
 const LEARN_KINDS: WeekTask['kind'][] = ['vocab', 'grammar', 'pron', 'video', 'speak', 'custom']
-const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic', 'deep']
+const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic', 'deep', 'active']
 
 const DAY_THEME: Partial<Record<WeekTask['kind'], string>> = {
   vocab: 'Học từ vựng',
@@ -398,6 +409,7 @@ export interface TaskExtra {
   pronGroups?: PronGroup[]
   grammarLessons?: GrammarLesson[]
   deepFull?: number
+  activeAuto?: number
 }
 
 export function taskDone(
@@ -414,6 +426,7 @@ export function taskDone(
     return t.n ? b.days >= t.n : b.started
   }
   if (t.kind === 'deep') return (ext?.deepFull ?? 0) >= (t.n ?? 1)
+  if (t.kind === 'active') return (ext?.activeAuto ?? 0) >= (t.n ?? 1)
   if (t.kind === 'video' && act && t.n && act.videos >= t.n) return true
   if (t.kind === 'review' && act && t.n && act.reviewDays >= t.n) return true
   return plan.manual.includes(t.id)

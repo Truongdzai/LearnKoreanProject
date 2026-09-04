@@ -51,11 +51,11 @@ export class ErrorBoundary extends Component<Props, State> {
             <p className="muted">{this.state.message}</p>
             <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 }}>
               {scoped && (
-                <button className="btn-new" onClick={this.retry}>
+                <button className="btn-primary sm" onClick={this.retry}>
                   Thử lại
                 </button>
               )}
-              <button className="btn-new" onClick={() => location.reload()}>
+              <button className="btn-ghost sm" onClick={() => location.reload()}>
                 Tải lại trang
               </button>
             </div>

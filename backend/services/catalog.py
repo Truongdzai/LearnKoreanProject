@@ -155,13 +155,16 @@ def dur_seconds(dur: str) -> int:
     return total
 
 DEFAULT_QUESTS = [
-    ("q1", "Luyện phát âm 20 câu", "Thực hành phát âm với 20 câu", "daily", "pronounce", 50, 20, 1),
-    ("q2", "Hoàn thành 5 bài học", "Hoàn thành 5 bài học trong ngày", "daily", "lesson", 100, 5, 1),
-    ("q3", "Ôn 30 thẻ từ vựng", "Ôn tập 30 flashcard hôm nay", "daily", "review", 40, 30, 0),
-    ("q4", "Dịch 1 video YouTube", "Dán link và tạo bài học từ video", "daily", "video", 30, 1, 0),
-    ("q5", "Giữ chuỗi học 7 ngày", "Học liên tục 7 ngày trong tuần", "weekly", "streak", 250, 7, 0),
-    ("q6", "Học 50 từ mới", "Thêm 50 từ vựng mới trong tuần", "weekly", "word", 200, 50, 0),
-    ("q7", "Đăng nhập 10 ngày", "Nhiệm vụ đặc biệt cho Plus — đăng nhập 10 ngày trong tháng", "monthly", "login", 500, 10, 1),
+    ("q3", "Ôn 30 thẻ từ vựng", "Ôn tập 30 flashcard hôm nay", "daily", "review", 40, 2, 30, 0),
+    ("q4", "Dịch 1 video YouTube", "Dán link và tạo bài học từ video", "daily", "video", 30, 2, 1, 0),
+    ("q8", "Học 10 từ mới hôm nay", "Đánh dấu thuộc 10 từ trong ngày", "daily", "word", 25, 1, 10, 0),
+    ("q9", "Xong 1 bài ngữ pháp", "Luyện đạt một bài ngữ pháp bất kỳ", "daily", "grammar", 30, 1, 1, 0),
+    ("q1", "Luyện phát âm 20 câu", "Thực hành phát âm với 20 câu", "daily", "pronounce", 50, 2, 20, 1),
+    ("q2", "Hoàn thành 5 bài học", "Hoàn thành 5 bài học trong ngày", "daily", "lesson", 100, 3, 5, 1),
+    ("q6", "Học 50 từ mới", "Thêm 50 từ vựng mới trong tuần", "weekly", "word", 200, 6, 50, 0),
+    ("q10", "Ôn 200 thẻ trong tuần", "Giữ nhịp ôn tập cả tuần", "weekly", "review", 150, 5, 200, 0),
+    ("q5", "Giữ chuỗi học 7 ngày", "Học liên tục 7 ngày trong tuần", "weekly", "streak", 250, 7, 7, 0),
+    ("q7", "Đăng nhập 10 ngày", "Nhiệm vụ đặc biệt cho Plus — đăng nhập 10 ngày trong tháng", "monthly", "login", 500, 12, 10, 1),
 ]
 
 DEFAULT_PLANS = [
@@ -242,13 +245,15 @@ def seed() -> None:
         langs = list(DEFAULT_LANG_VIDEOS)
         ph = ",".join("?" for _ in langs)
         conn.execute(f"DELETE FROM catalog_videos WHERE lang NOT IN ({ph})", langs)
-        if conn.execute("SELECT COUNT(*) AS n FROM catalog_quests").fetchone()["n"] == 0:
-            for i, q in enumerate(DEFAULT_QUESTS):
-                conn.execute(
-                    "INSERT INTO catalog_quests (id, title, descr, period, metric, reward, target, plus, sort) "
-                    "VALUES (?,?,?,?,?,?,?,?,?)",
-                    (*q, i),
-                )
+        for i, q in enumerate(DEFAULT_QUESTS):
+            conn.execute(
+                "INSERT INTO catalog_quests (id, title, descr, period, metric, reward, water, target, plus, sort) "
+                "VALUES (?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET "
+                "title = excluded.title, descr = excluded.descr, period = excluded.period, "
+                "metric = excluded.metric, reward = excluded.reward, water = excluded.water, "
+                "target = excluded.target, plus = excluded.plus, sort = excluded.sort",
+                (*q, i),
+            )
         if conn.execute("SELECT COUNT(*) AS n FROM catalog_shop").fetchone()["n"] == 0:
             for i, s in enumerate(DEFAULT_SHOP):
                 conn.execute(
@@ -317,7 +322,9 @@ def quests(active_only: bool = True) -> list[dict]:
         conn.close()
     return [
         {"id": r["id"], "title": r["title"], "desc": r["descr"], "period": r["period"],
-         "metric": r["metric"], "reward": r["reward"], "target": r["target"],
+         "metric": r["metric"], "reward": r["reward"],
+         "water": r["water"] if "water" in r.keys() else 0,
+         "target": r["target"],
          "plus": bool(r["plus"]), "lang": r["lang"] if "lang" in r.keys() else "",
          "active": bool(r["active"])}
         for r in rows
@@ -378,7 +385,7 @@ def shop_item(item_id: str) -> dict | None:
 
 _TABLES = {
     "videos": ("catalog_videos", {"id", "title", "channel", "level", "dur", "topic", "tone", "lang", "tags", "sort", "active"}),
-    "quests": ("catalog_quests", {"id", "title", "descr", "period", "metric", "reward", "target", "plus", "lang", "sort", "active"}),
+    "quests": ("catalog_quests", {"id", "title", "descr", "period", "metric", "reward", "water", "target", "plus", "lang", "sort", "active"}),
     "shop": ("catalog_shop", {"id", "name", "descr", "price", "category", "art", "plus", "sort", "active"}),
     "plans": ("catalog_plans", {"id", "name", "tagline", "original", "price", "unit", "note", "cta", "days", "featured", "sort", "active"}),
 }

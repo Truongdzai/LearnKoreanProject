@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..errors import AppError
 from ..services import srs, auth
@@ -26,11 +26,25 @@ def _require(user: dict | None) -> str:
     return user["id"]
 
 
+MAX_FRONT = 200
+MAX_BACK = 500
+MAX_SOURCE = 80
+
+
 class AddIn(BaseModel):
-    front: str
-    back: str = ""
-    source: str = ""
-    lang: str = ""
+    front: str = Field(max_length=MAX_FRONT)
+    back: str = Field(default="", max_length=MAX_BACK)
+    source: str = Field(default="", max_length=MAX_SOURCE)
+    lang: str = Field(default="", max_length=8)
+
+class EditIn(BaseModel):
+    front: str = Field(max_length=MAX_FRONT)
+    back: str = Field(default="", max_length=MAX_BACK)
+    source: str = Field(default="", max_length=MAX_SOURCE)
+
+class DeckIn(BaseModel):
+    source: str = Field(default="", max_length=MAX_SOURCE)
+    lang: str = Field(default="", max_length=8)
 
 class ReviewIn(BaseModel):
     card_id: int
@@ -66,6 +80,30 @@ def api_review(body: ReviewIn, user: dict | None = Depends(auth.get_optional_use
         return srs.review(body.card_id, body.rating, _require(user))
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
+
+@router.delete("/card/{card_id}")
+def api_delete(card_id: int, user: dict | None = Depends(auth.get_optional_user)):
+    try:
+        return srs.delete_card(card_id, _require(user))
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+
+@router.put("/card/{card_id}")
+def api_edit(card_id: int, body: EditIn, user: dict | None = Depends(auth.get_optional_user)):
+    front = body.front.strip()
+    if not front:
+        raise HTTPException(status_code=400, detail="Mặt trước của thẻ không được để trống.")
+    try:
+        return srs.update_card(card_id, front, body.back.strip(), body.source.strip(), _require(user))
+    except ValueError as exc:
+        raise AppError("SRS_EDIT", str(exc), 400)
+
+
+@router.post("/deck/delete")
+def api_delete_deck(body: DeckIn, user: dict | None = Depends(auth.get_optional_user)):
+    return srs.delete_deck(body.source.strip(), _require(user), body.lang.strip())
+
 
 @router.get("/stats")
 def api_stats(lang: str = "", user: dict | None = Depends(auth.get_optional_user)):

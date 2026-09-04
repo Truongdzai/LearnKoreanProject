@@ -19,22 +19,31 @@ import { useTabs } from '@/core/a11y'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
 import ViContentNote from '../shared/ViContentNote'
 import { MasteryProvider } from './active/mastery'
+import ActiveHub from './active/ActiveHub'
 import { DeepProvider } from './deep/deep'
 import DeepPage from './deep/DeepPage'
+import { useTabParam, useUrlParam, clearUrlParams } from '@/core/hooks/useTabParam'
 
-type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'skills' | 'errors' | 'quiz' | 'summary'
+type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'active' | 'skills' | 'errors' | 'quiz' | 'summary'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'plan', label: 'Lộ trình', icon: 'map' },
   { id: 'vocab', label: 'Học từ vựng', icon: 'cards' },
   { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
+  { id: 'active', label: 'Chủ động', icon: 'sparkles' },
   { id: 'skills', label: '4 kỹ năng', icon: 'chart' },
   { id: 'errors', label: 'Sổ lỗi', icon: 'bell' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
   { id: 'summary', label: 'Tóm tắt & xuất', icon: 'note' },
 ]
 const TAB_IDS = TABS.map((t) => t.id)
+
+const SUB_PARAMS = ['lesson', 'sound', 'word', 'pane']
+
+const OWNED_PARAM: Partial<Record<Tab, string>> = {
+  grammar: 'lesson', pron: 'sound', active: 'pane', skills: 'pane',
+}
 
 const SPEC_LITE: ExpectationSpec = {
   daily: '45–60 phút mỗi ngày',
@@ -108,12 +117,13 @@ function readJump(): { tab?: string; unit?: string; word?: string } | null {
 
 function EnglishBody() {
   const [jump] = useState(readJump)
-  const [tab, setTab] = useState<Tab>(jump?.unit ? 'vocab' : 'plan')
+  const [tab, setTab] = useTabParam<Tab>(TAB_IDS, jump?.unit ? 'vocab' : 'plan')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(jump?.unit)
   const [grammarLesson, setGrammarLesson] = useState<string | undefined>(undefined)
   const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)
-  const [deepWord, setDeepWord] = useState<string | null>(jump?.tab === 'word' ? (jump.word ?? '') : null)
+  const [jumpNonce, setJumpNonce] = useState(0)
+  const [deepWord, setDeepWord] = useUrlParam('word', jump?.tab === 'word' ? (jump.word ?? '') : null)
 
   const { state: modeState, mutate: mutateMode } = useServerPlan<ModeState>(
     'enmode', 'vyling.en.mode', normalizeMode, (s) => s.mode == null,
@@ -127,12 +137,16 @@ function EnglishBody() {
   }
 
   const openGrammar = (lessonId?: string) => {
+    clearUrlParams(lessonId ? ['sound', 'word'] : ['sound', 'word', 'lesson'])
     setGrammarLesson(lessonId)
+    setJumpNonce((n) => n + 1)
     setTab('grammar')
   }
 
   const openPron = (groupId?: string) => {
+    clearUrlParams(groupId ? ['lesson', 'word'] : ['lesson', 'word', 'sound'])
     setPronGroup(groupId)
+    setJumpNonce((n) => n + 1)
     setTab('pron')
   }
 
@@ -146,6 +160,7 @@ function EnglishBody() {
     if (t === 'vocab') setLearnUnit(undefined)
     if (t === 'grammar') setGrammarLesson(undefined)
     if (t === 'pron') setPronGroup(undefined)
+    clearUrlParams(SUB_PARAMS.filter((k) => k !== OWNED_PARAM[t]))
     setTab(t)
   }
 
@@ -197,6 +212,7 @@ function EnglishBody() {
             onSkills={() => setTab('skills')}
             onErrors={() => setTab('errors')}
             onDeep={setDeepWord}
+            onActive={() => setTab('active')}
           />
         )}
         {tab === 'vocab' && (
@@ -210,8 +226,17 @@ function EnglishBody() {
             />
           </>
         )}
-        {tab === 'grammar' && <GrammarLessons key={grammarLesson ?? 'list'} initialLesson={grammarLesson} />}
-        {tab === 'pron' && <PronunciationLab key={pronGroup ?? 'list'} initialGroup={pronGroup} groups={PRON_GROUPS} />}
+        {tab === 'grammar' && (
+          <GrammarLessons key={`${grammarLesson ?? 'list'}-${jumpNonce}`} initialLesson={grammarLesson} />
+        )}
+        {tab === 'pron' && (
+          <PronunciationLab
+            key={`${pronGroup ?? 'list'}-${jumpNonce}`}
+            initialGroup={pronGroup}
+            groups={PRON_GROUPS}
+          />
+        )}
+        {tab === 'active' && <ActiveHub onErrors={() => setTab('errors')} onDeep={setDeepWord} />}
         {tab === 'skills' && <SkillHub />}
         {tab === 'errors' && <ErrorLog />}
         {tab === 'quiz' && (weekQuiz ? (
@@ -228,7 +253,7 @@ function EnglishBody() {
         ) : (
           <VocabQuiz allUnits={UNITS} allWords={ALL_WORDS} />
         ))}
-        {tab === 'summary' && <EnglishSummary />}
+        {tab === 'summary' && <EnglishSummary mode={mode} />}
       </div>
     </div>
   )

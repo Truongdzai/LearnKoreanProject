@@ -18,7 +18,7 @@ export default function NoAccess() {
               <Icon name="user" size={15} /> {t('top.login')}
             </button>
           )}
-          <button className="btn-new" onClick={() => setView('home')}>
+          <button className="btn-ghost sm" onClick={() => setView('home')}>
             <Icon name="arrow-left" /> {t('ph.backHome')}
           </button>
         </div>

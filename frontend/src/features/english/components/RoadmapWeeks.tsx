@@ -10,6 +10,7 @@ import {
   useActivityDays, weekActivity, useGrammarProgress, usePronProgress, useToeicBridge,
   weekSchedule, type TaskExtra,
 } from '../progress'
+import { useUrlParam } from '@/core/hooks/useTabParam'
 
 interface Props {
   onLearn: (unitId: string) => void
@@ -18,7 +19,9 @@ interface Props {
   onGrammar?: (lessonId?: string) => void
   onPron?: (groupId?: string) => void
   onDeep?: (term: string) => void
+  onActive?: () => void
   deepFull?: number
+  activeAuto?: number
   lang?: string
   weeks: WeekPlan[]
   taskTotal: number
@@ -36,14 +39,18 @@ const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
 const KIND_ICON: Record<WeekTask['kind'], IconName> = {
   vocab: 'cards', total: 'chart', quiz: 'target', video: 'film', speak: 'mic', review: 'letters', custom: 'note',
-  grammar: 'book', toeic: 'trophy', pron: 'volume', deep: 'bulb',
+  grammar: 'book', toeic: 'trophy', pron: 'volume', deep: 'bulb', active: 'sparkles',
 }
 
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
 
+const CLOSED = '0'
+const isWeekParam = (v: string) => v === CLOSED || (/^\d+$/.test(v) && +v >= 1 && +v <= 12)
+
 export default function RoadmapWeeks({
-  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep,
+  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive,
   deepFull = 0,
+  activeAuto = 0,
   lang = 'en',
   weeks,
   taskTotal,
@@ -61,15 +68,17 @@ export default function RoadmapWeeks({
   const { grammar } = useGrammarProgress()
   const { pron } = usePronProgress(lang)
   const toeic = useToeicBridge()
-  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, grammarLessons, deepFull }
-  const [open, setOpen] = useState<number | null>(() => {
-    const p = readPlan(lang)
-    return p.start ? planWeek(p.start) : null
-  })
+  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, grammarLessons, deepFull, activeAuto }
+  const [weekParam, setWeekParam] = useUrlParam('week', null, isWeekParam)
 
   const started = !!plan.start
   const day = Math.min(planDay(plan.start), 90)
   const curWeek = planWeek(plan.start)
+
+  const open = weekParam === null
+    ? (readPlan(lang).start ? curWeek : null)
+    : (weekParam === CLOSED ? null : Number(weekParam))
+  const setOpen = (w: number | null) => setWeekParam(w === null ? CLOSED : String(w))
 
   const isDone = (t: WeekTask, week: number) =>
     taskDone(t, week, learned, plan, bank, weekActivity(actDays, plan.start, week), ext)
@@ -88,7 +97,7 @@ export default function RoadmapWeeks({
         recordEvent('lesson', 1)
       }
     })
-  }, [started, plan.manual, plan.quiz, learned, bank, actDays, grammar.best, pron.best, toeic])
+  }, [started, plan.manual, plan.quiz, learned, bank, actDays, grammar.best, pron.best, toeic, deepFull, activeAuto])
 
   const taskMeta = (t: WeekTask, week: number): string => {
     if (t.kind === 'vocab') {
@@ -127,6 +136,10 @@ export default function RoadmapWeeks({
       const target = t.n ?? 1
       return `${Math.min(deepFull, target)}/${target} từ nắm đủ nghĩa`
     }
+    if (t.kind === 'active') {
+      const target = t.n ?? 1
+      return `${Math.min(activeAuto, target)}/${target} cụm bật ra tự động`
+    }
     return ''
   }
 
@@ -135,6 +148,7 @@ export default function RoadmapWeeks({
     if (t.kind === 'pron') return onPron ? { label: 'Luyện ngay', run: () => onPron(t.groupId) } : null
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     if (t.kind === 'deep') return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
+    if (t.kind === 'active') return onActive ? { label: 'Vào phòng tập', run: onActive } : null
     const go = t.go !== undefined ? t.go : (
       t.kind === 'vocab' ? 'learn'
       : t.kind === 'total' ? 'vocab'
@@ -153,6 +167,7 @@ export default function RoadmapWeeks({
       case 'vocab': return { label: 'Kho từ vựng', run: () => setView('vocab') }
       case 'hsk': return { label: 'Mở HSK', run: () => setView('hsk') }
       case 'deep': return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
+      case 'active': return onActive ? { label: 'Vào phòng tập', run: onActive } : null
       case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
       default: return null
     }
@@ -220,7 +235,7 @@ export default function RoadmapWeeks({
 
       {allDone && (
         <div className="enroad-grad">
-          🎓 <b>Chúc mừng — bạn đã hoàn thành lộ trình 3 tháng!</b> Hãy xuất bộ từ của mình ở tab Tóm tắt và duy trì ôn SRS mỗi tuần để không rơi rớt.
+          <b>Chúc mừng — bạn đã hoàn thành lộ trình 3 tháng!</b> Hãy xuất bộ từ của mình ở tab Tóm tắt và duy trì ôn SRS mỗi tuần để không rơi rớt.
         </div>
       )}
 
@@ -301,7 +316,7 @@ export default function RoadmapWeeks({
 
           {sel.patterns && (
             <>
-              <div className="wk-pt-title">📐 Mẫu câu của tuần — ghép từ đã học thành câu nói được ngay</div>
+              <div className="wk-pt-title">Mẫu câu của tuần — ghép từ đã học thành câu nói được ngay</div>
               <div className="wk-patterns">
                 {sel.patterns.map((p) => (
                   <div key={p.pattern} className="wk-pattern">
@@ -322,7 +337,7 @@ export default function RoadmapWeeks({
 
           {wkDone(sel) && (
             <div className="wk-congrats">
-              🎉 Tuần {sel.week} hoàn thành!{' '}
+              Tuần {sel.week} hoàn thành!{' '}
               {sel.week < 12 ? 'Mở tuần kế tiếp và giữ nhịp nhé.' : 'Bạn đã đi hết 12 tuần — quá đỉnh!'}
             </div>
           )}

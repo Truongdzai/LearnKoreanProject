@@ -175,7 +175,7 @@ export default function TopikRunner({ items, exam = false, seconds, title, onFin
 
         {!exam && picked != null && (
           <div className="quiz-foot">
-            <div className="quiz-ex">{picked === cur.item.answer ? '✅ ' : '❌ '}{cur.item.explain}</div>
+            <div className="quiz-ex"><Icon name={picked === cur.item.answer ? 'check' : 'x'} size={13} /> {cur.item.explain}</div>
           </div>
         )}
       </div>
