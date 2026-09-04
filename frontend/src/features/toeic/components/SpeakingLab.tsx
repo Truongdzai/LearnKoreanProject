@@ -5,7 +5,7 @@ import {
   SPEAK_SECTIONS, SPEAK_SELF_REVIEW, SPEAK_SETS, SPEAK_TASKS,
   speakSection, type SpeakTask,
 } from '@/data/toeicSW'
-import { useTake } from '../useTake'
+import { useTake, type TakeError } from '../useTake'
 import type { SwNote } from '../state'
 
 interface Props {
@@ -16,6 +16,13 @@ interface Props {
 }
 
 type Phase = 'ready' | 'prep' | 'answer' | 'review'
+
+const MIC_TEXT: Record<Exclude<TakeError, ''>, string> = {
+  denied: 'Trình duyệt đang chặn micrô. Bấm biểu tượng 🔒 trên thanh địa chỉ → cho phép Micro → làm lại câu này.',
+  nomic: 'Không tìm thấy micrô nào. Cắm tai nghe có mic rồi làm lại câu này.',
+  busy: 'Micrô đang bị ứng dụng khác giữ (Zoom, Meet, phần mềm ghi màn hình…). Tắt ứng dụng đó rồi làm lại.',
+  other: 'Không mở được micrô trên máy này.',
+}
 
 function mmss(s: number): string {
   const m = Math.floor(s / 60)
@@ -168,11 +175,13 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
   const [marks, setMarks] = useState<Record<number, boolean>>({})
   const [showSample, setShowSample] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [micLost, setMicLost] = useState(false)
   const audio = useRef<HTMLAudioElement | null>(null)
-  const { start: startTake, stop: stopTake, cancel: cancelTake } = take
+  const { arm: armTake, start: startTake, stop: stopTake, cancel: cancelTake, drop: dropTake } = take
 
   useEffect(() => {
     setPhase('ready'); setLeft(0); setClip(''); setMarks({}); setShowSample(false); setSaved(false)
+    setMicLost(false)
   }, [task.id])
 
   useEffect(() => () => { stopSpeak(); audio.current?.pause() }, [])
@@ -181,7 +190,7 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
     stopSpeak()
     setPhase('answer')
     setLeft(task.answerSec)
-    startTake((url) => setClip(url))
+    void startTake((url) => setClip(url)).then((ok) => setMicLost(!ok))
   }, [task.answerSec, startTake])
 
   const finish = useCallback(() => {
@@ -203,8 +212,10 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
 
   const begin = () => {
     stopSpeak()
+    setMicLost(false)
     setPhase('prep')
     setLeft(task.prepSec)
+    void armTake().then((ok) => setMicLost(!ok && take.supported))
   }
 
   const play = (url: string) => {
@@ -275,6 +286,9 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
             {!take.supported && (
               <p className="sr-warn">Trình duyệt này không ghi âm được. Bạn vẫn làm được bài — cứ nói thành tiếng và tự chấm theo tiêu chí bên dưới.</p>
             )}
+            {take.supported && take.error && (
+              <p className="sr-warn">{MIC_TEXT[take.error]} Không có bản ghi thì bạn vẫn nói và tự chấm được như thường.</p>
+            )}
           </div>
           {material(true)}
           <div className="sr-actions">
@@ -294,6 +308,14 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
             <b>{mmss(left)}</b>
             <span>{phase === 'prep' ? 'Chuẩn bị' : take.recording ? 'Đang ghi âm — nói đi!' : 'Đang trả lời'}</span>
           </div>
+          {micLost && take.error && (
+            <p className="sr-warn">
+              <b>Không ghi âm được lượt này.</b> {MIC_TEXT[take.error]} Cứ nói tiếp cho đủ giờ — hết giờ bạn vẫn tự chấm được.
+            </p>
+          )}
+          {phase === 'prep' && take.armed && (
+            <p className="sr-armed">Micrô đã sẵn sàng — hết giờ chuẩn bị là tự ghi âm.</p>
+          )}
           {phase === 'prep' && task.section === 'read' && task.chunks && (
             <div className="sr-chunks">
               <small>Gợi ý chia nhóm ý (dấu / là ngắt nhẹ, // là ngắt lớn)</small>
@@ -305,7 +327,7 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
             {phase === 'prep'
               ? <button className="btn-primary" onClick={toAnswer}>Sẵn sàng rồi, trả lời luôn</button>
               : <button className="btn-primary" onClick={finish}>Nói xong</button>}
-            <button className="btn-ghost" onClick={() => { cancelTake(); onExit() }}>Thoát</button>
+            <button className="btn-ghost" onClick={() => { cancelTake(); dropTake(); onExit() }}>Thoát</button>
           </div>
         </div>
       )}
@@ -319,8 +341,8 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
               </button>
             ) : (
               <p className="sr-warn">
-                {take.error === 'mic'
-                  ? 'Chưa cấp quyền micrô nên không có bản ghi. Bạn vẫn tự chấm được theo tiêu chí bên dưới.'
+                {take.error
+                  ? `${MIC_TEXT[take.error]} Bạn vẫn tự chấm được theo tiêu chí bên dưới.`
                   : 'Không có bản ghi cho lượt này — cứ tự chấm theo tiêu chí bên dưới.'}
               </p>
             )}
@@ -365,7 +387,7 @@ function SpeakRunner({ run, at, best, onScore, onNext, onExit }: RunnerProps) {
             <button className="btn-primary" onClick={save} disabled={saved}>
               <Icon name="check" size={15} /> {saved ? 'Đã lưu kết quả' : 'Lưu kết quả tự chấm'}
             </button>
-            <button className="btn-ghost" onClick={() => { setPhase('ready'); setClip(''); setMarks({}); setSaved(false) }}>
+            <button className="btn-ghost" onClick={() => { setPhase('ready'); setClip(''); setMarks({}); setSaved(false); setMicLost(false) }}>
               <Icon name="rocket" size={14} /> Làm lại câu này
             </button>
             <button className="btn-ghost" onClick={onNext}>

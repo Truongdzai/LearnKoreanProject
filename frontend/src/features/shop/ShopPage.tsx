@@ -30,14 +30,21 @@ function ItemArt({ item }: { item: ShopItem }) {
   return <span className={'badge-art badge-' + item.art}><Icon name={item.art === 'crown' ? 'crown' : 'star'} size={40} /></span>
 }
 
+const MAX_SEED_BUY = 20
+
 export default function ShopPage() {
-  const { user, owned, buyItem, equipFrame, equipPet, equipBg, setView, isAuthed, t } = useAppStore()
+  const { user, owned, seeds, buyItem, equipFrame, equipPet, equipBg, setView, isAuthed, t } = useAppStore()
   const { openAuth } = useAuth()
   const [items, setItems] = useState<ShopItem[]>([])
   const [cat, setCat] = useState<ShopCategory | 'all'>('pet')
   const [tab, setTab] = useState<'shop' | 'inv'>('shop')
   const [flash, setFlash] = useState('')
   const [busy, setBusy] = useState('')
+  const [qty, setQty] = useState<Record<string, number>>({})
+
+  const qtyOf = (id: string) => Math.max(1, Math.min(MAX_SEED_BUY, qty[id] ?? 1))
+  const bumpQty = (id: string, d: number) =>
+    setQty((q) => ({ ...q, [id]: Math.max(1, Math.min(MAX_SEED_BUY, (q[id] ?? 1) + d)) }))
 
   useEffect(() => {
     fetchShop().then((r) => setItems(r.shop)).catch(() => setItems([]))
@@ -56,10 +63,11 @@ export default function ShopPage() {
       setView('pricing')
       return
     }
+    const n = item.category === 'seed' ? qtyOf(item.id) : 1
     setBusy(item.id)
     try {
-      await buyItem(item.id)
-      showFlash(t('shp.bought', { name: item.name }))
+      await buyItem(item.id, n)
+      showFlash(n > 1 ? t('shp.boughtN', { name: item.name, n }) : t('shp.bought', { name: item.name }))
     } catch (e) {
       showFlash((e as Error).message)
     } finally {
@@ -114,11 +122,13 @@ export default function ShopPage() {
       {flash && <div className="shop-flash">{flash}</div>}
 
       {view.length === 0 ? (
-        <div className="empty"><div className="big">🛍️</div>{tab === 'inv' ? t('shp.emptyInv') : t('shp.emptyShop')}</div>
+        <div className="empty"><div className="big"><Icon name="store" /></div>{tab === 'inv' ? t('shp.emptyInv') : t('shp.emptyShop')}</div>
       ) : (
         <div className="shop-grid">
           {view.map((item) => {
+            const isSeed = item.category === 'seed'
             const isOwned = owned.includes(item.id)
+            const n = qtyOf(item.id)
             const equipped = item.category === 'frame' && user.equippedFrame === item.art
             const bgEquipped = item.category === 'background' && user.equippedBg === item.art
             const isPet = item.category === 'pet'
@@ -130,11 +140,31 @@ export default function ShopPage() {
                 <div className="item-art">
                   <ItemArt item={item} />
                 </div>
-                <div className="item-name">{item.name}</div>
+                <div className="item-name">
+                  {item.name}
+                  {isSeed && (seeds[item.id] ?? 0) > 0 && (
+                    <em className="item-have">{t('shp.have', { n: seeds[item.id] })}</em>
+                  )}
+                </div>
                 <div className="item-desc">{item.desc}</div>
+                {isSeed && (
+                  <div className="item-qty">
+                    <span>{t('shp.qty')}</span>
+                    <button type="button" onClick={() => bumpQty(item.id, -1)} disabled={n <= 1} aria-label={t('shp.qtyLess')}>
+                      <Icon name="minus" size={13} />
+                    </button>
+                    <b>{n}</b>
+                    <button type="button" onClick={() => bumpQty(item.id, 1)} disabled={n >= MAX_SEED_BUY} aria-label={t('shp.qtyMore')}>
+                      <Icon name="plus" size={13} />
+                    </button>
+                    <small>{t('shp.onePerPlant')}</small>
+                  </div>
+                )}
                 <div className="item-foot">
                   <span className="item-price">
-                    {isPet && item.price === 0 ? <span className="item-free">{t('shp.free')}</span> : <><Icon name="coin" size={16} /> {item.price}</>}
+                    {isPet && item.price === 0
+                      ? <span className="item-free">{t('shp.free')}</span>
+                      : <><Icon name="coin" size={16} /> {(item.price * (isSeed ? n : 1)).toLocaleString('vi')}</>}
                   </span>
                   {isPet ? (
                     canEquipPet ? (
@@ -146,6 +176,10 @@ export default function ShopPage() {
                         {busy === item.id ? '…' : t('shp.buy')}
                       </button>
                     )
+                  ) : isSeed ? (
+                    <button className="item-btn buy" disabled={busy === item.id} onClick={() => onBuy(item)}>
+                      {busy === item.id ? '…' : t('shp.buy')}
+                    </button>
                   ) : isOwned ? (
                     item.category === 'frame' ? (
                       <button className={'item-btn ' + (equipped ? 'equipped' : 'equip')} onClick={() => onEquip(item, equipped)}>

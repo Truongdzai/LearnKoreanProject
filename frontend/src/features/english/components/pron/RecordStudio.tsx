@@ -32,7 +32,7 @@ function trend(a: number, b: number, better: 'up' | 'down' | 'near'): string {
   if (Math.abs(d) < 0.05) return 'giữ nguyên'
   if (better === 'near') return d > 0 ? 'tăng' : 'giảm'
   const good = better === 'up' ? d > 0 : d < 0
-  return (d > 0 ? 'tăng' : 'giảm') + (good ? ' ✓' : '')
+  return (d > 0 ? 'tăng' : 'giảm') + (good ? ' (tốt hơn)' : '')
 }
 
 export default function RecordStudio({ group, lang }: { group: PronGroup; lang: string }) {

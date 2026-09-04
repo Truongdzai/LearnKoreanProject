@@ -231,7 +231,7 @@ function WriteRunner({ run, timed, sw, onScore, onExit }: RunnerProps) {
                 <div className="wrr-words">
                   {t.words.map((w) => (
                     <span key={w} className={usesWord(texts[t.id] ?? '', w) ? 'ok' : 'miss'}>
-                      {usesWord(texts[t.id] ?? '', w) ? '✓' : '✗'} {w}
+                      <Icon name={usesWord(texts[t.id] ?? '', w) ? 'check' : 'x'} size={12} /> {w}
                     </span>
                   ))}
                   <span className="wrr-count">{countWords(texts[t.id] ?? '')} từ</span>

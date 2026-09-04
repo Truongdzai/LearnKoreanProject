@@ -11,6 +11,7 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
+from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import settings, ROOT
@@ -131,6 +132,19 @@ async def security_headers(request: Request, call_next):
 @app.exception_handler(AppError)
 async def app_error_handler(_request: Request, exc: AppError):
     return JSONResponse(status_code=exc.status, content={"detail": exc.detail, "code": exc.code})
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_error_handler(_request: Request, exc: RequestValidationError):
+    first = (exc.errors() or [{}])[0]
+    field = ".".join(str(x) for x in (first.get("loc") or [])[1:]) or "dữ liệu"
+    return JSONResponse(
+        status_code=422,
+        content={
+            "detail": f"Dữ liệu gửi lên không hợp lệ hoặc quá dài (ở phần \"{field}\"). Hãy rút gọn rồi thử lại.",
+            "code": "INVALID_INPUT",
+        },
+    )
 
 app.include_router(learn.router)
 app.include_router(dict_router.router)

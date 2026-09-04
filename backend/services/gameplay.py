@@ -24,13 +24,70 @@ def period_key(period: str, today: date | None = None) -> str:
     return today.isoformat()
 
 
+WATER_PER_DAY = 1
+WATER_PLUS_PER_DAY = 2
+GROWTH_PER_WATER = 14
+
+
 def owned(user_id: str) -> list[str]:
     conn = db.get_conn()
     try:
-        rows = conn.execute("SELECT item_id FROM user_items WHERE user_id = ?", (user_id,)).fetchall()
+        rows = conn.execute(
+            "SELECT item_id FROM user_items WHERE user_id = ? AND qty > 0", (user_id,)
+        ).fetchall()
     finally:
         conn.close()
     return [r["item_id"] for r in rows]
+
+
+def seeds(user_id: str) -> dict[str, int]:
+    conn = db.get_conn()
+    try:
+        rows = conn.execute(
+            "SELECT i.item_id AS item_id, i.qty AS qty FROM user_items i "
+            "JOIN catalog_shop c ON c.id = i.item_id "
+            "WHERE i.user_id = ? AND c.category = 'seed' AND i.qty > 0",
+            (user_id,),
+        ).fetchall()
+    finally:
+        conn.close()
+    return {r["item_id"]: r["qty"] for r in rows}
+
+
+def water_cap(user: dict) -> int:
+    return WATER_PLUS_PER_DAY if user["is_plus"] else WATER_PER_DAY
+
+
+def water_state(user: dict) -> dict:
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        row = conn.execute(
+            "SELECT used, bonus FROM user_water WHERE user_id = ? AND day = ?",
+            (user["id"], today),
+        ).fetchone()
+    finally:
+        conn.close()
+    used = row["used"] if row else 0
+    bonus = row["bonus"] if row else 0
+    cap = water_cap(user) + bonus
+    return {"left": max(0, cap - used), "max": cap, "used": used, "bonus": bonus}
+
+
+def grant_water(user_id: str, n: int) -> None:
+    if n <= 0:
+        return
+    today = date.today().isoformat()
+    conn = db.get_conn()
+    try:
+        conn.execute(
+            "INSERT INTO user_water (user_id, day, used, bonus) VALUES (?,?,0,?) "
+            "ON CONFLICT(user_id, day) DO UPDATE SET bonus = bonus + ?",
+            (user_id, today, n, n),
+        )
+        conn.commit()
+    finally:
+        conn.close()
 
 
 def garden(user_id: str) -> list[dict]:
@@ -85,6 +142,8 @@ def state(user: dict) -> dict:
     return {
         "user": accounts.public_user(user),
         "owned": owned(user["id"]),
+        "seeds": seeds(user["id"]),
+        "water": water_state(user),
         "garden": garden(user["id"]),
         "paths": paths(user["id"]),
         "savedVideos": saved_videos(user["id"]),
@@ -105,29 +164,70 @@ def today_xp(user_id: str) -> int:
     return row["xp"] if row else 0
 
 
-def buy(user: dict, item_id: str) -> dict:
+MAX_SEED_BUY = 20
+
+
+def buy(user: dict, item_id: str, qty: int = 1) -> dict:
     item = catalog.shop_item(item_id)
     if not item:
         raise AppError("NOT_FOUND", "Vật phẩm không tồn tại.", 404)
     if item["plus"] and not user["is_plus"]:
         raise AppError("PLUS_REQUIRED", "Vật phẩm này chỉ dành cho thành viên Plus.", 403)
-    if item_id in owned(user["id"]):
+    is_seed = item["category"] == "seed"
+    qty = max(1, min(MAX_SEED_BUY, int(qty))) if is_seed else 1
+    if not is_seed and item_id in owned(user["id"]):
         raise HTTPException(status_code=400, detail="Bạn đã sở hữu vật phẩm này.")
-    if not accounts.spend_coins(user["id"], item["price"]):
+    if not accounts.spend_coins(user["id"], item["price"] * qty):
         raise AppError("INSUFFICIENT_COINS", "Không đủ xu — hãy hoàn thành nhiệm vụ để kiếm thêm.")
     conn = db.get_conn()
     try:
-        conn.execute("INSERT OR IGNORE INTO user_items (user_id, item_id) VALUES (?,?)", (user["id"], item_id))
+        conn.execute(
+            "INSERT INTO user_items (user_id, item_id, qty) VALUES (?,?,?) "
+            "ON CONFLICT(user_id, item_id) DO UPDATE SET qty = qty + ?",
+            (user["id"], item_id, qty, qty),
+        )
         conn.commit()
     finally:
         conn.close()
-    return {"ok": True, "owned": owned(user["id"]), "user": accounts.public_user(accounts.reload(user["id"]))}
+    return {"ok": True, "owned": owned(user["id"]), "seeds": seeds(user["id"]),
+            "user": accounts.public_user(accounts.reload(user["id"]))}
+
+
+MAX_PLANTS = 40
+MAX_PATHS = 40
+MAX_PATH_CHARS = 40_000
 
 
 def plant(user: dict, item_id: str, art: str, name: str) -> dict:
+    item = catalog.shop_item(item_id)
+    if not item or item["category"] != "seed":
+        raise AppError("NOT_FOUND", "Hạt giống này không tồn tại.", 404)
+    art, name = item["art"], item["name"]
     pid = "pl" + secrets.token_hex(6)
     conn = db.get_conn()
     try:
+        grown = conn.execute(
+            "SELECT COUNT(*) AS n FROM user_garden WHERE user_id = ?", (user["id"],)
+        ).fetchone()["n"]
+        if grown >= MAX_PLANTS:
+            raise AppError(
+                "GARDEN_FULL",
+                f"Vườn chỉ chứa được {MAX_PLANTS} cây — nhổ bớt cây cũ rồi trồng tiếp nhé.",
+            )
+        row = conn.execute(
+            "SELECT qty FROM user_items WHERE user_id = ? AND item_id = ?",
+            (user["id"], item_id),
+        ).fetchone()
+        if not row or row["qty"] < 1:
+            raise AppError("NO_SEED", "Bạn không còn hạt giống này — hãy mua thêm ở cửa hàng.")
+        conn.execute(
+            "UPDATE user_items SET qty = qty - 1 WHERE user_id = ? AND item_id = ?",
+            (user["id"], item_id),
+        )
+        conn.execute(
+            "DELETE FROM user_items WHERE user_id = ? AND item_id = ? AND qty <= 0",
+            (user["id"], item_id),
+        )
         conn.execute(
             "INSERT INTO user_garden (id, user_id, item_id, art, name, growth) VALUES (?,?,?,?,?,8)",
             (pid, user["id"], item_id, art, name),
@@ -135,41 +235,47 @@ def plant(user: dict, item_id: str, art: str, name: str) -> dict:
         conn.commit()
     finally:
         conn.close()
-    return {"ok": True, "garden": garden(user["id"])}
-
-
-_GROWTH_STAGE_LANDING = {1: 30, 2: 55, 3: 80, 4: 100}
-
-
-def _growth_stage(g: int) -> int:
-    if g >= 100:
-        return 4
-    if g >= 70:
-        return 3
-    if g >= 40:
-        return 2
-    if g >= 20:
-        return 1
-    return 0
+    return {"ok": True, "garden": garden(user["id"]), "owned": owned(user["id"]),
+            "seeds": seeds(user["id"])}
 
 
 def water(user: dict, plant_id: str) -> dict:
+    today = date.today().isoformat()
     conn = db.get_conn()
     try:
         row = conn.execute(
             "SELECT growth FROM user_garden WHERE id = ? AND user_id = ?",
             (plant_id, user["id"]),
         ).fetchone()
-        if row is not None:
-            nxt = _GROWTH_STAGE_LANDING[min(4, _growth_stage(row["growth"]) + 1)]
-            conn.execute(
-                "UPDATE user_garden SET growth = ? WHERE id = ? AND user_id = ?",
-                (nxt, plant_id, user["id"]),
+        if row is None:
+            raise AppError("NOT_FOUND", "Không tìm thấy cây này trong vườn.", 404)
+        if row["growth"] >= 100:
+            raise HTTPException(status_code=400, detail="Cây này đã nở hoa rồi.")
+        wrow = conn.execute(
+            "SELECT used, bonus FROM user_water WHERE user_id = ? AND day = ?",
+            (user["id"], today),
+        ).fetchone()
+        used = wrow["used"] if wrow else 0
+        bonus = wrow["bonus"] if wrow else 0
+        if used >= water_cap(user) + bonus:
+            raise AppError(
+                "NO_WATER",
+                "Hết nước tưới hôm nay — làm nhiệm vụ để có thêm, hoặc đợi sang ngày mai.",
             )
-            conn.commit()
+        nxt = min(100, row["growth"] + GROWTH_PER_WATER)
+        conn.execute(
+            "UPDATE user_garden SET growth = ? WHERE id = ? AND user_id = ?",
+            (nxt, plant_id, user["id"]),
+        )
+        conn.execute(
+            "INSERT INTO user_water (user_id, day, used, bonus) VALUES (?,?,1,0) "
+            "ON CONFLICT(user_id, day) DO UPDATE SET used = used + 1",
+            (user["id"], today),
+        )
+        conn.commit()
     finally:
         conn.close()
-    return {"ok": True, "garden": garden(user["id"])}
+    return {"ok": True, "garden": garden(user["id"]), "water": water_state(user)}
 
 
 def remove_plant(user: dict, plant_id: str) -> dict:
@@ -183,12 +289,20 @@ def remove_plant(user: dict, plant_id: str) -> dict:
 
 
 def add_path(user: dict, title: str, data: dict) -> dict:
+    blob = json.dumps(data, ensure_ascii=False)
+    if len(blob) > MAX_PATH_CHARS:
+        raise AppError("PATH_TOO_BIG", "Lộ trình này quá lớn để lưu.", 400)
     pid = "pa" + secrets.token_hex(6)
     conn = db.get_conn()
     try:
+        have = conn.execute(
+            "SELECT COUNT(*) AS n FROM user_paths WHERE user_id = ?", (user["id"],)
+        ).fetchone()["n"]
+        if have >= MAX_PATHS:
+            raise AppError("PATHS_FULL", f"Bạn đã lưu {MAX_PATHS} lộ trình — xoá bớt rồi thêm mới nhé.")
         conn.execute(
             "INSERT INTO user_paths (id, user_id, title, data) VALUES (?,?,?,?)",
-            (pid, user["id"], title, json.dumps(data, ensure_ascii=False)),
+            (pid, user["id"], title, blob),
         )
         conn.commit()
     finally:
@@ -201,6 +315,12 @@ def save_video(user: dict, v: dict) -> dict:
 
     conn = db.get_conn()
     try:
+        lang = (v.get("lang") or "").strip().lower()
+        if not lang:
+            known = conn.execute(
+                "SELECT lang FROM catalog_videos WHERE id = ?", (v.get("id"),)
+            ).fetchone()
+            lang = (known["lang"] if known else "") or "ko"
         if not quota.is_plus(user):
             have = conn.execute(
                 "SELECT COUNT(*) AS n FROM user_videos WHERE user_id = ?", (user["id"],)
@@ -220,7 +340,7 @@ def save_video(user: dict, v: dict) -> dict:
             "INSERT OR IGNORE INTO user_videos (user_id, video_id, title, channel, level, dur, topic, tone, lang) "
             "VALUES (?,?,?,?,?,?,?,?,?)",
             (user["id"], v.get("id"), v.get("title"), v.get("channel"), v.get("level"),
-             v.get("dur"), v.get("topic"), v.get("tone"), v.get("lang") or "ko"),
+             v.get("dur"), v.get("topic"), v.get("tone"), lang),
         )
         conn.commit()
     finally:
@@ -275,7 +395,7 @@ def quests_for(user: dict) -> list[dict]:
             progress = _progress_for(conn, user["id"], q)
             out.append({
                 "id": q["id"], "title": q["title"], "desc": q["desc"], "period": q["period"],
-                "reward": q["reward"], "target": q["target"], "plus": q["plus"],
+                "reward": q["reward"], "water": q.get("water", 0), "target": q["target"], "plus": q["plus"],
                 "progress": progress, "claimed": _claimed(conn, user["id"], q),
             })
     finally:
@@ -307,7 +427,9 @@ def claim_quest(user: dict, quest_id: str) -> dict:
     finally:
         conn.close()
     accounts.add_xp_coins(user["id"], coins=quest["reward"])
-    return {"ok": True, "user": accounts.public_user(accounts.reload(user["id"]))}
+    grant_water(user["id"], int(quest.get("water") or 0))
+    return {"ok": True, "user": accounts.public_user(accounts.reload(user["id"])),
+            "water": water_state(user)}
 
 
 def daily_bonus(user: dict) -> dict:
@@ -385,7 +507,7 @@ def goal_bonus(user: dict, goal: int) -> dict:
     return {"ok": True, "reward": reward, "user": accounts.public_user(user2)}
 
 
-_EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0, "toeic": 10, "grammar": 10}
+_EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0, "toeic": 10, "grammar": 10, "tutor": 3}
 
 
 def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, words: int = 0,
@@ -393,6 +515,8 @@ def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, word
     amount = max(0, int(amount))
     minutes = max(0, int(minutes))
     lang = (lang or "").strip().lower()[:8]
+    if etype != "login" and (amount or minutes or words):
+        accounts.touch_streak(user["id"])
     today = date.today().isoformat()
     xp_gain = _EVENT_XP.get(etype, 0) * amount
     lessons = amount if etype == "lesson" else 0

@@ -9,6 +9,7 @@ import {
 import { useFast } from '../../fast'
 import ReadingLab from './ReadingLab'
 import WritingLab from './WritingLab'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 type Pane = 'budget' | 'listen' | 'read' | 'write'
 
@@ -18,29 +19,22 @@ const PANES: { id: Pane; label: string; icon: 'chart' | 'headphones' | 'book' | 
   { id: 'read', label: 'Đọc', icon: 'book' },
   { id: 'write', label: 'Viết', icon: 'note' },
 ]
+const PANE_IDS = PANES.map((p) => p.id)
 
 const QUICK = [10, 15, 30]
 
 function Ring({ pct, tone }: { pct: number; tone: string }) {
-  const r = 26
-  const c = 2 * Math.PI * r
   const on = Math.min(100, pct)
   return (
-    <svg className="skill-ring" viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="32" cy="32" r={r} className="ring-bg" />
-      <circle
-        cx="32" cy="32" r={r}
-        className={'ring-on ' + tone}
-        strokeDasharray={`${(c * on) / 100} ${c}`}
-        transform="rotate(-90 32 32)"
-      />
-    </svg>
+    <span className={'skill-gauge ' + tone} aria-hidden="true">
+      <i style={{ width: on + '%' }} />
+    </span>
   )
 }
 
 export default function SkillHub() {
   const { setView } = useAppStore()
-  const [pane, setPane] = useState<Pane>('budget')
+  const [pane, setPane] = useTabParam<Pane>(PANE_IDS, 'budget', 'pane')
   const { fast, week, streakDays, undoable, setStage, setWeekMins, logSkill, undoSkill } = useFast()
 
   const stage = stageOf(fast.stage)

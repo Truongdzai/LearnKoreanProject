@@ -1,23 +1,51 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { UNITS, ALL_WORDS, PLAN_12_WEEKS, TARGET_WORDS, wTerm, wRead } from '@/data/englishCore'
+import {
+  UNITS, ALL_WORDS, PLAN_12_WEEKS, PLAN_12_WEEKS_BOOT, TARGET_WORDS, wTerm, wRead,
+  type RoadmapMode,
+} from '@/data/englishCore'
 import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
+import { GRAMMAR_PASS } from '@/data/englishGrammar'
 import { PRON_GROUPS } from '@/data/englishPronunciationData'
+import { PRON_PASS } from '@/data/englishPronunciation'
 import { exportVocabToWord, exportVocabToPdf, type ExportRow } from '@/core/utils/exportVocab'
-import { useLearnedWords, useWordBank, readPlan, planDay, planWeek, weekDone, type TaskExtra } from '../progress'
+import {
+  useLearnedWords, useWordBank, usePlan, planDay, planWeek, weekDone,
+  useGrammarProgress, usePronProgress, useToeicBridge, useActivityDays, weekActivity,
+  type TaskExtra,
+} from '../progress'
+import { useDeep } from '../deep/deep'
 
 type Scope = 'learned' | 'all'
 
-export default function EnglishSummary() {
+interface Props {
+  mode?: RoadmapMode
+}
+
+export default function EnglishSummary({ mode = 'lite' }: Props) {
   const { learned } = useLearnedWords()
   const bank = useWordBank(learned)
   const [scope, setScope] = useState<Scope>('learned')
 
-  const plan = readPlan()
+  const { plan } = usePlan()
+  const { grammar } = useGrammarProgress()
+  const { pron } = usePronProgress()
+  const { deepFull, mastered } = useDeep()
+  const toeic = useToeicBridge()
+  const actDays = useActivityDays(plan.start)
+
   const day = Math.min(planDay(plan.start), 90)
   const week = planWeek(plan.start)
-  const ext: TaskExtra = { units: UNITS, pronGroups: PRON_GROUPS, grammarLessons: GRAMMAR_LESSONS }
-  const doneWeeks = PLAN_12_WEEKS.filter((w) => weekDone(w, learned, plan, bank, undefined, ext)).length
+  const weeks = mode === 'boot' ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS
+  const ext: TaskExtra = {
+    units: UNITS, pronGroups: PRON_GROUPS, grammarLessons: GRAMMAR_LESSONS,
+    grammar: grammar.best, pron: pron.best, toeic, deepFull,
+  }
+  const doneWeeks = weeks.filter(
+    (w) => weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week), ext),
+  ).length
+  const grammarDone = GRAMMAR_LESSONS.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
+  const pronDone = PRON_GROUPS.filter((g) => (pron.best[g.id] ?? 0) >= PRON_PASS).length
 
   const learnedList = useMemo(() => ALL_WORDS.filter((w) => learned.has(wTerm(w))), [learned])
   const source = scope === 'learned' ? learnedList : ALL_WORDS
@@ -39,7 +67,10 @@ export default function EnglishSummary() {
           <div className="sm-label"><Icon name="bulb" size={15} /> Bạn đang ở đâu</div>
           <p>
             {plan.start ? (
-              <>Bạn đang ở <b>ngày {day}/90</b> (tuần {week} theo lịch), đã hoàn thành <b>{doneWeeks}/12 tuần</b> của lộ trình. </>
+              <>
+                Bạn đang ở <b>ngày {day}/90</b> (tuần {week} theo lịch), đã hoàn thành <b>{doneWeeks}/12 tuần</b> của
+                lộ trình {mode === 'boot' ? 'Bootcamp' : 'Cơ bản'}.{' '}
+              </>
             ) : (
               <>Bạn chưa bấm bắt đầu hành trình 90 ngày — vào tab <b>Lộ trình</b> để khởi động. </>
             )}
@@ -50,12 +81,12 @@ export default function EnglishSummary() {
           </p>
         </div>
         <div className="sm-card">
-          <div className="sm-label"><Icon name="target" size={15} /> Nguyên tắc cốt lõi</div>
+          <div className="sm-label"><Icon name="target" size={15} /> Các mảng của lộ trình</div>
           <ul className="sm-info">
-            <li><span>Compress</span><b>Học từ cần dùng</b></li>
-            <li><span>Compile</span><b>Ghép thành câu</b></li>
-            <li><span>Consolidate</span><b>Ôn ngắt quãng</b></li>
-            <li><span>Ghi nhớ</span><b>ICES</b></li>
+            <li><span>Ngữ pháp</span><b>{grammarDone}/{GRAMMAR_LESSONS.length} bài đạt</b></li>
+            <li><span>Phát âm</span><b>{pronDone}/{PRON_GROUPS.length} nhóm âm đạt</b></li>
+            <li><span>Học sâu</span><b>{deepFull} từ đủ nghĩa · {mastered} làm chủ</b></li>
+            <li><span>TOEIC</span><b>{toeic.started ? `${toeic.days}/60 ngày` : 'chưa bắt đầu'}</b></li>
           </ul>
         </div>
       </div>

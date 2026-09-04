@@ -65,7 +65,9 @@ export default function DuelCard({ onChange }: { onChange?: () => void }) {
                 </span>
               </>
             ) : (
-              <span className="duel-vs">{a.draw ? '🤝' : a.iWin ? '🏆' : '💪'}</span>
+              <span className={'duel-vs done ' + (a.draw ? 'draw' : a.iWin ? 'win' : 'lose')}>
+                {a.draw ? t('duel.draw') : a.iWin ? t('duel.win') : t('duel.lose')}
+              </span>
             )}
           </div>
           <div className="duel-side">

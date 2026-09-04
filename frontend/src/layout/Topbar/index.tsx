@@ -101,35 +101,39 @@ export default function Topbar({ onMenu, navOpen = false }: { onMenu?: () => voi
           <Icon name="coin" size={17} /> {user.coins.toLocaleString('vi')}
         </button>
 
-        <button type="button" className="btn-myvideos" onClick={() => setView('myvideos')}>
-          <Icon name="tv" size={16} /> {t('top.myvideos')}
-        </button>
-
-        {installable && (
-          <button type="button" className="btn-install" onClick={() => { void promptInstall() }} title={t('top.install.hint')}>
-            <Icon name="download" size={16} /> <span>{t('top.install')}</span>
+        <div className="topbar-tools">
+          <button
+            type="button"
+            className="tool-btn ui-lang-btn"
+            onClick={() => setUiLang(uiLang === 'vi' ? 'en' : 'vi')}
+            title={t('top.uiLang')}
+            aria-label={t('top.uiLang')}
+          >
+            {uiLang === 'vi' ? 'VI' : 'EN'}
           </button>
-        )}
 
-        <button
-          type="button"
-          className="icon-btn ui-lang-btn"
-          onClick={() => setUiLang(uiLang === 'vi' ? 'en' : 'vi')}
-          title={t('top.uiLang')}
-          aria-label={t('top.uiLang')}
-        >
-          {uiLang === 'vi' ? 'VI' : 'EN'}
-        </button>
+          <button
+            type="button"
+            className="tool-btn"
+            onClick={toggleTheme}
+            title={theme === 'dark' ? t('top.light') : t('top.dark')}
+            aria-label={theme === 'dark' ? t('top.light') : t('top.dark')}
+          >
+            <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={17} />
+          </button>
 
-        <button
-          type="button"
-          className="icon-btn"
-          onClick={toggleTheme}
-          title={theme === 'dark' ? t('top.light') : t('top.dark')}
-          aria-label={theme === 'dark' ? t('top.light') : t('top.dark')}
-        >
-          <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} />
-        </button>
+          {installable && (
+            <button
+              type="button"
+              className="tool-btn"
+              onClick={() => { void promptInstall() }}
+              title={t('top.install.hint')}
+              aria-label={t('top.install')}
+            >
+              <Icon name="download" size={17} />
+            </button>
+          )}
+        </div>
 
         {isAuthed ? (
           <div className="account" ref={accountRef} onMouseLeave={() => setMenu(false)}>
@@ -141,7 +145,7 @@ export default function Topbar({ onMenu, navOpen = false }: { onMenu?: () => voi
               aria-haspopup="menu"
               aria-expanded={menu}
             >
-              <Avatar size={36} frame={user.equippedFrame} src={account?.avatar} initials={account?.name?.charAt(0).toUpperCase()} />
+              <Avatar size={28} frame={user.equippedFrame} src={account?.avatar} initials={account?.name?.charAt(0).toUpperCase()} />
             </button>
             <input ref={fileRef} type="file" accept="image/*" hidden onChange={onAvatarFile} aria-hidden="true" tabIndex={-1} />
             {menu && (

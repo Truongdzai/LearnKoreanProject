@@ -126,7 +126,7 @@ export function MatchGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => v
       </div>
       {done && (
         <div className="mg-done">
-          🎉 {t('mg.matchDone', { n: moves })} <span className="sr-coin">+6 XP <Icon name="star" size={13} /></span>
+          <Icon name="party" size={15} /> {t('mg.matchDone', { n: moves })} <span className="sr-coin">+6 XP <Icon name="star" size={13} /></span>
           <button className="btn-primary sm" onClick={replay}>{t('mg.replay')}</button>
         </div>
       )}
@@ -192,7 +192,7 @@ export function ListenGame({ cards, onExit }: { cards: SrsCard[]; onExit: () => 
 
       {finished ? (
         <div className="mg-done">
-          {correct >= 4 ? '🎉' : '💪'} {t('mg.listenDone', { a: correct, b: rounds.length })}
+          <Icon name={correct >= 4 ? 'party' : 'heart'} size={15} /> {t('mg.listenDone', { a: correct, b: rounds.length })}
           {rewarded && <span className="sr-coin">+4 XP <Icon name="star" size={13} /></span>}
           <button className="btn-primary sm" onClick={replay}>{t('mg.replay')}</button>
         </div>
@@ -263,7 +263,7 @@ export function DailyChallenge({ cards, onExit }: { cards: SrsCard[]; onExit: ()
 
       {finished ? (
         <div className="mg-done">
-          🎉 {t('mg.dailyDone', { a: correct, b: rounds.length })}
+          <Icon name="party" size={15} /> {t('mg.dailyDone', { a: correct, b: rounds.length })}
           <span className="sr-coin">+10 XP <Icon name="star" size={13} /></span>
           <button className="btn-ghost sm" onClick={onExit}>{t('mg.back')}</button>
         </div>

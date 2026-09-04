@@ -12,6 +12,16 @@ import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
 
 interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
 
+const TAG_TONE: Record<string, string> = { work: 'tone-a', travel: 'tone-d', talk: 'tone-e', exam: 'tone-f' }
+
+function toneFor(tags?: string[]) {
+  return TAG_TONE[tags?.[0] || ''] || 'tone-b'
+}
+
+function monogram(name: string) {
+  return [...name.trim()][0] || '?'
+}
+
 interface Props {
   level: SpeakLevel
   startTopic: string
@@ -118,10 +128,8 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
     start({
       id: 'topic-' + Date.now(),
       title: name,
-      emoji: '✨',
       character: t('sp.topicChar'),
       role: t('sp.topicRole'),
-      avatar: '🗣️',
       situation: t('sp.topicSituation', { topic: name }),
       persona: t('sp.topicPersona', { topic: name }),
     })
@@ -231,7 +239,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
                 className={'sp-filter' + (filter === g.id ? ' on' : '')}
                 onClick={() => setFilter(filter === g.id ? '' : g.id)}
               >
-                {g.emoji} {g.label}
+                {g.label}
               </button>
             ))}
             <span className="sp-count">{t('sp.count', { n: scenarios.length })}</span>
@@ -240,7 +248,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
 
         <div className="sp-grid">
           <button className="sp-card sp-card-random" onClick={() => start(randomScenario(learnLang))}>
-            <span className="sp-card-ava">🎲</span>
+            <span className="sp-card-ava rnd"><Icon name="shuffle" size={19} /></span>
             <div className="sp-card-body">
               <b>{t('sp.randomTitle')}</b>
               <span className="sp-card-char">{t('sp.randomChar')}</span>
@@ -250,9 +258,9 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
           </button>
           {scenarios.map((s) => (
             <button key={s.id} className="sp-card" onClick={() => start(s)}>
-              <span className="sp-card-ava">{s.avatar}</span>
+              <span className={'sp-card-ava ' + toneFor(s.tags)}>{monogram(s.character)}</span>
               <div className="sp-card-body">
-                <b>{s.emoji} {s.title}</b>
+                <b>{s.title}</b>
                 {goal && s.tags?.includes(goal) && <span className="sp-goal-badge">{t('sp.goalBadge')}</span>}
                 <span className="sp-card-char">{s.character} · {s.role}</span>
                 <span className="sp-card-sit">{s.situation}</span>
@@ -274,10 +282,10 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
       <div className="sp-head">
         <button className="btn-ghost sm" onClick={() => setScenario(null)}><Icon name="chevron-left" size={15} /> {t('sp.change')}</button>
         <div className="sp-head-who">
-          <span className="sp-head-ava">{scenario.avatar}</span>
+          <span className={'sp-head-ava ' + toneFor(scenario.tags)}>{monogram(scenario.character)}</span>
           <div>
             <b>{scenario.character}</b>
-            <span>{scenario.emoji} {scenario.role}</span>
+            <span>{scenario.role}</span>
           </div>
         </div>
         <span className="sp-head-level">{levelCode(level)}</span>
@@ -292,7 +300,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
         {msgs.map((m, i) => (
           m.who === 'bot' ? (
             <div key={i} className="sp-msg bot">
-              <span className="sp-ava">{scenario.avatar}</span>
+              <span className={'sp-ava ' + toneFor(scenario.tags)}>{monogram(scenario.character)}</span>
               <div className="sp-bubble">
                 <div className="sp-name">{scenario.character}</div>
                 <div className="sp-ko" lang={learnLang}>{m.ko}</div>
@@ -316,7 +324,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
         ))}
         {loading && (
           <div className="sp-msg bot">
-            <span className="sp-ava">{scenario.avatar}</span>
+            <span className={'sp-ava ' + toneFor(scenario.tags)}>{monogram(scenario.character)}</span>
             <div className="sp-bubble"><div className="sp-typing"><span /><span /><span /></div></div>
           </div>
         )}

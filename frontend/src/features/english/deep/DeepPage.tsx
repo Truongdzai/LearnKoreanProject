@@ -41,19 +41,12 @@ const DRILLS: { id: string; name: string; sub: string; icon: IconName }[] = [
 ]
 
 function Donut({ pct }: { pct: number }) {
-  const r = 40
-  const c = 2 * Math.PI * r
   return (
-    <svg className="dp-donut" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="50" r={r} className="dp-donut-bg" />
-      <circle
-        cx="50" cy="50" r={r} className="dp-donut-on"
-        strokeDasharray={`${(c * pct) / 100} ${c}`}
-        transform="rotate(-90 50 50)"
-      />
-      <text x="50" y="48" className="dp-donut-n">{pct}%</text>
-      <text x="50" y="64" className="dp-donut-t">Hoàn thành</text>
-    </svg>
+    <div className="dp-meter">
+      <b>{pct}<small>%</small></b>
+      <span className="dp-meter-lbl">Hoàn thành</span>
+      <span className="dp-meter-gauge"><i style={{ width: pct + '%' }} /></span>
+    </div>
   )
 }
 
@@ -349,7 +342,7 @@ export default function DeepPage({ term, onPickWord, onBack }: Props) {
             <div className="dp-sechead">
               <h3 className="dp-h b"><Icon name="letters" size={16} /> 2. Từ này đi với những từ nào</h3>
               <button className="dp-link" onClick={() => markPart(dw.term, 'colloc')} disabled={prog.done.includes('colloc')}>
-                {prog.done.includes('colloc') ? '✓ Đã xong' : 'Đánh dấu đã xong'}
+                {prog.done.includes('colloc') ? <><Icon name="check" size={13} /> Đã xong</> : 'Đánh dấu đã xong'}
               </button>
             </div>
             {shown || extraCols.length ? (
@@ -370,7 +363,7 @@ export default function DeepPage({ term, onPickWord, onBack }: Props) {
             <div className="dp-sechead">
               <h3 className="dp-h e"><Icon name="target" size={16} /> 3. Phân biệt, họ từ &amp; lỗi hay gặp</h3>
               <button className="dp-link" onClick={() => markPart(dw.term, 'compare')} disabled={prog.done.includes('compare')}>
-                {prog.done.includes('compare') ? '✓ Đã xong' : 'Đánh dấu đã xong'}
+                {prog.done.includes('compare') ? <><Icon name="check" size={13} /> Đã xong</> : 'Đánh dấu đã xong'}
               </button>
             </div>
             {shown ? (

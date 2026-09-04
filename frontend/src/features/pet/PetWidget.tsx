@@ -446,13 +446,13 @@ export default function PetWidget() {
       {pomo && (
         <div className={'pet-timer' + (pomo.phase === 'break' ? ' is-break' : '')}>
           <div className="pomo-dial" style={{ ['--p' as string]: progress } as React.CSSProperties}>
-            <span>{pomo.phase === 'focus' ? '📖' : '☕'}</span>
+            <Icon name={pomo.phase === 'focus' ? 'book' : 'moon'} size={16} />
           </div>
           <div className="pomo-info">
             <span className="pomo-phase">
               {pomo.phase === 'focus' ? t('pet.phaseFocus') : t('pet.phaseBreak')} · {t('pet.round', { n: pomo.round })}
             </span>
-            <span className="pomo-time">{mmss(pomoLeft)}{pomo.paused ? ' ⏸' : ''}</span>
+            <span className="pomo-time">{mmss(pomoLeft)}{pomo.paused && <Icon name="pause" size={11} />}</span>
           </div>
           <div className="pomo-ctl">
             <button onClick={pomo.paused ? resumePomo : pausePomo} title={pomo.paused ? t('pet.resume') : t('pet.pause')}>

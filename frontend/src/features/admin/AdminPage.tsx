@@ -43,7 +43,8 @@ const CAT_COLS: Record<CatalogKind, { k: string; label: string; num?: boolean }[
   ],
   quests: [
     { k: 'id', label: 'Mã' }, { k: 'title', label: 'Tên' }, { k: 'period', label: 'Chu kỳ' },
-    { k: 'reward', label: 'Thưởng', num: true }, { k: 'target', label: 'Mục tiêu', num: true },
+    { k: 'reward', label: 'Xu', num: true }, { k: 'water', label: 'Nước', num: true },
+    { k: 'target', label: 'Mục tiêu', num: true },
   ],
   shop: [
     { k: 'id', label: 'Mã' }, { k: 'name', label: 'Tên' },

@@ -8,6 +8,7 @@ export interface Quest {
   desc: string
   period: QuestPeriod
   reward: number
+  water?: number
   target: number
   progress?: number
   claimed?: boolean

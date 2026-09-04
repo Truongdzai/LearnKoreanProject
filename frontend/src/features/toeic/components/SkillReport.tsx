@@ -11,9 +11,9 @@ interface Props {
 }
 
 const GROUP_LABEL: Record<SkillStat['group'], string> = {
-  listening: '🎧 Kỹ năng nghe',
-  grammar: '✏️ Ngữ pháp & từ vựng',
-  reading: '📖 Đọc hiểu',
+  listening: 'Kỹ năng nghe',
+  grammar: 'Ngữ pháp & từ vựng',
+  reading: 'Đọc hiểu',
 }
 
 export default function SkillReport({ attempts, onWeak, onMiniTest }: Props) {
@@ -45,12 +45,12 @@ export default function SkillReport({ attempts, onWeak, onMiniTest }: Props) {
             <span>/ 990 · mục tiêu {TOEIC_TARGET}+</span>
           </div>
           <div className="tr-score-card">
-            <small>🎧 Listening</small>
+            <small>Listening</small>
             <b>{latest.listening}</b>
             <span>/ 495</span>
           </div>
           <div className="tr-score-card">
-            <small>📖 Reading</small>
+            <small>Reading</small>
             <b>{latest.reading}</b>
             <span>/ 495</span>
           </div>
@@ -93,7 +93,7 @@ export default function SkillReport({ attempts, onWeak, onMiniTest }: Props) {
 
       {weakest.length > 0 && (
         <div className="tr-weak">
-          <div className="tr-sec-title">🎯 3 kỹ năng cần vá gấp nhất</div>
+          <div className="tr-sec-title">3 kỹ năng cần vá gấp nhất</div>
           {weakest.map((s) => (
             <div key={s.skill} className="tr-weak-item">
               <div className="tr-weak-head">

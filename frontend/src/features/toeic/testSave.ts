@@ -5,6 +5,7 @@ export interface RunProgress {
   gi: number
   answers: Record<string, number>
   played: string[]
+  marked?: string[]
   remL: number
   remR: number
 }

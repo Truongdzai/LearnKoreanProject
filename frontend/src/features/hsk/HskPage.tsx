@@ -10,6 +10,7 @@ import { useLearnedWords } from '../english/learned'
 import { useHskState } from './state'
 import HskCapsuleView from './components/HskCapsuleView'
 import HskRunner, { ResultBoard, type RunItem, type RunResult } from './components/HskRunner'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'overview' | 'grammar' | 'practice' | 'test'
 
@@ -58,7 +59,7 @@ export default function HskPage() {
   const { state, recordCapsule, markWrong, recordAttempt } = useHskState()
   const { learned } = useLearnedWords('zh')
 
-  const [tab, setTab] = useState<Tab>('overview')
+  const [tab, setTab] = useTabParam<Tab>(TAB_IDS, 'overview')
   const [capsuleId, setCapsuleId] = useState<string | null>(null)
   const [levelFilter, setLevelFilter] = useState<0 | 1 | 2>(0)
   const [session, setSession] = useState<Session | null>(null)

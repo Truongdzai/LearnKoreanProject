@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { fetchActivities, fetchActivityDaysApi, setEmailPrefsApi, type Activities, type ActivityDay } from '@/core/api/me.api'
-import { computeBadges } from '@/data/badges'
+import { computeBadges, nextBadge, BADGE_TONE, TIER_MARK } from '@/data/badges'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 import ShareCard from '@/features/share/ShareCard'
@@ -10,6 +10,7 @@ import SkillProgress from './SkillProgress'
 import MissBookCard from './MissBookCard'
 import { useSkillLog } from '@/core/skills'
 import { useMissBook } from '@/core/missBook'
+import { localDay } from '@/core/utils/day'
 
 const EMPTY: Activities = {
   labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
@@ -31,9 +32,7 @@ function heatLevel(mins: number): number {
   return 4
 }
 
-function toISO(d: Date): string {
-  return d.toISOString().slice(0, 10)
-}
+const toISO = localDay
 
 export default function ActivitiesPage() {
   const [shareOpen, setShareOpen] = useState(false)
@@ -94,6 +93,7 @@ export default function ActivitiesPage() {
     plants: garden.length,
   })
   const earnedCount = badges.filter((b) => b.earned).length
+  const upNext = nextBadge(badges)
 
   const stats = [
     { ic: 'flame', label: t('act.streak'), val: user.streak, unit: t('act.unitDays'), tone: 'fire' },
@@ -112,11 +112,11 @@ export default function ActivitiesPage() {
       {isAuthed && (
         <div className="act-share">
           <div>
-            <b>Khoe thành tích &amp; mời bạn học cùng</b>
-            <span>Tạo ảnh chia sẻ kèm link mời — bạn bè đăng ký thì cả hai cùng được 100 xu.</span>
+            <b>{t('act.shareTitle')}</b>
+            <span>{t('act.shareText')}</span>
           </div>
           <button className="btn-primary sm" onClick={() => setShareOpen(true)}>
-            <Icon name="share" size={15} /> Tạo ảnh chia sẻ
+            <Icon name="share" size={15} /> {t('act.shareCta')}
           </button>
         </div>
       )}
@@ -154,17 +154,14 @@ export default function ActivitiesPage() {
         </div>
       )}
 
-      <div className="act-stats">
+      <dl className="srs-record act-record">
         {stats.map((s) => (
           <div key={s.label} className={'act-stat ' + s.tone}>
-            <span className="act-stat-ic"><Icon name={s.ic} size={20} /></span>
-            <div>
-              <b>{s.val} <small>{s.unit}</small></b>
-              <span>{s.label}</span>
-            </div>
+            <dt><Icon name={s.ic} size={13} /> {s.label}</dt>
+            <dd>{s.val} <small>{s.unit}</small></dd>
           </div>
         ))}
-      </div>
+      </dl>
 
       <div className="act-charts">
         <div className="act-card">
@@ -232,31 +229,64 @@ export default function ActivitiesPage() {
       <MissBookCard book={book} onDrop={drop} onClear={clear} />
 
       <div className="section-title"><span className="pin" /> {t('bd.title')} ({earnedCount}/{badges.length})</div>
-      <div className="badge-grid">
-        {badges.map((b) => (
-          <div key={b.id} className={'badge-card' + (b.earned ? ' earned' : '')} title={t(b.descKey)}>
-            <span className="badge-emoji">{b.emoji}</span>
-            <b>{t(b.nameKey)}</b>
-            {b.earned ? (
-              <span className="badge-ok"><Icon name="check-circle" size={13} /> {t('bd.earned')}</span>
-            ) : (
-              <>
-                <div className="badge-bar"><span style={{ width: b.pct + '%' }} /></div>
-                <span className="badge-progress">{b.value}/{b.target}</span>
-              </>
-            )}
+      <div className="badge-case">
+        <div className="badge-case-head">
+          <div className="bch-count">
+            <b>{earnedCount}</b>
+            <span>/ {badges.length}</span>
           </div>
-        ))}
+          <div className="bch-mid">
+            <div className="bch-rail">
+              {badges.map((b) => (
+                <i key={b.id} className={b.earned ? 'on' : ''} />
+              ))}
+            </div>
+            <p>
+              {upNext
+                ? t('bd.next', { name: t(upNext.nameKey), n: upNext.remain })
+                : t('bd.allDone')}
+            </p>
+          </div>
+        </div>
+
+        <div className="badge-grid">
+          {badges.map((b) => (
+            <div
+              key={b.id}
+              className={['badge-card', BADGE_TONE[b.metric], 'sh-' + b.shape, b.earned ? 'earned' : 'locked'].join(' ')}
+              style={{ ['--p' as string]: b.pct }}
+            >
+              <span className="badge-tier" aria-hidden="true">{TIER_MARK[b.tier - 1]}</span>
+
+              <span className="badge-medal">
+                <i className="badge-ring" aria-hidden="true" />
+                <i className="badge-disc" aria-hidden="true" />
+                <Icon name={b.icon} size={20} />
+              </span>
+
+              <b className="badge-name">{t(b.nameKey)}</b>
+              <span className="badge-desc">{t(b.descKey)}</span>
+
+              {b.earned ? (
+                <span className="badge-ok"><Icon name="check-circle" size={12} /> {t('bd.earned')}</span>
+              ) : (
+                <span className="badge-progress">
+                  <em>{b.value.toLocaleString('vi-VN')}</em> / {b.target.toLocaleString('vi-VN')}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="section-title"><span className="pin" /> {t('act.overview')}</div>
-      <div className="act-summary">
-        <div className="as-item"><Icon name="rocket" size={18} /><b>{t('act.level', { n: user.level })}</b><span>{t('act.levelSub')}</span></div>
-        <div className="as-item"><Icon name="cards" size={18} /><b>{data.srsTotal}</b><span>{t('act.cards')}</span></div>
-        <div className="as-item"><Icon name="tv" size={18} /><b>{savedVideos.length}</b><span>{t('act.videos')}</span></div>
-        <div className="as-item"><Icon name="map" size={18} /><b>{paths.length}</b><span>{t('act.paths')}</span></div>
-        <div className="as-item"><Icon name="sprout" size={18} /><b>{garden.length}</b><span>{t('act.plants')}</span></div>
-      </div>
+      <dl className="srs-record act-record">
+        <div><dt><Icon name="rocket" size={13} /> {t('act.levelSub')}</dt><dd>{t('act.level', { n: user.level })}</dd></div>
+        <div><dt><Icon name="cards" size={13} /> {t('act.cards')}</dt><dd>{data.srsTotal}</dd></div>
+        <div><dt><Icon name="tv" size={13} /> {t('act.videos')}</dt><dd>{savedVideos.length}</dd></div>
+        <div><dt><Icon name="map" size={13} /> {t('act.paths')}</dt><dd>{paths.length}</dd></div>
+        <div><dt><Icon name="sprout" size={13} /> {t('act.plants')}</dt><dd>{garden.length}</dd></div>
+      </dl>
 
       {isAuthed && <MyDataCard />}
     </div>

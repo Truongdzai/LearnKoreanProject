@@ -70,6 +70,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const [myClip, setMyClip] = useState('')
   const [saved, setSaved] = useState(0)
   const [saveErr, setSaveErr] = useState('')
+  const [micErr, setMicErr] = useState('')
   const clip = useVoiceClip()
   const onPlayerState = useRef<(s: number) => void>(() => {})
   const yt = useYouTubePlayer('shadow-player', { onState: (s) => onPlayerState.current(s) })
@@ -192,7 +193,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const resetAttempt = () => {
     setScore(null); setHeard(''); setAlts([]); setOpenWord(-1)
     setAi(null); setAiError(''); sr.reset()
-    setMyClip(''); setSaved(0); setSaveErr(''); setDropped(false)
+    setMyClip(''); setSaved(0); setSaveErr(''); setMicErr(''); setDropped(false)
   }
 
   const go = useCallback((idx: number) => {
@@ -216,15 +217,18 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     if (sr.listening) { sr.stop(); return }
     stopOriginal()
     setScore(null); setAlts([]); setOpenWord(-1)
-    setAi(null); setAiError(''); setMyClip('')
+    setAi(null); setAiError(''); setMyClip(''); setMicErr('')
     sr.start()
-    if (clip.supported && !clip.recording) clip.start((data) => setMyClip(data))
+    if (clip.supported && !clip.recording) {
+      void clip.start((data) => setMyClip(data)).then((ok) => { if (!ok) setMicErr(t('sh.micFail')) })
+    }
   }
 
-  const shadowOver = () => {
+  const shadowOver = async () => {
     if (clip.recording) { clip.stop(); stopOriginal(); return }
-    setMyClip(''); setSaveErr('')
-    clip.start((data) => { setMyClip(data); stopOriginal() })
+    setMyClip(''); setSaveErr(''); setMicErr('')
+    const ok = await clip.start((data) => { setMyClip(data); stopOriginal() })
+    if (!ok) { setMicErr(t('sh.micFail')); return }
     setPlaying(true)
     cancelPlay.current = playRange(yt, cur.start, segEnd(segs, i), { times: 1, rate, onEnd: stopOriginal })
   }
@@ -526,23 +530,27 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
               )}
               {(sr.listening || sr.interim) && <div className="sh2-interim" lang={learnLang}>{sr.interim || '…'}</div>}
               {sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
+              {!sr.error && micErr && <div className="shadow-err"><Icon name="x-circle" size={15} /> {micErr}</div>}
               {dropped && <div className="shadow-dropped"><Icon name="check-circle" size={14} /> {t('sh.misheardOk')}</div>}
             </>
           ) : (
             <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noSR')}</div>
           )
         ) : clip.supported ? (
+          <>
+          {micErr && <div className="shadow-err"><Icon name="x-circle" size={15} /> {micErr}</div>}
           <div className="sh2-actions">
             <button className="sh2-act ghost" disabled={!myClip} onClick={playMine}>
               <Icon name="play" size={15} /> {t('sh.replayMine')}
             </button>
-            <button className={'sh2-act rec' + (clip.recording ? ' on' : '')} onClick={shadowOver}>
+            <button className={'sh2-act rec' + (clip.recording ? ' on' : '')} onClick={() => void shadowOver()}>
               <Icon name="mic" size={17} /> {clip.recording ? t('sh.shadowStop', { s: clip.seconds }) : t('sh.shadowNow')}
             </button>
             <button className="sh2-act skip" disabled={i === segs.length - 1} onClick={() => go(i + 1)}>
               <Icon name="arrow-right" size={15} /> {t('sh.skipLine')}
             </button>
           </div>
+          </>
         ) : (
           <div className="shadow-err"><Icon name="x-circle" size={15} /> {t('sh.noRec')}</div>
         )}

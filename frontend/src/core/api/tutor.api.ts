@@ -50,8 +50,11 @@ export interface FitScore {
 export const fetchTutorProfile = (lang: string) =>
   apiClient.get<TutorProfile>(`/api/tutor/profile?lang=${encodeURIComponent(lang)}`)
 
-export const askTutor = (input: { message: string; history: TutorTurn[]; lang: string; native: string }) =>
-  apiClient.post<TutorReply>('/api/tutor/chat', input).then((r) => {
+export const askTutor = (
+  input: { message: string; history: TutorTurn[]; lang: string; native: string },
+  signal?: AbortSignal,
+) =>
+  apiClient.post<TutorReply>('/api/tutor/chat', input, signal).then((r) => {
     track('tutor_ask', { lang: input.lang, turn: input.history.length + 1 })
     return r
   })

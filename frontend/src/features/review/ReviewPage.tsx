@@ -5,6 +5,7 @@ import Spinner from '@/core/components/Spinner'
 import Icon from '@/core/components/Icon'
 import { MatchGame, ListenGame, DailyChallenge, useGameCards, dailyDone } from './MiniGames'
 import { useAppStore } from '@/store/app.store'
+import { takeReviewDeck } from '@/core/reviewDeck'
 
 const RATES: { r: SrsRating; label: string; cls: string; key: string }[] = [
   { r: 1, label: 'rv.again', cls: 'again', key: '1' },
@@ -36,14 +37,15 @@ function deckLabel(source: string): string {
 }
 
 export default function ReviewPage() {
-  const { t, learnLang, learnLangName } = useAppStore()
+  const { t, learnLang, learnLangName, recordEvent } = useAppStore()
   const [loading, setLoading] = useState(true)
   const [queue, setQueue] = useState<SrsCard[]>([])
   const [i, setI] = useState(0)
   const [revealed, setRevealed] = useState(false)
   const [stats, setStats] = useState<SrsStats | null>(null)
   const [mode, setMode] = useState<ReviewMode>('cards')
-  const [deck, setDeck] = useState('')
+  const [deck, setDeck] = useState(takeReviewDeck)
+  const [saveErr, setSaveErr] = useState('')
   const { cards: gameCards } = useGameCards()
 
   const load = useCallback(async () => {
@@ -54,6 +56,7 @@ export default function ReviewPage() {
       setStats({ total: d.total, due: d.due, new: d.new, learned: d.learned, reviewed_today: d.reviewed_today })
       setI(0)
       setRevealed(false)
+      setSaveErr('')
     } finally {
       setLoading(false)
     }
@@ -62,6 +65,10 @@ export default function ReviewPage() {
   useEffect(() => {
     load()
   }, [load])
+
+  useEffect(() => {
+    if (deck && !loading && !queue.some((c) => (c.source || '').trim() === deck)) setDeck('')
+  }, [deck, loading, queue])
 
   const decks = useMemo(() => {
     const by = new Map<string, number>()
@@ -88,14 +95,21 @@ export default function ReviewPage() {
   const rate = useCallback(
     async (rating: SrsRating) => {
       if (!card) return
-      try {
-        await reviewCard(card.id, rating)
-      } catch {}
-      setQueue((q) => (rating === 1 ? [...q, card] : q))
       setI((x) => x + 1)
       setRevealed(false)
+      setQueue((q) => (rating === 1 ? [...q, card] : q))
+      try {
+        await reviewCard(card.id, rating)
+        setSaveErr('')
+        recordEvent('review', 1)
+        setStats((st) => (st
+          ? { ...st, reviewed_today: st.reviewed_today + 1, due: Math.max(0, st.due - (rating === 1 ? 0 : 1)) }
+          : st))
+      } catch (e) {
+        setSaveErr((e as Error).message || t('rv.saveFail'))
+      }
     },
-    [card],
+    [card, recordEvent, t],
   )
 
   useEffect(() => {
@@ -158,6 +172,13 @@ export default function ReviewPage() {
           <div><dt>{t('rv.new')}</dt><dd>{stats.new}</dd></div>
           <div><dt>{t('rv.today')}</dt><dd>{stats.reviewed_today}</dd></div>
         </dl>
+      )}
+
+      {saveErr && (
+        <div className="rv-saveerr">
+          <Icon name="x-circle" size={14} /> {saveErr}
+          <button className="btn-ghost sm" onClick={load}><Icon name="refresh" size={13} /> {t('rv.reload')}</button>
+        </div>
       )}
 
       {mode === 'cards' && decks.length > 1 && (

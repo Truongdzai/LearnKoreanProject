@@ -1,4 +1,6 @@
+import { env } from '@/config/env'
 import { apiClient } from './client'
+import { getToken } from './token'
 
 export type RoomMode = 'public' | 'private'
 export type RoomLevel = 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2'
@@ -65,7 +67,7 @@ export interface CreateRoomInput {
   max: number
 }
 
-export type SignalKind = 'offer' | 'answer' | 'ice' | 'bye'
+export type SignalKind = 'offer' | 'answer' | 'ice' | 'bye' | 'mute'
 
 export interface RoomSignal {
   id: number
@@ -135,6 +137,19 @@ export function joinRoom(id: string, password = '', invite = ''): Promise<RoomSt
 
 export function leaveRoom(id: string): Promise<{ ok: boolean }> {
   return apiClient.post<{ ok: boolean }>(`/api/rooms/${encodeURIComponent(id)}/leave`)
+}
+
+export function leaveRoomBeacon(id: string) {
+  const token = getToken()
+  if (!token || typeof fetch !== 'function') return
+  try {
+    void fetch(`${env.apiBase}/api/rooms/${encodeURIComponent(id)}/leave`, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+      body: '{}',
+    }).catch(() => { })
+  } catch { }
 }
 
 export function fetchRoomState(id: string, after = 0): Promise<RoomState> {

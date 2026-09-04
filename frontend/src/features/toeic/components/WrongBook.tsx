@@ -55,7 +55,7 @@ export default function WrongBook({ wrong, onReview, onClear, onTag }: Props) {
     return (
       <div className="toeic-wrongbook empty">
         <div className="tw-empty">
-          <b>📓 Sổ tay câu sai đang trống</b>
+          <b>Sổ tay câu sai đang trống</b>
           <p>
             Mỗi câu bạn làm sai ở bất kỳ chế độ nào (luyện theo Part, thi thử, luyện điểm yếu) sẽ tự
             được ghi vào đây để luyện lại đúng những câu đó. Làm đúng lại một câu thì câu đó được
@@ -103,7 +103,7 @@ export default function WrongBook({ wrong, onReview, onClear, onTag }: Props) {
 
       <div className="tw-cause-box">
         <div className="twc-intro">
-          <b>🏷️ Gắn mã nguyên nhân cho câu sai</b>
+          <b>Gắn mã nguyên nhân cho câu sai</b>
           <p>
             Ghi đáp án đúng thôi thì cùng một nguyên nhân sẽ quay lại dưới hình thức khác. Bấm
             <b> Nguyên nhân</b> ở mỗi câu để chọn một mã. Sau mỗi tuần, nhìn ba nhóm đứng đầu và chọn

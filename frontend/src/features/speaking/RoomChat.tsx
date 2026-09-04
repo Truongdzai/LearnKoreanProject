@@ -11,7 +11,7 @@ import { useVoiceCall } from '@/hooks/useVoiceCall'
 import RoomPeople from './RoomPeople'
 import { levelCode } from './levels'
 import {
-  askRoomPrompt, fetchRoomClip, fetchRoomState, leaveRoom, sayInRoom,
+  askRoomPrompt, fetchRoomClip, fetchRoomState, joinRoom, leaveRoom, leaveRoomBeacon, sayInRoom,
   type RoomMsg, type RoomState,
 } from '@/core/api/rooms.api'
 
@@ -54,6 +54,8 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const flushed = useRef(0)
   const dialed = useRef(false)
+  const rejoined = useRef(false)
+  const inviteRef = useRef(initial.room.invite || '')
   const srRef = useRef(sr)
   srRef.current = sr
   const meId = account?.id || ''
@@ -68,6 +70,7 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
   }, [call.supported])
 
   const apply = useCallback((s: RoomState) => {
+    inviteRef.current = s.room.invite || inviteRef.current
     setRoom(s.room)
     setMembers(s.members)
     if (s.messages.length) {
@@ -97,7 +100,13 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
         .catch((e) => {
           if (!alive) return
           const code = (e as { code?: string }).code
-          if (code === 'ROOM_NOT_FOUND' || code === 'ROOM_OUTSIDE') onLeave()
+          if (code === 'ROOM_NOT_FOUND') { onLeave(); return }
+          if (code !== 'ROOM_OUTSIDE') return
+          if (rejoined.current) { onLeave(); return }
+          rejoined.current = true
+          joinRoom(room.id, '', inviteRef.current)
+            .then((s) => { if (alive) { apply(s); rejoined.current = false } })
+            .catch(() => { if (alive) onLeave() })
         })
     }
     const timer = window.setInterval(tick, POLL_MS)
@@ -105,6 +114,12 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
   }, [room.id, apply, onLeave])
 
   useEffect(() => () => { audioRef.current?.pause() }, [])
+
+  useEffect(() => {
+    const bye = () => leaveRoomBeacon(room.id)
+    window.addEventListener('pagehide', bye)
+    return () => window.removeEventListener('pagehide', bye)
+  }, [room.id])
 
   const send = useCallback(
     async (text: string, audio = '') => {
@@ -123,7 +138,7 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
     [room.id, apply, recordEvent],
   )
 
-  const talk = () => {
+  const talk = async () => {
     if (clip.recording) {
       if (sr.listening) sr.stop()
       clip.stop()
@@ -132,7 +147,12 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
     if (call.muted) { setErr(t('rm.mutedRec')); return }
     setErr('')
     if (sr.supported) { sr.reset(); sr.start() }
-    clip.start((data) => setPending({ audio: data, at: Date.now() }))
+    const ok = await clip.start((data) => setPending({ audio: data, at: Date.now() }), call.localStream())
+    if (!ok) {
+      if (srRef.current.listening) srRef.current.stop()
+      srRef.current.reset()
+      setErr(t('room.micFail'))
+    }
   }
 
   useEffect(() => {
@@ -203,10 +223,15 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
   }
 
   const micErr = call.error
+  const MIC_TEXT: Record<string, string> = {
+    denied: 'call.micDenied',
+    nomic: 'call.micNone',
+    busy: 'call.micBusy',
+  }
   const micNote = !call.supported
     ? t(call.secure ? 'call.noSupport' : 'call.needHttps')
     : micErr
-      ? micErr.code === 'denied' ? t('call.micDenied') : micErr.code === 'nomic' ? t('call.micNone') : micErr.text
+      ? MIC_TEXT[micErr.code] ? t(MIC_TEXT[micErr.code]) : micErr.text || t('call.micOther')
       : ''
 
   return (
@@ -226,8 +251,19 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
         <div className="room2-side">
           <section className="room2-card">
             <RoomPeople call={call} members={members} meId={meId} hostId={room.hostId} slots={room.max} />
+            {call.active && (
+              <div className="rm-miccheck">
+                <div className={'rm-level' + (call.muted ? ' off' : '')}>
+                  <i style={{ width: Math.min(100, Math.round(call.myLevel * 320)) + '%' }} />
+                </div>
+                <small>{call.muted ? t('rm.micStopped') : call.device || t('rm.micLevel')}</small>
+              </div>
+            )}
+            {call.active && call.silent && (
+              <p className="rm-note bad"><Icon name="x-circle" size={13} /> {t('rm.micSilent')}</p>
+            )}
             {call.active && call.peers.length === 0 && <p className="rm-note">{t('call.alone')}</p>}
-            {call.starting && <p className="rm-note">{t('call.starting')}</p>}
+            {call.starting && <p className="rm-note">{t(call.slow ? 'call.startingSlow' : 'call.starting')}</p>}
             {micNote && <p className="rm-note bad"><Icon name="x-circle" size={13} /> {micNote}</p>}
             {micErr && call.supported && (
               <button className="rm-retry" onClick={() => void call.call()}>
@@ -321,6 +357,8 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
           </div>
 
           {err && <div className="sp-err"><Icon name="x-circle" size={14} /> {err}</div>}
+          {!err && clip.error && <div className="sp-err"><Icon name="x-circle" size={14} /> {t('room.micFail')}</div>}
+          {!err && !clip.error && sr.error && <div className="sp-err"><Icon name="x-circle" size={14} /> {sr.error}</div>}
 
           <div className="rm-compose">
             <input
@@ -335,7 +373,7 @@ export default function RoomChat({ state: initial, onLeave }: Props) {
             {clip.supported && (
               <button
                 className={'rm-rec' + (clip.recording ? ' on' : '')}
-                onClick={talk}
+                onClick={() => void talk()}
                 disabled={busy || call.muted}
                 title={call.muted
                   ? t('rm.mutedRec')

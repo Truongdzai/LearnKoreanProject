@@ -11,6 +11,7 @@ import KoreanRoadmap from './KoreanRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'program' | 'learn' | 'pron' | 'quiz'
 
@@ -29,7 +30,7 @@ interface WeekQuiz {
 }
 
 export default function KoreanPage() {
-  const [tab, setTab] = useState<Tab>('program')
+  const [tab, setTab] = useTabParam<Tab>(TAB_IDS, 'program')
   const [learnUnit, setLearnUnit] = useState<string | undefined>(undefined)
   const [pronGroup, setPronGroup] = useState<string | undefined>(undefined)
   const [weekQuiz, setWeekQuiz] = useState<WeekQuiz | null>(null)

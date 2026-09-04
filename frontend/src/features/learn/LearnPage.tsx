@@ -15,6 +15,7 @@ import ClozePractice from './components/ClozePractice'
 import DubbingStudio from './components/DubbingStudio'
 import type { LearnTab } from '@/core/constants/enum'
 import { useTabs } from '@/core/a11y'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
   { id: 'shadowing', ic: 'film', label: 'learn.tab.watch' },
@@ -29,10 +30,11 @@ const TAB_IDS = TABS.map((t) => t.id)
 
 export default function LearnPage() {
   const { lesson, status, statusError, setView, t, learnLang, learnLangName } = useAppStore()
-  const [tab, setTab] = useState<LearnTab>('shadowing')
+  const [tab, setTab] = useTabParam<LearnTab>(TAB_IDS, 'shadowing')
   const [active, setActive] = useState(-1)
   const [level, setLevel] = useState<LevelResult | null>(null)
   const [levelBusy, setLevelBusy] = useState(false)
+  const [levelErr, setLevelErr] = useState('')
   const yt = useYouTubePlayer()
   const tabs = useTabs('learn', TAB_IDS, tab, setTab)
 
@@ -40,6 +42,7 @@ export default function LearnPage() {
     if (lesson) {
       setActive(-1)
       setLevel(null)
+      setLevelErr('')
       yt.load(lesson.id)
     }
   }, [lesson])
@@ -51,16 +54,19 @@ export default function LearnPage() {
   const askLevel = async () => {
     if (!lesson || levelBusy || level) return
     setLevelBusy(true)
+    setLevelErr('')
     try {
       const text = lesson.segments.map((s) => s.ko).join(' ')
       setLevel(await estimateLevel(lesson.id, learnLang, text))
-    } catch {} finally {
+    } catch (e) {
+      setLevelErr((e as Error).message || t('gx.levelFail'))
+    } finally {
       setLevelBusy(false)
     }
   }
 
   useEffect(() => {
-    if (!lesson) return
+    if (!lesson || tab !== 'shadowing') return
     const segs = lesson.segments
     const iv = setInterval(() => {
       const t = yt.getTime()
@@ -73,7 +79,7 @@ export default function LearnPage() {
       setActive((prev) => (prev === idx ? prev : idx))
     }, 300)
     return () => clearInterval(iv)
-  }, [lesson])
+  }, [lesson, tab])
 
   if (!lesson) {
     return (
@@ -83,7 +89,7 @@ export default function LearnPage() {
             <>
               <div style={{ fontSize: 40, marginBottom: 10, color: 'var(--bad)' }}><Icon name="frown" /></div>
               <p style={{ color: 'var(--bad)', fontWeight: 600 }}>{status}</p>
-              <button className="btn-new" onClick={() => setView('home')}><Icon name="arrow-left" /> {t('learn.backHome')}</button>
+              <button className="btn-ghost sm" onClick={() => setView('home')}><Icon name="arrow-left" /> {t('learn.backHome')}</button>
             </>
           ) : (
             <>
@@ -124,6 +130,7 @@ export default function LearnPage() {
         <h2>{lesson.title}</h2>
         <div className="meta">{t('learn.source', { src: lesson.source, n: lesson.segments.length })}</div>
         {level?.reason && <div className="cefr-reason">{level.reason}</div>}
+        {levelErr && <div className="shadow-err"><Icon name="x-circle" size={14} /> {levelErr}</div>}
         <FitBadge videoId={lesson.id} lang={learnLang} />
       </div>
 

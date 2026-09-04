@@ -12,6 +12,7 @@ import { useTopikState } from './state'
 import CapsuleView from './components/CapsuleView'
 import TopikRunner, { ResultBoard, type RunItem, type RunResult } from './components/TopikRunner'
 import WritingLab from './components/WritingLab'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'overview' | 'grammar' | 'practice' | 'test' | 'writing'
 
@@ -46,7 +47,7 @@ export default function TopikPage() {
   const { state, recordCapsule, markWrong, recordAttempt } = useTopikState()
   const { learned } = useLearnedWords('ko')
 
-  const [tab, setTab] = useState<Tab>('overview')
+  const [tab, setTab] = useTabParam<Tab>(TAB_IDS, 'overview')
   const [capsuleId, setCapsuleId] = useState<string | null>(null)
   const [levelFilter, setLevelFilter] = useState<0 | 1 | 2>(0)
   const [session, setSession] = useState<Session | null>(null)
@@ -284,7 +285,7 @@ export default function TopikPage() {
               <small>Đủ 5 dạng: chủ đề · điền từ · đọc hiểu · sắp xếp · mục đích</small>
             </button>
             <button className="capsule-card" disabled={!state.wrong.length} onClick={() => { setNonce((n) => n + 1); setSession({ kind: 'wrong' }) }}>
-              <div className="cap-head"><span className="cap-num">📓</span><span className="cap-tag">Sổ tay</span></div>
+              <div className="cap-head"><span className="cap-num"><Icon name="note" size={14} /></span><span className="cap-tag">Sổ tay</span></div>
               <b>Ôn lại câu đã sai ({state.wrong.length})</b>
               <small>{state.wrong.length ? 'Làm đúng thì câu sẽ được gạch khỏi sổ' : 'Chưa có câu sai nào'}</small>
             </button>

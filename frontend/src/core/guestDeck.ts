@@ -43,6 +43,10 @@ export function addGuestCard(card: Omit<GuestCard, 'at'>): GuestCard {
   return next
 }
 
+export function removeGuestCard(front: string, lang: string): void {
+  write(readGuestDeck().filter((c) => !(c.front === front && c.lang === lang)))
+}
+
 export function clearGuestDeck(): void {
   try {
     localStorage.removeItem(KEY)

@@ -176,6 +176,9 @@ const pn = (week: number, groupId: string, seq?: number): WeekTask => {
   }
 }
 
+const ac = (week: number, n: number, note: string): WeekTask =>
+  ({ id: `w${week}-active`, kind: 'active', n, label: `Chủ động: đưa ${n} cụm nói lên mức bật ra tự động — ${note}` })
+
 export const PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 1, month: 1, phase: 'Compress', title: 'Danh từ & người quanh ta',
@@ -322,6 +325,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w6-video', kind: 'video', n: 2, label: 'Xem 2 video, để ý câu phủ định và câu hỏi Yes/No trong phụ đề' },
       { id: 'w6-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w6-bank', kind: 'total', label: 'Kho từ đạt 1300', targetTotal: 1300 },
+      ac(6, 8, 'mở tab Chủ động, chạy buổi hôm nay với gói Đời thường'),
       { id: 'w6-speak', kind: 'speak', label: 'Luyện nói 1 buổi — tập hỏi Yes/No với nhân vật AI' },
     ],
   },
@@ -369,6 +373,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(8, 1, 'e11'),
       tk(8, 16),
       pn(8, 'v-f-b-p'),
+      ac(8, 20, 'thêm gói Chữa cháy hội thoại — chỗ người học hay đứng hình nhất'),
       { id: 'w8-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w8-bank', kind: 'total', label: 'Kho từ đạt 2000 — chốt tháng 2, đã đi 2/3 chặng', targetTotal: 2000 },
       { id: 'w8-video', kind: 'video', n: 2, label: 'Xem 2 video, để ý cách người bản xứ mô tả đồ vật' },
@@ -407,6 +412,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w10-dictation', kind: 'custom', label: 'Chép chính tả 1 video ngắn (mở video → tab Chép chính tả)', go: 'library' },
       { id: 'w10-speak', kind: 'speak', label: 'Luyện nói 2 buổi với AI, cố nói cả câu dài' },
       pn(10, 'vowel-o'),
+      ac(10, 35, 'chuyển sang gói đúng việc bạn làm: công sở, họp hoặc phỏng vấn'),
       { id: 'w10-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
       { id: 'w10-bank', kind: 'total', label: 'Kho từ đạt 2550', targetTotal: 2550 },
       { id: 'w10-review', kind: 'review', n: 3, label: 'Duy trì SRS ít nhất 3 ngày' },
@@ -442,6 +448,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       tk(12, 40),
       pn(12, 'linking'),
       pn(12, 'rhythm', 2),
+      ac(12, 55, 'đây là vốn nói thật của bạn sau 90 ngày, không phải vốn từ nhìn hiểu'),
       { id: 'w12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 80%', passPct: 80 },
       { id: 'w12-speak', kind: 'speak', label: 'Trò chuyện tự do 10 phút với AI, không nhìn gợi ý' },
       { id: 'w12-write', kind: 'custom', label: 'Viết đoạn 8–10 câu giới thiệu bản thân — so với ngày 1 để thấy mình đã đi xa', go: null },
@@ -470,6 +477,9 @@ const bpn = (week: number, seq: number, groupId: string): WeekTask => {
 
 const btk = (week: number, n: number): WeekTask =>
   ({ id: `bw${week}-toeic`, kind: 'toeic', n, label: `TOEIC: hoàn thành ≥ ${n}/60 ngày lộ trình` })
+
+const bac = (week: number, n: number, note: string): WeekTask =>
+  ({ id: `bw${week}-active`, kind: 'active', n, label: `Chủ động: đưa ${n} cụm nói lên mức bật ra tự động — ${note}` })
 
 export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
   {
@@ -582,6 +592,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw4-video', kind: 'video', n: 5, label: 'Xem 5 video + lưu từ mới' },
       { id: 'bw4-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw4-bank', kind: 'total', label: 'Kho từ đạt 1250 — chốt tháng 1', targetTotal: 1250 },
+      bac(4, 15, 'mỗi ngày một buổi 4 khối ở tab Chủ động'),
       { id: 'bw4-quiz', kind: 'quiz', label: 'Kiểm tra tổng tháng 1 đạt từ 80%', passPct: 80 },
     ],
   },
@@ -641,6 +652,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw6-video', kind: 'video', n: 6, label: 'Xem 6 video chủ đề công việc / học tập' },
       { id: 'bw6-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw6-bank', kind: 'total', label: 'Kho từ đạt 1950', targetTotal: 1950 },
+      bac(6, 40, 'thêm gói Công sở và Phỏng vấn'),
       { id: 'bw6-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 85%', passPct: 85 },
     ],
   },
@@ -698,6 +710,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw8-video', kind: 'video', n: 6, label: 'Shadowing 6 video (tab Shadowing, nhại từng câu)' },
       { id: 'bw8-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
       { id: 'bw8-bank', kind: 'total', label: 'Kho từ đạt 2650 — chốt tháng 2', targetTotal: 2650 },
+      bac(8, 70, 'ưu tiên các cụm đang chậm hơn 5 giây ở Phòng tập phản xạ'),
       { id: 'bw8-quiz', kind: 'quiz', label: 'Kiểm tra tổng tháng 2 đạt từ 85%', passPct: 85 },
     ],
   },
@@ -742,6 +755,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw10-video', kind: 'video', n: 6, label: 'Xem 6 video đúng lĩnh vực bạn nhắm tới, không phụ đề lượt đầu' },
       { id: 'bw10-review', kind: 'review', n: 6, label: 'Ôn tập SRS đủ 6 ngày trong tuần' },
       { id: 'bw10-bank', kind: 'total', label: '🎯 KHO TỪ ĐẠT 3000 — mục tiêu lớn của cả lộ trình', targetTotal: 3000 },
+      bac(10, 100, 'chốt gói đúng mục tiêu nghề của bạn'),
       { id: 'bw10-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 90%', passPct: 90 },
     ],
   },
@@ -775,6 +789,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw12-write', kind: 'custom', label: 'Viết bài 200 từ: hành trình 90 ngày của bạn (mở – thân – kết)', go: null },
       { id: 'bw12-export', kind: 'custom', label: 'Xuất bộ từ đã thuộc ra Word/PDF làm "bằng chứng" 90 ngày', go: 'summary' },
       { id: 'bw12-review', kind: 'review', n: 5, label: 'Ôn SRS 5 ngày — và hẹn lịch ôn duy trì mỗi tuần sau tốt nghiệp' },
+      bac(12, 130, 'nói ra được mới tính là biết — đây là con số tốt nghiệp'),
       { id: 'bw12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 90%', passPct: 90 },
     ],
   },

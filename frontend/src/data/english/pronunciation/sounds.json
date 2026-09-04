@@ -1,428 +1,1575 @@
 [
   {
     "id": "vowel-i",
-    "emoji": "👄",
     "title": "/ɪ/ – /iː/ · ship hay sheep?",
     "sub": "Nguyên âm ngắn – dài",
     "why": "Tiếng Việt không phân biệt nguyên âm ngắn và dài, nên /ɪ/ hay bị đọc thành /iː/. Người nghe sẽ hiểu \"ship\" (con tàu) thành \"sheep\" (con cừu).",
     "tip": "/ɪ/: môi thả lỏng, hé nhẹ, âm rất ngắn và hơi trầm. /iː/: kéo môi sang hai bên như đang cười, giữ âm dài gấp đôi.",
     "pairs": [
-      { "a": "ship", "aIpa": "/ʃɪp/", "aVi": "con tàu", "b": "sheep", "bIpa": "/ʃiːp/", "bVi": "con cừu" },
-      { "a": "bit", "aIpa": "/bɪt/", "aVi": "một chút", "b": "beat", "bIpa": "/biːt/", "bVi": "nhịp; đánh bại" },
-      { "a": "live", "aIpa": "/lɪv/", "aVi": "sống", "b": "leave", "bIpa": "/liːv/", "bVi": "rời đi" },
-      { "a": "fill", "aIpa": "/fɪl/", "aVi": "làm đầy", "b": "feel", "bIpa": "/fiːl/", "bVi": "cảm thấy" },
-      { "a": "sit", "aIpa": "/sɪt/", "aVi": "ngồi", "b": "seat", "bIpa": "/siːt/", "bVi": "chỗ ngồi" },
-      { "a": "chip", "aIpa": "/tʃɪp/", "aVi": "mẩu vụn; khoai chiên", "b": "cheap", "bIpa": "/tʃiːp/", "bVi": "rẻ" },
-      { "a": "hit", "aIpa": "/hɪt/", "aVi": "đánh trúng", "b": "heat", "bIpa": "/hiːt/", "bVi": "sức nóng" },
-      { "a": "rich", "aIpa": "/rɪtʃ/", "aVi": "giàu", "b": "reach", "bIpa": "/riːtʃ/", "bVi": "với tới" }
+      {
+        "a": "ship",
+        "aIpa": "/ʃɪp/",
+        "aVi": "con tàu",
+        "b": "sheep",
+        "bIpa": "/ʃiːp/",
+        "bVi": "con cừu"
+      },
+      {
+        "a": "bit",
+        "aIpa": "/bɪt/",
+        "aVi": "một chút",
+        "b": "beat",
+        "bIpa": "/biːt/",
+        "bVi": "nhịp; đánh bại"
+      },
+      {
+        "a": "live",
+        "aIpa": "/lɪv/",
+        "aVi": "sống",
+        "b": "leave",
+        "bIpa": "/liːv/",
+        "bVi": "rời đi"
+      },
+      {
+        "a": "fill",
+        "aIpa": "/fɪl/",
+        "aVi": "làm đầy",
+        "b": "feel",
+        "bIpa": "/fiːl/",
+        "bVi": "cảm thấy"
+      },
+      {
+        "a": "sit",
+        "aIpa": "/sɪt/",
+        "aVi": "ngồi",
+        "b": "seat",
+        "bIpa": "/siːt/",
+        "bVi": "chỗ ngồi"
+      },
+      {
+        "a": "chip",
+        "aIpa": "/tʃɪp/",
+        "aVi": "mẩu vụn; khoai chiên",
+        "b": "cheap",
+        "bIpa": "/tʃiːp/",
+        "bVi": "rẻ"
+      },
+      {
+        "a": "hit",
+        "aIpa": "/hɪt/",
+        "aVi": "đánh trúng",
+        "b": "heat",
+        "bIpa": "/hiːt/",
+        "bVi": "sức nóng"
+      },
+      {
+        "a": "rich",
+        "aIpa": "/rɪtʃ/",
+        "aVi": "giàu",
+        "b": "reach",
+        "bIpa": "/riːtʃ/",
+        "bVi": "với tới"
+      }
     ],
     "sentences": [
-      { "en": "This cheap ship is full of sheep.", "vi": "Con tàu rẻ tiền này đầy cừu." },
-      { "en": "Please sit on this seat.", "vi": "Mời bạn ngồi vào chỗ này." },
-      { "en": "I feel we should leave now.", "vi": "Tôi cảm thấy chúng ta nên đi bây giờ." }
+      {
+        "en": "This cheap ship is full of sheep.",
+        "vi": "Con tàu rẻ tiền này đầy cừu."
+      },
+      {
+        "en": "Please sit on this seat.",
+        "vi": "Mời bạn ngồi vào chỗ này."
+      },
+      {
+        "en": "I feel we should leave now.",
+        "vi": "Tôi cảm thấy chúng ta nên đi bây giờ."
+      }
     ]
   },
   {
     "id": "vowel-ae",
-    "emoji": "😮",
     "title": "/æ/ – /e/ · bad hay bed?",
     "sub": "Mở miệng to hay vừa",
     "why": "Âm /æ/ không có trong tiếng Việt nên hay bị đọc thành \"e\". Khi đó \"bad\" (tệ) và \"bed\" (giường) nghe giống hệt nhau.",
     "tip": "/æ/: hạ hàm xuống thấp, mở miệng to như khi nói \"a\", lưỡi thấp và đưa ra trước. /e/: miệng mở vừa phải, gần giống \"e\" tiếng Việt.",
     "pairs": [
-      { "a": "bad", "aIpa": "/bæd/", "aVi": "tệ, xấu", "b": "bed", "bIpa": "/bed/", "bVi": "cái giường" },
-      { "a": "man", "aIpa": "/mæn/", "aVi": "người đàn ông", "b": "men", "bIpa": "/men/", "bVi": "những người đàn ông" },
-      { "a": "sad", "aIpa": "/sæd/", "aVi": "buồn", "b": "said", "bIpa": "/sed/", "bVi": "đã nói" },
-      { "a": "bat", "aIpa": "/bæt/", "aVi": "con dơi; gậy bóng chày", "b": "bet", "bIpa": "/bet/", "bVi": "cá cược" },
-      { "a": "had", "aIpa": "/hæd/", "aVi": "đã có", "b": "head", "bIpa": "/hed/", "bVi": "cái đầu" },
-      { "a": "tan", "aIpa": "/tæn/", "aVi": "rám nắng", "b": "ten", "bIpa": "/ten/", "bVi": "số mười" },
-      { "a": "pan", "aIpa": "/pæn/", "aVi": "cái chảo", "b": "pen", "bIpa": "/pen/", "bVi": "cây bút" },
-      { "a": "land", "aIpa": "/lænd/", "aVi": "vùng đất; hạ cánh", "b": "lend", "bIpa": "/lend/", "bVi": "cho mượn" }
+      {
+        "a": "bad",
+        "aIpa": "/bæd/",
+        "aVi": "tệ, xấu",
+        "b": "bed",
+        "bIpa": "/bed/",
+        "bVi": "cái giường"
+      },
+      {
+        "a": "man",
+        "aIpa": "/mæn/",
+        "aVi": "người đàn ông",
+        "b": "men",
+        "bIpa": "/men/",
+        "bVi": "những người đàn ông"
+      },
+      {
+        "a": "sad",
+        "aIpa": "/sæd/",
+        "aVi": "buồn",
+        "b": "said",
+        "bIpa": "/sed/",
+        "bVi": "đã nói"
+      },
+      {
+        "a": "bat",
+        "aIpa": "/bæt/",
+        "aVi": "con dơi; gậy bóng chày",
+        "b": "bet",
+        "bIpa": "/bet/",
+        "bVi": "cá cược"
+      },
+      {
+        "a": "had",
+        "aIpa": "/hæd/",
+        "aVi": "đã có",
+        "b": "head",
+        "bIpa": "/hed/",
+        "bVi": "cái đầu"
+      },
+      {
+        "a": "tan",
+        "aIpa": "/tæn/",
+        "aVi": "rám nắng",
+        "b": "ten",
+        "bIpa": "/ten/",
+        "bVi": "số mười"
+      },
+      {
+        "a": "pan",
+        "aIpa": "/pæn/",
+        "aVi": "cái chảo",
+        "b": "pen",
+        "bIpa": "/pen/",
+        "bVi": "cây bút"
+      },
+      {
+        "a": "land",
+        "aIpa": "/lænd/",
+        "aVi": "vùng đất; hạ cánh",
+        "b": "lend",
+        "bIpa": "/lend/",
+        "bVi": "cho mượn"
+      }
     ],
     "sentences": [
-      { "en": "The sad man sat on the bed.", "vi": "Người đàn ông buồn bã ngồi trên giường." },
-      { "en": "He said the black bag is bad.", "vi": "Anh ấy nói cái túi đen bị hỏng." },
-      { "en": "Can you lend me ten pens?", "vi": "Bạn cho tôi mượn mười cây bút được không?" }
+      {
+        "en": "The sad man sat on the bed.",
+        "vi": "Người đàn ông buồn bã ngồi trên giường."
+      },
+      {
+        "en": "He said the black bag is bad.",
+        "vi": "Anh ấy nói cái túi đen bị hỏng."
+      },
+      {
+        "en": "Can you lend me ten pens?",
+        "vi": "Bạn cho tôi mượn mười cây bút được không?"
+      }
     ]
   },
   {
     "id": "th",
-    "emoji": "😛",
     "title": "/θ/ – /ð/ · âm \"th\"",
     "sub": "Lưỡi giữa hai hàm răng",
     "why": "Tiếng Việt không có âm đặt lưỡi giữa hai hàm răng, nên /θ/ hay bị đọc thành \"t\" hoặc \"s\" (think → sink) và /ð/ thành \"d\" (they → day).",
     "tip": "Đặt đầu lưỡi chạm nhẹ mép răng cửa trên rồi đẩy hơi ra. /θ/ không rung cổ họng (think), /ð/ có rung (they) — đặt tay lên cổ để kiểm tra.",
     "pairs": [
-      { "a": "think", "aIpa": "/θɪŋk/", "aVi": "nghĩ", "b": "sink", "bIpa": "/sɪŋk/", "bVi": "bồn rửa; chìm" },
-      { "a": "thin", "aIpa": "/θɪn/", "aVi": "mỏng, gầy", "b": "tin", "bIpa": "/tɪn/", "bVi": "thiếc; hộp thiếc" },
-      { "a": "three", "aIpa": "/θriː/", "aVi": "số ba", "b": "tree", "bIpa": "/triː/", "bVi": "cái cây" },
-      { "a": "mouth", "aIpa": "/maʊθ/", "aVi": "cái miệng", "b": "mouse", "bIpa": "/maʊs/", "bVi": "con chuột" },
-      { "a": "they", "aIpa": "/ðeɪ/", "aVi": "họ", "b": "day", "bIpa": "/deɪ/", "bVi": "ngày" },
-      { "a": "then", "aIpa": "/ðen/", "aVi": "sau đó", "b": "den", "bIpa": "/den/", "bVi": "hang ổ" },
-      { "a": "breathe", "aIpa": "/briːð/", "aVi": "thở", "b": "breeze", "bIpa": "/briːz/", "bVi": "làn gió nhẹ" },
-      { "a": "worth", "aIpa": "/wɜːθ/", "aVi": "đáng giá", "b": "worse", "bIpa": "/wɜːs/", "bVi": "tệ hơn" }
+      {
+        "a": "think",
+        "aIpa": "/θɪŋk/",
+        "aVi": "nghĩ",
+        "b": "sink",
+        "bIpa": "/sɪŋk/",
+        "bVi": "bồn rửa; chìm"
+      },
+      {
+        "a": "thin",
+        "aIpa": "/θɪn/",
+        "aVi": "mỏng, gầy",
+        "b": "tin",
+        "bIpa": "/tɪn/",
+        "bVi": "thiếc; hộp thiếc"
+      },
+      {
+        "a": "three",
+        "aIpa": "/θriː/",
+        "aVi": "số ba",
+        "b": "tree",
+        "bIpa": "/triː/",
+        "bVi": "cái cây"
+      },
+      {
+        "a": "mouth",
+        "aIpa": "/maʊθ/",
+        "aVi": "cái miệng",
+        "b": "mouse",
+        "bIpa": "/maʊs/",
+        "bVi": "con chuột"
+      },
+      {
+        "a": "they",
+        "aIpa": "/ðeɪ/",
+        "aVi": "họ",
+        "b": "day",
+        "bIpa": "/deɪ/",
+        "bVi": "ngày"
+      },
+      {
+        "a": "then",
+        "aIpa": "/ðen/",
+        "aVi": "sau đó",
+        "b": "den",
+        "bIpa": "/den/",
+        "bVi": "hang ổ"
+      },
+      {
+        "a": "breathe",
+        "aIpa": "/briːð/",
+        "aVi": "thở",
+        "b": "breeze",
+        "bIpa": "/briːz/",
+        "bVi": "làn gió nhẹ"
+      },
+      {
+        "a": "worth",
+        "aIpa": "/wɜːθ/",
+        "aVi": "đáng giá",
+        "b": "worse",
+        "bIpa": "/wɜːs/",
+        "bVi": "tệ hơn"
+      }
     ],
     "voicing": [
-      { "off": "/θ/", "on": "/ð/", "offWord": "thigh", "offIpa": "/θaɪ/", "offVi": "bắp đùi", "onWord": "thy", "onIpa": "/ðaɪ/", "onVi": "của ngươi (cổ)" },
-      { "off": "/θ/", "on": "/ð/", "offWord": "mouth", "offIpa": "/maʊθ/", "offVi": "cái miệng", "onWord": "mouths", "onIpa": "/maʊðz/", "onVi": "những cái miệng" },
-      { "off": "/θ/", "on": "/ð/", "offWord": "teeth", "offIpa": "/tiːθ/", "offVi": "hàm răng", "onWord": "teethe", "onIpa": "/tiːð/", "onVi": "mọc răng" }
+      {
+        "off": "/θ/",
+        "on": "/ð/",
+        "offWord": "thigh",
+        "offIpa": "/θaɪ/",
+        "offVi": "bắp đùi",
+        "onWord": "thy",
+        "onIpa": "/ðaɪ/",
+        "onVi": "của ngươi (cổ)"
+      },
+      {
+        "off": "/θ/",
+        "on": "/ð/",
+        "offWord": "mouth",
+        "offIpa": "/maʊθ/",
+        "offVi": "cái miệng",
+        "onWord": "mouths",
+        "onIpa": "/maʊðz/",
+        "onVi": "những cái miệng"
+      },
+      {
+        "off": "/θ/",
+        "on": "/ð/",
+        "offWord": "teeth",
+        "offIpa": "/tiːθ/",
+        "offVi": "hàm răng",
+        "onWord": "teethe",
+        "onIpa": "/tiːð/",
+        "onVi": "mọc răng"
+      }
     ],
     "sentences": [
-      { "en": "I think they are thirty.", "vi": "Tôi nghĩ họ ba mươi tuổi." },
-      { "en": "Breathe through your mouth.", "vi": "Hãy thở bằng miệng." },
-      { "en": "There are three thin trees.", "vi": "Có ba cái cây gầy guộc." }
+      {
+        "en": "I think they are thirty.",
+        "vi": "Tôi nghĩ họ ba mươi tuổi."
+      },
+      {
+        "en": "Breathe through your mouth.",
+        "vi": "Hãy thở bằng miệng."
+      },
+      {
+        "en": "There are three thin trees.",
+        "vi": "Có ba cái cây gầy guộc."
+      }
     ]
   },
   {
     "id": "end-s",
-    "emoji": "🔚",
     "title": "Âm cuối -s / -es",
     "sub": "/s/ · /z/ · /ɪz/",
     "why": "Người Việt hay nuốt âm cuối, làm mất dấu hiệu số nhiều và ngôi thứ ba — \"book\" và \"books\" nghe như nhau, người nghe phải đoán.",
     "tip": "Sau âm vô thanh (p, t, k, f) đọc /s/. Sau âm hữu thanh và nguyên âm đọc /z/. Sau s, z, sh, ch, ge thì thành một âm tiết riêng /ɪz/.",
     "words": [
-      { "w": "books", "ipa": "/bʊks/", "vi": "những quyển sách" },
-      { "w": "cats", "ipa": "/kæts/", "vi": "những con mèo" },
-      { "w": "maps", "ipa": "/mæps/", "vi": "những tấm bản đồ" },
-      { "w": "dogs", "ipa": "/dɒɡz/", "vi": "những con chó" },
-      { "w": "jobs", "ipa": "/dʒɒbz/", "vi": "những công việc" },
-      { "w": "days", "ipa": "/deɪz/", "vi": "những ngày" },
-      { "w": "needs", "ipa": "/niːdz/", "vi": "cần (ngôi thứ ba)" },
-      { "w": "watches", "ipa": "/ˈwɒtʃɪz/", "vi": "những chiếc đồng hồ" },
-      { "w": "boxes", "ipa": "/ˈbɒksɪz/", "vi": "những chiếc hộp" },
-      { "w": "pages", "ipa": "/ˈpeɪdʒɪz/", "vi": "những trang giấy" }
+      {
+        "w": "books",
+        "ipa": "/bʊks/",
+        "vi": "những quyển sách"
+      },
+      {
+        "w": "cats",
+        "ipa": "/kæts/",
+        "vi": "những con mèo"
+      },
+      {
+        "w": "maps",
+        "ipa": "/mæps/",
+        "vi": "những tấm bản đồ"
+      },
+      {
+        "w": "dogs",
+        "ipa": "/dɒɡz/",
+        "vi": "những con chó"
+      },
+      {
+        "w": "jobs",
+        "ipa": "/dʒɒbz/",
+        "vi": "những công việc"
+      },
+      {
+        "w": "days",
+        "ipa": "/deɪz/",
+        "vi": "những ngày"
+      },
+      {
+        "w": "needs",
+        "ipa": "/niːdz/",
+        "vi": "cần (ngôi thứ ba)"
+      },
+      {
+        "w": "watches",
+        "ipa": "/ˈwɒtʃɪz/",
+        "vi": "những chiếc đồng hồ"
+      },
+      {
+        "w": "boxes",
+        "ipa": "/ˈbɒksɪz/",
+        "vi": "những chiếc hộp"
+      },
+      {
+        "w": "pages",
+        "ipa": "/ˈpeɪdʒɪz/",
+        "vi": "những trang giấy"
+      }
     ],
     "voicing": [
-      { "off": "/s/", "on": "/z/", "offWord": "rice", "offIpa": "/raɪs/", "offVi": "cơm, gạo", "onWord": "rise", "onIpa": "/raɪz/", "onVi": "trỗi dậy" },
-      { "off": "/s/", "on": "/z/", "offWord": "price", "offIpa": "/praɪs/", "offVi": "giá tiền", "onWord": "prize", "onIpa": "/praɪz/", "onVi": "giải thưởng" },
-      { "off": "/s/", "on": "/z/", "offWord": "bus", "offIpa": "/bʌs/", "offVi": "xe buýt", "onWord": "buzz", "onIpa": "/bʌz/", "onVi": "tiếng vo ve" }
+      {
+        "off": "/s/",
+        "on": "/z/",
+        "offWord": "rice",
+        "offIpa": "/raɪs/",
+        "offVi": "cơm, gạo",
+        "onWord": "rise",
+        "onIpa": "/raɪz/",
+        "onVi": "trỗi dậy"
+      },
+      {
+        "off": "/s/",
+        "on": "/z/",
+        "offWord": "price",
+        "offIpa": "/praɪs/",
+        "offVi": "giá tiền",
+        "onWord": "prize",
+        "onIpa": "/praɪz/",
+        "onVi": "giải thưởng"
+      },
+      {
+        "off": "/s/",
+        "on": "/z/",
+        "offWord": "bus",
+        "offIpa": "/bʌs/",
+        "offVi": "xe buýt",
+        "onWord": "buzz",
+        "onIpa": "/bʌz/",
+        "onVi": "tiếng vo ve"
+      }
     ],
     "sentences": [
-      { "en": "She watches two boxes of books.", "vi": "Cô ấy trông chừng hai thùng sách." },
-      { "en": "My friend needs three days.", "vi": "Bạn tôi cần ba ngày." },
-      { "en": "The dogs and cats want jobs.", "vi": "Lũ chó mèo muốn có việc làm." }
+      {
+        "en": "She watches two boxes of books.",
+        "vi": "Cô ấy trông chừng hai thùng sách."
+      },
+      {
+        "en": "My friend needs three days.",
+        "vi": "Bạn tôi cần ba ngày."
+      },
+      {
+        "en": "The dogs and cats want jobs.",
+        "vi": "Lũ chó mèo muốn có việc làm."
+      }
     ]
   },
   {
     "id": "end-ed",
-    "emoji": "⏪",
     "title": "Âm cuối -ed",
     "sub": "/t/ · /d/ · /ɪd/",
     "why": "Đọc \"-ed\" thành một âm tiết ở mọi từ (worked → \"wọt-kịt\") là lỗi rất phổ biến, khiến câu nghe lạ tai và sai nhịp.",
     "tip": "/t/ sau âm vô thanh (worked, stopped). /d/ sau âm hữu thanh (played, lived). /ɪd/ chỉ khi từ gốc kết thúc bằng \"t\" hoặc \"d\" (wanted, needed) — chỉ lúc đó \"-ed\" mới là một âm tiết.",
     "words": [
-      { "w": "worked", "ipa": "/wɜːkt/", "vi": "đã làm việc" },
-      { "w": "stopped", "ipa": "/stɒpt/", "vi": "đã dừng lại" },
-      { "w": "watched", "ipa": "/wɒtʃt/", "vi": "đã xem" },
-      { "w": "asked", "ipa": "/ɑːskt/", "vi": "đã hỏi" },
-      { "w": "played", "ipa": "/pleɪd/", "vi": "đã chơi" },
-      { "w": "lived", "ipa": "/lɪvd/", "vi": "đã sống" },
-      { "w": "moved", "ipa": "/muːvd/", "vi": "đã di chuyển" },
-      { "w": "wanted", "ipa": "/ˈwɒntɪd/", "vi": "đã muốn" },
-      { "w": "needed", "ipa": "/ˈniːdɪd/", "vi": "đã cần" },
-      { "w": "started", "ipa": "/ˈstɑːtɪd/", "vi": "đã bắt đầu" }
+      {
+        "w": "worked",
+        "ipa": "/wɜːkt/",
+        "vi": "đã làm việc"
+      },
+      {
+        "w": "stopped",
+        "ipa": "/stɒpt/",
+        "vi": "đã dừng lại"
+      },
+      {
+        "w": "watched",
+        "ipa": "/wɒtʃt/",
+        "vi": "đã xem"
+      },
+      {
+        "w": "asked",
+        "ipa": "/ɑːskt/",
+        "vi": "đã hỏi"
+      },
+      {
+        "w": "played",
+        "ipa": "/pleɪd/",
+        "vi": "đã chơi"
+      },
+      {
+        "w": "lived",
+        "ipa": "/lɪvd/",
+        "vi": "đã sống"
+      },
+      {
+        "w": "moved",
+        "ipa": "/muːvd/",
+        "vi": "đã di chuyển"
+      },
+      {
+        "w": "wanted",
+        "ipa": "/ˈwɒntɪd/",
+        "vi": "đã muốn"
+      },
+      {
+        "w": "needed",
+        "ipa": "/ˈniːdɪd/",
+        "vi": "đã cần"
+      },
+      {
+        "w": "started",
+        "ipa": "/ˈstɑːtɪd/",
+        "vi": "đã bắt đầu"
+      }
     ],
     "voicing": [
-      { "off": "/t/", "on": "/d/", "offWord": "worked", "offIpa": "/wɜːkt/", "offVi": "đã làm việc", "onWord": "played", "onIpa": "/pleɪd/", "onVi": "đã chơi" },
-      { "off": "/t/", "on": "/d/", "offWord": "stopped", "offIpa": "/stɒpt/", "offVi": "đã dừng lại", "onWord": "moved", "onIpa": "/muːvd/", "onVi": "đã di chuyển" },
-      { "off": "/t/", "on": "/d/", "offWord": "watched", "offIpa": "/wɒtʃt/", "offVi": "đã xem", "onWord": "lived", "onIpa": "/lɪvd/", "onVi": "đã sống" }
+      {
+        "off": "/t/",
+        "on": "/d/",
+        "offWord": "worked",
+        "offIpa": "/wɜːkt/",
+        "offVi": "đã làm việc",
+        "onWord": "played",
+        "onIpa": "/pleɪd/",
+        "onVi": "đã chơi"
+      },
+      {
+        "off": "/t/",
+        "on": "/d/",
+        "offWord": "stopped",
+        "offIpa": "/stɒpt/",
+        "offVi": "đã dừng lại",
+        "onWord": "moved",
+        "onIpa": "/muːvd/",
+        "onVi": "đã di chuyển"
+      },
+      {
+        "off": "/t/",
+        "on": "/d/",
+        "offWord": "watched",
+        "offIpa": "/wɒtʃt/",
+        "offVi": "đã xem",
+        "onWord": "lived",
+        "onIpa": "/lɪvd/",
+        "onVi": "đã sống"
+      }
     ],
     "sentences": [
-      { "en": "We watched a film and decided to stay.", "vi": "Chúng tôi đã xem phim rồi quyết định ở lại." },
-      { "en": "He worked hard and needed a break.", "vi": "Anh ấy làm việc chăm chỉ và cần nghỉ ngơi." },
-      { "en": "They stopped when the rain started.", "vi": "Họ dừng lại khi trời bắt đầu mưa." }
+      {
+        "en": "We watched a film and decided to stay.",
+        "vi": "Chúng tôi đã xem phim rồi quyết định ở lại."
+      },
+      {
+        "en": "He worked hard and needed a break.",
+        "vi": "Anh ấy làm việc chăm chỉ và cần nghỉ ngơi."
+      },
+      {
+        "en": "They stopped when the rain started.",
+        "vi": "Họ dừng lại khi trời bắt đầu mưa."
+      }
     ]
   },
   {
     "id": "end-stop",
-    "emoji": "🛑",
     "title": "Âm cuối t · k · p · d",
     "sub": "Giữ hơi, nhả nhẹ",
     "why": "Tiếng Việt cũng có âm cuối t/k/p nhưng ngậm hoàn toàn. Tiếng Anh cần nhả một luồng hơi rất nhẹ thì người nghe mới nhận ra từ.",
     "tip": "Ngậm miệng đúng vị trí rồi nhả hơi nhẹ ra. Tuyệt đối không thêm nguyên âm phía sau: \"book\" không phải \"búc-cơ\", \"stop\" không phải \"x-tốp-pơ\".",
     "words": [
-      { "w": "cat", "ipa": "/kæt/", "vi": "con mèo" },
-      { "w": "night", "ipa": "/naɪt/", "vi": "ban đêm" },
-      { "w": "light", "ipa": "/laɪt/", "vi": "ánh sáng; nhẹ" },
-      { "w": "back", "ipa": "/bæk/", "vi": "phía sau; lưng" },
-      { "w": "book", "ipa": "/bʊk/", "vi": "quyển sách" },
-      { "w": "stop", "ipa": "/stɒp/", "vi": "dừng lại" },
-      { "w": "help", "ipa": "/help/", "vi": "giúp đỡ" },
-      { "w": "bad", "ipa": "/bæd/", "vi": "tệ, xấu" },
-      { "w": "hard", "ipa": "/hɑːd/", "vi": "khó; cứng" },
-      { "w": "food", "ipa": "/fuːd/", "vi": "thức ăn" }
+      {
+        "w": "cat",
+        "ipa": "/kæt/",
+        "vi": "con mèo"
+      },
+      {
+        "w": "night",
+        "ipa": "/naɪt/",
+        "vi": "ban đêm"
+      },
+      {
+        "w": "light",
+        "ipa": "/laɪt/",
+        "vi": "ánh sáng; nhẹ"
+      },
+      {
+        "w": "back",
+        "ipa": "/bæk/",
+        "vi": "phía sau; lưng"
+      },
+      {
+        "w": "book",
+        "ipa": "/bʊk/",
+        "vi": "quyển sách"
+      },
+      {
+        "w": "stop",
+        "ipa": "/stɒp/",
+        "vi": "dừng lại"
+      },
+      {
+        "w": "help",
+        "ipa": "/help/",
+        "vi": "giúp đỡ"
+      },
+      {
+        "w": "bad",
+        "ipa": "/bæd/",
+        "vi": "tệ, xấu"
+      },
+      {
+        "w": "hard",
+        "ipa": "/hɑːd/",
+        "vi": "khó; cứng"
+      },
+      {
+        "w": "food",
+        "ipa": "/fuːd/",
+        "vi": "thức ăn"
+      }
     ],
     "sentences": [
-      { "en": "Stop at the red light at night.", "vi": "Dừng lại ở đèn đỏ vào ban đêm." },
-      { "en": "Put the book back on my desk.", "vi": "Để quyển sách lại trên bàn của tôi." },
-      { "en": "The food was hard to eat.", "vi": "Món ăn đó khó ăn." }
+      {
+        "en": "Stop at the red light at night.",
+        "vi": "Dừng lại ở đèn đỏ vào ban đêm."
+      },
+      {
+        "en": "Put the book back on my desk.",
+        "vi": "Để quyển sách lại trên bàn của tôi."
+      },
+      {
+        "en": "The food was hard to eat.",
+        "vi": "Món ăn đó khó ăn."
+      }
     ]
   },
   {
     "id": "l-n-r",
-    "emoji": "👅",
     "title": "/l/ – /n/ – /r/",
     "sub": "Vị trí đầu lưỡi",
     "why": "Nhiều vùng ở Việt Nam lẫn l và n (light → night). Còn /r/ tiếng Anh cong lưỡi, khác hẳn \"r\" rung của tiếng Việt (rice dễ thành lice).",
     "tip": "/l/: đầu lưỡi chạm lợi trên, hơi thoát hai bên. /n/: đầu lưỡi cũng chạm lợi nhưng hơi thoát qua MŨI. /r/: lưỡi cong lên và KHÔNG chạm vào đâu cả.",
     "pairs": [
-      { "a": "light", "aIpa": "/laɪt/", "aVi": "ánh sáng", "b": "night", "bIpa": "/naɪt/", "bVi": "ban đêm" },
-      { "a": "low", "aIpa": "/ləʊ/", "aVi": "thấp", "b": "no", "bIpa": "/nəʊ/", "bVi": "không" },
-      { "a": "lice", "aIpa": "/laɪs/", "aVi": "chấy, rận", "b": "rice", "bIpa": "/raɪs/", "bVi": "cơm; gạo" },
-      { "a": "long", "aIpa": "/lɒŋ/", "aVi": "dài", "b": "wrong", "bIpa": "/rɒŋ/", "bVi": "sai" },
-      { "a": "collect", "aIpa": "/kəˈlekt/", "aVi": "thu thập", "b": "correct", "bIpa": "/kəˈrekt/", "bVi": "đúng; sửa" },
-      { "a": "glass", "aIpa": "/ɡlɑːs/", "aVi": "ly thủy tinh", "b": "grass", "bIpa": "/ɡrɑːs/", "bVi": "cỏ" },
-      { "a": "play", "aIpa": "/pleɪ/", "aVi": "chơi", "b": "pray", "bIpa": "/preɪ/", "bVi": "cầu nguyện" },
-      { "a": "fly", "aIpa": "/flaɪ/", "aVi": "bay", "b": "fry", "bIpa": "/fraɪ/", "bVi": "chiên, rán" }
+      {
+        "a": "light",
+        "aIpa": "/laɪt/",
+        "aVi": "ánh sáng",
+        "b": "night",
+        "bIpa": "/naɪt/",
+        "bVi": "ban đêm"
+      },
+      {
+        "a": "low",
+        "aIpa": "/ləʊ/",
+        "aVi": "thấp",
+        "b": "no",
+        "bIpa": "/nəʊ/",
+        "bVi": "không"
+      },
+      {
+        "a": "lice",
+        "aIpa": "/laɪs/",
+        "aVi": "chấy, rận",
+        "b": "rice",
+        "bIpa": "/raɪs/",
+        "bVi": "cơm; gạo"
+      },
+      {
+        "a": "long",
+        "aIpa": "/lɒŋ/",
+        "aVi": "dài",
+        "b": "wrong",
+        "bIpa": "/rɒŋ/",
+        "bVi": "sai"
+      },
+      {
+        "a": "collect",
+        "aIpa": "/kəˈlekt/",
+        "aVi": "thu thập",
+        "b": "correct",
+        "bIpa": "/kəˈrekt/",
+        "bVi": "đúng; sửa"
+      },
+      {
+        "a": "glass",
+        "aIpa": "/ɡlɑːs/",
+        "aVi": "ly thủy tinh",
+        "b": "grass",
+        "bIpa": "/ɡrɑːs/",
+        "bVi": "cỏ"
+      },
+      {
+        "a": "play",
+        "aIpa": "/pleɪ/",
+        "aVi": "chơi",
+        "b": "pray",
+        "bIpa": "/preɪ/",
+        "bVi": "cầu nguyện"
+      },
+      {
+        "a": "fly",
+        "aIpa": "/flaɪ/",
+        "aVi": "bay",
+        "b": "fry",
+        "bIpa": "/fraɪ/",
+        "bVi": "chiên, rán"
+      }
     ],
     "sentences": [
-      { "en": "Please collect the correct glass.", "vi": "Làm ơn lấy đúng cái ly." },
-      { "en": "I like fried rice at night.", "vi": "Tôi thích cơm chiên vào buổi tối." },
-      { "en": "That long line is wrong.", "vi": "Cái hàng dài đó là sai rồi." }
+      {
+        "en": "Please collect the correct glass.",
+        "vi": "Làm ơn lấy đúng cái ly."
+      },
+      {
+        "en": "I like fried rice at night.",
+        "vi": "Tôi thích cơm chiên vào buổi tối."
+      },
+      {
+        "en": "That long line is wrong.",
+        "vi": "Cái hàng dài đó là sai rồi."
+      }
     ]
   },
   {
     "id": "s-sh-ch",
-    "emoji": "🤫",
     "title": "/s/ – /ʃ/ – /tʃ/",
     "sub": "see · she · cheap",
     "why": "Tiếng Việt có \"s\" và \"x\" gần giống nhau nên /s/ và /ʃ/ dễ bị trộn, còn /tʃ/ hay bị đọc thành \"ch\" tiếng Việt quá nhẹ.",
     "tip": "/s/: lưỡi gần lợi, hơi thoát qua khe hẹp. /ʃ/: chu môi tròn, lưỡi lùi ra sau — như khi bảo ai im lặng \"suỵt\". /tʃ/ = /t/ và /ʃ/ bật ra cùng lúc.",
     "pairs": [
-      { "a": "see", "aIpa": "/siː/", "aVi": "nhìn thấy", "b": "she", "bIpa": "/ʃiː/", "bVi": "cô ấy" },
-      { "a": "sip", "aIpa": "/sɪp/", "aVi": "nhấp một ngụm", "b": "ship", "bIpa": "/ʃɪp/", "bVi": "con tàu" },
-      { "a": "save", "aIpa": "/seɪv/", "aVi": "tiết kiệm; cứu", "b": "shave", "bIpa": "/ʃeɪv/", "bVi": "cạo râu" },
-      { "a": "sock", "aIpa": "/sɒk/", "aVi": "chiếc tất", "b": "shock", "bIpa": "/ʃɒk/", "bVi": "cú sốc" },
-      { "a": "cheap", "aIpa": "/tʃiːp/", "aVi": "rẻ", "b": "sheep", "bIpa": "/ʃiːp/", "bVi": "con cừu" },
-      { "a": "chair", "aIpa": "/tʃeə/", "aVi": "cái ghế", "b": "share", "bIpa": "/ʃeə/", "bVi": "chia sẻ" },
-      { "a": "watch", "aIpa": "/wɒtʃ/", "aVi": "xem; đồng hồ", "b": "wash", "bIpa": "/wɒʃ/", "bVi": "rửa, giặt" },
-      { "a": "catch", "aIpa": "/kætʃ/", "aVi": "bắt lấy", "b": "cash", "bIpa": "/kæʃ/", "bVi": "tiền mặt" }
+      {
+        "a": "see",
+        "aIpa": "/siː/",
+        "aVi": "nhìn thấy",
+        "b": "she",
+        "bIpa": "/ʃiː/",
+        "bVi": "cô ấy"
+      },
+      {
+        "a": "sip",
+        "aIpa": "/sɪp/",
+        "aVi": "nhấp một ngụm",
+        "b": "ship",
+        "bIpa": "/ʃɪp/",
+        "bVi": "con tàu"
+      },
+      {
+        "a": "save",
+        "aIpa": "/seɪv/",
+        "aVi": "tiết kiệm; cứu",
+        "b": "shave",
+        "bIpa": "/ʃeɪv/",
+        "bVi": "cạo râu"
+      },
+      {
+        "a": "sock",
+        "aIpa": "/sɒk/",
+        "aVi": "chiếc tất",
+        "b": "shock",
+        "bIpa": "/ʃɒk/",
+        "bVi": "cú sốc"
+      },
+      {
+        "a": "cheap",
+        "aIpa": "/tʃiːp/",
+        "aVi": "rẻ",
+        "b": "sheep",
+        "bIpa": "/ʃiːp/",
+        "bVi": "con cừu"
+      },
+      {
+        "a": "chair",
+        "aIpa": "/tʃeə/",
+        "aVi": "cái ghế",
+        "b": "share",
+        "bIpa": "/ʃeə/",
+        "bVi": "chia sẻ"
+      },
+      {
+        "a": "watch",
+        "aIpa": "/wɒtʃ/",
+        "aVi": "xem; đồng hồ",
+        "b": "wash",
+        "bIpa": "/wɒʃ/",
+        "bVi": "rửa, giặt"
+      },
+      {
+        "a": "catch",
+        "aIpa": "/kætʃ/",
+        "aVi": "bắt lấy",
+        "b": "cash",
+        "bIpa": "/kæʃ/",
+        "bVi": "tiền mặt"
+      }
     ],
     "voicing": [
-      { "off": "/s/", "on": "/z/", "offWord": "sip", "offIpa": "/sɪp/", "offVi": "nhấp một ngụm", "onWord": "zip", "onIpa": "/zɪp/", "onVi": "khoá kéo" },
-      { "off": "/ʃ/", "on": "/ʒ/", "offWord": "sheer", "offIpa": "/ʃɪə/", "offVi": "hoàn toàn; mỏng tang", "onWord": "measure", "onIpa": "/ˈmeʒə/", "onVi": "đo lường" },
-      { "off": "/tʃ/", "on": "/dʒ/", "offWord": "cheap", "offIpa": "/tʃiːp/", "offVi": "rẻ", "onWord": "jeep", "onIpa": "/dʒiːp/", "onVi": "xe jeep" }
+      {
+        "off": "/s/",
+        "on": "/z/",
+        "offWord": "sip",
+        "offIpa": "/sɪp/",
+        "offVi": "nhấp một ngụm",
+        "onWord": "zip",
+        "onIpa": "/zɪp/",
+        "onVi": "khoá kéo"
+      },
+      {
+        "off": "/ʃ/",
+        "on": "/ʒ/",
+        "offWord": "sheer",
+        "offIpa": "/ʃɪə/",
+        "offVi": "hoàn toàn; mỏng tang",
+        "onWord": "measure",
+        "onIpa": "/ˈmeʒə/",
+        "onVi": "đo lường"
+      },
+      {
+        "off": "/tʃ/",
+        "on": "/dʒ/",
+        "offWord": "cheap",
+        "offIpa": "/tʃiːp/",
+        "offVi": "rẻ",
+        "onWord": "jeep",
+        "onIpa": "/dʒiːp/",
+        "onVi": "xe jeep"
+      }
     ],
     "sentences": [
-      { "en": "She sells cheap shoes on the ship.", "vi": "Cô ấy bán giày rẻ trên tàu." },
-      { "en": "Please wash my watch and my socks.", "vi": "Làm ơn rửa đồng hồ và giặt tất giúp tôi." },
-      { "en": "Can we share this chair?", "vi": "Chúng ta dùng chung cái ghế này nhé?" }
+      {
+        "en": "She sells cheap shoes on the ship.",
+        "vi": "Cô ấy bán giày rẻ trên tàu."
+      },
+      {
+        "en": "Please wash my watch and my socks.",
+        "vi": "Làm ơn rửa đồng hồ và giặt tất giúp tôi."
+      },
+      {
+        "en": "Can we share this chair?",
+        "vi": "Chúng ta dùng chung cái ghế này nhé?"
+      }
     ]
   },
   {
     "id": "v-f-b-p",
-    "emoji": "🦷",
     "title": "/v/ – /f/ – /b/ – /p/",
     "sub": "Răng chạm môi hay hai môi chạm nhau",
     "why": "Người Việt hay thay /v/ bằng /b/ (very → berry) hoặc đọc /p/ cuối và đầu từ quá nhẹ, làm \"pig\" nghe thành \"big\".",
     "tip": "/v/ và /f/: răng cửa trên chạm nhẹ môi dưới rồi thổi hơi — /v/ rung cổ, /f/ không. /b/ và /p/: hai môi chạm nhau rồi bật ra — /p/ bật mạnh có luồng hơi.",
     "pairs": [
-      { "a": "very", "aIpa": "/ˈveri/", "aVi": "rất", "b": "berry", "bIpa": "/ˈberi/", "bVi": "quả mọng" },
-      { "a": "vote", "aIpa": "/vəʊt/", "aVi": "bỏ phiếu", "b": "boat", "bIpa": "/bəʊt/", "bVi": "con thuyền" },
-      { "a": "van", "aIpa": "/væn/", "aVi": "xe tải nhỏ", "b": "ban", "bIpa": "/bæn/", "bVi": "cấm" },
-      { "a": "fan", "aIpa": "/fæn/", "aVi": "cái quạt; người hâm mộ", "b": "van", "bIpa": "/væn/", "bVi": "xe tải nhỏ" },
-      { "a": "leaf", "aIpa": "/liːf/", "aVi": "chiếc lá", "b": "leave", "bIpa": "/liːv/", "bVi": "rời đi" },
-      { "a": "pat", "aIpa": "/pæt/", "aVi": "vỗ nhẹ", "b": "bat", "bIpa": "/bæt/", "bVi": "con dơi" },
-      { "a": "pig", "aIpa": "/pɪɡ/", "aVi": "con lợn", "b": "big", "bIpa": "/bɪɡ/", "bVi": "to lớn" },
-      { "a": "pull", "aIpa": "/pʊl/", "aVi": "kéo", "b": "bull", "bIpa": "/bʊl/", "bVi": "con bò đực" }
+      {
+        "a": "very",
+        "aIpa": "/ˈveri/",
+        "aVi": "rất",
+        "b": "berry",
+        "bIpa": "/ˈberi/",
+        "bVi": "quả mọng"
+      },
+      {
+        "a": "vote",
+        "aIpa": "/vəʊt/",
+        "aVi": "bỏ phiếu",
+        "b": "boat",
+        "bIpa": "/bəʊt/",
+        "bVi": "con thuyền"
+      },
+      {
+        "a": "van",
+        "aIpa": "/væn/",
+        "aVi": "xe tải nhỏ",
+        "b": "ban",
+        "bIpa": "/bæn/",
+        "bVi": "cấm"
+      },
+      {
+        "a": "fan",
+        "aIpa": "/fæn/",
+        "aVi": "cái quạt; người hâm mộ",
+        "b": "van",
+        "bIpa": "/væn/",
+        "bVi": "xe tải nhỏ"
+      },
+      {
+        "a": "leaf",
+        "aIpa": "/liːf/",
+        "aVi": "chiếc lá",
+        "b": "leave",
+        "bIpa": "/liːv/",
+        "bVi": "rời đi"
+      },
+      {
+        "a": "pat",
+        "aIpa": "/pæt/",
+        "aVi": "vỗ nhẹ",
+        "b": "bat",
+        "bIpa": "/bæt/",
+        "bVi": "con dơi"
+      },
+      {
+        "a": "pig",
+        "aIpa": "/pɪɡ/",
+        "aVi": "con lợn",
+        "b": "big",
+        "bIpa": "/bɪɡ/",
+        "bVi": "to lớn"
+      },
+      {
+        "a": "pull",
+        "aIpa": "/pʊl/",
+        "aVi": "kéo",
+        "b": "bull",
+        "bIpa": "/bʊl/",
+        "bVi": "con bò đực"
+      }
     ],
     "voicing": [
-      { "off": "/f/", "on": "/v/", "offWord": "safe", "offIpa": "/seɪf/", "offVi": "an toàn", "onWord": "save", "onIpa": "/seɪv/", "onVi": "tiết kiệm; cứu" },
-      { "off": "/f/", "on": "/v/", "offWord": "leaf", "offIpa": "/liːf/", "offVi": "chiếc lá", "onWord": "leave", "onIpa": "/liːv/", "onVi": "rời đi" },
-      { "off": "/p/", "on": "/b/", "offWord": "pat", "offIpa": "/pæt/", "offVi": "vỗ nhẹ", "onWord": "bat", "onIpa": "/bæt/", "onVi": "con dơi" }
+      {
+        "off": "/f/",
+        "on": "/v/",
+        "offWord": "safe",
+        "offIpa": "/seɪf/",
+        "offVi": "an toàn",
+        "onWord": "save",
+        "onIpa": "/seɪv/",
+        "onVi": "tiết kiệm; cứu"
+      },
+      {
+        "off": "/f/",
+        "on": "/v/",
+        "offWord": "leaf",
+        "offIpa": "/liːf/",
+        "offVi": "chiếc lá",
+        "onWord": "leave",
+        "onIpa": "/liːv/",
+        "onVi": "rời đi"
+      },
+      {
+        "off": "/p/",
+        "on": "/b/",
+        "offWord": "pat",
+        "offIpa": "/pæt/",
+        "offVi": "vỗ nhẹ",
+        "onWord": "bat",
+        "onIpa": "/bæt/",
+        "onVi": "con dơi"
+      }
     ],
     "sentences": [
-      { "en": "I have five very big vans.", "vi": "Tôi có năm chiếc xe tải rất to." },
-      { "en": "The pig is bigger than the bat.", "vi": "Con lợn to hơn con dơi." },
-      { "en": "Please leave one leaf on the boat.", "vi": "Làm ơn để lại một chiếc lá trên thuyền." }
+      {
+        "en": "I have five very big vans.",
+        "vi": "Tôi có năm chiếc xe tải rất to."
+      },
+      {
+        "en": "The pig is bigger than the bat.",
+        "vi": "Con lợn to hơn con dơi."
+      },
+      {
+        "en": "Please leave one leaf on the boat.",
+        "vi": "Làm ơn để lại một chiếc lá trên thuyền."
+      }
     ]
   },
   {
     "id": "vowel-o",
-    "emoji": "🗣️",
     "title": "/əʊ/ – /ɔː/ · boat hay bought?",
     "sub": "Nguyên âm đôi – nguyên âm dài",
     "why": "/əʊ/ là nguyên âm ĐÔI (trượt từ \"ơ\" sang \"u\"), nhưng thường bị đọc thành một âm \"ô\" duy nhất, khiến \"so\" nghe thành \"saw\".",
     "tip": "/əʊ/: bắt đầu ở \"ơ\" rồi trượt dần sang \"u\", môi tròn lại ở cuối. /ɔː/: giữ nguyên khẩu hình môi tròn, kéo dài, không trượt.",
     "pairs": [
-      { "a": "coat", "aIpa": "/kəʊt/", "aVi": "áo khoác", "b": "caught", "bIpa": "/kɔːt/", "bVi": "đã bắt được" },
-      { "a": "so", "aIpa": "/səʊ/", "aVi": "vì vậy", "b": "saw", "bIpa": "/sɔː/", "bVi": "đã nhìn thấy" },
-      { "a": "low", "aIpa": "/ləʊ/", "aVi": "thấp", "b": "law", "bIpa": "/lɔː/", "bVi": "luật" },
-      { "a": "boat", "aIpa": "/bəʊt/", "aVi": "con thuyền", "b": "bought", "bIpa": "/bɔːt/", "bVi": "đã mua" },
-      { "a": "coal", "aIpa": "/kəʊl/", "aVi": "than đá", "b": "call", "bIpa": "/kɔːl/", "bVi": "gọi" },
-      { "a": "hole", "aIpa": "/həʊl/", "aVi": "cái lỗ", "b": "hall", "bIpa": "/hɔːl/", "bVi": "đại sảnh" },
-      { "a": "woke", "aIpa": "/wəʊk/", "aVi": "đã thức dậy", "b": "walk", "bIpa": "/wɔːk/", "bVi": "đi bộ" },
-      { "a": "flow", "aIpa": "/fləʊ/", "aVi": "chảy", "b": "floor", "bIpa": "/flɔː/", "bVi": "sàn nhà" }
+      {
+        "a": "coat",
+        "aIpa": "/kəʊt/",
+        "aVi": "áo khoác",
+        "b": "caught",
+        "bIpa": "/kɔːt/",
+        "bVi": "đã bắt được"
+      },
+      {
+        "a": "so",
+        "aIpa": "/səʊ/",
+        "aVi": "vì vậy",
+        "b": "saw",
+        "bIpa": "/sɔː/",
+        "bVi": "đã nhìn thấy"
+      },
+      {
+        "a": "low",
+        "aIpa": "/ləʊ/",
+        "aVi": "thấp",
+        "b": "law",
+        "bIpa": "/lɔː/",
+        "bVi": "luật"
+      },
+      {
+        "a": "boat",
+        "aIpa": "/bəʊt/",
+        "aVi": "con thuyền",
+        "b": "bought",
+        "bIpa": "/bɔːt/",
+        "bVi": "đã mua"
+      },
+      {
+        "a": "coal",
+        "aIpa": "/kəʊl/",
+        "aVi": "than đá",
+        "b": "call",
+        "bIpa": "/kɔːl/",
+        "bVi": "gọi"
+      },
+      {
+        "a": "hole",
+        "aIpa": "/həʊl/",
+        "aVi": "cái lỗ",
+        "b": "hall",
+        "bIpa": "/hɔːl/",
+        "bVi": "đại sảnh"
+      },
+      {
+        "a": "woke",
+        "aIpa": "/wəʊk/",
+        "aVi": "đã thức dậy",
+        "b": "walk",
+        "bIpa": "/wɔːk/",
+        "bVi": "đi bộ"
+      },
+      {
+        "a": "flow",
+        "aIpa": "/fləʊ/",
+        "aVi": "chảy",
+        "b": "floor",
+        "bIpa": "/flɔː/",
+        "bVi": "sàn nhà"
+      }
     ],
     "sentences": [
-      { "en": "I saw a low boat this morning.", "vi": "Sáng nay tôi thấy một chiếc thuyền thấp." },
-      { "en": "He bought a coat and walked home.", "vi": "Anh ấy mua một chiếc áo khoác rồi đi bộ về nhà." },
-      { "en": "Call me when you go to the hall.", "vi": "Gọi tôi khi bạn đến đại sảnh nhé." }
+      {
+        "en": "I saw a low boat this morning.",
+        "vi": "Sáng nay tôi thấy một chiếc thuyền thấp."
+      },
+      {
+        "en": "He bought a coat and walked home.",
+        "vi": "Anh ấy mua một chiếc áo khoác rồi đi bộ về nhà."
+      },
+      {
+        "en": "Call me when you go to the hall.",
+        "vi": "Gọi tôi khi bạn đến đại sảnh nhé."
+      }
     ]
   },
   {
     "id": "stress",
-    "emoji": "🎵",
     "title": "Trọng âm từ",
     "sub": "Nhấn đúng âm tiết",
     "why": "Tiếng Việt phát âm đều từng tiếng, tiếng Anh thì nhấn MỘT âm tiết và nuốt nhẹ phần còn lại. Nhấn sai chỗ là người bản xứ không hiểu, dù phát âm từng âm đều đúng.",
     "tip": "Âm tiết được nhấn đọc TO hơn, DÀI hơn và CAO hơn; các âm tiết còn lại đọc nhẹ, thường biến thành /ə/. Thử vỗ tay đúng vào âm tiết nhấn khi đọc.",
     "words": [
-      { "w": "computer", "ipa": "/kəmˈpjuːtə/", "vi": "máy tính — nhấn âm 2: com-PU-ter" },
-      { "w": "important", "ipa": "/ɪmˈpɔːtnt/", "vi": "quan trọng — nhấn âm 2: im-POR-tant" },
-      { "w": "comfortable", "ipa": "/ˈkʌmftəbl/", "vi": "thoải mái — nhấn âm 1, chỉ 3 âm tiết: COMF-ta-ble" },
-      { "w": "vegetable", "ipa": "/ˈvedʒtəbl/", "vi": "rau củ — nhấn âm 1, chỉ 3 âm tiết: VEG-ta-ble" },
-      { "w": "photograph", "ipa": "/ˈfəʊtəɡrɑːf/", "vi": "bức ảnh — nhấn âm 1: PHO-to-graph" },
-      { "w": "photography", "ipa": "/fəˈtɒɡrəfi/", "vi": "nhiếp ảnh — nhấn âm 2: pho-TO-gra-phy" },
-      { "w": "develop", "ipa": "/dɪˈveləp/", "vi": "phát triển — nhấn âm 2: de-VE-lop" },
-      { "w": "interesting", "ipa": "/ˈɪntrəstɪŋ/", "vi": "thú vị — nhấn âm 1: IN-tres-ting" },
-      { "w": "experience", "ipa": "/ɪkˈspɪəriəns/", "vi": "kinh nghiệm — nhấn âm 2: ex-PE-rience" },
-      { "w": "opportunity", "ipa": "/ˌɒpəˈtjuːnəti/", "vi": "cơ hội — nhấn âm 3: op-por-TU-ni-ty" }
+      {
+        "w": "computer",
+        "ipa": "/kəmˈpjuːtə/",
+        "vi": "máy tính — nhấn âm 2: com-PU-ter"
+      },
+      {
+        "w": "important",
+        "ipa": "/ɪmˈpɔːtnt/",
+        "vi": "quan trọng — nhấn âm 2: im-POR-tant"
+      },
+      {
+        "w": "comfortable",
+        "ipa": "/ˈkʌmftəbl/",
+        "vi": "thoải mái — nhấn âm 1, chỉ 3 âm tiết: COMF-ta-ble"
+      },
+      {
+        "w": "vegetable",
+        "ipa": "/ˈvedʒtəbl/",
+        "vi": "rau củ — nhấn âm 1, chỉ 3 âm tiết: VEG-ta-ble"
+      },
+      {
+        "w": "photograph",
+        "ipa": "/ˈfəʊtəɡrɑːf/",
+        "vi": "bức ảnh — nhấn âm 1: PHO-to-graph"
+      },
+      {
+        "w": "photography",
+        "ipa": "/fəˈtɒɡrəfi/",
+        "vi": "nhiếp ảnh — nhấn âm 2: pho-TO-gra-phy"
+      },
+      {
+        "w": "develop",
+        "ipa": "/dɪˈveləp/",
+        "vi": "phát triển — nhấn âm 2: de-VE-lop"
+      },
+      {
+        "w": "interesting",
+        "ipa": "/ˈɪntrəstɪŋ/",
+        "vi": "thú vị — nhấn âm 1: IN-tres-ting"
+      },
+      {
+        "w": "experience",
+        "ipa": "/ɪkˈspɪəriəns/",
+        "vi": "kinh nghiệm — nhấn âm 2: ex-PE-rience"
+      },
+      {
+        "w": "opportunity",
+        "ipa": "/ˌɒpəˈtjuːnəti/",
+        "vi": "cơ hội — nhấn âm 3: op-por-TU-ni-ty"
+      }
     ],
     "syllables": [
-      { "w": "computer", "ipa": "/kəmˈpjuːtə/", "vi": "máy tính", "parts": ["com", "pu", "ter"], "hit": 1 },
-      { "w": "important", "ipa": "/ɪmˈpɔːtnt/", "vi": "quan trọng", "parts": ["im", "por", "tant"], "hit": 1 },
-      { "w": "comfortable", "ipa": "/ˈkʌmftəbl/", "vi": "thoải mái", "parts": ["comf", "ta", "ble"], "hit": 0 },
-      { "w": "vegetable", "ipa": "/ˈvedʒtəbl/", "vi": "rau củ", "parts": ["veg", "ta", "ble"], "hit": 0 },
-      { "w": "develop", "ipa": "/dɪˈveləp/", "vi": "phát triển", "parts": ["de", "ve", "lop"], "hit": 1 },
-      { "w": "interesting", "ipa": "/ˈɪntrəstɪŋ/", "vi": "thú vị", "parts": ["in", "tres", "ting"], "hit": 0 },
-      { "w": "experience", "ipa": "/ɪkˈspɪəriəns/", "vi": "kinh nghiệm", "parts": ["ex", "pe", "ri", "ence"], "hit": 1 },
-      { "w": "opportunity", "ipa": "/ˌɒpəˈtjuːnəti/", "vi": "cơ hội", "parts": ["op", "por", "tu", "ni", "ty"], "hit": 2 },
-      { "w": "hotel", "ipa": "/həʊˈtel/", "vi": "khách sạn", "parts": ["ho", "tel"], "hit": 1 },
-      { "w": "hospital", "ipa": "/ˈhɒspɪtl/", "vi": "bệnh viện", "parts": ["hos", "pi", "tal"], "hit": 0 }
+      {
+        "w": "computer",
+        "ipa": "/kəmˈpjuːtə/",
+        "vi": "máy tính",
+        "parts": [
+          "com",
+          "pu",
+          "ter"
+        ],
+        "hit": 1
+      },
+      {
+        "w": "important",
+        "ipa": "/ɪmˈpɔːtnt/",
+        "vi": "quan trọng",
+        "parts": [
+          "im",
+          "por",
+          "tant"
+        ],
+        "hit": 1
+      },
+      {
+        "w": "comfortable",
+        "ipa": "/ˈkʌmftəbl/",
+        "vi": "thoải mái",
+        "parts": [
+          "comf",
+          "ta",
+          "ble"
+        ],
+        "hit": 0
+      },
+      {
+        "w": "vegetable",
+        "ipa": "/ˈvedʒtəbl/",
+        "vi": "rau củ",
+        "parts": [
+          "veg",
+          "ta",
+          "ble"
+        ],
+        "hit": 0
+      },
+      {
+        "w": "develop",
+        "ipa": "/dɪˈveləp/",
+        "vi": "phát triển",
+        "parts": [
+          "de",
+          "ve",
+          "lop"
+        ],
+        "hit": 1
+      },
+      {
+        "w": "interesting",
+        "ipa": "/ˈɪntrəstɪŋ/",
+        "vi": "thú vị",
+        "parts": [
+          "in",
+          "tres",
+          "ting"
+        ],
+        "hit": 0
+      },
+      {
+        "w": "experience",
+        "ipa": "/ɪkˈspɪəriəns/",
+        "vi": "kinh nghiệm",
+        "parts": [
+          "ex",
+          "pe",
+          "ri",
+          "ence"
+        ],
+        "hit": 1
+      },
+      {
+        "w": "opportunity",
+        "ipa": "/ˌɒpəˈtjuːnəti/",
+        "vi": "cơ hội",
+        "parts": [
+          "op",
+          "por",
+          "tu",
+          "ni",
+          "ty"
+        ],
+        "hit": 2
+      },
+      {
+        "w": "hotel",
+        "ipa": "/həʊˈtel/",
+        "vi": "khách sạn",
+        "parts": [
+          "ho",
+          "tel"
+        ],
+        "hit": 1
+      },
+      {
+        "w": "hospital",
+        "ipa": "/ˈhɒspɪtl/",
+        "vi": "bệnh viện",
+        "parts": [
+          "hos",
+          "pi",
+          "tal"
+        ],
+        "hit": 0
+      }
     ],
     "classPairs": [
       {
-        "base": "record", "nounIpa": "/ˈrekɔːd/", "nounVi": "bản thu, hồ sơ", "verbIpa": "/rɪˈkɔːd/", "verbVi": "thu âm",
-        "nounParts": ["RE", "cord"], "verbParts": ["re", "CORD"],
-        "sent": "Please record the new record.", "vi": "Hãy thu âm bản nhạc mới."
+        "base": "record",
+        "nounIpa": "/ˈrekɔːd/",
+        "nounVi": "bản thu, hồ sơ",
+        "verbIpa": "/rɪˈkɔːd/",
+        "verbVi": "thu âm",
+        "nounParts": [
+          "RE",
+          "cord"
+        ],
+        "verbParts": [
+          "re",
+          "CORD"
+        ],
+        "sent": "Please record the new record.",
+        "vi": "Hãy thu âm bản nhạc mới."
       },
       {
-        "base": "present", "nounIpa": "/ˈpreznt/", "nounVi": "món quà", "verbIpa": "/prɪˈzent/", "verbVi": "trao, trình bày",
-        "nounParts": ["PRE", "sent"], "verbParts": ["pre", "SENT"],
-        "sent": "They will present the present to her.", "vi": "Họ sẽ trao món quà cho cô ấy."
+        "base": "present",
+        "nounIpa": "/ˈpreznt/",
+        "nounVi": "món quà",
+        "verbIpa": "/prɪˈzent/",
+        "verbVi": "trao, trình bày",
+        "nounParts": [
+          "PRE",
+          "sent"
+        ],
+        "verbParts": [
+          "pre",
+          "SENT"
+        ],
+        "sent": "They will present the present to her.",
+        "vi": "Họ sẽ trao món quà cho cô ấy."
       },
       {
-        "base": "object", "nounIpa": "/ˈɒbdʒɪkt/", "nounVi": "đồ vật", "verbIpa": "/əbˈdʒekt/", "verbVi": "phản đối",
-        "nounParts": ["OB", "ject"], "verbParts": ["ob", "JECT"],
-        "sent": "I object to that object on the desk.", "vi": "Tôi phản đối cái vật đặt trên bàn đó."
+        "base": "object",
+        "nounIpa": "/ˈɒbdʒɪkt/",
+        "nounVi": "đồ vật",
+        "verbIpa": "/əbˈdʒekt/",
+        "verbVi": "phản đối",
+        "nounParts": [
+          "OB",
+          "ject"
+        ],
+        "verbParts": [
+          "ob",
+          "JECT"
+        ],
+        "sent": "I object to that object on the desk.",
+        "vi": "Tôi phản đối cái vật đặt trên bàn đó."
       },
       {
-        "base": "increase", "nounIpa": "/ˈɪŋkriːs/", "nounVi": "mức tăng", "verbIpa": "/ɪnˈkriːs/", "verbVi": "tăng lên",
-        "nounParts": ["IN", "crease"], "verbParts": ["in", "CREASE"],
-        "sent": "They increase the price, so there is an increase.", "vi": "Họ tăng giá nên có một mức tăng."
+        "base": "increase",
+        "nounIpa": "/ˈɪŋkriːs/",
+        "nounVi": "mức tăng",
+        "verbIpa": "/ɪnˈkriːs/",
+        "verbVi": "tăng lên",
+        "nounParts": [
+          "IN",
+          "crease"
+        ],
+        "verbParts": [
+          "in",
+          "CREASE"
+        ],
+        "sent": "They increase the price, so there is an increase.",
+        "vi": "Họ tăng giá nên có một mức tăng."
       }
     ],
     "families": [
       {
         "note": "Hậu tố đổi vị trí trọng âm, và các nguyên âm không mang trọng âm cũng biến đổi theo.",
         "items": [
-          { "w": "photograph", "ipa": "/ˈfəʊtəɡrɑːf/", "vi": "bức ảnh", "parts": ["pho", "to", "graph"], "hit": 0 },
-          { "w": "photography", "ipa": "/fəˈtɒɡrəfi/", "vi": "nhiếp ảnh", "parts": ["pho", "to", "gra", "phy"], "hit": 1 },
-          { "w": "photographic", "ipa": "/ˌfəʊtəˈɡræfɪk/", "vi": "thuộc nhiếp ảnh", "parts": ["pho", "to", "gra", "phic"], "hit": 2 }
+          {
+            "w": "photograph",
+            "ipa": "/ˈfəʊtəɡrɑːf/",
+            "vi": "bức ảnh",
+            "parts": [
+              "pho",
+              "to",
+              "graph"
+            ],
+            "hit": 0
+          },
+          {
+            "w": "photography",
+            "ipa": "/fəˈtɒɡrəfi/",
+            "vi": "nhiếp ảnh",
+            "parts": [
+              "pho",
+              "to",
+              "gra",
+              "phy"
+            ],
+            "hit": 1
+          },
+          {
+            "w": "photographic",
+            "ipa": "/ˌfəʊtəˈɡræfɪk/",
+            "vi": "thuộc nhiếp ảnh",
+            "parts": [
+              "pho",
+              "to",
+              "gra",
+              "phic"
+            ],
+            "hit": 2
+          }
         ]
       },
       {
         "note": "Cùng một họ từ, trọng âm chạy dần về cuối khi thêm hậu tố.",
         "items": [
-          { "w": "economy", "ipa": "/ɪˈkɒnəmi/", "vi": "nền kinh tế", "parts": ["e", "co", "no", "my"], "hit": 1 },
-          { "w": "economic", "ipa": "/ˌiːkəˈnɒmɪk/", "vi": "thuộc kinh tế", "parts": ["e", "co", "no", "mic"], "hit": 2 },
-          { "w": "economical", "ipa": "/ˌiːkəˈnɒmɪkl/", "vi": "tiết kiệm", "parts": ["e", "co", "no", "mi", "cal"], "hit": 2 }
+          {
+            "w": "economy",
+            "ipa": "/ɪˈkɒnəmi/",
+            "vi": "nền kinh tế",
+            "parts": [
+              "e",
+              "co",
+              "no",
+              "my"
+            ],
+            "hit": 1
+          },
+          {
+            "w": "economic",
+            "ipa": "/ˌiːkəˈnɒmɪk/",
+            "vi": "thuộc kinh tế",
+            "parts": [
+              "e",
+              "co",
+              "no",
+              "mic"
+            ],
+            "hit": 2
+          },
+          {
+            "w": "economical",
+            "ipa": "/ˌiːkəˈnɒmɪkl/",
+            "vi": "tiết kiệm",
+            "parts": [
+              "e",
+              "co",
+              "no",
+              "mi",
+              "cal"
+            ],
+            "hit": 2
+          }
         ]
       }
     ],
     "sentences": [
-      { "en": "This is a very interesting opportunity.", "vi": "Đây là một cơ hội rất thú vị." },
-      { "en": "My computer is important for my job.", "vi": "Máy tính rất quan trọng với công việc của tôi." },
-      { "en": "She has experience in photography.", "vi": "Cô ấy có kinh nghiệm về nhiếp ảnh." }
+      {
+        "en": "This is a very interesting opportunity.",
+        "vi": "Đây là một cơ hội rất thú vị."
+      },
+      {
+        "en": "My computer is important for my job.",
+        "vi": "Máy tính rất quan trọng với công việc của tôi."
+      },
+      {
+        "en": "She has experience in photography.",
+        "vi": "Cô ấy có kinh nghiệm về nhiếp ảnh."
+      }
     ]
   },
   {
     "id": "linking",
-    "emoji": "🔗",
     "title": "Nối âm khi nói",
     "sub": "Nói liền, không tách từng từ",
     "why": "Đọc rời từng từ khiến câu nghe cứng và chậm; đây cũng là lý do chính khiến người học nghe không kịp người bản xứ — họ nối âm liên tục.",
     "tip": "Phụ âm cuối của từ trước nối sang nguyên âm đầu của từ sau: \"turn it off\" đọc liền thành \"tur-ni-toff\", \"an apple\" thành \"a-napple\".",
     "words": [
-      { "w": "an apple", "ipa": "/ə ˈnæpl/", "vi": "một quả táo — nối n sang apple" },
-      { "w": "turn it off", "ipa": "/ˈtɜː nɪ tɒf/", "vi": "tắt nó đi — tur-ni-toff" },
-      { "w": "pick it up", "ipa": "/ˈpɪ kɪ tʌp/", "vi": "nhặt nó lên — pi-ki-tup" },
-      { "w": "a lot of", "ipa": "/ə ˈlɒ təv/", "vi": "rất nhiều — a-lo-tof" },
-      { "w": "check in", "ipa": "/ˈtʃe kɪn/", "vi": "làm thủ tục — che-kin" },
-      { "w": "far away", "ipa": "/ˈfɑː rəweɪ/", "vi": "xa xôi — fa-rawei" },
-      { "w": "come on", "ipa": "/ˈkʌ mɒn/", "vi": "thôi nào — cơ-mon" },
-      { "w": "give it a try", "ipa": "/ˈɡɪ vɪ tə traɪ/", "vi": "thử xem — gi-vi-ta-trai" }
+      {
+        "w": "an apple",
+        "ipa": "/ə ˈnæpl/",
+        "vi": "một quả táo — nối n sang apple"
+      },
+      {
+        "w": "turn it off",
+        "ipa": "/ˈtɜː nɪ tɒf/",
+        "vi": "tắt nó đi — tur-ni-toff"
+      },
+      {
+        "w": "pick it up",
+        "ipa": "/ˈpɪ kɪ tʌp/",
+        "vi": "nhặt nó lên — pi-ki-tup"
+      },
+      {
+        "w": "a lot of",
+        "ipa": "/ə ˈlɒ təv/",
+        "vi": "rất nhiều — a-lo-tof"
+      },
+      {
+        "w": "check in",
+        "ipa": "/ˈtʃe kɪn/",
+        "vi": "làm thủ tục — che-kin"
+      },
+      {
+        "w": "far away",
+        "ipa": "/ˈfɑː rəweɪ/",
+        "vi": "xa xôi — fa-rawei"
+      },
+      {
+        "w": "come on",
+        "ipa": "/ˈkʌ mɒn/",
+        "vi": "thôi nào — cơ-mon"
+      },
+      {
+        "w": "give it a try",
+        "ipa": "/ˈɡɪ vɪ tə traɪ/",
+        "vi": "thử xem — gi-vi-ta-trai"
+      }
     ],
     "sentences": [
-      { "en": "I need a cup of coffee.", "vi": "Tôi cần một tách cà phê." },
-      { "en": "What are you doing at eight?", "vi": "Tám giờ bạn làm gì?" },
-      { "en": "Turn it off and pick it up.", "vi": "Tắt nó đi rồi nhặt nó lên." }
+      {
+        "en": "I need a cup of coffee.",
+        "vi": "Tôi cần một tách cà phê."
+      },
+      {
+        "en": "What are you doing at eight?",
+        "vi": "Tám giờ bạn làm gì?"
+      },
+      {
+        "en": "Turn it off and pick it up.",
+        "vi": "Tắt nó đi rồi nhặt nó lên."
+      }
     ]
   },
   {
     "id": "rhythm",
-    "emoji": "🥁",
     "title": "Nhịp điệu lời nói",
     "sub": "Từ mang thông tin nổi lên",
     "why": "Người Việt đọc các từ trong câu với lực gần ngang nhau, nên câu nghe đều đều và người nghe phải tự đoán đâu là ý chính. Tiếng Anh dồn lực vào từ mang thông tin và lướt nhanh các từ chức năng.",
     "tip": "Danh từ, động từ chính, tính từ và trạng từ nhận trọng âm câu. Mạo từ, giới từ ngắn, trợ động từ và đại từ đọc nhẹ, len vào giữa hai nhịp. Vỗ tay ở các nhịp nhấn — không cần khoảng cách đều tuyệt đối.",
     "words": [
-      { "w": "a cup of tea", "ipa": "/ə ˈkʌp əv ˈtiː/", "vi": "một tách trà — nhấn CUP và TEA, lướt a và of" },
-      { "w": "at the station", "ipa": "/ət ðə ˈsteɪʃn/", "vi": "ở nhà ga — chỉ STA nổi lên" },
-      { "w": "I can do it", "ipa": "/aɪ kən ˈduː ɪt/", "vi": "tôi làm được — can đọc nhẹ thành /kən/" },
-      { "w": "some of them", "ipa": "/ˈsʌm əv ðəm/", "vi": "một vài trong số họ — nhấn SOME" },
-      { "w": "for a moment", "ipa": "/fər ə ˈməʊmənt/", "vi": "trong chốc lát — nhấn MO" },
-      { "w": "it was raining", "ipa": "/ɪt wəz ˈreɪnɪŋ/", "vi": "trời đang mưa — was đọc nhẹ thành /wəz/" },
-      { "w": "we should go home", "ipa": "/wi ʃəd ˈɡəʊ ˈhəʊm/", "vi": "ta nên về nhà — nhấn GO và HOME" },
-      { "w": "a lot of people", "ipa": "/ə ˈlɒt əv ˈpiːpl/", "vi": "rất nhiều người — nhấn LOT và PEO" }
+      {
+        "w": "a cup of tea",
+        "ipa": "/ə ˈkʌp əv ˈtiː/",
+        "vi": "một tách trà — nhấn CUP và TEA, lướt a và of"
+      },
+      {
+        "w": "at the station",
+        "ipa": "/ət ðə ˈsteɪʃn/",
+        "vi": "ở nhà ga — chỉ STA nổi lên"
+      },
+      {
+        "w": "I can do it",
+        "ipa": "/aɪ kən ˈduː ɪt/",
+        "vi": "tôi làm được — can đọc nhẹ thành /kən/"
+      },
+      {
+        "w": "some of them",
+        "ipa": "/ˈsʌm əv ðəm/",
+        "vi": "một vài trong số họ — nhấn SOME"
+      },
+      {
+        "w": "for a moment",
+        "ipa": "/fər ə ˈməʊmənt/",
+        "vi": "trong chốc lát — nhấn MO"
+      },
+      {
+        "w": "it was raining",
+        "ipa": "/ɪt wəz ˈreɪnɪŋ/",
+        "vi": "trời đang mưa — was đọc nhẹ thành /wəz/"
+      },
+      {
+        "w": "we should go home",
+        "ipa": "/wi ʃəd ˈɡəʊ ˈhəʊm/",
+        "vi": "ta nên về nhà — nhấn GO và HOME"
+      },
+      {
+        "w": "a lot of people",
+        "ipa": "/ə ˈlɒt əv ˈpiːpl/",
+        "vi": "rất nhiều người — nhấn LOT và PEO"
+      }
     ],
     "focus": [
       {
-        "words": ["I", "wanted", "the", "blue", "shirt."],
+        "words": [
+          "I",
+          "wanted",
+          "the",
+          "blue",
+          "shirt."
+        ],
         "vi": "Tôi muốn cái áo màu xanh.",
-        "content": [1, 3, 4],
+        "content": [
+          1,
+          3,
+          4
+        ],
         "shifts": [
-          { "at": 3, "mean": "Màu xanh được đối chiếu với màu khác — không phải chiếc áo đỏ." },
-          { "at": 1, "mean": "Nhấn vào hành động: tôi đã MUỐN nó, chứ không phải chỉ xem hay nhắc tới." },
-          { "at": 0, "mean": "Đối chiếu người: TÔI muốn chiếc áo đó, còn người kia thì không." }
+          {
+            "at": 3,
+            "mean": "Màu xanh được đối chiếu với màu khác — không phải chiếc áo đỏ."
+          },
+          {
+            "at": 1,
+            "mean": "Nhấn vào hành động: tôi đã MUỐN nó, chứ không phải chỉ xem hay nhắc tới."
+          },
+          {
+            "at": 0,
+            "mean": "Đối chiếu người: TÔI muốn chiếc áo đó, còn người kia thì không."
+          }
         ]
       },
       {
-        "words": ["I", "need", "the", "red", "one."],
+        "words": [
+          "I",
+          "need",
+          "the",
+          "red",
+          "one."
+        ],
         "vi": "Tôi cần cái màu đỏ.",
-        "content": [1, 3, 4],
+        "content": [
+          1,
+          3,
+          4
+        ],
         "shifts": [
-          { "at": 3, "mean": "Cái màu ĐỎ, không phải cái màu khác." },
-          { "at": 1, "mean": "Tôi CẦN nó chứ không phải chỉ thích." },
-          { "at": 4, "mean": "Chỉ cần MỘT cái, không phải cả bộ." }
+          {
+            "at": 3,
+            "mean": "Cái màu ĐỎ, không phải cái màu khác."
+          },
+          {
+            "at": 1,
+            "mean": "Tôi CẦN nó chứ không phải chỉ thích."
+          },
+          {
+            "at": 4,
+            "mean": "Chỉ cần MỘT cái, không phải cả bộ."
+          }
         ]
       },
       {
-        "words": ["She", "works", "in", "a", "big", "hospital."],
+        "words": [
+          "She",
+          "works",
+          "in",
+          "a",
+          "big",
+          "hospital."
+        ],
         "vi": "Cô ấy làm trong một bệnh viện lớn.",
-        "content": [1, 4, 5],
+        "content": [
+          1,
+          4,
+          5
+        ],
         "shifts": [
-          { "at": 5, "mean": "Nơi làm việc là BỆNH VIỆN, không phải trường học hay văn phòng." },
-          { "at": 4, "mean": "Bệnh viện LỚN, không phải phòng khám nhỏ." },
-          { "at": 1, "mean": "Cô ấy LÀM ở đó, không phải đang nằm viện." }
+          {
+            "at": 5,
+            "mean": "Nơi làm việc là BỆNH VIỆN, không phải trường học hay văn phòng."
+          },
+          {
+            "at": 4,
+            "mean": "Bệnh viện LỚN, không phải phòng khám nhỏ."
+          },
+          {
+            "at": 1,
+            "mean": "Cô ấy LÀM ở đó, không phải đang nằm viện."
+          }
         ]
       },
       {
-        "words": ["We", "can", "meet", "on", "Friday."],
+        "words": [
+          "We",
+          "can",
+          "meet",
+          "on",
+          "Friday."
+        ],
         "vi": "Chúng ta có thể gặp nhau vào thứ Sáu.",
-        "content": [2, 4],
+        "content": [
+          2,
+          4
+        ],
         "shifts": [
-          { "at": 4, "mean": "Thứ SÁU, không phải ngày khác." },
-          { "at": 2, "mean": "Chúng ta GẶP nhau, không phải chỉ gọi điện." },
-          { "at": 1, "mean": "Nhấn can là khẳng định lại: hoàn toàn CÓ THỂ, đừng lo." }
+          {
+            "at": 4,
+            "mean": "Thứ SÁU, không phải ngày khác."
+          },
+          {
+            "at": 2,
+            "mean": "Chúng ta GẶP nhau, không phải chỉ gọi điện."
+          },
+          {
+            "at": 1,
+            "mean": "Nhấn can là khẳng định lại: hoàn toàn CÓ THỂ, đừng lo."
+          }
         ]
       }
     ],
     "sentences": [
-      { "en": "I wanted the blue shirt, not the red one.", "vi": "Tôi muốn chiếc áo xanh, không phải chiếc áo đỏ." },
-      { "en": "She works in a big hospital near the station.", "vi": "Cô ấy làm ở một bệnh viện lớn gần nhà ga." },
-      { "en": "We can meet on Friday if you are free.", "vi": "Chúng ta có thể gặp vào thứ Sáu nếu bạn rảnh." }
+      {
+        "en": "I wanted the blue shirt, not the red one.",
+        "vi": "Tôi muốn chiếc áo xanh, không phải chiếc áo đỏ."
+      },
+      {
+        "en": "She works in a big hospital near the station.",
+        "vi": "Cô ấy làm ở một bệnh viện lớn gần nhà ga."
+      },
+      {
+        "en": "We can meet on Friday if you are free.",
+        "vi": "Chúng ta có thể gặp vào thứ Sáu nếu bạn rảnh."
+      }
     ]
   }
-]
+]

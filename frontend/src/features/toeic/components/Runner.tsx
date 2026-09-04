@@ -21,7 +21,7 @@ interface Props {
 
 const LETTERS = ['A', 'B', 'C', 'D']
 
-const SPEAKER_ICON: Record<string, string> = { M: '👨', W: '👩', M2: '🧔', W2: '👩‍🦰' }
+const SPEAKER_ICON: Record<string, string> = { M: 'M', W: 'W', M2: 'M2', W2: 'W2' }
 
 const DIRECTION: Record<number, string> = {
   1: 'Select the one statement that best describes what you see in the picture.',
@@ -44,7 +44,8 @@ export default function Runner({
   const [remR, setRemR] = useState(initial?.remR ?? sectionSec?.reading ?? 0)
   const [voiceStatus, setVoiceStatus] = useState(englishVoiceStatus)
   const [autoJumped, setAutoJumped] = useState(false)
-  const [marked, setMarked] = useState<Set<string>>(new Set())
+  const [marked, setMarked] = useState<Set<string>>(new Set(initial?.marked ?? []))
+  const [askSubmit, setAskSubmit] = useState(false)
   const finishedRef = useRef(false)
 
   useEffect(() => onVoicesChanged(() => setVoiceStatus(englishVoiceStatus())), [])
@@ -99,13 +100,13 @@ export default function Runner({
     return () => window.clearInterval(id)
   }, [timerSec, sectionSec, inReading, firstReading])
 
-  const progressRef = useRef<RunProgress>({ gi, answers, played: [], remL, remR })
-  progressRef.current = { gi, answers, played: [...played], remL, remR }
+  const progressRef = useRef<RunProgress>({ gi, answers, played: [], marked: [], remL, remR })
+  progressRef.current = { gi, answers, played: [...played], marked: [...marked], remL, remR }
 
   useEffect(() => {
     if (!onPersist) return
     onPersist(progressRef.current)
-  }, [gi, answers, played, onPersist])
+  }, [gi, answers, played, marked, onPersist])
 
   useEffect(() => {
     if (!onPersist) return
@@ -133,13 +134,26 @@ export default function Runner({
     }
   }
 
+  const sameSection = (i: number) => (
+    !sectionSec ? true : (groups[i].part >= 5) === inReading
+  )
+  const navIdx = groups.map((_, i) => i).filter(sameSection)
+  const unanswered = groups.reduce(
+    (s, x) => s + x.questions.filter((q) => answers[q.key] == null).length, 0)
+
+  const submit = () => {
+    if (unanswered > 0) { setAskSubmit(true); return }
+    finish()
+  }
+
   const next = () => {
     stopSpeak()
-    if (isLast) finish()
+    if (isLast) submit()
     else setGi((x) => x + 1)
   }
 
-  const canGoBack = gi > 0 && g.part >= 5 && groups[gi - 1].part >= 5
+  const jump = (i: number) => { stopSpeak(); setAskSubmit(false); setGi(i) }
+  const canGoBack = gi > 0 && sameSection(gi - 1)
   const prev = () => { stopSpeak(); setGi((x) => Math.max(0, x - 1)) }
 
   const checkGroup = () => setCheckedGroups((s) => new Set(s).add(g.id))
@@ -193,13 +207,13 @@ export default function Runner({
             </span>
           ) : null}
           {mode === 'test' && (
-            <button className="tr-submit" onClick={finish}>Nộp bài</button>
+            <button className="tr-submit" onClick={submit}>Nộp bài</button>
           )}
         </div>
       </div>
       {autoJumped && (
         <div className="tr-pace low">
-          ⏱️ Hết giờ phần Nghe — như đề thật, băng ghi âm dừng và bài chuyển sang phần Đọc.
+          ⏱Hết giờ phần Nghe — như đề thật, băng ghi âm dừng và bài chuyển sang phần Đọc.
           Các câu Nghe chưa trả lời sẽ tính là bỏ trống.
           <button className="btn-ghost sm" onClick={() => setAutoJumped(false)}>Đã hiểu</button>
         </div>
@@ -211,6 +225,37 @@ export default function Runner({
         </div>
       )}
       <div className="quiz-bar"><div style={{ width: `${(answeredQ / totalQ) * 100}%` }} /></div>
+
+      {askSubmit && (
+        <div className="tr-pace low tr-confirm">
+          Còn <b>{unanswered}</b> câu chưa trả lời — nộp bây giờ thì những câu đó tính là bỏ trống.
+          <button className="btn-primary sm" onClick={finish}>Nộp luôn</button>
+          <button className="btn-ghost sm" onClick={() => setAskSubmit(false)}>Quay lại làm tiếp</button>
+        </div>
+      )}
+
+      {mode === 'test' && navIdx.length > 1 && (
+        <div className="tr-nav">
+          {navIdx.map((i) => {
+            const grp = groups[i]
+            const full = grp.questions.every((q) => answers[q.key] != null)
+            const some = !full && grp.questions.some((q) => answers[q.key] != null)
+            const from = grp.qStart ?? i + 1
+            const to = grp.qStart != null ? grp.qStart + grp.questions.length - 1 : from
+            return (
+              <button
+                key={grp.id}
+                className={'tr-navi' + (i === gi ? ' at' : '') + (full ? ' full' : some ? ' part' : '')
+                  + (marked.has(grp.id) ? ' flag' : '')}
+                onClick={() => jump(i)}
+                title={marked.has(grp.id) ? 'Đã đánh dấu xem lại' : undefined}
+              >
+                {from === to ? from : `${from}-${to}`}
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       <div className={'tr-body' + (hasContext ? '' : ' lean')}>
        <div className="tr-pane left">
@@ -233,7 +278,7 @@ export default function Runner({
 
         {isListening && noAudio && (
           <div className="tr-voice-warn">
-            <b>⚠️ Thiết bị chưa có giọng đọc tiếng Anh</b>
+            <b>Thiết bị chưa có giọng đọc tiếng Anh</b>
             <p>
               Nếu phát, trình duyệt sẽ đọc tiếng Anh bằng giọng Việt (sai hoàn toàn), nên hệ thống
               đã tắt audio và <b>hiển thị lời thoại bên dưới</b> — bạn vẫn luyện được như dạng đọc hiểu.
@@ -263,7 +308,7 @@ export default function Runner({
         {((checked || noAudio) && isListening && g.audio) ? (
           <div className="tr-script">
             {g.audio.map((l, i) => (
-              <p key={i}><b>{SPEAKER_ICON[l.s] ?? '👨'}</b> <span lang="en">{l.text}</span></p>
+              <p key={i}><b>{SPEAKER_ICON[l.s] ?? 'M'}</b> <span lang="en">{l.text}</span></p>
             ))}
           </div>
         ) : null}
@@ -276,14 +321,14 @@ export default function Runner({
 
         {!!g.shortPassage && (
           <div className="tr-pace low">
-            📄 Bộ này thiếu {g.shortPassage} đoạn văn (sách gốc không nhúng ảnh đoạn đó) — vài câu
+            Bộ này thiếu {g.shortPassage} đoạn văn (sách gốc không nhúng ảnh đoạn đó) — vài câu
             có thể phải đoán, các câu còn lại vẫn tính bình thường.
           </div>
         )}
 
         {g.needsGraphic && (
           <div className="tr-pace low">
-            🖼️ Nhóm này có câu “Look at the graphic” nhưng hình của đề gốc chưa được nhập —
+            Nhóm này có câu “Look at the graphic” nhưng hình của đề gốc chưa được nhập —
             câu đó bạn tạm đoán, các câu còn lại vẫn tính bình thường.
           </div>
         )}
@@ -351,13 +396,13 @@ export default function Runner({
               {checked && (q.explain || q.vi || q.trap) && (
                 <div className="tr-explain">
                   {q.vi && <p>🇻🇳 {q.vi}</p>}
-                  {q.explain && <p>💡 {q.explain}</p>}
-                  {q.trap && <p>⚠️ {q.trap}</p>}
+                  {q.explain && <p><Icon name="bulb" size={14} /> {q.explain}</p>}
+                  {q.trap && <p><Icon name="bell" size={14} /> {q.trap}</p>}
                 </div>
               )}
               {checked && SKILLS[q.skill] && (
                 <div className="tr-tip">
-                  <b>🎯 Mẹo dạng "{SKILLS[q.skill].vi}":</b> {SKILLS[q.skill].advice}
+                  <b>Mẹo dạng "{SKILLS[q.skill].vi}":</b> {SKILLS[q.skill].advice}
                 </div>
               )}
             </div>
@@ -392,8 +437,9 @@ export default function Runner({
           </button>
         )}
         {(mode === 'test' || checked || (mode === 'practice' && single && checked)) && (
-          <button className="btn-primary" onClick={next} disabled={mode === 'test' && !allAnswered}>
-            {isLast ? 'Nộp bài & xem kết quả' : 'Tiếp tục'} <Icon name="arrow-right" size={15} />
+          <button className="btn-primary" onClick={next}>
+            {isLast ? 'Nộp bài & xem kết quả' : allAnswered ? 'Tiếp tục' : 'Bỏ qua, câu sau'}
+            <Icon name="arrow-right" size={15} />
           </button>
         )}
       </div>

@@ -4,14 +4,19 @@ import { fetchIceConfig, fetchSignals, sendSignal, type RoomSignal } from '@/cor
 const POLL_MS = 1000
 const LEVEL_MS = 200
 const SPEAK_GATE = 0.045
+const HEAR_GATE = 0.012
+const SILENT_TICKS = 40
+const RETRY_MS = 1500
+const MAX_RETRY = 3
 
 export type PeerPhase = 'connecting' | 'live' | 'lost'
-export type CallError = { code: 'denied' | 'nomic' | 'other'; text: string }
+export type CallError = { code: 'denied' | 'nomic' | 'busy' | 'other'; text: string }
 
 function micError(e: unknown): CallError {
   const name = (e as DOMException)?.name || ''
   if (name === 'NotAllowedError' || name === 'SecurityError') return { code: 'denied', text: '' }
   if (name === 'NotFoundError' || name === 'OverconstrainedError') return { code: 'nomic', text: '' }
+  if (name === 'NotReadableError' || name === 'AbortError') return { code: 'busy', text: '' }
   return { code: 'other', text: (e as Error)?.message || '' }
 }
 
@@ -19,6 +24,7 @@ export interface CallPeer {
   id: string
   phase: PeerPhase
   speaking: boolean
+  muted: boolean
 }
 
 interface Wire {
@@ -26,6 +32,8 @@ interface Wire {
   stream: MediaStream
   polite: boolean
   queued: RTCIceCandidateInit[]
+  muted: boolean
+  tries: number
 }
 
 interface Meter {
@@ -44,13 +52,22 @@ function rms(meter: Meter): number {
   return Math.sqrt(sum / meter.data.length)
 }
 
+const MIC_WANT: MediaStreamConstraints = {
+  audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+  video: false,
+}
+
 export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) {
   const [active, setActive] = useState(false)
   const [muted, setMuted] = useState(false)
   const [peers, setPeers] = useState<CallPeer[]>([])
   const [mySpeaking, setMySpeaking] = useState(false)
+  const [myLevel, setMyLevel] = useState(0)
+  const [silent, setSilent] = useState(false)
+  const [device, setDevice] = useState('')
   const [error, setError] = useState<CallError | null>(null)
   const [starting, setStarting] = useState(false)
+  const [slow, setSlow] = useState(false)
 
   const local = useRef<MediaStream | null>(null)
   const wires = useRef(new Map<string, Wire>())
@@ -58,6 +75,9 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
   const ice = useRef<RTCIceServer[]>([])
   const after = useRef(0)
   const on = useRef(false)
+  const quiet = useRef(0)
+  const mutedRef = useRef(false)
+  const retryRef = useRef<(id: string) => void>(() => { })
   const members = useRef<string[]>(memberIds)
   members.current = memberIds
 
@@ -72,6 +92,7 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
           ? 'live'
           : w.pc.connectionState === 'failed' || w.pc.connectionState === 'closed' ? 'lost' : 'connecting',
         speaking: false,
+        muted: w.muted,
       })),
     )
   }, [])
@@ -80,6 +101,7 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
     try {
       const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
       const ctx = new Ctx()
+      if (ctx.state === 'suspended') void ctx.resume().catch(() => { })
       const analyser = ctx.createAnalyser()
       analyser.fftSize = 512
       ctx.createMediaStreamSource(stream).connect(analyser)
@@ -107,7 +129,7 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
 
     const pc = new RTCPeerConnection({ iceServers: ice.current })
     const stream = new MediaStream()
-    const wire: Wire = { pc, stream, polite: meId > id, queued: [] }
+    const wire: Wire = { pc, stream, polite: meId > id, queued: [], muted: false, tries: 0 }
     wires.current.set(id, wire)
 
     local.current?.getTracks().forEach((tr) => pc.addTrack(tr, local.current as MediaStream))
@@ -120,7 +142,12 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
       if (!meters.current.has(id)) meterFor(id, stream)
       publish()
     }
-    pc.onconnectionstatechange = () => publish()
+    pc.onconnectionstatechange = () => {
+      publish()
+      if (pc.connectionState === 'connected') wire.tries = 0
+      if (pc.connectionState === 'failed') retryRef.current(id)
+    }
+    if (mutedRef.current) sendSignal(roomId, id, 'mute', '1').catch(() => { })
     publish()
     return wire
   }, [meId, roomId, meterFor, publish])
@@ -135,8 +162,26 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
     } catch { }
   }, [roomId, wireFor])
 
+  const retry = useCallback((id: string) => {
+    const w = wires.current.get(id)
+    if (!w || w.tries >= MAX_RETRY) return
+    const tries = w.tries + 1
+    dropPeer(id)
+    window.setTimeout(() => {
+      if (!on.current || !members.current.includes(id)) return
+      wireFor(id).tries = tries
+      void offerTo(id)
+    }, RETRY_MS)
+  }, [dropPeer, offerTo, wireFor])
+  retryRef.current = retry
+
   const digest = useCallback(async (sig: RoomSignal) => {
     if (sig.kind === 'bye') { dropPeer(sig.from); return }
+    if (sig.kind === 'mute') {
+      const w = wires.current.get(sig.from)
+      if (w) { w.muted = sig.payload === '1'; publish() }
+      return
+    }
     const wire = wireFor(sig.from)
     let data: RTCSessionDescriptionInit | RTCIceCandidateInit
     try { data = JSON.parse(sig.payload) } catch { return }
@@ -157,10 +202,11 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
         else wire.queued.push(data as RTCIceCandidateInit)
       }
     } catch { }
-  }, [dropPeer, roomId, wireFor])
+  }, [dropPeer, publish, roomId, wireFor])
 
   const hangUp = useCallback(() => {
     on.current = false
+    mutedRef.current = false
     for (const id of [...wires.current.keys()]) {
       sendSignal(roomId, id, 'bye', '1').catch(() => { })
       dropPeer(id)
@@ -172,29 +218,36 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
     setActive(false)
     setMuted(false)
     setMySpeaking(false)
+    setMyLevel(0)
+    setSilent(false)
+    setDevice('')
     setPeers([])
   }, [dropPeer, meId, roomId])
 
   const call = useCallback(async () => {
     if (!supported || on.current) return
-    setStarting(true); setError(null)
+    setStarting(true); setError(null); setSlow(false)
+    const nudge = window.setTimeout(() => setSlow(true), 6000)
     try {
       const cfg = await fetchIceConfig().catch(() => ({ iceServers: [] as RTCIceServer[], relay: false }))
       ice.current = cfg.iceServers
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
-        video: false,
-      })
+      const stream = await navigator.mediaDevices.getUserMedia(MIC_WANT)
       local.current = stream
+      setDevice(stream.getAudioTracks()[0]?.label || '')
       meterFor(meId, stream)
       after.current = 0
+      quiet.current = 0
       on.current = true
+      mutedRef.current = false
       setMuted(false)
+      setSilent(false)
       setActive(true)
       for (const id of members.current) if (id !== meId) offerTo(id)
     } catch (e) {
       setError(micError(e))
     } finally {
+      window.clearTimeout(nudge)
+      setSlow(false)
       setStarting(false)
     }
   }, [meId, meterFor, offerTo, supported])
@@ -225,7 +278,11 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
     if (!active) return
     const timer = window.setInterval(() => {
       const mine = meters.current.get(meId)
-      setMySpeaking(!!mine && !muted && rms(mine) > SPEAK_GATE)
+      const level = mine && !muted ? rms(mine) : 0
+      setMyLevel(level)
+      setMySpeaking(level > SPEAK_GATE)
+      if (muted || level > HEAR_GATE) { quiet.current = 0; setSilent(false) }
+      else if (quiet.current++ > SILENT_TICKS) setSilent(true)
       setPeers((prev) => prev.map((p) => {
         const m = meters.current.get(p.id)
         return { ...p, speaking: !!m && rms(m) > SPEAK_GATE }
@@ -240,23 +297,29 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
     const mine = meters.current.get(meId)
     if (mine) { mine.ctx.close().catch(() => { }); meters.current.delete(meId) }
     setMySpeaking(false)
+    setMyLevel(0)
   }, [meId])
+
+  const tellPeers = useCallback((off: boolean) => {
+    for (const id of wires.current.keys()) sendSignal(roomId, id, 'mute', off ? '1' : '0').catch(() => { })
+  }, [roomId])
 
   const toggleMute = useCallback(async () => {
     if (!on.current) return
     if (!muted) {
       local.current?.getAudioTracks().forEach((tr) => tr.stop())
       dropMeter()
+      mutedRef.current = true
       setMuted(true)
+      setSilent(false)
+      tellPeers(true)
       return
     }
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
-        video: false,
-      })
+      const stream = await navigator.mediaDevices.getUserMedia(MIC_WANT)
       if (!on.current) { stream.getTracks().forEach((tr) => tr.stop()); return }
       local.current = stream
+      setDevice(stream.getAudioTracks()[0]?.label || '')
       const track = stream.getAudioTracks()[0]
       for (const w of wires.current.values()) {
         const sender = w.pc.getSenders().find((s) => s.track?.kind === 'audio')
@@ -264,15 +327,23 @@ export function useVoiceCall(roomId: string, meId: string, memberIds: string[]) 
         else if (track) { try { w.pc.addTrack(track, stream) } catch { } }
       }
       meterFor(meId, stream)
+      quiet.current = 0
+      mutedRef.current = false
       setMuted(false)
+      setError(null)
+      tellPeers(false)
     } catch (e) {
       setError(micError(e))
     }
-  }, [muted, meId, meterFor, dropMeter])
+  }, [muted, meId, meterFor, dropMeter, tellPeers])
 
   const streamOf = useCallback((id: string) => wires.current.get(id)?.stream || null, [])
+  const localStream = useCallback(() => local.current, [])
 
-  return { supported, secure, active, starting, muted, peers, mySpeaking, error, call, hangUp, toggleMute, streamOf }
+  return {
+    supported, secure, active, starting, slow, muted, peers, mySpeaking, myLevel, silent,
+    device, error, call, hangUp, toggleMute, streamOf, localStream,
+  }
 }
 
 export type VoiceCall = ReturnType<typeof useVoiceCall>

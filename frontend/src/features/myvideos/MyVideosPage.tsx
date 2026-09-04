@@ -1,9 +1,14 @@
+import { useMemo } from 'react'
 import Icon from '@/core/components/Icon'
 import { thumbUrl, videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 
 export default function MyVideosPage() {
-  const { savedVideos, removeVideo, loadLesson, setView, t, learnLangName } = useAppStore()
+  const { savedVideos, removeVideo, loadLesson, setView, t, learnLangName, learnLang } = useAppStore()
+  const list = useMemo(
+    () => savedVideos.filter((v) => (v.lang || 'ko') === learnLang),
+    [savedVideos, learnLang],
+  )
 
   return (
     <div className="myvideos">
@@ -13,13 +18,13 @@ export default function MyVideosPage() {
           <b>{learnLangName}</b>
         </div>
         <div className="drawer-count">
-          <b>{savedVideos.length}</b>
+          <b>{list.length}</b>
           <span>{t('mv.cardsUnit')}</span>
         </div>
       </div>
       <p className="drawer-note">{t('mv.sub')}</p>
 
-      {savedVideos.length === 0 ? (
+      {list.length === 0 ? (
         <div className="empty">
           <Icon name="tv" size={30} />
           {t('mv.empty')}
@@ -29,11 +34,11 @@ export default function MyVideosPage() {
         </div>
       ) : (
         <div className="vgrid">
-          {savedVideos.map((v) => (
+          {list.map((v) => (
             <div key={v.id} className="vcard saved" title={v.title}>
-              <div className={'thumb ' + v.tone} onClick={() => loadLesson(videoUrl(v.id), { lang: v.lang || 'ko' })}>
+              <div className={'thumb ' + v.tone} onClick={() => loadLesson(videoUrl(v.id), { lang: v.lang || 'ko', video: v })}>
                 <img src={thumbUrl(v.id)} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none' }} />
-                <span className="ko-tag" lang="ko">{v.topic}</span>
+                <span className="ko-tag" lang={v.lang || 'ko'}>{v.topic}</span>
                 <span className="play"><Icon name="play" size={17} /></span>
                 <span className="dur">{v.dur}</span>
               </div>

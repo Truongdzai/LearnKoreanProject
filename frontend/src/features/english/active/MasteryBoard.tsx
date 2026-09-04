@@ -131,7 +131,7 @@ export default function MasteryBoard({ onOpenPack, onDrillDue }: Props) {
             const pr = packProgress(p)
             return (
               <button key={p.id} className="ac-packrow" onClick={() => onOpenPack?.(p.id)}>
-                <span className={'ac-packemoji ' + p.tone}>{p.emoji}</span>
+                <span className={'ac-packemoji ' + p.tone}>{p.cefr}</span>
                 <div className="ac-packrow-body">
                   <b>{p.name}{state.goal === p.id && <em> · mục tiêu</em>}</b>
                   <small>{pr.active}/{pr.total} cụm dùng được chủ động · xem cảnh {pr.watched} lượt</small>

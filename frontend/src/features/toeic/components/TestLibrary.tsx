@@ -67,7 +67,7 @@ export default function TestLibrary(props: Props) {
       {saved && (
         <div className="tt-resume">
           <div>
-            <b>⏸️ Bạn có một bài thi đang dở</b>
+            <b>⏸Bạn có một bài thi đang dở</b>
             <p>
               {saved.fixed != null ? `Đề số ${saved.fixed + 1}` : saved.full ? 'FULL TEST 200 câu' : 'Thi thử rút gọn'} · đã làm{' '}
               {Object.keys(saved.answers).length} câu · còn {savedMinutes} phút

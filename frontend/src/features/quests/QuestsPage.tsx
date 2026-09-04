@@ -7,8 +7,6 @@ import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 
 const PERIOD_KEY: Record<QuestPeriod, string> = { daily: 'q.daily', weekly: 'q.weekly', monthly: 'q.monthly' }
-const DAILY_BONUS = 50
-
 type Filter = 'all' | 'ready' | 'doing'
 
 export default function QuestsPage() {
@@ -16,13 +14,19 @@ export default function QuestsPage() {
   const { isAuthed, openAuth, bonusAvailable } = useAuth()
 
   const [quests, setQuests] = useState<Quest[]>([])
+  const [bonusReward, setBonusReward] = useState(50)
   const [busy, setBusy] = useState('')
   const [flash, setFlash] = useState('')
   const [filter, setFilter] = useState<Filter>('all')
 
   const load = useCallback(() => {
-    const req = isAuthed ? fetchMyQuests().then((r) => r.quests) : fetchQuestCatalog().then((r) => r.quests)
-    req.then(setQuests).catch(() => setQuests([]))
+    if (!isAuthed) {
+      fetchQuestCatalog().then((r) => setQuests(r.quests)).catch(() => setQuests([]))
+      return
+    }
+    fetchMyQuests()
+      .then((r) => { setQuests(r.quests); if (r.bonusReward) setBonusReward(r.bonusReward) })
+      .catch(() => setQuests([]))
   }, [isAuthed])
 
   useEffect(() => { load() }, [load])
@@ -36,6 +40,7 @@ export default function QuestsPage() {
     return {
       readyCount: ready.length,
       coinsWaiting: ready.reduce((s, q) => s + q.reward, 0),
+      waterWaiting: ready.reduce((s, q) => s + (q.water || 0), 0),
       doneCount: quests.filter((q) => q.claimed).length,
     }
   }, [quests, isReady])
@@ -60,6 +65,7 @@ export default function QuestsPage() {
     try {
       const reward = await dailyBonus()
       showFlash(t('q.bonusGot', { n: reward }))
+      load()
     } catch (e) {
       showFlash((e as Error).message)
     } finally {
@@ -81,27 +87,17 @@ export default function QuestsPage() {
 
   return (
     <div className="quests">
-      <div className="quests-head">
-        <h1><Icon name="crown" /> {t('q.title')} <Icon name="sparkles" /></h1>
-        <p>{t('q.sub')}</p>
-      </div>
+      <h1 className="page-title"><Icon name="crown" /> {t('q.title')}</h1>
+      <p className="page-sub">{t('q.sub')}</p>
 
       {flash && <div className="shop-flash">{flash}</div>}
 
-      <div className="quest-summary">
-        <div className="qs-item ready">
-          <span className="qs-ic"><Icon name="gift" size={18} /></span>
-          <div><b>{summary.readyCount}</b><span>{t('q.sumReady')}</span></div>
-        </div>
-        <div className="qs-item coin">
-          <span className="qs-ic"><Icon name="coin" size={18} /></span>
-          <div><b>{summary.coinsWaiting}</b><span>{t('q.sumCoins')}</span></div>
-        </div>
-        <div className="qs-item done">
-          <span className="qs-ic"><Icon name="check-circle" size={18} /></span>
-          <div><b>{summary.doneCount}</b><span>{t('q.sumDone')}</span></div>
-        </div>
-      </div>
+      <dl className="srs-record quest-record">
+        <div className="qs-item ready"><dt><Icon name="gift" size={13} /> {t('q.sumReady')}</dt><dd>{summary.readyCount}</dd></div>
+        <div className="qs-item coin"><dt><Icon name="coin" size={13} /> {t('q.sumCoins')}</dt><dd>{summary.coinsWaiting}</dd></div>
+        <div className="qs-item water"><dt><Icon name="droplet" size={13} /> {t('q.sumWater')}</dt><dd>{summary.waterWaiting}</dd></div>
+        <div className="qs-item done"><dt><Icon name="check-circle" size={13} /> {t('q.sumDone')}</dt><dd>{summary.doneCount}</dd></div>
+      </dl>
 
       <button
         className={'daily-bonus' + (isAuthed && !bonusAvailable ? ' taken' : '')}
@@ -112,7 +108,7 @@ export default function QuestsPage() {
           <Icon name="gift" size={22} /> {t('q.dailyBonus')}
         </span>
         <span className="db-reward">
-          {isAuthed && !bonusAvailable ? t('q.taken') : <>+{DAILY_BONUS} <Icon name="coin" size={16} /></>}
+          {isAuthed && !bonusAvailable ? t('q.taken') : <>+{bonusReward} <Icon name="coin" size={16} /></>}
         </span>
       </button>
 
@@ -153,7 +149,10 @@ export default function QuestsPage() {
                     <div className="quest-bar"><span style={{ width: pct + '%' }} /></div>
 
                     <div className="quest-foot">
-                      <span className="quest-reward"><Icon name="coin" size={16} /> {q.reward}</span>
+                      <span className="quest-reward">
+                        <Icon name="coin" size={16} /> {q.reward}
+                        {!!q.water && <em className="quest-water"><Icon name="droplet" size={14} /> {q.water}</em>}
+                      </span>
                       {locked ? (
                         <button className="quest-btn locked" onClick={() => setView('pricing')}><Icon name="lock" size={13} /> {t('q.unlockPlus')}</button>
                       ) : isClaimed ? (

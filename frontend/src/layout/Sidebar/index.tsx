@@ -14,11 +14,12 @@ const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']
 const COLLAPSE_KEY = 'vyling.navCollapsed'
 
 export default function Sidebar({ open = false, onClose }: { open?: boolean; onClose?: () => void }) {
-  const { view, setView, user, learnLang, setLearnLang, requestWizard, askGoalOnce, t, uiLang } = useAppStore()
+  const { view, setView, user, learnLang, setLearnLang, requestWizard, askGoalOnce, t, uiLang, todayXp } = useAppStore()
   const [collapsed, setCollapsed] = useState(() => {
     try { return localStorage.getItem(COLLAPSE_KEY) === '1' } catch { return false }
   })
   const todayIdx = (new Date().getDay() + 6) % 7
+  const lastStamp = todayXp > 0 ? todayIdx : todayIdx - 1
   const groups = navGroupsForLang(learnLang)
   const quota = useQuota()
   const lowMark = quota ? Math.max(5, Math.round(quota.limit * 0.2)) : 0
@@ -33,10 +34,6 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
   const pickLang = (code: string) => {
     if (code === learnLang) return
     setLearnLang(code)
-    // Hỏi mục tiêu học ĐÚNG LÚC NÀY, không hỏi ngay khi vào web: người mới
-    // truy cập chưa biết VyLing là gì mà đã bị chặn bằng một câu hỏi thì rất
-    // dễ thoát. Chọn ngôn ngữ xong mới hỏi thì câu hỏi có ngữ cảnh.
-    // askGoalOnce tự bỏ qua nếu người dùng đã chọn hoặc đã từng được hỏi.
     askGoalOnce()
     requestWizard()
     setView('path')
@@ -146,7 +143,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
         <div className="side-slip-head">{t('side.streak', { n: user.streak })}</div>
         <div className="side-slip-days" aria-hidden="true">
           {DAYS.map((d, i) => (
-            <div key={d} className={'stamp-box' + (i <= todayIdx && i >= todayIdx - user.streak + 1 ? ' on' : '')}>
+            <div key={d} className={'stamp-box' + (i <= lastStamp && i >= lastStamp - user.streak + 1 ? ' on' : '')}>
               <span className="lbl">{d}</span>
             </div>
           ))}

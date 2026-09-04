@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { speakLang } from '@/core/tts'
 import { useYouTubePlayer } from '@/hooks/useYouTubePlayer'
 import { useAsr } from '@/hooks/useAsr'
+import { openMic } from '@/core/mic'
 import { usePhonetics } from '@/hooks/usePhonetics'
 import { romanizeLine } from '@/core/utils/romanize'
 import { splitWords } from '@/core/utils/speechDiff'
@@ -174,7 +175,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
   const startRecord = async (idx: number) => {
     setError('')
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      const stream = await openMic()
       streamRef.current = stream
       const mr = new MediaRecorder(stream)
       mrRef.current = mr
@@ -320,7 +321,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
     const autoDubActive = roleChar !== null && autoDub
     if (autoDubActive) {
       try {
-        autoStreamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true })
+        autoStreamRef.current = await openMic()
       } catch {
         setError(t('dub.micAutoFail'))
       }
@@ -460,6 +461,7 @@ export default function DubbingStudio({ lesson }: { lesson: Lesson }) {
             </div>
           )}
           {error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {error}</div>}
+          {!error && sr.error && <div className="shadow-err"><Icon name="x-circle" size={15} /> {sr.error}</div>}
           <div className="dub-note"><Icon name="bulb" size={14} /> {t('dub.tip')}</div>
         </div>
 

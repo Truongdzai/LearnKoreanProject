@@ -68,7 +68,6 @@ export interface PronFocus {
 
 export interface PronGroup {
   id: string
-  emoji: string
   title: string
   sub: string
   why: string

@@ -76,7 +76,7 @@ export default function ChunkLibrary({ packId, onPack, onScene, onDrill, onDeepW
                     <b>{m.en}</b>
                     <small>{m.vi}</small>
                   </div>
-                  <span className="ac-fampack">{p?.emoji} {p?.name}</span>
+                  <span className="ac-fampack">{p?.name}</span>
                   <button className="ac-play tiny" onClick={() => speakAccent(m.say, 'us')}>
                     <Icon name="volume" size={14} />
                   </button>
@@ -96,7 +96,7 @@ export default function ChunkLibrary({ packId, onPack, onScene, onDrill, onDeepW
               className={'ac-pack' + (p.id === packId ? ' on' : '') + (state.goal === p.id ? ' goal' : '')}
               onClick={() => { onPack(p.id); setOpenId(null) }}
             >
-              <span className={'ac-pack-emoji ' + p.tone}>{p.emoji}</span>
+              <span className={'ac-pack-emoji ' + p.tone}>{p.cefr}</span>
               <b>{p.name}</b>
               <small>{p.sub}</small>
               <div className="ac-pack-meta">
@@ -112,7 +112,7 @@ export default function ChunkLibrary({ packId, onPack, onScene, onDrill, onDeepW
 
       <div className="ac-packhead">
         <div>
-          <h3>{pack.emoji} {pack.name}</h3>
+          <h3>{pack.name}</h3>
           <p className="ac-packgoal"><b>Đích:</b> {pack.goal}</p>
           <p className="ac-packwhy">{pack.why}</p>
         </div>

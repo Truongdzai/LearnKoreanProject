@@ -132,25 +132,26 @@ export default function SpeakingPage() {
       <div className="sp-lobby">
         <div className="sp-col">
           <section className="sp-panel">
-            <div className="sp-modepick" role="tablist">
-              <button
-                role="tab"
-                aria-selected={mode === 'ai'}
-                className={'sp-modebtn' + (mode === 'ai' ? ' on' : '')}
-                onClick={() => setMode('ai')}
-              >
-                <span className="sp-modebtn-emoji">🤖</span>
-                <span><b>{t('sp.modeAi')}</b><small>{t('sp.modeAiDesc')}</small></span>
-              </button>
-              <button
-                role="tab"
-                aria-selected={mode === 'human'}
-                className={'sp-modebtn' + (mode === 'human' ? ' on' : '')}
-                onClick={() => setMode('human')}
-              >
-                <span className="sp-modebtn-emoji">🎧</span>
-                <span><b>{t('sp.modeHuman')}</b><small>{t('sp.modeHumanDesc')}</small></span>
-              </button>
+            <div className="sp-modewrap">
+              <div className="sp-modepick" role="tablist">
+                <button
+                  role="tab"
+                  aria-selected={mode === 'ai'}
+                  className={'sp-modebtn' + (mode === 'ai' ? ' on' : '')}
+                  onClick={() => setMode('ai')}
+                >
+                  <Icon name="sparkles" size={15} /> {t('sp.modeAi')}
+                </button>
+                <button
+                  role="tab"
+                  aria-selected={mode === 'human'}
+                  className={'sp-modebtn' + (mode === 'human' ? ' on' : '')}
+                  onClick={() => setMode('human')}
+                >
+                  <Icon name="headphones" size={15} /> {t('sp.modeHuman')}
+                </button>
+              </div>
+              <p className="sp-modedesc">{mode === 'ai' ? t('sp.modeAiDesc') : t('sp.modeHumanDesc')}</p>
             </div>
 
             <div className="sp-field">

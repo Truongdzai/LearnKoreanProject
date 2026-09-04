@@ -182,22 +182,6 @@ const ICONS = {
       <path d="M8.5 13.5c1.1 1 2.3 1.5 3.5 1.5s2.4-.5 3.5-1.5" />
     </>
   ),
-  'flag-kr': (
-    <>
-      <rect x="2" y="5" width="20" height="14" rx="2.5" fill="#ffffff" stroke="#dfe5ea" strokeWidth="1" />
-      <circle cx="12" cy="12" r="4" fill="#0047a0" />
-      <path d="M8 12a4 4 0 0 1 8 0 2 2 0 0 1-4 0 2 2 0 0 0-4 0z" fill="#cd2e3a" />
-    </>
-  ),
-  'flag-vn': (
-    <>
-      <rect x="2" y="5" width="20" height="14" rx="2.5" fill="#da251d" />
-      <path
-        d="M12 8l1.18 2.39 2.64.38-1.91 1.86.45 2.63L12 14.39l-2.36 1.25.45-2.63-1.91-1.86 2.64-.38z"
-        fill="#ffff00"
-      />
-    </>
-  ),
   moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />,
   sun: (
     <>
@@ -273,6 +257,19 @@ const ICONS = {
     <>
       <path d="M20 11a8 8 0 1 0-.9 4.6" />
       <path d="M20 5v6h-6" />
+    </>
+  ),
+  minus: (
+    <>
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </>
+  ),
+  shuffle: (
+    <>
+      <path d="M3 7h3.2a4 4 0 0 1 3.3 1.8l5 7.4A4 4 0 0 0 17.8 18H21" />
+      <path d="M3 18h3.2a4 4 0 0 0 3.3-1.8l.9-1.3" />
+      <path d="M14.6 8.9l.9-1.1A4 4 0 0 1 18.8 6H21" />
+      <path d="M18.5 3.5L21 6l-2.5 2.5M18.5 15.5L21 18l-2.5 2.5" />
     </>
   ),
   keyboard: (
@@ -404,9 +401,6 @@ const ICONS = {
       <path d="M3 9h18M8 3v4M16 3v4" />
     </>
   ),
-  fire: (
-    <path d="M12 22c4 0 6.5-2.6 6.5-6 0-3.6-3-5.4-3.5-9-2.2 1.5-3 3.5-3 5.5-1.5-1-1.8-2.8-1.5-4.5C8 5 5.5 8 5.5 12c0 3.4 2.5 6 6.5 6z" />
-  ),
   settings: (
     <>
       <circle cx="12" cy="12" r="3.2" />
@@ -425,7 +419,7 @@ const ICONS = {
 
 export type IconName = keyof typeof ICONS
 
-const RAW = new Set<IconName>(['flag-kr', 'flag-vn', 'google', 'facebook'])
+const RAW = new Set<IconName>(['google', 'facebook'])
 
 interface IconProps {
   name: IconName

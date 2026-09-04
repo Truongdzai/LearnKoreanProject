@@ -10,10 +10,21 @@ from .accounts import level_for
 from .langs import study_name, native_name
 
 LEVEL_NAMES = {
-    "starter": "mới bắt đầu (chưa thuộc bảng chữ / dưới 100 từ)",
+    "starter": "mới bắt đầu (dưới 100 từ)",
     "beginner": "sơ cấp (100-500 từ, nói được câu ngắn)",
     "intermediate": "trung cấp (trên 500 từ, hội thoại đời sống)",
 }
+
+NEW_SCRIPT = {
+    "ko": "chưa thuộc bảng chữ Hangeul",
+    "ja": "chưa thuộc Hiragana/Katakana",
+    "zh": "chưa quen mặt chữ Hán và pinyin",
+}
+
+MAX_EXAMPLES = 4
+MAX_WORDS = 4
+MAX_LINE = 240
+MIN_KNOWN = 30
 
 GOAL_NAMES = {
     "giao-tiep": "giao tiếp đời sống",
@@ -41,7 +52,9 @@ def known_words(user_id: str, lang: str) -> set[str]:
     try:
         words = _plan_data(conn, user_id, f"{lang}words").get("words") or []
         out = {str(w).strip() for w in words if str(w).strip()}
-        rows = conn.execute("SELECT front FROM srs_cards WHERE user_id=?", (user_id,)).fetchall()
+        rows = conn.execute(
+            "SELECT front FROM srs_cards WHERE user_id=? AND lang=?", (user_id, lang)
+        ).fetchall()
         for r in rows:
             front = (r["front"] or "").strip()
             if front:
@@ -72,7 +85,7 @@ def profile(user: dict | None, lang: str) -> dict:
         except Exception:
             day = 0
 
-    card_stats = srs.stats(uid)
+    card_stats = srs.stats(uid, lang)
     return {
         "authed": True,
         "name": user.get("name") or "bạn",
@@ -101,6 +114,14 @@ def _level_hint(p: dict) -> str:
     return "intermediate"
 
 
+def _level_text(p: dict, lang: str) -> str:
+    hint = _level_hint(p)
+    text = LEVEL_NAMES[hint]
+    if hint == "starter" and lang in NEW_SCRIPT:
+        text += f", có thể {NEW_SCRIPT[lang]}"
+    return text
+
+
 def _profile_text(p: dict, lang: str) -> str:
     if not p.get("authed"):
         return (
@@ -109,7 +130,7 @@ def _profile_text(p: dict, lang: str) -> str:
         )
     parts = [
         f"Tên: {p['name']}",
-        f"Trình độ ước lượng: {LEVEL_NAMES[_level_hint(p)]} — đã thuộc khoảng {p['known']} từ {study_name(lang)}",
+        f"Trình độ ước lượng: {_level_text(p, lang)} — đã thuộc khoảng {p['known']} từ {study_name(lang)}",
         f"Thẻ ôn tập: {p['cards_total']} thẻ, {p['cards_due']} thẻ đến hạn hôm nay, {p['cards_learned']} thẻ đã nhớ chắc",
     ]
     if p.get("goal"):
@@ -176,6 +197,20 @@ SCHEMA = {
 }
 
 
+def _pairs(items, limit: int) -> list[dict]:
+    out: list[dict] = []
+    for it in items or []:
+        if not isinstance(it, dict):
+            continue
+        target = str(it.get("target") or "").strip()[:MAX_LINE]
+        if not target:
+            continue
+        out.append({"target": target, "vi": str(it.get("vi") or "").strip()[:MAX_LINE]})
+        if len(out) >= limit:
+            break
+    return out
+
+
 def _history_text(turns) -> str:
     if not turns:
         return "(chưa có)"
@@ -197,10 +232,10 @@ def chat(body, user: dict | None) -> dict:
         prompt, SCHEMA, system=system_prompt(body.lang, body.native, p), temperature=0.5
     )
     return {
-        "reply": (data.get("reply") or "").strip(),
-        "examples": data.get("examples") or [],
-        "words": data.get("words") or [],
-        "suggestions": [s for s in (data.get("suggestions") or []) if s][:3],
+        "reply": (data.get("reply") or "").strip()[:2000],
+        "examples": _pairs(data.get("examples"), MAX_EXAMPLES),
+        "words": _pairs(data.get("words"), MAX_WORDS),
+        "suggestions": [str(s).strip()[:60] for s in (data.get("suggestions") or []) if s][:3],
         "model": llm.current_model(),
     }
 
@@ -274,7 +309,7 @@ def fit_score(text: str, known: set[str], lang: str) -> dict:
             new_counter[t] = new_counter.get(t, 0) + 1
     pct = round(hit / total * 100)
     band = "hard" if pct < 80 else ("fit" if pct <= 97 else "easy")
-    if not kset:
+    if len(kset) < MIN_KNOWN:
         band = "unknown"
     top_new = sorted(new_counter.items(), key=lambda kv: -kv[1])[:12]
     return {

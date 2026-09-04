@@ -12,6 +12,10 @@ function pickMime(): string {
   return ''
 }
 
+function usable(stream: MediaStream | null | undefined): boolean {
+  return !!stream && stream.getAudioTracks().some((t) => t.readyState === 'live')
+}
+
 export function useVoiceClip() {
   const [supported] = useState(
     () => typeof MediaRecorder !== 'undefined' && !!navigator.mediaDevices?.getUserMedia,
@@ -20,6 +24,7 @@ export function useVoiceClip() {
   const [error, setError] = useState('')
   const [seconds, setSeconds] = useState(0)
   const recRef = useRef<MediaRecorder | null>(null)
+  const ownedRef = useRef(false)
   const chunksRef = useRef<Blob[]>([])
   const doneRef = useRef<((clip: string) => void) | null>(null)
   const timerRef = useRef<number | null>(null)
@@ -28,7 +33,8 @@ export function useVoiceClip() {
   const cleanup = useCallback(() => {
     if (timerRef.current) { window.clearInterval(timerRef.current); timerRef.current = null }
     if (stopperRef.current) { window.clearTimeout(stopperRef.current); stopperRef.current = null }
-    recRef.current?.stream.getTracks().forEach((t) => t.stop())
+    if (ownedRef.current) recRef.current?.stream.getTracks().forEach((t) => t.stop())
+    ownedRef.current = false
     recRef.current = null
     setRecording(false)
     setSeconds(0)
@@ -37,19 +43,33 @@ export function useVoiceClip() {
   useEffect(() => () => cleanup(), [cleanup])
 
   const start = useCallback(
-    async (onDone: (clip: string) => void) => {
-      if (!supported || recRef.current) return
+    async (onDone: (clip: string) => void, shared?: MediaStream | null): Promise<boolean> => {
+      if (!supported || recRef.current) return false
       setError('')
       let stream: MediaStream
-      try {
-        stream = await openMic()
-      } catch {
-        setError('mic')
-        return
+      let owned = false
+      if (usable(shared)) {
+        stream = shared as MediaStream
+      } else {
+        try {
+          stream = await openMic()
+          owned = true
+        } catch {
+          setError('mic')
+          return false
+        }
       }
       const mime = pickMime()
-      const rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined)
+      let rec: MediaRecorder
+      try {
+        rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined)
+      } catch {
+        if (owned) stream.getTracks().forEach((t) => t.stop())
+        setError('mic')
+        return false
+      }
       recRef.current = rec
+      ownedRef.current = owned
       doneRef.current = onDone
       chunksRef.current = []
 
@@ -58,7 +78,8 @@ export function useVoiceClip() {
         const blob = new Blob(chunksRef.current, { type: rec.mimeType || 'audio/webm' })
         const finish = doneRef.current
         cleanup()
-        if (!finish || !blob.size) return
+        if (!finish) return
+        if (!blob.size) { finish(''); return }
         const reader = new FileReader()
         reader.onloadend = () => {
           const url = typeof reader.result === 'string' ? reader.result : ''
@@ -74,6 +95,7 @@ export function useVoiceClip() {
       stopperRef.current = window.setTimeout(() => {
         if (recRef.current?.state === 'recording') recRef.current.stop()
       }, MAX_MS)
+      return true
     },
     [supported, cleanup],
   )

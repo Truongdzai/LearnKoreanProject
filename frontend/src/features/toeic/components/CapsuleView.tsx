@@ -128,7 +128,7 @@ export function CapsuleView({ capsule, best, onDrillDone, onBack }: ViewProps) {
           </div>
           {picked != null && (
             <div className="quiz-foot">
-              <div className="quiz-ex">💡 {q.explain}</div>
+              <div className="quiz-ex"><Icon name="bulb" size={14} /> {q.explain}</div>
               <button className="btn-primary" onClick={next}>
                 {i + 1 >= drill.length ? 'Xem kết quả' : 'Câu tiếp'} <Icon name="arrow-right" size={15} />
               </button>
@@ -143,7 +143,7 @@ export function CapsuleView({ capsule, best, onDrillDone, onBack }: ViewProps) {
             <b>{pct}%</b>
             <span>{score}/{drill.length}</span>
           </div>
-          <h3>{pct >= 75 ? '✅ Viên nang hoàn thành!' : 'Gần được rồi — đọc lại quy tắc và thử lại nhé'}</h3>
+          <h3>{pct >= 75 ? 'Viên nang hoàn thành!' : 'Gần được rồi — đọc lại quy tắc và thử lại nhé'}</h3>
           <div className="quiz-done-actions">
             <button className="btn-ghost" onClick={startDrill}><Icon name="rocket" size={15} /> Luyện lại</button>
             <button className="btn-primary" onClick={onBack}><Icon name="arrow-left" size={15} /> Về danh sách</button>

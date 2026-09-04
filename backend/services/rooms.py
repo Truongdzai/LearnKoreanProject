@@ -11,6 +11,7 @@ from .langs import study_name, native_name
 MAX_SIZE = 5
 MIN_SIZE = 2
 IDLE_SECONDS = 150
+MEMBER_GRACE = 75
 KEEP_MSGS = 80
 MSG_TTL_HOURS = 3
 MAX_TEXT = 400
@@ -20,7 +21,7 @@ LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 LEGACY_LEVELS = {"beginner": "a1", "intermediate": "b1", "advanced": "c1"}
 CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
-SIGNAL_KINDS = ("offer", "answer", "ice", "bye")
+SIGNAL_KINDS = ("offer", "answer", "ice", "bye", "mute")
 SIGNAL_TTL_SECONDS = 120
 MAX_SIGNAL_CHARS = 8000
 MAX_SIGNALS_READ = 60
@@ -145,7 +146,7 @@ def _members(conn, room_id: str) -> list[dict]:
     rows = conn.execute(
         "SELECT m.user_id, m.joined_at, u.name, u.avatar, u.equipped_frame, u.streak, u.xp "
         "FROM speak_room_members m JOIN users u ON u.id = m.user_id "
-        "WHERE m.room_id = ? ORDER BY m.joined_at",
+        "WHERE m.room_id = ? ORDER BY m.joined_at, m.user_id",
         (room_id,),
     ).fetchall()
     return [
@@ -230,6 +231,36 @@ def _leave(conn, room_id: str, user_id: str) -> None:
     ).rowcount
     if gone:
         _system(conn, room_id, user_id, "left")
+
+
+def _prune_room(conn, room_id: str) -> None:
+    gone = conn.execute(
+        "SELECT user_id FROM speak_room_members WHERE room_id = ? AND seen_at < datetime('now','localtime',?)",
+        (room_id, f"-{MEMBER_GRACE} seconds"),
+    ).fetchall()
+    if not gone:
+        return
+    for r in gone:
+        _leave(conn, room_id, r["user_id"])
+    row = conn.execute("SELECT host_id FROM speak_rooms WHERE id = ?", (room_id,)).fetchone()
+    if not row:
+        conn.commit()
+        return
+    still = conn.execute(
+        "SELECT 1 FROM speak_room_members WHERE room_id = ? AND user_id = ?", (room_id, row["host_id"])
+    ).fetchone()
+    if not still:
+        nxt = conn.execute(
+            "SELECT user_id FROM speak_room_members WHERE room_id = ? ORDER BY joined_at, user_id LIMIT 1",
+            (room_id,),
+        ).fetchone()
+        if nxt:
+            conn.execute("UPDATE speak_rooms SET host_id = ? WHERE id = ?", (nxt["user_id"], room_id))
+        else:
+            conn.execute("DELETE FROM speak_rooms WHERE id = ?", (room_id,))
+            conn.execute("DELETE FROM speak_room_msgs WHERE room_id = ?", (room_id,))
+            conn.execute("DELETE FROM speak_signals WHERE room_id = ?", (room_id,))
+    conn.commit()
 
 
 def _my_room(conn, user_id: str) -> str | None:
@@ -387,6 +418,8 @@ def state(user: dict, room_id: str, after: int = 0) -> dict:
             (room_id, user["id"]),
         )
         conn.commit()
+        _prune_room(conn, room_id)
+        row = _room(conn, room_id)
         card = _card(conn, row)
         card["invite"] = row["invite"]
         card["isHost"] = row["host_id"] == user["id"]

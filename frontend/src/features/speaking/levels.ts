@@ -52,34 +52,33 @@ export function levelLabelKey(level: string): string {
 
 export interface TopicDef {
   id: string
-  emoji: string
   langs?: string[]
 }
 
 export const TOPICS: TopicDef[] = [
-  { id: 'ielts', emoji: '📘', langs: ['en'] },
-  { id: 'toeic', emoji: '📗', langs: ['en'] },
-  { id: 'toefl', emoji: '📙', langs: ['en'] },
-  { id: 'topik', emoji: '📕', langs: ['ko'] },
-  { id: 'hsk', emoji: '📔', langs: ['zh'] },
-  { id: 'jlpt', emoji: '📒', langs: ['ja'] },
-  { id: 'interview', emoji: '🤝' },
-  { id: 'business', emoji: '💼' },
-  { id: 'academic', emoji: '🎓' },
-  { id: 'daily', emoji: '☕' },
-  { id: 'travel', emoji: '✈️' },
-  { id: 'food', emoji: '🍜' },
-  { id: 'music', emoji: '🎵' },
-  { id: 'movies', emoji: '🎬' },
-  { id: 'sport', emoji: '⚽' },
-  { id: 'tech', emoji: '💻' },
-  { id: 'gaming', emoji: '🎮' },
-  { id: 'books', emoji: '📚' },
-  { id: 'science', emoji: '🔬' },
-  { id: 'art', emoji: '🎨' },
-  { id: 'health', emoji: '🩺' },
-  { id: 'fashion', emoji: '👗' },
-  { id: 'nature', emoji: '🌿' },
+  { id: 'ielts', langs: ['en'] },
+  { id: 'toeic', langs: ['en'] },
+  { id: 'toefl', langs: ['en'] },
+  { id: 'topik', langs: ['ko'] },
+  { id: 'hsk', langs: ['zh'] },
+  { id: 'jlpt', langs: ['ja'] },
+  { id: 'interview' },
+  { id: 'business' },
+  { id: 'academic' },
+  { id: 'daily' },
+  { id: 'travel' },
+  { id: 'food' },
+  { id: 'music' },
+  { id: 'movies' },
+  { id: 'sport' },
+  { id: 'tech' },
+  { id: 'gaming' },
+  { id: 'books' },
+  { id: 'science' },
+  { id: 'art' },
+  { id: 'health' },
+  { id: 'fashion' },
+  { id: 'nature' },
 ]
 
 export const MAX_TOPICS = 10

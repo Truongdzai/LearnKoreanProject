@@ -9,6 +9,7 @@ import { useAuth } from '@/store/auth.store'
 import LeaguePanel from './components/LeaguePanel'
 import DuelCard from './components/DuelCard'
 import { useTabs } from '@/core/a11y'
+import { useTabParam } from '@/core/hooks/useTabParam'
 
 const LB_TABS = ['league', 'weekly', 'all'] as const
 
@@ -41,7 +42,7 @@ const pad = (n: number) => String(n).padStart(2, '0')
 export default function LeaderboardPage() {
   const { user, setView, t } = useAppStore()
   const { isAuthed, openAuth } = useAuth()
-  const [scope, setScope] = useState<'league' | 'weekly' | 'all'>(isAuthed ? 'league' : 'weekly')
+  const [scope, setScope] = useTabParam<'league' | 'weekly' | 'all'>(LB_TABS, isAuthed ? 'league' : 'weekly')
   const tabs = useTabs('lb', LB_TABS, scope, setScope)
   const [target] = useState(nextWeekReset)
   const cd = useCountdown(target)
@@ -88,7 +89,7 @@ export default function LeaderboardPage() {
           </>
         ) : (
           <div className="empty">
-            <div className="big">🏆</div>
+            <div className="big"><Icon name="trophy" /></div>
             {t('lg.needLogin')}
             <div style={{ marginTop: 14 }}>
               <button className="btn-primary" onClick={openAuth}>{t('top.login')}</button>
@@ -120,9 +121,9 @@ export default function LeaderboardPage() {
       )}
 
       {loading ? (
-        <div className="empty"><div className="big">🏆</div>{t('lb.loading')}</div>
+        <div className="empty"><div className="big"><Icon name="trophy" /></div>{t('lb.loading')}</div>
       ) : entries.length === 0 ? (
-        <div className="empty"><div className="big">🏆</div>{t('lb.empty')}</div>
+        <div className="empty"><div className="big"><Icon name="trophy" /></div>{t('lb.empty')}</div>
       ) : (
         <>
           <div className="podium">

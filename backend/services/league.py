@@ -6,11 +6,11 @@ from .. import db
 from . import accounts
 
 TIERS = [
-    {"id": 0, "name": "Đồng", "emoji": "🥉", "color": "#b06c3a"},
-    {"id": 1, "name": "Bạc", "emoji": "🥈", "color": "#8b97a8"},
-    {"id": 2, "name": "Vàng", "emoji": "🥇", "color": "#d9a520"},
-    {"id": 3, "name": "Bạch Kim", "emoji": "💎", "color": "#37b6a8"},
-    {"id": 4, "name": "Kim Cương", "emoji": "👑", "color": "#7c6cf5"},
+    {"id": 0, "name": "Đồng", "color": "#95601C"},
+    {"id": 1, "name": "Bạc", "color": "#0B655C"},
+    {"id": 2, "name": "Vàng", "color": "#B08A3E"},
+    {"id": 3, "name": "Bạch Kim", "color": "#2C4B9B"},
+    {"id": 4, "name": "Kim Cương", "color": "#5A3A78"},
 ]
 TOP_N = 3
 BOTTOM_N = 3
@@ -149,7 +149,7 @@ def standings(user: dict) -> dict:
     finally:
         conn.close()
 
-    ordered = sorted(rows, key=lambda r: (-xps.get(r["user_id"], 0), r["name"].lower()))
+    ordered = sorted(rows, key=lambda r: (-xps.get(r["user_id"], 0), r["user_id"]))
     entries = [
         {
             "rank": i + 1,
@@ -161,7 +161,7 @@ def standings(user: dict) -> dict:
             "isPlus": accounts.plus_active(dict(r)),
             "xp": xps.get(r["user_id"], 0),
             "me": r["user_id"] == user["id"],
-            "zone": "up" if i < TOP_N and tier < len(TIERS) - 1
+            "zone": "up" if i < TOP_N and tier < len(TIERS) - 1 and xps.get(r["user_id"], 0) > 0
             else ("down" if len(ordered) >= MIN_FOR_DROP and i >= len(ordered) - BOTTOM_N and tier > 0 else ""),
         }
         for i, r in enumerate(ordered)
