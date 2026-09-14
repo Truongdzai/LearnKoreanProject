@@ -1315,3 +1315,78 @@ Lần build đầu tiên đó tìm ra **4 lỗi thật** — xem §13.
 - Hành vi preview URL (cần wildcard DNS)
 - Chất lượng Whisper thực tế trên giọng người Việt nói tiếng Hàn
 - Cron có bắn đúng giờ không, và agent trực ca báo cáo có dùng được không
+
+---
+
+## 28. Hoá đơn 14/09 — vì sao "đã huỷ hết" mà vẫn bị trừ tiền
+
+Hoá đơn `IN79255297`, **20,60 USD**, kỳ **14/08 → 13/09/2026**. Đọc 7 trang thì
+chỉ có 5 dòng khác 0, còn lại đều nằm trong hạn miễn phí:
+
+| Khoản | Số dùng | Thành tiền | Đẻ ra từ đâu |
+|---|---|---|---|
+| Regular Twitch Neurons (Workers AI) | 978.209 neuron | **10,77 USD** | `env.AI.run` — Whisper ở `src/asr/whisper.ts`, `kimi-k2.6` của hai agent Flue, và mỗi truy vấn AI Search (rewrite + embed + generate + rerank = 4 lượt model) |
+| Container Memory | 1.746.638 GiB-giây | **4,14 USD** | container `standard-2` **thức 291.106 giây ≈ 80,9 giờ** trong kỳ |
+| Workers Paid | 1 | **5,00 USD** | phí gói, kỳ **14/09 → 13/10** — thu TRƯỚC |
+| Container vCPU | 47.465 vCPU-giây | 0,50 USD | CPU thật lúc chạy |
+| Container Disk | 3.493.280 GB-giây | 0,19 USD | 12 GB đĩa × 291.106 giây thức |
+
+Kiểm chéo được: RAM ÷ 6 GiB = đĩa ÷ 12 GB = 291.106 giây → cùng một khoảng thức.
+
+### 28.1 Ba lý do vẫn bị trừ tiền sau khi "huỷ"
+
+**1. Hoá đơn này là tiền của tháng TRƯỚC.** Cloudflare tính sau: ngày xuất 14/09
+nhưng kỳ dùng là 14/08 → 13/09. Ba vòi rò ở §27 chỉ được bịt ngày 21/08
+(`db12b8f`), nên một tuần đầu của kỳ vẫn chảy nguyên. Xoá hạ tầng hôm nay không
+lùi ngược được kỳ đã dùng.
+
+**2. Xoá code trong repo ≠ xoá thứ đã deploy.** Worker `vyling`, Durable Object,
+container `standard-2`, instance AI Search `vyling-knowledge` và 9 bucket R2 nằm
+trên **tài khoản Cloudflare**, không nằm trong git. Sửa `wrangler.jsonc` hay
+`"crons": []` chỉ có tác dụng ở **lần deploy kế tiếp** — bản đang chạy giữ
+nguyên cấu hình cũ. Chừng nào Worker còn sống thì mỗi lượt gõ vào
+`vyling.qvantruong205.workers.dev` — bot, trình thu thập, một tab cũ còn mở, một
+dịch vụ uptime — đều `ensureBackend()` → dựng máy Linux 6 GiB dậy → tính tiền ít
+nhất `sleepAfter` = 5 phút, và Litestream bên trong ghi R2 mỗi giây suốt thời
+gian đó.
+
+**3. Dòng 5 USD không phải tiền dùng, mà là tiền GÓI.** "Workers Paid 14/09 →
+13/10" thu trước cho tháng tới và **lặp lại mãi mãi kể cả khi tài khoản trống
+trơn**. Xoá Worker không huỷ gói. Phải tự tay hạ xuống Free ở Dashboard. Mà
+Cloudflare **chặn hạ gói khi còn container / Durable Object / AI Search** — nên
+nếu trước đây có bấm hạ gói và nó báo lỗi rồi bỏ dở, thì gói vẫn là Paid và 5 USD
+vẫn về đều. Đây gần như chắc chắn là thứ đang xảy ra.
+
+### 28.2 Làm gì — đúng thứ tự
+
+```bash
+npx wrangler login --cwd cf          # một lần, mở trình duyệt
+node scripts/cf-teardown.mjs         # LIỆT KÊ thôi, chưa xoá gì — đọc kỹ rồi mới đi tiếp
+node scripts/cf-teardown.mjs --yes   # xoá worker, container, image, AI Search, Vectorize, Queue
+```
+
+Bucket R2 **cố ý không xoá** vì 10 GB đầu miễn phí và trong đó có media, bài học
+dựng sẵn và bản sao lưu SQLite của người học. Chỉ khi chấp nhận mất sạch mới
+thêm `--buckets` (bucket phải rỗng trước: Dashboard → R2 → bucket → Settings →
+Empty bucket).
+
+Xong phần máy móc thì còn **hai cú bấm chỉ Dashboard làm được**, và đây mới là
+chỗ cắt tiền định kỳ:
+
+1. `dash.cloudflare.com` → **Workers & Pages → Plans → Free → Change plan**
+   (cắt 5 USD/tháng; chỉ bấm được sau khi container/DO/AI Search đã biến mất).
+2. `dash.cloudflare.com` → **Manage Account → Billing → Subscriptions** — huỷ
+   nốt R2 Paid, R2 Infrequent Access, Vectorize, Queues, Zaraz. Hiện đều 0 USD
+   nhưng vẫn là đăng ký thật đứng tên tài khoản.
+
+Muốn biết chính xác model nào đốt 978.209 neuron trước khi xoá: **AI → Workers AI
+→ Usage**, bảng tách theo model. Muốn xin ghi có cho 20,60 USD: mở ticket ở
+**Support**, nói rõ là dự án cá nhân và đã gỡ hạ tầng.
+
+### 28.3 Nếu sau này muốn chạy lại
+
+Không mất gì cả: `cf/` vẫn nguyên trong git, `ai-search/ai-search.jsonc` giữ đủ
+tham số để dựng lại instance, `wrangler.jsonc` giữ đủ binding. Dựng lại =
+`npm run deploy --prefix cf` + lệnh `ai-search create` chép trong file jsonc.
+Và như §1 đã nói: gỡ lớp Cloudflare đi thì `backend/` chạy y như cũ trên máy —
+web vẫn dùng được bình thường, 0 đồng.
