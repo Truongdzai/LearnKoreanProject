@@ -87,6 +87,8 @@ export interface WeekTask {
   n?: number
   go?: WeekTaskGo
   lessonId?: string
+  /** Nhiệm vụ gom nhiều bài ngữ pháp: xong khi mọi bài trong danh sách đều đạt. */
+  lessonIds?: string[]
   groupId?: string
 }
 

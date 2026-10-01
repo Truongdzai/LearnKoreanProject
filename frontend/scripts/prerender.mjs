@@ -90,12 +90,12 @@ const PAGES = [
   },
   {
     path: '/tieng-anh-giao-tiep', title: 'Tiếng Anh giao tiếp — lộ trình 90 ngày · VyLing',
-    desc: 'Tiếng Anh giao tiếp theo quy tắc 3C: 3000 từ tần suất cao học kiểu flashcard có giọng US và UK, 18 bài ngữ pháp giao tiếp, 12 nhóm phát âm, tự tick theo tiến độ thật.',
+    desc: 'Tiếng Anh giao tiếp theo quy tắc 3C: 3000 từ tần suất cao học kiểu flashcard có giọng US và UK, 30 bài ngữ pháp từ A1 tới B1, 12 nhóm phát âm, tự tick theo tiến độ thật.',
     h1: 'Tiếng Anh giao tiếp từ số 0',
     lead: 'Theo quy tắc 3C (Compress – Compile – Consolidate): học đúng từ cần học, ghép thành câu, rồi củng cố bằng ôn tập ngắt quãng.',
     points: [
       '3000 từ tần suất cao chia 117 chủ đề, học kiểu flashcard lật thẻ có giọng đọc US và UK — đủ hiểu khoảng 90% hội thoại hằng ngày',
-      '18 bài ngữ pháp giao tiếp từ to be tới câu điều kiện',
+      '30 bài ngữ pháp từ A1 tới B1 từ to be tới câu điều kiện',
       '12 nhóm phát âm người Việt hay sai: âm cuối, /θ/, ship–sheep, trọng âm, nối âm',
       'Lịch 7 ngày cho từng tuần, mỗi việc có nút bấm đi thẳng tới chỗ học',
     ],

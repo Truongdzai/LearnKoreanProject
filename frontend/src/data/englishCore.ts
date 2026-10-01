@@ -1,4 +1,4 @@
-import { GRAMMAR_LESSONS } from './englishGrammarData'
+import { GRAMMAR_LESSONS, CORE_GRAMMAR_IDS, B1_GRAMMAR_IDS } from './englishGrammarData'
 import { PRON_PASS } from './englishPronunciation'
 import { PRON_GROUPS } from './englishPronunciationData'
 import nouns from './english/units/nouns.json'
@@ -444,7 +444,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs2', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'adverbs', 'preps', 'phrases', 'phrases2', 'phrasal', 'collocations', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2'],
     tasks: [
       { id: 'w12-bank', kind: 'total', label: '🎯 KHO TỪ ĐẠT 3000 — mục tiêu lớn của cả lộ trình', targetTotal: 3000 },
-      { id: 'w12-grammar', kind: 'grammar', label: 'Hoàn thành cả 18 bài Ngữ pháp giao tiếp' },
+      { id: 'w12-grammar', kind: 'grammar', lessonIds: CORE_GRAMMAR_IDS, label: `Hoàn thành cả ${CORE_GRAMMAR_IDS.length} bài Ngữ pháp giao tiếp` },
       tk(12, 40),
       pn(12, 'linking'),
       pn(12, 'rhythm', 2),
@@ -468,6 +468,13 @@ const bv = (week: number, seq: number, unitId: string, name: string): WeekTask =
 const bgl = (week: number, seq: number, lessonId: string): WeekTask => {
   const l = GRAMMAR_LESSONS.find((x) => x.id === lessonId)
   return { id: `bw${week}-g${seq}`, kind: 'grammar', lessonId, label: `Ngữ pháp: ${l?.title ?? lessonId} (luyện đạt ≥ 3/4 câu)` }
+}
+
+// Bootcamp nhắm B1–B2 nên cần thêm tầng ngữ pháp trung cấp; gom thành một
+// nhiệm vụ mỗi tuần để danh sách việc không phình ra 6 dòng.
+const bgb = (week: number, from: number, to: number, note: string): WeekTask => {
+  const lessonIds = B1_GRAMMAR_IDS.slice(from, to)
+  return { id: `bw${week}-gb1`, kind: 'grammar', lessonIds, label: `Ngữ pháp trung cấp B1: đạt ${lessonIds.length} bài — ${note}` }
 }
 
 const bpn = (week: number, seq: number, groupId: string): WeekTask => {
@@ -687,7 +694,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
   },
   {
     week: 8, month: 2, phase: 'Compile', title: 'Nói tự nhiên: cụm động từ & thành ngữ',
-    focus: 'get up, look for, make a decision… — thứ khiến câu nghe "ra chất Anh". Hoàn thành cả 18 bài ngữ pháp, chốt tháng 2.',
+    focus: 'get up, look for, make a decision… — thứ khiến câu nghe "ra chất Anh". Hoàn thành cả 18 bài ngữ pháp lõi, chốt tháng 2 — tháng 3 lên tầng trung cấp B1.',
     rhythm: 'Khung 7,5 giờ/ngày · shadowing tăng lên 1,5h (nhại từng câu, thu âm nghe lại) · viết đoạn văn dài đầu tiên. Ngày 6: kiểm tra tổng tháng 2 · Ngày 7: ôn + nghỉ.',
     quizUnits: ['phrasal', 'phrasal2', 'collocations', 'idioms', 'prepphrases', 'irregular'],
     patterns: [
@@ -727,6 +734,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(9, 5, 'media', 'Truyền thông & báo chí'),
       bv(9, 6, 'mindverbs', 'Động từ tư duy'),
       btk(9, 35),
+      bgb(9, 0, 6, 'các thì nâng cao, bị động, mệnh đề quan hệ'),
       { id: 'bw9-dict', kind: 'custom', label: 'Chép chính tả 3 video tốc độ thật', go: 'library' },
       { id: 'bw9-speak', kind: 'speak', label: 'Luyện nói 5 buổi: kể lại nội dung video vừa xem bằng lời của bạn' },
       { id: 'bw9-video', kind: 'video', n: 6, label: 'Xem 6 video KHÔNG phụ đề lượt đầu, lượt 2 soi lại chỗ chưa nghe ra' },
@@ -749,6 +757,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(10, 5, 'festivals', 'Lễ hội & dịp đặc biệt'),
       bv(10, 6, 'love', 'Tình cảm & hẹn hò'),
       btk(10, 42),
+      bgb(10, 6, 12, 'tường thuật, điều kiện loại 3, suy đoán, cụm động từ'),
       { id: 'bw10-self', kind: 'custom', label: 'Học thêm ≥3 chủ đề TỰ CHỌN đúng mục tiêu của bạn trong tab Học từ vựng', go: 'learn' },
       { id: 'bw10-write', kind: 'custom', label: 'Viết 2 email công việc + 1 đoạn 150 từ về mục tiêu của bạn', go: null },
       { id: 'bw10-speak', kind: 'speak', label: 'Luyện nói 6 buổi — mỗi ngày một buổi, chủ đề gắn với mục tiêu của bạn' },
@@ -783,7 +792,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
     quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs2', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'adverbs', 'preps', 'phrases', 'phrases2', 'phrasal', 'phrasal2', 'collocations', 'idioms', 'connectors', 'prepphrases', 'irregular', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'office', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2', 'transport', 'airport', 'restaurant', 'home', 'tech', 'mindverbs', 'society'],
     tasks: [
       btk(12, 58),
-      { id: 'bw12-grammar', kind: 'grammar', label: 'Giữ vững 18/18 bài Ngữ pháp giao tiếp (ôn lại bài nào tụt dưới 75%)' },
+      { id: 'bw12-grammar', kind: 'grammar', label: `Giữ vững ${GRAMMAR_LESSONS.length}/${GRAMMAR_LESSONS.length} bài Ngữ pháp — ${CORE_GRAMMAR_IDS.length} lõi + ${B1_GRAMMAR_IDS.length} trung cấp (ôn lại bài nào tụt dưới 75%)` },
       { id: 'bw12-mock', kind: 'custom', label: 'Thi thử TOEIC trọn gói lần cuối — so điểm với bài đo tuần 4', go: null },
       { id: 'bw12-speak', kind: 'speak', label: 'Trò chuyện tự do 20 phút với AI × 2 buổi, đủ mở bài – thân – kết' },
       { id: 'bw12-write', kind: 'custom', label: 'Viết bài 200 từ: hành trình 90 ngày của bạn (mở – thân – kết)', go: null },
