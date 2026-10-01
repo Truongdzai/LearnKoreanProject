@@ -4,7 +4,7 @@ import hashlib
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 
-from ..errors import AppError
+from ..errors import upstream_ai
 from ..schemas.pronounce import PronounceIn
 from ..services import auth, cache, llm, quota
 from ..services.langs import study_name, native_name
@@ -74,7 +74,7 @@ def api_pronounce(body: PronounceIn, request: Request, user: dict | None = OptAu
     try:
         data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native), temperature=0.4)
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
+        raise upstream_ai("AI không phản hồi", exc)
     out = {
         "feedback": data.get("feedback", ""),
         "tips": data.get("tips", []),
