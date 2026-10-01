@@ -145,8 +145,14 @@ export const goalBonusApi = (goal: number) =>
 export const fetchPlanApi = <T,>(planId: string) =>
   apiClient.get<{ ok: boolean; data: T | null; updatedAt: string | null }>(`/api/me/plans/${planId}`)
 
-export const savePlanApi = (planId: string, data: unknown) =>
-  apiClient.put<{ ok: boolean }>(`/api/me/plans/${planId}`, { data })
+const KEEPALIVE_MAX = 60_000
+
+export const savePlanApi = (planId: string, data: unknown, leaving = false) =>
+  apiClient.put<{ ok: boolean }>(
+    `/api/me/plans/${planId}`,
+    { data },
+    leaving && JSON.stringify({ data }).length < KEEPALIVE_MAX,
+  )
 
 export const fetchActivityDaysApi = (since: string) =>
   apiClient.get<{ days: ActivityDay[] }>(`/api/me/activity-days?since=${encodeURIComponent(since)}`)

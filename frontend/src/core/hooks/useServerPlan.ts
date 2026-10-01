@@ -22,6 +22,29 @@ export function useServerPlan<T>(
   const [state, setState] = useState<T>(readLocal)
   const [loaded, setLoaded] = useState(!isAuthed)
   const pushTimer = useRef<number | undefined>(undefined)
+  // Bản chưa kịp đẩy lên server. Phải đẩy nốt khi rời trang: nếu không, lần mở
+  // sau server trả bản cũ và ghi đè lên kết quả vừa học trong localStorage.
+  const pending = useRef<{ data: T } | null>(null)
+
+  const flush = useCallback((leaving = false) => {
+    window.clearTimeout(pushTimer.current)
+    const p = pending.current
+    if (!p) return
+    pending.current = null
+    savePlanApi(planId, p.data, leaving).catch(() => {  })
+  }, [planId])
+
+  useEffect(() => {
+    const onHide = () => { if (document.visibilityState === 'hidden') flush(true) }
+    const onPageHide = () => flush(true)
+    document.addEventListener('visibilitychange', onHide)
+    window.addEventListener('pagehide', onPageHide)
+    return () => {
+      document.removeEventListener('visibilitychange', onHide)
+      window.removeEventListener('pagehide', onPageHide)
+      flush()
+    }
+  }, [flush])
 
   const writeLocal = useCallback((next: T) => {
     try { localStorage.setItem(localKey, JSON.stringify(next)) } catch {  }
@@ -52,14 +75,13 @@ export function useServerPlan<T>(
       const next = fn(prev)
       writeLocal(next)
       if (isAuthed) {
+        pending.current = { data: next }
         window.clearTimeout(pushTimer.current)
-        pushTimer.current = window.setTimeout(() => {
-          savePlanApi(planId, next).catch(() => {  })
-        }, 1200)
+        pushTimer.current = window.setTimeout(() => flush(), 1200)
       }
       return next
     })
-  }, [isAuthed, planId, writeLocal])
+  }, [isAuthed, writeLocal, flush])
 
   return { state, mutate, loaded }
 }
