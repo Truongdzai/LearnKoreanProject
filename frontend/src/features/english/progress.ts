@@ -245,6 +245,7 @@ export function usePronProgress(lang = 'en') {
 
 export function grammarTaskDone(t: WeekTask, best: Record<string, number>, lessons?: GrammarLesson[]): boolean {
   if (t.lessonId) return (best[t.lessonId] ?? 0) >= GRAMMAR_PASS
+  if (t.lessonIds) return t.lessonIds.every((id) => (best[id] ?? 0) >= GRAMMAR_PASS)
   if (!lessons?.length) return false
   return lessons.every((l) => (best[l.id] ?? 0) >= GRAMMAR_PASS)
 }

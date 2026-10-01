@@ -78,7 +78,7 @@ const SPEC_BOOT: ExpectationSpec = {
     'Phỏng vấn xin việc cơ bản, họp ngắn có chuẩn bị trước',
     'Đọc báo phổ thông, email dài; viết email công việc và đoạn văn 150–200 từ',
     'TOEIC quanh 550–700 tuỳ nền xuất phát (đã qua trọn lộ trình 60 ngày + 2 lần thi thử)',
-    '3000 từ chủ động, 18 điểm ngữ pháp, 13 nhóm âm phát chuẩn',
+    '3000 từ chủ động, 30 điểm ngữ pháp (18 lõi + 12 trung cấp B1), 13 nhóm âm phát chuẩn',
   ],
   cannot: [
     'Xem phim hài kịch đủ mọi giọng, nghe tiếng lóng dày đặc không phụ đề',

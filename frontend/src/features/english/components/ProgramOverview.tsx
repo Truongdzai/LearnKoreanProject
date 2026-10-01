@@ -71,7 +71,7 @@ export default function ProgramOverview({
         <div className="en-hero-badge"><Icon name="rocket" size={14} /> {boot ? 'Bootcamp 90 ngày' : 'Lộ trình 3 tháng'}</div>
         <h1>{boot ? 'Giỏi Tiếng Anh trong 90 ngày' : 'Nói được Tiếng Anh trong 3 tháng'}</h1>
         {boot ? (
-          <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 18 bài ngữ pháp, 13 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
+          <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 30 bài ngữ pháp (thêm 12 bài trung cấp B1), 13 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
         ) : (
           <p>Đi theo phương pháp <b>F.A.S.T</b>: <b>F</b>ocus vào đúng 20% cần học, <b>A</b>ssociate để nhớ bằng liên tưởng, <b>S</b>ystem để chia giờ đều cho 4 kỹ năng, <b>T</b>imely feedback để lỗi được sửa trước khi hoá thạch. Nghe – nói – đọc – viết đều có chỗ trong lộ trình, không bỏ kỹ năng nào.</p>
         )}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
-import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
+import { GRAMMAR_PASS, grammarLevel, type GrammarLesson, type GrammarLevel } from '@/data/englishGrammar'
+import { GRAMMAR_LESSONS, CORE_GRAMMAR_IDS, B1_GRAMMAR_IDS } from '@/data/englishGrammarData'
 import { useAppStore } from '@/store/app.store'
 import { speakEN, stopSpeak } from '@/core/tts'
 import { useGrammarProgress } from '../progress'
@@ -11,6 +11,12 @@ interface Props {
   initialLesson?: string
 }
 
+const LEVELS: { id: GrammarLevel | 'all'; label: string }[] = [
+  { id: 'all', label: 'Tất cả' },
+  { id: 'core', label: `Nền tảng A1–A2 · ${CORE_GRAMMAR_IDS.length} bài` },
+  { id: 'B1', label: `Trung cấp B1 · ${B1_GRAMMAR_IDS.length} bài` },
+]
+
 export default function GrammarLessons({ initialLesson }: Props) {
   const { recordEvent } = useAppStore()
   const { grammar, record } = useGrammarProgress()
@@ -18,6 +24,7 @@ export default function GrammarLessons({ initialLesson }: Props) {
     'lesson', initialLesson ?? null, (v) => GRAMMAR_LESSONS.some((l) => l.id === v),
   )
 
+  const [levelFilter, setLevelFilter] = useState<GrammarLevel | 'all'>('all')
   const passedCount = GRAMMAR_LESSONS.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
 
   const onDrillDone = useCallback((lesson: GrammarLesson, pct: number) => {
@@ -43,19 +50,29 @@ export default function GrammarLessons({ initialLesson }: Props) {
         <Icon name="bulb" size={20} />
         <div>
           <b>Ngữ pháp giao tiếp — {passedCount}/{GRAMMAR_LESSONS.length} bài hoàn thành.</b>
-          <p>Có vốn từ rồi thì cần khung câu để nói được. Mỗi bài: quy tắc ngắn → ví dụ nghe được → luyện 4 câu, đạt {GRAMMAR_PASS}% là xong (thưởng 10 XP lần đầu).</p>
+          <p>Có vốn từ rồi thì cần khung câu để nói được. Mỗi bài: quy tắc ngắn → ví dụ nghe được → luyện vài câu, đạt {GRAMMAR_PASS}% là xong (thưởng 10 XP lần đầu). {CORE_GRAMMAR_IDS.length} bài nền tảng đủ cho giao tiếp hằng ngày; {B1_GRAMMAR_IDS.length} bài trung cấp B1 dành cho ai nhắm tới mức khá – giỏi.</p>
         </div>
+      </div>
+
+      <div className="lib-filter-row">
+        <span className="lib-filter-lbl">Theo cấp</span>
+        {LEVELS.map((lv) => (
+          <button key={lv.id} className={'sp-filter' + (levelFilter === lv.id ? ' on' : '')} onClick={() => setLevelFilter(lv.id)}>
+            {lv.label}
+          </button>
+        ))}
       </div>
 
       <div className="capsule-grid">
         {GRAMMAR_LESSONS.map((l, i) => {
+          if (levelFilter !== 'all' && grammarLevel(l) !== levelFilter) return null
           const best = grammar.best[l.id]
           const passed = (best ?? 0) >= GRAMMAR_PASS
           return (
             <button key={l.id} className={'capsule-card' + (passed ? ' done' : '')} onClick={() => setOpenId(l.id)}>
               <div className="cap-head">
                 <span className="cap-num">{i + 1}</span>
-                <span className="cap-tag">{l.tag}</span>
+                <span className="cap-tag">{l.level ? `${l.level} · ${l.tag}` : l.tag}</span>
                 {passed && <Icon name="check-circle" size={15} />}
               </div>
               <b>{l.title}</b>
@@ -113,7 +130,7 @@ function LessonView({ lesson, best, onDrillDone, onBack }: ViewProps) {
           <Icon name="arrow-left" size={14} /> Danh sách
         </button>
         <div>
-          <div className="cap-tag">{lesson.tag}</div>
+          <div className="cap-tag">{lesson.level ? `${lesson.level} · ${lesson.tag}` : lesson.tag}</div>
           <h3>{lesson.title}</h3>
         </div>
         {best != null && <span className={'cap-best' + (best >= GRAMMAR_PASS ? ' ok' : '')}>Tốt nhất: {best}%</span>}

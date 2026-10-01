@@ -114,8 +114,9 @@ export default function RoadmapWeeks({
     }
     if (t.kind === 'grammar') {
       if (!t.lessonId) {
-        const passed = grammarLessons.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
-        return `${passed}/${grammarLessons.length} bài đạt`
+        const ids = t.lessonIds ?? grammarLessons.map((l) => l.id)
+        const passed = ids.filter((id) => (grammar.best[id] ?? 0) >= GRAMMAR_PASS).length
+        return `${passed}/${ids.length} bài đạt`
       }
       const best = grammar.best[t.lessonId]
       return best != null ? `tốt nhất: ${best}%` : ''
@@ -144,7 +145,11 @@ export default function RoadmapWeeks({
   }
 
   const taskAction = (t: WeekTask, w: WeekPlan): { label: string; run: () => void } | null => {
-    if (t.kind === 'grammar') return onGrammar ? { label: 'Học ngay', run: () => onGrammar(t.lessonId) } : null
+    if (t.kind === 'grammar') {
+      // Nhiệm vụ gom nhiều bài: mở thẳng bài đầu tiên chưa đạt.
+      const target = t.lessonId ?? t.lessonIds?.find((id) => (grammar.best[id] ?? 0) < GRAMMAR_PASS)
+      return onGrammar ? { label: 'Học ngay', run: () => onGrammar(target) } : null
+    }
     if (t.kind === 'pron') return onPron ? { label: 'Luyện ngay', run: () => onPron(t.groupId) } : null
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     if (t.kind === 'deep') return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
