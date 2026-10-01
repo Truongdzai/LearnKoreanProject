@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel
 
-from ..errors import AppError
+from ..errors import AppError, upstream_ai
 from ..services import auth, quota, topik
 
 router = APIRouter(prefix="/api/topik", tags=["TOPIK"])
@@ -36,4 +36,4 @@ def api_topik_writing(body: WritingIn, request: Request, user: dict | None = Opt
     except AppError:
         raise
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"Chưa chấm được bài viết: {exc}", 502)
+        raise upstream_ai("Chưa chấm được bài viết", exc)
