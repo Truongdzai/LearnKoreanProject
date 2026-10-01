@@ -92,6 +92,8 @@ const jsonInit = (method: string, body?: unknown, signal?: AbortSignal): Request
 export const apiClient = {
   get: <T>(path: string, signal?: AbortSignal) => request<T>(path, { signal }),
   post: <T>(path: string, body?: unknown, signal?: AbortSignal) => request<T>(path, jsonInit('POST', body, signal)),
-  put: <T>(path: string, body?: unknown) => request<T>(path, jsonInit('PUT', body)),
+  // keepalive: cho request sống sót khi tab đang đóng (trình duyệt giới hạn thân ~64 KB).
+  put: <T>(path: string, body?: unknown, keepalive?: boolean) =>
+    request<T>(path, { ...jsonInit('PUT', body), keepalive }),
   del: <T>(path: string) => request<T>(path, { method: 'DELETE' }),
 }
