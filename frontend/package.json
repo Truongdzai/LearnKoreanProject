@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/check-counts.mjs && tsc && vite build && node scripts/prerender.mjs",
+    "build": "node scripts/check-counts.mjs && node scripts/check-content.mjs && tsc && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "type-check": "tsc --noEmit"
   },
