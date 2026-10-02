@@ -61,3 +61,16 @@ def test_cards_are_private_between_users(client):
 def test_review_invalid_rating(client):
     r = client.post("/api/srs/review", json={"card_id": 1, "rating": 9})
     assert r.status_code == 400
+
+
+def test_card_count_is_capped(client, monkeypatch):
+    from ..services import srs
+
+    monkeypatch.setattr(srs, "MAX_CARDS_PER_USER", 2)
+    h = auth_headers(register(client, "srs-cap@test.vn")["token"])
+    assert client.post("/api/srs/add", json={"front": "one", "lang": "en"}, headers=h).status_code == 200
+    assert client.post("/api/srs/add", json={"front": "two", "lang": "en"}, headers=h).status_code == 200
+    r = client.post("/api/srs/add", json={"front": "three", "lang": "en"}, headers=h)
+    assert r.status_code == 422 and r.json()["code"] == "SRS_FULL"
+    # thẻ đã có vẫn trả về bình thường, không bị tính là thẻ mới
+    assert client.post("/api/srs/add", json={"front": "one", "lang": "en"}, headers=h).status_code == 200
