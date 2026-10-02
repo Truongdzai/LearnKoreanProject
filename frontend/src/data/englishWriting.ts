@@ -1,7 +1,7 @@
 export interface WritePrompt {
   id: string
   emoji: string
-  level: 'a1' | 'a1p' | 'a2'
+  level: 'a1' | 'a1p' | 'a2' | 'b1'
   title: string
   task: string
   minWords: number
@@ -145,6 +145,74 @@ export const WRITE_PROMPTS: WritePrompt[] = [
     model: 'Hi Mai, thanks so much for inviting me — that sounds like a lot of fun. Unfortunately I cannot make it on Saturday. I promised weeks ago to help my sister move house, and it will probably take the whole day.\n\nI am really sorry to miss it, especially as I have not seen everyone since March. Could we grab lunch the week after instead? I am free on Tuesday or Thursday, so just tell me what works for you.\n\nHave a great time on Saturday, and please say hello to the others for me.',
     modelNote: 'Công thức từ chối bằng tiếng Anh có 4 nhịp: cảm ơn → từ chối thẳng → lý do ngắn → đề nghị dịp khác. Thiếu nhịp cuối là nghe lạnh.',
   },
+  {
+    id: 'w07',
+    emoji: '📨',
+    level: 'b1',
+    title: 'Email phàn nàn lịch sự mà chắc',
+    task: 'Bạn mua một chiếc máy lọc không khí online, giao trễ 10 ngày và máy kêu to bất thường. Viết email 120–160 từ gửi bộ phận chăm sóc khách hàng: nêu sự việc, hậu quả, yêu cầu cụ thể và hạn chót.',
+    minWords: 120,
+    scaffold: [
+      'Mở: lý do viết + mã đơn hàng. I am writing about order #…',
+      'Sự việc theo thứ tự thời gian: ordered on… / was supposed to arrive… / arrived on…',
+      'Vấn đề hiện tại + bạn đã thử gì: I have already tried…',
+      'Yêu cầu rõ ràng + hạn: I would like… Could you please… by…?',
+    ],
+    useful: [
+      { en: 'I am writing to complain about order #48213.', vi: 'Tôi viết thư để phàn nàn về đơn hàng #48213.' },
+      { en: 'It was supposed to arrive on 3 May, but it was delivered ten days late.', vi: 'Lẽ ra hàng phải tới ngày 3/5, nhưng đã giao trễ mười ngày.' },
+      { en: 'I have already tried resetting it, but the problem has not gone away.', vi: 'Tôi đã thử khởi động lại nhưng lỗi vẫn còn.' },
+      { en: 'I would appreciate it if you could arrange a replacement by Friday.', vi: 'Tôi rất mong anh/chị sắp xếp đổi máy mới trước thứ Sáu.' },
+    ],
+    model: 'Dear Customer Service Team,\n\nI am writing about order #48213, an air purifier which I bought from your website on 25 April. It was supposed to arrive on 3 May, but it was only delivered on 13 May.\n\nUnfortunately, the delay is not the only problem. Since the first day, the machine has made a loud rattling noise, even on the lowest setting. I have already tried resetting it and cleaning the filter, as the manual suggests, but the noise has not gone away. As a result, I cannot use it at night, which is the main reason I bought it.\n\nI would like a replacement rather than a refund. Could you please arrange for the faulty unit to be collected and a new one delivered by Friday 20 May? If this is not possible, please let me know what other options are available.\n\nI look forward to hearing from you.\n\nYours faithfully,\nNguyen Thu Ha',
+    modelNote: 'Phàn nàn bằng tiếng Anh không cần gay gắt: giữ giọng bình tĩnh nhưng cụ thể — ngày tháng, mã đơn, việc đã thử, yêu cầu có hạn chót. Để ý "was supposed to" (lẽ ra phải), "has made… since" (hiện tại hoàn thành) và "rather than".',
+  },
+  {
+    id: 'w08',
+    emoji: '⚖️',
+    level: 'b1',
+    title: 'Trình bày quan điểm: có nên học ngoại ngữ từ nhỏ?',
+    task: 'Viết bài 150–200 từ trả lời câu hỏi: "Trẻ em có nên bắt đầu học ngoại ngữ từ mẫu giáo không?" Nêu rõ quan điểm, hai lý do có ví dụ, một ý phản biện và kết luận.',
+    minWords: 150,
+    scaffold: [
+      'Mở bài (1–2 câu): nhắc lại vấn đề + quan điểm của bạn. In my opinion…',
+      'Lý do 1 + ví dụ: Firstly,… For example,…',
+      'Lý do 2 + ví dụ: Secondly,…',
+      'Phản biện + đáp lại: Some people argue that… However,…',
+      'Kết luận (1–2 câu), không thêm ý mới: Overall,…',
+    ],
+    useful: [
+      { en: 'In my opinion, the benefits clearly outweigh the drawbacks.', vi: 'Theo tôi, lợi ích rõ ràng lớn hơn bất lợi.' },
+      { en: 'For example, my nephew picked up English songs much faster than his parents.', vi: 'Ví dụ, cháu tôi thuộc bài hát tiếng Anh nhanh hơn bố mẹ nó nhiều.' },
+      { en: 'Some people argue that children should master their mother tongue first.', vi: 'Một số người cho rằng trẻ nên thành thạo tiếng mẹ đẻ trước.' },
+      { en: 'However, research suggests that young children can learn two languages at once.', vi: 'Tuy nhiên, nghiên cứu cho thấy trẻ nhỏ có thể học hai ngôn ngữ cùng lúc.' },
+    ],
+    model: 'Many parents in Vietnam now send their children to English classes before primary school. In my opinion, starting early is a good idea, as long as it is done in the right way.\n\nFirstly, young children learn pronunciation more naturally than adults. For example, my five-year-old nephew can copy English sounds that his parents still find difficult after years of study. Secondly, learning through songs and games makes children see a foreign language as something fun rather than a school subject, and this attitude often lasts.\n\nSome people argue that children should master Vietnamese first, and that a second language might confuse them. This concern is understandable. However, research suggests that young children can learn two languages at the same time without serious problems, especially if Vietnamese is still spoken at home.\n\nOverall, I believe early language learning is worthwhile. The key is to keep it playful and not to put pressure on children to get high scores.',
+    modelNote: 'Bài quan điểm B1 hay nhờ CẤU TRÚC chứ không nhờ từ khó: mỗi đoạn một ý, có ví dụ cụ thể, có thừa nhận phía bên kia ("This concern is understandable. However,…"). Kết luận nhắc lại quan điểm, không thêm lý do mới.',
+  },
+  {
+    id: 'w09',
+    emoji: '🧭',
+    level: 'b1',
+    title: 'Kể một chặng đường thay đổi của bạn',
+    task: 'Viết bài 150–200 từ kể về một điều bạn đã thay đổi được trong một năm qua (thói quen, kỹ năng, công việc…): trước đây thế nào, điều gì khiến bạn bắt đầu, khó khăn, và bây giờ ra sao.',
+    minWords: 150,
+    scaffold: [
+      'Trước đây: I used to… / A year ago, I couldn\'t…',
+      'Bước ngoặt: Everything changed when… (quá khứ đơn + quá khứ tiếp diễn)',
+      'Khó khăn + cách vượt qua: At first,… but…',
+      'Bây giờ: Now I… / I have… since… (hiện tại hoàn thành)',
+      'Bài học / dự định: If I had…, I would have… / Next, I want to…',
+    ],
+    useful: [
+      { en: 'A year ago, I couldn\'t run for more than five minutes.', vi: 'Một năm trước, tôi không chạy nổi quá năm phút.' },
+      { en: 'Everything changed when I was waiting for a bus and realised I was out of breath.', vi: 'Mọi thứ thay đổi khi tôi đang đợi xe buýt và nhận ra mình hụt hơi.' },
+      { en: 'I have run three times a week since February.', vi: 'Tôi chạy ba buổi mỗi tuần từ tháng Hai tới giờ.' },
+      { en: 'If I had started earlier, I would have saved myself a lot of stress.', vi: 'Giá tôi bắt đầu sớm hơn thì đã đỡ bao nhiêu căng thẳng.' },
+    ],
+    model: 'A year ago, I was too shy to speak English with anyone. I had studied grammar for years at school, but whenever a foreign customer came into our shop, I used to call my colleague and hide in the back room.\n\nEverything changed last October. I was working alone one afternoon when an Australian couple asked me for directions to the train station. I tried to answer, but I froze. They were very kind, yet I felt embarrassed for the rest of the day.\n\nThat night I decided to practise speaking every day, even for ten minutes. At first, I only talked to an AI app because I was afraid of making mistakes in front of real people. After two months, I joined a free conversation club on Saturday mornings.\n\nNow I have helped dozens of tourists, and last week I explained our return policy to a customer without any notes. My English is still far from perfect, but I am no longer afraid of it. If I had started earlier, I would have enjoyed my job much more.',
+    modelNote: 'Bài kể chuyện B1 trộn nhiều thì một cách có chủ đích: used to (thói quen cũ) → quá khứ tiếp diễn + quá khứ đơn (bước ngoặt) → hiện tại hoàn thành (kết quả tới nay) → câu điều kiện loại 3 (bài học). Đây là cơ hội dùng lại các bài ngữ pháp trung cấp.',
+  }
 ]
 
 export const WRITE_RUBRIC: { id: string; label: string; ask: string }[] = [

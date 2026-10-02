@@ -19,7 +19,7 @@ function writeDrafts(d: Record<string, string>): void {
   try { localStorage.setItem(DRAFT_KEY, JSON.stringify(d)) } catch {  }
 }
 
-const LEVEL_NAME: Record<WritePrompt['level'], string> = { a1: 'A1', a1p: 'A1+', a2: 'A2' }
+const LEVEL_NAME: Record<WritePrompt['level'], string> = { a1: 'A1', a1p: 'A1+', a2: 'A2', b1: 'B1' }
 
 interface Props {
   onLog: (mins: number) => void
