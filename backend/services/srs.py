@@ -3,10 +3,13 @@ from __future__ import annotations
 from datetime import date, timedelta
 
 from .. import db
+from ..errors import AppError
 
 USER = "local"
 MIN_EASE = 1.3
 RATINGS = {1: "Lại", 2: "Khó", 3: "Tốt", 4: "Dễ"}
+# Lộ trình lớn nhất là 3.000 từ; trần này chỉ để chặn script nhồi thẻ vô hạn.
+MAX_CARDS_PER_USER = 30000
 
 def _row(conn, card_id: int) -> dict | None:
     r = conn.execute("SELECT * FROM srs_cards WHERE id = ?", (card_id,)).fetchone()
@@ -27,6 +30,9 @@ def add_card(front: str, back: str = "", source: str = "", user_id: str = USER, 
         ).fetchone()
         if existing:
             return dict(existing)
+        n = conn.execute("SELECT COUNT(*) FROM srs_cards WHERE user_id = ?", (user_id,)).fetchone()[0]
+        if n >= MAX_CARDS_PER_USER:
+            raise AppError("SRS_FULL", f"Bộ thẻ đã đủ {MAX_CARDS_PER_USER:,} thẻ — hãy xoá bớt thẻ cũ trước khi thêm.", 422)
         cur = conn.execute(
             "INSERT INTO srs_cards (user_id, front, back, source, lang) VALUES (?,?,?,?,?)",
             (user_id, front, back, source, lang),
