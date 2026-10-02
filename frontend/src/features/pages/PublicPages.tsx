@@ -50,7 +50,7 @@ export function HelpPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="bulb" /> Trợ giúp &amp; câu hỏi thường gặp</h2>
+        <h1><Icon name="bulb" /> Trợ giúp &amp; câu hỏi thường gặp</h1>
         <div className="meta">Không tìm thấy câu trả lời? Gửi câu hỏi cho chúng tôi ở trang Liên hệ.</div>
       </div>
 
@@ -64,7 +64,7 @@ export function HelpPage() {
 
       {groups.map((g) => (
         <section key={g.title} className="doc-sec">
-          <h3>{g.title}</h3>
+          <h2>{g.title}</h2>
           {g.items.map((i) => (
             <div key={i.q} className="doc-qa">
               <b>{i.q}</b>
@@ -90,12 +90,12 @@ export function AboutPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="heart" /> Về VyLing</h2>
+        <h1><Icon name="heart" /> Về VyLing</h1>
         <div className="meta">Vì sao chúng tôi làm công cụ này, và làm theo nguyên tắc nào.</div>
       </div>
 
       <section className="doc-sec">
-        <h3>Câu chuyện</h3>
+        <h2>Câu chuyện</h2>
         <p>
           VyLing bắt đầu từ một việc rất riêng tư: một người Việt muốn học tiếng Hàn bằng chính những video
           mình vẫn xem mỗi tối, thay vì ngồi học giáo trình khô khan rồi bỏ dở sau hai tuần. Các công cụ có sẵn
@@ -108,7 +108,7 @@ export function AboutPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>Ba nguyên tắc chúng tôi giữ</h3>
+        <h2>Ba nguyên tắc chúng tôi giữ</h2>
         <div className="doc-qa">
           <b>1. Dùng gì học nấy</b>
           <p>
@@ -133,7 +133,7 @@ export function AboutPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>Nội dung đến từ đâu</h3>
+        <h2>Nội dung đến từ đâu</h2>
         <p>
           Từ vựng, ngữ pháp và câu hỏi luyện thi đều do chúng tôi tự biên soạn theo định dạng đề thật, không sao chép
           từ sách có bản quyền. Video trong kho là video công khai trên YouTube, được kiểm chứng có phụ đề trước khi
@@ -157,12 +157,12 @@ export function ContactPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="mail" /> Liên hệ</h2>
+        <h1><Icon name="mail" /> Liên hệ</h1>
         <div className="meta">Chúng tôi đọc mọi góp ý — đây là cách nhanh nhất để tính năng bạn cần được làm sớm.</div>
       </div>
 
       <section className="doc-sec">
-        <h3>Cách nhanh nhất: nút góp ý ngay trong web</h3>
+        <h2>Cách nhanh nhất: nút góp ý ngay trong web</h2>
         <p>
           Góc dưới bên phải màn hình luôn có nút <b>Góp ý</b>. Bấm vào đó để báo lỗi hoặc đề xuất tính năng —
           góp ý gửi thẳng vào hệ thống kèm thông tin trang bạn đang xem, nên chúng tôi tái hiện lỗi nhanh hơn nhiều
@@ -171,7 +171,7 @@ export function ContactPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>Email</h3>
+        <h2>Email</h2>
         <p>
           Với các việc cần trao đổi dài (hợp tác nội dung, báo cáo bản quyền, câu hỏi về tài khoản):
           <br />
@@ -184,7 +184,7 @@ export function ContactPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>Báo cáo bản quyền</h3>
+        <h2>Báo cáo bản quyền</h2>
         <p>
           Nếu bạn là chủ sở hữu nội dung và cho rằng một video trong kho không nên xuất hiện ở đây, hãy gửi email
           kèm đường dẫn video. Chúng tôi gỡ khỏi kho ngay khi xác minh, không cần thủ tục phức tạp.
@@ -235,7 +235,7 @@ export function BlogPage() {
 
         {post.sections.map((s) => (
           <section key={s.h} className="doc-sec">
-            <h3>{s.h}</h3>
+            <h2>{s.h}</h2>
             {s.p.map((par, i) => <p key={i}>{par}</p>)}
             {s.list && <ul className="blog-list">{s.list.map((li, i) => <li key={i}>{li}</li>)}</ul>}
           </section>
@@ -254,7 +254,7 @@ export function BlogPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="note" /> Blog học ngoại ngữ</h2>
+        <h1><Icon name="note" /> Blog học ngoại ngữ</h1>
         <div className="meta">Kinh nghiệm học thật, không hứa hẹn viển vông — viết cho người Việt tự học.</div>
       </div>
       <div className="blog-grid">

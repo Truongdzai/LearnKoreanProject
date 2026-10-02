@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { inertRef } from '@/core/a11y'
 import { speakAccent } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import { FAMILIES, FAMILY_GLOSS, LEVELS, comboCount, wordEntry } from '@/data/englishActive'
@@ -68,7 +69,7 @@ function Card() {
 
       <div className="mw">
         <div className={'mw-flip' + (flipped ? ' on' : '')}>
-          <div className="mw-face front" aria-hidden={flipped}>
+          <div className="mw-face front" aria-hidden={flipped} ref={inertRef(flipped)}>
             <span className="mw-kicker">{t('mw.learning')}</span>
             <div className="mw-word">
               <b>{f.head}</b>
@@ -94,7 +95,7 @@ function Card() {
             </div>
           </div>
 
-          <div className="mw-face back" aria-hidden={!flipped}>
+          <div className="mw-face back" aria-hidden={!flipped} ref={inertRef(!flipped)}>
             <span className="mw-kicker">{t('mw.meaningOf', { word: f.head })}</span>
             {entry ? (
               <>

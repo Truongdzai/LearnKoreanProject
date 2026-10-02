@@ -171,7 +171,7 @@ export default function TutorPage() {
   return (
     <div className="tutor-page">
       <div className="lesson-head">
-        <h2><Icon name="bulb" /> {t('tt.title', { lang: learnLangName })}</h2>
+        <h1><Icon name="bulb" /> {t('tt.title', { lang: learnLangName })}</h1>
         <div className="meta">{t('tt.sub')}</div>
       </div>
 

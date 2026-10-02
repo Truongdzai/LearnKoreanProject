@@ -127,6 +127,7 @@ export default function LibraryPage() {
 
   return (
     <div className="lib" ref={reveal}>
+      <h1 className="sr-only">{t('nav.library')} · {learnLangName}</h1>
       <div className="drawer-plate">
         <div className="drawer-label">
           <span className="drawer-label-sub">{t('lib.drawer')}</span>

@@ -114,6 +114,7 @@ export default function VocabHomePage() {
 
   return (
     <div className="vocab-home">
+      <h1 className="sr-only">{t('nav.vocab')} · {learnLangName}</h1>
       <div className="drawer-plate">
         <div className="drawer-label">
           <span className="drawer-label-sub">{t('vc.drawer')}</span>

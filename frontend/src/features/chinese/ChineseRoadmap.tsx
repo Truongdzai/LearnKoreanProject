@@ -27,7 +27,7 @@ export default function ChineseRoadmap({ onStart, onLearn, onQuiz, onPron }: Pro
     <div className="en-overview">
       <div className="en-hero">
         <div className="en-hero-badge"><Icon name="rocket" size={14} /> Lộ trình 90 ngày</div>
-        <h1>Tiếng Trung từ số 0 trong 3 tháng</h1>
+        <h2 className="en-hero-title">Tiếng Trung từ số 0 trong 3 tháng</h2>
         <p>
           Mỗi tuần một chủ đề, học bằng phương pháp <b>ICES</b> (hình ảnh – liên tưởng – ví dụ – âm thanh),
           kèm <b>khung câu của tuần</b> để ghép từ đã học thành câu nói được ngay, rồi củng cố bằng ôn tập ngắt quãng.

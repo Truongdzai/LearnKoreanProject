@@ -138,7 +138,7 @@ export default function HskPage() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="trophy" /> Luyện thi HSK</h2>
+        <h1><Icon name="trophy" /> Luyện thi HSK</h1>
         <div className="meta">
           Ngân hàng {HSK_BANK.capsules} viên ngữ pháp · {HSK_BANK.listening} câu nghe · {HSK_BANK.reading} câu đọc, phủ HSK 1 và HSK 2. Mọi câu đều bật/tắt được pinyin.
         </div>
@@ -168,7 +168,7 @@ export default function HskPage() {
         <div className="en-overview">
           <div className="en-hero">
             <div className="en-hero-badge"><Icon name="trophy" size={14} /> HSK 1–2 · 汉语水平考试</div>
-            <h1>Chinh phục HSK từ con số 0</h1>
+            <h2 className="en-hero-title">Chinh phục HSK từ con số 0</h2>
             <p>
               HSK 1 gồm <b>听力 20 câu</b> và <b>阅读 20 câu</b>; HSK 2 là <b>听力 35 câu</b> và <b>阅读 25 câu</b>.
               Cả hai cấp đều tính <b>thang 200 điểm</b> và <b>120 điểm là đạt</b>. Đề HSK 1–2 luôn in kèm pinyin,
