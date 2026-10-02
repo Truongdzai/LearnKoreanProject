@@ -74,7 +74,7 @@ export const langLabel = (lang: string): string => LANG_VI[lang] ?? 'ngoáº¡i ngá
 
 export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron' | 'deep' | 'active'
 
-export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | 'active' | null
+export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | 'active' | 'write' | null
 
 export interface WeekTask {
   id: string
