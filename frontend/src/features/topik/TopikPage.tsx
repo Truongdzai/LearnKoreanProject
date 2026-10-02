@@ -126,7 +126,7 @@ export default function TopikPage() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="trophy" /> Luyện thi TOPIK</h2>
+        <h1><Icon name="trophy" /> Luyện thi TOPIK</h1>
         <div className="meta">
           Ngân hàng {TOPIK_BANK.capsules} viên ngữ pháp · {TOPIK_BANK.listening} câu nghe · {TOPIK_BANK.reading} câu đọc · {TOPIK_BANK.writing} đề viết chấm bằng AI.
         </div>
@@ -156,7 +156,7 @@ export default function TopikPage() {
         <div className="en-overview">
           <div className="en-hero">
             <div className="en-hero-badge"><Icon name="trophy" size={14} /> TOPIK I · cấp 1–2</div>
-            <h1>Chinh phục TOPIK từ nền tảng</h1>
+            <h2 className="en-hero-title">Chinh phục TOPIK từ nền tảng</h2>
             <p>
               TOPIK I gồm <b>듣기 30 câu / 40 phút</b> và <b>읽기 40 câu / 60 phút</b>, tổng 200 điểm —
               đạt <b>80 điểm</b> là cấp 1, <b>140 điểm</b> là cấp 2. Ở đây bạn học đúng bộ ngữ pháp ra thi,

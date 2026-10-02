@@ -62,7 +62,7 @@ export default function KoreanPage() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="globe" /> Tiếng Hàn · lộ trình 90 ngày</h2>
+        <h1><Icon name="globe" /> Tiếng Hàn · lộ trình 90 ngày</h1>
         <div className="meta">
           Phương pháp ICES (Hình ảnh · Liên tưởng · Ví dụ · Âm thanh) — {KO_ALL_WORDS.length} từ lõi qua {KO_UNITS.length} chủ đề, học tới đâu lưu thẻ ôn tập tới đó.
         </div>

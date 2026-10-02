@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
+import { inertRef } from '@/core/a11y'
 import { langLabel, posLabel } from '@/data/vocabCore'
 import WordDetail, { highlight } from './WordDetail'
 import WordImg from '../WordImg'
@@ -76,7 +77,7 @@ export default function Guess({ card, lang, def, accents, speak, onNext, onDone 
     <div className="vl-card-wrap">
       <div className="vl-scene">
         <div className={'vl-flip' + (flipped ? ' card-flipped' : '')}>
-          <div className={'vl-face vl-guess-face' + (flipped ? '' : ' on')} aria-hidden={flipped}>
+          <div className={'vl-face vl-guess-face' + (flipped ? '' : ' on')} aria-hidden={flipped} ref={inertRef(flipped)}>
             <span className="vl-face-tag">Mặt trước</span>
 
             <div className="vl-guess-body">
@@ -167,7 +168,7 @@ export default function Guess({ card, lang, def, accents, speak, onNext, onDone 
             </div>
           </div>
 
-          <div className={'vl-face vl-back' + (flipped ? ' on' : '')} aria-hidden={!flipped}>
+          <div className={'vl-face vl-back' + (flipped ? ' on' : '')} aria-hidden={!flipped} ref={inertRef(!flipped)}>
             <span className="vl-face-tag">Mặt sau</span>
             <button
               className="vl-speak"

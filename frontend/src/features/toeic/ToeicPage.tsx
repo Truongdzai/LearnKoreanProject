@@ -266,7 +266,7 @@ export default function ToeicPage() {
       return (
         <div className="toeic-page">
           <div className="lesson-head">
-            <h2><Icon name="trophy" /> ETS 2026 · Test {session.test}</h2>
+            <h1><Icon name="trophy" /> ETS 2026 · Test {session.test}</h1>
             <div className="meta">{etsError ?? 'Đang tải đề…'}</div>
           </div>
           <button className="btn-ghost" onClick={() => setSession(null)}>
@@ -325,7 +325,7 @@ export default function ToeicPage() {
     return (
       <div className="toeic-page">
         <div className="lesson-head">
-          <h2><Icon name="book" /> Ôn lại bài thi</h2>
+          <h1><Icon name="book" /> Ôn lại bài thi</h1>
           <div className="meta">{result.res.correct}/{result.res.total} câu đúng · xem lại từng câu kèm giải thích</div>
         </div>
         <TestReview
@@ -434,7 +434,7 @@ export default function ToeicPage() {
         </div>
       )}
       <div className="lesson-head">
-        <h2><Icon name="book" /> Luyện thi TOEIC · bốn kỹ năng</h2>
+        <h1><Icon name="book" /> Luyện thi TOEIC · bốn kỹ năng</h1>
         <div className="meta">
           Mục tiêu {TOEIC_TARGET}+ điểm (Nghe – Đọc) · thêm Speaking và Writing theo thang 0–200
           {state.start ? ` · Ngày ${day}/60` : ' · Chưa bắt đầu'}

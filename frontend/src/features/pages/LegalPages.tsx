@@ -9,12 +9,12 @@ export function TermsPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="note" /> Điều khoản sử dụng</h2>
+        <h1><Icon name="note" /> Điều khoản sử dụng</h1>
         <div className="meta">Cập nhật {UPDATED} · Dùng VyLing nghĩa là bạn đồng ý với những điều dưới đây.</div>
       </div>
 
       <section className="doc-sec">
-        <h3>1. VyLing là gì</h3>
+        <h2>1. VyLing là gì</h2>
         <p>
           VyLing là công cụ học ngoại ngữ qua video: lấy phụ đề của video YouTube bạn chọn, dịch song ngữ,
           cho tra từ và lưu thẻ ôn tập, kèm lộ trình học và các phần luyện thi. Phần học chính miễn phí;
@@ -23,7 +23,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>2. Tài khoản</h3>
+        <h2>2. Tài khoản</h2>
         <p>
           Bạn dùng được phần lớn tính năng mà không cần tài khoản. Khi tạo tài khoản, bạn chịu trách nhiệm
           giữ mật khẩu và mọi hoạt động diễn ra dưới tài khoản đó. Hãy dùng email thật để lấy lại được tài khoản
@@ -32,7 +32,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>3. Nội dung video và bản quyền</h3>
+        <h2>3. Nội dung video và bản quyền</h2>
         <p>
           VyLing <b>không lưu trữ và không phát lại video</b>. Video luôn chạy qua trình phát chính thức của
           YouTube, nhúng vào trang; bản quyền thuộc về chủ kênh. Phụ đề được lấy từ chính video và chỉ dùng
@@ -46,7 +46,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>4. Bạn không được</h3>
+        <h2>4. Bạn không được</h2>
         <ul className="doc-list">
           <li>Tự động hoá việc gọi các tính năng AI để rút cạn hạn mức chung, hoặc lách hạn mức bằng nhiều tài khoản.</li>
           <li>Dùng VyLing để tạo hoặc phát tán nội dung vi phạm pháp luật Việt Nam.</li>
@@ -56,7 +56,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>5. Nội dung do AI tạo ra</h3>
+        <h2>5. Nội dung do AI tạo ra</h2>
         <p>
           Phần dịch, giải thích ngữ pháp, chấm phát âm, chấm bài viết và câu trả lời của gia sư đều do mô hình AI
           sinh ra, nên <b>có thể sai</b>. Hãy coi đó là gợi ý học tập, không phải kết luận chính thức — đặc biệt khi
@@ -65,7 +65,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>6. Gói Plus &amp; xu</h3>
+        <h2>6. Gói Plus &amp; xu</h2>
         <p>
           Xu là điểm thưởng trong ứng dụng, không phải tiền, không quy đổi ra tiền và không chuyển được ra ngoài.
           Khi có thanh toán cho gói Plus, chính sách giá và hoàn tiền sẽ được ghi rõ ở trang Bảng giá trước khi bạn trả tiền.
@@ -73,7 +73,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>7. Dịch vụ ở giai đoạn thử nghiệm</h3>
+        <h2>7. Dịch vụ ở giai đoạn thử nghiệm</h2>
         <p>
           VyLing đang trong giai đoạn hoàn thiện. Tính năng có thể thay đổi, tạm ngừng hoặc lỗi. Chúng tôi cố gắng
           giữ dữ liệu học của bạn an toàn (sao lưu tự động hằng ngày), nhưng bạn nên tự tải bản sao dữ liệu định kỳ —
@@ -82,7 +82,7 @@ export function TermsPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>8. Thay đổi điều khoản</h3>
+        <h2>8. Thay đổi điều khoản</h2>
         <p>
           Khi có thay đổi đáng kể, chúng tôi sẽ báo trên web trước khi áp dụng. Bạn tiếp tục dùng VyLing sau đó
           nghĩa là chấp nhận bản mới. Bản đang áp dụng luôn là bản trên trang này, ghi ngày cập nhật ở đầu trang.
@@ -104,12 +104,12 @@ export function PrivacyPage() {
   return (
     <div className="page-doc">
       <div className="lesson-head">
-        <h2><Icon name="lock" /> Chính sách quyền riêng tư</h2>
+        <h1><Icon name="lock" /> Chính sách quyền riêng tư</h1>
         <div className="meta">Cập nhật {UPDATED} · Viết theo đúng những gì phần mềm đang làm, không phải mẫu chung.</div>
       </div>
 
       <section className="doc-sec">
-        <h3>Tóm tắt trong 5 dòng</h3>
+        <h2>Tóm tắt trong 5 dòng</h2>
         <ul className="doc-list">
           <li>Không đăng nhập thì chúng tôi <b>không biết bạn là ai</b> — dữ liệu học nằm trong trình duyệt của bạn.</li>
           <li>Có tài khoản thì chúng tôi lưu email, tên, và dữ liệu học của bạn để đồng bộ giữa các máy.</li>
@@ -120,7 +120,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>1. Chúng tôi lưu những gì</h3>
+        <h2>1. Chúng tôi lưu những gì</h2>
         <div className="doc-qa">
           <b>Khi bạn chưa đăng nhập</b>
           <p>
@@ -146,7 +146,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>2. Bên thứ ba nhận dữ liệu gì</h3>
+        <h2>2. Bên thứ ba nhận dữ liệu gì</h2>
         <table className="doc-table">
           <thead><tr><th>Bên</th><th>Nhận gì</th><th>Vì sao</th></tr></thead>
           <tbody>
@@ -176,7 +176,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>3. Cookie &amp; bộ nhớ trình duyệt</h3>
+        <h2>3. Cookie &amp; bộ nhớ trình duyệt</h2>
         <p>
           VyLing <b>không đặt cookie theo dõi</b>. Chúng tôi dùng localStorage — bộ nhớ của trình duyệt — cho những thứ
           cần để chạy: mã đăng nhập, ngôn ngữ, giao diện, tiến độ khi bạn chưa có tài khoản. Nếu bật đo lường,
@@ -185,7 +185,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>4. Giữ trong bao lâu</h3>
+        <h2>4. Giữ trong bao lâu</h2>
         <p>
           Dữ liệu học được giữ chừng nào tài khoản còn tồn tại. Bản sao lưu tự động giữ 14 ngày gần nhất.
           Nhật ký dùng AI tự xoá sau 7 ngày. Mã xác minh hết hạn sau 10 phút. Khi bạn xoá tài khoản,
@@ -194,7 +194,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>5. Quyền của bạn</h3>
+        <h2>5. Quyền của bạn</h2>
         <ul className="doc-list">
           <li><b>Xem &amp; mang đi:</b> tải toàn bộ dữ liệu của bạn dưới dạng JSON — trang Hoạt động, mục "Dữ liệu của tôi".</li>
           <li><b>Xoá:</b> xoá tài khoản cùng toàn bộ dữ liệu, cũng ở mục đó. Thao tác này không hoàn tác được.</li>
@@ -205,7 +205,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>6. Trẻ em</h3>
+        <h2>6. Trẻ em</h2>
         <p>
           VyLing dành cho người từ 13 tuổi trở lên. Nếu bạn dưới 13 tuổi, hãy nhờ cha mẹ hoặc người giám hộ
           tạo và quản lý tài khoản giúp.
@@ -213,7 +213,7 @@ export function PrivacyPage() {
       </section>
 
       <section className="doc-sec">
-        <h3>7. An toàn dữ liệu</h3>
+        <h2>7. An toàn dữ liệu</h2>
         <p>
           Mật khẩu được băm bằng PBKDF2-SHA256 với muối riêng cho từng người. Phiên đăng nhập ký bằng khoá bí mật
           sinh ngẫu nhiên trên máy chủ và thu hồi được. Dữ liệu được sao lưu tự động hằng ngày.

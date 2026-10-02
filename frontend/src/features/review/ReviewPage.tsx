@@ -139,6 +139,7 @@ export default function ReviewPage() {
 
   return (
     <>
+      <h1 className="sr-only">{t('nav.flashcards')} · {learnLangName}</h1>
       <div className="drawer-plate">
         <div className="drawer-label">
           <span className="drawer-label-sub">{t('rv.drawer')}</span>
@@ -206,12 +207,12 @@ export default function ReviewPage() {
           <div className="big"><Icon name={stats && stats.total === 0 ? 'cards' : 'party'} /></div>
           {stats && stats.total === 0 ? (
             <>
-              <h3>{t('rv.emptyTitle')}</h3>
+              <h2>{t('rv.emptyTitle')}</h2>
               <p>{t('rv.emptyText')}</p>
             </>
           ) : (
             <>
-              <h3>{t('rv.doneTitle')}</h3>
+              <h2>{t('rv.doneTitle')}</h2>
               <p>{t('rv.doneText', { n: reviewedThisSession })}</p>
               {deck && (
                 <button className="btn-ghost sm" onClick={() => pickDeck('')}>

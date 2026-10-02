@@ -111,3 +111,10 @@ export function announce(message: string) {
     node.textContent = message
   }, 0)
 }
+
+// Mặt thẻ đang úp vẫn nằm trong DOM (để lật có hiệu ứng): `inert` vừa giấu nó với
+// trình đọc màn hình vừa bỏ các nút bên trong khỏi thứ tự Tab — aria-hidden thôi
+// thì nút vẫn nhận focus được. React 18 chưa có prop `inert` nên đặt qua ref.
+export const inertRef = (on: boolean) => (el: HTMLElement | null) => {
+  if (el) el.inert = on
+}

@@ -304,7 +304,7 @@ export default function VocabLab({
           )}
         </aside>
 
-        <main className="vl-main">
+        <section className="vl-main">
           <div className="vl-prog-head">
             <span>TIẾN ĐỘ — {unit.name.toUpperCase()}</span>
             <b>{doneInUnit} / {unit.words.length} THẺ</b>
@@ -347,7 +347,7 @@ export default function VocabLab({
           <div className="vl-foot">
             Chủ đề {activeIdx + 1}/{units.length} · Tổng cộng {totalWords.toLocaleString('vi-VN')} thẻ trong kho
           </div>
-        </main>
+        </section>
       </div>
     </div>
   )

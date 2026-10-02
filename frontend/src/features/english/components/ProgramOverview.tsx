@@ -69,7 +69,7 @@ export default function ProgramOverview({
     <div className="en-overview">
       <div className="en-hero">
         <div className="en-hero-badge"><Icon name="rocket" size={14} /> {boot ? 'Bootcamp 90 ngày' : 'Lộ trình 3 tháng'}</div>
-        <h1>{boot ? 'Giỏi Tiếng Anh trong 90 ngày' : 'Nói được Tiếng Anh trong 3 tháng'}</h1>
+        <h2 className="en-hero-title">{boot ? 'Giỏi Tiếng Anh trong 90 ngày' : 'Nói được Tiếng Anh trong 3 tháng'}</h2>
         {boot ? (
           <p>Phiên bản toàn thời gian cho người quyết tâm — <b>7–8 giờ mỗi ngày</b>, kể cả bắt đầu từ số 0: trọn 3000 từ, 30 bài ngữ pháp (thêm 12 bài trung cấp B1), 13 nhóm âm, TOEIC 60 ngày và nghe – nói – đọc – viết mỗi ngày. Không có đường tắt, chỉ có đủ giờ bay.</p>
         ) : (

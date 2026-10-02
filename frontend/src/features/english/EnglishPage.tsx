@@ -182,7 +182,7 @@ function EnglishBody() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="globe" /> Tiếng Anh giao tiếp</h2>
+        <h1><Icon name="globe" /> Tiếng Anh giao tiếp</h1>
         <div className="meta">Phương pháp F.A.S.T · đủ 4 kỹ năng nghe – nói – đọc – viết · giọng đọc US &amp; UK.</div>
       </div>
 

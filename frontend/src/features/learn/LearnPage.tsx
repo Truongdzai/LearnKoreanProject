@@ -127,7 +127,7 @@ export default function LearnPage() {
         </div>
       </div>
       <div className="lesson-head">
-        <h2>{lesson.title}</h2>
+        <h1>{lesson.title}</h1>
         <div className="meta">{t('learn.source', { src: lesson.source, n: lesson.segments.length })}</div>
         {level?.reason && <div className="cefr-reason">{level.reason}</div>}
         {levelErr && <div className="shadow-err"><Icon name="x-circle" size={14} /> {levelErr}</div>}
