@@ -22,7 +22,7 @@ import { MasteryProvider } from './active/mastery'
 import ActiveHub from './active/ActiveHub'
 import { DeepProvider } from './deep/deep'
 import DeepPage from './deep/DeepPage'
-import { useTabParam, useUrlParam, clearUrlParams } from '@/core/hooks/useTabParam'
+import { useTabParam, useUrlParam, clearUrlParams, setUrlParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'active' | 'skills' | 'errors' | 'quiz' | 'summary'
 
@@ -150,6 +150,12 @@ function EnglishBody() {
     setTab('pron')
   }
 
+  const openWrite = () => {
+    clearUrlParams(SUB_PARAMS)
+    setUrlParam('pane', 'write')
+    setTab('skills')
+  }
+
   const openQuiz = (week: number, units: string[], pass: number) => {
     setWeekQuiz({ week, units, pass })
     setTab('quiz')
@@ -213,6 +219,7 @@ function EnglishBody() {
             onErrors={() => setTab('errors')}
             onDeep={setDeepWord}
             onActive={() => setTab('active')}
+            onWrite={openWrite}
           />
         )}
         {tab === 'vocab' && (

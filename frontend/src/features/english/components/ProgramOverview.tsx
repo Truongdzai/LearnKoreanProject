@@ -53,10 +53,11 @@ interface Props {
   onErrors: () => void
   onDeep: (term: string) => void
   onActive: () => void
+  onWrite: () => void
 }
 
 export default function ProgramOverview({
-  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep, onActive,
+  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep, onActive, onWrite,
 }: Props) {
   const { learned } = useLearnedWords()
   const { deepFull, mastered } = useDeep()
@@ -108,7 +109,7 @@ export default function ProgramOverview({
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
         pronGroups={PRON_GROUPS} grammarLessons={GRAMMAR_LESSONS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron}
-        onDeep={onDeep} deepFull={deepFull} onActive={onActive} activeAuto={activeStats.automatic} />
+        onDeep={onDeep} deepFull={deepFull} onActive={onActive} onWrite={onWrite} activeAuto={activeStats.automatic} />
 
       <div className="section-title"><span className="pin" /> Làm chủ từng từ — không chỉ thuộc một nghĩa</div>
       <MasteryRoom onOpen={onDeep} />

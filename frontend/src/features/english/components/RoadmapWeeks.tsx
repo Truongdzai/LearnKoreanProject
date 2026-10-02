@@ -20,6 +20,7 @@ interface Props {
   onPron?: (groupId?: string) => void
   onDeep?: (term: string) => void
   onActive?: () => void
+  onWrite?: () => void
   deepFull?: number
   activeAuto?: number
   lang?: string
@@ -48,7 +49,7 @@ const CLOSED = '0'
 const isWeekParam = (v: string) => v === CLOSED || (/^\d+$/.test(v) && +v >= 1 && +v <= 12)
 
 export default function RoadmapWeeks({
-  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive,
+  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive, onWrite,
   deepFull = 0,
   activeAuto = 0,
   lang = 'en',
@@ -174,6 +175,7 @@ export default function RoadmapWeeks({
       case 'deep': return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
       case 'active': return onActive ? { label: 'Vào phòng tập', run: onActive } : null
       case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
+      case 'write': return onWrite ? { label: 'Phòng Viết', run: onWrite } : null
       default: return null
     }
   }
