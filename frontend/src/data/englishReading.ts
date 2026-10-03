@@ -1,6 +1,6 @@
 import passages from './english/reading/passages.json'
 
-export type ReadLevel = 'a1' | 'a1p' | 'a2'
+export type ReadLevel = 'a1' | 'a1p' | 'a2' | 'b1'
 
 export interface ReadGloss {
   w: string
@@ -36,6 +36,7 @@ export const READ_LEVELS: { id: ReadLevel; name: string; sub: string; tone: stri
   { id: 'a1', name: 'A1', sub: 'Câu ngắn, thì hiện tại', tone: 'tone-a' },
   { id: 'a1p', name: 'A1+', sub: 'Có quá khứ, câu dài hơn', tone: 'tone-c' },
   { id: 'a2', name: 'A2', sub: 'Kể chuyện, có ý ẩn', tone: 'tone-e' },
+  { id: 'b1', name: 'B1', sub: 'Bài dài, nêu quan điểm', tone: 'tone-d' },
 ]
 
 export function wordCount(p: ReadPassage): number {

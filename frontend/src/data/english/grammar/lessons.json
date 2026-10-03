@@ -340,5 +340,269 @@
       { "text": "He is good at ___ football.", "options": ["play", "to play", "playing", "played"], "answer": 2, "explain": "Sau giới từ \"at\" → V-ing." },
       { "text": "We want ___ early tomorrow morning.", "options": ["leave", "to leave", "leaving", "left"], "answer": 1, "explain": "Sau \"want\" → to + nguyên thể." }
     ]
+  },
+  {
+    "id": "e19", "level": "B1", "title": "Quá khứ tiếp diễn: was / were + V-ing", "tag": "Thì nâng cao",
+    "points": [
+      "Diễn tả việc ĐANG diễn ra tại một thời điểm trong quá khứ: At 8 p.m. yesterday I was cooking dinner.",
+      "I/he/she/it → was · you/we/they → were. Phủ định: wasn't / weren't. Câu hỏi: Were you sleeping?",
+      "Việc dài (quá khứ tiếp diễn) bị việc ngắn (quá khứ đơn) cắt ngang: I was taking a shower when the phone rang.",
+      "Hai việc cùng diễn ra song song dùng while: While I was studying, my sister was watching TV."
+    ],
+    "examples": [
+      { "en": "I was driving to work when I saw the accident.", "vi": "Tôi đang lái xe đi làm thì thấy vụ tai nạn." },
+      { "en": "What were you doing at nine last night?", "vi": "Lúc chín giờ tối qua bạn đang làm gì?" },
+      { "en": "While she was cooking, the kids were playing outside.", "vi": "Trong lúc cô ấy nấu ăn, bọn trẻ chơi ở ngoài." }
+    ],
+    "drill": [
+      { "text": "I ___ dinner when you called me.", "options": ["cooked", "was cooking", "am cooking", "were cooking"], "answer": 1, "explain": "Việc đang diễn ra (nấu ăn) bị cắt ngang bởi việc ngắn (gọi điện) → was cooking." },
+      { "text": "They ___ football when it started to rain.", "options": ["was playing", "played", "were playing", "are playing"], "answer": 2, "explain": "\"They\" đi với were → were playing." },
+      { "text": "While I was reading, my phone ___.", "options": ["was ringing", "rang", "rings", "ring"], "answer": 1, "explain": "Việc ngắn chen vào giữa dùng quá khứ đơn → rang." },
+      { "text": "___ you sleeping when I knocked on the door?", "options": ["Was", "Did", "Were", "Are"], "answer": 2, "explain": "Câu hỏi quá khứ tiếp diễn với \"you\" → Were you ...ing?" },
+      { "text": "At 7 a.m. yesterday, she ___ to the office.", "options": ["was walking", "walks", "were walking", "has walked"], "answer": 0, "explain": "Mốc giờ cụ thể trong quá khứ + việc đang diễn ra → was walking." },
+      { "text": "He ___ attention, so he missed the instructions.", "options": ["wasn't paying", "weren't paying", "didn't paying", "isn't paying"], "answer": 0, "explain": "\"He\" → wasn't; quá khứ tiếp diễn luôn là was/were + V-ing." }
+    ]
+  },
+  {
+    "id": "e20", "level": "B1", "title": "Used to & would: thói quen trong quá khứ", "tag": "Thì nâng cao",
+    "points": [
+      "used to + V nguyên mẫu: thói quen hoặc trạng thái NGÀY XƯA, nay không còn: I used to live in Hue.",
+      "Phủ định & câu hỏi bỏ \"d\": I didn't use to like coffee · Did you use to play games?",
+      "would + V cũng kể thói quen lặp lại trong quá khứ (hay dùng khi hồi tưởng), nhưng KHÔNG dùng cho trạng thái: ✗ I would live in Hue.",
+      "Đừng nhầm với be/get used to + V-ing (quen với việc gì): I'm used to getting up early."
+    ],
+    "examples": [
+      { "en": "I used to be really shy, but now I love meeting people.", "vi": "Hồi trước tôi rất nhút nhát, nhưng giờ tôi thích gặp gỡ mọi người." },
+      { "en": "Every summer we would visit our grandparents in the countryside.", "vi": "Mùa hè nào chúng tôi cũng về quê thăm ông bà." },
+      { "en": "Did you use to have long hair?", "vi": "Hồi trước bạn có để tóc dài không?" }
+    ],
+    "drill": [
+      { "text": "I ___ smoke, but I quit two years ago.", "options": ["use to", "used to", "am used to", "was used to"], "answer": 1, "explain": "Thói quen cũ nay đã bỏ → used to + V." },
+      { "text": "Did you ___ walk to school when you were a kid?", "options": ["used to", "using to", "use to", "uses to"], "answer": 2, "explain": "Câu hỏi có did → bỏ \"d\": Did you use to...?" },
+      { "text": "She ___ like vegetables, but now she eats them every day.", "options": ["didn't use to", "didn't used to", "wasn't use to", "not used to"], "answer": 0, "explain": "Phủ định có didn't → use to (không có \"d\")." },
+      { "text": "There ___ be a cinema on this street, but it closed.", "options": ["would", "used to", "is used to", "use"], "answer": 1, "explain": "Nói về trạng thái/sự tồn tại trong quá khứ chỉ dùng used to, không dùng would." },
+      { "text": "I've lived in Hanoi for years, so I'm used to ___ in heavy traffic.", "options": ["drive", "driving", "drove", "be driving"], "answer": 1, "explain": "be used to (quen với) + V-ing → driving." },
+      { "text": "When we were young, my dad ___ read us a story every night.", "options": ["would", "is used to", "was", "uses to"], "answer": 0, "explain": "Hành động lặp lại trong quá khứ khi hồi tưởng → would + V." }
+    ]
+  },
+  {
+    "id": "e21", "level": "B1", "title": "Hiện tại hoàn thành tiếp diễn & for / since", "tag": "Thì nâng cao",
+    "points": [
+      "have/has been + V-ing: việc bắt đầu trong quá khứ, kéo dài liên tục tới bây giờ, nhấn mạnh QUÁ TRÌNH: I've been waiting for an hour.",
+      "for + khoảng thời gian (for two years, for ages) · since + mốc thời gian (since 2020, since Monday, since I was ten).",
+      "Hỏi thời lượng: How long have you been learning English?",
+      "Động từ trạng thái (know, like, have = sở hữu, believe) không chia tiếp diễn → dùng hiện tại hoàn thành: I've known her since school."
+    ],
+    "examples": [
+      { "en": "I've been working here since 2021.", "vi": "Tôi làm ở đây từ năm 2021 tới giờ." },
+      { "en": "She's tired because she's been studying all day.", "vi": "Cô ấy mệt vì đã học suốt cả ngày." },
+      { "en": "How long have you been waiting?", "vi": "Bạn đợi bao lâu rồi?" }
+    ],
+    "drill": [
+      { "text": "I've been learning English ___ three years.", "options": ["since", "for", "from", "during"], "answer": 1, "explain": "\"three years\" là khoảng thời gian → for." },
+      { "text": "They have been living here ___ 2019.", "options": ["for", "in", "since", "ago"], "answer": 2, "explain": "\"2019\" là mốc thời gian → since." },
+      { "text": "How long ___ you been waiting for the bus?", "options": ["has", "are", "did", "have"], "answer": 3, "explain": "you → have been + V-ing." },
+      { "text": "My eyes hurt. I ___ at the screen all morning.", "options": ["have been staring", "am staring", "stared", "has been staring"], "answer": 0, "explain": "Việc kéo dài tới giờ, để lại kết quả (đau mắt); \"I\" → have been staring." },
+      { "text": "I ___ him since we were children.", "options": ["have been knowing", "have known", "know", "am knowing"], "answer": 1, "explain": "know là động từ trạng thái, không chia tiếp diễn → have known." },
+      { "text": "She ___ for this company for ten years.", "options": ["have been working", "is working since", "has been working", "worked since"], "answer": 2, "explain": "\"She\" → has been working; for ten years chỉ thời lượng kéo dài tới nay." }
+    ]
+  },
+  {
+    "id": "e22", "level": "B1", "title": "Quá khứ hoàn thành: had + V3", "tag": "Thì nâng cao",
+    "points": [
+      "Dùng cho việc xảy ra TRƯỚC một việc khác trong quá khứ: When I arrived, the film had already started.",
+      "Cấu trúc giống nhau cho mọi ngôi: had + V3 (rút gọn I'd, she'd). Phủ định: hadn't + V3.",
+      "Hay đi với by the time, before, after, already, never... before: By the time we got there, everyone had left.",
+      "Nếu thứ tự đã rõ nhờ after/before, có thể dùng quá khứ đơn cho cả hai — quá khứ hoàn thành giúp nhấn mạnh việc nào trước."
+    ],
+    "examples": [
+      { "en": "When we got to the station, the train had already left.", "vi": "Khi chúng tôi tới ga thì tàu đã chạy mất rồi." },
+      { "en": "I had never seen snow before I moved to Korea.", "vi": "Trước khi chuyển sang Hàn Quốc, tôi chưa từng thấy tuyết." },
+      { "en": "She was nervous because she hadn't prepared for the meeting.", "vi": "Cô ấy lo lắng vì chưa chuẩn bị cho cuộc họp." }
+    ],
+    "drill": [
+      { "text": "When I got home, my family ___ dinner.", "options": ["has finished", "had finished", "finishes", "have finished"], "answer": 1, "explain": "Ăn xong TRƯỚC lúc tôi về (cũng trong quá khứ) → had finished." },
+      { "text": "By the time the police arrived, the thief ___.", "options": ["had escaped", "escapes", "has escaped", "is escaping"], "answer": 0, "explain": "By the time + quá khứ đơn → vế còn lại dùng had + V3." },
+      { "text": "I ___ that movie before, so I knew the ending.", "options": ["saw", "have seen", "had seen", "had saw"], "answer": 2, "explain": "Đã xem trước thời điểm \"biết cái kết\" → had seen (V3 của see là seen)." },
+      { "text": "She failed the test because she ___ enough.", "options": ["didn't studied", "hadn't studied", "hasn't studied", "not had studied"], "answer": 1, "explain": "Nguyên nhân xảy ra trước việc trượt → hadn't studied." },
+      { "text": "After he ___ his homework, he went out to play.", "options": ["had done", "has done", "does", "had did"], "answer": 0, "explain": "Làm bài xong rồi mới đi chơi → had done." },
+      { "text": "___ you ever flown before your trip to Japan?", "options": ["Have", "Did", "Had", "Were"], "answer": 2, "explain": "Kinh nghiệm tính tới một mốc trong quá khứ → Had you ever + V3?" }
+    ]
+  },
+  {
+    "id": "e23", "level": "B1", "title": "Câu bị động: be + V3", "tag": "Cấu trúc câu",
+    "points": [
+      "Dùng bị động khi việc được làm quan trọng hơn người làm, hoặc không biết ai làm: My bike was stolen.",
+      "Công thức: be (chia theo thì) + V3. Hiện tại: is made · Quá khứ: was built · Tương lai: will be sent · Hoàn thành: has been done.",
+      "Muốn nói ai làm thì thêm by: This song was written by Taylor Swift.",
+      "Với động từ khuyết thiếu: modal + be + V3: The form must be signed · It can be done online."
+    ],
+    "examples": [
+      { "en": "English is spoken all over the world.", "vi": "Tiếng Anh được nói khắp thế giới." },
+      { "en": "The bridge was built in 1998.", "vi": "Cây cầu được xây năm 1998." },
+      { "en": "Your order will be delivered tomorrow.", "vi": "Đơn hàng của bạn sẽ được giao vào ngày mai." }
+    ],
+    "drill": [
+      { "text": "This house ___ in 1990.", "options": ["built", "was built", "is building", "has built"], "answer": 1, "explain": "Ngôi nhà không tự xây → bị động quá khứ: was built." },
+      { "text": "Coffee ___ in many parts of Vietnam.", "options": ["grows", "is grown", "is growing", "grew"], "answer": 1, "explain": "Cà phê được (người ta) trồng — sự thật chung → is grown." },
+      { "text": "The results ___ next week.", "options": ["will announce", "will be announced", "are announcing", "announced"], "answer": 1, "explain": "Tương lai bị động → will be + V3." },
+      { "text": "My wallet ___! I can't find it anywhere.", "options": ["has been stolen", "has stolen", "is stealing", "stole"], "answer": 0, "explain": "Kết quả còn tới bây giờ, ví bị lấy → has been stolen." },
+      { "text": "\"Romeo and Juliet\" was written ___ Shakespeare.", "options": ["from", "with", "of", "by"], "answer": 3, "explain": "Người thực hiện hành động trong câu bị động đi sau by." },
+      { "text": "All forms must ___ before Friday.", "options": ["be submitted", "submitted", "be submit", "submit"], "answer": 0, "explain": "Sau động từ khuyết thiếu: be + V3 → must be submitted." }
+    ]
+  },
+  {
+    "id": "e24", "level": "B1", "title": "Mệnh đề quan hệ: who / which / that / whose / where", "tag": "Cấu trúc câu",
+    "points": [
+      "who cho người, which cho vật, that thay được cho cả hai (trong văn nói hay dùng that): The man who lives next door is a doctor.",
+      "whose = của người/vật đó: I have a friend whose father is a pilot. · where = nơi mà: This is the café where we first met.",
+      "Khi đại từ quan hệ làm TÂN NGỮ thì có thể lược bỏ: The book (that) I bought is great. Làm chủ ngữ thì không được bỏ.",
+      "Mệnh đề có dấu phẩy (thông tin thêm) không dùng that: My mother, who is 60, still works."
+    ],
+    "examples": [
+      { "en": "That's the woman who helped me find my phone.", "vi": "Đó là người phụ nữ đã giúp tôi tìm điện thoại." },
+      { "en": "The laptop that I bought last month is already broken.", "vi": "Cái laptop tôi mua tháng trước đã hỏng rồi." },
+      { "en": "Da Lat is the city where my parents got married.", "vi": "Đà Lạt là thành phố nơi bố mẹ tôi cưới nhau." }
+    ],
+    "drill": [
+      { "text": "The girl ___ is sitting next to Tom is my cousin.", "options": ["which", "who", "whose", "where"], "answer": 1, "explain": "Chỉ người, làm chủ ngữ → who." },
+      { "text": "I lost the umbrella ___ you gave me.", "options": ["who", "where", "which", "whose"], "answer": 2, "explain": "Chỉ vật → which (hoặc that, hoặc bỏ hẳn)." },
+      { "text": "I know a man ___ son plays for the national team.", "options": ["who", "whose", "that", "which"], "answer": 1, "explain": "\"con trai CỦA người đàn ông đó\" → whose." },
+      { "text": "This is the restaurant ___ we had our first date.", "options": ["which", "who", "where", "whose"], "answer": 2, "explain": "Chỉ nơi chốn (ở đó chúng tôi hẹn hò) → where." },
+      { "text": "Ha Long Bay, ___ is in Quang Ninh, attracts millions of tourists.", "options": ["that", "which", "where", "who"], "answer": 1, "explain": "Mệnh đề có dấu phẩy không dùng that; chỉ vật làm chủ ngữ → which." },
+      { "text": "Which sentence is correct?", "options": ["The man helped me was kind.", "The man who helped me was kind.", "The man which helped me was kind.", "The man whose helped me was kind."], "answer": 1, "explain": "Đại từ quan hệ làm chủ ngữ thì không được lược bỏ; chỉ người → who." }
+    ]
+  },
+  {
+    "id": "e25", "level": "B1", "title": "Câu tường thuật: said / told / asked", "tag": "Kể lại lời nói",
+    "points": [
+      "say không cần tân ngữ (He said that...), tell bắt buộc có người nghe (He told me that...).",
+      "Khi động từ tường thuật ở quá khứ, lùi thì một bậc: am/is → was · do → did · will → would · can → could · did/have done → had done.",
+      "Đổi đại từ và từ chỉ thời gian cho hợp: today → that day · tomorrow → the next day · here → there.",
+      "Câu hỏi tường thuật không đảo ngữ: She asked where I lived. Câu hỏi Yes/No dùng if/whether: He asked if I was OK. Mệnh lệnh: told/asked + sb + to V."
+    ],
+    "examples": [
+      { "en": "He said that he was tired.", "vi": "Anh ấy nói rằng anh ấy mệt." },
+      { "en": "She told me she would call back later.", "vi": "Cô ấy bảo tôi là lát nữa cô ấy sẽ gọi lại." },
+      { "en": "My boss asked me to send the report by Friday.", "vi": "Sếp bảo tôi gửi báo cáo trước thứ Sáu." }
+    ],
+    "drill": [
+      { "text": "She ___ me that she was busy.", "options": ["said", "told", "spoke", "talked"], "answer": 1, "explain": "Có người nghe \"me\" ngay sau → told." },
+      { "text": "\"I am hungry.\" → He said that he ___ hungry.", "options": ["is", "was", "were", "has been"], "answer": 1, "explain": "Lùi thì: am → was." },
+      { "text": "\"I will help you.\" → She said she ___ help me.", "options": ["will", "would", "can", "is going"], "answer": 1, "explain": "Lùi thì: will → would." },
+      { "text": "\"Where do you live?\" → He asked me where ___.", "options": ["do I live", "did I live", "I lived", "I live did"], "answer": 2, "explain": "Câu hỏi tường thuật giữ trật tự câu kể và lùi thì → where I lived." },
+      { "text": "\"Are you OK?\" → She asked ___ I was OK.", "options": ["that", "if", "what", "are"], "answer": 1, "explain": "Câu hỏi Yes/No khi tường thuật dùng if (hoặc whether)." },
+      { "text": "\"Please close the door.\" → The teacher asked us ___ the door.", "options": ["close", "closing", "to close", "closed"], "answer": 2, "explain": "Tường thuật lời đề nghị/mệnh lệnh: ask/tell + sb + to V." }
+    ]
+  },
+  {
+    "id": "e26", "level": "B1", "title": "Câu điều kiện loại 3 & I wish", "tag": "Diễn đạt ý",
+    "points": [
+      "Loại 3 nói về điều KHÔNG xảy ra trong quá khứ và kết quả tưởng tượng: If + had + V3, would have + V3.",
+      "Ví dụ: If I had left earlier, I wouldn't have missed the bus (thực tế: tôi đi muộn và đã lỡ xe).",
+      "I wish + quá khứ đơn: ước cho HIỆN TẠI khác đi — I wish I had more free time. Với to be dùng were: I wish I were taller.",
+      "I wish + had + V3: tiếc nuối về QUÁ KHỨ — I wish I had studied harder."
+    ],
+    "examples": [
+      { "en": "If you had told me, I would have helped you.", "vi": "Nếu bạn nói với tôi thì tôi đã giúp bạn rồi." },
+      { "en": "I wish I could speak English fluently.", "vi": "Ước gì tôi nói tiếng Anh trôi chảy." },
+      { "en": "I wish I hadn't eaten so much last night.", "vi": "Giá mà tối qua tôi đừng ăn nhiều như vậy." }
+    ],
+    "drill": [
+      { "text": "If I ___ harder, I would have passed the exam.", "options": ["studied", "had studied", "have studied", "would study"], "answer": 1, "explain": "Loại 3: vế If dùng had + V3." },
+      { "text": "If she had taken a taxi, she ___ late.", "options": ["wouldn't be", "won't be", "wouldn't have been", "hadn't been"], "answer": 2, "explain": "Kết quả tưởng tượng trong quá khứ → would (not) have + V3." },
+      { "text": "I wish I ___ a car. Taking the bus every day is tiring.", "options": ["have", "had", "will have", "had had"], "answer": 1, "explain": "Ước cho hiện tại → quá khứ đơn: had." },
+      { "text": "I wish I ___ taller.", "options": ["am", "be", "were", "will be"], "answer": 2, "explain": "Sau I wish, to be dùng were cho mọi ngôi." },
+      { "text": "I wish I ___ that message. Now she's angry with me.", "options": ["didn't send", "hadn't sent", "don't send", "wouldn't send"], "answer": 1, "explain": "Tiếc nuối việc đã làm trong quá khứ → hadn't + V3." },
+      { "text": "We would have won if our best player ___ injured.", "options": ["hadn't got", "didn't get", "wouldn't get", "hasn't got"], "answer": 0, "explain": "Loại 3, vế If: had (not) + V3 → hadn't got." }
+    ]
+  },
+  {
+    "id": "e27", "level": "B1", "title": "Suy đoán: must / might / can't (+ have V3)", "tag": "Diễn đạt ý",
+    "points": [
+      "must + V: gần như chắc chắn ĐÚNG — She's been working all day. She must be tired.",
+      "might / may / could + V: có thể đúng (khoảng 50%) — He might be at home.",
+      "can't + V: gần như chắc chắn KHÔNG đúng — That can't be John. He's in London. (không dùng mustn't để suy đoán).",
+      "Suy đoán về quá khứ: must/might/can't + have + V3 — The road is wet. It must have rained."
+    ],
+    "examples": [
+      { "en": "You must be hungry after such a long flight.", "vi": "Bay lâu như vậy chắc bạn đói lắm." },
+      { "en": "I'm not sure where Lan is. She might be in the library.", "vi": "Tôi không chắc Lan ở đâu. Có thể cô ấy đang ở thư viện." },
+      { "en": "He can't have seen us — he didn't say hello.", "vi": "Chắc chắn anh ấy không nhìn thấy chúng ta — anh ấy đâu có chào." }
+    ],
+    "drill": [
+      { "text": "The lights are on. They ___ be at home.", "options": ["can't", "must", "mustn't", "shouldn't"], "answer": 1, "explain": "Bằng chứng rõ ràng → gần như chắc chắn đúng: must." },
+      { "text": "That ___ be Minh's car — his car is red, and this one is blue.", "options": ["must", "might", "can't", "mustn't"], "answer": 2, "explain": "Chắc chắn KHÔNG phải → can't (không dùng mustn't để suy đoán)." },
+      { "text": "Take an umbrella. It ___ rain later.", "options": ["might", "must", "can't", "mustn't"], "answer": 0, "explain": "Chỉ là khả năng, không chắc → might." },
+      { "text": "The grass is wet. It ___ rained last night.", "options": ["must be", "must have", "can't have", "might"], "answer": 1, "explain": "Suy đoán chắc chắn về quá khứ → must have + V3." },
+      { "text": "She ___ the email. She hasn't replied for days.", "options": ["might not have read", "must read", "can't read", "mustn't have read"], "answer": 0, "explain": "Có thể là chưa đọc (không chắc) trong quá khứ → might not have + V3." },
+      { "text": "You ___ been very proud when your son graduated.", "options": ["must have", "can't have", "must", "might be"], "answer": 0, "explain": "Gần như chắc chắn về cảm xúc trong quá khứ → must have been." }
+    ]
+  },
+  {
+    "id": "e28", "level": "B1", "title": "Too / enough / so...that / such...that", "tag": "Tính từ",
+    "points": [
+      "too + tính từ (+ to V): quá... đến mức không thể — This coffee is too hot to drink.",
+      "tính từ + enough (+ to V): đủ... để — He's old enough to drive. Với danh từ: enough + danh từ — We don't have enough time.",
+      "so + tính từ/trạng từ + that: quá... đến nỗi — The film was so boring that I fell asleep.",
+      "such + (a/an) + tính từ + danh từ + that: The film was such a boring film that I fell asleep."
+    ],
+    "examples": [
+      { "en": "I'm too tired to go out tonight.", "vi": "Tối nay tôi mệt quá không đi chơi nổi." },
+      { "en": "Is your English good enough for the job?", "vi": "Tiếng Anh của bạn có đủ tốt cho công việc đó không?" },
+      { "en": "It was such a beautiful day that we walked to work.", "vi": "Hôm đó trời đẹp đến nỗi chúng tôi đi bộ đi làm." }
+    ],
+    "drill": [
+      { "text": "This bag is ___ heavy for me to carry.", "options": ["enough", "so", "too", "such"], "answer": 2, "explain": "Quá nặng nên không mang được → too + tính từ + to V." },
+      { "text": "She isn't ___ to join the team.", "options": ["enough tall", "tall enough", "too tall", "so tall"], "answer": 1, "explain": "enough đứng SAU tính từ → tall enough." },
+      { "text": "We don't have ___ to finish the project.", "options": ["time enough", "enough time", "too time", "so time"], "answer": 1, "explain": "enough đứng TRƯỚC danh từ → enough time." },
+      { "text": "The test was ___ difficult that nobody passed.", "options": ["such", "too", "enough", "so"], "answer": 3, "explain": "Chỉ có tính từ (không có danh từ) + that → so." },
+      { "text": "It was ___ interesting book that I read it twice.", "options": ["so", "such an", "too", "such"], "answer": 1, "explain": "Có danh từ đếm được số ít (book) bắt đầu bằng nguyên âm → such an + adj + N." },
+      { "text": "He spoke ___ quickly that I couldn't understand him.", "options": ["so", "such", "too", "enough"], "answer": 0, "explain": "so + trạng từ + that → so quickly that." }
+    ]
+  },
+  {
+    "id": "e29", "level": "B1", "title": "Câu hỏi đuôi & câu hỏi gián tiếp", "tag": "Đặt câu hỏi",
+    "points": [
+      "Câu hỏi đuôi: vế trước khẳng định → đuôi phủ định và ngược lại, dùng lại trợ động từ: You're tired, aren't you? · She doesn't eat meat, does she?",
+      "Không có trợ động từ thì mượn do/does/did: He works here, doesn't he? Riêng I am → aren't I?",
+      "Câu hỏi gián tiếp lịch sự hơn: Could you tell me / Do you know + từ để hỏi + chủ ngữ + động từ (KHÔNG đảo ngữ).",
+      "Ví dụ: Where is the station? → Could you tell me where the station is? · Câu Yes/No dùng if: Do you know if the shop is open?"
+    ],
+    "examples": [
+      { "en": "It's a lovely day, isn't it?", "vi": "Hôm nay trời đẹp nhỉ?" },
+      { "en": "Could you tell me where the nearest pharmacy is?", "vi": "Anh/chị chỉ giúp tôi hiệu thuốc gần nhất ở đâu được không?" },
+      { "en": "Do you know what time the meeting starts?", "vi": "Bạn có biết mấy giờ cuộc họp bắt đầu không?" }
+    ],
+    "drill": [
+      { "text": "You're from Da Nang, ___?", "options": ["are you", "aren't you", "don't you", "isn't it"], "answer": 1, "explain": "Vế trước khẳng định với are → đuôi phủ định: aren't you?" },
+      { "text": "She didn't call you, ___?", "options": ["did she", "didn't she", "does she", "was she"], "answer": 0, "explain": "Vế trước phủ định quá khứ (didn't) → đuôi khẳng định: did she?" },
+      { "text": "Your brother plays the guitar, ___?", "options": ["isn't he", "does he", "doesn't he", "don't he"], "answer": 2, "explain": "Không có trợ động từ → mượn does; vế trước khẳng định → doesn't he?" },
+      { "text": "Could you tell me where ___?", "options": ["is the bank", "the bank is", "does the bank", "the bank"], "answer": 1, "explain": "Câu hỏi gián tiếp không đảo ngữ → the bank is." },
+      { "text": "Do you know ___ the train leaves?", "options": ["what time", "what time does", "does what time", "what time do"], "answer": 0, "explain": "Câu hỏi gián tiếp: từ để hỏi + chủ ngữ + động từ, bỏ do/does → what time the train leaves." },
+      { "text": "I wonder ___ she will come to the party.", "options": ["that", "if", "does", "what does"], "answer": 1, "explain": "Câu hỏi Yes/No gián tiếp dùng if (hoặc whether)." }
+    ]
+  },
+  {
+    "id": "e30", "level": "B1", "title": "Cụm động từ (phrasal verbs): tách được & không tách được", "tag": "Kết hợp động từ",
+    "points": [
+      "Phrasal verb = động từ + giới từ/trạng từ, nghĩa thường khác hẳn động từ gốc: give up (bỏ cuộc), look after (chăm sóc), run out of (hết).",
+      "Loại TÁCH ĐƯỢC: tân ngữ là danh từ đứng giữa hoặc sau đều được — turn off the light / turn the light off.",
+      "Với loại tách được, tân ngữ là ĐẠI TỪ (it, them, him...) bắt buộc đứng giữa: turn it off (✗ turn off it).",
+      "Loại KHÔNG tách được giữ nguyên cụm: look after the kids / look after them · get on the bus · come across an old photo."
+    ],
+    "examples": [
+      { "en": "Can you pick me up at the airport?", "vi": "Bạn đón tôi ở sân bay được không?" },
+      { "en": "Don't give up — you're almost there!", "vi": "Đừng bỏ cuộc — sắp tới đích rồi!" },
+      { "en": "We've run out of milk, so I'll buy some.", "vi": "Nhà hết sữa rồi, để tôi đi mua." }
+    ],
+    "drill": [
+      { "text": "It's cold. Put your jacket ___.", "options": ["off", "on", "up", "out"], "answer": 1, "explain": "put on = mặc vào." },
+      { "text": "The music is too loud. Please turn ___.", "options": ["down it", "it down", "it up", "up it"], "answer": 1, "explain": "Tân ngữ là đại từ phải nằm giữa: turn it down (vặn nhỏ)." },
+      { "text": "Who will look ___ your dog while you're away?", "options": ["after", "for", "up", "at"], "answer": 0, "explain": "look after = chăm sóc." },
+      { "text": "If you don't know the word, look it ___ in the dictionary.", "options": ["after", "for", "up", "on"], "answer": 2, "explain": "look up = tra cứu; đại từ \"it\" nằm giữa cụm." },
+      { "text": "We ran ___ petrol on the highway.", "options": ["out", "out of", "off", "away"], "answer": 1, "explain": "run out of + danh từ = hết, cạn." },
+      { "text": "Which sentence is correct?", "options": ["She took off them.", "She took them off.", "She off took them.", "She took off it them."], "answer": 1, "explain": "take off tách được; tân ngữ là đại từ phải nằm giữa → took them off." }
+    ]
   }
 ]

@@ -1,4 +1,4 @@
-import { GRAMMAR_LESSONS } from './englishGrammarData'
+import { GRAMMAR_LESSONS, CORE_GRAMMAR_IDS, B1_GRAMMAR_IDS } from './englishGrammarData'
 import { PRON_PASS } from './englishPronunciation'
 import { PRON_GROUPS } from './englishPronunciationData'
 import nouns from './english/units/nouns.json'
@@ -348,7 +348,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(7, 2, 'e14'),
       tk(7, 10),
       pn(7, 's-sh-ch'),
-      { id: 'w7-write', kind: 'custom', label: 'Viết 1 email/tin nhắn ngắn (3–5 câu): chào, hỏi thông tin, cảm ơn', go: null },
+      { id: 'w7-write', kind: 'custom', label: 'Viết 1 email/tin nhắn ngắn (3–5 câu): chào, hỏi thông tin, cảm ơn', go: 'write' },
       { id: 'w7-quiz', kind: 'quiz', label: 'Kiểm tra tuần đạt từ 70%', passPct: 70 },
       { id: 'w7-bank', kind: 'total', label: 'Kho từ đạt 1650', targetTotal: 1650 },
       { id: 'w7-deep', kind: 'deep', n: 8, label: 'Nâng lên 8 từ nắm đủ nghĩa — ưu tiên từ bạn hay đoán sai nghĩa' },
@@ -428,7 +428,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       gl(11, 1, 'e17'),
       tk(11, 34),
       { id: 'w11-speak', kind: 'speak', label: 'Hoàn thành 3 tình huống Luyện nói (du lịch / mua sắm / công việc)' },
-      { id: 'w11-write', kind: 'custom', label: 'Viết 1 email công việc 5–7 câu (xin nghỉ, hẹn họp, hỏi giá) rồi đọc to lên', go: null },
+      { id: 'w11-write', kind: 'custom', label: 'Viết 1 email công việc 5–7 câu (xin nghỉ, hẹn họp, hỏi giá) rồi đọc to lên', go: 'write' },
       { id: 'w11-video', kind: 'video', n: 2, label: 'Xem 2 video đúng chủ đề bạn vừa luyện nói' },
       pn(11, 'stress'),
       { id: 'w11-quiz', kind: 'quiz', label: 'Tổng kiểm tra đạt từ 80%', passPct: 80 },
@@ -444,14 +444,14 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
     quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs2', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'adverbs', 'preps', 'phrases', 'phrases2', 'phrasal', 'collocations', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2'],
     tasks: [
       { id: 'w12-bank', kind: 'total', label: '🎯 KHO TỪ ĐẠT 3000 — mục tiêu lớn của cả lộ trình', targetTotal: 3000 },
-      { id: 'w12-grammar', kind: 'grammar', label: 'Hoàn thành cả 18 bài Ngữ pháp giao tiếp' },
+      { id: 'w12-grammar', kind: 'grammar', lessonIds: CORE_GRAMMAR_IDS, label: `Hoàn thành cả ${CORE_GRAMMAR_IDS.length} bài Ngữ pháp giao tiếp` },
       tk(12, 40),
       pn(12, 'linking'),
       pn(12, 'rhythm', 2),
       ac(12, 55, 'đây là vốn nói thật của bạn sau 90 ngày, không phải vốn từ nhìn hiểu'),
       { id: 'w12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 80%', passPct: 80 },
       { id: 'w12-speak', kind: 'speak', label: 'Trò chuyện tự do 10 phút với AI, không nhìn gợi ý' },
-      { id: 'w12-write', kind: 'custom', label: 'Viết đoạn 8–10 câu giới thiệu bản thân — so với ngày 1 để thấy mình đã đi xa', go: null },
+      { id: 'w12-write', kind: 'custom', label: 'Viết đoạn 8–10 câu giới thiệu bản thân — so với ngày 1 để thấy mình đã đi xa', go: 'write' },
       { id: 'w12-export', kind: 'custom', label: 'Xuất bộ từ đã thuộc ra Word/PDF làm "bằng chứng" 3 tháng', go: 'summary' },
       { id: 'w12-review', kind: 'review', n: 1, label: 'Ôn SRS lần cuối — hẹn lịch ôn duy trì mỗi tuần' },
     ],
@@ -468,6 +468,13 @@ const bv = (week: number, seq: number, unitId: string, name: string): WeekTask =
 const bgl = (week: number, seq: number, lessonId: string): WeekTask => {
   const l = GRAMMAR_LESSONS.find((x) => x.id === lessonId)
   return { id: `bw${week}-g${seq}`, kind: 'grammar', lessonId, label: `Ngữ pháp: ${l?.title ?? lessonId} (luyện đạt ≥ 3/4 câu)` }
+}
+
+// Bootcamp nhắm B1–B2 nên cần thêm tầng ngữ pháp trung cấp; gom thành một
+// nhiệm vụ mỗi tuần để danh sách việc không phình ra 6 dòng.
+const bgb = (week: number, from: number, to: number, note: string): WeekTask => {
+  const lessonIds = B1_GRAMMAR_IDS.slice(from, to)
+  return { id: `bw${week}-gb1`, kind: 'grammar', lessonIds, label: `Ngữ pháp trung cấp B1: đạt ${lessonIds.length} bài — ${note}` }
 }
 
 const bpn = (week: number, seq: number, groupId: string): WeekTask => {
@@ -557,7 +564,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(3, 6, 'health2', 'Cơ thể & sức khoẻ (mở rộng)'),
       bgl(3, 1, 'e07'), bgl(3, 2, 'e08'),
       bpn(3, 1, 'vowel-ae'), bpn(3, 2, 'end-ed'),
-      { id: 'bw3-write', kind: 'custom', label: 'Viết 10 câu tả bản thân & gia đình bằng từ đã học', go: null },
+      { id: 'bw3-write', kind: 'custom', label: 'Viết 10 câu tả bản thân & gia đình bằng từ đã học', go: 'write' },
       { id: 'bw3-speak', kind: 'speak', label: 'Luyện nói 4 buổi: tả người thân, kể một ngày của bạn, nói cảm xúc' },
       { id: 'bw3-video', kind: 'video', n: 5, label: 'Xem 5 video, thử 2 video che phần dịch tiếng Việt' },
       { id: 'bw3-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
@@ -587,7 +594,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bgl(4, 1, 'e09'), bgl(4, 2, 'e10'),
       bpn(4, 1, 's-sh-ch'), bpn(4, 2, 'v-f-b-p'),
       { id: 'bw4-toeic', kind: 'toeic', n: 0, label: '🎯 Bắt đầu lộ trình TOEIC 60 ngày — ngày 1 thi thử đo điểm xuất phát' },
-      { id: 'bw4-write', kind: 'custom', label: 'Viết nhật ký 5 câu mỗi tối (đủ 7 tối)', go: null },
+      { id: 'bw4-write', kind: 'custom', label: 'Viết nhật ký 5 câu mỗi tối (đủ 7 tối)', go: 'write' },
       { id: 'bw4-speak', kind: 'speak', label: 'Luyện nói 4 buổi: hỏi đường, hẹn lịch, kể thói quen' },
       { id: 'bw4-video', kind: 'video', n: 5, label: 'Xem 5 video + lưu từ mới' },
       { id: 'bw4-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
@@ -647,7 +654,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bgl(6, 1, 'e13'), bgl(6, 2, 'e14'),
       bpn(6, 1, 'stress'), bpn(6, 2, 'linking'), bpn(6, 3, 'rhythm'),
       btk(6, 14),
-      { id: 'bw6-write', kind: 'custom', label: 'Viết 3 email: xin việc đơn giản, hỏi thông tin, cảm ơn', go: null },
+      { id: 'bw6-write', kind: 'custom', label: 'Viết 3 email: xin việc đơn giản, hỏi thông tin, cảm ơn', go: 'write' },
       { id: 'bw6-speak', kind: 'speak', label: 'Luyện nói 4 buổi, trong đó 1 buổi phỏng vấn xin việc thử với AI' },
       { id: 'bw6-video', kind: 'video', n: 6, label: 'Xem 6 video chủ đề công việc / học tập' },
       { id: 'bw6-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
@@ -687,7 +694,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
   },
   {
     week: 8, month: 2, phase: 'Compile', title: 'Nói tự nhiên: cụm động từ & thành ngữ',
-    focus: 'get up, look for, make a decision… — thứ khiến câu nghe "ra chất Anh". Hoàn thành cả 18 bài ngữ pháp, chốt tháng 2.',
+    focus: 'get up, look for, make a decision… — thứ khiến câu nghe "ra chất Anh". Hoàn thành cả 18 bài ngữ pháp lõi, chốt tháng 2 — tháng 3 lên tầng trung cấp B1.',
     rhythm: 'Khung 7,5 giờ/ngày · shadowing tăng lên 1,5h (nhại từng câu, thu âm nghe lại) · viết đoạn văn dài đầu tiên. Ngày 6: kiểm tra tổng tháng 2 · Ngày 7: ôn + nghỉ.',
     quizUnits: ['phrasal', 'phrasal2', 'collocations', 'idioms', 'prepphrases', 'irregular'],
     patterns: [
@@ -705,7 +712,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(8, 6, 'irregular', 'Động từ bất quy tắc'),
       bgl(8, 1, 'e17'), bgl(8, 2, 'e18'),
       btk(8, 28),
-      { id: 'bw8-write', kind: 'custom', label: 'Viết đoạn 10–12 câu kể một kỷ niệm (dùng quá khứ + cụm động từ)', go: null },
+      { id: 'bw8-write', kind: 'custom', label: 'Viết đoạn 10–12 câu kể một kỷ niệm (dùng quá khứ + cụm động từ)', go: 'write' },
       { id: 'bw8-speak', kind: 'speak', label: 'Luyện nói 5 buổi, cố dùng cụm động từ & thành ngữ vừa học' },
       { id: 'bw8-video', kind: 'video', n: 6, label: 'Shadowing 6 video (tab Shadowing, nhại từng câu)' },
       { id: 'bw8-review', kind: 'review', n: 5, label: 'Ôn tập SRS đủ 5 ngày trong tuần' },
@@ -727,6 +734,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(9, 5, 'media', 'Truyền thông & báo chí'),
       bv(9, 6, 'mindverbs', 'Động từ tư duy'),
       btk(9, 35),
+      bgb(9, 0, 6, 'các thì nâng cao, bị động, mệnh đề quan hệ'),
       { id: 'bw9-dict', kind: 'custom', label: 'Chép chính tả 3 video tốc độ thật', go: 'library' },
       { id: 'bw9-speak', kind: 'speak', label: 'Luyện nói 5 buổi: kể lại nội dung video vừa xem bằng lời của bạn' },
       { id: 'bw9-video', kind: 'video', n: 6, label: 'Xem 6 video KHÔNG phụ đề lượt đầu, lượt 2 soi lại chỗ chưa nghe ra' },
@@ -749,8 +757,9 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       bv(10, 5, 'festivals', 'Lễ hội & dịp đặc biệt'),
       bv(10, 6, 'love', 'Tình cảm & hẹn hò'),
       btk(10, 42),
+      bgb(10, 6, 12, 'tường thuật, điều kiện loại 3, suy đoán, cụm động từ'),
       { id: 'bw10-self', kind: 'custom', label: 'Học thêm ≥3 chủ đề TỰ CHỌN đúng mục tiêu của bạn trong tab Học từ vựng', go: 'learn' },
-      { id: 'bw10-write', kind: 'custom', label: 'Viết 2 email công việc + 1 đoạn 150 từ về mục tiêu của bạn', go: null },
+      { id: 'bw10-write', kind: 'custom', label: 'Viết 2 email công việc + 1 đoạn 150 từ về mục tiêu của bạn', go: 'write' },
       { id: 'bw10-speak', kind: 'speak', label: 'Luyện nói 6 buổi — mỗi ngày một buổi, chủ đề gắn với mục tiêu của bạn' },
       { id: 'bw10-video', kind: 'video', n: 6, label: 'Xem 6 video đúng lĩnh vực bạn nhắm tới, không phụ đề lượt đầu' },
       { id: 'bw10-review', kind: 'review', n: 6, label: 'Ôn tập SRS đủ 6 ngày trong tuần' },
@@ -768,7 +777,7 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       btk(11, 50),
       { id: 'bw11-mock', kind: 'custom', label: 'Thi thử TOEIC trọn gói giữa tuần, ghi lại điểm từng Part', go: null },
       { id: 'bw11-weak', kind: 'custom', label: 'Ôn lại 10 chủ đề bạn sai nhiều nhất (mở tab Kiểm tra để dò)', go: null },
-      { id: 'bw11-write', kind: 'custom', label: 'Viết bài 150–200 từ trình bày quan điểm về một chủ đề bạn quan tâm', go: null },
+      { id: 'bw11-write', kind: 'custom', label: 'Viết bài 150–200 từ trình bày quan điểm về một chủ đề bạn quan tâm', go: 'write' },
       { id: 'bw11-speak', kind: 'speak', label: 'Nói tự do 10–15 phút với AI × 3 buổi, không nhìn gợi ý' },
       { id: 'bw11-video', kind: 'video', n: 6, label: 'Xem 6 video tốc độ thật, chép chính tả 2 trong số đó' },
       { id: 'bw11-review', kind: 'review', n: 6, label: 'Ôn tập SRS đủ 6 ngày trong tuần' },
@@ -783,10 +792,10 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
     quizUnits: ['nouns', 'family', 'people', 'verbs', 'verbs2', 'verbs3', 'questions', 'adjectives', 'places', 'shopping', 'adverbs', 'preps', 'phrases', 'phrases2', 'phrasal', 'phrasal2', 'collocations', 'idioms', 'connectors', 'prepphrases', 'irregular', 'body', 'health2', 'timenum', 'numbers2', 'worklife', 'office', 'communication', 'foodshop', 'feelings', 'feelings2', 'nature', 'travel2', 'transport', 'airport', 'restaurant', 'home', 'tech', 'mindverbs', 'society'],
     tasks: [
       btk(12, 58),
-      { id: 'bw12-grammar', kind: 'grammar', label: 'Giữ vững 18/18 bài Ngữ pháp giao tiếp (ôn lại bài nào tụt dưới 75%)' },
+      { id: 'bw12-grammar', kind: 'grammar', label: `Giữ vững ${GRAMMAR_LESSONS.length}/${GRAMMAR_LESSONS.length} bài Ngữ pháp — ${CORE_GRAMMAR_IDS.length} lõi + ${B1_GRAMMAR_IDS.length} trung cấp (ôn lại bài nào tụt dưới 75%)` },
       { id: 'bw12-mock', kind: 'custom', label: 'Thi thử TOEIC trọn gói lần cuối — so điểm với bài đo tuần 4', go: null },
       { id: 'bw12-speak', kind: 'speak', label: 'Trò chuyện tự do 20 phút với AI × 2 buổi, đủ mở bài – thân – kết' },
-      { id: 'bw12-write', kind: 'custom', label: 'Viết bài 200 từ: hành trình 90 ngày của bạn (mở – thân – kết)', go: null },
+      { id: 'bw12-write', kind: 'custom', label: 'Viết bài 200 từ: hành trình 90 ngày của bạn (mở – thân – kết)', go: 'write' },
       { id: 'bw12-export', kind: 'custom', label: 'Xuất bộ từ đã thuộc ra Word/PDF làm "bằng chứng" 90 ngày', go: 'summary' },
       { id: 'bw12-review', kind: 'review', n: 5, label: 'Ôn SRS 5 ngày — và hẹn lịch ôn duy trì mỗi tuần sau tốt nghiệp' },
       bac(12, 130, 'nói ra được mới tính là biết — đây là con số tốt nghiệp'),

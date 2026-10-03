@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel, Field
 
-from ..errors import AppError
+from ..errors import AppError, upstream_ai
 from ..services import auth, tutor, cache, quota
 
 router = APIRouter(prefix="/api/tutor", tags=["Gia sư AI"])
@@ -53,7 +53,7 @@ def api_tutor_chat(body: TutorIn, request: Request, user: dict | None = OptAuth)
     except AppError:
         raise
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"Gia sư chưa trả lời được: {exc}", 502)
+        raise upstream_ai("Gia sư chưa trả lời được", exc)
 
 
 @router.post("/fit")

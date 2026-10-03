@@ -74,7 +74,7 @@ export const langLabel = (lang: string): string => LANG_VI[lang] ?? 'ngoại ng�
 
 export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron' | 'deep' | 'active'
 
-export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | 'active' | null
+export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | 'active' | 'write' | null
 
 export interface WeekTask {
   id: string
@@ -87,6 +87,8 @@ export interface WeekTask {
   n?: number
   go?: WeekTaskGo
   lessonId?: string
+  /** Nhiệm vụ gom nhiều bài ngữ pháp: xong khi mọi bài trong danh sách đều đạt. */
+  lessonIds?: string[]
   groupId?: string
 }
 

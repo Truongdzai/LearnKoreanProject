@@ -413,5 +413,213 @@
         "explainVi": "Câu cuối: \"making the first step so small that my lazy brain could not argue with it\". Anh ấy còn thừa nhận đã nghỉ 3 tuần — nên đáp án \"không bao giờ nghỉ\" là sai."
       }
     ]
+  },
+  {
+    "id": "r10",
+    "level": "b1",
+    "emoji": "💻",
+    "title": "Working From Home: Two Years Later",
+    "titleVi": "Làm việc tại nhà: hai năm sau",
+    "topic": "Công việc & ý kiến",
+    "minutes": 6,
+    "text": [
+      "When my company first told us to work from home, I was delighted. No more traffic, no more crowded buses, and no more eating lunch at my desk. I used to spend almost two hours a day on my commute, so I suddenly had a lot of free time.",
+      "For the first few months, everything went well. I got up later, cooked proper meals and finished my tasks faster than before. My manager even said that our team had never been so productive.",
+      "However, after about a year, I noticed some problems. Because my laptop was always on the kitchen table, I never really stopped working. I would answer emails at ten o'clock at night and check messages before breakfast. I also missed my colleagues. Small conversations by the coffee machine had helped me solve problems and feel part of a team, and video calls could not replace them.",
+      "Now I have found a balance. I go to the office on Tuesdays and Thursdays, and I work from home on the other days. At home, I use a small desk in the corner of my bedroom, and I close my laptop at six o'clock, no matter what. If my boss needs something urgent, he can call me.",
+      "I don't think working from home is good or bad by itself. It depends on whether you can set clear boundaries. Without them, home becomes an office that never closes."
+    ],
+    "glossary": [
+      { "w": "delighted", "ipa": "/dɪˈlaɪtɪd/", "vi": "rất vui mừng" },
+      { "w": "commute", "ipa": "/kəˈmjuːt/", "vi": "quãng đường đi làm hằng ngày" },
+      { "w": "productive", "ipa": "/prəˈdʌktɪv/", "vi": "làm việc hiệu quả" },
+      { "w": "colleagues", "ipa": "/ˈkɒliːɡz/", "vi": "đồng nghiệp" },
+      { "w": "replace", "ipa": "/rɪˈpleɪs/", "vi": "thay thế" },
+      { "w": "balance", "ipa": "/ˈbæləns/", "vi": "sự cân bằng" },
+      { "w": "urgent", "ipa": "/ˈɜːdʒənt/", "vi": "khẩn cấp, gấp" },
+      { "w": "boundaries", "ipa": "/ˈbaʊndriz/", "vi": "ranh giới, giới hạn" }
+    ],
+    "questions": [
+      {
+        "q": "Why was the writer happy at first?",
+        "options": ["A higher salary", "No more travelling to work", "Choosing the tasks freely"],
+        "answer": 1,
+        "explainVi": "Đoạn 1: \"No more traffic, no more crowded buses\" — người viết từng mất gần hai tiếng mỗi ngày để đi làm."
+      },
+      {
+        "q": "What problem did the writer notice after about a year?",
+        "options": ["Working too few hours", "An unhappy manager", "Never really stopping work"],
+        "answer": 2,
+        "explainVi": "Đoạn 3: \"I never really stopped working\" — trả lời email lúc mười giờ đêm và xem tin nhắn trước bữa sáng."
+      },
+      {
+        "q": "What did the small conversations by the coffee machine give the writer?",
+        "options": ["Help with problems and a feeling of being in a team", "Free coffee and snacks", "A chance to leave work early"],
+        "answer": 0,
+        "explainVi": "Đoạn 3: chúng \"had helped me solve problems and feel part of a team\" — và gọi video không thay thế được."
+      },
+      {
+        "q": "What is the writer's main opinion?",
+        "options": ["Working from home is always better", "Working from home works only if you set clear limits", "Everyone should go back to the office every day"],
+        "answer": 1,
+        "explainVi": "Đoạn cuối: \"It depends on whether you can set clear boundaries\" — không tốt, không xấu tự thân, mà tuỳ vào việc đặt ranh giới."
+      }
+    ]
+  },
+  {
+    "id": "r11",
+    "level": "b1",
+    "emoji": "🍜",
+    "title": "The Noodle Stall at the Night Market",
+    "titleVi": "Quán mì ở chợ đêm",
+    "topic": "Kể chuyện & con người",
+    "minutes": 6,
+    "text": [
+      "Every evening for twenty years, Mrs. Hoa has set up her noodle stall at the corner of the night market. She arrives at five, lights the gas, and by six there is already a queue of hungry customers.",
+      "Last month, a young food blogger visited her stall. He had read online that her beef noodles were the best in the city, but he did not believe it. \"I've eaten noodles in more than thirty markets,\" he told her. \"They all taste the same to me.\"",
+      "Mrs. Hoa just smiled and handed him a bowl. He took a photo, tasted the soup and stopped talking. After a long silence, he asked her what her secret was. She told him that she cooked the bones for twelve hours and that the recipe had been passed down from her grandmother.",
+      "The blogger posted a video that night, and it was watched by over two hundred thousand people in a week. Suddenly, the queue was twice as long. Some customers waited for an hour, and a few complained that the stall was too small.",
+      "Her son suggested opening a proper restaurant with tables and air conditioning. Mrs. Hoa refused. \"If I moved inside,\" she said, \"I would lose the people who have eaten here since the beginning. They don't need a video to find me.\" She still cooks the same amount of soup every day, and when it runs out, she goes home."
+    ],
+    "glossary": [
+      { "w": "stall", "ipa": "/stɔːl/", "vi": "sạp, quầy hàng" },
+      { "w": "queue", "ipa": "/kjuː/", "vi": "hàng người xếp hàng" },
+      { "w": "customers", "ipa": "/ˈkʌstəməz/", "vi": "khách hàng" },
+      { "w": "silence", "ipa": "/ˈsaɪləns/", "vi": "sự im lặng" },
+      { "w": "recipe", "ipa": "/ˈresəpi/", "vi": "công thức nấu ăn" },
+      { "w": "complained", "ipa": "/kəmˈpleɪnd/", "vi": "phàn nàn" },
+      { "w": "refused", "ipa": "/rɪˈfjuːzd/", "vi": "từ chối" },
+      { "w": "passed down", "ipa": "/pɑːst daʊn/", "vi": "truyền lại (qua các thế hệ)" }
+    ],
+    "questions": [
+      {
+        "q": "What did the blogger think before he tasted the soup?",
+        "options": ["That it would be the best he had ever eaten", "That it would taste like all the other noodles", "That the stall would be closed"],
+        "answer": 1,
+        "explainVi": "Anh ta nói: \"They all taste the same to me\" — anh ta không tin lời khen trên mạng."
+      },
+      {
+        "q": "What was Mrs. Hoa's secret?",
+        "options": ["She bought special noodles from abroad", "She cooked the bones for a very long time, using a family recipe", "She added a lot of sugar"],
+        "answer": 1,
+        "explainVi": "Đoạn 3: hầm xương mười hai tiếng, và công thức \"had been passed down from her grandmother\"."
+      },
+      {
+        "q": "What happened after the video was posted?",
+        "options": ["Fewer people came", "The stall had to close", "The queue became much longer"],
+        "answer": 2,
+        "explainVi": "Đoạn 4: \"the queue was twice as long\" — hàng người dài gấp đôi."
+      },
+      {
+        "q": "Why did Mrs. Hoa refuse to open a restaurant?",
+        "options": ["She did not want to lose her long-time customers", "She did not have enough money", "Her son did not want to help her"],
+        "answer": 0,
+        "explainVi": "Bà nói nếu chuyển vào trong thì sẽ \"lose the people who have eaten here since the beginning\" — khách quen từ những ngày đầu."
+      }
+    ]
+  },
+  {
+    "id": "r12",
+    "level": "b1",
+    "emoji": "🏖️",
+    "title": "Our Beach Is Cleaner Now",
+    "titleVi": "Bãi biển của chúng tôi giờ sạch hơn",
+    "topic": "Môi trường & cộng đồng",
+    "minutes": 6,
+    "text": [
+      "Five years ago, the beach near my village was covered in plastic. Bottles, bags and old fishing nets were washed up by every high tide. Tourists took one look and drove on to the next town, and some local restaurants had to close.",
+      "Things began to change when a group of high school students decided to act. Every Sunday morning, they met at the beach with gloves and rice sacks. At first, only eight people came. People laughed at them and said the sea would bring the rubbish back the next day. In a way, they were right.",
+      "So the students looked for the source of the problem. They discovered that much of the plastic was not coming from tourists at all. It was being thrown into the river by markets upstream, and the river carried it to the sea.",
+      "The students wrote to the local government and invited reporters to their clean-ups. Their story appeared on the evening news. Within a year, rubbish bins had been placed along the river, and the markets had been asked to stop using thin plastic bags.",
+      "Today, the beach is not perfect, but it is much cleaner. Tourists have returned, and two new cafés have opened. The students are now at university, but younger children have taken their place. Every Sunday, more than a hundred people still meet at the beach — not because it is dirty, but because it has become a tradition."
+    ],
+    "glossary": [
+      { "w": "covered", "ipa": "/ˈkʌvəd/", "vi": "bị phủ kín" },
+      { "w": "tide", "ipa": "/taɪd/", "vi": "thuỷ triều" },
+      { "w": "rubbish", "ipa": "/ˈrʌbɪʃ/", "vi": "rác" },
+      { "w": "source", "ipa": "/sɔːs/", "vi": "nguồn, gốc" },
+      { "w": "upstream", "ipa": "/ˌʌpˈstriːm/", "vi": "ở phía thượng nguồn" },
+      { "w": "government", "ipa": "/ˈɡʌvənmənt/", "vi": "chính quyền" },
+      { "w": "tradition", "ipa": "/trəˈdɪʃn/", "vi": "truyền thống" },
+      { "w": "gloves", "ipa": "/ɡlʌvz/", "vi": "găng tay" }
+    ],
+    "questions": [
+      {
+        "q": "Why did some restaurants close five years ago?",
+        "options": ["The food was too expensive", "Tourists stopped coming because the beach was dirty", "The government closed them"],
+        "answer": 1,
+        "explainVi": "Đoạn 1: khách du lịch nhìn một cái rồi lái xe sang thị trấn khác — vì bãi biển ngập rác nhựa."
+      },
+      {
+        "q": "Where was most of the plastic coming from?",
+        "options": ["From tourists on the beach", "From fishing boats", "From markets that threw it into the river"],
+        "answer": 2,
+        "explainVi": "Đoạn 3: \"It was being thrown into the river by markets upstream\" — không phải từ khách du lịch."
+      },
+      {
+        "q": "What did the students do after they found the source?",
+        "options": ["They contacted the local government and the media", "They stopped cleaning the beach", "They moved to another village"],
+        "answer": 0,
+        "explainVi": "Đoạn 4: viết thư cho chính quyền địa phương và mời phóng viên tới các buổi dọn rác."
+      },
+      {
+        "q": "Why do people still meet at the beach every Sunday?",
+        "options": ["Because the beach is still very dirty", "Because it has become a habit the community values", "Because they are paid to do it"],
+        "answer": 1,
+        "explainVi": "Câu cuối: \"not because it is dirty, but because it has become a tradition\" — đã thành truyền thống."
+      }
+    ]
+  },
+  {
+    "id": "r13",
+    "level": "b1",
+    "emoji": "🙅",
+    "title": "Learning to Say No",
+    "titleVi": "Học cách nói \"không\"",
+    "topic": "Tâm lý & các mối quan hệ",
+    "minutes": 6,
+    "text": [
+      "For most of my twenties, I said yes to everything. If a friend asked me to help them move house, I said yes. If my boss asked me to stay late, I said yes. If my cousin needed money, I lent it, even when I could not really afford it. I thought that being helpful was the same as being a good person.",
+      "The problem was that I was exhausted. I rarely had a free weekend, and I often felt angry with people for asking — even though I had agreed. One evening, I cancelled dinner with my parents because I had promised to finish a colleague's report. My mother didn't complain, but I could hear in her voice that she was disappointed. That was the moment I realised something had to change.",
+      "I started small. When someone asked for a favour, I said, \"Let me check and get back to you,\" instead of answering immediately. This gave me time to ask myself whether I really wanted to do it, or whether I was just afraid of letting them down.",
+      "Saying no was uncomfortable at first. A few people were surprised, and one friend stopped calling me for a while. But most people simply said, \"OK, no problem.\" I wish I had learned this ten years earlier.",
+      "Now, when I say yes, I mean it. I help because I want to, not because I feel guilty. Strangely, my relationships have become stronger, not weaker."
+    ],
+    "glossary": [
+      { "w": "afford", "ipa": "/əˈfɔːd/", "vi": "đủ khả năng (chi trả)" },
+      { "w": "exhausted", "ipa": "/ɪɡˈzɔːstɪd/", "vi": "kiệt sức" },
+      { "w": "rarely", "ipa": "/ˈreəli/", "vi": "hiếm khi" },
+      { "w": "disappointed", "ipa": "/ˌdɪsəˈpɔɪntɪd/", "vi": "thất vọng" },
+      { "w": "favour", "ipa": "/ˈfeɪvə/", "vi": "việc nhờ vả, ân huệ" },
+      { "w": "uncomfortable", "ipa": "/ʌnˈkʌmftəbl/", "vi": "khó chịu, không thoải mái" },
+      { "w": "guilty", "ipa": "/ˈɡɪlti/", "vi": "cảm thấy có lỗi" },
+      { "w": "let someone down", "ipa": "/let ˈsʌmwʌn daʊn/", "vi": "làm ai thất vọng" }
+    ],
+    "questions": [
+      {
+        "q": "Why did the writer say yes to everything in their twenties?",
+        "options": ["Believing that being helpful meant being a good person", "Getting paid for every favour", "Having a lot of free time"],
+        "answer": 0,
+        "explainVi": "Đoạn 1: \"I thought that being helpful was the same as being a good person.\""
+      },
+      {
+        "q": "What made the writer decide to change?",
+        "options": ["A warning from the boss", "Cancelling dinner with the parents and hearing the mother's disappointment", "The cousin paying back the money"],
+        "answer": 1,
+        "explainVi": "Đoạn 2: huỷ bữa tối với bố mẹ để làm báo cáo hộ đồng nghiệp — nghe giọng mẹ thất vọng, người viết nhận ra phải thay đổi."
+      },
+      {
+        "q": "What was the writer's first small step?",
+        "options": ["Not answering the phone any more", "Asking for time before answering", "Saying no to every request"],
+        "answer": 1,
+        "explainVi": "Đoạn 3: nói \"Let me check and get back to you\" thay vì trả lời ngay, để có thời gian tự hỏi mình có thật sự muốn không."
+      },
+      {
+        "q": "What does the writer mean by \"Now, when I say yes, I mean it\"?",
+        "options": ["Saying yes more often than before", "A yes is now a real choice, not a reaction to guilt", "Never helping anyone any more"],
+        "answer": 1,
+        "explainVi": "Câu tiếp theo giải thích: \"I help because I want to, not because I feel guilty\" — đồng ý là lựa chọn thật, không phải vì áy náy."
+      }
+    ]
   }
 ]

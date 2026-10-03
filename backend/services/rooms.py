@@ -4,7 +4,7 @@ import json
 import secrets
 
 from .. import config, db
-from ..errors import AppError
+from ..errors import AppError, upstream_ai
 from . import auth, llm
 from .langs import study_name, native_name
 
@@ -759,7 +759,7 @@ def topic_prompt(user: dict, room_id: str, native: str = "vi", after: int = 0) -
     try:
         data = llm.gemini_json(prompt, _PROMPT_SCHEMA, temperature=0.9)
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
+        raise upstream_ai("AI không phản hồi", exc)
     questions = [
         {"ko": _clean(q.get("ko"), 160), "vi": _clean(q.get("vi"), 200)}
         for q in (data.get("questions") or [])[:3]

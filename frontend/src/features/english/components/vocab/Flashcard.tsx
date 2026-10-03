@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import Icon from '@/core/components/Icon'
+import { inertRef } from '@/core/a11y'
 import { posLabel } from '@/data/vocabCore'
 import WordImg from '../WordImg'
 import AudioBtn from './AudioBtn'
@@ -58,19 +59,20 @@ export default function Flashcard({
     </div>
   )
 
+  // Mặt vừa úp thành inert nên focus sẽ rơi mất: chuyển sang nút lật của mặt vừa hiện.
+  const flipTo = (e: MouseEvent<HTMLButtonElement>, back: boolean) => {
+    const card = e.currentTarget.closest('.vl-flip')
+    setFlipped(back)
+    requestAnimationFrame(() => card?.querySelector<HTMLElement>(back ? '.vl-back .vl-hint' : '.vl-front .vl-hint')?.focus())
+  }
+
   return (
     <div className="vl-card-wrap">
       <div className="vl-scene">
-        <div
-          className={'vl-flip' + (flipped ? ' card-flipped' : '')}
-          onClick={() => setFlipped((v) => !v)}
-          onKeyDown={(e) => { if (e.key === 'Enter') setFlipped((v) => !v) }}
-          role="button"
-          tabIndex={0}
-          aria-pressed={flipped}
-          aria-label={flipped ? `Mặt sau của thẻ ${term}` : `Mặt trước của thẻ ${term}`}
-        >
-          <div className={'vl-face vl-front' + (flipped ? '' : ' on')} aria-hidden={flipped}>
+        {/* Bấm vào thẻ để lật bằng chuột; bàn phím dùng nút "lật" thật ở chân mỗi mặt,
+            vì thẻ đã chứa nút nghe nên không thể tự làm role=button. */}
+        <div className={'vl-flip' + (flipped ? ' card-flipped' : '')} onClick={() => setFlipped((v) => !v)}>
+          <div className={'vl-face vl-front' + (flipped ? '' : ' on')} aria-hidden={flipped} ref={inertRef(flipped)}>
             <span className="vl-face-tag">Mặt trước</span>
             <button
               className="vl-speak"
@@ -87,10 +89,12 @@ export default function Flashcard({
               {ipaRow}
             </div>
 
-            <p className="vl-hint"><Icon name="refresh" size={13} /> Nhấn để lật thẻ</p>
+            <button type="button" className="vl-hint" onClick={(e) => { e.stopPropagation(); flipTo(e, true) }}>
+              <Icon name="refresh" size={13} /> Nhấn để lật thẻ
+            </button>
           </div>
 
-          <div className={'vl-face vl-back' + (flipped ? ' on' : '')} aria-hidden={!flipped}>
+          <div className={'vl-face vl-back' + (flipped ? ' on' : '')} aria-hidden={!flipped} ref={inertRef(!flipped)}>
             <span className="vl-face-tag">Mặt sau</span>
             <button
               className="vl-speak"
@@ -102,12 +106,14 @@ export default function Flashcard({
 
             <WordDetail card={card} lang={lang} def={def} accents={accents} speak={speak} />
 
-            <p className="vl-hint"><Icon name="refresh" size={13} /> Nhấn để lật lại</p>
+            <button type="button" className="vl-hint" onClick={(e) => { e.stopPropagation(); flipTo(e, false) }}>
+              <Icon name="refresh" size={13} /> Nhấn để lật lại
+            </button>
           </div>
         </div>
       </div>
 
-      <div className={'vl-after' + (flipped ? ' on' : '')} aria-hidden={!flipped}>
+      <div className={'vl-after' + (flipped ? ' on' : '')} aria-hidden={!flipped} ref={inertRef(!flipped)}>
         <div className="vl-grades">
           {GRADES.map((x) => (
             <button key={x.g} className={'vl-grade ' + x.cls} onClick={() => onGrade(x.g)}>

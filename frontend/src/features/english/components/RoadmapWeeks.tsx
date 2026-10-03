@@ -20,6 +20,7 @@ interface Props {
   onPron?: (groupId?: string) => void
   onDeep?: (term: string) => void
   onActive?: () => void
+  onWrite?: () => void
   deepFull?: number
   activeAuto?: number
   lang?: string
@@ -48,7 +49,7 @@ const CLOSED = '0'
 const isWeekParam = (v: string) => v === CLOSED || (/^\d+$/.test(v) && +v >= 1 && +v <= 12)
 
 export default function RoadmapWeeks({
-  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive,
+  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive, onWrite,
   deepFull = 0,
   activeAuto = 0,
   lang = 'en',
@@ -114,8 +115,9 @@ export default function RoadmapWeeks({
     }
     if (t.kind === 'grammar') {
       if (!t.lessonId) {
-        const passed = grammarLessons.filter((l) => (grammar.best[l.id] ?? 0) >= GRAMMAR_PASS).length
-        return `${passed}/${grammarLessons.length} bài đạt`
+        const ids = t.lessonIds ?? grammarLessons.map((l) => l.id)
+        const passed = ids.filter((id) => (grammar.best[id] ?? 0) >= GRAMMAR_PASS).length
+        return `${passed}/${ids.length} bài đạt`
       }
       const best = grammar.best[t.lessonId]
       return best != null ? `tốt nhất: ${best}%` : ''
@@ -144,7 +146,11 @@ export default function RoadmapWeeks({
   }
 
   const taskAction = (t: WeekTask, w: WeekPlan): { label: string; run: () => void } | null => {
-    if (t.kind === 'grammar') return onGrammar ? { label: 'Học ngay', run: () => onGrammar(t.lessonId) } : null
+    if (t.kind === 'grammar') {
+      // Nhiệm vụ gom nhiều bài: mở thẳng bài đầu tiên chưa đạt.
+      const target = t.lessonId ?? t.lessonIds?.find((id) => (grammar.best[id] ?? 0) < GRAMMAR_PASS)
+      return onGrammar ? { label: 'Học ngay', run: () => onGrammar(target) } : null
+    }
     if (t.kind === 'pron') return onPron ? { label: 'Luyện ngay', run: () => onPron(t.groupId) } : null
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     if (t.kind === 'deep') return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
@@ -169,6 +175,7 @@ export default function RoadmapWeeks({
       case 'deep': return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
       case 'active': return onActive ? { label: 'Vào phòng tập', run: onActive } : null
       case 'summary': return onSummary ? { label: 'Tóm tắt & xuất', run: onSummary } : null
+      case 'write': return onWrite ? { label: 'Phòng Viết', run: onWrite } : null
       default: return null
     }
   }

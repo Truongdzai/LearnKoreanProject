@@ -65,7 +65,7 @@ export default function ChinesePage() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="globe" /> Tiếng Trung · lộ trình 90 ngày</h2>
+        <h1><Icon name="globe" /> Tiếng Trung · lộ trình 90 ngày</h1>
         <div className="meta">
           Phương pháp ICES (Hình ảnh · Liên tưởng · Ví dụ · Âm thanh) — {ZH_ALL_WORDS.length} từ lõi qua {ZH_UNITS.length} chủ đề,
           mẹo nhớ bám âm Hán–Việt, có pinyin và nghe đọc từng từ.

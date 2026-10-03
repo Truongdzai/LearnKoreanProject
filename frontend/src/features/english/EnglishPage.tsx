@@ -22,7 +22,7 @@ import { MasteryProvider } from './active/mastery'
 import ActiveHub from './active/ActiveHub'
 import { DeepProvider } from './deep/deep'
 import DeepPage from './deep/DeepPage'
-import { useTabParam, useUrlParam, clearUrlParams } from '@/core/hooks/useTabParam'
+import { useTabParam, useUrlParam, clearUrlParams, setUrlParam } from '@/core/hooks/useTabParam'
 
 type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'active' | 'skills' | 'errors' | 'quiz' | 'summary'
 
@@ -78,7 +78,7 @@ const SPEC_BOOT: ExpectationSpec = {
     'Phỏng vấn xin việc cơ bản, họp ngắn có chuẩn bị trước',
     'Đọc báo phổ thông, email dài; viết email công việc và đoạn văn 150–200 từ',
     'TOEIC quanh 550–700 tuỳ nền xuất phát (đã qua trọn lộ trình 60 ngày + 2 lần thi thử)',
-    '3000 từ chủ động, 18 điểm ngữ pháp, 13 nhóm âm phát chuẩn',
+    '3000 từ chủ động, 30 điểm ngữ pháp (18 lõi + 12 trung cấp B1), 13 nhóm âm phát chuẩn',
   ],
   cannot: [
     'Xem phim hài kịch đủ mọi giọng, nghe tiếng lóng dày đặc không phụ đề',
@@ -150,6 +150,12 @@ function EnglishBody() {
     setTab('pron')
   }
 
+  const openWrite = () => {
+    clearUrlParams(SUB_PARAMS)
+    setUrlParam('pane', 'write')
+    setTab('skills')
+  }
+
   const openQuiz = (week: number, units: string[], pass: number) => {
     setWeekQuiz({ week, units, pass })
     setTab('quiz')
@@ -182,7 +188,7 @@ function EnglishBody() {
   return (
     <div className="english-page">
       <div className="lesson-head">
-        <h2><Icon name="globe" /> Tiếng Anh giao tiếp</h2>
+        <h1><Icon name="globe" /> Tiếng Anh giao tiếp</h1>
         <div className="meta">Phương pháp F.A.S.T · đủ 4 kỹ năng nghe – nói – đọc – viết · giọng đọc US &amp; UK.</div>
       </div>
 
@@ -213,6 +219,7 @@ function EnglishBody() {
             onErrors={() => setTab('errors')}
             onDeep={setDeepWord}
             onActive={() => setTab('active')}
+            onWrite={openWrite}
           />
         )}
         {tab === 'vocab' && (

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Request
 
-from ..errors import AppError
+from ..errors import upstream_ai
 from ..schemas.speaking import SpeakIn
 from ..services import auth, llm, quota
 from ..services.langs import study_name, native_name
@@ -84,7 +84,7 @@ def api_speaking_reply(body: SpeakIn, request: Request, user: dict | None = OptA
     try:
         data = llm.gemini_json(prompt, _SCHEMA, system=_system(body.lang, body.native, body.level), temperature=0.7)
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"AI không phản hồi: {exc}", 502)
+        raise upstream_ai("AI không phản hồi", exc)
     return {
         "reply_ko": data.get("reply_ko", ""),
         "reply_vi": data.get("reply_vi", ""),

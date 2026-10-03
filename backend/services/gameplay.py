@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import secrets
 from datetime import date, datetime, timedelta
 
@@ -597,9 +598,19 @@ def activities(user_id: str) -> dict:
 
 
 PLAN_DATA_MAX = 128 * 1024
+# Client chỉ dùng vài chục khoá cố định (en90, engrammar, toeic60…). Chặn tên tuỳ ý
+# và số lượng để một tài khoản không thể nhồi vô hạn bản ghi 128 KB vào DB.
+PLAN_ID_RE = re.compile(r"^[a-z0-9_-]{1,32}$")
+MAX_PLANS_PER_USER = 64
+
+
+def _check_plan_id(plan_id: str) -> None:
+    if not PLAN_ID_RE.match(plan_id or ""):
+        raise AppError("VALIDATION", "Mã lộ trình không hợp lệ.", 422)
 
 
 def get_plan(user_id: str, plan_id: str) -> dict:
+    _check_plan_id(plan_id)
     conn = db.get_conn()
     try:
         row = conn.execute(
@@ -618,11 +629,19 @@ def get_plan(user_id: str, plan_id: str) -> dict:
 
 
 def set_plan(user_id: str, plan_id: str, data: dict) -> dict:
+    _check_plan_id(plan_id)
     raw = json.dumps(data, ensure_ascii=False)
     if len(raw.encode("utf-8")) > PLAN_DATA_MAX:
         raise AppError("VALIDATION", "Dữ liệu lộ trình quá lớn.", 422)
     conn = db.get_conn()
     try:
+        exists = conn.execute(
+            "SELECT 1 FROM user_plans WHERE user_id = ? AND plan_id = ?", (user_id, plan_id)
+        ).fetchone()
+        if not exists:
+            n = conn.execute("SELECT COUNT(*) FROM user_plans WHERE user_id = ?", (user_id,)).fetchone()[0]
+            if n >= MAX_PLANS_PER_USER:
+                raise AppError("VALIDATION", "Đã đạt số lộ trình tối đa cho một tài khoản.", 422)
         conn.execute(
             "INSERT INTO user_plans (user_id, plan_id, data) VALUES (?,?,?) "
             "ON CONFLICT(user_id, plan_id) DO UPDATE SET data = ?, "

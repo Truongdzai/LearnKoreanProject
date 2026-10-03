@@ -4,7 +4,7 @@ export const COUNTS = {
   enPacks: 9,
   enChunks: 158,
   enWordEntries: 11,
-  enGrammar: 18,
+  enGrammar: 30,
   koWords: 805,
   koUnits: 67,
   topikCapsules: 20,
