@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { KO_UNITS, KO_ALL_WORDS } from '@/data/koreanCore'
 import { speakKO } from '@/core/tts'
@@ -11,12 +11,17 @@ import KoreanRoadmap from './KoreanRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
-import { useTabParam } from '@/core/hooks/useTabParam'
+import { clearUrlParams, useTabParam } from '@/core/hooks/useTabParam'
+import { lazyPage } from '@/core/lazyPage'
+import Spinner from '@/core/components/Spinner'
 
-type Tab = 'program' | 'learn' | 'pron' | 'quiz'
+const HangulLab = lazyPage(() => import('./hangul/HangulLab'))
+
+type Tab = 'program' | 'hangul' | 'learn' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
+  { id: 'hangul', label: 'Bảng chữ', icon: 'letters' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
@@ -51,6 +56,7 @@ export default function KoreanPage() {
   }
 
   const pickTab = (t: Tab) => {
+    if (t !== 'hangul') clearUrlParams(['pane'])
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
     if (t === 'pron') setPronGroup(undefined)
@@ -107,7 +113,12 @@ export default function KoreanPage() {
 
       <div {...tabs.panel(tab)}>
       {tab === 'program' && (
-        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
+        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onHangul={() => pickTab('hangul')} />
+      )}
+      {tab === 'hangul' && (
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          <HangulLab />
+        </Suspense>
       )}
       {tab === 'learn' && (
         <VocabLab

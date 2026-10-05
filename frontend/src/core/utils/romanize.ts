@@ -29,21 +29,33 @@ function decompose(ch: string): Syllable | null {
   return { lead: Math.floor(code / 588), vowel: Math.floor((code % 588) / 28), tail: code % 28 }
 }
 
+// Patchim ㅎ (kể cả ㄶ ㅀ) gặp ㄱ ㄷ ㅂ ㅈ thì gộp thành âm bật hơi: 좋고 joko, 많다 manta.
+const ASPIRATE: Record<number, string> = { 0: 'k', 3: 't', 7: 'p', 12: 'ch' }
+
 function assimilate(tail: number, nextLead: number): [string, string] {
   const coda = TAIL_CODA[tail]
-  const lead = LEAD[nextLead]
+  let lead = LEAD[nextLead]
   if ((coda === 'l' && lead === 'r') || (coda === 'n' && lead === 'r') || (coda === 'l' && lead === 'n'))
     return ['l', 'l']
+  if (tail === 27 && ASPIRATE[nextLead]) return ['', ASPIRATE[nextLead]]
+  if (tail === 6 && ASPIRATE[nextLead]) return ['n', ASPIRATE[nextLead]]
+  if (tail === 15 && ASPIRATE[nextLead]) return ['l', ASPIRATE[nextLead]]
+  // ㄹ sau phụ âm khác ㄴ/ㄹ đọc thành ㄴ: 정류장 jeongnyujang, 등록 deungnok.
+  if (lead === 'r' && coda && coda !== 'l') lead = 'n'
   if (coda === 'k' && (lead === 'n' || lead === 'm')) return ['ng', lead]
   if (coda === 't' && (lead === 'n' || lead === 'm')) return ['n', lead]
   if (coda === 'p' && (lead === 'n' || lead === 'm')) return ['m', lead]
-  if (tail === 27) {
-    if (nextLead === 0) return ['', 'k']
-    if (nextLead === 3) return ['', 't']
-    if (nextLead === 12) return ['', 'ch']
-    if (nextLead === 7) return ['', 'p']
-  }
   return [coda, lead]
+}
+
+// ㄷ, ㅌ nối với 이 thì vòm hoá: 같이 gachi, 굳이 guji.
+function liaison(tail: number, nextVowel: number): [string, string] {
+  if (nextVowel === 20) {
+    if (tail === 7) return ['', 'j']
+    if (tail === 25) return ['', 'ch']
+    if (tail === 13) return ['l', 'ch']
+  }
+  return TAIL_LIAISON[tail]
 }
 
 export function romanizeWord(word: string): string {
@@ -67,7 +79,7 @@ export function romanizeWord(word: string): string {
 
     const next = syl[i + 1]
     if (next && next.lead === 11) {
-      const [coda, moved] = TAIL_LIAISON[s.tail]
+      const [coda, moved] = liaison(s.tail, next.vowel)
       out += coda
       onsetOverride = moved
     } else if (next) {

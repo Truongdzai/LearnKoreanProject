@@ -18,9 +18,10 @@ interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onPron: (groupId?: string) => void
+  onHangul: () => void
 }
 
-export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron }: Props) {
+export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHangul }: Props) {
   const { learned } = useLearnedWords('ko')
   const day = Math.min(planDay(readPlan('ko').start), 90)
 
@@ -77,13 +78,15 @@ export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron }: Prop
         <button className="btn-primary sm" onClick={() => onPron()}><Icon name="volume" size={15} /> Luyện phát âm</button>
       </div>
 
-      <div className="en-principle">
-        <Icon name="bulb" size={20} />
+      <div className="en-principle pron-cta">
+        <Icon name="letters" size={20} />
         <div>
-          <b>Vì sao học theo chủ đề chứ không học chữ cái trước?</b> Bảng chữ Hangeul đọc được sau vài buổi,
-          nhưng thứ giữ bạn lại là <b>nói được ngay tuần đầu</b>. Mỗi từ trong lộ trình đều kèm phiên âm La-tinh,
-          mẹo nhớ theo tiếng Việt và câu ví dụ có thể dùng thật — bạn vừa quen mặt chữ vừa dùng được luôn.
+          <b>Chưa đọc được chữ Hàn? Học bảng chữ song song với tuần 1.</b> Hangeul đọc được sau vài buổi, nhưng thứ
+          giữ bạn lại là <b>nói được ngay tuần đầu</b> — nên lộ trình không bắt bạn học xong chữ cái mới cho học từ.
+          Mỗi từ đều có phiên âm La-tinh; còn Phòng Hangul có 9 bài ngắn, bảng ghép âm tiết, luyện đọc và luyện gõ
+          phím 2-set để bạn sớm bỏ được phiên âm.
         </div>
+        <button className="btn-primary sm" onClick={onHangul}><Icon name="letters" size={15} /> Học bảng chữ</button>
       </div>
     </div>
   )
