@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { ZH_UNITS, ZH_ALL_WORDS } from '@/data/chineseCore'
 import { ZH_PRON_GROUPS } from '@/data/chinesePronunciation'
@@ -13,13 +13,18 @@ import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
 import { HSK_BANK } from '@/data/hskCore'
-import { useTabParam } from '@/core/hooks/useTabParam'
+import { clearUrlParams, useTabParam } from '@/core/hooks/useTabParam'
+import { lazyPage } from '@/core/lazyPage'
+import Spinner from '@/core/components/Spinner'
 
-type Tab = 'program' | 'learn' | 'pron' | 'quiz'
+const HanVietLab = lazyPage(() => import('./hanviet/HanVietLab'))
+
+type Tab = 'program' | 'learn' | 'hanviet' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
+  { id: 'hanviet', label: 'Hán–Việt', icon: 'letters' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
 ]
@@ -54,6 +59,7 @@ export default function ChinesePage() {
   }
 
   const pickTab = (t: Tab) => {
+    if (t !== tab) clearUrlParams(['pane'])
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
     if (t === 'pron') setPronGroup(undefined)
@@ -135,6 +141,11 @@ export default function ChinesePage() {
       <div {...tabs.panel(tab)}>
         {tab === 'program' && (
           <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
+        )}
+        {tab === 'hanviet' && (
+          <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+            <HanVietLab />
+          </Suspense>
         )}
         {tab === 'learn' && (
           <VocabLab
