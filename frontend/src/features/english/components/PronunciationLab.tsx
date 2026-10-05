@@ -108,7 +108,7 @@ export default function PronunciationLab({
   )
 }
 
-function VoiceNotice({ lang }: { lang: string }) {
+export function VoiceNotice({ lang }: { lang: string }) {
   const info = VOICE_INFO[lang] ?? VOICE_INFO.en
   const check = info.check
   const [status, setStatus] = useState(check)
