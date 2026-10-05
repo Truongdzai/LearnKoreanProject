@@ -16,13 +16,15 @@ import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
 const HangulLab = lazyPage(() => import('./hangul/HangulLab'))
+const GrammarLab = lazyPage(() => import('./grammar/GrammarLab'))
 
-type Tab = 'program' | 'hangul' | 'learn' | 'pron' | 'quiz'
+type Tab = 'program' | 'hangul' | 'learn' | 'grammar' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'hangul', label: 'Bảng chữ', icon: 'letters' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
+  { id: 'grammar', label: 'Ngữ pháp', icon: 'book' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
 ]
@@ -56,7 +58,7 @@ export default function KoreanPage() {
   }
 
   const pickTab = (t: Tab) => {
-    if (t !== 'hangul') clearUrlParams(['pane'])
+    if (t !== tab) clearUrlParams(['pane'])
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
     if (t === 'pron') setPronGroup(undefined)
@@ -118,6 +120,11 @@ export default function KoreanPage() {
       {tab === 'hangul' && (
         <Suspense fallback={<div className="center-state"><Spinner /></div>}>
           <HangulLab />
+        </Suspense>
+      )}
+      {tab === 'grammar' && (
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          <GrammarLab />
         </Suspense>
       )}
       {tab === 'learn' && (

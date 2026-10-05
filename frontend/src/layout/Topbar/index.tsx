@@ -4,6 +4,7 @@ import { useAuth } from '@/store/auth.store'
 import Icon from '@/core/components/Icon'
 import Avatar from '@/core/components/Avatar'
 import { promptInstall, useInstallable } from '@/core/pwa'
+import { useStudyClock } from '@/core/studyClock'
 
 function fileToAvatar(file: File, size = 144): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -32,6 +33,7 @@ export default function Topbar({ onMenu, navOpen = false }: { onMenu?: () => voi
   const fileRef = useRef<HTMLInputElement>(null)
   const accountRef = useRef<HTMLDivElement>(null)
   const installable = useInstallable()
+  useStudyClock()
 
   useEffect(() => {
     if (!menu) return

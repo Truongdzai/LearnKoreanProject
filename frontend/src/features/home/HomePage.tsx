@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import DailyGoal from './components/DailyGoal'
+import TodaySession from './components/TodaySession'
 import WordOfDay from './components/WordOfDay'
 import MasterWord from './components/MasterWord'
 import VideoCard from '@/features/shared/VideoCard'
@@ -119,6 +120,8 @@ export default function HomePage() {
           </dl>
         </aside>
       </section>
+
+      <TodaySession />
 
       <div className="home-duo">
         <DailyGoal />
