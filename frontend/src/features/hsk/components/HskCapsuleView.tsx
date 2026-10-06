@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { speakZH } from '@/core/tts'
 import { CAPSULE_PASS, type HskCapsule } from '@/data/hskCore'
 import PinyinText from './PinyinText'
+import { shuffledOrder } from './HskRunner'
 
 interface Props {
   capsule: HskCapsule
@@ -16,12 +17,16 @@ export default function HskCapsuleView({ capsule, best, onDone, onBack }: Props)
   const [picked, setPicked] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [pinyin, setPinyin] = useState(true)
+  const [order, setOrder] = useState<number[][]>([])
 
   const drills = capsule.drill
   const q = i >= 0 && i < drills.length ? drills[i] : null
   const finished = i >= drills.length
 
-  const start = () => { setI(0); setPicked(null); setScore(0) }
+  const start = () => {
+    setI(0); setPicked(null); setScore(0)
+    setOrder(drills.map((d) => shuffledOrder(d.options.length)))
+  }
 
   const next = () => {
     if (i + 1 >= drills.length) onDone(Math.round((score / drills.length) * 100))
@@ -87,7 +92,7 @@ export default function HskCapsuleView({ capsule, best, onDone, onBack }: Props)
           </div>
           <p className="cap-drill-q"><PinyinText text={q.text} show={pinyin} /></p>
           <div className="quiz-options">
-            {q.options.map((o, k) => {
+            {(order[i] ?? q.options.map((_, k) => k)).map((k) => {
               let cls = 'quiz-opt'
               if (picked != null) {
                 if (k === q.answer) cls += ' correct'
@@ -95,7 +100,7 @@ export default function HskCapsuleView({ capsule, best, onDone, onBack }: Props)
               }
               return (
                 <button key={k} className={cls} disabled={picked != null} onClick={() => pick(k)}>
-                  <PinyinText text={o} show={pinyin} />
+                  <PinyinText text={q.options[k]} show={pinyin} />
                 </button>
               )
             })}
