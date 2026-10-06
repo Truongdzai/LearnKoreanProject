@@ -3,6 +3,7 @@ import Icon from '@/core/components/Icon'
 import { playAudioFiles, speakKO } from '@/core/tts'
 import audioManifest from '@/data/korean/topik/audioManifest.json'
 import { CAPSULE_PASS, type TopikCapsule } from '@/data/topikCore'
+import { shuffleOptions } from '../shuffle'
 
 const MP3_EX = audioManifest as Record<string, number>
 
@@ -26,11 +27,12 @@ export default function CapsuleView({ capsule, best, onDone, onBack }: Props) {
   const [picked, setPicked] = useState<number | null>(null)
   const [score, setScore] = useState(0)
 
-  const drills = capsule.drill
+  const [drills, setDrills] = useState(capsule.drill)
   const q = i >= 0 && i < drills.length ? drills[i] : null
   const finished = i >= drills.length
 
-  const start = () => { setI(0); setPicked(null); setScore(0) }
+  // Đảo phương án mỗi lần bắt đầu/làm lại; giữ nguyên trong suốt lượt làm
+  const start = () => { setDrills(capsule.drill.map(shuffleOptions)); setI(0); setPicked(null); setScore(0) }
 
   const next = () => {
     if (i + 1 >= drills.length) {
