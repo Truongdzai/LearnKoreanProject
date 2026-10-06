@@ -1,13 +1,13 @@
 {
   "name": "VyLing — Học ngoại ngữ qua video bạn thích",
   "short_name": "VyLing",
-  "description": "Học tiếng Hàn, tiếng Anh qua video YouTube: phụ đề song ngữ, tra từ 1 chạm, thẻ ôn tập SRS, lộ trình 90 ngày, gia sư AI và luyện thi TOPIK/TOEIC.",
+  "description": "Học tiếng Hàn, tiếng Anh, tiếng Trung qua video YouTube: phụ đề song ngữ, tra từ 1 chạm, thẻ ôn tập SRS, lộ trình 90 ngày, bảng chữ Hangul, gia sư AI và luyện thi TOPIK/TOEIC/HSK.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#2563eb",
+  "background_color": "#1B1613",
+  "theme_color": "#2A221D",
   "lang": "vi",
   "dir": "ltr",
   "categories": ["education", "productivity"],
@@ -19,6 +19,7 @@
   "shortcuts": [
     { "name": "Ôn tập thẻ đến hạn", "short_name": "Ôn tập", "url": "/on-tap", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Shadowing", "short_name": "Shadowing", "url": "/shadowing", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Gia sư AI", "short_name": "Gia sư", "url": "/gia-su-ai", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+    { "name": "Gia sư AI", "short_name": "Gia sư", "url": "/gia-su-ai", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Tiếng Hàn 3 tháng", "short_name": "Tiếng Hàn", "url": "/tieng-han-3-thang", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
   ]
 }
