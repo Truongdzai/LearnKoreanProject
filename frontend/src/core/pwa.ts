@@ -22,8 +22,22 @@ export function isStandalone(): boolean {
   )
 }
 
+// Thanh địa chỉ / thanh trạng thái của app cài đặt lấy màu theo nền thanh trên cùng của giao diện đang bật
+const THEME_COLOR = { dark: '#2A221D', light: '#DDD5C5' }
+
+function syncThemeColor(): void {
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+  if (!meta) return
+  const apply = () => {
+    meta.content = document.documentElement.dataset.theme === 'light' ? THEME_COLOR.light : THEME_COLOR.dark
+  }
+  apply()
+  new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+}
+
 export function registerServiceWorker(): void {
   if (typeof window === 'undefined') return
+  syncThemeColor()
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault()
