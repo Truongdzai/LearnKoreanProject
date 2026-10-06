@@ -7612,3 +7612,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .hg-key-btn small{display:none}
   .hg-feedback .btn-primary{margin-left:0}
 }
+
+/* ── Tổng kết sau buổi luyện nói với AI ── */
+/* Xong buổi thì khung chat thôi cố định chiều cao để phần tổng kết nằm liền bên dưới, không tràn đè footer */
+.sp-chat.done{height:auto;min-height:0}
+.sp-chat.done .sp-box{flex:none;max-height:55vh}
+.sp-recap{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.sp-recap section{background:var(--panel);border:1px solid var(--line2);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.sp-recap-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sp-recap-row{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.sp-recap-row .btn-ghost{flex:none}
+.sp-recap-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sp-recap-text b{font-size:15px;font-weight:600;color:var(--text);overflow-wrap:anywhere}
+.sp-recap-text small{font-size:12.5px;color:var(--muted)}
+.sp-recap-used{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.sp-recap-used.on>svg{color:var(--good)}
+.sp-recap-fix{border-left:3px solid var(--brass);padding:4px 0 4px 10px}
+.sp-recap-fix p{margin:0 0 3px;font-size:14.5px;color:var(--text)}
+.sp-recap-fix small{display:flex;gap:6px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--text2)}
+.sp-recap-fix small svg{flex:none;margin-top:3px;color:var(--brass)}
+@media (max-width:640px){
+  .sp-recap-row{flex-wrap:wrap}
+  .sp-recap-row .btn-ghost{margin-left:36px}
+}
