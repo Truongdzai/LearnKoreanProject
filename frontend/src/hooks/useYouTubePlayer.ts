@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { setYoutubePlaying } from '@/core/studyTime'
 
 export const YT_STATE = {
   unstarted: -1,
@@ -37,6 +38,9 @@ export function useYouTubePlayer(elementId = 'player', opts: Options = {}): YouT
     }
   }, [])
 
+  // Rời trang khi video đang phát thì không có sự kiện dừng: tự xoá cờ để đồng hồ học không đếm mãi
+  useEffect(() => () => setYoutubePlaying(elementId, false), [elementId])
+
   const alive = (): boolean => {
     try {
       const frame = playerRef.current?.getIframe?.()
@@ -62,7 +66,10 @@ export function useYouTubePlayer(elementId = 'player', opts: Options = {}): YouT
             origin: typeof window !== 'undefined' ? window.location.origin : undefined,
           },
           events: {
-            onStateChange: (e: { data: number }) => stateRef.current?.(e.data),
+            onStateChange: (e: { data: number }) => {
+              setYoutubePlaying(elementId, e.data === YT_STATE.playing)
+              stateRef.current?.(e.data)
+            },
           },
         })
       }
