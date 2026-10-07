@@ -24,7 +24,7 @@ const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'hangul', label: 'Bảng chữ', icon: 'letters' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
-  { id: 'grammar', label: 'Số đếm', icon: 'chart' },
+  { id: 'grammar', label: 'Ngữ pháp', icon: 'tool' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
 ]
