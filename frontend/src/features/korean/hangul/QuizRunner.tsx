@@ -12,9 +12,12 @@ interface Props {
   onFinish: (pct: number) => void
   onAgain: () => void
   onBack: () => void
+  // Mặc định là tiếng Hàn; Phòng Pinyin truyền speakZH và 'zh'
+  speak?: (text: string, rate?: number) => void
+  lang?: string
 }
 
-export default function QuizRunner({ questions, title, pass, onAnswer, onFinish, onAgain, onBack }: Props) {
+export default function QuizRunner({ questions, title, pass, onAnswer, onFinish, onAgain, onBack, speak = speakKO, lang = 'ko' }: Props) {
   const [i, setI] = useState(0)
   const [picked, setPicked] = useState<string | null>(null)
   const [score, setScore] = useState(0)
@@ -26,7 +29,7 @@ export default function QuizRunner({ questions, title, pass, onAnswer, onFinish,
 
   useEffect(() => {
     if (q?.audio && (q.kind === 'hear' || q.kind === 'tailHear' || q.kind === 'wordHear')) {
-      const t = window.setTimeout(() => speakKO(q.audio!, 0.8), 250)
+      const t = window.setTimeout(() => speak(q.audio!, 0.8), 250)
       return () => window.clearTimeout(t)
     }
   }, [q?.id])
@@ -38,7 +41,7 @@ export default function QuizRunner({ questions, title, pass, onAnswer, onFinish,
     if (ok) setScore((s) => s + 1)
     else setWrong((w) => [...w, q])
     onAnswer(q.item, ok)
-    if (q.audio) speakKO(q.audio, 0.85)
+    if (q.audio) speak(q.audio, 0.85)
     window.setTimeout(() => nextRef.current?.focus(), 0)
   }
 
@@ -84,7 +87,7 @@ export default function QuizRunner({ questions, title, pass, onAnswer, onFinish,
           <div className="hg-wrong">
             <div className="section-title"><span className="pin" /> Những câu cần xem lại</div>
             {wrong.map((w) => (
-              <button key={w.id} className="hg-wrong-row" onClick={() => w.audio && speakKO(w.audio, 0.8)}>
+              <button key={w.id} className="hg-wrong-row" onClick={() => w.audio && speak(w.audio, 0.8)}>
                 <Icon name="volume" size={14} /> {w.explain}
               </button>
             ))}
@@ -111,12 +114,12 @@ export default function QuizRunner({ questions, title, pass, onAnswer, onFinish,
       <div className="hg-q">
         <p className="hg-ask">{q.ask}</p>
         {hear ? (
-          <button className="hg-listen" onClick={() => speakKO(q.audio!, 0.8)} aria-label="Nghe lại">
+          <button className="hg-listen" onClick={() => speak(q.audio!, 0.8)} aria-label="Nghe lại">
             <Icon name="volume" size={34} />
             <span>Bấm để nghe lại</span>
           </button>
         ) : (
-          <div className={'hg-prompt' + (q.kind === 'write' ? ' latin' : '')} lang={q.kind === 'write' ? undefined : 'ko'}>
+          <div className={'hg-prompt' + (q.kind === 'write' ? ' latin' : '')} lang={q.kind === 'write' ? undefined : lang}>
             {q.prompt}
           </div>
         )}
@@ -131,7 +134,7 @@ export default function QuizRunner({ questions, title, pass, onAnswer, onFinish,
               className={'quiz-opt' + (q.hangulOptions ? ' hg-ko' : ' hg-rom') + cls}
               disabled={!!picked}
               onClick={() => choose(opt)}
-              lang={q.hangulOptions ? 'ko' : undefined}
+              lang={q.hangulOptions ? lang : undefined}
             >
               <span className="hg-key">{k + 1}</span>{opt}
             </button>
