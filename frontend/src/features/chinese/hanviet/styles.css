@@ -1,0 +1,108 @@
+/* ── Cầu Hán–Việt (Tiếng Trung → tab Hán–Việt) ── */
+.zv-lab [lang="zh"]{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC","Heiti SC",sans-serif}
+.zv-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
+  border:1px solid var(--line2);color:var(--accent-d)}
+.zv-icon-btn:hover{border-color:var(--brass)}
+.zv-section{display:flex;flex-direction:column;gap:10px}
+.zv-section .section-title{margin:0}
+
+/* Tra chữ */
+.zv-look{display:flex;flex-direction:column;gap:18px}
+.zv-search{display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--panel);border:1px solid var(--line2);max-width:560px}
+.zv-search svg{color:var(--muted);flex:none}
+.zv-input{flex:1;min-width:0;padding:12px 0;font-family:inherit;font-size:16px;color:var(--text);background:none;border:0;outline:none}
+.zv-search:focus-within{border-color:var(--accent-ring);box-shadow:0 0 0 2px var(--accent-soft)}
+.zv-results{display:flex;flex-direction:column;gap:10px}
+.zv-reading{margin:0;font-size:15px;color:var(--text2)}
+.zv-reading b{color:var(--accent-d);font-size:18px}
+
+.zv-trans{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.zv-trans-item{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:9px 12px;background:var(--panel);
+  border:1px solid var(--line2);box-shadow:inset 3px 0 0 var(--good);font-family:inherit;text-align:left;color:var(--text)}
+.zv-trans-item.on{cursor:pointer}
+.zv-trans-item.on:hover{border-color:var(--brass)}
+.zv-trans-zh{font-size:22px;line-height:1.25}
+.zv-trans-py{font-family:var(--font-record);font-size:11px;color:var(--muted)}
+.zv-trans-item b{font-size:14px;color:var(--good);font-weight:600}
+
+.zv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:4px}
+.zv-cell{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 2px 5px;cursor:pointer;background:var(--panel);
+  border:1px solid var(--line);font-family:inherit;color:var(--text)}
+.zv-cell [lang="zh"]{font-size:22px;line-height:1.2}
+.zv-cell small{font-size:11.5px;color:var(--accent-d);white-space:nowrap}
+.zv-cell:hover{border-color:var(--brass)}
+.zv-cell.on{border-color:var(--accent);background:var(--accent-soft)}
+
+.zv-card{display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 0 3px 0 var(--brass-d)}
+.zv-card-top{display:flex;align-items:flex-start;gap:14px}
+.zv-big{flex:none;width:76px;height:76px;display:grid;place-items:center;font-size:52px;line-height:1;color:var(--text);
+  background:var(--bg);border:1px solid var(--line2);font-family:inherit}
+.zv-big.on{cursor:pointer}
+.zv-big.on:hover{border-color:var(--brass)}
+.zv-card-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.zv-hv{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--accent-d)}
+.zv-py{font-family:var(--font-record);font-size:14px;color:var(--text2)}
+.zv-card-info p{margin:4px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.zv-close{margin-left:auto}
+.zv-words{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--bg)}
+.zv-words li{border-bottom:1px solid var(--line)}
+.zv-words li:last-child{border-bottom:0}
+.zv-word{display:grid;grid-template-columns:minmax(64px,auto) minmax(80px,auto) minmax(90px,auto) minmax(0,1fr);align-items:baseline;
+  gap:4px 12px;width:100%;padding:7px 12px;background:none;border:0;font-family:inherit;text-align:left;color:var(--text)}
+.zv-word.on{cursor:pointer}
+.zv-word.on:hover{background:var(--accent-soft)}
+.zv-word [lang="zh"]{font-size:18px}
+.zv-word-py{font-family:var(--font-record);font-size:12px;color:var(--muted)}
+.zv-word-hv{font-size:13.5px;color:var(--accent-d);font-weight:600}
+.zv-word-vi{font-size:13px;color:var(--text2)}
+
+/* Quy luật */
+.zv-rules{display:flex;flex-direction:column;gap:14px}
+.zv-rule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.zv-rule{display:flex;flex-direction:column;gap:9px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);min-width:0}
+.zv-rule-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.zv-rule h3{margin:0;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.zv-rate{font-family:var(--font-record);font-size:12px;color:var(--good);white-space:nowrap}
+.zv-rule>p{margin:0;font-size:13px;line-height:1.55;color:var(--text2)}
+.zv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.zv-chip{display:inline-flex;flex-direction:column;align-items:center;gap:0;padding:4px 9px;background:var(--bg);border:1px solid var(--line);
+  font-family:inherit;color:var(--text)}
+.zv-chip [lang="zh"]{font-size:19px;line-height:1.25}
+.zv-chip small{font-size:11px;color:var(--muted);white-space:nowrap}
+.zv-chip.on{cursor:pointer}
+.zv-chip.on:hover{border-color:var(--brass)}
+.zv-miss{margin:0;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px}
+
+/* Luyện */
+.zv-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.zv-mode-best{font-family:var(--font-record);font-size:11px;color:var(--muted);margin-top:2px}
+.zv-mode.done .zv-mode-best{color:var(--good)}
+.zv-q{display:flex;flex-direction:column;align-items:center;gap:6px}
+.zv-q .hg-ask{margin:0 0 4px}
+.zv-prompt-zh{font-size:72px;line-height:1.1;color:var(--text)}
+.zv-prompt-zh.word{font-size:52px;letter-spacing:.04em}
+.zv-prompt-hv{font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.15;color:var(--accent-d)}
+.zv-sub{font-size:13.5px;color:var(--text2)}
+.zv-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
+.zv-opt-main{font-size:19px;font-weight:600}
+.zv-opt.zh .zv-opt-main{font-size:30px;font-weight:400;line-height:1.1}
+.zv-feedback{align-items:flex-start}
+.zv-fb-body{flex:1 1 280px;min-width:0}
+.zv-fb-body p{margin:0}
+.zv-fb-body [lang="zh"]{font-size:17px}
+.zv-wrong-row{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:10px}
+
+@media (max-width:640px){
+  .zv-grid{grid-template-columns:repeat(auto-fill,minmax(54px,1fr))}
+  .zv-trans{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .zv-big{width:62px;height:62px;font-size:42px}
+  .zv-word{grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:2px 10px}
+  .zv-word-hv{grid-column:1}
+  .zv-word-vi{grid-column:2}
+  .zv-rule-grid{grid-template-columns:minmax(0,1fr)}
+  .zv-prompt-zh{font-size:60px}
+  .zv-prompt-zh.word{font-size:40px}
+  .zv-prompt-hv{font-size:36px}
+  .zv-feedback .btn-primary{flex:1 1 auto;justify-content:center}
+}
