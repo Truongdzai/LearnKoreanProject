@@ -60,7 +60,7 @@ export default function LandingPage() {
           <h1 data-rv style={d(90)}>{t('lp.h1a')} <span className="lp-grad">{t('lp.h1b')}</span></h1>
           <p className="lp-lead" data-rv style={d(180)}>{t('lp.heroSub')}</p>
           <div className="lp-hero-cta" data-rv style={d(270)}>
-            <button className="btn-primary lg lp-shine" onClick={openAuth}>
+            <button className="btn-primary lg lp-shine" onClick={() => openAuth('signup')}>
               <Icon name="rocket" size={16} /> {t('lp.startFree')}
             </button>
             <button className="btn-ghost lg" onClick={() => setView('library')}>
@@ -142,7 +142,7 @@ export default function LandingPage() {
           <button className="btn-primary lg lp-shine" onClick={() => setView('library')}>
             <Icon name="play" size={16} /> {t('lp.cta.library')}
           </button>
-          <button className="btn-ghost lg" onClick={openAuth}>
+          <button className="btn-ghost lg" onClick={() => openAuth('signup')}>
             <Icon name="user" size={16} /> {t('lp.cta.signup')}
           </button>
         </div>

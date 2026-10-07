@@ -55,7 +55,7 @@ const PrivacyPage = lazyPage(() => import('@/features/pages/LegalPages').then((m
 
 export default function App() {
   const { view, t } = useAppStore()
-  const { isAdmin, isAuthed } = useAuth()
+  const { isAdmin, isAuthed, ready } = useAuth()
   const [navOpen, setNavOpen] = useState(false)
 
   if (view === 'admin' && isAdmin) {
@@ -71,6 +71,10 @@ export default function App() {
       </>
     )
   }
+
+  // Có token đã lưu mà /me chưa trả lời thì chưa biết nên hiện landing hay trang chủ: chờ, tránh nháy
+  // landing (và đếm khống landing_view) với người đã đăng nhập
+  if (view === 'home' && !ready) return <div className="center-state"><Spinner /></div>
 
   const isLanding = view === 'home' && !isAuthed
 

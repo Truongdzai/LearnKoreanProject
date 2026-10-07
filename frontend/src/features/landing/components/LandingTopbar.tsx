@@ -71,7 +71,7 @@ export default function LandingTopbar() {
           <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} />
         </button>
         <button type="button" className="lp-top-login" onClick={openAuth}>{t('top.login')}</button>
-        <button type="button" className="btn-primary lp-shine lp-top-cta" onClick={openAuth}>
+        <button type="button" className="btn-primary lp-shine lp-top-cta" onClick={() => openAuth('signup')}>
           <Icon name="rocket" size={16} /> {t('lp.startFree')}
         </button>
       </div>

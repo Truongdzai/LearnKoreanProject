@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode, type SyntheticEvent } from 'react'
 import { env } from '@/config/env'
 import { AUTH_EXPIRED_EVENT, getToken, setToken } from '@/core/api/client'
 import { syncUserScope, forgetUserScope } from '@/core/utils/userScope'
@@ -10,6 +10,8 @@ import type { Account } from '@/models/account.model'
 
 interface Providers { google: boolean; facebook: boolean }
 
+export type AuthMode = 'login' | 'signup'
+
 interface AuthStore {
   account: Account | null
   isAuthed: boolean
@@ -17,12 +19,14 @@ interface AuthStore {
   ready: boolean
   providers: Providers
   modalOpen: boolean
+  authMode: AuthMode
   bonusAvailable: boolean
   pendingGift: PendingGift | null
   clearPendingGift: () => void
   authError: string
   clearAuthError: () => void
-  openAuth: () => void
+  // Nhiều nơi gắn thẳng onClick={openAuth} nên tham số có thể là sự kiện click; chỉ 'signup' mới mở form đăng ký
+  openAuth: (mode?: AuthMode | SyntheticEvent) => void
   closeAuth: () => void
   changePwOpen: boolean
   openChangePw: () => void
@@ -57,8 +61,10 @@ function consumeAuthHash(): { token?: string; error?: string } {
 
 export function AuthProviderStore({ children }: { children: ReactNode }) {
   const [account, setAccountState] = useState<Account | null>(null)
-  const [ready, setReady] = useState(false)
+  // Không có token (kể cả token OAuth còn trong hash) thì không phải chờ /me: sẵn sàng ngay lần render đầu
+  const [ready, setReady] = useState(() => !getToken() && !window.location.hash.includes('token='))
   const [modalOpen, setModalOpen] = useState(false)
+  const [authMode, setAuthMode] = useState<AuthMode>('login')
   const [changePwOpen, setChangePwOpen] = useState(false)
   const [bonusAvailable, setBonusAvailable] = useState(false)
   const [pendingGift, setPendingGift] = useState<PendingGift | null>(null)
@@ -98,13 +104,17 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
           ? 'Tài khoản đã bị khoá. Hãy liên hệ hỗ trợ.'
           : 'Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại để tiếp tục.',
       )
+      setAuthMode('login')
       setModalOpen(true)
     }
     window.addEventListener(AUTH_EXPIRED_EVENT, onExpired)
     return () => window.removeEventListener(AUTH_EXPIRED_EVENT, onExpired)
   }, [])
 
-  const openAuth = useCallback(() => setModalOpen(true), [])
+  const openAuth = useCallback((mode?: AuthMode | SyntheticEvent) => {
+    setAuthMode(mode === 'signup' ? 'signup' : 'login')
+    setModalOpen(true)
+  }, [])
   const closeAuth = useCallback(() => setModalOpen(false), [])
   const openChangePw = useCallback(() => setChangePwOpen(true), [])
   const closeChangePw = useCallback(() => setChangePwOpen(false), [])
@@ -158,6 +168,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
       ready,
       providers,
       modalOpen,
+      authMode,
       bonusAvailable,
       pendingGift,
       clearPendingGift,
@@ -177,7 +188,7 @@ export function AuthProviderStore({ children }: { children: ReactNode }) {
       signOut,
     }),
     [
-      account, ready, providers, modalOpen, bonusAvailable, pendingGift, clearPendingGift,
+      account, ready, providers, modalOpen, authMode, bonusAvailable, pendingGift, clearPendingGift,
       authError, clearAuthError, openAuth, closeAuth, changePwOpen, openChangePw, closeChangePw,
       applyToken, setAccount, signUpEmail, signInEmail, signInOAuth, signOut,
     ],

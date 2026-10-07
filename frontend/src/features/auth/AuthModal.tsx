@@ -9,7 +9,7 @@ import { useDialog } from '@/core/a11y'
 type Mode = 'login' | 'signup' | 'forgot'
 
 export default function AuthModal() {
-  const { modalOpen, closeAuth, providers, signUpEmail, signInEmail, signInOAuth, authError, clearAuthError } = useAuth()
+  const { modalOpen, authMode, closeAuth, providers, signUpEmail, signInEmail, signInOAuth, authError, clearAuthError } = useAuth()
   const { t } = useAppStore()
   const [mode, setMode] = useState<Mode>('login')
   const [busy, setBusy] = useState(false)
@@ -28,8 +28,8 @@ export default function AuthModal() {
   const boxRef = useDialog<HTMLDivElement>(modalOpen, closeAuth)
 
   useEffect(() => {
-    if (modalOpen) { setErr(''); setInfo(''); setBusy(false); setMode('login') }
-  }, [modalOpen])
+    if (modalOpen) { setErr(''); setInfo(''); setBusy(false); setMode(authMode) }
+  }, [modalOpen, authMode])
 
   useEffect(() => {
     if (modalOpen && authError) setErr(authError)
