@@ -2,16 +2,17 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { useUrlParam } from '@/core/hooks/useTabParam'
 import { useAppStore } from '@/store/app.store'
 import { VoiceNotice } from '../../english/components/PronunciationLab'
+import SentenceBuilder from '../builder/SentenceBuilder'
 import ConjugationLab from '../conjugate/ConjugationLab'
 import NumbersLab from '../numbers/NumbersLab'
 import ParticleLab from '../particles/ParticleLab'
 
-// Ghép câu sẽ thêm vào đây khi xong và đã kiểm thử
-type Pane = 'conj' | 'part' | 'number'
+type Pane = 'conj' | 'part' | 'order' | 'number'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'conj', label: 'Chia đuôi', icon: 'tool' },
   { id: 'part', label: 'Trợ từ', icon: 'note' },
+  { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'number', label: 'Số đếm', icon: 'chart' },
 ]
 const PANE_IDS = PANES.map((p) => p.id) as string[]
@@ -58,6 +59,7 @@ export default function GrammarLab() {
 
       {pane === 'conj' && <ConjugationLab />}
       {pane === 'part' && <ParticleLab />}
+      {pane === 'order' && <SentenceBuilder />}
       {pane === 'number' && <NumbersLab />}
     </div>
   )
