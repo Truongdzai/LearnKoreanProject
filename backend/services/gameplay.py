@@ -55,7 +55,7 @@ def seeds(user_id: str) -> dict[str, int]:
 
 
 def water_cap(user: dict) -> int:
-    return WATER_PLUS_PER_DAY if user["is_plus"] else WATER_PER_DAY
+    return WATER_PLUS_PER_DAY if accounts.plus_active(user) else WATER_PER_DAY
 
 
 def water_state(user: dict) -> dict:
@@ -171,7 +171,7 @@ def buy(user: dict, item_id: str, qty: int = 1) -> dict:
     item = catalog.shop_item(item_id)
     if not item:
         raise AppError("NOT_FOUND", "Vật phẩm không tồn tại.", 404)
-    if item["plus"] and not user["is_plus"]:
+    if item["plus"] and not accounts.plus_active(user):
         raise AppError("PLUS_REQUIRED", "Vật phẩm này chỉ dành cho thành viên Plus.", 403)
     is_seed = item["category"] == "seed"
     qty = max(1, min(MAX_SEED_BUY, int(qty))) if is_seed else 1
@@ -321,7 +321,7 @@ def save_video(user: dict, v: dict) -> dict:
                 "SELECT lang FROM catalog_videos WHERE id = ?", (v.get("id"),)
             ).fetchone()
             lang = (known["lang"] if known else "") or "ko"
-        if not quota.is_plus(user):
+        if not accounts.plus_active(user):
             have = conn.execute(
                 "SELECT COUNT(*) AS n FROM user_videos WHERE user_id = ?", (user["id"],)
             ).fetchone()["n"]
@@ -360,8 +360,19 @@ def remove_video(user: dict, video_id: str) -> dict:
 
 def _progress_for(conn, user_id: str, quest: dict) -> int:
     if quest["metric"] == "streak":
-        row = conn.execute("SELECT streak FROM users WHERE id = ?", (user_id,)).fetchone()
-        return min(quest["target"], row["streak"] if row else 0)
+        # đếm số ngày có học trong kỳ hiện tại (tuần ISO với q5), không dùng users.streak trọn đời
+        today = date.today()
+        if quest["period"] == "weekly":
+            start = today - timedelta(days=today.weekday())
+        elif quest["period"] == "monthly":
+            start = today.replace(day=1)
+        else:
+            start = today
+        row = conn.execute(
+            "SELECT COUNT(*) AS n FROM activity_log WHERE user_id = ? AND day BETWEEN ? AND ? AND xp > 0",
+            (user_id, start.isoformat(), today.isoformat()),
+        ).fetchone()
+        return min(quest["target"], row["n"])
     if quest["metric"] == "login":
         month = date.today().strftime("%Y-%m")
         row = conn.execute(
@@ -407,7 +418,7 @@ def claim_quest(user: dict, quest_id: str) -> dict:
     quest = next((q for q in catalog.quests() if q["id"] == quest_id), None)
     if not quest:
         raise AppError("NOT_FOUND", "Nhiệm vụ không tồn tại.", 404)
-    if quest["plus"] and not user["is_plus"]:
+    if quest["plus"] and not accounts.plus_active(user):
         raise AppError("PLUS_REQUIRED", "Nhiệm vụ này chỉ dành cho thành viên Plus.", 403)
     conn = db.get_conn()
     try:
@@ -508,12 +519,19 @@ def goal_bonus(user: dict, goal: int) -> dict:
 
 
 _EVENT_XP = {"lesson": 30, "pronounce": 5, "review": 2, "video": 25, "word": 4, "login": 0, "toeic": 10, "grammar": 10, "tutor": 3}
+# Trần cho mỗi lần gọi: client chỉ gửi 1–5, riêng "word" là cả lô từ vừa nhập
+_EVENT_MAX = {"lesson": 5, "pronounce": 5, "review": 5, "video": 5, "word": 200, "login": 1, "toeic": 5, "grammar": 5, "tutor": 5}
+EVENT_MAX_DEFAULT = 5
+MAX_EVENT_MINUTES = 120
+MAX_EVENT_WORDS = 200
+DAILY_XP_CAP = 3000
 
 
 def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, words: int = 0,
                  lang: str = "") -> dict:
-    amount = max(0, int(amount))
-    minutes = max(0, int(minutes))
+    amount = max(0, min(_EVENT_MAX.get(etype, EVENT_MAX_DEFAULT), int(amount)))
+    minutes = max(0, min(MAX_EVENT_MINUTES, int(minutes)))
+    words = max(0, min(MAX_EVENT_WORDS, int(words)))
     lang = (lang or "").strip().lower()[:8]
     if etype != "login" and (amount or minutes or words):
         accounts.touch_streak(user["id"])
@@ -526,6 +544,10 @@ def record_event(user: dict, etype: str, amount: int = 1, minutes: int = 0, word
 
     conn = db.get_conn()
     try:
+        done = conn.execute(
+            "SELECT xp FROM activity_log WHERE user_id = ? AND day = ?", (user["id"], today)
+        ).fetchone()
+        xp_gain = min(xp_gain, max(0, DAILY_XP_CAP - (done["xp"] if done else 0)))
         conn.execute(
             "INSERT INTO activity_log (user_id, day, minutes, words, xp, lessons, videos, reviews) "
             "VALUES (?,?,?,?,?,?,?,?) "
@@ -578,13 +600,14 @@ def activities(user_id: str) -> dict:
         srs_total = conn.execute("SELECT COUNT(*) AS n FROM srs_cards WHERE user_id = ?", (user_id,)).fetchone()["n"]
     finally:
         conn.close()
-    labels = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"]
+    names = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"]
+    labels = [names[d.weekday()] for d in days]
     minutes, words = [], []
     for d in days:
         r = rows.get(d.isoformat())
         minutes.append(r["minutes"] if r else 0)
         words.append(r["words"] if r else 0)
-    today_idx = (today.weekday())
+    today_idx = len(days) - 1
     return {
         "labels": labels,
         "minutes": minutes,
