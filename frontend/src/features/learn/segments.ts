@@ -22,16 +22,24 @@ export interface TimedSegment {
   ko: string
   vi?: string
   speaker?: number
+  // Vị trí trong lesson.segments gốc (khoá tiến độ cũ dùng chỉ số này)
+  idx: number
+}
+
+export function timedSegments(segs: Lesson['segments']): TimedSegment[] {
+  return segs.map((s, idx) => ({ ...s, end: segEnd(segs, idx), idx }))
 }
 
 export function speakableSegments(segs: Lesson['segments']): TimedSegment[] {
-  return segs
-    .map((s, idx) => ({ ...s, end: segEnd(segs, idx) }))
-    .filter((s) => !isNoiseLine(s.ko))
+  return timedSegments(segs).filter((s) => !isNoiseLine(s.ko))
+}
+
+export function refSpan(start: number, end: number): number {
+  return Math.max(1.2, Math.min(8, end - start))
 }
 
 export function refDuration(segs: Lesson['segments'], idx: number): number {
-  return Math.max(1.2, Math.min(8, segEnd(segs, idx) - segs[idx].start))
+  return refSpan(segs[idx].start, segEnd(segs, idx))
 }
 
 interface RangeOpts {

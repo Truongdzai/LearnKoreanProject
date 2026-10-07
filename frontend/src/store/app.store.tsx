@@ -545,7 +545,8 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       setStatus('')
       track('lesson_ready', { lang, segments: d.segments?.length || 0 })
       recordEvent('video', 1, 0, 0, lang)
-      if (opts?.video) saveVideo(opts.video)
+      // Tự lưu là phụ: chạm trần gói Miễn phí (PLUS_REQUIRED) hay lỗi mạng thì bỏ qua, không làm hỏng bài học
+      if (opts?.video) saveVideo(opts.video).catch(() => {  })
       if (nativeLang !== 'vi' && nativeLang !== lang) {
         const nd = await applyNativeTranslation(d, lang, nativeLang)
         setLesson((prev) => (prev && prev.id === nd.id ? nd : prev))
