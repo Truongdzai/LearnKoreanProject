@@ -4,7 +4,7 @@ import { KO_PLAN_12_WEEKS, KO_PLAN_TASK_TOTAL, KO_TARGET_WORDS } from '@/data/ko
 import { KO_UNITS } from '@/data/koreanCore'
 import { KO_PRON_GROUPS } from '@/data/koreanPronunciation'
 import { speakKO } from '@/core/tts'
-import { useLearnedWords, readPlan, planDay } from '../english/progress'
+import { useLearnedWords, usePlan, planDay } from '../english/progress'
 import RoadmapWeeks from '../english/components/RoadmapWeeks'
 
 const STEPS = [
@@ -23,7 +23,8 @@ interface Props {
 
 export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHangul }: Props) {
   const { learned } = useLearnedWords('ko')
-  const day = Math.min(planDay(readPlan('ko').start), 90)
+  const { plan } = usePlan('ko')
+  const day = Math.min(planDay(plan.start), 90)
 
   return (
     <div className="en-overview">

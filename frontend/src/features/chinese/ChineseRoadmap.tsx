@@ -3,7 +3,7 @@ import { ZH_UNITS, ZH_ALL_WORDS, ZH_TARGET_WORDS } from '@/data/chineseCore'
 import { ZH_PLAN_12_WEEKS, ZH_PLAN_TASK_TOTAL } from '@/data/chineseRoadmap'
 import { ZH_PRON_GROUPS } from '@/data/chinesePronunciation'
 import { speakZH } from '@/core/tts'
-import { useLearnedWords, readPlan, planDay } from '../english/progress'
+import { useLearnedWords, usePlan, planDay } from '../english/progress'
 import RoadmapWeeks from '../english/components/RoadmapWeeks'
 
 const STEPS = [
@@ -21,7 +21,8 @@ interface Props {
 
 export default function ChineseRoadmap({ onStart, onLearn, onQuiz, onPron }: Props) {
   const { learned } = useLearnedWords('zh')
-  const day = Math.min(planDay(readPlan('zh').start), 90)
+  const { plan } = usePlan('zh')
+  const day = Math.min(planDay(plan.start), 90)
 
   return (
     <div className="en-overview">
