@@ -139,7 +139,8 @@ def standings(user: dict) -> dict:
         conn.commit()
 
         rows = conn.execute(
-            "SELECT m.user_id, u.name, u.avatar, u.equipped_frame, u.streak, u.is_plus, u.plus_until "
+            "SELECT m.user_id, u.name, u.avatar, u.equipped_frame, u.streak, u.last_active, "
+            "u.is_plus, u.plus_until "
             "FROM league_members m JOIN users u ON u.id = m.user_id "
             "WHERE m.week = ? AND m.tier = ? AND u.status = 'active' AND u.role != 'admin'",
             (now, tier),
@@ -157,7 +158,7 @@ def standings(user: dict) -> dict:
             "name": r["name"],
             "avatar": r["avatar"],
             "frame": r["equipped_frame"],
-            "streak": r["streak"],
+            "streak": accounts.effective_streak(r),
             "isPlus": accounts.plus_active(dict(r)),
             "xp": xps.get(r["user_id"], 0),
             "me": r["user_id"] == user["id"],

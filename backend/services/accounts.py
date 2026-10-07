@@ -95,6 +95,19 @@ def plus_active(row: dict) -> bool:
     return str(until)[:10] >= date.today().isoformat()
 
 
+def effective_streak(row) -> int:
+    # users.streak chỉ được cập nhật khi có hoạt động mới; quá hôm qua mà chưa học thì chuỗi đã đứt
+    streak = row["streak"] or 0
+    last = row["last_active"] if "last_active" in row.keys() else None
+    if not streak or not last:
+        return 0
+    try:
+        last_day = date.fromisoformat(str(last)[:10])
+    except ValueError:
+        return 0
+    return streak if last_day >= date.today() - timedelta(days=1) else 0
+
+
 def public_user(row: dict) -> dict:
     return {
         "id": row["id"],
@@ -109,7 +122,7 @@ def public_user(row: dict) -> dict:
         "coins": row["coins"],
         "xp": row["xp"],
         "level": level_for(row["xp"]),
-        "streak": row["streak"],
+        "streak": effective_streak(row),
         "equippedFrame": row["equipped_frame"],
         "equippedPet": row["equipped_pet"] if "equipped_pet" in row.keys() else None,
         "equippedBg": row["equipped_bg"] if "equipped_bg" in row.keys() else None,
@@ -653,25 +666,28 @@ def set_avatar(user_id: str, avatar: str | None) -> dict:
 
 
 def leaderboard(current_id: str | None = None, limit: int = 50, scope: str = "all") -> list[dict]:
+    yesterday = (date.today() - timedelta(days=1)).isoformat()
     conn = db.get_conn()
     try:
         if scope == "week":
             monday = date.today() - timedelta(days=date.today().weekday())
             rows = conn.execute(
-                "SELECT u.id, u.name, u.avatar, u.streak, u.is_plus, u.plus_until, "
+                "SELECT u.id, u.name, u.avatar, u.streak, u.last_active, u.is_plus, u.plus_until, "
                 "u.equipped_frame, u.equipped_bg, u.xp AS total_xp, "
                 "COALESCE(SUM(a.xp),0) AS xp "
                 "FROM users u JOIN activity_log a ON a.user_id = u.id AND a.day >= ? "
                 "WHERE u.status = 'active' AND u.role != 'admin' "
-                "GROUP BY u.id HAVING SUM(a.xp) > 0 ORDER BY SUM(a.xp) DESC, u.streak DESC LIMIT ?",
-                (monday.isoformat(), limit),
+                "GROUP BY u.id HAVING SUM(a.xp) > 0 ORDER BY SUM(a.xp) DESC, "
+                "CASE WHEN date(u.last_active) >= ? THEN u.streak ELSE 0 END DESC LIMIT ?",
+                (monday.isoformat(), yesterday, limit),
             ).fetchall()
         else:
             rows = conn.execute(
-                "SELECT id, name, avatar, xp, xp AS total_xp, streak, is_plus, plus_until, "
+                "SELECT id, name, avatar, xp, xp AS total_xp, streak, last_active, is_plus, plus_until, "
                 "equipped_frame, equipped_bg FROM users "
-                "WHERE status = 'active' AND role != 'admin' ORDER BY xp DESC, streak DESC LIMIT ?",
-                (limit,),
+                "WHERE status = 'active' AND role != 'admin' ORDER BY xp DESC, "
+                "CASE WHEN date(last_active) >= ? THEN streak ELSE 0 END DESC LIMIT ?",
+                (yesterday, limit),
             ).fetchall()
     finally:
         conn.close()
@@ -683,7 +699,7 @@ def leaderboard(current_id: str | None = None, limit: int = 50, scope: str = "al
             "name": r["name"],
             "xp": r["xp"],
             "level": level_for(r["total_xp"]),
-            "streak": r["streak"],
+            "streak": effective_streak(r),
             "isPlus": plus_active(dict(r)),
             "frame": r["equipped_frame"],
             "bg": r["equipped_bg"],
@@ -702,8 +718,8 @@ _SORTS = {
     "coins_asc": "coins ASC",
     "xp": "xp DESC",
     "xp_asc": "xp ASC",
-    "streak": "streak DESC",
-    "streak_asc": "streak ASC",
+    "streak": "CASE WHEN date(last_active) >= date('now','localtime','-1 day') THEN streak ELSE 0 END DESC",
+    "streak_asc": "CASE WHEN date(last_active) >= date('now','localtime','-1 day') THEN streak ELSE 0 END ASC",
     "name": "name COLLATE NOCASE ASC",
     "name_desc": "name COLLATE NOCASE DESC",
 }

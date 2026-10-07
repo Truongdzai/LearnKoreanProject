@@ -30,11 +30,12 @@ def _person(conn, user_id: str | None) -> dict | None:
     if not user_id:
         return None
     r = conn.execute(
-        "SELECT id, name, avatar, equipped_frame, streak FROM users WHERE id = ?", (user_id,)
+        "SELECT id, name, avatar, equipped_frame, streak, last_active FROM users WHERE id = ?", (user_id,)
     ).fetchone()
     if not r:
         return None
-    return {"id": r["id"], "name": r["name"], "avatar": r["avatar"], "frame": r["equipped_frame"], "streak": r["streak"]}
+    return {"id": r["id"], "name": r["name"], "avatar": r["avatar"], "frame": r["equipped_frame"],
+            "streak": accounts.effective_streak(r)}
 
 
 def _finish(conn, row) -> None:
@@ -175,6 +176,13 @@ def join(user: dict, code: str) -> dict:
         ).fetchone()
         if busy:
             raise AppError("DUEL_BUSY", "Bạn đang có một thử thách chưa kết thúc.", 400)
+        # người mời có thể đã nhận lời mời khác sau khi tạo mã này
+        inviter_busy = conn.execute(
+            "SELECT 1 FROM duels WHERE status = 'active' AND (a_id = ? OR b_id = ?)",
+            (row["a_id"], row["a_id"]),
+        ).fetchone()
+        if inviter_busy:
+            raise AppError("DUEL_BUSY", "Người mời đang có một thử thách chưa kết thúc — hãy thử lại sau.", 400)
         start = date.today()
         conn.execute(
             "UPDATE duels SET b_id = ?, start_day = ?, end_day = ?, status = 'active' WHERE id = ?",

@@ -78,10 +78,10 @@ class PlusIn(BaseModel):
 
 
 class EventIn(BaseModel):
-    type: str
-    amount: int = 1
-    minutes: int = 0
-    words: int = 0
+    type: str = Field(max_length=MAX_ID)
+    amount: int = Field(default=1, ge=0, le=10_000)
+    minutes: int = Field(default=0, ge=0, le=1440)
+    words: int = Field(default=0, ge=0, le=10_000)
     lang: str = ""
 
 

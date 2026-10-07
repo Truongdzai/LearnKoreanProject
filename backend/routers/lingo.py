@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 
-from ..services import lingo, diarize, voice_diarize, cache, jobs, auth, accounts
+from ..services import lingo, diarize, voice_diarize, cache, jobs, auth, accounts, quota
 
 router = APIRouter(prefix="/api", tags=["Hot Lingo & người nói"])
 
@@ -14,7 +14,15 @@ def _require_plus(user: dict | None) -> None:
         )
 
 @router.get("/lingo")
-def api_lingo(refresh: bool = Query(False)):
+def api_lingo(
+    request: Request,
+    refresh: bool = Query(False),
+    user: dict | None = Depends(auth.get_optional_user),
+):
+    # Làm mới gọi LLM và ghi đè cache chung: khách chỉ nhận bản đang lưu, người dùng bị trừ lượt AI.
+    refresh = bool(refresh and user)
+    if refresh and lingo.ai_enabled():
+        quota.consume("lingo", user, quota.client_ip(request))
     return lingo.get(refresh=refresh)
 
 def _to_starts(raw, limit=600) -> list[float]:

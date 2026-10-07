@@ -3,6 +3,8 @@ import Icon from '@/core/components/Icon'
 import Spinner from '@/core/components/Spinner'
 import { speakKO } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
+import { refreshQuota } from '@/core/quota'
 import { fetchLingo, type Slang } from '@/core/api/lingo.api'
 
 const FALLBACK: Slang[] = [
@@ -16,16 +18,32 @@ const FILTERS = ['all', 'YouTube', 'TikTok', 'Instagram'] as const
 
 export default function LingoRadarPage() {
   const { openLookup, t } = useAppStore()
+  const { isAuthed, openAuth } = useAuth()
   const [f, setF] = useState<(typeof FILTERS)[number]>('all')
   const [items, setItems] = useState<Slang[]>([])
   const [source, setSource] = useState<'ai' | 'curated'>('curated')
   const [loading, setLoading] = useState(true)
+  const [err, setErr] = useState('')
 
   const load = (refresh = false) => {
+    // Làm mới tốn lượt AI nên cần đăng nhập; khách chỉ xem bản đang lưu.
+    if (refresh && !isAuthed) { openAuth(); return }
     setLoading(true)
+    setErr('')
     fetchLingo(refresh)
-      .then((r) => { setItems(r.items); setSource(r.source) })
-      .catch(() => { setItems(FALLBACK); setSource('curated') })
+      .then((r) => {
+        setItems(r.items)
+        setSource(r.source)
+        if (refresh) void refreshQuota(true)
+      })
+      .catch((e) => {
+        if (refresh && items.length) {
+          setErr((e as Error)?.message || 'Chưa làm mới được, hãy thử lại sau.')
+          return
+        }
+        setItems(FALLBACK)
+        setSource('curated')
+      })
       .finally(() => setLoading(false))
   }
 
@@ -55,6 +73,7 @@ export default function LingoRadarPage() {
         </div>
         <span className={'lingo-src ' + source}>{source === 'ai' ? t('lg.srcAi') : t('lg.srcCurated')}</span>
       </div>
+      {err && <div className="shadow-err" style={{ margin: '0 0 14px' }}><Icon name="x-circle" size={14} /> {err}</div>}
 
       {loading ? (
         <div className="center-state"><div><Spinner /><p>{t('lg.loading')}</p></div></div>
