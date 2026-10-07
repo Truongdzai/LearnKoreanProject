@@ -1,0 +1,161 @@
+// Câu điền trợ từ. Mỗi câu chỉ có đúng một phương án hợp lý trong các lựa chọn; những trợ từ khác
+// cũng đúng ngữ pháp với câu đó (vd 학교에 / 학교로 가요) thì không đưa vào lựa chọn.
+
+export type GroupId = 'place' | 'subj' | 'person' | 'ro' | 'extra' | 'shape'
+
+export interface Frame {
+  id: string
+  group: GroupId
+  ko: string
+  vi: string
+  answer: string
+  options: string[]
+  why: string
+}
+
+export const GROUPS: { id: GroupId; label: string; desc: string }[] = [
+  { id: 'place', label: '에 · 에서', desc: 'Đi đến đâu, ở đâu, làm ở đâu, lúc mấy giờ' },
+  { id: 'subj', label: '이/가 · 은/는 · 을/를', desc: 'Chủ ngữ, chủ đề, tân ngữ — và bẫy 좋다/좋아하다' },
+  { id: 'person', label: '에게 · 한테 · 에', desc: 'Cho ai, gọi cho ai, nhận từ ai' },
+  { id: 'ro', label: '(으)로', desc: 'Bằng gì, về hướng nào' },
+  { id: 'extra', label: '도 · 만 · 와/과 · 의 · 보다…', desc: 'Cũng, chỉ, và, của, hơn, từ… đến' },
+  { id: 'shape', label: '이에요/예요 · 아/야', desc: 'Đuôi "là" và cách gọi tên' },
+]
+
+export const FRAMES: Frame[] = [
+  // ── 에 / 에서 ──
+  { id: 'p01', group: 'place', ko: '저는 내일 부산___ 가요.', vi: 'Ngày mai tôi đi Busan.', answer: '에', options: ['에', '에서', '와'],
+    why: 'Nơi đến của 가다, 오다 dùng 에. 에서 là nơi một hành động diễn ra.' },
+  { id: 'p02', group: 'place', ko: '저는 도서관___ 공부해요.', vi: 'Tôi học ở thư viện.', answer: '에서', options: ['에서', '에', '를'],
+    why: '공부하다 là hành động, nơi diễn ra hành động dùng 에서. Tiếng Việt đều nói "ở" nên rất dễ nhầm sang 에.' },
+  { id: 'p03', group: 'place', ko: '책상 위___ 책이 있어요.', vi: 'Trên bàn có quyển sách.', answer: '에', options: ['에', '에서', '을'],
+    why: 'Nơi một vật tồn tại với 있다 / 없다 dùng 에.' },
+  { id: 'p04', group: 'place', ko: '카페___ 친구를 만났어요.', vi: 'Tôi đã gặp bạn ở quán cà phê.', answer: '에서', options: ['에서', '에', '이'],
+    why: '만나다 là hành động → nơi chốn + 에서.' },
+  { id: 'p05', group: 'place', ko: '아침 7시___ 일어나요.', vi: 'Tôi dậy lúc 7 giờ sáng.', answer: '에', options: ['에', '에서', '을'],
+    why: 'Mốc thời gian cụ thể (giờ, ngày, tháng) + 에.' },
+  { id: 'p06', group: 'place', ko: '주말___ 뭐 해요?', vi: 'Cuối tuần bạn làm gì?', answer: '에', options: ['에', '에서', '이'],
+    why: 'Thời gian (주말, 아침, 월요일) + 에. Riêng 오늘, 내일, 어제, 지금 thì không gắn 에.' },
+  { id: 'p07', group: 'place', ko: '오늘은 집___ 쉬어요.', vi: 'Hôm nay tôi nghỉ ở nhà.', answer: '에서', options: ['에서', '에', '을'],
+    why: '쉬다 là hành động diễn ra ở nhà → 에서.' },
+  { id: 'p08', group: 'place', ko: '저는 은행___ 일해요.', vi: 'Tôi làm việc ở ngân hàng.', answer: '에서', options: ['에서', '에', '을'],
+    why: '일하다 là hành động → nơi làm việc + 에서.' },
+  { id: 'p09', group: 'place', ko: '사과는 한 개___ 천 원이에요.', vi: 'Táo 1.000 won một quả.', answer: '에', options: ['에', '에서', '를'],
+    why: '에 sau đơn vị mang nghĩa "mỗi": 한 개에 (mỗi quả), 하루에 (mỗi ngày).' },
+  { id: 'p10', group: 'place', ko: '일주일___ 세 번 운동해요.', vi: 'Tôi tập thể dục ba lần một tuần.', answer: '에', options: ['에', '에서', '을'],
+    why: 'Tần suất "bao nhiêu lần trong một khoảng thời gian": 일주일에, 한 달에 + 에.' },
+  { id: 'p11', group: 'place', ko: '서울___ 부산까지 KTX로 두 시간 걸려요.', vi: 'Từ Seoul đến Busan đi KTX mất hai tiếng.', answer: '에서', options: ['에서', '에', '를'],
+    why: 'Điểm xuất phát "từ" một nơi chốn: 에서… 까지.' },
+
+  // ── 이/가 · 은/는 · 을/를 ──
+  { id: 's01', group: 'subj', ko: '누가 왔어요? — 민수 씨___ 왔어요.', vi: 'Ai đến vậy? — Anh Minsu đến.', answer: '가', options: ['가', '는', '를'],
+    why: 'Trả lời câu hỏi "ai" (누가) thì người đó là thông tin mới → 이/가. Dùng 는 nghe như "còn Minsu thì có đến".' },
+  { id: 's02', group: 'subj', ko: '저___ 베트남 사람이에요.', vi: 'Tôi là người Việt Nam.', answer: '는', options: ['는', '를', '에'],
+    why: 'Giới thiệu bản thân: "tôi" là chủ đề của câu → 은/는.' },
+  { id: 's03', group: 'subj', ko: '이름___ 뭐예요?', vi: 'Tên bạn là gì?', answer: '이', options: ['이', '을', '에'],
+    why: '이름 là chủ ngữ của 뭐예요 → 이 (이름 có patchim). Không phải tân ngữ nên không dùng 을.' },
+  { id: 's04', group: 'subj', ko: '저는 동생___ 있어요.', vi: 'Tôi có em.', answer: '이', options: ['이', '을', '에서'],
+    why: 'Thứ "có / không có" với 있다, 없다 đi với 이/가. Tiếng Việt nói "có em" như có tân ngữ nên người Việt hay dùng nhầm 을.' },
+  { id: 's05', group: 'subj', ko: '저는 한국 음식___ 좋아요.', vi: 'Tôi thích đồ ăn Hàn.', answer: '이', options: ['이', '을', '에'],
+    why: '좋다 là tính từ ("tốt, ưng") → thứ được thích đi với 이/가.' },
+  { id: 's06', group: 'subj', ko: '저는 한국 음식___ 좋아해요.', vi: 'Tôi thích đồ ăn Hàn.', answer: '을', options: ['을', '이', '에'],
+    why: '좋아하다 là động từ ("ưa thích") → cần tân ngữ 을/를. So với câu 좋아요 dùng 이/가.' },
+  { id: 's07', group: 'subj', ko: '머리___ 아파요.', vi: 'Tôi đau đầu.', answer: '가', options: ['가', '를', '에서'],
+    why: '아프다 là tính từ → chỗ bị đau đi với 이/가.' },
+  { id: 's08', group: 'subj', ko: '한국어___ 어려워요.', vi: 'Tiếng Hàn khó.', answer: '가', options: ['가', '를', '에'],
+    why: '어렵다 là tính từ → chủ ngữ + 이/가.' },
+  { id: 's09', group: 'subj', ko: '오늘은 시간___ 없어요.', vi: 'Hôm nay tôi không có thời gian.', answer: '이', options: ['이', '을', '에'],
+    why: '없다 đi với 이/가: 시간이 없어요.' },
+  { id: 's10', group: 'subj', ko: '저는 커피___ 필요해요.', vi: 'Tôi cần cà phê.', answer: '가', options: ['가', '를', '에'],
+    why: '필요하다 là tính từ ("cần thiết") → thứ cần đi với 이/가, không phải 를.' },
+  { id: 's11', group: 'subj', ko: '저는 의사___ 아니에요.', vi: 'Tôi không phải bác sĩ.', answer: '가', options: ['가', '를', '에'],
+    why: 'N이/가 아니다: "không phải là N".' },
+  { id: 's12', group: 'subj', ko: '언니는 의사___ 됐어요.', vi: 'Chị tôi đã trở thành bác sĩ.', answer: '가', options: ['가', '를', '에'],
+    why: 'N이/가 되다: "trở thành N". Không dùng 을/를.' },
+  { id: 's13', group: 'subj', ko: '매일 아침 빵___ 먹어요.', vi: 'Sáng nào tôi cũng ăn bánh mì.', answer: '을', options: ['을', '이', '에'],
+    why: '먹다 cần tân ngữ → 을 (빵 có patchim).' },
+  { id: 's14', group: 'subj', ko: '주말에 영화___ 봐요.', vi: 'Cuối tuần tôi xem phim.', answer: '를', options: ['를', '가', '에'],
+    why: '보다 cần tân ngữ → 를 (영화 không patchim).' },
+  { id: 's15', group: 'subj', ko: '오늘 친구___ 만나요.', vi: 'Hôm nay tôi gặp bạn.', answer: '를', options: ['를', '에', '의'],
+    why: '만나다 nhận tân ngữ trực tiếp: 친구를 만나요 (hoặc 친구와 만나요). Không nói 친구에.' },
+  { id: 's16', group: 'subj', ko: '저는 한국어___ 배워요.', vi: 'Tôi học tiếng Hàn.', answer: '를', options: ['를', '가', '에'],
+    why: '배우다 cần tân ngữ → 를.' },
+  { id: 's17', group: 'subj', ko: '저는 비___ 싫어요.', vi: 'Tôi ghét mưa.', answer: '가', options: ['가', '를', '에'],
+    why: '싫다 là tính từ → 이/가. Nếu dùng động từ 싫어하다 thì mới là 비를 싫어해요.' },
+  { id: 's18', group: 'subj', ko: '저는 고양이___ 무서워요.', vi: 'Tôi sợ mèo.', answer: '가', options: ['가', '를', '에'],
+    why: '무섭다 là tính từ → thứ đáng sợ đi với 이/가.' },
+  { id: 's19', group: 'subj', ko: '동생은 축구___ 잘해요.', vi: 'Em tôi đá bóng giỏi.', answer: '를', options: ['를', '가', '에'],
+    why: '잘하다 là động từ → môn mình giỏi là tân ngữ 을/를.' },
+  { id: 's20', group: 'subj', ko: '내일 비___ 와요.', vi: 'Ngày mai trời mưa.', answer: '가', options: ['가', '를', '에'],
+    why: '비가 오다: mưa là chủ ngữ của 오다 (đến, rơi).' },
+
+  // ── 에게 · 한테 · 에 ──
+  { id: 'r01', group: 'person', ko: '친구___ 선물을 줬어요.', vi: 'Tôi đã tặng quà cho bạn.', answer: '에게', options: ['에게', '에', '를'],
+    why: 'Người nhận là người hoặc con vật → 에게 / 한테. Cây cối, nơi chốn, tổ chức → 에.' },
+  { id: 'r02', group: 'person', ko: '회사___ 전화했어요.', vi: 'Tôi đã gọi điện cho công ty.', answer: '에', options: ['에', '에게', '를'],
+    why: 'Công ty là tổ chức, không phải người → 에.' },
+  { id: 'r03', group: 'person', ko: '엄마___ 전화했어요.', vi: 'Tôi đã gọi điện cho mẹ.', answer: '한테', options: ['한테', '에', '를'],
+    why: 'Người → 한테 (văn nói) hoặc 에게. Không dùng 에 cho người.' },
+  { id: 'r04', group: 'person', ko: '친구___ 편지를 받았어요.', vi: 'Tôi nhận được thư từ bạn.', answer: '에게서', options: ['에게서', '에서', '를'],
+    why: '"Từ" một người → 에게서 / 한테서. 에서 chỉ dùng cho nơi chốn.' },
+  { id: 'r05', group: 'person', ko: '학교___ 서류를 보냈어요.', vi: 'Tôi đã gửi giấy tờ cho nhà trường.', answer: '에', options: ['에', '에게', '을'],
+    why: 'Trường học là cơ quan, không phải người → 에.' },
+
+  // ── (으)로 ──
+  { id: 'o01', group: 'ro', ko: '지하철___ 회사에 가요.', vi: 'Tôi đi làm bằng tàu điện ngầm.', answer: '로', options: ['로', '으로', '를'],
+    why: 'Phương tiện + (으)로. 지하철 tận cùng ㄹ → 로, không thêm 으.' },
+  { id: 'o02', group: 'ro', ko: '한국 사람은 젓가락___ 먹어요.', vi: 'Người Hàn ăn bằng đũa.', answer: '으로', options: ['으로', '로', '에'],
+    why: 'Công cụ + (으)로. 젓가락 có patchim ㄱ → 으로.' },
+  { id: 'o03', group: 'ro', ko: '연필___ 써요.', vi: 'Viết bằng bút chì.', answer: '로', options: ['로', '으로', '에'],
+    why: '연필 tận cùng ㄹ → 로 (ngoại lệ của "có patchim + 으로").' },
+  { id: 'o04', group: 'ro', ko: '이 버스는 서울역___ 가요.', vi: 'Xe buýt này chạy về phía ga Seoul.', answer: '으로', options: ['으로', '로', '와'],
+    why: 'Hướng đi + (으)로. 서울역 có patchim ㄱ → 으로.' },
+  { id: 'o05', group: 'ro', ko: '오른쪽___ 가세요.', vi: 'Hãy đi về phía bên phải.', answer: '으로', options: ['으로', '로', '이'],
+    why: 'Hướng + (으)로. 쪽 có patchim ㄱ → 으로.' },
+  { id: 'o06', group: 'ro', ko: '한국어___ 말해 보세요.', vi: 'Hãy thử nói bằng tiếng Hàn.', answer: '로', options: ['로', '으로', '에'],
+    why: 'Ngôn ngữ dùng để nói + (으)로. 한국어 không patchim → 로.' },
+  { id: 'o07', group: 'ro', ko: '카드___ 계산할게요.', vi: 'Tôi thanh toán bằng thẻ.', answer: '로', options: ['로', '으로', '를'],
+    why: 'Phương thức + (으)로. 카드 không patchim → 로.' },
+
+  // ── 도 · 만 · 와/과 · 랑 · 의 · 보다 · 부터 · 까지 ──
+  { id: 'x01', group: 'extra', ko: '저___ 학생이에요.', vi: 'Tôi cũng là học sinh.', answer: '도', options: ['도', '만', '를'],
+    why: '"Cũng" → 도. 도 thay hẳn cho 은/는, 이/가, 을/를 (không nói 저는도).' },
+  { id: 'x02', group: 'extra', ko: '저는 물___ 마셔요.', vi: 'Tôi chỉ uống nước thôi.', answer: '만', options: ['만', '도', '에'],
+    why: '"Chỉ" → 만.' },
+  { id: 'x03', group: 'extra', ko: '커피___ 주세요.', vi: 'Cho tôi cả cà phê nữa.', answer: '도', options: ['도', '만', '에'],
+    why: '"Cả… nữa, cũng" → 도.' },
+  { id: 'x04', group: 'extra', ko: '빵___ 우유를 샀어요.', vi: 'Tôi đã mua bánh mì và sữa.', answer: '과', options: ['과', '와', '를'],
+    why: '빵 có patchim → 과. Ngược với 은/는: có patchim lại dùng chữ không có ㅇ.' },
+  { id: 'x05', group: 'extra', ko: '우유___ 빵을 샀어요.', vi: 'Tôi đã mua sữa và bánh mì.', answer: '와', options: ['와', '과', '를'],
+    why: '우유 không patchim → 와.' },
+  { id: 'x06', group: 'extra', ko: '친구___ 같이 영화를 봤어요.', vi: 'Tôi đã xem phim cùng bạn.', answer: '랑', options: ['랑', '이랑', '를'],
+    why: '"Cùng với" trong văn nói → (이)랑. 친구 không patchim → 랑.' },
+  { id: 'x07', group: 'extra', ko: '저는 동생___ 같이 살아요.', vi: 'Tôi sống cùng em.', answer: '이랑', options: ['이랑', '랑', '을'],
+    why: '동생 có patchim → 이랑.' },
+  { id: 'x08', group: 'extra', ko: '이것은 제 친구___ 가방이에요.', vi: 'Đây là túi của bạn tôi.', answer: '의', options: ['의', '를', '에'],
+    why: '"Của" → 의 (khi là trợ từ thường đọc là [에]).' },
+  { id: 'x09', group: 'extra', ko: '9시___ 12시까지 수업이 있어요.', vi: 'Tôi có tiết học từ 9 giờ đến 12 giờ.', answer: '부터', options: ['부터', '까지', '를'],
+    why: 'Thời gian "từ… đến…" → 부터… 까지. Với nơi chốn thì dùng 에서… 까지.' },
+  { id: 'x10', group: 'extra', ko: '금요일___ 숙제를 내세요.', vi: 'Hãy nộp bài tập muộn nhất là thứ Sáu.', answer: '까지', options: ['까지', '부터', '를'],
+    why: 'Hạn chót "đến, trước" → 까지.' },
+  { id: 'x11', group: 'extra', ko: '오늘이 어제___ 더 추워요.', vi: 'Hôm nay lạnh hơn hôm qua.', answer: '보다', options: ['보다', '에서', '를'],
+    why: 'So sánh "hơn N" → N보다 (thường đi với 더).' },
+  { id: 'x12', group: 'extra', ko: '커피___ 차 드릴까요?', vi: 'Tôi mời anh cà phê hay trà ạ?', answer: '나', options: ['나', '이나', '를'],
+    why: '"Hoặc, hay" → (이)나. 커피 không patchim → 나.' },
+  { id: 'x13', group: 'extra', ko: '주말에는 영화___ 책을 봐요.', vi: 'Cuối tuần tôi xem phim hoặc đọc sách.', answer: '나', options: ['나', '이나', '를'],
+    why: '"Hoặc" → (이)나. 영화 không patchim → 나.' },
+
+  // ── 이에요/예요 · 아/야 ──
+  { id: 'h01', group: 'shape', ko: '저는 학생___.', vi: 'Tôi là học sinh.', answer: '이에요', options: ['이에요', '예요'],
+    why: '학생 có patchim ㅇ → 이에요.' },
+  { id: 'h02', group: 'shape', ko: '이건 사과___.', vi: 'Cái này là quả táo.', answer: '예요', options: ['예요', '이에요'],
+    why: '사과 không patchim → 예요.' },
+  { id: 'h03', group: 'shape', ko: '여기가 우리 집___.', vi: 'Đây là nhà tôi.', answer: '이에요', options: ['이에요', '예요'],
+    why: '집 có patchim ㅂ → 이에요.' },
+  { id: 'h04', group: 'shape', ko: '제 이름은 마이___.', vi: 'Tên tôi là Mai.', answer: '예요', options: ['예요', '이에요'],
+    why: '마이 không patchim → 예요.' },
+  { id: 'h05', group: 'shape', ko: '민수___, 밥 먹었어?', vi: 'Minsu ơi, ăn cơm chưa?', answer: '야', options: ['야', '아'],
+    why: 'Gọi tên thân mật: tên không patchim (수) → 야.' },
+  { id: 'h06', group: 'shape', ko: '지민___, 어디 가?', vi: 'Jimin ơi, đi đâu đấy?', answer: '아', options: ['아', '야'],
+    why: 'Tên có patchim (민) → 아.' },
+]

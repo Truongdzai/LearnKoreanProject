@@ -4,12 +4,14 @@ import { useAppStore } from '@/store/app.store'
 import { VoiceNotice } from '../../english/components/PronunciationLab'
 import ConjugationLab from '../conjugate/ConjugationLab'
 import NumbersLab from '../numbers/NumbersLab'
+import ParticleLab from '../particles/ParticleLab'
 
-// Trợ từ, Ghép câu sẽ thêm vào đây khi xong và đã kiểm thử
-type Pane = 'conj' | 'number'
+// Ghép câu sẽ thêm vào đây khi xong và đã kiểm thử
+type Pane = 'conj' | 'part' | 'number'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'conj', label: 'Chia đuôi', icon: 'tool' },
+  { id: 'part', label: 'Trợ từ', icon: 'note' },
   { id: 'number', label: 'Số đếm', icon: 'chart' },
 ]
 const PANE_IDS = PANES.map((p) => p.id) as string[]
@@ -26,9 +28,9 @@ export default function GrammarLab() {
         <div>
           <b>Ngữ pháp tiếng Hàn</b>
           <p>
-            Hai chỗ người Việt vấp nhiều nhất khi bắt đầu nói: chia đuôi động từ (nhất là các nhóm bất quy tắc) và số đếm
-            (tách theo hàng vạn, hai hệ số, hàng chục lượng từ). Muốn học quy tắc ngữ pháp theo dạng đề thi thì xem 20 viên
-            ngữ pháp ở trang Luyện thi TOPIK.
+            Ba chỗ người Việt vấp nhiều nhất khi bắt đầu nói: chia đuôi động từ (nhất là các nhóm bất quy tắc), trợ từ
+            (에 hay 에서, 은/는 hay 이/가) và số đếm (tách theo hàng vạn, hai hệ số, hàng chục lượng từ). Muốn học quy tắc
+            ngữ pháp theo dạng đề thi thì xem 20 viên ngữ pháp ở trang Luyện thi TOPIK.
           </p>
           <div className="hg-actions">
             <button className="btn-ghost sm" onClick={() => setView('topik')}>
@@ -55,6 +57,7 @@ export default function GrammarLab() {
       </div>
 
       {pane === 'conj' && <ConjugationLab />}
+      {pane === 'part' && <ParticleLab />}
       {pane === 'number' && <NumbersLab />}
     </div>
   )
