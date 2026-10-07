@@ -17,14 +17,14 @@ import { clearUrlParams, useTabParam } from '@/core/hooks/useTabParam'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
-const HanVietLab = lazyPage(() => import('./hanviet/HanVietLab'))
+const PinyinLab = lazyPage(() => import('./pinyin/PinyinLab'))
 
-type Tab = 'program' | 'learn' | 'hanviet' | 'pron' | 'quiz'
+type Tab = 'program' | 'pinyin' | 'learn' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
+  { id: 'pinyin', label: 'Pinyin', icon: 'letters' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
-  { id: 'hanviet', label: 'Hán–Việt', icon: 'letters' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
 ]
@@ -142,9 +142,9 @@ export default function ChinesePage() {
         {tab === 'program' && (
           <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
         )}
-        {tab === 'hanviet' && (
+        {tab === 'pinyin' && (
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>
-            <HanVietLab />
+            <PinyinLab />
           </Suspense>
         )}
         {tab === 'learn' && (
