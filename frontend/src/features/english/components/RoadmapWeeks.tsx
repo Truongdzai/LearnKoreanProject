@@ -235,7 +235,8 @@ export default function RoadmapWeeks({
 
       {allDone && (
         <div className="enroad-grad">
-          <b>Chúc mừng — bạn đã hoàn thành lộ trình 3 tháng!</b> Hãy xuất bộ từ của mình ở tab Tóm tắt và duy trì ôn SRS mỗi tuần để không rơi rớt.
+          <b>Chúc mừng — bạn đã hoàn thành lộ trình 3 tháng!</b>{' '}
+          {onSummary ? 'Hãy xuất bộ từ của mình ở tab Tóm tắt và duy trì' : 'Hãy duy trì'} ôn SRS mỗi tuần để không rơi rớt.
         </div>
       )}
 
