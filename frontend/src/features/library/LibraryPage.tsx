@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { videoUrl } from '@/data/videos'
 import { getToken } from '@/core/api/client'
 import { fetchFit, type FitScore } from '@/core/api/tutor.api'
@@ -8,6 +8,7 @@ import FilterMenu, { type FilterOption } from './components/FilterMenu'
 import Icon from '@/core/components/Icon'
 import { useReveal } from '@/core/hooks/useReveal'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
 import { VIDEO_TOPICS } from '@/core/constants/topics'
 import type { Video } from '@/models/video.model'
 
@@ -25,6 +26,7 @@ const FIT_DELAY_MS = 500
 
 export default function LibraryPage() {
   const { loadLesson, videos, learnLang, t, learnLangName, savedVideos, saveVideo, removeVideo } = useAppStore()
+  const { isAuthed, openAuth } = useAuth()
   const [level, setLevel] = useState<string>('all')
   const [length, setLength] = useState<string>('all')
   const [query, setQuery] = useState('')
@@ -76,10 +78,24 @@ export default function LibraryPage() {
     loadLesson(videoUrl(v.id), { lang: v.lang || learnLang, video: v })
   }
 
-  const toggleSave = (v: Video) => {
-    if (savedIds.has(v.id)) removeVideo(v.id)
-    else saveVideo(v)
+  const [saveErr, setSaveErr] = useState('')
+  const saveErrRef = useRef<HTMLDivElement>(null)
+
+  const toggleSave = async (v: Video) => {
+    if (!isAuthed) { openAuth(); return }
+    setSaveErr('')
+    try {
+      if (savedIds.has(v.id)) await removeVideo(v.id)
+      else await saveVideo(v)
+    } catch (e) {
+      setSaveErr((e as Error).message)
+    }
   }
+
+  // Nút lưu có thể nằm sâu dưới lưới: cuộn tới thông báo lỗi (vd. hết hạn mức gói Miễn phí) để không bị lỡ
+  useEffect(() => {
+    if (saveErr) saveErrRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [saveErr])
 
   const reset = () => { setLevel('all'); setLength('all'); setQuery(''); setTopic('') }
 
@@ -181,6 +197,12 @@ export default function LibraryPage() {
               </div>
             )}
           </div>
+
+          {saveErr && (
+            <div className="maker-status err" role="alert" ref={saveErrRef}>
+              <Icon name="x-circle" size={15} /> {saveErr}
+            </div>
+          )}
 
           {list.length === 0 ? (
             <div className="empty" style={{ marginTop: 8 }}>

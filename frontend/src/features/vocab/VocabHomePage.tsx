@@ -132,7 +132,7 @@ export default function VocabHomePage() {
         <div className="guest-deck-note">
           <Icon name="cards" size={15} />
           <span>{t('vc.guestDeck', { n: guestCount })}</span>
-          <button type="button" className="btn-primary sm" onClick={openAuth}>{t('vc.guestDeckCta')}</button>
+          <button type="button" className="btn-primary sm" onClick={() => openAuth('signup')}>{t('vc.guestDeckCta')}</button>
         </div>
       )}
 

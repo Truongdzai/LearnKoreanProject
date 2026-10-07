@@ -18,7 +18,7 @@ import { useMissBook } from '@/core/missBook'
 import { useLessonProgress, lessonStat } from '@/core/lessonProgress'
 import { useAppStore } from '@/store/app.store'
 import { studyLang } from '@/core/constants/languages'
-import { playRange, refDuration, segEnd } from '../segments'
+import { playRange, refSpan, speakableSegments, timedSegments } from '../segments'
 import ProsodyCard from './ProsodyCard'
 import TranscriptRail from './TranscriptRail'
 import type { Lesson } from '@/models/lesson.model'
@@ -46,7 +46,11 @@ function loadRate(): number {
 export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const { recordEvent, learnLang, nativeLang, t } = useAppStore()
   const cfg = studyLang(learnLang)
-  const segs = lesson.segments
+  // Bỏ dòng [Music]/♪ như Chép chính tả; video toàn nhạc thì giữ nguyên để không rỗng
+  const segs = useMemo(() => {
+    const sp = speakableSegments(lesson.segments)
+    return sp.length ? sp : timedSegments(lesson.segments)
+  }, [lesson.segments])
   const [i, setI] = useState(0)
   const [score, setScore] = useState<number | null>(null)
   const [heard, setHeard] = useState('')
@@ -142,7 +146,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
         if (now >= segs[from].start - 0.4) entered = true
         return
       }
-      if (now >= segEnd(segs, from) - 0.06) stopOriginal()
+      if (now >= segs[from].end - 0.06) stopOriginal()
     }, 120)
   }, [yt, segs, stopOriginal])
 
@@ -158,7 +162,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
   const playLine = useCallback((idx: number, r = rate) => {
     stopOriginal()
     setPlaying(true)
-    cancelPlay.current = playRange(yt, segs[idx].start, segEnd(segs, idx), {
+    cancelPlay.current = playRange(yt, segs[idx].start, segs[idx].end, {
       times: 1, rate: r, onEnd: stopOriginal,
     })
   }, [yt, rate, segs, stopOriginal])
@@ -230,7 +234,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     const ok = await clip.start((data) => { setMyClip(data); stopOriginal() })
     if (!ok) { setMicErr(t('sh.micFail')); return }
     setPlaying(true)
-    cancelPlay.current = playRange(yt, cur.start, segEnd(segs, i), { times: 1, rate, onEnd: stopOriginal })
+    cancelPlay.current = playRange(yt, cur.start, cur.end, { times: 1, rate, onEnd: stopOriginal })
   }
 
   const applyResult = useCallback(async (said: string, heardAlts: string[]) => {
@@ -243,7 +247,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     setAlts(heardAlts)
     setScore(g.score)
     skills.record('speak', g.score)
-    prog.record('speak', lesson.id, i, g.score, segs.length, lesson.title)
+    prog.record('speak', lesson.id, cur.idx, g.score, segs.length, lesson.title)
     const bad = missedWords(g)
     if (bad.length) {
       missBook.add(bad.map((w) => ({ w, ctx: cur.ko, vi: cur.vi || '', lang: learnLang, k: 'speak' as const })))
@@ -252,12 +256,12 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
       recordEvent('pronounce', 1)
       setRewarded((r) => new Set(r).add(i))
     }
-  }, [learnLang, ph, skills, prog, lesson.id, lesson.title, i, segs.length, missBook, cur.ko, cur.vi, rewarded, recordEvent])
+  }, [learnLang, ph, skills, prog, lesson.id, lesson.title, i, segs.length, missBook, cur.ko, cur.vi, cur.idx, rewarded, recordEvent])
 
   const discardAttempt = () => {
     if (score === null) return
     skills.undo('speak', score)
-    prog.drop('speak', lesson.id, i)
+    prog.drop('speak', lesson.id, cur.idx)
     missBook.undo(
       missedWords(grade).map((w) => ({ w, lang: learnLang, k: 'speak' as const })),
     )
@@ -290,7 +294,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     const spoken = sr.words
     if (score === null || spoken.length < 2) return null
     const mine = spoken[spoken.length - 1].end - spoken[0].start
-    const original = Math.max(0.6, segEnd(segs, i) - cur.start)
+    const original = Math.max(0.6, cur.end - cur.start)
     if (!(mine > 0)) return null
     const gaps = spoken.slice(1).map((w, k) => w.start - spoken[k].end)
     const longest = gaps.length ? Math.max(...gaps) : 0
@@ -301,7 +305,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
       longestGap: longest,
       slowWord: slowest.end - slowest.start >= 0.55 ? slowest.word.trim() : '',
     }
-  }, [sr.words, score, segs, i, cur.start])
+  }, [sr.words, score, cur.start, cur.end])
 
   const hardErrors = grade.words.filter(
     (w) => (w.state === 'wrong' || w.state === 'missing') && !w.unsure,
@@ -343,7 +347,16 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
     ? null
     : scoreBand(hardErrors >= 2 ? Math.min(shown, 60) : hardErrors === 1 ? Math.min(shown, 80) : shown)
   const missed = useMemo(() => missedWords(grade), [grade])
-  const scores = prog.scoresOf('speak', lesson.id)
+  const rawScores = prog.scoresOf('speak', lesson.id)
+  // Điểm lưu theo chỉ số gốc; đổi sang vị trí trong danh sách đã lọc cho rail/thống kê
+  const scores = useMemo(() => {
+    const out: Record<string, number> = {}
+    segs.forEach((s, k) => {
+      const v = rawScores[String(s.idx)]
+      if (v != null) out[String(k)] = v
+    })
+    return out
+  }, [rawScores, segs])
   const stat = lessonStat(scores, segs.length, PASS)
 
   const saveMissed = async () => {
@@ -664,7 +677,7 @@ export default function ShadowingPractice({ lesson }: { lesson: Lesson }) {
             )}
 
             {mode === 'repeat' && myClip && (
-              <ProsodyCard clip={myClip} refSec={refDuration(segs, i)} text={cur.ko} lang={learnLang} />
+              <ProsodyCard clip={myClip} refSec={refSpan(cur.start, cur.end)} text={cur.ko} lang={learnLang} />
             )}
 
             <div className="sh2-legend">

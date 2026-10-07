@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react'
 import { fetchDue, reviewCard } from '@/core/api/srs.api'
 import type { SrsCard, SrsStats, SrsRating } from '@/models/srs.model'
 import Spinner from '@/core/components/Spinner'
 import Icon from '@/core/components/Icon'
 import { MatchGame, ListenGame, DailyChallenge, useGameCards, dailyDone } from './MiniGames'
 import { useAppStore } from '@/store/app.store'
+import { useAuth } from '@/store/auth.store'
 import { takeReviewDeck } from '@/core/reviewDeck'
+import { readGuestDeck, schedule, subscribeGuestDeck } from '@/core/guestDeck'
 
 const RATES: { r: SrsRating; label: string; cls: string; key: string }[] = [
   { r: 1, label: 'rv.again', cls: 'again', key: '1' },
@@ -17,12 +19,7 @@ const RATES: { r: SrsRating; label: string; cls: string; key: string }[] = [
 type T = (key: string, params?: Record<string, string | number>) => string
 
 function hint(card: SrsCard, rating: SrsRating, t: T): string {
-  const { reps, ivl, ease } = card
-  let d = 0
-  if (rating === 1) d = 0
-  else if (rating === 2) d = Math.max(1, Math.round((ivl || 1) * 1.2))
-  else if (rating === 4) d = reps === 0 ? 4 : Math.max(1, Math.round(ivl * ease * 1.3))
-  else d = reps === 0 ? 1 : reps === 1 ? 6 : Math.max(1, Math.round(ivl * ease))
+  const d = schedule(card.reps, card.ivl, card.ease, rating)[1]
   if (d === 0) return t('rv.soon')
   if (d === 1) return t('rv.day1')
   if (d < 30) return t('rv.days', { n: d })
@@ -38,7 +35,10 @@ function deckLabel(source: string): string {
 
 export default function ReviewPage() {
   const { t, learnLang, learnLangName, recordEvent } = useAppStore()
+  const { isAuthed, openAuth } = useAuth()
+  const guestCount = useSyncExternalStore(subscribeGuestDeck, () => readGuestDeck().length, () => 0)
   const [loading, setLoading] = useState(true)
+  const [loadErr, setLoadErr] = useState<string | null>(null)
   const [queue, setQueue] = useState<SrsCard[]>([])
   const [i, setI] = useState(0)
   const [revealed, setRevealed] = useState(false)
@@ -57,6 +57,9 @@ export default function ReviewPage() {
       setI(0)
       setRevealed(false)
       setSaveErr('')
+      setLoadErr(null)
+    } catch (e) {
+      setLoadErr((e as Error).message || '')
     } finally {
       setLoading(false)
     }
@@ -67,8 +70,8 @@ export default function ReviewPage() {
   }, [load])
 
   useEffect(() => {
-    if (deck && !loading && !queue.some((c) => (c.source || '').trim() === deck)) setDeck('')
-  }, [deck, loading, queue])
+    if (deck && !loading && loadErr === null && !queue.some((c) => (c.source || '').trim() === deck)) setDeck('')
+  }, [deck, loading, loadErr, queue])
 
   const decks = useMemo(() => {
     const by = new Map<string, number>()
@@ -90,7 +93,8 @@ export default function ReviewPage() {
     setRevealed(false)
   }
 
-  const card = view[i]
+  // tải lại lỗi thì không để phím tắt chấm thẻ cũ đang bị ẩn
+  const card = loadErr === null ? view[i] : undefined
 
   const rate = useCallback(
     async (rating: SrsRating) => {
@@ -99,7 +103,9 @@ export default function ReviewPage() {
       setRevealed(false)
       setQueue((q) => (rating === 1 ? [...q, card] : q))
       try {
-        await reviewCard(card.id, rating)
+        const upd = await reviewCard(card, rating)
+        // thẻ "Lại" quay về cuối hàng phải mang lịch mới, nếu không gợi ý khoảng ôn sẽ sai
+        if (rating === 1) setQueue((q) => q.map((c) => (c === card ? upd : c)))
         setSaveErr('')
         recordEvent('review', 1)
         setStats((st) => (st
@@ -174,7 +180,15 @@ export default function ReviewPage() {
         </dl>
       )}
 
-      {saveErr && (
+      {!isAuthed && guestCount > 0 && (
+        <div className="guest-deck-note">
+          <Icon name="cards" size={15} />
+          <span>{t('vc.guestDeck', { n: guestCount })}</span>
+          <button type="button" className="btn-primary sm" onClick={() => openAuth('signup')}>{t('vc.guestDeckCta')}</button>
+        </div>
+      )}
+
+      {saveErr && loadErr === null && (
         <div className="rv-saveerr">
           <Icon name="x-circle" size={14} /> {saveErr}
           <button className="btn-ghost sm" onClick={load}><Icon name="refresh" size={13} /> {t('rv.reload')}</button>
@@ -201,6 +215,13 @@ export default function ReviewPage() {
         <ListenGame cards={gameCards} onExit={() => setMode('cards')} />
       ) : mode === 'daily' ? (
         <DailyChallenge cards={gameCards} onExit={() => setMode('cards')} />
+      ) : loadErr !== null ? (
+        <div className="soon" style={{ marginTop: 18 }}>
+          <div className="big"><Icon name="frown" /></div>
+          <h3>{t('mc.errLoad')}</h3>
+          {loadErr && <p>{loadErr}</p>}
+          <button className="btn-primary sm" onClick={load}><Icon name="refresh" size={14} /> {t('rv.reload')}</button>
+        </div>
       ) : done ? (
         <div className="soon" style={{ marginTop: 18 }}>
           <div className="big"><Icon name={stats && stats.total === 0 ? 'cards' : 'party'} /></div>

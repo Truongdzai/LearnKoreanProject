@@ -28,6 +28,18 @@ const TABS: { id: LearnTab; ic: IconName; label: string }[] = [
 ]
 const TAB_IDS = TABS.map((t) => t.id)
 
+// Bằng MAX_SOURCE ở backend/routers/srs.py: dài hơn là /api/srs/add trả 422
+const SOURCE_MAX = 80
+
+function cardSource(title: string | null | undefined, id: string): string {
+  const tag = ' (youtube:' + id + ')'
+  // Cắt theo ký tự (không theo UTF-16) để không tách đôi emoji
+  const chars = Array.from((title || '').trim())
+  const room = SOURCE_MAX - tag.length
+  const head = chars.length <= room ? chars.join('') : chars.slice(0, Math.max(0, room - 1)).join('').trimEnd() + '…'
+  return head + tag
+}
+
 export default function LearnPage() {
   const { lesson, status, statusError, setView, t, learnLang, learnLangName } = useAppStore()
   const [tab, setTab] = useTabParam<LearnTab>(TAB_IDS, 'shadowing')
@@ -103,7 +115,7 @@ export default function LearnPage() {
   }
 
   const cur = active >= 0 ? lesson.segments[active] : lesson.segments[0]
-  const source = lesson.title + ' (youtube:' + lesson.id + ')'
+  const source = cardSource(lesson.title, lesson.id)
 
   return (
     <>

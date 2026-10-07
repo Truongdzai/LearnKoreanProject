@@ -1,7 +1,9 @@
 import { apiClient, getToken } from './client'
 import { track } from '@/core/monitor'
 import { getLearnLang } from '@/core/lang'
-import { addGuestCard, clearGuestDeck, guestCardsAsSrs, readGuestDeck, removeGuestCard } from '@/core/guestDeck'
+import {
+  addGuestCard, clearGuestDeck, guestCardsAsSrs, guestStats, readGuestDeck, removeGuestCard, reviewGuestCard,
+} from '@/core/guestDeck'
 import type { SrsCard, DueResponse, SrsStats, SrsRating, AllCardsResponse } from '@/models/srs.model'
 
 export interface AddCardPayload {
@@ -12,11 +14,6 @@ export interface AddCardPayload {
 }
 
 const scope = (lang?: string) => (lang === 'all' ? 'all' : lang || getLearnLang())
-
-function guestStats(lang?: string): SrsStats {
-  const cards = guestCardsAsSrs(scope(lang))
-  return { total: cards.length, due: cards.length, new: cards.length, learned: 0, reviewed_today: 0 }
-}
 
 export const addCard = (payload: AddCardPayload): Promise<SrsCard> => {
   const lang = payload.lang || getLearnLang()
@@ -41,7 +38,7 @@ export const addCard = (payload: AddCardPayload): Promise<SrsCard> => {
 
 export const fetchDue = (lang?: string): Promise<DueResponse> => {
   if (!getToken()) {
-    return Promise.resolve({ cards: guestCardsAsSrs(scope(lang)), ...guestStats(lang) })
+    return Promise.resolve({ cards: guestCardsAsSrs(scope(lang), true), ...guestStats(scope(lang)) })
   }
   return apiClient.get<DueResponse>(`/api/srs/due?lang=${encodeURIComponent(scope(lang))}`)
 }
@@ -55,11 +52,19 @@ export const fetchAllCards = (lang?: string): Promise<AllCardsResponse> => {
   return apiClient.get<AllCardsResponse>(`/api/srs/all?lang=${encodeURIComponent(scope(lang))}`)
 }
 
-export const reviewCard = (card_id: number, rating: SrsRating) =>
-  apiClient.post<SrsCard>('/api/srs/review', { card_id, rating }).then((card) => {
-    track('srs_review', { rating, lang: card.lang })
-    return card
+export const reviewCard = (card: SrsCard, rating: SrsRating): Promise<SrsCard> => {
+  // thẻ khách (id âm) chỉ nằm trên máy — xếp lịch tại chỗ, máy chủ sẽ trả SIGNUP_REQUIRED
+  if (card.id < 0) {
+    const saved = reviewGuestCard(card.front, card.lang, rating)
+    if (!saved) return Promise.reject(new Error('Không tìm thấy thẻ'))
+    track('srs_review', { rating, lang: saved.lang, guest: true })
+    return Promise.resolve(saved)
+  }
+  return apiClient.post<SrsCard>('/api/srs/review', { card_id: card.id, rating }).then((upd) => {
+    track('srs_review', { rating, lang: upd.lang })
+    return upd
   })
+}
 
 export const deleteCard = (card: SrsCard): Promise<{ ok: boolean; deleted: number }> => {
   if (!getToken() || card.id < 0) {
@@ -76,7 +81,7 @@ export const deleteDeck = (source: string, lang?: string): Promise<{ ok: boolean
   apiClient.post<{ ok: boolean; deleted: number }>('/api/srs/deck/delete', { source, lang: scope(lang) })
 
 export const fetchStats = (lang?: string): Promise<SrsStats> => {
-  if (!getToken()) return Promise.resolve(guestStats(lang))
+  if (!getToken()) return Promise.resolve(guestStats(scope(lang)))
   return apiClient.get<SrsStats>(`/api/srs/stats?lang=${encodeURIComponent(scope(lang))}`)
 }
 
