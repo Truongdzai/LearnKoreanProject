@@ -83,7 +83,7 @@ const hsk = (week: number, label: string) => ({
 
 
 const lab = (week: number, key: LabKey, modes: string[], label: string, passPct = 80) => ({
-  id: `zw${week}-lab`,
+  id: `zw${week}-${key}`,
   kind: 'lab' as const,
   lab: key,
   modes,
@@ -126,6 +126,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(2, 3, 'zh-measure'),
       pron(2, 'zh-tone-2-3'),
       lab(2, 'zhpinyin', ['type'], 'Phòng Pinyin: gõ pinyin kiểu số đúng từ 70% (≥ 10 từ)', 70),
+      lab(2, 'zhnumbers', ['count'], 'Số đếm: lượng từ + 两 (两个, 两本…) đạt 80%'),
       quiz(2),
       bank(2, 72),
       video(2, 2),
@@ -169,6 +170,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(4, 1, 'zh-time'),
       vocab(4, 2, 'zh-places'),
       pron(4, 'zh-jqx'),
+      lab(4, 'zhnumbers', ['mixed'], 'Số đếm: giờ, ngày, thứ, tuổi, số điện thoại đạt 80%'),
       quiz(4),
       bank(4, 120),
       speak(4, 'hẹn bạn đi chơi cuối tuần'),
@@ -214,6 +216,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(6, 1, 'zh-shopping'),
       vocab(6, 2, 'zh-money'),
       pron(6, 'zh-n-ng'),
+      lab(6, 'zhnumbers', ['price'], 'Số đếm: đọc giá tiền (万, 零, 块 · 毛 · 分) đạt 80%'),
       quiz(6),
       bank(6, 168),
       speak(6, 'mặc cả khi mua đồ ở chợ'),

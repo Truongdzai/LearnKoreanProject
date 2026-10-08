@@ -66,7 +66,7 @@ const speak = (week: number, topic: string) => ({
 
 
 const lab = (week: number, key: LabKey, modes: string[], label: string, passPct = 80) => ({
-  id: `kw${week}-lab`,
+  id: `kw${week}-${key}`,
   kind: 'lab' as const,
   lab: key,
   modes,

@@ -20,13 +20,15 @@ import Spinner from '@/core/components/Spinner'
 
 const PinyinLab = lazyPage(() => import('./pinyin/PinyinLab'))
 const HanVietLab = lazyPage(() => import('./hanviet/HanVietLab'))
+const ZhNumbersLab = lazyPage(() => import('./numbers/NumbersLab'))
 
-type Tab = 'program' | 'pinyin' | 'hanviet' | 'learn' | 'pron' | 'quiz'
+type Tab = 'program' | 'pinyin' | 'hanviet' | 'numbers' | 'learn' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'pinyin', label: 'Pinyin', icon: 'letters' },
   { id: 'hanviet', label: 'Hán–Việt', icon: 'globe' },
+  { id: 'numbers', label: 'Số đếm', icon: 'chart' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
@@ -66,6 +68,11 @@ export default function ChinesePage() {
     if (lab === 'zhhanviet') {
       setUrlParam('pane', 'drill')
       setTab('hanviet')
+      return
+    }
+    if (lab === 'zhnumbers') {
+      setUrlParam('pane', null)
+      setTab('numbers')
       return
     }
     setUrlParam('pane', mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null)
@@ -164,6 +171,11 @@ export default function ChinesePage() {
         {tab === 'hanviet' && (
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>
             <HanVietLab />
+          </Suspense>
+        )}
+        {tab === 'numbers' && (
+          <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+            <ZhNumbersLab />
           </Suspense>
         )}
         {tab === 'learn' && (
