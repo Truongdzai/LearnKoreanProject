@@ -21,14 +21,16 @@ import Spinner from '@/core/components/Spinner'
 const PinyinLab = lazyPage(() => import('./pinyin/PinyinLab'))
 const HanVietLab = lazyPage(() => import('./hanviet/HanVietLab'))
 const ZhNumbersLab = lazyPage(() => import('./numbers/NumbersLab'))
+const ZhSentenceBuilder = lazyPage(() => import('./builder/SentenceBuilder'))
 
-type Tab = 'program' | 'pinyin' | 'hanviet' | 'numbers' | 'learn' | 'pron' | 'quiz'
+type Tab = 'program' | 'pinyin' | 'hanviet' | 'numbers' | 'order' | 'learn' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
   { id: 'pinyin', label: 'Pinyin', icon: 'letters' },
   { id: 'hanviet', label: 'Hán–Việt', icon: 'globe' },
   { id: 'numbers', label: 'Số đếm', icon: 'chart' },
+  { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
@@ -73,6 +75,11 @@ export default function ChinesePage() {
     if (lab === 'zhnumbers') {
       setUrlParam('pane', null)
       setTab('numbers')
+      return
+    }
+    if (lab === 'zhorder') {
+      setUrlParam('pane', null)
+      setTab('order')
       return
     }
     setUrlParam('pane', mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null)
@@ -176,6 +183,11 @@ export default function ChinesePage() {
         {tab === 'numbers' && (
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>
             <ZhNumbersLab />
+          </Suspense>
+        )}
+        {tab === 'order' && (
+          <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+            <ZhSentenceBuilder />
           </Suspense>
         )}
         {tab === 'learn' && (
