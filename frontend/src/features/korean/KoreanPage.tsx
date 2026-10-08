@@ -11,7 +11,8 @@ import KoreanRoadmap from './KoreanRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
-import { clearUrlParams, useTabParam } from '@/core/hooks/useTabParam'
+import { clearUrlParams, setUrlParam, useTabParam } from '@/core/hooks/useTabParam'
+import type { LabKey } from '@/core/labScores'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
@@ -55,6 +56,20 @@ export default function KoreanPage() {
   const openQuiz = (week: number, units: string[], pass: number) => {
     setWeekQuiz({ week, units, pass })
     setTab('quiz')
+  }
+
+  // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
+  const openLab = (lab: LabKey) => {
+    const target: Record<string, [Tab, string | null]> = {
+      kohangul: ['hangul', null],
+      konumbers: ['grammar', 'number'],
+      koconj: ['grammar', null],
+      kopart: ['grammar', 'part'],
+      koorder: ['grammar', 'order'],
+    }
+    const [t, pane] = target[lab] ?? ['grammar', null]
+    setUrlParam('pane', pane)
+    setTab(t)
   }
 
   const pickTab = (t: Tab) => {
@@ -115,7 +130,7 @@ export default function KoreanPage() {
 
       <div {...tabs.panel(tab)}>
       {tab === 'program' && (
-        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onHangul={() => pickTab('hangul')} />
+        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onHangul={() => pickTab('hangul')} onLab={openLab} />
       )}
       {tab === 'hangul' && (
         <Suspense fallback={<div className="center-state"><Spinner /></div>}>

@@ -6,6 +6,7 @@ import { KO_PRON_GROUPS } from '@/data/koreanPronunciation'
 import { speakKO } from '@/core/tts'
 import { useLearnedWords, usePlan, planDay } from '../english/progress'
 import RoadmapWeeks from '../english/components/RoadmapWeeks'
+import type { LabKey } from '@/core/labScores'
 
 const STEPS = [
   { k: 'Tháng 1', vi: 'Nền móng', tone: 'tone-a', desc: 'Chào hỏi, gia đình, từ để hỏi, động từ gốc, thời gian và hai hệ số đếm — đủ để mở lời và hỏi được điều mình cần.' },
@@ -19,9 +20,10 @@ interface Props {
   onQuiz: (week: number, units: string[], pass: number) => void
   onPron: (groupId?: string) => void
   onHangul: () => void
+  onLab: (lab: LabKey, mode?: string) => void
 }
 
-export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHangul }: Props) {
+export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHangul, onLab }: Props) {
   const { learned } = useLearnedWords('ko')
   const { plan } = usePlan('ko')
   const day = Math.min(planDay(plan.start), 90)
@@ -55,6 +57,7 @@ export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHang
         onLearn={onLearn}
         onQuiz={onQuiz}
         onPron={onPron}
+        onLab={onLab}
         pronGroups={KO_PRON_GROUPS}
       />
 

@@ -43,7 +43,7 @@ function push(planId: string, data: unknown, keepalive = false): void {
 }
 
 // queued phòng khi localStorage không ghi được cờ
-const hasUnsaved = (planId: string) => isDirty(planId) || queued.has(planId)
+export const hasUnsaved = (planId: string) => isDirty(planId) || queued.has(planId)
 
 function flushAll(): void {
   queued.forEach(({ timer, data }, planId) => {

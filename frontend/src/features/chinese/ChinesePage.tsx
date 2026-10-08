@@ -13,7 +13,8 @@ import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
 import { HSK_BANK } from '@/data/hskCore'
-import { clearUrlParams, useTabParam } from '@/core/hooks/useTabParam'
+import { clearUrlParams, setUrlParam, useTabParam } from '@/core/hooks/useTabParam'
+import type { LabKey } from '@/core/labScores'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
@@ -58,6 +59,17 @@ export default function ChinesePage() {
   const openQuiz = (week: number, units: string[], pass: number) => {
     setWeekQuiz({ week, units, pass })
     setTab('quiz')
+  }
+
+  // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
+  const openLab = (lab: LabKey, mode?: string) => {
+    if (lab === 'zhhanviet') {
+      setUrlParam('pane', 'drill')
+      setTab('hanviet')
+      return
+    }
+    setUrlParam('pane', mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null)
+    setTab('pinyin')
   }
 
   const pickTab = (t: Tab) => {
@@ -142,7 +154,7 @@ export default function ChinesePage() {
 
       <div {...tabs.panel(tab)}>
         {tab === 'program' && (
-          <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
+          <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onLab={openLab} />
         )}
         {tab === 'pinyin' && (
           <Suspense fallback={<div className="center-state"><Spinner /></div>}>

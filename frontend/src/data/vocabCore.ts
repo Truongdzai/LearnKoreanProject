@@ -1,3 +1,4 @@
+import type { LabKey } from '@/core/labScores'
 export type WordPos = 'noun' | 'verb' | 'adj' | 'question' | 'phrase' | 'adverb' | 'prep'
 
 export interface IcesWord {
@@ -72,7 +73,7 @@ const LANG_VI: Record<string, string> = {
 
 export const langLabel = (lang: string): string => LANG_VI[lang] ?? 'ngoại ngữ'
 
-export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron' | 'deep' | 'active'
+export type WeekTaskKind = 'vocab' | 'total' | 'quiz' | 'video' | 'speak' | 'review' | 'custom' | 'grammar' | 'toeic' | 'pron' | 'deep' | 'active' | 'lab'
 
 export type WeekTaskGo = 'learn' | 'quiz' | 'library' | 'speaking' | 'flashcards' | 'vocab' | 'summary' | 'hsk' | 'deep' | 'active' | null
 
@@ -88,6 +89,9 @@ export interface WeekTask {
   go?: WeekTaskGo
   lessonId?: string
   groupId?: string
+  // Nhiệm vụ phòng luyện: đạt passPct ở mọi chế độ trong modes
+  lab?: LabKey
+  modes?: string[]
 }
 
 export interface SentencePattern {

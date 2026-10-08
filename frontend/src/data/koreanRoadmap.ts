@@ -3,6 +3,8 @@ import { type WeekPlan } from './vocabCore'
 import { KO_UNITS } from './koreanCore'
 import { KO_PRON_GROUPS } from './koreanPronunciation'
 import { PRON_PASS } from './englishPronunciation'
+import type { LabKey } from '@/core/labScores'
+import { HANGUL_LESSONS } from './koreanHangul'
 
 export const KO_TARGET_WORDS = 800
 
@@ -62,6 +64,16 @@ const speak = (week: number, topic: string) => ({
   label: `Luyện nói 1 buổi với AI: ${topic}`,
 })
 
+
+const lab = (week: number, key: LabKey, modes: string[], label: string, passPct = 80) => ({
+  id: `kw${week}-lab`,
+  kind: 'lab' as const,
+  lab: key,
+  modes,
+  passPct,
+  label,
+})
+
 export const KO_PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 1, month: 1, phase: 'Compress', title: 'Chào hỏi & gia đình',
@@ -75,6 +87,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(1, 4, 'particles'),
       vocab(1, 5, 'social'),
       pron(1, 'ko-aspirate'),
+      lab(1, 'kohangul', ['v1', 'c1', 'c2'], 'Phòng Hangul: đạt 3 bài đầu (6 nguyên âm gốc, phụ âm nhóm 1–2)'),
       quiz(1),
       bank(1, 60),
       video(1, 2),
@@ -98,6 +111,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(2, 4, 'conj2'),
       vocab(2, 5, 'street'),
       pron(2, 'ko-tense'),
+      lab(2, 'kohangul', HANGUL_LESSONS.map((l) => l.id), `Phòng Hangul: đạt cả ${HANGUL_LESSONS.length} bài — tự đọc được mọi âm tiết`),
       quiz(2),
       bank(2, 120),
       video(2, 2),
@@ -121,6 +135,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(3, 4, 'hada'),
       vocab(3, 5, 'taste'),
       pron(3, 'ko-eo-o'),
+      lab(3, 'koconj', ['present', 'past', 'formal'], 'Chia đuôi: vững 3 đuôi cơ bản -아요/어요, -았어요/었어요, -(스)ㅂ니다'),
       quiz(3),
       bank(3, 180),
       speak(3, 'gọi món ở quán ăn Hàn'),
@@ -145,6 +160,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(4, 5, 'order'),
       vocab(4, 6, 'daily2'),
       pron(4, 'ko-eu-u'),
+      lab(4, 'konumbers', ['price', 'count', 'mixed'], 'Số đếm: đạt 80% ở Đọc giá, Đếm đồ vật, Giờ · ngày · tuổi'),
       quiz(4),
       bank(4, 250, ' — chốt tháng 1'),
       video(4, 2),
@@ -167,6 +183,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(5, 4, 'body2'),
       vocab(5, 5, 'feeling2'),
       pron(5, 'ko-e-ae'),
+      lab(5, 'kopart', ['form'], 'Trợ từ: gắn đúng dạng theo patchim (은/는, 이/가, 을/를…) đạt 80%'),
       quiz(5),
       bank(5, 310),
       video(5, 2),
@@ -190,6 +207,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(6, 4, 'house2'),
       vocab(6, 5, 'irregular'),
       pron(6, 'ko-batchim-stop'),
+      lab(6, 'koorder', ['easy'], 'Ghép câu: cấp Câu ngắn đạt 80%'),
       quiz(6),
       bank(6, 370),
       video(6, 2),
@@ -213,6 +231,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(7, 4, 'nature'),
       vocab(7, 5, 'safety'),
       pron(7, 'ko-batchim-nasal'),
+      lab(7, 'kopart', ['frame'], 'Trợ từ: chọn đúng trợ từ trong câu (에 · 에서 · 은/는 · 이/가…) đạt 80%'),
       quiz(7),
       bank(7, 430),
       speak(7, 'hỏi đường tới một địa điểm'),
@@ -237,6 +256,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(8, 5, 'event'),
       vocab(8, 6, 'media'),
       pron(8, 'ko-batchim-l'),
+      lab(8, 'koconj', ['future', 'neg', 'seo'], 'Chia đuôi: vững tương lai -(으)ㄹ 거예요, phủ định -지 않아요, -아서/어서'),
       quiz(8),
       bank(8, 500, ' — chốt tháng 2'),
       video(8, 2),
@@ -261,6 +281,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(9, 5, 'adverbs2'),
       vocab(9, 6, 'tech2'),
       pron(9, 'ko-linking'),
+      lab(9, 'koorder', ['mid'], 'Ghép câu: cấp Câu dài đạt 80%'),
       quiz(9),
       bank(9, 570),
       speak(9, 'gọi điện hẹn gặp bạn'),
@@ -285,6 +306,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(10, 5, 'market'),
       vocab(10, 6, 'online'),
       pron(10, 'ko-nasalize'),
+      lab(10, 'koconj', ['want', 'honor'], 'Chia đuôi: vững -고 싶어요 và kính ngữ -(으)세요 — đủ để gọi món, nhờ vả'),
       quiz(10),
       bank(10, 640),
       speak(10, 'mua đồ và hỏi giá ở chợ'),
@@ -309,6 +331,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(11, 5, 'exam'),
       vocab(11, 6, 'post'),
       pron(11, 'ko-palatal'),
+      lab(11, 'koorder', ['hard'], 'Ghép câu: cấp Tách trợ từ đạt 80%'),
       quiz(11),
       bank(11, 720),
       video(11, 3),
@@ -334,6 +357,7 @@ export const KO_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(12, 6, 'work2'),
       vocab(12, 7, 'travel2'),
       pron(12, 'ko-intonation'),
+      lab(12, 'koconj', ['if', 'can', 'mod'], 'Chia đuôi: vững -(으)면, -(으)ㄹ 수 있어요 và định ngữ'),
       quiz(12),
       bank(12, KO_TARGET_WORDS, ' — chốt 90 ngày'),
       speak(12, 'giới thiệu bản thân và công việc'),
