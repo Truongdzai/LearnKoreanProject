@@ -180,7 +180,16 @@ const PY: Record<string, string> = {
 }
 
 // Chữ ngoài bảng trên: lấy pinyin từ bảng Hán–Việt của lộ trình, thêm vài danh từ đếm hay gặp
-const MORE: Record<string, string> = { 咖: 'kā', 啡: 'fēi', 啤: 'pí', 酒: 'jiǔ', 鱼: 'yú', 猫: 'māo' }
+const MORE: Record<string, string> = {
+  咖: 'kā', 啡: 'fēi', 啤: 'pí', 酒: 'jiǔ', 鱼: 'yú', 猫: 'māo', 每: 'měi', 给: 'gěi', 文: 'wén', 吧: 'ba', 早: 'zǎo',
+  等: 'děng', 最: 'zuì', 园: 'yuán', 节: 'jié', 河: 'hé', 内: 'nèi', 过: 'guò', 纸: 'zhǐ', 口: 'kǒu', 部: 'bù', 离: 'lí',
+  晚: 'wǎn', 次: 'cì', 得: 'de', 那: 'nà', 往: 'wǎng', 拐: 'guǎi', 把: 'bǎ', 别: 'bié', 重: 'zhòng', 周: 'zhōu', 末: 'mò',
+  常: 'cháng', 助: 'zhù', 越: 'yuè', 南: 'nán', 王: 'wáng', 散: 'sàn', 步: 'bù', 于: 'yú', 数: 'shù', 种: 'zhǒng',
+  言: 'yán', 马: 'mǎ', 劳: 'láo', 首: 'shǒu', 钥: 'yào', 匙: 'shi', 报: 'bào', 吵: 'chǎo', 较: 'jiào', 收: 'shōu',
+  刷: 'shuā', 输: 'shū', 入: 'rù', 用: 'yòng', 第: 'dì', 花: 'huā', 从: 'cóng', 楼: 'lóu', 舒: 'shū', 忘: 'wàng',
+  戴: 'dài', 着: 'zhe', 顶: 'dǐng', 衬: 'chèn', 衫: 'shān', 先: 'xiān', 片: 'piàn', 特: 'tè', 英: 'yīng', 简: 'jiǎn',
+  够: 'gòu', 完: 'wán', 坏: 'huài', 戏: 'xì', 接: 'jiē', 示: 'shì', 丢: 'diū',
+}
 const pyOf = (c: string): string => PY[c] ?? MORE[c] ?? (HV as Record<string, { py: string }>)[c]?.py ?? c
 
 const NUMERAL = new Set([...DIGITS, '两', '十', '百', '千', '万', '亿', '幺'])
@@ -193,18 +202,41 @@ function toneOf(py: string): number {
 
 // 一 đổi thanh khi đứng đầu cụm số và ngay trước đơn vị / lượng từ: 一百 yì bǎi, 一万 yí wàn, 一个 yí gè
 export function pinyinOf(text: string, extra: Record<string, string> = {}): string {
-  const cs = Array.from(text.replace(/\s+/g, ''))
+  return joinSyllables(text, pinyinSyllables(text, extra))
+}
+
+// Ghép âm tiết thành chuỗi, gộp 儿 hoá: 哪儿 nǎr, 这儿 zhèr, 一点儿 yìdiǎnr
+export function joinSyllables(text: string, syl: string[]): string {
+  const cs = Array.from(text.replace(/[\s。？！，、·]+/g, ''))
+  const merged: string[] = []
+  syl.forEach((p, i) => {
+    if (cs[i] === '儿' && i > 0 && '哪这那点'.includes(cs[i - 1])) merged[merged.length - 1] += 'r'
+    else merged.push(p)
+  })
+  return merged.join(' ')
+}
+
+// Một âm tiết cho mỗi chữ (đã biến điệu 一 / 不), chưa gộp 儿
+export function pinyinSyllables(text: string, extra: Record<string, string> = {}): string[] {
+  const cs = Array.from(text.replace(/[\s。？！，、·]+/g, ''))
   return cs.map((c, i) => {
     const base = extra[c] ?? pyOf(c)
+    // 不 trước thanh 4 đọc bú: 不是 bú shì
+    if (c === '不') return toneOf(extra[cs[i + 1] ?? ''] ?? pyOf(cs[i + 1] ?? '')) === 4 ? 'bú' : base
     if (c !== '一') return base
     const prev = cs[i - 1]
     const next = cs[i + 1]
     // Số thứ tự (一月, 一号, 星期一) và chữ số đọc liền (十一, 二零一五) giữ yī
-    if (!next || (prev && NUMERAL.has(prev)) || (NUMERAL.has(next) && !'百千万亿'.includes(next)) || '月号日'.includes(next)) return base
+    if (!next || prev === '第' || (prev && NUMERAL.has(prev)) || (NUMERAL.has(next) && !'百千万亿'.includes(next)) || '月号日'.includes(next)) return base
     const t = toneOf(extra[next] ?? pyOf(next))
     if (!t) return base
     return t === 4 ? 'yí' : 'yì'
-  }).join(' ')
+  })
+}
+
+// true nếu mọi chữ đều có pinyin (để không hiện dòng pinyin thiếu chữ)
+export function hasPinyin(text: string): boolean {
+  return Array.from(text.replace(/[\s。？！，、·]+/g, '')).every((c) => pyOf(c) !== c)
 }
 
 // ¥18.50, ¥2,999

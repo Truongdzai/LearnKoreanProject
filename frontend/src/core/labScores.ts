@@ -6,7 +6,7 @@ import { useAuth } from '@/store/auth.store'
 // Điểm tốt nhất của từng phòng luyện (Hangul, Số đếm, Chia đuôi…) để lộ trình 12 tuần tự đánh dấu nhiệm vụ.
 // Chỉ đọc: lấy bản local, rồi bản server nếu đã đăng nhập và local không có thay đổi chưa lưu.
 
-export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers'
+export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -68,11 +68,12 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   },
   zhhanviet: { local: 'vyling.zh.hanviet', score: bestMap },
   zhnumbers: { local: 'vyling.zh.numbers', score: bestMap },
+  zhorder: { local: 'vyling.zh.order', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
-  zh: ['zhpinyin', 'zhhanviet', 'zhnumbers'],
+  zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
 }
 
 function readLocal(key: LabKey): Record<string, number> {
