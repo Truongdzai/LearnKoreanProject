@@ -14,7 +14,7 @@ import ViContentNote from '../shared/ViContentNote'
 import { useAppStore } from '@/store/app.store'
 import { HSK_BANK } from '@/data/hskCore'
 import { clearUrlParams, setUrlParam, useTabParam } from '@/core/hooks/useTabParam'
-import type { LabKey } from '@/core/labScores'
+import { LAB_TARGET, labPane, type LabKey } from '@/core/labScores'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
@@ -67,23 +67,8 @@ export default function ChinesePage() {
 
   // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
   const openLab = (lab: LabKey, mode?: string) => {
-    if (lab === 'zhhanviet') {
-      setUrlParam('pane', 'drill')
-      setTab('hanviet')
-      return
-    }
-    if (lab === 'zhnumbers') {
-      setUrlParam('pane', null)
-      setTab('numbers')
-      return
-    }
-    if (lab === 'zhorder') {
-      setUrlParam('pane', null)
-      setTab('order')
-      return
-    }
-    setUrlParam('pane', mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null)
-    setTab('pinyin')
+    setUrlParam('pane', labPane(lab, mode))
+    setTab(LAB_TARGET[lab].tab as Tab)
   }
 
   const pickTab = (t: Tab) => {
