@@ -4,6 +4,8 @@ import { fetchStats } from '@/core/api/srs.api'
 import { fetchMyQuests } from '@/core/api/me.api'
 import { useLessonProgress } from '@/core/lessonProgress'
 import { todayISO } from '@/core/skills'
+import { setUrlParam } from '@/core/hooks/useTabParam'
+import { LAB_TARGET, labDone, labPane, readLabScores, type LabKey } from '@/core/labScores'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
@@ -59,6 +61,32 @@ export default function TodaySession() {
     return () => window.clearInterval(id)
   }, [])
 
+  // Nhiệm vụ phòng luyện chưa xong của tuần hiện tại trong lộ trình (chỉ tiếng Hàn / Trung, khi đã bắt đầu lộ trình).
+  // Nạp lộ trình lúc cần để trang chủ không phải tải sẵn dữ liệu từ vựng.
+  const [lab, setLab] = useState<{ week: number; label: string; key: LabKey; mode?: string } | null>(null)
+  useEffect(() => {
+    setLab(null)
+    if (learnLang !== 'ko' && learnLang !== 'zh') return undefined
+    let alive = true
+    Promise.all([
+      import('../../english/progress'),
+      learnLang === 'ko'
+        ? import('@/data/koreanRoadmap').then((m) => m.KO_PLAN_12_WEEKS)
+        : import('@/data/chineseRoadmap').then((m) => m.ZH_PLAN_12_WEEKS),
+    ]).then(([prog, weeks]) => {
+      if (!alive) return
+      const plan = prog.readPlan(learnLang)
+      if (!plan.start) return
+      const week = prog.planWeek(plan.start)
+      if (plan.rewarded.includes(week)) return
+      const scores = readLabScores(learnLang)
+      const t = weeks.find((w) => w.week === week)?.tasks
+        .find((x) => x.kind === 'lab' && x.lab && !labDone(scores, x.lab, x.modes ?? [], x.passPct ?? 80))
+      if (t?.lab) setLab({ week, label: t.label, key: t.lab, mode: t.modes?.[0] })
+    }).catch(() => {  })
+    return () => { alive = false }
+  }, [learnLang])
+
   // Bài shadowing gần nhất của đúng ngôn ngữ đang học mà chưa đạt hết câu
   const resume = useMemo(() => {
     const known = [...savedVideos, ...videos]
@@ -89,6 +117,22 @@ export default function TodaySession() {
       action: {
         label: t('td.continue'),
         run: () => loadLesson(videoUrl(resume.video.id), { lang: resume.video.lang || learnLang, video: resume.video }),
+      },
+    })
+  }
+
+  if (lab) {
+    steps.push({
+      id: 'lab', icon: 'tool', done: false,
+      text: t('td.lab', { week: lab.week, label: lab.label }),
+      action: {
+        label: t('td.practice'),
+        run: () => {
+          const target = LAB_TARGET[lab.key]
+          setView(target.view)
+          setUrlParam('tab', target.tab)
+          setUrlParam('pane', labPane(lab.key, lab.mode))
+        },
       },
     })
   }

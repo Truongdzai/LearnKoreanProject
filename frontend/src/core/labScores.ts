@@ -76,6 +76,25 @@ export const LAB_KEYS: Record<string, LabKey[]> = {
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
 }
 
+// Phòng luyện nằm ở trang nào, tab nào, mục con nào
+export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese'; tab: string; pane: string | null }> = {
+  kohangul: { view: 'korean', tab: 'hangul', pane: null },
+  konumbers: { view: 'korean', tab: 'grammar', pane: 'number' },
+  koconj: { view: 'korean', tab: 'grammar', pane: null },
+  kopart: { view: 'korean', tab: 'grammar', pane: 'part' },
+  koorder: { view: 'korean', tab: 'grammar', pane: 'order' },
+  zhpinyin: { view: 'chinese', tab: 'pinyin', pane: null },
+  zhhanviet: { view: 'chinese', tab: 'hanviet', pane: 'drill' },
+  zhnumbers: { view: 'chinese', tab: 'numbers', pane: null },
+  zhorder: { view: 'chinese', tab: 'order', pane: null },
+}
+
+// Mục con của Phòng Pinyin theo phần cần luyện
+export function labPane(lab: LabKey, mode?: string): string | null {
+  if (lab === 'zhpinyin') return mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null
+  return LAB_TARGET[lab].pane
+}
+
 function readLocal(key: LabKey): Record<string, number> {
   try {
     const raw = localStorage.getItem(SOURCES[key].local)
@@ -83,6 +102,11 @@ function readLocal(key: LabKey): Record<string, number> {
   } catch {
     return {}
   }
+}
+
+// Chỉ đọc bản local (dùng ở trang chủ, không gọi mạng)
+export function readLabScores(lang: string): LabScores {
+  return Object.fromEntries((LAB_KEYS[lang] ?? []).map((k) => [k, readLocal(k)]))
 }
 
 export function labDone(scores: LabScores, lab: LabKey, modes: string[], pass: number): boolean {

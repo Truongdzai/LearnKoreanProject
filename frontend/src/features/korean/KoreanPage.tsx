@@ -12,7 +12,7 @@ import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
 import { clearUrlParams, setUrlParam, useTabParam } from '@/core/hooks/useTabParam'
-import type { LabKey } from '@/core/labScores'
+import { LAB_TARGET, labPane, type LabKey } from '@/core/labScores'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 
@@ -59,17 +59,9 @@ export default function KoreanPage() {
   }
 
   // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
-  const openLab = (lab: LabKey) => {
-    const target: Record<string, [Tab, string | null]> = {
-      kohangul: ['hangul', null],
-      konumbers: ['grammar', 'number'],
-      koconj: ['grammar', null],
-      kopart: ['grammar', 'part'],
-      koorder: ['grammar', 'order'],
-    }
-    const [t, pane] = target[lab] ?? ['grammar', null]
-    setUrlParam('pane', pane)
-    setTab(t)
+  const openLab = (lab: LabKey, mode?: string) => {
+    setUrlParam('pane', labPane(lab, mode))
+    setTab(LAB_TARGET[lab].tab as Tab)
   }
 
   const pickTab = (t: Tab) => {
