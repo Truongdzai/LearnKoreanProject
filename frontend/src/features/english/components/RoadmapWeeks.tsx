@@ -11,6 +11,7 @@ import {
   weekSchedule, type TaskExtra,
 } from '../progress'
 import { useUrlParam } from '@/core/hooks/useTabParam'
+import { useLabScores, type LabKey } from '@/core/labScores'
 
 interface Props {
   onLearn: (unitId: string) => void
@@ -20,6 +21,7 @@ interface Props {
   onPron?: (groupId?: string) => void
   onDeep?: (term: string) => void
   onActive?: () => void
+  onLab?: (lab: LabKey, mode?: string) => void
   deepFull?: number
   activeAuto?: number
   lang?: string
@@ -39,7 +41,7 @@ const MONTH_CLASS = ['m1', 'm2', 'm3'] as const
 
 const KIND_ICON: Record<WeekTask['kind'], IconName> = {
   vocab: 'cards', total: 'chart', quiz: 'target', video: 'film', speak: 'mic', review: 'letters', custom: 'note',
-  grammar: 'book', toeic: 'trophy', pron: 'volume', deep: 'bulb', active: 'sparkles',
+  grammar: 'book', toeic: 'trophy', pron: 'volume', deep: 'bulb', active: 'sparkles', lab: 'tool',
 }
 
 const MANUAL = new Set(['video', 'speak', 'review', 'custom'])
@@ -48,7 +50,7 @@ const CLOSED = '0'
 const isWeekParam = (v: string) => v === CLOSED || (/^\d+$/.test(v) && +v >= 1 && +v <= 12)
 
 export default function RoadmapWeeks({
-  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive,
+  onLearn, onQuiz, onSummary, onGrammar, onPron, onDeep, onActive, onLab,
   deepFull = 0,
   activeAuto = 0,
   lang = 'en',
@@ -68,7 +70,8 @@ export default function RoadmapWeeks({
   const { grammar } = useGrammarProgress()
   const { pron } = usePronProgress(lang)
   const toeic = useToeicBridge()
-  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, grammarLessons, deepFull, activeAuto }
+  const labs = useLabScores(lang)
+  const ext: TaskExtra = { grammar: grammar.best, pron: pron.best, toeic, units: vocabUnits, pronGroups, grammarLessons, deepFull, activeAuto, labs }
   const [weekParam, setWeekParam] = useUrlParam('week', null, isWeekParam)
 
   const started = !!plan.start
@@ -97,7 +100,7 @@ export default function RoadmapWeeks({
         recordEvent('lesson', 1)
       }
     })
-  }, [started, plan.manual, plan.quiz, learned, bank, actDays, grammar.best, pron.best, toeic, deepFull, activeAuto])
+  }, [started, plan.manual, plan.quiz, learned, bank, actDays, grammar.best, pron.best, toeic, deepFull, activeAuto, labs])
 
   const taskMeta = (t: WeekTask, week: number): string => {
     if (t.kind === 'vocab') {
@@ -140,6 +143,14 @@ export default function RoadmapWeeks({
       const target = t.n ?? 1
       return `${Math.min(activeAuto, target)}/${target} cụm bật ra tự động`
     }
+    if (t.kind === 'lab' && t.lab) {
+      const s = labs[t.lab] ?? {}
+      const modes = t.modes ?? []
+      const pass = t.passPct ?? 80
+      if (modes.length > 1) return `${modes.filter((m) => (s[m] ?? 0) >= pass).length}/${modes.length} phần đạt ${pass}%`
+      const best = s[modes[0] ?? '']
+      return best ? `tốt nhất: ${best}%` : ''
+    }
     return ''
   }
 
@@ -149,6 +160,7 @@ export default function RoadmapWeeks({
     if (t.kind === 'toeic') return { label: 'Mở TOEIC', run: () => setView('toeic') }
     if (t.kind === 'deep') return onDeep ? { label: 'Học sâu', run: () => onDeep('') } : null
     if (t.kind === 'active') return onActive ? { label: 'Vào phòng tập', run: onActive } : null
+    if (t.kind === 'lab') return onLab && t.lab ? { label: 'Vào luyện', run: () => onLab(t.lab!, t.modes?.[0]) } : null
     const go = t.go !== undefined ? t.go : (
       t.kind === 'vocab' ? 'learn'
       : t.kind === 'total' ? 'vocab'

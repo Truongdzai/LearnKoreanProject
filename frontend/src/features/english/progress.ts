@@ -8,6 +8,7 @@ import { fetchActivityDaysApi, fetchPlanApi, savePlanApi, type ActivityDay } fro
 import { getToken } from '@/core/api/client'
 import { track } from '@/core/monitor'
 import { useServerPlan } from '@/core/hooks/useServerPlan'
+import { labDone, type LabScores } from '@/core/labScores'
 
 export { speakEN } from '@/core/tts'
 export { useLearnedWords, readLearned, writeLearned } from './learned'
@@ -261,13 +262,14 @@ export interface WeekSchedule {
   weekLong: string[]
 }
 
-const LEARN_KINDS: WeekTask['kind'][] = ['vocab', 'grammar', 'pron', 'video', 'speak', 'custom']
+const LEARN_KINDS: WeekTask['kind'][] = ['vocab', 'grammar', 'pron', 'lab', 'video', 'speak', 'custom']
 const WEEKLONG_KINDS: WeekTask['kind'][] = ['review', 'total', 'toeic', 'deep', 'active']
 
 const DAY_THEME: Partial<Record<WeekTask['kind'], string>> = {
   vocab: 'Học từ vựng',
   grammar: 'Ngữ pháp',
   pron: 'Luyện phát âm',
+  lab: 'Phòng luyện',
   video: 'Nghe qua video',
   speak: 'Luyện nói',
   custom: 'Thực hành',
@@ -410,6 +412,7 @@ export interface TaskExtra {
   grammarLessons?: GrammarLesson[]
   deepFull?: number
   activeAuto?: number
+  labs?: LabScores
 }
 
 export function taskDone(
@@ -427,6 +430,8 @@ export function taskDone(
   }
   if (t.kind === 'deep') return (ext?.deepFull ?? 0) >= (t.n ?? 1)
   if (t.kind === 'active') return (ext?.activeAuto ?? 0) >= (t.n ?? 1)
+  // Tuần đã nhận thưởng trước khi có nhiệm vụ phòng luyện thì vẫn giữ trạng thái hoàn thành
+  if (t.kind === 'lab') return plan.rewarded.includes(week) || (!!t.lab && labDone(ext?.labs ?? {}, t.lab, t.modes ?? [], t.passPct ?? 80))
   if (t.kind === 'video' && act && t.n && act.videos >= t.n) return true
   if (t.kind === 'review' && act && t.n && act.reviewDays >= t.n) return true
   return plan.manual.includes(t.id)

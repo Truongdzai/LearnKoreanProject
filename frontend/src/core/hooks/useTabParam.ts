@@ -18,6 +18,11 @@ function writeRaw(key: string, value: string | null): void {
   }
 }
 
+// Đặt sẵn tham số trên URL trước khi chuyển tab, để phần con (vd ?pane=) đọc được ngay khi mount
+export function setUrlParam(key: string, value: string | null): void {
+  writeRaw(key, value)
+}
+
 export function clearUrlParams(keys: string[]): void {
   try {
     const url = new URL(window.location.href)
