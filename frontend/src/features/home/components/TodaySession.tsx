@@ -5,7 +5,7 @@ import { fetchMyQuests } from '@/core/api/me.api'
 import { useLessonProgress } from '@/core/lessonProgress'
 import { todayISO } from '@/core/skills'
 import { setUrlParam } from '@/core/hooks/useTabParam'
-import { LAB_TARGET, labDone, labPane, readLabScores, type LabKey } from '@/core/labScores'
+import { LAB_NAME, LAB_TARGET, labDone, labPane, readLabScores, readLabWeak, type LabKey } from '@/core/labScores'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
@@ -143,6 +143,27 @@ export default function TodaySession() {
           setView(target.view)
           setUrlParam('tab', target.tab)
           setUrlParam('pane', labPane(lab.key, lab.mode))
+        },
+      },
+    })
+  }
+
+  // Không có nhiệm vụ phòng luyện tuần này thì nhắc ôn các câu từng sai (phòng có nhiều câu sai nhất)
+  const weakLab = useMemo(() => {
+    const top = readLabWeak(learnLang)[0]
+    return top && top.n >= 3 ? top : null
+  }, [learnLang])
+  if (!lab && weakLab) {
+    steps.push({
+      id: 'weak', icon: 'refresh', done: false,
+      text: t('td.weak', { n: weakLab.n, name: LAB_NAME[weakLab.key] }),
+      action: {
+        label: t('td.practice'),
+        run: () => {
+          const target = LAB_TARGET[weakLab.key]
+          setView(target.view)
+          setUrlParam('tab', target.tab)
+          setUrlParam('pane', labPane(weakLab.key))
         },
       },
     })

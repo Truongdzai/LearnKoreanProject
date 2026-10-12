@@ -103,6 +103,26 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   enconfuse: { view: 'english', tab: 'grammar', pane: 'confuse' },
 }
 
+// Tên ngắn của từng phòng (hiện ở trang chủ)
+export const LAB_NAME: Record<LabKey, string> = {
+  kohangul: 'Hangul', konumbers: 'Số đếm', koconj: 'Chia đuôi', kopart: 'Trợ từ', koorder: 'Ghép câu',
+  zhpinyin: 'Pinyin', zhhanviet: 'Hán–Việt', zhnumbers: 'Số đếm', zhorder: 'Ghép câu',
+  enirregular: 'Động từ bất quy tắc', ennumbers: 'Số đếm', enorder: 'Ghép câu', enprep: 'in / on / at',
+  entense: 'Chọn thì', enconfuse: 'Từ dễ nhầm',
+}
+
+// Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local, phòng nào lưu danh sách weak)
+export function readLabWeak(lang: string): { key: LabKey; n: number }[] {
+  return (LAB_KEYS[lang] ?? []).map((key) => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(SOURCES[key].local) ?? 'null') as Raw | null
+      return { key, n: Array.isArray(raw?.weak) ? (raw!.weak as unknown[]).length : 0 }
+    } catch {
+      return { key, n: 0 }
+    }
+  }).filter((x) => x.n > 0).sort((a, b) => b.n - a.n)
+}
+
 // Mục con của Phòng Pinyin theo phần cần luyện
 export function labPane(lab: LabKey, mode?: string): string | null {
   if (lab === 'zhpinyin') return mode === 'type' ? 'type' : mode === 'mark' || mode === 'spell' ? 'rule' : null
