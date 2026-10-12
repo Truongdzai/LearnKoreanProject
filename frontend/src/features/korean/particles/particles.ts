@@ -78,6 +78,14 @@ const NAMES: { ko: string; vi: string }[] = [
   { ko: '준호', vi: 'Junho (tên)' },
   { ko: '하늘', vi: 'Haneul (tên)' },
   { ko: '유나', vi: 'Yuna (tên)' },
+  { ko: '지훈', vi: 'Jihoon (tên)' },
+  { ko: '소연', vi: 'Soyeon (tên)' },
+  { ko: '다은', vi: 'Daeun (tên)' },
+  { ko: '민준', vi: 'Minjun (tên)' },
+  { ko: '수아', vi: 'Sua (tên)' },
+  { ko: '지호', vi: 'Jiho (tên)' },
+  { ko: '예나', vi: 'Yena (tên)' },
+  { ko: '미나', vi: 'Mina (tên)' },
 ]
 
 const PRONOUNS: { ko: string; vi: string }[] = [

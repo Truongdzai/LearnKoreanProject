@@ -22,7 +22,7 @@ function Sentence({ ko, fill, state }: { ko: string; fill?: string; state?: 'ok'
   return (
     <span className="kp-sentence" lang="ko">
       {a}
-      <span className={'kp-blank' + (fill ? ' filled' : '') + (state ? ' ' + state : '')}>{fill ?? '   '}</span>
+      <span className={'kp-blank' + (fill ? ' filled' : '') + (state ? ' ' + state : '')}>{fill ?? <><span aria-hidden="true">{'   '}</span><span className="sr-only" lang="vi">(chỗ trống)</span></>}</span>
       {b}
     </span>
   )
@@ -64,8 +64,9 @@ export default function PartQuiz({ items, title, canHear, showRom, onFinish, onA
     if (done) return
     const onKey = (e: KeyboardEvent) => {
       if (e.altKey || e.ctrlKey || e.metaKey) return
-      const tag = (e.target as HTMLElement | null)?.tagName
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+      // Chỉ bỏ qua ô nhập chữ; ô tích (Hiện phiên âm) vẫn cho bấm phím số
+      const t = e.target as HTMLInputElement | null
+      if (t?.tagName === 'TEXTAREA' || (t?.tagName === 'INPUT' && !['checkbox', 'radio', 'button'].includes(t.type))) return
       const n = Number(e.key)
       if (picked == null && item && n >= 1 && n <= item.options.length) {
         e.preventDefault()

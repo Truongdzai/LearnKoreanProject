@@ -68,11 +68,16 @@ export default function ConjugationLab() {
   const weakAvail = countPairs({ endings: prefs.endings, cls: 'all', weak: state.weak, only: true })
 
   const start = (opts: { cls?: Filter; only?: boolean } = {}) => {
-    const c = opts.cls ?? cls
     const only = !!opts.only
+    // Ôn từ hay sai không theo bộ lọc nhóm
+    const c = only ? 'all' : opts.cls ?? cls
     const items = buildRound({ endings: prefs.endings, cls: c, weak: state.weak, only })
-    if (items.length < MIN_ROUND) return
     if (opts.cls) setCls(opts.cls)
+    if (items.length < MIN_ROUND) {
+      // Nhóm quá ít dạng với các đuôi đang chọn: cuộn tới phần luyện để thấy lời nhắc
+      practiceRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
     const title = only ? 'Ôn từ hay sai' : c === 'all' ? 'Chia đuôi' : CLASS_LABEL[c]
     setQuiz({ items, only, title })
   }
@@ -108,7 +113,7 @@ export default function ConjugationLab() {
           showRom={prefs.rom}
           onFinish={onFinish}
           onAgain={() => {
-            const items = buildRound({ endings: prefs.endings, cls, weak: state.weak, only: quiz.only })
+            const items = buildRound({ endings: prefs.endings, cls: quiz.only ? 'all' : cls, weak: state.weak, only: quiz.only })
             if (items.length >= MIN_ROUND) setQuiz({ ...quiz, items })
             else back()
           }}

@@ -29,7 +29,7 @@ const CONTRASTS: { title: string; text: string; a: [string, string]; b: [string,
     b: ['누가 왔어요? 민수가 왔어요.', 'Ai đến? Minsu đến.'],
   },
   {
-    title: 'Tính từ + 이/가, động từ + 을/를',
+    title: '좋아요 hay 좋아해요?',
     text: '좋다, 싫다, 필요하다, 무섭다 là tính từ nên thứ được thích, cần, sợ đi với 이/가. Đổi sang động từ 좋아하다, 싫어하다 thì mới dùng 을/를.',
     a: ['저는 커피가 좋아요.', 'Tôi thích cà phê.'],
     b: ['저는 커피를 좋아해요.', 'Tôi thích cà phê.'],
@@ -250,7 +250,8 @@ function Attach({ canHear }: { canHear: boolean }) {
           </thead>
           <tbody>
             {KINDS.map((k) => {
-              const form = valid ? attach(clean, k.id) : ''
+              // Không gọi người trên bằng 아/야: 선생님아 sai
+              const form = valid && !(k.id === 'voc' && clean.endsWith('님')) ? attach(clean, k.id) : ''
               return (
                 <tr key={k.id}>
                   <td><b lang="ko" className="kp-label">{k.label}</b></td>
