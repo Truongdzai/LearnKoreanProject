@@ -189,7 +189,7 @@ const TABLE: Row[] = [
   ['넣다', 'verb', 'regular', 'Cho vào'],
   ['낳다', 'verb', 'regular', 'Sinh (con)'],
 
-  ['있다', 'verb', 'exist', 'Có; ở', 'VNCPT'],
+  ['있다', 'verb', 'exist', 'Có; ở', 'VNCP'],
   ['없다', 'adj', 'exist', 'Không có', 'N'],
 ]
 
@@ -574,7 +574,10 @@ export function conjugate(lex: Lex, ending: EndingId): Conj | null {
       form: end(a.inf),
       alts: [...a.alts.map(end), ...extra],
       rule: `${a.why}: ${a.inf} + ${shown}`,
-      ...(a.alts.length || extra.length ? { note: `Cũng đúng: ${[...a.alts.map(end), ...extra].join(', ')} (ít dùng hơn khi nói).` } : {}),
+      ...(a.alts.length || extra.length ? { note: [
+        ...(a.alts.length ? [`Cũng đúng: ${a.alts.map(end).join(', ')} (ít dùng hơn khi nói).`] : []),
+        ...(extra.length ? [`Cũng đúng: ${extra.join(', ')} (dạng rút gọn, hay dùng khi nói).`] : []),
+      ].join(' ') } : {}),
     }
   }
 
@@ -760,10 +763,12 @@ function wordMistakes(lex: Lex, ending: EndingId, answer: string, add: Add) {
       if (last(stem) === '오') add(end(stem + '아'), '오 + 아 bắt buộc rút thành 와', 1)
     }
     if (cls === 'hada') add(end(stem + '아'), '하다 không + 아 — 하 luôn thành 해', 1)
-    if (!p.tail || cls === 'hada') add(end(stem), 'Thiếu bước 아/어: gốc phải biến đổi trước khi + 요', 1)
+    if (!p.tail || cls === 'hada') add(end(stem), `Thiếu bước 아/어: gốc phải biến đổi trước khi + ${ending === 'present' ? '요' : ending === 'past' ? 'ㅆ어요' : '서'}`, 1)
     if (ending === 'past') {
       const chars = Array.from(answer)
-      const k = chars.findIndex((ch) => decompose(ch)?.tail === 'ㅆ')
+      // Lấy ㅆ của 았/었 (từ cuối lên), không đụng ㅆ của gốc như 있다
+      let k = -1
+      for (let j = chars.length - 1; j >= 0; j--) if (decompose(chars[j])?.tail === 'ㅆ') { k = j; break }
       if (k >= 0) {
         const q = decompose(chars[k])!
         chars[k] = compose(q.lead, q.vowel, 'ㅅ')
@@ -841,13 +846,19 @@ function wordMistakes(lex: Lex, ending: EndingId, answer: string, add: Add) {
     add(h.base + syl, `${h.base}다 đã là kính ngữ — không thêm 시 lần nữa`, 0)
     if (p.tail) add(stem + syl, `Gốc có patchim cần 으; nhưng ${lex.dict} dùng từ kính ngữ riêng ${h.base}다`, 1)
     else add(stem + '으' + syl, `Gốc không patchim không thêm 으; nhưng ${lex.dict} dùng từ kính ngữ riêng ${h.base}다`, 1)
-    if (a) add(a.inf + syl, `Kính ngữ không gắn vào dạng 아/어; ${lex.dict} dùng ${h.base}다`, 1)
+    if (a && a.inf !== stem) add(a.inf + syl, `Kính ngữ không gắn vào dạng 아/어; ${lex.dict} dùng ${h.base}다`, 1)
+    const plain = make(soft(stem, lex.cls))
+    // Mức 9: chỉ để giải thích khi người học tự gõ, không đưa vào phương án sai (vì vẫn đúng ngữ pháp)
+    if (plain) add(plain, `${plain} đúng ngữ pháp, nhưng khi nói về người trên ${lex.dict} dùng từ kính ngữ riêng ${h.base}다`, 9)
     add(answer.replace(/세요$/, '새요').replace(/셨어요$/, '셧어요'), ending === 'honor' ? 'Viết 세요 (ㅔ), không phải 새요' : 'Viết 셨 (ㅆ), không phải 셧', 2)
     return
   }
   const s = soft(stem, cls)
   if (!s) return
-  if (cls !== 'l') add(make({ ...s, eu: !s.eu }), s.eu ? 'Gốc có patchim → phải thêm 으' : 'Gốc không patchim → không thêm 으', cls === 'regular' || cls === 'hada' ? 1 : 0)
+  const whyEu = cls === 'b' ? 'ㅂ bất quy tắc: ㅂ đã thành 우 (thay cho 으), không thêm 으 nữa'
+    : cls === 'h' ? 'ㅎ bất quy tắc bỏ luôn cả ㅎ lẫn 으'
+      : s.eu ? 'Gốc có patchim → phải thêm 으' : 'Gốc không patchim → không thêm 으'
+  if (cls !== 'l') add(make({ ...s, eu: !s.eu }), whyEu, cls === 'regular' || cls === 'hada' ? 1 : 0)
   if (cls === 'l') {
     add(make({ base: stem, eu: true }), 'Gốc tận cùng ㄹ không thêm 으', 0)
     if (honor) add(stem + spec.syl, 'ㄹ phải rơi trước ㅅ', 0)
@@ -855,7 +866,6 @@ function wordMistakes(lex: Lex, ending: EndingId, answer: string, add: Add) {
   if (['b', 'd', 's', 'h'].includes(cls)) add(make({ base: stem, eu: true }), regularized, 0)
   if (cls === 'd') add(make({ base: withTail(stem, 'ㄹ'), eu: false }), 'ㄷ → ㄹ rồi vẫn phải thêm 으', 0)
   if (cls === 's') add(make({ base: setLast(stem, p.lead, p.vowel), eu: false }), 'Bỏ ㅅ nhưng vẫn giữ 으, không rút gọn', 0)
-  if (cls === 'h') add(make({ base: setLast(stem, p.lead, p.vowel), eu: true }), 'ㅎ bất quy tắc bỏ luôn cả 으', 0)
   if (trap) add(make(soft(stem, trap)), keepTrap, 0)
   if (a && spec.kind === 'syl') add(a.inf + spec.syl, `Đuôi -(으)${spec.syl} gắn vào gốc, không gắn vào dạng 아/어`, 1)
   if (ending === 'if' && !p.tail && cls !== 'l') add(withTail(stem, 'ㄹ') + '면', 'Đuôi -(으)면 không có ㄹ', 1)

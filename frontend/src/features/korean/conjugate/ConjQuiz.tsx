@@ -43,6 +43,9 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
   const nextRef = useRef<HTMLButtonElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const pendingSubmit = useRef(false)
+  // Chặn chấm hai lần một câu (bộ gõ tiếng Hàn có thể bắn Enter hai lần quanh compositionend)
+  const settledRef = useRef(false)
+  const timerRef = useRef(0)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const item = items[i]
   const typing = mode === 'type'
@@ -57,6 +60,8 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
   }, [result])
 
   const settle = (value: string, check: Check) => {
+    if (settledRef.current) return
+    settledRef.current = true
     setResult({ value, check })
     setAnswers((a) => [...a, { dict: item.lex.dict, ending: item.ending, ok: check.ok }])
     if (canHear) speakKO(item.conj.form, 0.85)
@@ -87,6 +92,7 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
       onFinish(answers, Math.round((ok / items.length) * 100))
       return
     }
+    settledRef.current = false
     setResult(null)
     setTyped('')
     setI((x) => x + 1)
@@ -176,7 +182,15 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
       </div>
 
       {typing ? (
-        <form className="kc-type" onSubmit={(e) => { e.preventDefault(); submitTyped() }}>
+        <form
+          className="kc-type"
+          onSubmit={(e) => {
+            e.preventDefault()
+            pendingSubmit.current = false
+            window.clearTimeout(timerRef.current)
+            submitTyped()
+          }}
+        >
           <div className="kc-type-row">
             <input
               ref={inputRef}
@@ -198,7 +212,7 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
               onCompositionEnd={() => {
                 if (!pendingSubmit.current) return
                 pendingSubmit.current = false
-                window.setTimeout(submitTyped, 0)
+                timerRef.current = window.setTimeout(() => { if (!settledRef.current) submitTyped() }, 0)
               }}
               placeholder="Gõ dạng đã chia, ví dụ 먹어요"
               aria-label={`Dạng ${meta.label} của ${item.lex.dict}`}
@@ -234,7 +248,7 @@ export default function ConjQuiz({ items, title, mode, canHear, showRom, onFinis
           <div className="kc-fb-body">
             <p>
               <b>{check.ok ? (check.alt ? 'Cũng đúng!' : 'Chính xác!') : result.value ? 'Chưa đúng.' : 'Đáp án đây.'}</b>{' '}
-              {check.ok && check.alt && <>Dạng hay gặp hơn là <span lang="ko">{form}</span>. </>}
+              {check.ok && check.alt && <>Đáp án chính là <span lang="ko">{form}</span>. </>}
               {check.ok && check.spacing && <>Để ý cách viết khoảng trắng: <span lang="ko">{form}</span>. </>}
               {!check.ok && check.mistake && <KoText text={check.mistake.why} />}
               {!check.ok && !check.mistake && result.value && typing && (

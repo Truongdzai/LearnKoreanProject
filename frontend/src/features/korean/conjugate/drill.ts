@@ -51,6 +51,7 @@ export function shuffle<T>(arr: T[]): T[] {
 // Chọn 3 phương án sai: ưu tiên lỗi hay gặp (level thấp), có chút ngẫu nhiên để không lặp y hệt
 function pickWrong(ms: Mistake[]): Mistake[] {
   return ms
+    .filter((m) => m.level < 9)
     .map((m) => ({ m, r: m.level + Math.random() * 1.5 }))
     .sort((a, b) => a.r - b.r)
     .slice(0, 3)
