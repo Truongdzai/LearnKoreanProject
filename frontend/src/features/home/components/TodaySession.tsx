@@ -10,6 +10,7 @@ import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 import type { SrsStats } from '@/models/srs.model'
+import type { WeekTask } from '@/data/vocabCore'
 
 const PASS = 70
 
@@ -61,27 +62,33 @@ export default function TodaySession() {
     return () => window.clearInterval(id)
   }, [])
 
-  // Nhiệm vụ phòng luyện chưa xong của tuần hiện tại trong lộ trình (chỉ tiếng Hàn / Trung, khi đã bắt đầu lộ trình).
-  // Nạp lộ trình lúc cần để trang chủ không phải tải sẵn dữ liệu từ vựng.
+  // Nhiệm vụ phòng luyện chưa xong của tuần hiện tại trong lộ trình (khi đã bắt đầu lộ trình).
+  // Nạp lộ trình lúc cần để trang chủ không phải tải sẵn dữ liệu từ vựng; tiếng Anh chỉ cần danh sách nhiệm vụ phòng luyện.
   const [lab, setLab] = useState<{ week: number; label: string; key: LabKey; mode?: string } | null>(null)
   useEffect(() => {
     setLab(null)
-    if (learnLang !== 'ko' && learnLang !== 'zh') return undefined
+    if (learnLang !== 'ko' && learnLang !== 'zh' && learnLang !== 'en') return undefined
     let alive = true
-    Promise.all([
-      import('../../english/progress'),
-      learnLang === 'ko'
+    const tasksOf = (): Promise<(week: number) => WeekTask[]> => {
+      if (learnLang === 'en') {
+        return import('@/data/englishLabs').then((m) => {
+          const byWeek = m.EN_LAB_TASKS[m.readEnMode()]
+          return (week: number) => byWeek[week] ?? []
+        })
+      }
+      return (learnLang === 'ko'
         ? import('@/data/koreanRoadmap').then((m) => m.KO_PLAN_12_WEEKS)
-        : import('@/data/chineseRoadmap').then((m) => m.ZH_PLAN_12_WEEKS),
-    ]).then(([prog, weeks]) => {
+        : import('@/data/chineseRoadmap').then((m) => m.ZH_PLAN_12_WEEKS)
+      ).then((weeks) => (week: number) => weeks.find((w) => w.week === week)?.tasks ?? [])
+    }
+    Promise.all([import('../../english/progress'), tasksOf()]).then(([prog, tasksFor]) => {
       if (!alive) return
       const plan = prog.readPlan(learnLang)
       if (!plan.start) return
       const week = prog.planWeek(plan.start)
       if (plan.rewarded.includes(week)) return
       const scores = readLabScores(learnLang)
-      const t = weeks.find((w) => w.week === week)?.tasks
-        .find((x) => x.kind === 'lab' && x.lab && !labDone(scores, x.lab, x.modes ?? [], x.passPct ?? 80))
+      const t = tasksFor(week).find((x) => x.kind === 'lab' && x.lab && !labDone(scores, x.lab, x.modes ?? [], x.passPct ?? 80))
       if (t?.lab) setLab({ week, label: t.label, key: t.lab, mode: t.modes?.[0] })
     }).catch(() => {  })
     return () => { alive = false }

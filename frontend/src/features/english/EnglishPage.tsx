@@ -3,7 +3,7 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { loadStaticImages } from './deep/staticImage'
 import ProgramOverview from './components/ProgramOverview'
 import VocabLab from './components/vocab/VocabLab'
-import GrammarLessons from './components/GrammarLessons'
+import GrammarHub from './GrammarHub'
 import PronunciationLab from './components/PronunciationLab'
 import VocabQuiz from './components/VocabQuiz'
 import EnglishSummary from './components/EnglishSummary'
@@ -22,7 +22,8 @@ import { MasteryProvider } from './active/mastery'
 import ActiveHub from './active/ActiveHub'
 import { DeepProvider } from './deep/deep'
 import DeepPage from './deep/DeepPage'
-import { useTabParam, useUrlParam, clearUrlParams } from '@/core/hooks/useTabParam'
+import { useTabParam, useUrlParam, clearUrlParams, setUrlParam } from '@/core/hooks/useTabParam'
+import { LAB_TARGET, labPane, type LabKey } from '@/core/labScores'
 
 type Tab = 'plan' | 'vocab' | 'grammar' | 'pron' | 'active' | 'skills' | 'errors' | 'quiz' | 'summary'
 
@@ -41,8 +42,8 @@ const TAB_IDS = TABS.map((t) => t.id)
 
 const SUB_PARAMS = ['lesson', 'sound', 'word', 'pane']
 
-const OWNED_PARAM: Partial<Record<Tab, string>> = {
-  grammar: 'lesson', pron: 'sound', active: 'pane', skills: 'pane',
+const OWNED_PARAM: Partial<Record<Tab, string[]>> = {
+  grammar: ['lesson', 'pane'], pron: ['sound'], active: ['pane'], skills: ['pane'],
 }
 
 const SPEC_LITE: ExpectationSpec = {
@@ -137,17 +138,26 @@ function EnglishBody() {
   }
 
   const openGrammar = (lessonId?: string) => {
-    clearUrlParams(lessonId ? ['sound', 'word'] : ['sound', 'word', 'lesson'])
+    clearUrlParams(lessonId ? ['sound', 'word', 'pane'] : ['sound', 'word', 'lesson', 'pane'])
     setGrammarLesson(lessonId)
     setJumpNonce((n) => n + 1)
     setTab('grammar')
   }
 
   const openPron = (groupId?: string) => {
-    clearUrlParams(groupId ? ['lesson', 'word'] : ['lesson', 'word', 'sound'])
+    clearUrlParams(groupId ? ['lesson', 'word', 'pane'] : ['lesson', 'word', 'sound', 'pane'])
     setPronGroup(groupId)
     setJumpNonce((n) => n + 1)
     setTab('pron')
+  }
+
+  // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
+  const openLab = (lab: LabKey, labMode?: string) => {
+    clearUrlParams(['lesson', 'sound', 'word'])
+    setUrlParam('pane', labPane(lab, labMode))
+    setGrammarLesson(undefined)
+    setJumpNonce((n) => n + 1)
+    setTab(LAB_TARGET[lab].tab as Tab)
   }
 
   const openQuiz = (week: number, units: string[], pass: number) => {
@@ -160,7 +170,7 @@ function EnglishBody() {
     if (t === 'vocab') setLearnUnit(undefined)
     if (t === 'grammar') setGrammarLesson(undefined)
     if (t === 'pron') setPronGroup(undefined)
-    clearUrlParams(SUB_PARAMS.filter((k) => k !== OWNED_PARAM[t]))
+    clearUrlParams(SUB_PARAMS.filter((k) => !OWNED_PARAM[t]?.includes(k)))
     setTab(t)
   }
 
@@ -213,6 +223,7 @@ function EnglishBody() {
             onErrors={() => setTab('errors')}
             onDeep={setDeepWord}
             onActive={() => setTab('active')}
+            onLab={openLab}
           />
         )}
         {tab === 'vocab' && (
@@ -227,7 +238,7 @@ function EnglishBody() {
           </>
         )}
         {tab === 'grammar' && (
-          <GrammarLessons key={`${grammarLesson ?? 'list'}-${jumpNonce}`} initialLesson={grammarLesson} />
+          <GrammarHub key={`${grammarLesson ?? 'list'}-${jumpNonce}`} initialLesson={grammarLesson} />
         )}
         {tab === 'pron' && (
           <PronunciationLab
