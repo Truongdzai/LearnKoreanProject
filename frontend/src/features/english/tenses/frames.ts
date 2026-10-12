@@ -35,7 +35,7 @@ export const GROUPS: { id: GroupId; label: string }[] = [
 type Raw = [string, string, [string, string, string, string], TenseId, string]
 
 const RAW: Raw[] = [
-  ['She ___ (go) to the gym every morning.', 'Sáng nào cô ấy cũng đi tập gym.', ['goes', 'go', 'is going', 'has gone'], 'ps', 'every morning'],
+  ['She ___ (go) to the gym every morning.', 'Sáng nào cô ấy cũng đi tập gym.', ['goes', 'go', 'going', 'has gone'], 'ps', 'every morning'],
   ['Water ___ (boil) at 100 degrees Celsius.', 'Nước sôi ở 100 độ C.', ['boils', 'boil', 'is boiling', 'has boiled'], 'ps', 'sự thật hiển nhiên'],
   ['My father usually ___ (drink) tea after dinner.', 'Bố tôi thường uống trà sau bữa tối.', ['drinks', 'drink', 'is drinking', 'has drunk'], 'ps', 'usually'],
   ['Tom ___ (not / like) coffee, so he always orders tea.', 'Tom không thích cà phê nên lúc nào cũng gọi trà.', ['doesn\'t like', 'don\'t like', 'isn\'t liking', 'not likes'], 'ps', 'always'],
@@ -43,11 +43,11 @@ const RAW: Raw[] = [
   ['Every summer, we ___ (visit) our grandparents in the countryside.', 'Mùa hè nào chúng tôi cũng về quê thăm ông bà.', ['visit', 'visits', 'are visiting', 'have visited'], 'ps', 'every summer'],
 
   ['Be quiet! The baby ___ (sleep).', 'Trật tự nào! Em bé đang ngủ.', ['is sleeping', 'sleeps', 'slept', 'has slept'], 'pc', 'Be quiet!'],
-  ['Look! It ___ (rain) outside.', 'Nhìn kìa! Ngoài trời đang mưa.', ['is raining', 'rains', 'rained', 'rain'], 'pc', 'Look!'],
+  ['Look! It ___ (rain) outside.', 'Nhìn kìa! Ngoài trời đang mưa.', ['is raining', 'rains', 'raining', 'rain'], 'pc', 'Look!'],
   ['I can\'t talk now. I ___ (drive).', 'Giờ tôi không nói chuyện được. Tôi đang lái xe.', ['am driving', 'drive', 'drove', 'have driven'], 'pc', 'now'],
   ['Listen! Someone ___ (knock) at the door.', 'Nghe kìa! Có ai đang gõ cửa.', ['is knocking', 'knocks', 'knocked', 'knock'], 'pc', 'Listen!'],
   ['My sister ___ (study) for her exams at the moment.', 'Lúc này chị tôi đang ôn thi.', ['is studying', 'studies', 'studied', 'has studied'], 'pc', 'at the moment'],
-  ['It\'s 7 a.m. now. Mom ___ (make) breakfast in the kitchen.', 'Bây giờ là 7 giờ sáng. Mẹ đang làm bữa sáng trong bếp.', ['is making', 'makes', 'made', 'make'], 'pc', 'now'],
+  ['It\'s 7 a.m. now. Mom ___ (make) breakfast in the kitchen.', 'Bây giờ là 7 giờ sáng. Mẹ đang làm bữa sáng trong bếp.', ['is making', 'makes', 'is make', 'make'], 'pc', 'now'],
   ['Hurry up! The bus ___ (come).', 'Nhanh lên! Xe buýt đang tới kìa.', ['is coming', 'comes', 'came', 'come'], 'pc', 'Hurry up!'],
 
   ['I ___ (see) him yesterday.', 'Hôm qua tôi gặp anh ấy.', ['saw', 'have seen', 'see', 'seen'], 'past', 'yesterday'],
@@ -69,7 +69,7 @@ const RAW: Raw[] = [
   ['I ___ (never / be) to Japan.', 'Tôi chưa bao giờ đến Nhật.', ['have never been', 'never was', 'am never', 'never been'], 'pp', 'never'],
   ['We ___ (know) each other since we were children.', 'Chúng tôi quen nhau từ hồi còn nhỏ.', ['have known', 'knew', 'know', 'are knowing'], 'pp', 'since'],
   ['Lan ___ (not / finish) her homework yet.', 'Lan vẫn chưa làm xong bài tập.', ['hasn\'t finished', 'doesn\'t finish', 'isn\'t finishing', 'not finished'], 'pp', 'yet'],
-  ['He ___ (just / leave) the office, so you can\'t see him now.', 'Anh ấy vừa rời văn phòng nên giờ bạn không gặp được đâu.', ['has just left', 'just leaves', 'is just leaving', 'have just left'], 'pp', 'just'],
+  ['He ___ (just / leave) the office, so you can\'t see him now.', 'Anh ấy vừa rời văn phòng nên giờ bạn không gặp được đâu.', ['has just left', 'just leaves', 'has just leaved', 'have just left'], 'pp', 'just'],
   ['My parents ___ (be) married for 30 years, and they are still very happy.', 'Bố mẹ tôi cưới nhau được 30 năm và vẫn rất hạnh phúc.', ['have been', 'were', 'are being', 'was'], 'pp', 'for 30 years … still'],
 
   ['I\'m tired. I think I ___ (go) to bed early tonight.', 'Mệt quá. Chắc tối nay tôi sẽ đi ngủ sớm.', ['will go', 'went', 'have gone', 'goes'], 'will', 'I think … tonight'],

@@ -33,12 +33,12 @@ type Raw = [string, string, FocusId, string[]?]
 
 const RAW: Raw[] = [
   ['She has a red car.', 'Cô ấy có một chiếc xe màu đỏ.', 'adj'],
-  ['I want a cup of hot coffee.', 'Tôi muốn một tách cà phê nóng.', 'adj'],
+  ['I want a cup of hot coffee.', 'Tôi muốn một tách cà phê nóng.', 'adj', ['I want a hot cup of coffee.']],
   ['They live in a big old house.', 'Họ sống trong một ngôi nhà to và cũ.', 'adj'],
   ['He is a good teacher.', 'Anh ấy là một giáo viên giỏi.', 'adj'],
   ['This is an interesting book.', 'Đây là một cuốn sách hay.', 'adj'],
-  ['We stayed at a small hotel near the beach.', 'Chúng tôi ở một khách sạn nhỏ gần bãi biển.', 'adj', ['Near the beach we stayed at a small hotel.']],
-  ['My sister bought a beautiful blue dress.', 'Chị tôi đã mua một chiếc váy xanh rất đẹp.', 'adj'],
+  ['We stayed at a small hotel near the beach.', 'Chúng tôi ở một khách sạn nhỏ gần bãi biển.', 'adj', ['Near the beach we stayed at a small hotel.', 'We stayed near the beach at a small hotel.']],
+  ['My sister bought a beautiful blue dress.', 'Chị tôi đã mua một chiếc váy đẹp màu xanh dương.', 'adj'],
   ['I need a new phone.', 'Tôi cần một chiếc điện thoại mới.', 'adj'],
   ['Hanoi is a busy city.', 'Hà Nội là một thành phố nhộn nhịp.', 'adj'],
 
@@ -50,7 +50,7 @@ const RAW: Raw[] = [
   ['Can you speak English?', 'Bạn nói được tiếng Anh không?', 'question'],
   ['Why are you late?', 'Sao bạn đến muộn?', 'question'],
   ['How much is this shirt?', 'Cái áo này giá bao nhiêu?', 'question'],
-  ['Where did you go last weekend?', 'Cuối tuần trước bạn đi đâu?', 'question'],
+  ['Where did you go last weekend?', 'Cuối tuần trước bạn đi đâu?', 'question', ['Last weekend where did you go?']],
   ['Is there a bank near here?', 'Gần đây có ngân hàng không?', 'question'],
   ['What are you doing now?', 'Bây giờ bạn đang làm gì?', 'question'],
 
@@ -58,7 +58,7 @@ const RAW: Raw[] = [
   ['She is never late for work.', 'Cô ấy không bao giờ đi làm muộn.', 'freq'],
   ['We never eat meat.', 'Chúng tôi không bao giờ ăn thịt.', 'freq'],
   ['He is always busy.', 'Anh ấy lúc nào cũng bận.', 'freq'],
-  ['They often play football after school.', 'Họ thường đá bóng sau giờ học.', 'freq', ['After school they often play football.']],
+  ['They often play football after school.', 'Họ thường đá bóng sau giờ học.', 'freq', ['After school they often play football.', 'Often they play football after school.']],
   ['I sometimes watch films at home.', 'Thỉnh thoảng tôi xem phim ở nhà.', 'freq', ['Sometimes I watch films at home.', 'I watch films at home sometimes.', 'At home I sometimes watch films.']],
   ['You can always call me.', 'Lúc nào bạn cũng có thể gọi cho tôi.', 'freq'],
 
@@ -95,7 +95,7 @@ const RAW: Raw[] = [
   ['I have never been to Japan.', 'Tôi chưa bao giờ đến Nhật Bản.', 'perfect'],
   ['Have you ever eaten pho?', 'Bạn đã từng ăn phở chưa?', 'perfect'],
   ['She has already finished her homework.', 'Cô ấy đã làm xong bài tập rồi.', 'perfect', ['She has finished her homework already.']],
-  ['We haven\'t seen that film yet.', 'Chúng tôi chưa xem bộ phim đó.', 'perfect'],
+  ['We haven\'t seen that film yet.', 'Chúng tôi chưa xem bộ phim đó.', 'perfect', ['We haven\'t yet seen that film.']],
   ['How long have you lived here?', 'Bạn sống ở đây bao lâu rồi?', 'perfect'],
 ]
 
@@ -103,14 +103,29 @@ const RAW: Raw[] = [
 export const SENTENCES: Sentence[] = RAW.map(([en, vi, focus, alts]) => ({ id: en, en, vi, focus, alts: alts ?? [] }))
 
 // Từ luôn viết hoa dù không đứng đầu câu
-const PROPER = new Set(['I', 'English', 'Hanoi', 'Lan', 'Japan', 'Let\'s'])
+const PROPER = new Set(['I', 'English', 'Hanoi', 'Lan', 'Japan'])
 
 export const words = (s: string) => s.replace(/[.?!]$/, '').split(/\s+/)
 export const endMark = (s: string) => (/[.?!]$/.test(s) ? s.slice(-1) : '.')
 const norm = (ws: string[]) => ws.map((w) => w.toLowerCase()).join(' ')
 
+const tileText = (w: string, i: number) => (i === 0 && !PROPER.has(w) ? w.toLowerCase() : w)
+
 export function tilesFor(s: Sentence): Tile[] {
-  return words(s.en).map((w, i) => ({ id: `${i}`, text: i === 0 && !PROPER.has(w) ? w.toLowerCase() : w }))
+  return words(s.en).map((w, i) => ({ id: `${i}`, text: tileText(w, i) }))
+}
+
+// Cách xếp (câu gốc hoặc cách khác cũng đúng) khớp dài nhất với phần đã ghép — để gợi ý không phá cách xếp đúng khác
+export function bestTarget(s: Sentence, built: string[]): { words: string[]; k: number } {
+  const got = built.map((w) => w.toLowerCase())
+  let best = { words: words(s.en).map(tileText), k: -1 }
+  for (const c of [s.en, ...s.alts]) {
+    const ws = words(c).map(tileText)
+    let k = 0
+    while (k < ws.length && ws[k].toLowerCase() === got[k]) k++
+    if (k > best.k) best = { words: ws, k }
+  }
+  return best
 }
 
 export function scramble(tiles: Tile[]): Tile[] {
@@ -142,21 +157,17 @@ export function sentenceCase(ws: string[]): string {
 
 // Gợi ý: chỉ ra chỗ đầu tiên lệch so với câu chuẩn
 export function hintFor(s: Sentence, built: string[]): string {
-  const want = words(s.en).map((w) => w.toLowerCase())
-  const got = built.map((w) => w.toLowerCase())
-  let k = 0
-  while (k < want.length && want[k] === got[k]) k++
+  const { words: shown, k } = bestTarget(s, built)
   const tip = FOCUS.find((f) => f.id === s.focus)!.tip
-  if (k >= want.length) return tip
-  const shown = tilesFor(s).map((t) => t.text)
-  const before = k ? `Đúng tới “${shown.slice(0, k).join(' ')}”, ` : ''
+  if (k >= shown.length) return tip
+  const before = k ? `Đúng tới “${sentenceCase(shown.slice(0, k))}”, ` : ''
   const next = k ? shown[k] : sentenceCase([shown[0]])
   return `${before}${k ? 'sau đó' : 'Câu bắt đầu bằng'} “${next}”. ${tip}`
 }
 
 export const LEVELS: { id: LevelId; label: string; desc: string }[] = [
-  { id: 'easy', label: 'Câu ngắn', desc: 'Câu 3–5 thẻ: câu hỏi, phủ định, tính từ trước danh từ.' },
-  { id: 'hard', label: 'Câu dài', desc: 'Câu 6–8 thẻ: nơi chốn và thời gian, always / never, very well, too / enough.' },
+  { id: 'easy', label: 'Câu ngắn', desc: 'Câu 3–5 thẻ: câu hỏi, phủ định, tính từ trước danh từ, very well, too.' },
+  { id: 'hard', label: 'Câu dài', desc: 'Câu 6–9 thẻ: nơi chốn và thời gian, always / never, sở hữu \'s, enough.' },
 ]
 
 export const levelOf = (s: Sentence): LevelId => (words(s.en).length <= 5 ? 'easy' : 'hard')

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
 import { speakEN } from '@/core/tts'
 import { useRevealTop } from '@/features/korean/hangul/useRevealTop'
-import { endMark, hintFor, judge, scramble, sentenceCase, tilesFor, type Sentence, type Tile, type Verdict } from './sentences'
+import { bestTarget, endMark, hintFor, judge, scramble, sentenceCase, tilesFor, type Sentence, type Tile, type Verdict } from './sentences'
 import { MASTERY } from './progress'
 
 interface Props {
@@ -54,28 +54,36 @@ export default function BuildQuiz({ items, title, canHear, onFinish, onAgain, on
     if (!done) poolRef.current?.querySelector<HTMLButtonElement>('button:not(:disabled)')?.focus({ preventScroll: true })
   }, [i, done])
 
+  // Thẻ vừa bấm bị ẩn / gỡ khỏi câu: chuyển focus sang thẻ còn lại đầu tiên để không rơi về đầu trang
+  const refocus = () => window.setTimeout(() => {
+    const el = poolRef.current?.querySelector<HTMLButtonElement>('button:not(:disabled)')
+    ;(el ?? checkRef.current)?.focus({ preventScroll: true })
+  }, 0)
+
   const put = (t: Tile) => {
     if (checked || placed.includes(t.id)) return
     setPlaced((p) => [...p, t.id])
+    refocus()
   }
 
   const take = (id: string) => {
     if (checked) return
     setPlaced((p) => p.filter((x) => x !== id))
+    refocus()
   }
 
   // Giữ phần đầu đã đúng, trả các thẻ sau về, rồi đặt thêm một thẻ đúng (so theo chữ, vì có thể trùng từ như "the")
+  // Bám theo cách xếp đúng (câu gốc hoặc cách khác) mà người học đang đi theo
   const hint = () => {
     if (checked || !cur) return
-    const same = (t: Tile | undefined, w: Tile) => !!t && t.text.toLowerCase() === w.text.toLowerCase()
-    let k = 0
-    while (k < placed.length && same(byId.get(placed[k]), cur.tiles[k])) k++
-    if (k >= cur.tiles.length) return
+    const { words: target, k } = bestTarget(cur.s, placedTiles.map((t) => t.text))
+    if (k >= target.length) return
     const keep = placed.slice(0, k)
-    const next = cur.order.find((t) => same(t, cur.tiles[k]) && !keep.includes(t.id))
+    const next = cur.order.find((t) => t.text.toLowerCase() === target[k].toLowerCase() && !keep.includes(t.id))
     if (!next) return
     setPlaced([...keep, next.id])
     setHinted(true)
+    refocus()
   }
 
   const check = () => {
