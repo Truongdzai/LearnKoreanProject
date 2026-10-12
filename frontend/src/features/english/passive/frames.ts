@@ -46,7 +46,7 @@ const RAW: Raw[] = [
   ['The results ___ (announce) next week.', 'Kết quả sẽ được công bố vào tuần sau.', ['will be announced', 'will announce', 'announced', 'will be announce'], 'future'],
 
   ['Mobile phones must ___ (leave) outside the exam room.', 'Điện thoại phải để bên ngoài phòng thi.', ['be left', 'leave', 'left', 'be leave'], 'modal'],
-  ['The report has to ___ (finish) by Friday.', 'Báo cáo phải được làm xong trước thứ Sáu.', ['be finished', 'finish', 'finished', 'be finishing'], 'modal'],
+  ['The report has to ___ (send) to the manager by Friday.', 'Báo cáo phải được gửi cho quản lý trước thứ Sáu.', ['be sent', 'send', 'sent', 'be send'], 'modal'],
   ['This medicine can ___ (buy) without a prescription.', 'Thuốc này có thể mua không cần đơn.', ['be bought', 'buy', 'bought', 'be buy'], 'modal'],
 ]
 
