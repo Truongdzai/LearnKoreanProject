@@ -36,16 +36,21 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
   const nextRef = useRef<HTMLButtonElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const optsRef = useRef<HTMLDivElement>(null)
+  const againRef = useRef<HTMLButtonElement>(null)
   const f = items[i]
 
   // Câu mới: focus vào phương án đầu (nút "Câu tiếp" vừa biến mất)
   useEffect(() => {
-    if (!done) optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
+    if (!done) optsRef.current?.focus({ preventScroll: true })
   }, [i, done])
 
   useEffect(() => {
     if (picked != null) nextRef.current?.focus({ preventScroll: true })
   }, [picked])
+
+  useEffect(() => {
+    if (done) againRef.current?.focus({ preventScroll: true })
+  }, [done])
 
   const choose = (p: Prep) => {
     if (picked != null || !f) return
@@ -115,7 +120,7 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
           </div>
         )}
         <div className="hg-actions">
-          <button className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
+          <button ref={againRef} className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
           <button className="btn-ghost" onClick={onBack}><Icon name="arrow-left" size={15} /> Chọn nhóm khác</button>
         </div>
       </div>
@@ -141,7 +146,7 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
         <div className="ep-vi">{f.vi}</div>
       </div>
 
-      <div className={'quiz-options ep-options' + (f.options.length === 3 ? ' three' : '')} role="group" aria-label="Đáp án" ref={optsRef}>
+      <div className={'quiz-options ep-options' + (f.options.length === 3 ? ' three' : '')} role="group" aria-label="Đáp án" tabIndex={-1} ref={optsRef}>
         {f.options.map((p, k) => {
           const cls = picked != null ? (p === f.answer ? ' correct' : p === picked ? ' wrong' : '') : ''
           return (

@@ -34,10 +34,10 @@ type Raw = [string, string, [string, string, string, string], CondType, Clause]
 
 const RAW: Raw[] = [
   ['If it ___ (rain) tomorrow, we will stay at home.', 'Nếu mai trời mưa, chúng tôi sẽ ở nhà.', ['rains', 'will rain', 'rained', 'would rain'], 'c1', 'if'],
-  ['If you ___ (study) hard, you will pass the exam.', 'Nếu bạn học chăm, bạn sẽ đỗ.', ['study', 'will study', 'studied', 'would study'], 'c1', 'if'],
-  ['If she ___ (not / hurry), she will miss the bus.', 'Nếu cô ấy không nhanh lên, cô ấy sẽ lỡ xe buýt.', ['doesn\'t hurry', 'won\'t hurry', 'didn\'t hurry', 'wouldn\'t hurry'], 'c1', 'if'],
+  ['If you ___ (study) hard from now on, you will pass the exam.', 'Nếu từ giờ bạn học chăm, bạn sẽ đỗ.', ['study', 'will study', 'studied', 'would study'], 'c1', 'if'],
+  ['If she ___ (not / hurry up) now, she will miss the bus.', 'Nếu cô ấy không nhanh lên ngay, cô ấy sẽ lỡ xe buýt.', ['doesn\'t hurry up', 'don\'t hurry up', 'wouldn\'t hurry up', 'not hurry up'], 'c1', 'if'],
   ['If we ___ (leave) now, we will be on time.', 'Nếu đi ngay bây giờ, chúng ta sẽ đến kịp.', ['leave', 'will leave', 'left', 'would leave'], 'c1', 'if'],
-  ['If he ___ (call) me, I will tell him the news.', 'Nếu anh ấy gọi, tôi sẽ báo tin cho anh ấy.', ['calls', 'will call', 'called', 'would call'], 'c1', 'if'],
+  ['If he ___ (call) me tonight, I will tell him the news.', 'Nếu tối nay anh ấy gọi, tôi sẽ báo tin cho anh ấy.', ['calls', 'will call', 'called', 'would call'], 'c1', 'if'],
   ['If it is sunny tomorrow, we ___ (go) to the beach.', 'Nếu mai trời nắng, chúng tôi sẽ đi biển.', ['will go', 'would go', 'went', 'going'], 'c1', 'main'],
   ['If you eat too much, you ___ (feel) sick.', 'Ăn nhiều quá thì bạn sẽ thấy khó chịu.', ['will feel', 'would feel', 'felt', 'feeling'], 'c1', 'main'],
   ['If I see Lan, I ___ (give) her your message.', 'Nếu gặp Lan, tôi sẽ chuyển lời bạn cho cô ấy.', ['will give', 'would give', 'gave', 'giving'], 'c1', 'main'],
@@ -49,11 +49,11 @@ const RAW: Raw[] = [
   ['If she ___ (live) closer, we would see each other more often.', 'Nếu cô ấy sống gần hơn, chúng tôi sẽ gặp nhau thường xuyên hơn.', ['lived', 'lives', 'will live', 'would live'], 'c2', 'if'],
   ['If we ___ (know) his address, we would send him a card.', 'Nếu biết địa chỉ anh ấy thì chúng tôi sẽ gửi thiệp (nhưng không biết).', ['knew', 'know', 'will know', 'would know'], 'c2', 'if'],
   ['If he ___ (not / work) so much, he would be healthier.', 'Nếu anh ấy không làm việc nhiều như vậy, anh ấy sẽ khỏe hơn.', ['didn\'t work', 'doesn\'t work', 'won\'t work', 'wouldn\'t work'], 'c2', 'if'],
-  ['If I had a car, I ___ (drive) to work.', 'Nếu có ô tô, tôi sẽ lái xe đi làm.', ['would drive', 'will drive', 'drove', 'drive'], 'c2', 'main'],
+  ['If I had a car, I ___ (drive) to work.', 'Nếu có ô tô, tôi sẽ lái xe đi làm.', ['would drive', 'will drive', 'driving', 'drive'], 'c2', 'main'],
   ['If I won the lottery, I ___ (buy) a house for my parents.', 'Nếu trúng xổ số, tôi sẽ mua nhà cho bố mẹ.', ['would buy', 'will buy', 'bought', 'buy'], 'c2', 'main'],
   ['If she spoke English, she ___ (get) a better job.', 'Nếu cô ấy nói được tiếng Anh, cô ấy sẽ có việc tốt hơn.', ['would get', 'will get', 'got', 'gets'], 'c2', 'main'],
   ['If it weren\'t so expensive, I ___ (stay) at that hotel.', 'Nếu không đắt như thế, tôi sẽ ở khách sạn đó.', ['would stay', 'will stay', 'stayed', 'stay'], 'c2', 'main'],
-  ['If you saw a ghost, what ___ (you / do)?', 'Nếu nhìn thấy ma, bạn sẽ làm gì?', ['would you do', 'will you do', 'did you do', 'you would do'], 'c2', 'main'],
+  ['If you saw a ghost right now, what ___ (you / do)?', 'Nếu ngay lúc này bạn nhìn thấy ma, bạn sẽ làm gì?', ['would you do', 'will you do', 'do you do', 'you would do'], 'c2', 'main'],
 ]
 
 export const FRAMES: Frame[] = RAW.map(([en, vi, opts, type, clause]) => ({ id: en, en, vi, options: opts, answer: opts[0], type, clause }))
@@ -70,9 +70,11 @@ export function shuffle<T>(arr: T[]): T[] {
 }
 
 export function buildRound(weak: string[]): (Frame & { shuffled: string[] })[] {
-  const w = shuffle(FRAMES.filter((f) => weak.includes(f.id))).slice(0, Math.ceil(ROUND / 2))
+  // Câu từng sai chiếm tối đa nửa lượt; nếu câu mới không đủ thì lấy thêm câu sai còn lại để lượt luôn đủ số câu
+  const ws = shuffle(FRAMES.filter((f) => weak.includes(f.id)))
+  const half = Math.ceil(ROUND / 2)
   const rest = shuffle(FRAMES.filter((f) => !weak.includes(f.id)))
-  return shuffle([...w, ...rest].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
+  return shuffle([...ws.slice(0, half), ...rest, ...ws.slice(half)].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
 }
 
 export const filled = (f: Frame) => f.en.replace(/___\s*\([^)]*\)/, f.answer)

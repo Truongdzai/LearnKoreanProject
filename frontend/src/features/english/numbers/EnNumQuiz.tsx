@@ -34,6 +34,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const nextRef = useRef<HTMLButtonElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const optsRef = useRef<HTMLDivElement>(null)
+  const againRef = useRef<HTMLButtonElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const q = questions[i]
   const item = q?.item
@@ -43,6 +44,10 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
     if (picked != null) nextRef.current?.focus({ preventScroll: true })
   }, [picked])
 
+  useEffect(() => {
+    if (done) againRef.current?.focus({ preventScroll: true })
+  }, [done])
+
   // Câu mới ở chế độ nghe: tự đọc một lần, đưa con trỏ vào ô gõ
   useEffect(() => {
     if (done || !item) return
@@ -50,7 +55,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
     setQHear(canHear)
     if (audio && canHear) speakEN(item.say, 0.9)
     if (mode === 'type') inputRef.current?.focus({ preventScroll: true })
-    else optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
+    else optsRef.current?.focus({ preventScroll: true })
   }, [i, done])
 
   const ok = (v: string) => (mode === 'type' ? item.accept(v) : v === q.answer)
@@ -129,7 +134,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
           </div>
         )}
         <div className="hg-actions">
-          <button className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
+          <button ref={againRef} className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
           <button className="btn-ghost" onClick={onBack}><Icon name="arrow-left" size={15} /> Chọn chế độ khác</button>
         </div>
       </div>
@@ -194,7 +199,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
           {!answered && <button type="submit" className="btn-primary sm" disabled={!typed.trim()}>Kiểm tra</button>}
         </form>
       ) : (
-        <div className={'quiz-options enn-options' + (mode === 'read' ? ' words' : '')} role="group" aria-label="Đáp án" ref={optsRef}>
+        <div className={'quiz-options enn-options' + (mode === 'read' ? ' words' : '')} role="group" aria-label="Đáp án" tabIndex={-1} ref={optsRef}>
           {q.options.map((opt, k) => {
             const cls = answered ? (opt === q.answer ? ' correct' : opt === picked ? ' wrong' : '') : ''
             return (

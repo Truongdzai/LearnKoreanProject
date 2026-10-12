@@ -187,7 +187,9 @@ export function shuffle<T>(arr: T[]): T[] {
 export function buildRound(level: LevelId, focus: FocusId[], weak: string[]): Sentence[] {
   const pool = SENTENCES.filter((s) => levelOf(s) === level && (!focus.length || focus.includes(s.focus)))
   const use = pool.length ? pool : SENTENCES.filter((s) => levelOf(s) === level)
-  const w = shuffle(use.filter((s) => weak.includes(s.id))).slice(0, Math.ceil(ROUND / 2))
+  // Câu từng sai chiếm tối đa nửa lượt; nếu câu mới không đủ thì lấy thêm câu sai còn lại để lượt luôn đủ số câu
+  const ws = shuffle(use.filter((s) => weak.includes(s.id)))
+  const half = Math.ceil(ROUND / 2)
   const rest = shuffle(use.filter((s) => !weak.includes(s.id)))
-  return shuffle([...w, ...rest].slice(0, ROUND))
+  return shuffle([...ws.slice(0, half), ...rest, ...ws.slice(half)].slice(0, ROUND))
 }

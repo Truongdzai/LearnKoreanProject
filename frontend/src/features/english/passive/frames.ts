@@ -64,9 +64,11 @@ export function shuffle<T>(arr: T[]): T[] {
 }
 
 export function buildRound(weak: string[]): (Frame & { shuffled: string[] })[] {
-  const w = shuffle(FRAMES.filter((f) => weak.includes(f.id))).slice(0, Math.ceil(ROUND / 2))
+  // Câu từng sai chiếm tối đa nửa lượt; nếu câu mới không đủ thì lấy thêm câu sai còn lại để lượt luôn đủ số câu
+  const ws = shuffle(FRAMES.filter((f) => weak.includes(f.id)))
+  const half = Math.ceil(ROUND / 2)
   const rest = shuffle(FRAMES.filter((f) => !weak.includes(f.id)))
-  return shuffle([...w, ...rest].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
+  return shuffle([...ws.slice(0, half), ...rest, ...ws.slice(half)].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
 }
 
 export const filled = (f: Frame) => f.en.replace(/___\s*\([^)]*\)/, f.answer)

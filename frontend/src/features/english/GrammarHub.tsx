@@ -1,7 +1,7 @@
-import { Suspense, useState } from 'react'
+import { Suspense, useMemo, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { clearUrlParams, useUrlParam } from '@/core/hooks/useTabParam'
-import { useLabScores, type LabKey, type LabScores } from '@/core/labScores'
+import { readLabScores, useLabScores, type LabKey, type LabScores } from '@/core/labScores'
 import GrammarLessons from './components/GrammarLessons'
 import { VoiceNotice } from './components/PronunciationLab'
 import { lazyPage } from '@/core/lazyPage'
@@ -72,20 +72,22 @@ function MoreLabs({ ids, onOpen }: { ids: Pane[]; onOpen: (p: Pane) => void }) {
 }
 
 function LabShelf({ scores, onOpen }: { scores: LabScores; onOpen: (p: Pane) => void }) {
+  // Bản local đọc lại mỗi lần dải hiện ra (vừa luyện xong một phòng là thấy ngay), lấy điểm cao hơn của hai nguồn
+  const local = useMemo(() => readLabScores('en'), [])
+  const best = (key: LabKey, m: string) => Math.max(scores[key]?.[m] ?? 0, local[key]?.[m] ?? 0)
   return (
     <section className="en-lab-shelf" aria-labelledby="en-lab-shelf-h">
       <div className="section-title" id="en-lab-shelf-h"><span className="pin" /> Phòng luyện</div>
       <div className="en-lab-grid">
         {LABS.map((l) => {
-          const s = scores[l.key] ?? {}
-          const reached = l.parts.filter((m) => (s[m] ?? 0) >= PASS).length
+          const reached = l.parts.filter((m) => best(l.key, m) >= PASS).length
           const meta = PANES.find((p) => p.id === l.pane)!
           return (
             <button key={l.pane} type="button" className={'en-lab-card' + (reached === l.parts.length ? ' done' : '')} onClick={() => onOpen(l.pane)}>
               <b><Icon name={meta.icon} size={15} /> {meta.label}</b>
               <small>{l.desc}</small>
               <span className="en-lab-dots" aria-label={`${reached}/${l.parts.length} phần đạt ${PASS}%`}>
-                {l.parts.map((m) => <i key={m} className={(s[m] ?? 0) >= PASS ? 'on' : ''} />)}
+                {l.parts.map((m) => <i key={m} className={best(l.key, m) >= PASS ? 'on' : ''} />)}
               </span>
             </button>
           )
