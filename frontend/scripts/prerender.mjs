@@ -101,7 +101,7 @@ const PAGES = [
     lead: 'Theo quy tắc 3C (Compress – Compile – Consolidate): học đúng từ cần học, ghép thành câu, rồi củng cố bằng ôn tập ngắt quãng.',
     points: [
       '3000 từ tần suất cao chia 117 chủ đề, học kiểu flashcard lật thẻ có giọng đọc US và UK — đủ hiểu khoảng 90% hội thoại hằng ngày',
-      '18 bài ngữ pháp giao tiếp từ to be tới câu điều kiện, kèm phòng luyện ghép câu, động từ bất quy tắc và số đếm – giờ giấc',
+      '18 bài ngữ pháp giao tiếp từ to be tới câu điều kiện, kèm phòng luyện ghép câu, in / on / at, động từ bất quy tắc và số đếm – giờ giấc',
       '13 nhóm phát âm người Việt hay sai: âm cuối, /θ/, ship–sheep, trọng âm, nối âm',
       'Lịch 7 ngày cho từng tuần, mỗi việc có nút bấm đi thẳng tới chỗ học',
     ],

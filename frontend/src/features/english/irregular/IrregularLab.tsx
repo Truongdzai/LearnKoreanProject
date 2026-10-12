@@ -4,7 +4,7 @@ import { englishVoiceStatus, onVoicesChanged, speakEN } from '@/core/tts'
 import { GROUP_INFO, type IrregularVerb, type VerbGroup } from '@/data/english/irregularVerbs'
 import { useAppStore } from '@/store/app.store'
 import IrrQuiz from './IrrQuiz'
-import { MASTERY, useIrrProgress, type Answer } from './progress'
+import { MASTERY, useIrrProgress, weakVerb, type Answer } from './progress'
 import { MODES, ROUND, SETS, pickVerbs, sayForms, verbsOf, type ModeId, type SetId } from './verbs'
 import './styles.css'
 
@@ -42,6 +42,7 @@ export default function IrregularLab() {
   const list = useMemo(() => verbsOf(set), [set])
   const known = useMemo(() => new Set(state.known), [state.known])
   const knownHere = list.filter((v) => known.has(v.v1)).length
+  const weakHere = new Set(state.weak.map(weakVerb).filter((v) => list.some((x) => x.v1 === v))).size
 
   const start = (mode: ModeId) => {
     const m = MODES.find((x) => x.id === mode)!
@@ -78,7 +79,7 @@ export default function IrregularLab() {
 
   const q = norm(query)
   const rows = q
-    ? list.filter((v) => [v.v1, ...v.v2, ...v.v3].some((f) => f.startsWith(q)) || (' ' + norm(v.vi)).includes(' ' + q))
+    ? list.filter((v) => [v.v1, ...v.v2, ...v.v3].some((f) => f.startsWith(q)) || (' ' + norm(v.vi).replace(/[^a-z0-9]+/g, ' ')).includes(' ' + q))
     : list.filter((v) => v.group === group)
   const counts = Object.fromEntries(GROUPS.map((g) => [g, list.filter((v) => v.group === g).length])) as Record<VerbGroup, number>
 
@@ -139,12 +140,12 @@ export default function IrregularLab() {
         </div>
         {!q && (
           <>
-            <div className="vl-modes ei-groups" role="tablist" aria-label="Nhóm biến đổi">
+            <div className="vl-modes ei-groups" role="group" aria-label="Nhóm biến đổi">
               {GROUPS.map((g) => (
                 <button
                   key={g}
-                  role="tab"
-                  aria-selected={group === g}
+                  type="button"
+                  aria-pressed={group === g}
                   className={'vl-mode' + (group === g ? ' on' : '')}
                   onClick={() => setGroup(g)}
                 >
@@ -210,7 +211,7 @@ export default function IrregularLab() {
         </div>
         <p className="hg-note">
           Mỗi lượt lấy {ROUND} từ trong bộ “{SETS.find((s) => s.id === set)?.label}”, ưu tiên từ bạn vừa sai rồi tới từ chưa thuộc.
-          {state.weak.length > 0 && ` Đang có ${state.weak.length} từ cần ôn lại.`}
+          {weakHere > 0 && ` Đang có ${weakHere} từ cần ôn lại trong bộ này.`}
         </p>
       </section>
     </div>

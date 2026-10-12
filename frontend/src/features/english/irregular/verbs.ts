@@ -28,7 +28,7 @@ export const findVerb = (v1: string) => IRREGULAR_VERBS.find((v) => v.v1 === v1)
 export function regular(v1: string): string {
   if (/e$/.test(v1)) return v1 + 'd'
   if (/[^aeiou]y$/.test(v1)) return v1.slice(0, -1) + 'ied'
-  if (/(^|[^aeiou])[aeiou][^aeiouwxy]$/.test(v1)) return v1 + v1.slice(-1) + 'ed'
+  if (/(^|[^aeiou]|qu)[aeiou][^aeiouwxy]$/.test(v1)) return v1 + v1.slice(-1) + 'ed'
   return v1 + 'ed'
 }
 
@@ -55,6 +55,9 @@ const CONFUSE: Record<string, string[]> = {
   quit: ['quite', 'quiet'], cost: ['casted'], bet: ['betten', 'bat'],
 }
 
+// Dạng một số từ điển Mỹ vẫn ghi nhận (woke, hid, bit làm V3) — không đưa làm phương án sai cho khỏi gây tranh cãi
+const AVOID: Record<string, string[]> = { wake: ['woke'], hide: ['hid'], bite: ['bit'] }
+
 const swapOught = (w: string) =>
   /ought$/.test(w) ? w.replace(/ought$/, 'aught') : /aught$/.test(w) ? w.replace(/aught$/, 'ought') : ''
 
@@ -70,12 +73,13 @@ function respell(w: string, v1: string): string[] {
 
 const ing = (v1: string) =>
   v1 === 'be' ? 'being' : /ie$/.test(v1) ? v1.slice(0, -2) + 'ying' : /[^e]e$/.test(v1) ? v1.slice(0, -1) + 'ing'
-    : /(^|[^aeiou])[aeiou][^aeiouwxy]$/.test(v1) ? v1 + v1.slice(-1) + 'ing' : v1 + 'ing'
+    : /(^|[^aeiou]|qu)[aeiou][^aeiouwxy]$/.test(v1) ? v1 + v1.slice(-1) + 'ing' : v1 + 'ing'
 
 const enForm = (v1: string) => (/e$/.test(v1) ? v1 + 'n' : v1 + 'en')
 
 // Ngôi thứ ba số ít: lỗi hay gặp khi chưa phân biệt hiện tại với quá khứ
 function third(v1: string): string {
+  if (v1 === 'be') return 'is'
   if (v1 === 'have') return 'has'
   if (/(s|x|z|ch|sh|o)$/.test(v1)) return v1 + 'es'
   if (/[^aeiou]y$/.test(v1)) return v1.slice(0, -1) + 'ies'
@@ -117,6 +121,7 @@ function blocked(v: IrregularVerb): Set<string> {
 export function distractors(v: IrregularVerb, kind: 'v2' | 'v3', n = 3): string[] {
   const ok = accepted(v, kind)
   const block = blocked(v)
+  if (kind === 'v3') for (const w of AVOID[v.v1] ?? []) block.add(w)
   const out: string[] = []
   for (const c of pool(v, kind)) {
     const w = c.trim().toLowerCase()
@@ -153,7 +158,7 @@ export function makeQuestion(v: IrregularVerb, kind: 'v2' | 'v3'): Question {
 // Chọn động từ cho một lượt: ưu tiên từ vừa sai, rồi từ chưa thuộc, rồi ngẫu nhiên
 export function pickVerbs(set: SetId, weak: string[], known: string[], n = ROUND): IrregularVerb[] {
   const all = verbsOf(set)
-  const weakSet = new Set(weak)
+  const weakSet = new Set(weak.map((w) => w.slice(w.indexOf(':') + 1)))
   const knownSet = new Set(known)
   const w = shuffle(all.filter((v) => weakSet.has(v.v1))).slice(0, Math.ceil(n / 2))
   const fresh = shuffle(all.filter((v) => !weakSet.has(v.v1) && !knownSet.has(v.v1)))
@@ -185,7 +190,7 @@ const REAL: Record<string, string> = {
   thank: 'thank là "cảm ơn".',
   herd: 'herd là "bầy, đàn" — đọc giống heard nhưng viết khác.',
   meat: 'meat là "thịt".',
-  red: 'red là "màu đỏ" — đọc giống read ở quá khứ, nhưng V2 của read vẫn viết là read.',
+  red: 'red là "màu đỏ" — đọc giống read ở dạng quá khứ (V2, V3), nhưng vẫn viết là read.',
   spilt: 'spilt là quá khứ của spill (làm đổ).',
   felled: 'felled là quá khứ của fell (đốn cây).',
   quite: 'quite là "khá, hoàn toàn" — dễ nhầm chính tả với quit.',
@@ -227,20 +232,28 @@ export function explain(v: IrregularVerb, kind: 'v2' | 'v3', raw: string): strin
   if (kind === 'v2' && v.v3.includes(w) && w === v.v1) return `${w} là nguyên mẫu và cũng là V3 (have ${w}) — quá khứ đơn phải là ${v.v2[0]}.`
   if (kind === 'v2' && v.v3.includes(w)) return `${w} là V3 (quá khứ phân từ) — đi sau have / has hoặc trong câu bị động, không đứng một mình để kể chuyện đã qua.`
   if (kind === 'v3' && v.v2.includes(w)) return `${w} là V2 (quá khứ đơn). Sau have / has phải dùng V3.`
-  if (w === v.v1) return `${w} là nguyên mẫu (V1).`
+  if (w === v.v1) {
+    const also = formOf(w, v)
+    return also ? `${w} là nguyên mẫu (V1) — và cũng là một dạng của ${also.v1} (${also.vi}): ${formsLine(also)}.` : `${w} là nguyên mẫu (V1).`
+  }
   if (REAL[w]) return REAL[w]
   if (w === third(v.v1)) return `${w} là hiện tại đơn ngôi thứ ba (he / she / it ${w}).`
   if (w === ing(v.v1)) return `${w} là dạng -ing (đang làm).`
   const other = formOf(w, v)
   if (other) return `${w} là dạng của ${other.v1} (${other.vi}): ${formsLine(other)}.`
   const ok = [...accepted(v, kind)]
-  if (/ed$/.test(w) && !ok.some((a) => /ed$/.test(a))) return `${v.v1} là động từ bất quy tắc — không thêm -ed.`
-  if (/en$/.test(w) && kind === 'v2') return `Quá khứ đơn không có đuôi -en — V2 của ${v.v1} là ${v.v2[0]}.`
-  if (/en$/.test(w) && !/n$/.test(ok[0])) return `${v.v1} không có V3 đuôi -en — V3 là ${ok[0]}.`
   const [near, d] = ok.map((a) => [a, edits(a, w)] as const).sort((x, y) => x[1] - y[1])[0]
+  // Dạng -ed tự thêm vào V1 / V2 / V3 (feeded, wented, broughted)
+  const edForms = new Set([regular(v.v1), v.v1 + 'ed', regular(v.v2[0]), v.v2[0] + 'ed', v.v2[0] + 'd', v.v3[0] + 'ed'])
+  if (edForms.has(w) || (/ed$/.test(w) && !ok.some((a) => /ed$/.test(a)))) return `${v.v1} là động từ bất quy tắc — không thêm -ed.`
+  if (/en$/.test(w) && kind === 'v2') return `Quá khứ đơn không có đuôi -en — V2 của ${v.v1} là ${v.v2[0]}.`
+  if (/en$/.test(w) && d > 1) return `Không có dạng "${w}" — V3 của ${v.v1} là ${ok.join(' / ')}.`
   if (d === 1 || (d === 2 && w.length >= 4 && w[0] === near[0])) return `Sai chính tả — viết đúng là ${near}.`
   return `Không có dạng "${w}".`
 }
 
+// Từ viết giống nhau nhưng đọc khác: đưa máy đọc cách viết theo âm để khỏi đọc sai
+const SAY: Record<string, string> = { read: 'reed, red, red', lead: 'leed, led, led', tear: 'tare, tore, torn' }
+
 // Đọc ba dạng liền nhau cho máy đọc: "go, went, gone"
-export const sayForms = (v: IrregularVerb) => `${v.v1}, ${v.v2[0]}, ${v.v3[0]}`
+export const sayForms = (v: IrregularVerb) => SAY[v.v1] ?? `${v.v1}, ${v.v2[0]}, ${v.v3[0]}`

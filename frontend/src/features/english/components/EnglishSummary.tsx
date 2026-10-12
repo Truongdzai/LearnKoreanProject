@@ -15,6 +15,7 @@ import {
   type TaskExtra,
 } from '../progress'
 import { useDeep } from '../deep/deep'
+import { useLabScores } from '@/core/labScores'
 
 type Scope = 'learned' | 'all'
 
@@ -37,9 +38,10 @@ export default function EnglishSummary({ mode = 'lite' }: Props) {
   const day = Math.min(planDay(plan.start), 90)
   const week = planWeek(plan.start)
   const weeks = mode === 'boot' ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS
+  const labs = useLabScores('en')
   const ext: TaskExtra = {
     units: UNITS, pronGroups: PRON_GROUPS, grammarLessons: GRAMMAR_LESSONS,
-    grammar: grammar.best, pron: pron.best, toeic, deepFull,
+    grammar: grammar.best, pron: pron.best, toeic, deepFull, labs,
   }
   const doneWeeks = weeks.filter(
     (w) => weekDone(w, learned, plan, bank, weekActivity(actDays, plan.start, w.week), ext),
