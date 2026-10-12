@@ -33,6 +33,8 @@
 .zv-cell:hover{border-color:var(--brass)}
 .zv-cell.on{border-color:var(--accent);background:var(--accent-soft)}
 
+.zv-card-wrap{scroll-margin-top:72px;outline:none}
+.zv-card-wrap:focus-visible .zv-card{border-color:var(--accent)}
 .zv-card{display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
   box-shadow:inset 0 3px 0 var(--brass-d)}
 .zv-card-top{display:flex;align-items:flex-start;gap:14px}

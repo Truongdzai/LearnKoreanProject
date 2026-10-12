@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { chineseVoiceStatus, onVoicesChanged, speakZH } from '@/core/tts'
 import { useUrlParam } from '@/core/hooks/useTabParam'
@@ -128,14 +128,30 @@ function Lookup({ canHear }: { canHear: boolean }) {
   const query = q.trim()
   const han = hanOf(query)
 
+  // Chữ lặp (谢谢, 妈妈) chỉ hiện một thẻ
   const results = useMemo<HvEntry[]>(() => {
     if (!query) return []
-    if (han.length) return han.flatMap((c) => (BY_CHAR.has(c) ? [BY_CHAR.get(c)!] : []))
+    if (han.length) return [...new Set(han)].flatMap((c) => (BY_CHAR.has(c) ? [BY_CHAR.get(c)!] : []))
     return searchHv(query)
   }, [query, han.join('')])
+  const allKnown = han.length > 1 && han.every((c) => BY_CHAR.has(c))
+  const reading = useMemo(() => (allKnown ? readWord(han.join('')) : null), [allKnown, han.join('')])
 
   const shown = sel ? BY_CHAR.get(sel) : undefined
   const meaning = han.length > 1 ? WORDS.find((w) => w.zh === han.join(''))?.vi : undefined
+
+  // Bấm một chữ trong bảng dưới: đưa thẻ chi tiết (nằm trên bảng) vào tầm nhìn; đóng thì trả focus về ô chữ
+  const cardRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!sel) return
+    cardRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    cardRef.current?.focus({ preventScroll: true })
+  }, [sel])
+  const closeCard = () => {
+    const c = sel
+    setSel(null)
+    window.setTimeout(() => document.querySelector<HTMLButtonElement>(`.zv-cell[data-c="${c}"]`)?.focus(), 0)
+  }
 
   return (
     <div className="zv-look">
@@ -154,9 +170,9 @@ function Lookup({ canHear }: { canHear: boolean }) {
         results.length ? (
           <div className="zv-results">
             {results.map((e) => <CharCard key={e.c} e={e} canHear={canHear} />)}
-            {han.length > 1 && results.length === han.length && (
+            {reading && (
               <p className="zv-reading">
-                Đọc Hán–Việt: <b>{readWord(han.join(''))}</b>
+                Đọc Hán–Việt: <b>{reading}</b>
                 {meaning && <> — {meaning}</>}
               </p>
             )}
@@ -192,13 +208,18 @@ function Lookup({ canHear }: { canHear: boolean }) {
           <section className="zv-section" aria-labelledby="zv-all-h">
             <div className="section-title" id="zv-all-h"><span className="pin" /> Cả {CHARS.length} chữ, xếp theo âm Hán–Việt</div>
             <p className="hg-note">Bấm một chữ để xem pinyin, các từ có chữ đó và nghe đọc.</p>
-            {shown && <CharCard e={shown} canHear={canHear} onClose={() => setSel(null)} />}
+            {shown && (
+              <div ref={cardRef} tabIndex={-1} className="zv-card-wrap" aria-live="polite">
+                <CharCard e={shown} canHear={canHear} onClose={closeCard} />
+              </div>
+            )}
             <div className="zv-grid">
               {SORTED.map((e) => (
                 <button
                   key={e.c}
                   type="button"
                   className={'zv-cell' + (sel === e.c ? ' on' : '')}
+                  data-c={e.c}
                   aria-pressed={sel === e.c}
                   onClick={() => setSel(sel === e.c ? null : e.c)}
                 >
