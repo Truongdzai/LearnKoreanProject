@@ -22,6 +22,7 @@ const O_HARD = 'Ghép câu: cấp Câu dài đạt 80% (nơi chốn – thời g
 const P_TIME = 'in / on / at: nhóm Thời gian đạt 80% (at 8 o\'clock, on Monday, in July, không dùng giới từ trước next / last)'
 const P_PLACE = 'in / on / at: nhóm Nơi chốn đạt 80% (on the bus / in the car, at the bus stop, on TV)'
 const P_BOTH = 'in / on / at: cả hai nhóm Thời gian và Nơi chốn đạt 80%'
+const T_MIX = 'Chọn thì: một lượt trộn đủ các thì đạt 80% (nhìn dấu hiệu yesterday, since, now, every day…)'
 const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
 const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
 const N_TYPE = 'Số đếm & giờ giấc: nghe & gõ số đạt 80% (chép lại giá tiền, giờ hẹn khi nghe)'
@@ -34,7 +35,7 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
     6: [lab('w', 6, 'enirregular', ['v2'], V2)],
     7: [lab('w', 7, 'enprep', ['place'], P_PLACE), lab('w', 7, 'ennumbers', ['listen'], N_LISTEN)],
     8: [lab('w', 8, 'enorder', ['hard'], O_HARD)],
-    9: [lab('w', 9, 'enirregular', ['v3'], V3)],
+    9: [lab('w', 9, 'enirregular', ['v3'], V3), lab('w', 9, 'entense', ['mix'], T_MIX)],
     10: [lab('w', 10, 'ennumbers', ['type'], N_TYPE)],
     11: [lab('w', 11, 'enirregular', ['type'], TYPE)],
   },
@@ -44,7 +45,7 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
     4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN), lab('bw', 4, 'enorder', ['easy'], O_EASY)],
     5: [lab('bw', 5, 'enorder', ['hard'], O_HARD)],
     6: [lab('bw', 6, 'enprep', ['time', 'place'], P_BOTH)],
-    7: [lab('bw', 7, 'enirregular', ['v3'], V3)],
+    7: [lab('bw', 7, 'enirregular', ['v3'], V3), lab('bw', 7, 'entense', ['mix'], T_MIX)],
     8: [lab('bw', 8, 'enirregular', ['type'], TYPE)],
     9: [lab('bw', 9, 'ennumbers', ['type'], N_TYPE)],
   },
