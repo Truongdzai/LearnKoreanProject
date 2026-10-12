@@ -17,16 +17,20 @@ const lab = (prefix: string, week: number, key: LabKey, modes: string[], label: 
 const V2 = 'Động từ bất quy tắc: chế độ Chọn V2 đạt 80% (went, saw, bought… để kể chuyện đã qua)'
 const V3 = 'Động từ bất quy tắc: chế độ Chọn V3 đạt 80% (gone, seen, written — dùng sau have / has)'
 const TYPE = 'Động từ bất quy tắc: tự gõ đủ V2 + V3 đạt 80% (không còn phương án để đoán)'
+const O_EASY = 'Ghép câu: cấp Câu ngắn đạt 80% (câu hỏi do / does, phủ định, tính từ trước danh từ)'
+const O_HARD = 'Ghép câu: cấp Câu dài đạt 80% (nơi chốn – thời gian, always / never, very well, too / enough)'
 const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
 const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
 const N_TYPE = 'Số đếm & giờ giấc: nghe & gõ số đạt 80% (chép lại giá tiền, giờ hẹn khi nghe)'
 
 export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
-  // Số đếm ở tuần 3 (con số & thời gian), quá khứ đơn ở tuần 6, hiện tại hoàn thành ở tuần 9
+  // Đặt theo nội dung tuần: con số ở tuần 3, ghép câu đơn ở tuần 5, quá khứ đơn ở tuần 6, hiện tại hoàn thành ở tuần 9
   lite: {
     3: [lab('w', 3, 'ennumbers', ['read'], N_READ)],
+    5: [lab('w', 5, 'enorder', ['easy'], O_EASY)],
     6: [lab('w', 6, 'enirregular', ['v2'], V2)],
     7: [lab('w', 7, 'ennumbers', ['listen'], N_LISTEN)],
+    8: [lab('w', 8, 'enorder', ['hard'], O_HARD)],
     9: [lab('w', 9, 'enirregular', ['v3'], V3)],
     10: [lab('w', 10, 'ennumbers', ['type'], N_TYPE)],
     11: [lab('w', 11, 'enirregular', ['type'], TYPE)],
@@ -34,7 +38,8 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
   boot: {
     2: [lab('bw', 2, 'ennumbers', ['read'], N_READ)],
     3: [lab('bw', 3, 'enirregular', ['v2'], V2)],
-    4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN)],
+    4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN), lab('bw', 4, 'enorder', ['easy'], O_EASY)],
+    5: [lab('bw', 5, 'enorder', ['hard'], O_HARD)],
     7: [lab('bw', 7, 'enirregular', ['v3'], V3)],
     8: [lab('bw', 8, 'enirregular', ['type'], TYPE)],
     9: [lab('bw', 9, 'ennumbers', ['type'], N_TYPE)],
