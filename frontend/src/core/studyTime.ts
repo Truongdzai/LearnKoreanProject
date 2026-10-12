@@ -39,5 +39,10 @@ export function setYoutubePlaying(id: string, playing: boolean): void {
 }
 
 export function youtubePlaying(): boolean {
-  return ytPlaying.size > 0
+  // Khung phát đã bị gỡ khỏi trang (đổi tab giữa lúc phát) thì không còn sự kiện dừng: tự bỏ cờ
+  for (const id of ytPlaying) {
+    if (document.getElementById(id)) return true
+    ytPlaying.delete(id)
+  }
+  return false
 }

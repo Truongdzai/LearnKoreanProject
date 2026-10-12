@@ -193,6 +193,24 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [todayXp, setTodayXp] = useState<number>(loadTodayXp)
   const [goalBonusClaimed, setGoalBonusClaimed] = useState(false)
 
+  // Qua nửa đêm khi tab vẫn mở: XP hôm nay về 0 (hoặc theo tab khác đã lưu) để cảnh báo chuỗi và mục tiêu ngày đúng
+  useEffect(() => {
+    let day = todayKey()
+    const check = () => {
+      const d = todayKey()
+      if (d === day) return
+      day = d
+      setTodayXp(loadTodayXp())
+      setGoalBonusClaimed(false)
+    }
+    const id = window.setInterval(check, 60_000)
+    document.addEventListener('visibilitychange', check)
+    return () => {
+      window.clearInterval(id)
+      document.removeEventListener('visibilitychange', check)
+    }
+  }, [])
+
   const [videos, setVideos] = useState<Video[]>([])
   const [owned, setOwned] = useState<string[]>([])
   const [seeds, setSeeds] = useState<Record<string, number>>({})
@@ -484,10 +502,16 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
 
   const dailyBonus = useCallback(async (): Promise<number> => {
     if (!guard()) throw new Error('Hãy đăng nhập để nhận thưởng.')
-    const r = await dailyBonusApi()
-    setAccount(r.user)
-    setBonusAvailable(false)
-    return r.reward
+    try {
+      const r = await dailyBonusApi()
+      setAccount(r.user)
+      setBonusAvailable(false)
+      return r.reward
+    } catch (e) {
+      // Đã nhận ở thiết bị khác: tắt nút cho khỏi bấm mãi không được
+      if ((e as { code?: string }).code === 'ALREADY_CLAIMED') setBonusAvailable(false)
+      throw e
+    }
   }, [guard, setAccount, setBonusAvailable])
 
   const recordEvent = useCallback((type: EventType, amount = 1, minutes = 0, words = 0, lang?: string) => {

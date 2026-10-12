@@ -197,7 +197,7 @@ def register(name: str, email: str, password: str, ip: str = "", ref: str = "") 
         row = dict(conn.execute("SELECT * FROM users WHERE id = ?", (uid,)).fetchone())
     finally:
         conn.close()
-    touch_streak(uid)
+    # Chuỗi ngày học bắt đầu từ lần học đầu tiên (record_event), không phải lúc đăng ký
     try:
         request_verify(row)
     except Exception:
