@@ -128,7 +128,7 @@ export default function TenseLab() {
           <div>
             <b><Icon name="target" size={16} /> {kind === 'mix' ? 'Lượt trộn đủ các thì' : 'Lượt theo nhóm đã chọn'}</b>
             <p>
-              {ROUND} câu trong {count}, câu từng sai được hỏi lại nhiều hơn.
+              {Math.min(ROUND, count)} câu trong {count}, câu từng sai được hỏi lại nhiều hơn.
               {kind === 'focus' && ' Lượt theo nhóm để ôn riêng; lộ trình chỉ tính lượt trộn.'}
             </p>
           </div>

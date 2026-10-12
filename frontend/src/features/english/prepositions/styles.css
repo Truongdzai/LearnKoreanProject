@@ -51,7 +51,9 @@
 .ep-blank.filled.bad{color:var(--bad);border-color:var(--bad)}
 .ep-vi{font-size:14px;color:var(--text2)}
 .ep-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
-.ep-options.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Phương án ngắn: 4 cột (máy tính) hoặc 2 × 2 (điện thoại), câu 3 phương án giữ 3 cột — không nhảy bố cục giữa các câu */
+.quiz-options.ep-options{grid-template-columns:repeat(4,minmax(0,1fr))}
+.quiz-options.ep-options.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ep-opt-main{font-size:21px;font-weight:600;line-height:1.3}
 .ep-opt.none .ep-opt-main{font-size:15px;font-weight:500;font-style:italic}
 
@@ -74,6 +76,7 @@
   .ep-modes{grid-template-columns:minmax(0,1fr)}
   .ep-frame{font-size:20px}
   .ep-opt-main{font-size:19px}
-  .ep-options.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .quiz-options.ep-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quiz-options.ep-options.three{grid-template-columns:repeat(3,minmax(0,1fr))}
   .ep-feedback .btn-primary{align-self:stretch;justify-content:center}
 }

@@ -20,13 +20,16 @@ export default function SentenceBuilder() {
   const { state, finishRound } = useEnOrderProgress()
   const [canHear, setCanHear] = useState(() => englishVoiceStatus() === 'ready')
   const [focus, setFocus] = useState<FocusId[]>([])
-  const [quiz, setQuiz] = useState<{ level: LevelId; items: Sentence[]; n: number } | null>(null)
+  const [quiz, setQuiz] = useState<{ level: LevelId; items: Sentence[]; n: number; counted: boolean } | null>(null)
   const practiceRef = useRef<HTMLElement>(null)
 
   useEffect(() => onVoicesChanged(() => setCanHear(englishVoiceStatus() === 'ready')), [])
 
+  // Chọn vài chủ điểm để ôn riêng thì không tính điểm cấp (có chủ điểm chỉ 1–2 câu); chọn đủ cả 8 cũng là lượt trộn
+  const counted = !focus.length || focus.length === FOCUS.length
+
   const start = (level: LevelId) => {
-    setQuiz((q) => ({ level, items: buildRound(level, focus, state.weak), n: (q?.n ?? 0) + 1 }))
+    setQuiz((q) => ({ level, items: buildRound(level, counted ? [] : focus, state.weak), n: (q?.n ?? 0) + 1, counted }))
   }
 
   const back = () => {
@@ -37,7 +40,7 @@ export default function SentenceBuilder() {
   const onFinish = useCallback((pct: number, results: { id: string; ok: boolean }[]) => {
     if (!quiz) return
     recordEvent('review', 1, 0, 0, 'en')
-    if (finishRound(quiz.level, pct, results)) recordEvent('grammar', 1, 0, 0, 'en')
+    if (finishRound(quiz.level, pct, results, quiz.counted)) recordEvent('grammar', 1, 0, 0, 'en')
   }, [quiz, finishRound, recordEvent])
 
   if (quiz) {
@@ -73,7 +76,7 @@ export default function SentenceBuilder() {
           <div className="hg-stats">
             <span><b>{state.best.easy ?? 0}%</b> câu ngắn tốt nhất</span>
             <span><b>{state.best.hard ?? 0}%</b> câu dài tốt nhất</span>
-            <span><b>{state.solved}</b> câu đã tự ghép đúng</span>
+            <span><b>{state.solved.length}/{SENTENCES.length}</b> câu đã tự ghép đúng</span>
           </div>
           <div className="hg-actions">
             <button className="btn-ghost sm" onClick={() => practiceRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
@@ -125,13 +128,13 @@ export default function SentenceBuilder() {
         <div className="eb-modes">
           {LEVELS.map((l) => {
             const best = state.best[l.id]
-            const n = count(l.id)
+            const n = count(l.id) || SENTENCES.filter((x) => levelOf(x) === l.id).length
             return (
               <div key={l.id} className={'eb-mode' + ((best ?? 0) >= MASTERY ? ' done' : '')}>
                 <b><Icon name={l.id === 'easy' ? 'letters' : 'note'} size={16} /> {l.label}</b>
                 <p>{l.desc}</p>
                 <div className="eb-mode-foot">
-                  <small>{best != null ? `Tốt nhất: ${best}%` : 'Chưa luyện'} · {Math.min(ROUND, n || ROUND)} câu/lượt</small>
+                  <small>{best != null ? `Tốt nhất: ${best}%` : 'Chưa luyện'} · {Math.min(ROUND, n)} câu/lượt</small>
                   <button className="btn-primary sm" onClick={() => start(l.id)}><Icon name="play" size={14} /> Bắt đầu</button>
                 </div>
               </div>
@@ -140,6 +143,7 @@ export default function SentenceBuilder() {
         </div>
         <p className="hg-note">
           Bấm thẻ để đặt vào câu, bấm lại thẻ đã đặt (hoặc phím Backspace) để gỡ. Dùng gợi ý vẫn được, nhưng câu đó không tính là tự ghép đúng.
+          {!counted && ' Đang chọn vài chủ điểm để ôn riêng — điểm cấp và lộ trình chỉ tính lượt trộn mọi chủ điểm.'}
           {state.weak.length > 0 && ` Có ${state.weak.length} câu từng sai sẽ được hỏi lại nhiều hơn.`}
         </p>
       </section>

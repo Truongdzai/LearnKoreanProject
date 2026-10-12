@@ -34,7 +34,7 @@ const W = {
   media: 'on TV, on the radio, on the internet; nhưng in the newspaper, in the photo, in the book.',
   floor: 'Tầng và phía dùng on: on the third floor, on your left.',
   home: 'at home (ở nhà) — nhưng go home, come home thì không có giới từ.',
-  top: 'Vị trí trên trang, đầu / cuối: at the top, at the bottom, at the end.',
+  top: 'Điểm đầu / cuối của một con đường, một trang: at the end of the street, at the bottom of the page.',
 }
 
 // Cờ cuối = người Mỹ hay bỏ hẳn giới từ trước thứ / ngày (See you Monday) nên không đưa phương án "không cần"
@@ -88,7 +88,7 @@ const RAW: Raw[] = [
   ['Let\'s meet ___ the main entrance.', 'Mình gặp nhau ở cổng chính nhé.', 'at', 'place', 'spot'],
   ['There\'s no water ___ the bottle.', 'Trong chai hết nước rồi.', 'in', 'place', 'inside'],
   ['The cat is sleeping ___ the sofa.', 'Con mèo đang ngủ trên ghế sofa.', 'on', 'place', 'surface'],
-  ['Write your name ___ the top of the page.', 'Viết tên bạn ở đầu trang.', 'at', 'place', 'top'],
+  ['Turn left ___ the end of the street.', 'Đến cuối phố thì rẽ trái.', 'at', 'place', 'top'],
   ['Put the milk ___ the fridge, please.', 'Cất sữa vào tủ lạnh giúp mình.', 'in', 'place', 'inside'],
   ['We live ___ 25 Tran Hung Dao Street.', 'Chúng tôi sống ở số 25 phố Trần Hưng Đạo.', 'at', 'place', 'spot'],
   ['Stop ___ the traffic lights.', 'Dừng lại ở chỗ đèn giao thông.', 'at', 'place', 'spot'],

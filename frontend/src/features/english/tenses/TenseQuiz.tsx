@@ -165,7 +165,7 @@ export default function TenseQuiz({ items, title, canHear, onFinish, onAgain, on
         <div className={'hg-feedback et-feedback' + (correct ? ' ok' : ' bad')} role="status">
           <div className="et-fb-body">
             <p>
-              <b>{correct ? 'Chính xác!' : 'Chưa đúng.'}</b> Dấu hiệu <span className="et-signal" lang="en">{f.signal}</span> → <b className="et-tense">{t.name}</b>.
+              <b>{correct ? 'Chính xác!' : 'Chưa đúng.'}</b> Dấu hiệu <span className="et-signal" lang={/^[\x20-\x7E…]+$/.test(f.signal) ? 'en' : undefined}>{f.signal}</span> → <b className="et-tense">{t.name}</b>.
             </p>
             <p className="et-rule">{t.rule}</p>
             <p className="et-fb-say">
