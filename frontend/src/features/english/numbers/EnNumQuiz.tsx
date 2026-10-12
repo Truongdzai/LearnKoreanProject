@@ -33,6 +33,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const [done, setDone] = useState(false)
   const nextRef = useRef<HTMLButtonElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const optsRef = useRef<HTMLDivElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const q = questions[i]
   const item = q?.item
@@ -49,6 +50,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
     setQHear(canHear)
     if (audio && canHear) speakEN(item.say, 0.9)
     if (mode === 'type') inputRef.current?.focus({ preventScroll: true })
+    else optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
   }, [i, done])
 
   const ok = (v: string) => (mode === 'type' ? item.accept(v) : v === q.answer)
@@ -56,7 +58,10 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const choose = (v: string) => {
     if (picked != null || !item) return
     setPicked(v)
-    setResults((r) => [...r, { cat: item.cat, ok: ok(v) }])
+    // Ghi kết quả ngay ở câu cuối, để thoát ở màn kết quả vẫn được tính lượt
+    const all = [...results, { cat: item.cat, ok: ok(v) }]
+    setResults(all)
+    if (all.length === questions.length) onFinish(all, Math.round((all.filter((r) => r.ok).length / questions.length) * 100))
     if (mode === 'read' && canHear) speakEN(item.say, 0.9)
   }
 
@@ -69,8 +74,6 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const next = () => {
     if (i + 1 >= questions.length) {
       setDone(true)
-      const n = results.filter((r) => r.ok).length
-      onFinish(results, Math.round((n / questions.length) * 100))
       return
     }
     setPicked(null)
@@ -115,10 +118,10 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
               <button
                 key={k}
                 className="hg-wrong-row enn-wrong-row"
-                onClick={() => speakEN(m.item.say, 0.85)}
+                onClick={canHear ? () => speakEN(m.item.say, 0.85) : undefined}
                 aria-label={canHear ? `Nghe lại: ${m.item.say}` : undefined}
               >
-                <Icon name="volume" size={14} />
+                {canHear ? <Icon name="volume" size={14} /> : <span />}
                 <span className="enn-wrong-q">{m.item.value}</span>
                 <span className="enn-wrong-a" lang="en">{m.item.say}</span>
               </button>
@@ -191,7 +194,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
           {!answered && <button type="submit" className="btn-primary sm" disabled={!typed.trim()}>Kiểm tra</button>}
         </form>
       ) : (
-        <div className={'quiz-options enn-options' + (mode === 'read' ? ' words' : '')} role="group" aria-label="Đáp án">
+        <div className={'quiz-options enn-options' + (mode === 'read' ? ' words' : '')} role="group" aria-label="Đáp án" ref={optsRef}>
           {q.options.map((opt, k) => {
             const cls = answered ? (opt === q.answer ? ' correct' : opt === picked ? ' wrong' : '') : ''
             return (

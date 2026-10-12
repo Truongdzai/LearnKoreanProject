@@ -35,7 +35,13 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
   const [done, setDone] = useState(false)
   const nextRef = useRef<HTMLButtonElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
+  const optsRef = useRef<HTMLDivElement>(null)
   const f = items[i]
+
+  // Câu mới: focus vào phương án đầu (nút "Câu tiếp" vừa biến mất)
+  useEffect(() => {
+    if (!done) optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
+  }, [i, done])
 
   useEffect(() => {
     if (picked != null) nextRef.current?.focus({ preventScroll: true })
@@ -44,15 +50,15 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
   const choose = (p: Prep) => {
     if (picked != null || !f) return
     setPicked(p)
-    setResults((r) => [...r, { id: f.id, ok: p === f.answer }])
+    const all = [...results, { id: f.id, ok: p === f.answer }]
+    setResults(all)
+    if (all.length === items.length) onFinish(all, Math.round((all.filter((r) => r.ok).length / items.length) * 100))
     if (canHear) speakEN(filled(f), 0.9)
   }
 
   const next = () => {
     if (i + 1 >= items.length) {
       setDone(true)
-      const ok = results.filter((r) => r.ok).length
-      onFinish(results, Math.round((ok / items.length) * 100))
       return
     }
     setPicked(null)
@@ -96,10 +102,10 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
               <button
                 key={m.id}
                 className="hg-wrong-row ep-wrong-row"
-                onClick={() => speakEN(filled(m), 0.85)}
+                onClick={canHear ? () => speakEN(filled(m), 0.85) : undefined}
                 aria-label={canHear ? `Nghe lại: ${filled(m)}` : undefined}
               >
-                <Icon name="volume" size={14} />
+                {canHear ? <Icon name="volume" size={14} /> : <span />}
                 <span className="ep-wrong-a">
                   <span lang="en">{filled(m)}</span>
                   <small>{m.why}</small>
@@ -135,7 +141,7 @@ export default function PrepQuiz({ items, title, canHear, onFinish, onAgain, onB
         <div className="ep-vi">{f.vi}</div>
       </div>
 
-      <div className={'quiz-options ep-options' + (f.options.length === 3 ? ' three' : '')} role="group" aria-label="Đáp án">
+      <div className={'quiz-options ep-options' + (f.options.length === 3 ? ' three' : '')} role="group" aria-label="Đáp án" ref={optsRef}>
         {f.options.map((p, k) => {
           const cls = picked != null ? (p === f.answer ? ' correct' : p === picked ? ' wrong' : '') : ''
           return (

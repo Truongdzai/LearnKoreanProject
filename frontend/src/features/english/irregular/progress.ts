@@ -5,7 +5,8 @@ import type { ModeId } from './verbs'
 
 export interface IrrState {
   best: Partial<Record<ModeId, number>>
-  // Động từ vừa sai (V1), mới nhất đứng đầu; làm đúng lại là gỡ ra
+  // Động từ vừa sai, dạng "chế độ:V1" (vd v3:go), mới nhất đứng đầu. Làm đúng ở chính chế độ đó
+  // hoặc tự gõ đúng cả hai dạng thì gỡ ra.
   weak: string[]
   // Động từ đã tự gõ đúng cả V2 lẫn V3
   known: string[]
@@ -25,6 +26,13 @@ const V1 = new Set(IRREGULAR_VERBS.map((v) => v.v1))
 const verbList = (raw: unknown, cap: number) =>
   Array.isArray(raw) ? [...new Set(raw.filter((w): w is string => typeof w === 'string' && V1.has(w)))].slice(0, cap) : []
 
+// "v3:go" → go; dữ liệu cũ chỉ có "go"
+export const weakVerb = (w: string) => w.slice(w.indexOf(':') + 1)
+const weakList = (raw: unknown, cap: number) =>
+  Array.isArray(raw)
+    ? [...new Set(raw.filter((w): w is string => typeof w === 'string' && V1.has(weakVerb(w)) && /^((v2|v3|type):)?[a-z]+$/.test(w)))].slice(0, cap)
+    : []
+
 function normalize(raw: unknown): IrrState {
   const r = (raw ?? {}) as Partial<IrrState>
   const best: IrrState['best'] = {}
@@ -34,7 +42,7 @@ function normalize(raw: unknown): IrrState {
   }
   return {
     best,
-    weak: verbList(r.weak, WEAK_CAP),
+    weak: weakList(r.weak, WEAK_CAP),
     known: verbList(r.known, V1.size),
     rounds: Math.max(0, Math.floor(Number(r.rounds) || 0)),
   }
@@ -51,7 +59,13 @@ export function useIrrProgress() {
     mutate((p) => {
       const wrong = answers.filter((a) => !a.ok).map((a) => a.v1)
       const right = new Set(answers.filter((a) => a.ok).map((a) => a.v1))
-      const weak = [...new Set([...wrong, ...p.weak.filter((w) => !right.has(w))])].slice(0, WEAK_CAP)
+      const cleared = (w: string) => {
+        const v = weakVerb(w)
+        if (!right.has(v)) return false
+        // Tự gõ đúng xoá mọi cờ; chọn đúng chỉ xoá cờ của chính chế độ đó (và cờ cũ không ghi chế độ)
+        return mode === 'type' || !w.includes(':') || w.startsWith(mode + ':')
+      }
+      const weak = [...new Set([...wrong.map((v) => `${mode}:${v}`), ...p.weak.filter((w) => !cleared(w))])].slice(0, WEAK_CAP)
       // Chỉ chế độ tự gõ mới xác nhận "thuộc"; sai ở bất kỳ chế độ nào thì bỏ khỏi danh sách thuộc
       const known = [...new Set([...p.known.filter((k) => !wrong.includes(k)), ...(mode === 'type' ? [...right] : [])])]
       return { best: { ...p.best, [mode]: Math.max(p.best[mode] ?? 0, pct) }, weak, known, rounds: p.rounds + 1 }

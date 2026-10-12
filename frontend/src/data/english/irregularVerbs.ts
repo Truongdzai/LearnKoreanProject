@@ -18,6 +18,7 @@ const V = (v1: string, v2: string | string[], v3: string | string[], vi: string,
   v1, v2: Array.isArray(v2) ? v2 : [v2], v3: Array.isArray(v3) ? v3 : [v3], vi, level,
 })
 
+// beat – beat – beaten (V2 = V1) là trường hợp lẻ duy nhất, xếp vào nhóm ba dạng khác nhau kèm ghi chú
 function group(v: Omit<IrregularVerb, 'group'>): VerbGroup {
   const [a, b, c] = [v.v1, v.v2[0], v.v3[0]]
   if (a === b && b === c) return 'AAA'
@@ -36,10 +37,10 @@ const RAW: Omit<IrregularVerb, 'group'>[] = [
   V('cost', 'cost', 'cost', 'có giá, tốn'),
   V('hurt', 'hurt', 'hurt', 'làm đau, đau'),
   V('shut', 'shut', 'shut', 'đóng', 2),
-  V('quit', 'quit', 'quit', 'bỏ (việc, thói quen)', 2),
+  V('quit', ['quit', 'quitted'], ['quit', 'quitted'], 'bỏ (việc, thói quen)', 2),
   V('read', 'read', 'read', 'đọc'),
   V('spread', 'spread', 'spread', 'trải ra, lan ra', 3),
-  V('bet', 'bet', 'bet', 'cá cược', 3),
+  V('bet', ['bet', 'betted'], ['bet', 'betted'], 'cá cược', 3),
   V('upset', 'upset', 'upset', 'làm buồn lòng', 3),
 
   // V2 = V3
@@ -82,7 +83,7 @@ const RAW: Omit<IrregularVerb, 'group'>[] = [
   V('dig', 'dug', 'dug', 'đào', 3),
   V('hang', 'hung', 'hung', 'treo', 2),
   V('stick', 'stuck', 'stuck', 'dán, mắc kẹt', 3),
-  V('light', 'lit', 'lit', 'thắp, châm lửa', 3),
+  V('light', ['lit', 'lighted'], ['lit', 'lighted'], 'thắp, châm lửa', 3),
   V('sweep', 'swept', 'swept', 'quét', 3),
   V('learn', ['learned', 'learnt'], ['learned', 'learnt'], 'học'),
   V('spell', ['spelled', 'spelt'], ['spelled', 'spelt'], 'đánh vần', 2),
@@ -111,7 +112,7 @@ const RAW: Omit<IrregularVerb, 'group'>[] = [
   V('break', 'broke', 'broken', 'làm vỡ, làm gãy'),
   V('choose', 'chose', 'chosen', 'chọn'),
   V('steal', 'stole', 'stolen', 'ăn trộm', 2),
-  V('wake', 'woke', 'woken', 'thức dậy, đánh thức'),
+  V('wake', ['woke', 'waked'], ['woken', 'waked'], 'thức dậy, đánh thức'),
   V('forget', 'forgot', ['forgotten', 'forgot'], 'quên'),
   V('get', 'got', ['got', 'gotten'], 'nhận được, trở nên'),
   V('know', 'knew', 'known', 'biết'),
@@ -128,12 +129,12 @@ const RAW: Omit<IrregularVerb, 'group'>[] = [
   V('sing', 'sang', 'sung', 'hát'),
   V('swim', 'swam', 'swum', 'bơi'),
   V('ring', 'rang', 'rung', 'reo, gọi điện', 2),
-  V('sink', 'sank', 'sunk', 'chìm', 3),
+  V('sink', ['sank', 'sunk'], 'sunk', 'chìm', 3),
   V('fall', 'fell', 'fallen', 'ngã, rơi'),
   V('forgive', 'forgave', 'forgiven', 'tha thứ', 2),
   V('hide', 'hid', 'hidden', 'giấu, trốn', 2),
   V('bite', 'bit', 'bitten', 'cắn', 2),
-  V('beat', 'beat', 'beaten', 'đánh bại, đập', 2),
+  V('beat', 'beat', ['beaten', 'beat'], 'đánh bại, đập', 2),
   V('shake', 'shook', 'shaken', 'lắc, rung', 2),
   V('mistake', 'mistook', 'mistaken', 'nhầm lẫn', 3),
   V('freeze', 'froze', 'frozen', 'đóng băng', 2),
@@ -155,6 +156,11 @@ const NOTES: Record<string, string> = {
   bring: 'Đừng nhầm brought (mang) với bought (mua, của buy).',
   fall: 'fall – fell – fallen (ngã). Đừng nhầm với feel – felt – felt (cảm thấy).',
   feel: 'feel – felt – felt. Đừng nhầm với fall – fell – fallen (ngã).',
+  beat: 'V2 giống nguyên mẫu (beat – beat), chỉ V3 khác: beaten (tiếng Mỹ đôi khi dùng cả beat).',
+  quit: 'quit – quit – quit là dạng phổ biến; tiếng Anh – Anh còn dùng quitted.',
+  light: 'lit và lighted đều đúng; lit hay dùng hơn.',
+  sink: 'V2 chuẩn là sank; tiếng Mỹ đôi khi dùng sunk.',
+  wake: 'woke – woken là dạng phổ biến; waked cũng được nhưng ít gặp.',
 }
 
 export const IRREGULAR_VERBS: IrregularVerb[] = RAW.map((v) => ({ ...v, group: group(v), ...(NOTES[v.v1] ? { note: NOTES[v.v1] } : {}) }))
@@ -163,5 +169,5 @@ export const GROUP_INFO: Record<VerbGroup, { title: string; desc: string }> = {
   AAA: { title: 'Ba dạng giống nhau', desc: 'Không đổi gì cả: cut – cut – cut. Chỉ cần nhớ đây là động từ bất quy tắc, đừng thêm -ed (cutted).' },
   ABB: { title: 'Quá khứ = phân từ', desc: 'V2 và V3 giống nhau: buy – bought – bought. Học một dạng là có cả hai. Nhóm -ought / -aught (bought, thought, taught, caught) rất hay gặp.' },
   ABA: { title: 'Phân từ giống nguyên mẫu', desc: 'Chỉ có 3 động từ: come – came – come, become – became – become, run – ran – run.' },
-  ABC: { title: 'Ba dạng khác nhau', desc: 'Phải nhớ riêng từng dạng. Mẹo: nhiều V3 tận cùng -en / -n (eaten, given, known), và nhóm i – a – u (begin – began – begun, drink – drank – drunk).' },
+  ABC: { title: 'Ba dạng khác nhau', desc: 'Phải nhớ riêng từng dạng. Mẹo: nhiều V3 tận cùng -en / -n (eaten, given, known), và nhóm i – a – u (begin – began – begun, drink – drank – drunk). Riêng beat – beat – beaten có V2 giống nguyên mẫu.' },
 }

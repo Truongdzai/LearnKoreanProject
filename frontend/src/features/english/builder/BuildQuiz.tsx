@@ -83,15 +83,18 @@ export default function BuildQuiz({ items, title, canHear, onFinish, onAgain, on
     const built = placedTiles.map((t) => t.text)
     const verdict = judge(cur.s, built)
     setChecked({ verdict, built, hinted })
-    setLog((l) => [...l, verdict !== 'wrong' && !hinted])
+    // Ghi kết quả ngay ở câu cuối, để thoát ở màn kết quả vẫn được tính lượt
+    const all = [...log, verdict !== 'wrong' && !hinted]
+    setLog(all)
+    if (all.length === rounds.length) {
+      onFinish(Math.round((all.filter(Boolean).length / rounds.length) * 100), rounds.map((r, k) => ({ id: r.s.id, ok: !!all[k] })))
+    }
     if (canHear) speakEN(cur.s.en, 0.9)
   }
 
   const next = () => {
     if (i + 1 >= rounds.length) {
       setDone(true)
-      const solved = log.filter(Boolean).length
-      onFinish(Math.round((solved / rounds.length) * 100), rounds.map((r, k) => ({ id: r.s.id, ok: !!log[k] })))
       return
     }
     setPlaced([])
@@ -136,10 +139,10 @@ export default function BuildQuiz({ items, title, canHear, onFinish, onAgain, on
               <button
                 key={m.s.id}
                 className="hg-wrong-row eb-wrong-row"
-                onClick={() => speakEN(m.s.en, 0.85)}
+                onClick={canHear ? () => speakEN(m.s.en, 0.85) : undefined}
                 aria-label={canHear ? `Nghe lại: ${m.s.en}` : undefined}
               >
-                <Icon name="volume" size={14} />
+                {canHear ? <Icon name="volume" size={14} /> : <span />}
                 <span className="eb-wrong-a">
                   <span lang="en">{m.s.en}</span>
                   <small>{m.s.vi}</small>

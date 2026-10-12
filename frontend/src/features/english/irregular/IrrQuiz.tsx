@@ -32,8 +32,11 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
   const [in3, setIn3] = useState('')
   const [answers, setAnswers] = useState<Answer[]>([])
   const [done, setDone] = useState(false)
+  const [imeWarn, setImeWarn] = useState(false)
   const nextRef = useRef<HTMLButtonElement>(null)
   const firstInput = useRef<HTMLInputElement>(null)
+  const secondInput = useRef<HTMLInputElement>(null)
+  const optsRef = useRef<HTMLDivElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const verb = verbs[i]
   const q = questions[i]
@@ -43,38 +46,53 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
     if (checked) nextRef.current?.focus({ preventScroll: true })
   }, [checked])
 
+  // Câu mới: con trỏ vào ô gõ V2, hoặc phương án đầu (nút "Câu tiếp" vừa biến mất)
   useEffect(() => {
-    if (mode === 'type' && !done) firstInput.current?.focus({ preventScroll: true })
+    if (done) return
+    if (mode === 'type') firstInput.current?.focus({ preventScroll: true })
+    else optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
   }, [i, mode, done])
 
   const say = () => { if (canHear && verb) speakEN(sayForms(verb), 0.85) }
 
+  // Ghi kết quả ngay khi trả lời xong câu cuối, để thoát giữa chừng ở màn kết quả vẫn được tính lượt
+  const record = (a: Answer) => {
+    const all = [...answers, a]
+    setAnswers(all)
+    if (all.length === verbs.length) onFinish(all, Math.round((all.filter((x) => x.ok).length / verbs.length) * 100))
+  }
+
   const choose = (opt: string) => {
     if (picked != null || !q) return
     setPicked(opt)
-    setAnswers((a) => [...a, { v1: q.verb.v1, ok: opt === q.answer }])
+    record({ v1: q.verb.v1, ok: opt === q.answer })
     say()
   }
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
     if (typed || !verb || !in2.trim() || !in3.trim()) return
+    // Bộ gõ tiếng Việt đang bật (took → tôk): nhắc tắt, không tính lượt này
+    if (/[^\x00-\x7F’]/.test(in2 + in3)) {
+      setImeWarn(true)
+      return
+    }
+    setImeWarn(false)
     const ok2 = judgeTyped(verb, 'v2', in2)
     const ok3 = judgeTyped(verb, 'v3', in3)
     setTyped({ v2: in2.trim(), v3: in3.trim(), ok2, ok3 })
-    setAnswers((a) => [...a, { v1: verb.v1, ok: ok2 && ok3 }])
+    record({ v1: verb.v1, ok: ok2 && ok3 })
     say()
   }
 
   const next = () => {
     if (i + 1 >= verbs.length) {
       setDone(true)
-      const ok = answers.filter((a) => a.ok).length
-      onFinish(answers, Math.round((ok / verbs.length) * 100))
       return
     }
     setPicked(null)
     setTyped(null)
+    setImeWarn(false)
     setIn2('')
     setIn3('')
     setI((x) => x + 1)
@@ -117,10 +135,10 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
               <button
                 key={m.v1}
                 className="hg-wrong-row ei-wrong-row"
-                onClick={() => speakEN(sayForms(m), 0.8)}
+                onClick={canHear ? () => speakEN(sayForms(m), 0.8) : undefined}
                 aria-label={canHear ? `Nghe lại: ${formsLine(m)}` : undefined}
               >
-                <Icon name="volume" size={14} />
+                {canHear ? <Icon name="volume" size={14} /> : <span />}
                 <span className="ei-wrong-a">
                   <span lang="en">{formsLine(m)}</span>
                   <small>{m.vi}</small>
@@ -159,7 +177,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
           <div className="ei-frame" lang="en">
             {mode === 'v2' ? 'Yesterday I ' : 'I have '}
             <span className={'ei-blank' + (picked != null ? (correct ? ' ok' : ' bad') : '')}>
-              {picked != null ? q.answer : <><span aria-hidden="true">{' '.repeat(6)}</span><span className="sr-only" lang="vi">(chỗ trống)</span></>}
+              {picked != null ? picked : <><span aria-hidden="true">{' '.repeat(6)}</span><span className="sr-only" lang="vi">(chỗ trống)</span></>}
             </span>
             {' …'}
           </div>
@@ -174,6 +192,13 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
               ref={firstInput}
               value={in2}
               onChange={(e) => setIn2(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !in3.trim()) {
+                  e.preventDefault()
+                  secondInput.current?.focus()
+                }
+              }}
+              enterKeyHint="next"
               disabled={!!typed}
               lang="en"
               autoCapitalize="off"
@@ -186,6 +211,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
           <label className={'ei-field' + (typed ? (typed.ok3 ? ' ok' : ' bad') : '')}>
             <span>V3 · quá khứ phân từ</span>
             <input
+              ref={secondInput}
               value={in3}
               onChange={(e) => setIn3(e.target.value)}
               disabled={!!typed}
@@ -197,6 +223,11 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
               placeholder="vd: gone"
             />
           </label>
+          {imeWarn && !typed && (
+            <p className="ei-ime" role="alert">
+              Có dấu tiếng Việt trong ô gõ (vd: took thành tôk) — hãy tắt bộ gõ Telex / VNI rồi gõ lại. Lượt này chưa tính.
+            </p>
+          )}
           {!typed && (
             <button type="submit" className="btn-primary sm ei-submit" disabled={!in2.trim() || !in3.trim()}>
               Kiểm tra
@@ -204,7 +235,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
           )}
         </form>
       ) : (
-        <div className="quiz-options ei-options" role="group" aria-label="Đáp án">
+        <div className="quiz-options ei-options" role="group" aria-label="Đáp án" ref={optsRef}>
           {q.options.map((opt, k) => {
             const cls = picked != null ? (opt === q.answer ? ' correct' : opt === picked ? ' wrong' : '') : ''
             return (

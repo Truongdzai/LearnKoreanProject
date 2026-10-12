@@ -40,12 +40,12 @@ export default function GrammarHub({ initialLesson }: Props) {
 
   return (
     <div className="en-grammar-hub">
-      <div className="vl-modes hg-panes" role="tablist" aria-label="Ngữ pháp tiếng Anh">
+      <div className="vl-modes hg-panes" role="group" aria-label="Ngữ pháp tiếng Anh">
         {PANES.map((p) => (
           <button
             key={p.id}
-            role="tab"
-            aria-selected={pane === p.id}
+            type="button"
+            aria-pressed={pane === p.id}
             className={'vl-mode' + (pane === p.id ? ' on' : '')}
             onClick={() => pick(p.id)}
           >
