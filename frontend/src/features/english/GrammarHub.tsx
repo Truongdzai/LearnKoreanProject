@@ -40,6 +40,28 @@ const LABS: { pane: Pane; key: LabKey; parts: string[]; desc: string }[] = [
 ]
 const PASS = 80
 
+// Bài ngữ pháp → phòng luyện để luyện thêm đúng chủ điểm đó
+const LESSON_LABS: Record<string, Pane[]> = {
+  e02: ['order'], e03: ['tense'], e04: ['tense'], e05: ['order'], e07: ['confuse'], e08: ['verbs', 'tense'], e09: ['tense'],
+  e10: ['order'], e12: ['order'], e13: ['prep'], e15: ['verbs', 'tense'],
+}
+
+function MoreLabs({ ids, onOpen }: { ids: Pane[]; onOpen: (p: Pane) => void }) {
+  return (
+    <div className="en-more-labs">
+      <span>Luyện thêm ở phòng:</span>
+      {ids.map((id) => {
+        const meta = PANES.find((p) => p.id === id)!
+        return (
+          <button key={id} type="button" className="btn-ghost sm" onClick={() => onOpen(id)}>
+            <Icon name={meta.icon} size={14} /> {meta.label}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 function LabShelf({ onOpen }: { onOpen: (p: Pane) => void }) {
   const scores = useLabScores('en')
   return (
@@ -100,7 +122,14 @@ export default function GrammarHub({ initialLesson }: Props) {
         ))}
       </div>
 
-      {pane === 'lessons' && <GrammarLessons key={nonce} initialLesson={seed} aside={<LabShelf onOpen={pick} />} />}
+      {pane === 'lessons' && (
+        <GrammarLessons
+          key={nonce}
+          initialLesson={seed}
+          aside={<LabShelf onOpen={pick} />}
+          more={(id) => (LESSON_LABS[id] ? <MoreLabs ids={LESSON_LABS[id]} onOpen={pick} /> : null)}
+        />
+      )}
       {pane !== 'lessons' && <VoiceNotice lang="en" />}
       {pane !== 'lessons' && (
         <Suspense fallback={<div className="center-state"><Spinner /></div>}>
