@@ -38,12 +38,12 @@ export const PAIRS: Pair[] = [
   { id: 'ed', words: '-ed / -ing', set: 'adj', tip: '-ed tả cảm xúc của người (I\'m bored, interested). -ing tả thứ gây ra cảm xúc đó (a boring film, interesting news).' },
   { id: 'fun', words: 'fun / funny', set: 'adj', tip: 'fun = vui (thú vị, thích thú): The party was fun. funny = buồn cười: a funny joke.' },
   { id: 'alone', words: 'alone / lonely', set: 'adj', tip: 'alone = một mình (sự thật, không ai bên cạnh). lonely = cô đơn (cảm xúc buồn).' },
-  { id: 'other', words: 'another / other', set: 'small', tip: 'another + danh từ số ít (thêm một cái nữa): another cup. other + danh từ số nhiều: other students.' },
+  { id: 'other', words: 'another / other', set: 'small', tip: 'another + danh từ số ít (thêm một cái nữa, một cái khác): another cup. other + danh từ số nhiều hoặc không đếm được: other students, other information; số ít thì cần the / my…: the other day.' },
   { id: 'much', words: 'much / many', set: 'small', tip: 'many + danh từ đếm được số nhiều (many people). much + danh từ không đếm được (much water, much time).' },
-  { id: 'ago', words: 'ago / before', set: 'small', tip: 'ago = cách đây (tính từ bây giờ, dùng với quá khứ đơn): three years ago. before = trước đây (đứng cuối câu, hay đi với thì hoàn thành).' },
+  { id: 'ago', words: 'ago / before', set: 'small', tip: 'X ago = cách đây X, tính từ bây giờ (three years ago). X before = trước đó X, tính từ một mốc trong quá khứ. before đứng một mình cuối câu = trước đây (I have seen him before).' },
   { id: 'during', words: 'during / while', set: 'small', tip: 'during + danh từ: during the film. while + mệnh đề (chủ ngữ + động từ): while I was watching.' },
   { id: 'either', words: 'too / either', set: 'small', tip: 'Câu khẳng định dùng too ("cũng"). Câu phủ định dùng either: She doesn\'t like it either.' },
-  { id: 'job', words: 'job / work', set: 'small', tip: 'job đếm được (a job, two jobs). work không đếm được: a lot of work, không nói "a work".' },
+  { id: 'job', words: 'job / work', set: 'small', tip: 'job đếm được (a job, two jobs). work với nghĩa công việc thì không đếm được: a lot of work, không nói "a work" (trừ nghĩa tác phẩm: a work of art).' },
 ]
 
 // [câu, nghĩa, [đáp án, …sai], cặp]
@@ -55,7 +55,7 @@ const RAW: Raw[] = [
   ['I ___ this book from the library last week.', 'Tuần trước tôi mượn cuốn sách này ở thư viện.', ['borrowed', 'lent'], 'borrow'],
   ['My brother never ___ me his car.', 'Anh tôi chẳng bao giờ cho tôi mượn xe.', ['lends', 'borrows'], 'borrow'],
 
-  ['She ___ me a funny story.', 'Cô ấy kể cho tôi một câu chuyện vui.', ['told', 'said'], 'say'],
+  ['She ___ me a funny story.', 'Cô ấy kể cho tôi một câu chuyện buồn cười.', ['told', 'said'], 'say'],
   ['He ___ "Good morning" to everyone.', 'Anh ấy chào "Good morning" với mọi người.', ['said', 'told'], 'say'],
   ['Can you ___ me the way to the station?', 'Bạn chỉ giúp tôi đường ra ga được không?', ['tell', 'say'], 'say'],
   ['He ___ that he was tired.', 'Anh ấy nói là anh ấy mệt.', ['said', 'told'], 'say'],
@@ -64,11 +64,11 @@ const RAW: Raw[] = [
   ['Don\'t ___ so much noise!', 'Đừng làm ồn thế!', ['make', 'do'], 'make'],
   ['Could you ___ me a favour?', 'Bạn giúp mình một việc được không?', ['do', 'make'], 'make'],
   ['She ___ a mistake in the test.', 'Cô ấy làm sai một câu trong bài kiểm tra.', ['made', 'did'], 'make'],
-  ['Let\'s ___ a plan for the weekend.', 'Mình lên kế hoạch cho cuối tuần đi.', ['make', 'do'], 'make'],
+  ['Let\'s ___ plans for the weekend.', 'Mình lên kế hoạch cho cuối tuần đi.', ['make', 'do'], 'make'],
 
   ['My kids ___ TV every evening.', 'Tối nào con tôi cũng xem ti vi.', ['watch', 'see', 'look at'], 'see'],
   ['___ this photo! Isn\'t it beautiful?', 'Nhìn bức ảnh này đi! Đẹp không?', ['Look at', 'Watch', 'Hear'], 'see'],
-  ['I can\'t ___ anything without my glasses.', 'Không có kính thì tôi chẳng nhìn thấy gì.', ['see', 'watch', 'look'], 'see'],
+  ['It\'s too dark in here. I can\'t ___ anything.', 'Trong này tối quá. Tôi chẳng nhìn thấy gì.', ['see', 'watch', 'look'], 'see'],
 
   ['Please ___ me carefully.', 'Hãy nghe tôi nói cho kỹ.', ['listen to', 'hear'], 'hear'],
   ['Did you ___ that noise?', 'Bạn có nghe thấy tiếng động đó không?', ['hear', 'listen to'], 'hear'],
@@ -81,7 +81,7 @@ const RAW: Raw[] = [
   ['Our team ___ the match.', 'Đội chúng tôi thắng trận.', ['won', 'beat'], 'win'],
 
   ['Someone ___ my bike last night.', 'Tối qua có người lấy trộm xe đạp của tôi.', ['stole', 'robbed'], 'rob'],
-  ['Two men ___ the bank this morning.', 'Sáng nay hai tên cướp ngân hàng.', ['robbed', 'stole'], 'rob'],
+  ['Two men ___ the bank this morning.', 'Sáng nay có hai gã đã cướp ngân hàng.', ['robbed', 'stole'], 'rob'],
 
   ['Hurry up or we\'ll ___ the bus.', 'Nhanh lên kẻo lỡ xe buýt.', ['miss', 'lose'], 'lose'],
   ['I\'ve ___ my keys again! I can\'t find them anywhere.', 'Tôi lại làm mất chìa khóa rồi! Tìm mãi không thấy.', ['lost', 'missed'], 'lose'],

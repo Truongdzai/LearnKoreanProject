@@ -239,7 +239,7 @@ const VI: Record<string, string> = {
   'td.resume': 'Nói tiếp “{title}” — đạt {k}/{n} câu',
   'td.lab': 'Phòng luyện tuần {week}: {label}',
   'td.practice': 'Vào luyện',
-  'td.weak': 'Ôn lại {n} câu từng làm sai ở phòng {name}',
+  'td.weak': 'Ôn lại {n} mục từng làm sai ở phòng {name}',
   'td.continue': 'Học tiếp',
   'td.bonus': 'Quà điểm danh hôm nay đang chờ',
   'td.claim': 'Nhận',

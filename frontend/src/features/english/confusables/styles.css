@@ -9,14 +9,14 @@
 .ec-icon-btn:hover{border-color:var(--brass)}
 
 /* Mẹo phân biệt */
-.ec-signs{display:flex;flex-direction:column;gap:10px}
-.ec-sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.ec-sign{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+.ec-pairs{display:flex;flex-direction:column;gap:10px}
+.ec-pair-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ec-pair{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
   box-shadow:inset 0 3px 0 var(--brass-d);min-width:0}
-.ec-sign h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
+.ec-pair h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
   font-weight:600;font-size:15px;color:var(--text)}
-.ec-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
-.ec-sign p{margin:0}
+.ec-pair h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
+.ec-pair p{margin:0}
 
 /* Luyện */
 .ec-practice{display:flex;flex-direction:column;gap:10px;scroll-margin-top:72px}
@@ -57,7 +57,7 @@
 .ec-wrong-a small{font-size:12px;color:var(--muted);line-height:1.45}
 
 @media (max-width:640px){
-  .ec-sign-grid{grid-template-columns:minmax(0,1fr)}
+  .ec-pair-grid{grid-template-columns:minmax(0,1fr)}
   .ec-frame{font-size:19px}
   .ec-opt-main{font-size:17px}
   .ec-mode-foot{flex:1 1 100%;justify-content:space-between}

@@ -42,7 +42,7 @@ export default function IrregularLab() {
   const list = useMemo(() => verbsOf(set), [set])
   const known = useMemo(() => new Set(state.known), [state.known])
   const knownHere = list.filter((v) => known.has(v.v1)).length
-  const weakHere = new Set(state.weak.map(weakVerb).filter((v) => list.some((x) => x.v1 === v))).size
+  const weakHere = new Set(state.weak.map(weakVerb)).size
 
   const start = (mode: ModeId) => {
     const m = MODES.find((x) => x.id === mode)!
@@ -211,7 +211,7 @@ export default function IrregularLab() {
         </div>
         <p className="hg-note">
           Mỗi lượt lấy {ROUND} từ trong bộ “{SETS.find((s) => s.id === set)?.label}”, ưu tiên từ bạn vừa sai rồi tới từ chưa thuộc.
-          {weakHere > 0 && ` Đang có ${weakHere} từ cần ôn lại trong bộ này.`}
+          {weakHere > 0 && ` Đang có ${weakHere} từ cần ôn lại (luôn được hỏi lại, dù ở bộ nào).`}
         </p>
       </section>
     </div>
