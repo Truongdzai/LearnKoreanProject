@@ -39,6 +39,7 @@ export default function BuildQuiz({ items, level, title, canHear, showRom, onFin
   const [done, setDone] = useState(false)
   const nextRef = useRef<HTMLButtonElement>(null)
   const checkRef = useRef<HTMLButtonElement>(null)
+  const poolRef = useRef<HTMLDivElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const cur = rounds[i]
 
@@ -54,6 +55,11 @@ export default function BuildQuiz({ items, level, title, canHear, showRom, onFin
     if (full && !checked) checkRef.current?.focus({ preventScroll: true })
   }, [full, checked])
 
+  // Câu mới: đưa focus về thẻ đầu tiên (nút "Câu tiếp" vừa biến mất)
+  useEffect(() => {
+    if (!done) poolRef.current?.querySelector<HTMLButtonElement>('button:not(:disabled)')?.focus({ preventScroll: true })
+  }, [i, done])
+
   const put = (t: Tile) => {
     if (checked || placed.includes(t.id)) return
     setPlaced((p) => [...p, t.id])
@@ -67,12 +73,14 @@ export default function BuildQuiz({ items, level, title, canHear, showRom, onFin
   const hint = () => {
     if (checked || !cur) return
     // Giữ phần đầu đã đúng, trả các thẻ sau về, rồi đặt thêm một thẻ đúng
+    // So cả chữ lẫn loại thẻ: từ 이 (này) khác trợ từ 이
+    const same = (t: Tile | undefined, w: Tile) => !!t && t.text === w.text && t.part === w.part
     let k = 0
-    while (k < placed.length && byId.get(placed[k])?.text === cur.tiles[k].text) k++
+    while (k < placed.length && same(byId.get(placed[k]), cur.tiles[k])) k++
     if (k >= cur.tiles.length) return
     const keep = placed.slice(0, k)
-    const want = cur.tiles[k].text
-    const next = cur.order.find((t) => t.text === want && !keep.includes(t.id))
+    const want = cur.tiles[k]
+    const next = cur.order.find((t) => same(t, want) && !keep.includes(t.id))
     if (!next) return
     setPlaced([...keep, next.id])
     setHinted(true)
@@ -198,7 +206,7 @@ export default function BuildQuiz({ items, level, title, canHear, showRom, onFin
 
       {!checked && (
         <>
-          <div className="ks-pool" role="group" aria-label="Các thẻ">
+          <div className="ks-pool" role="group" aria-label="Các thẻ" ref={poolRef}>
             {cur.order.map((t) => {
               const used = placed.includes(t.id)
               return (
