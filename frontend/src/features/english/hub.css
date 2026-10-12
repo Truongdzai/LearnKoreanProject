@@ -1,0 +1,18 @@
+/* ── Tab Ngữ pháp tiếng Anh: dải Phòng luyện ── */
+.en-lab-shelf{display:flex;flex-direction:column;gap:10px}
+.en-lab-shelf .section-title{margin:0}
+.en-lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.en-lab-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;background:var(--panel);
+  border:1px solid var(--line2);color:var(--text);font-family:inherit;text-align:left;cursor:pointer;min-width:0;
+  transition:border-color .12s,transform .12s}
+.en-lab-card:hover{border-color:var(--brass);transform:translateY(-1px)}
+.en-lab-card b{display:flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:600;font-size:14.5px}
+.en-lab-card b svg{color:var(--brass)}
+.en-lab-card small{font-size:12px;color:var(--muted);line-height:1.4}
+.en-lab-card.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.en-lab-dots{display:flex;gap:4px;margin-top:4px}
+.en-lab-dots i{width:18px;height:4px;background:var(--line2)}
+.en-lab-dots i.on{background:var(--good)}
+@media (max-width:640px){
+  .en-lab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
