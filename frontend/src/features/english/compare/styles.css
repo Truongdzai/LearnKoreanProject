@@ -14,6 +14,7 @@
   font-weight:600;font-size:15px;color:var(--text)}
 .ecp-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
 .ecp-sign p{margin:0}
+.ecp-rule-text{font-size:13px;line-height:1.55;color:var(--text2)}
 .ecp-ex{display:block;width:100%;padding:5px 9px;background:var(--bg);border:1px solid var(--line);color:var(--text);
   font-family:inherit;font-size:13.5px;text-align:left}
 .ecp-ex.on{cursor:pointer}
