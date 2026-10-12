@@ -28,7 +28,7 @@ export default function SentenceBuilder() {
   const { state, finishRound } = useOrderProgress()
   const [canHear, setCanHear] = useState(() => koreanVoiceStatus() === 'ready')
   const [showRom, setShowRom] = useState(readRom)
-  const [quiz, setQuiz] = useState<{ level: LevelId; items: Sentence[] } | null>(null)
+  const [quiz, setQuiz] = useState<{ level: LevelId; items: Sentence[]; round: number } | null>(null)
   const practiceRef = useRef<HTMLElement>(null)
 
   useEffect(() => onVoicesChanged(() => setCanHear(koreanVoiceStatus() === 'ready')), [])
@@ -62,14 +62,14 @@ export default function SentenceBuilder() {
       <div className="ks-lab">
         {romToggle}
         <BuildQuiz
-          key={quiz.items[0].ko + quiz.items.length}
+          key={quiz.round}
           items={quiz.items}
           level={quiz.level}
           title={meta.label}
           canHear={canHear}
           showRom={showRom}
           onFinish={onFinish}
-          onAgain={() => setQuiz({ ...quiz, items: buildRound(quiz.level) })}
+          onAgain={() => setQuiz({ ...quiz, items: buildRound(quiz.level), round: quiz.round + 1 })}
           onBack={back}
         />
       </div>
@@ -134,7 +134,7 @@ export default function SentenceBuilder() {
           <li><KoText text="Động từ, tính từ (đã chia đuôi …요, …니다) đứng cuối câu." /></li>
           <li><KoText text="Trợ từ dính ngay sau danh từ nó đánh dấu: 저 + 는, 밥 + 을, 식당 + 에서." /></li>
           <li><KoText text="Từ bổ nghĩa đứng trước danh từ: 이 사람, 한국 음식, 맛있는 김치 — không tách rời được." /></li>
-          <li><KoText text="Thứ tự quen dùng: (thời gian) → chủ ngữ → nơi chốn → tân ngữ → động từ. 저는 내일 학교에서 친구를 만나요." /></li>
+          <li><KoText text="Thứ tự quen dùng: chủ ngữ (…은/는) → thời gian → nơi chốn → tân ngữ → động từ; từ chỉ thời gian cũng hay đứng đầu câu (오늘 날씨가 좋아요). 저는 내일 학교에서 친구를 만나요." /></li>
         </ul>
       </section>
 
@@ -150,7 +150,7 @@ export default function SentenceBuilder() {
               <button
                 key={l.id}
                 className={'hg-pool ks-level' + ((best ?? 0) >= MASTERY ? ' done' : '')}
-                onClick={() => setQuiz({ level: l.id, items: buildRound(l.id) })}
+                onClick={() => setQuiz({ level: l.id, items: buildRound(l.id), round: Date.now() })}
               >
                 <Icon name={l.id === 'hard' ? 'note' : l.id === 'mid' ? 'book' : 'cards'} size={18} />
                 <b>{l.label}</b>

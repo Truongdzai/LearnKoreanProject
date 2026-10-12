@@ -64,8 +64,10 @@ for (const w of KO_ALL_WORDS) if (w.pos === 'noun' && w.ko && /^[가-힣]+$/.tes
 const PARTICLES = ['에게서', '한테서', '에서', '에게', '한테', '까지', '부터', '이랑', '으로', '하고', '처럼', '보다',
   '은', '는', '이', '가', '을', '를', '에', '도', '만', '와', '과', '의', '로', '랑']
 
-export function splitParticle(word: string): [string, string] | null {
+export function splitParticle(word: string, next?: string): [string, string] | null {
   for (const p of PARTICLES) {
+    // 교환하고 싶어요: -고 của -고 싶다, không phải trợ từ 하고
+    if (p === '하고' && next?.startsWith('싶')) continue
     if (!word.endsWith(p) || word.length <= p.length) continue
     const stem = word.slice(0, -p.length)
     if (NOUNS.has(stem)) return [stem, p]
@@ -79,7 +81,7 @@ export function tilesFor(s: Sentence, level: LevelId): Tile[] {
   const out: Tile[] = []
   s.words.forEach((w, k) => {
     // Từ cuối là động từ / tính từ, không tách
-    const split = level === 'hard' && k < s.words.length - 1 ? splitParticle(w) : null
+    const split = level === 'hard' && k < s.words.length - 1 ? splitParticle(w, s.words[k + 1]) : null
     if (split) {
       out.push({ id: `t${++seq}`, text: split[0], part: false })
       out.push({ id: `t${++seq}`, text: split[1], part: true })
@@ -91,7 +93,7 @@ export function tilesFor(s: Sentence, level: LevelId): Tile[] {
 }
 
 function particleCount(s: Sentence): number {
-  return s.words.slice(0, -1).filter((w) => splitParticle(w)).length
+  return s.words.slice(0, -1).filter((w, k) => splitParticle(w, s.words[k + 1])).length
 }
 
 export function poolFor(level: LevelId): Sentence[] {
@@ -142,6 +144,13 @@ const MOVABLE = new Set(['오늘', '내일', '어제', '지금', '매일', '요�
 // Trợ từ buộc chặt vào danh từ đứng sau (của, và) thì không cắt cụm ở đó
 const BINDING = new Set(['의', '와', '과', '하고', '랑', '이랑'])
 
+// "Cùng với ai" (친구하고, 동료들과) đứng trước tân ngữ: là cụm riêng, đổi chỗ được (영화를 친구하고 봐요)
+const PEOPLE = new Set(['친구', '동료', '이웃', '가족'])
+function comitative(w: string, next = ''): boolean {
+  const m = w.match(/^(.+?)(들)?(하고|와|과|랑|이랑)$/)
+  return !!m && PEOPLE.has(m[1]) && /[을를]$/.test(next)
+}
+
 // Đuôi chắc chắn là trợ từ dù danh từ không có trong kho (không động từ nào chia ra 를, 에서, 에게…)
 const CLEAR_ENDS = /.(를|에서|에게|한테|께서|으로)$/
 
@@ -160,7 +169,7 @@ export function chunks(words: string[]): string[][] {
     cur.push(w)
     // 오늘 저녁에, 매일 아침에: hai từ chỉ thời gian liền nhau là một cụm
     if (MOVABLE.has(w) && MOVABLE.has(words[k + 1] ?? '')) return
-    if (k < words.length - 1 && isBoundary(w)) {
+    if (k < words.length - 1 && (isBoundary(w) || comitative(w, words[k + 1]))) {
       out.push(cur)
       cur = []
     }
@@ -183,9 +192,11 @@ export function flexible(words: string[]): boolean {
   const cs = chunks(words)
   if (cs.length < 3) return false
   const body = cs.slice(0, -1).flat()
-  if (body.some((w) => !isBoundary(w) && CLAUSE_END.test(w))) return false
+  if (body.some((w, k) => !isBoundary(w) && !comitative(w, body[k + 1]) && CLAUSE_END.test(w))) return false
+  // Cụm vị ngữ cuối có …고 / …서 thì mọi cụm trước vẫn đứng trước động từ, đổi chỗ không kéo tân ngữ ra khỏi mệnh đề;
+  // chỉ định ngữ (공부하는 학생) mới chặn
   const last = cs[cs.length - 1]
-  return !last.slice(0, -1).some((w) => !isBoundary(w) && !NOUNS.has(w) && (ADNOMINAL.test(w) || CLAUSE_END.test(w)))
+  return !last.slice(0, -1).some((w) => !isBoundary(w) && !NOUNS.has(w) && ADNOMINAL.test(w))
 }
 
 export type Verdict = 'exact' | 'alt' | 'wrong'
@@ -197,15 +208,25 @@ export function judge(target: string[], built: string[]): Verdict {
   const last = cs[cs.length - 1]
   const tail = built.slice(built.length - last.length)
   if (tail.join(' ') !== last.join(' ')) return 'wrong'
-  return fits(built.slice(0, built.length - last.length), 0, cs.slice(0, -1)) ? 'alt' : 'wrong'
+  const body = built.slice(0, built.length - last.length)
+  // Chủ đề …은/는 phải đứng đầu (chỉ trạng từ thời gian được đứng trước): 사이가 우리는 좋아요 sai
+  const topic = cs.slice(0, -1).find((c) => {
+    const sp = splitParticle(c[c.length - 1])
+    return !!sp && (sp[1] === '은' || sp[1] === '는') && !MOVABLE.has(sp[0])
+  })
+  if (topic) {
+    const at = body.findIndex((_, k) => topic.every((w, j) => body[k + j] === w))
+    if (at < 0 || !body.slice(0, at).every((w) => MOVABLE.has(w))) return 'wrong'
+  }
+  return fits(body, 0, cs.slice(0, -1)) ? 'alt' : 'wrong'
 }
 
 export function hintFor(target: string[], built: string[]): string {
+  const sameWords = [...built].sort().join(' ') === [...target].sort().join(' ')
+  if (!sameWords) return 'Có trợ từ đang gắn nhầm chỗ — mỗi trợ từ phải đứng ngay sau danh từ mà nó đánh dấu, không đặt sau động từ.'
   if (built[built.length - 1] !== target[target.length - 1]) {
     return 'Động từ / tính từ luôn đứng cuối câu tiếng Hàn — đặt thẻ chia đuôi (…요, …니다) xuống cuối.'
   }
   const firstBad = built.findIndex((w, k) => w !== target[k])
-  const sameWords = [...built].sort().join(' ') === [...target].sort().join(' ')
-  if (!sameWords) return 'Có trợ từ đang gắn nhầm danh từ — mỗi trợ từ phải đứng ngay sau danh từ mà nó đánh dấu.'
-  return firstBad >= 0 ? `Vị trí thứ ${firstBad + 1} chưa đúng. Thứ tự thường gặp: (thời gian) → chủ ngữ → nơi chốn → tân ngữ → động từ.` : ''
+  return firstBad >= 0 ? `Vị trí thứ ${firstBad + 1} chưa đúng. Thứ tự thường gặp: chủ ngữ (…은/는) → thời gian → nơi chốn → tân ngữ → động từ.` : ''
 }
