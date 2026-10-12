@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import Icon from '@/core/components/Icon'
 import { GRAMMAR_PASS, type GrammarLesson } from '@/data/englishGrammar'
 import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
@@ -9,9 +9,11 @@ import { useUrlParam } from '@/core/hooks/useTabParam'
 
 interface Props {
   initialLesson?: string
+  // Hiện dưới phần giới thiệu, chỉ ở danh sách bài (không hiện khi đang mở một bài)
+  aside?: ReactNode
 }
 
-export default function GrammarLessons({ initialLesson }: Props) {
+export default function GrammarLessons({ initialLesson, aside }: Props) {
   const { recordEvent } = useAppStore()
   const { grammar, record } = useGrammarProgress()
   const [openId, setOpenId] = useUrlParam(
@@ -46,6 +48,8 @@ export default function GrammarLessons({ initialLesson }: Props) {
           <p>Có vốn từ rồi thì cần khung câu để nói được. Mỗi bài: quy tắc ngắn → ví dụ nghe được → luyện 4 câu, đạt {GRAMMAR_PASS}% là xong (thưởng 10 XP lần đầu).</p>
         </div>
       </div>
+
+      {aside}
 
       <div className="capsule-grid">
         {GRAMMAR_LESSONS.map((l, i) => {
