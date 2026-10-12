@@ -155,6 +155,7 @@ export const ALL_WORDS: IcesWord[] = UNITS.flatMap((u) => u.words)
 export const TARGET_WORDS = 3000
 
 import { type WeekTask, type WeekPlan } from './vocabCore'
+import { withLabs } from './englishLabs'
 
 export type { WeekTaskKind, WeekTaskGo, WeekTask, SentencePattern, WeekPlan } from './vocabCore'
 
@@ -179,7 +180,7 @@ const pn = (week: number, groupId: string, seq?: number): WeekTask => {
 const ac = (week: number, n: number, note: string): WeekTask =>
   ({ id: `w${week}-active`, kind: 'active', n, label: `Chủ động: đưa ${n} cụm nói lên mức bật ra tự động — ${note}` })
 
-export const PLAN_12_WEEKS: WeekPlan[] = [
+export const PLAN_12_WEEKS: WeekPlan[] = withLabs([
   {
     week: 1, month: 1, phase: 'Compress', title: 'Danh từ & người quanh ta',
     focus: 'Người, gia đình, đồ vật quen thuộc — nền móng của mọi câu nói, cộng thói quen gom từ mỗi ngày.',
@@ -456,7 +457,7 @@ export const PLAN_12_WEEKS: WeekPlan[] = [
       { id: 'w12-review', kind: 'review', n: 1, label: 'Ôn SRS lần cuối — hẹn lịch ôn duy trì mỗi tuần' },
     ],
   },
-]
+], 'lite')
 
 export const PLAN_TASK_TOTAL = PLAN_12_WEEKS.reduce((s, w) => s + w.tasks.length, 0)
 
@@ -481,7 +482,7 @@ const btk = (week: number, n: number): WeekTask =>
 const bac = (week: number, n: number, note: string): WeekTask =>
   ({ id: `bw${week}-active`, kind: 'active', n, label: `Chủ động: đưa ${n} cụm nói lên mức bật ra tự động — ${note}` })
 
-export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
+export const PLAN_12_WEEKS_BOOT: WeekPlan[] = withLabs([
   {
     week: 1, month: 1, phase: 'Compress', title: 'Bắt đầu từ số 0 — người quanh ta',
     focus: 'Dành cho cả người mất gốc: 142 từ đầu tiên về người & vật quen thuộc, 3 bài ngữ pháp nền và sửa âm ngay từ ngày 1 — âm sai để 90 ngày sau sửa sẽ đắt gấp mười.',
@@ -793,6 +794,6 @@ export const PLAN_12_WEEKS_BOOT: WeekPlan[] = [
       { id: 'bw12-quiz', kind: 'quiz', label: 'Bài tổng kết cuối lộ trình đạt từ 90%', passPct: 90 },
     ],
   },
-]
+], 'boot')
 
 export const PLAN_BOOT_TASK_TOTAL = PLAN_12_WEEKS_BOOT.reduce((s, w) => s + w.tasks.length, 0)

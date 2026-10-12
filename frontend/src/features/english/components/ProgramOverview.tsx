@@ -7,6 +7,7 @@ import {
 } from '@/data/englishCore'
 import { PRON_GROUPS } from '@/data/englishPronunciationData'
 import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
+import type { LabKey } from '@/core/labScores'
 import { useLearnedWords, usePlan, planDay } from '../progress'
 import RoadmapWeeks from './RoadmapWeeks'
 import FastMethod from './fast/FastMethod'
@@ -53,10 +54,11 @@ interface Props {
   onErrors: () => void
   onDeep: (term: string) => void
   onActive: () => void
+  onLab?: (lab: LabKey, mode?: string) => void
 }
 
 export default function ProgramOverview({
-  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep, onActive,
+  mode, onMode, onStart, onLearn, onQuiz, onSummary, onGrammar, onPron, onSkills, onErrors, onDeep, onActive, onLab,
 }: Props) {
   const { learned } = useLearnedWords()
   const { deepFull, mastered } = useDeep()
@@ -108,7 +110,7 @@ export default function ProgramOverview({
       <RoadmapWeeks key={mode} weeks={boot ? PLAN_12_WEEKS_BOOT : PLAN_12_WEEKS} taskTotal={boot ? PLAN_BOOT_TASK_TOTAL : PLAN_TASK_TOTAL} vocabUnits={UNITS}
         pronGroups={PRON_GROUPS} grammarLessons={GRAMMAR_LESSONS}
         onLearn={onLearn} onQuiz={onQuiz} onSummary={onSummary} onGrammar={onGrammar} onPron={onPron}
-        onDeep={onDeep} deepFull={deepFull} onActive={onActive} activeAuto={activeStats.automatic} />
+        onDeep={onDeep} deepFull={deepFull} onActive={onActive} activeAuto={activeStats.automatic} onLab={onLab} />
 
       <div className="section-title"><span className="pin" /> Làm chủ từng từ — không chỉ thuộc một nghĩa</div>
       <MasteryRoom onOpen={onDeep} />
