@@ -11,9 +11,11 @@ interface Props {
   initialLesson?: string
   // Hiện dưới phần giới thiệu, chỉ ở danh sách bài (không hiện khi đang mở một bài)
   aside?: ReactNode
+  // Lối sang phòng luyện liên quan, hiện trong trang bài học
+  more?: (lessonId: string) => ReactNode
 }
 
-export default function GrammarLessons({ initialLesson, aside }: Props) {
+export default function GrammarLessons({ initialLesson, aside, more }: Props) {
   const { recordEvent } = useAppStore()
   const { grammar, record } = useGrammarProgress()
   const [openId, setOpenId] = useUrlParam(
@@ -35,6 +37,7 @@ export default function GrammarLessons({ initialLesson, aside }: Props) {
         best={grammar.best[lesson.id]}
         onDrillDone={(pct) => onDrillDone(lesson, pct)}
         onBack={() => setOpenId(null)}
+        more={more?.(lesson.id)}
       />
     )
   }
@@ -77,9 +80,10 @@ interface ViewProps {
   best?: number
   onDrillDone: (pct: number) => void
   onBack: () => void
+  more?: ReactNode
 }
 
-function LessonView({ lesson, best, onDrillDone, onBack }: ViewProps) {
+function LessonView({ lesson, best, onDrillDone, onBack, more }: ViewProps) {
   const [i, setI] = useState(-1)
   const [picked, setPicked] = useState<number | null>(null)
   const [score, setScore] = useState(0)
@@ -144,6 +148,7 @@ function LessonView({ lesson, best, onDrillDone, onBack }: ViewProps) {
           <button className="btn-primary" onClick={startDrill}>
             <Icon name="target" size={15} /> Luyện {drill.length} câu — đạt {GRAMMAR_PASS}% để hoàn thành
           </button>
+          {more}
         </>
       )}
 
@@ -190,6 +195,7 @@ function LessonView({ lesson, best, onDrillDone, onBack }: ViewProps) {
             <button className="btn-ghost" onClick={startDrill}><Icon name="rocket" size={15} /> Luyện lại</button>
             <button className="btn-primary" onClick={onBack}><Icon name="arrow-left" size={15} /> Về danh sách</button>
           </div>
+          {more}
         </div>
       )}
     </div>
