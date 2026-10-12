@@ -160,7 +160,8 @@ export function pickVerbs(set: SetId, weak: string[], known: string[], n = ROUND
   const all = verbsOf(set)
   const weakSet = new Set(weak.map((w) => w.slice(w.indexOf(':') + 1)))
   const knownSet = new Set(known)
-  const w = shuffle(all.filter((v) => weakSet.has(v.v1))).slice(0, Math.ceil(n / 2))
+  // Từ từng sai luôn được hỏi lại, kể cả khi đã đổi sang bộ nhỏ hơn
+  const w = shuffle(IRREGULAR_VERBS.filter((v) => weakSet.has(v.v1))).slice(0, Math.ceil(n / 2))
   const fresh = shuffle(all.filter((v) => !weakSet.has(v.v1) && !knownSet.has(v.v1)))
   const rest = shuffle(all.filter((v) => !weakSet.has(v.v1) && knownSet.has(v.v1)))
   return shuffle([...w, ...fresh, ...rest].slice(0, n))

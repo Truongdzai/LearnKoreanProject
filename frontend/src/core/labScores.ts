@@ -7,7 +7,7 @@ import { useAuth } from '@/store/auth.store'
 // Chỉ đọc: lấy bản local, rồi bản server nếu đã đăng nhập và local không có thay đổi chưa lưu.
 
 export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
-  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare'
+  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare' | 'encond'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -77,12 +77,13 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   entense: { local: 'vyling.en.tense', score: bestMap },
   enconfuse: { local: 'vyling.en.confuse', score: bestMap },
   encompare: { local: 'vyling.en.compare', score: bestMap },
+  encond: { local: 'vyling.en.cond', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
-  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare'],
+  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare', 'encond'],
 }
 
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
@@ -103,22 +104,30 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   entense: { view: 'english', tab: 'grammar', pane: 'tense' },
   enconfuse: { view: 'english', tab: 'grammar', pane: 'confuse' },
   encompare: { view: 'english', tab: 'grammar', pane: 'compare' },
+  encond: { view: 'english', tab: 'grammar', pane: 'cond' },
 }
 
-// Tên ngắn của từng phòng (hiện ở trang chủ)
-export const LAB_NAME: Record<LabKey, string> = {
-  kohangul: 'Hangul', konumbers: 'Số đếm', koconj: 'Chia đuôi', kopart: 'Trợ từ', koorder: 'Ghép câu',
-  zhpinyin: 'Pinyin', zhhanviet: 'Hán–Việt', zhnumbers: 'Số đếm', zhorder: 'Ghép câu',
-  enirregular: 'Động từ bất quy tắc', ennumbers: 'Số đếm', enorder: 'Ghép câu', enprep: 'in / on / at',
-  entense: 'Chọn thì', enconfuse: 'Từ dễ nhầm', encompare: 'So sánh',
+// Tên ngắn của từng phòng (hiện ở trang chủ), theo ngôn ngữ giao diện
+export const LAB_NAME: Record<LabKey, { vi: string; en: string }> = {
+  kohangul: { vi: 'Hangul', en: 'Hangul' }, konumbers: { vi: 'Số đếm', en: 'Numbers' },
+  koconj: { vi: 'Chia đuôi', en: 'Verb endings' }, kopart: { vi: 'Trợ từ', en: 'Particles' }, koorder: { vi: 'Ghép câu', en: 'Word order' },
+  zhpinyin: { vi: 'Pinyin', en: 'Pinyin' }, zhhanviet: { vi: 'Hán–Việt', en: 'Sino-Vietnamese' },
+  zhnumbers: { vi: 'Số đếm', en: 'Numbers' }, zhorder: { vi: 'Ghép câu', en: 'Word order' },
+  enirregular: { vi: 'Động từ bất quy tắc', en: 'Irregular verbs' }, ennumbers: { vi: 'Số đếm', en: 'Numbers' },
+  enorder: { vi: 'Ghép câu', en: 'Word order' }, enprep: { vi: 'in / on / at', en: 'in / on / at' },
+  entense: { vi: 'Chọn thì', en: 'Tenses' }, enconfuse: { vi: 'Từ dễ nhầm', en: 'Confusing words' },
+  encompare: { vi: 'So sánh', en: 'Comparisons' }, encond: { vi: 'Câu điều kiện', en: 'Conditionals' },
 }
 
-// Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local, phòng nào lưu danh sách weak)
+// Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local). Phòng Động từ bất quy tắc ghi "chế độ:động từ"
+// nên đếm theo động từ, không đếm trùng.
 export function readLabWeak(lang: string): { key: LabKey; n: number }[] {
   return (LAB_KEYS[lang] ?? []).map((key) => {
     try {
       const raw = JSON.parse(localStorage.getItem(SOURCES[key].local) ?? 'null') as Raw | null
-      return { key, n: Array.isArray(raw?.weak) ? (raw!.weak as unknown[]).length : 0 }
+      const list = Array.isArray(raw?.weak) ? (raw!.weak as unknown[]).filter((w): w is string => typeof w === 'string') : []
+      const items = key === 'enirregular' ? list.map((w) => w.slice(w.indexOf(':') + 1)) : list
+      return { key, n: new Set(items).size }
     } catch {
       return { key, n: 0 }
     }

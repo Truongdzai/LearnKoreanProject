@@ -13,6 +13,7 @@ import type { SrsStats } from '@/models/srs.model'
 import type { WeekTask } from '@/data/vocabCore'
 
 const PASS = 70
+const WEAK_SEEN_KEY = 'vyling.td.weakSeen'
 
 interface Step {
   id: string
@@ -32,7 +33,7 @@ function untilMidnight(now: Date): string {
 }
 
 export default function TodaySession() {
-  const { t, learnLang, setView, loadLesson, videos, savedVideos, user, todayXp, dailyBonus } = useAppStore()
+  const { t, uiLang, learnLang, setView, loadLesson, videos, savedVideos, user, todayXp, dailyBonus } = useAppStore()
   const { bonusAvailable } = useAuth()
   const { prog } = useLessonProgress()
   const [stats, setStats] = useState<SrsStats | null>(null)
@@ -64,10 +65,14 @@ export default function TodaySession() {
 
   // Nhiệm vụ phòng luyện chưa xong của tuần hiện tại trong lộ trình (khi đã bắt đầu lộ trình).
   // Nạp lộ trình lúc cần để trang chủ không phải tải sẵn dữ liệu từ vựng; tiếng Anh chỉ cần danh sách nhiệm vụ phòng luyện.
-  const [lab, setLab] = useState<{ week: number; label: string; key: LabKey; mode?: string } | null>(null)
+  // undefined = đang nạp (chưa biết có nhiệm vụ hay không), null = không có
+  const [lab, setLab] = useState<{ week: number; label: string; key: LabKey; mode?: string } | null | undefined>(undefined)
   useEffect(() => {
-    setLab(null)
-    if (learnLang !== 'ko' && learnLang !== 'zh' && learnLang !== 'en') return undefined
+    setLab(undefined)
+    if (learnLang !== 'ko' && learnLang !== 'zh' && learnLang !== 'en') {
+      setLab(null)
+      return undefined
+    }
     let alive = true
     const tasksOf = (): Promise<(week: number) => WeekTask[]> => {
       if (learnLang === 'en') {
@@ -84,13 +89,13 @@ export default function TodaySession() {
     Promise.all([import('../../english/progress'), tasksOf()]).then(([prog, tasksFor]) => {
       if (!alive) return
       const plan = prog.readPlan(learnLang)
-      if (!plan.start) return
-      const week = prog.planWeek(plan.start)
-      if (plan.rewarded.includes(week)) return
+      const week = plan.start ? prog.planWeek(plan.start) : 0
       const scores = readLabScores(learnLang)
-      const t = tasksFor(week).find((x) => x.kind === 'lab' && x.lab && !labDone(scores, x.lab, x.modes ?? [], x.passPct ?? 80))
-      if (t?.lab) setLab({ week, label: t.label, key: t.lab, mode: t.modes?.[0] })
-    }).catch(() => {  })
+      const t = week && !plan.rewarded.includes(week)
+        ? tasksFor(week).find((x) => x.kind === 'lab' && x.lab && !labDone(scores, x.lab, x.modes ?? [], x.passPct ?? 80))
+        : undefined
+      setLab(t?.lab ? { week, label: t.label, key: t.lab, mode: t.modes?.[0] } : null)
+    }).catch(() => { if (alive) setLab(null) })
     return () => { alive = false }
   }, [learnLang])
 
@@ -148,18 +153,23 @@ export default function TodaySession() {
     })
   }
 
-  // Không có nhiệm vụ phòng luyện tuần này thì nhắc ôn các câu từng sai (phòng có nhiều câu sai nhất)
+  // Không có nhiệm vụ phòng luyện tuần này thì nhắc ôn các mục từng sai (phòng có nhiều mục sai nhất).
+  // Đã mở phòng đó trong hôm nay thì tính là xong (danh sách sai chỉ vơi dần qua nhiều lượt).
   const weakLab = useMemo(() => {
     const top = readLabWeak(learnLang)[0]
     return top && top.n >= 3 ? top : null
   }, [learnLang])
-  if (!lab && weakLab) {
+  const weakOpened = (() => {
+    try { return localStorage.getItem(WEAK_SEEN_KEY) === todayISO() } catch { return false }
+  })()
+  if (lab === null && weakLab) {
     steps.push({
-      id: 'weak', icon: 'refresh', done: false,
-      text: t('td.weak', { n: weakLab.n, name: LAB_NAME[weakLab.key] }),
+      id: 'weak', icon: 'refresh', done: weakOpened,
+      text: t('td.weak', { n: weakLab.n, name: LAB_NAME[weakLab.key][uiLang] }),
       action: {
         label: t('td.practice'),
         run: () => {
+          try { localStorage.setItem(WEAK_SEEN_KEY, todayISO()) } catch {  }
           const target = LAB_TARGET[weakLab.key]
           setView(target.view)
           setUrlParam('tab', target.tab)
