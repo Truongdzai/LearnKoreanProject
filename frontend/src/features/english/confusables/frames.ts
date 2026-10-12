@@ -56,7 +56,7 @@ const RAW: Raw[] = [
   ['My brother never ___ me his car.', 'Anh tôi chẳng bao giờ cho tôi mượn xe.', ['lends', 'borrows'], 'borrow'],
 
   ['She ___ me a funny story.', 'Cô ấy kể cho tôi một câu chuyện vui.', ['told', 'said'], 'say'],
-  ['What did he ___ about the trip?', 'Anh ấy nói gì về chuyến đi?', ['say', 'tell'], 'say'],
+  ['He ___ "Good morning" to everyone.', 'Anh ấy chào "Good morning" với mọi người.', ['said', 'told'], 'say'],
   ['Can you ___ me the way to the station?', 'Bạn chỉ giúp tôi đường ra ga được không?', ['tell', 'say'], 'say'],
   ['He ___ that he was tired.', 'Anh ấy nói là anh ấy mệt.', ['said', 'told'], 'say'],
 
