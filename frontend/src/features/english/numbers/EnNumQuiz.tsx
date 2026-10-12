@@ -16,8 +16,11 @@ interface Props {
 }
 
 const PLACEHOLDER: Record<string, string> = {
-  teen: 'vd: 14', big: 'vd: 15,000', price: 'vd: $5.20', year: 'vd: 1999', time: 'vd: 7:45',
+  teen: 'vd: 14', big: 'vd: 15000', price: 'vd: 5.20', year: 'vd: 1999', time: 'vd: 7:45 hoặc 745',
 }
+
+// Giá tiền cần dấu thập phân; còn lại chỉ cần chữ số (giờ gõ liền 745 được)
+const KEYPAD: Record<string, 'decimal' | 'numeric'> = { price: 'decimal' }
 
 export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, onAgain, onBack }: Props) {
   const [i, setI] = useState(0)
@@ -25,6 +28,8 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const [typed, setTyped] = useState('')
   const [results, setResults] = useState<Result[]>([])
   const [showText, setShowText] = useState(false)
+  // Có giọng đọc lúc câu bắt đầu hay không — giữ nguyên trong suốt câu đó (giọng tải xong giữa chừng không làm mất chữ đang hiện)
+  const [qHear, setQHear] = useState(canHear)
   const [done, setDone] = useState(false)
   const nextRef = useRef<HTMLButtonElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -41,6 +46,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   useEffect(() => {
     if (done || !item) return
     setShowText(false)
+    setQHear(canHear)
     if (audio && canHear) speakEN(item.say, 0.9)
     if (mode === 'type') inputRef.current?.focus({ preventScroll: true })
   }, [i, done])
@@ -130,7 +136,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
   const score = results.filter((r) => r.ok).length
   const answered = picked != null
   const correct = answered && ok(picked)
-  const reveal = !audio || !canHear || showText || answered
+  const reveal = !audio || !qHear || showText || answered
   const why = answered && !correct && mode !== 'type' ? whyWrong(item, picked, mode) : ''
 
   return (
@@ -176,7 +182,7 @@ export default function EnNumQuiz({ questions, mode, title, canHear, onFinish, o
             value={typed}
             onChange={(e) => setTyped(e.target.value)}
             disabled={answered}
-            inputMode="decimal"
+            inputMode={KEYPAD[item.cat] ?? 'numeric'}
             autoComplete="off"
             spellCheck={false}
             placeholder={PLACEHOLDER[item.cat] ?? ''}

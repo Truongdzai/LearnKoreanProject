@@ -91,7 +91,10 @@ export function priceWord(d: number, c: number): string {
   return dol && cen ? `${dol} and ${cen}` : dol || cen
 }
 
-export const priceNum = (d: number, c: number) => (c ? `$${d}.${String(c).padStart(2, '0')}` : `$${d}`)
+export const priceNum = (d: number, c: number) => {
+  const dd = d.toLocaleString('en-US')
+  return c ? `$${dd}.${String(c).padStart(2, '0')}` : `$${dd}`
+}
 
 export const dateWord = (d: number, m: number) => `the ${ordinal(d)} of ${MONTHS[m - 1]}`
 export const dateNum = (d: number, m: number) => `${d} tháng ${m}`

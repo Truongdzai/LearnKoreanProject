@@ -77,7 +77,8 @@ export default function EnNumbersLab() {
   }
 
   const toggle = (c: CatId) => setCats((l) => (l.includes(c) ? l.filter((x) => x !== c) : [...l, c]))
-  const typeOnly = cats.length > 0 && !cats.some((c) => TYPE_CATS.includes(c))
+  const dropped = cats.filter((c) => !TYPE_CATS.includes(c))
+  const allDropped = dropped.length > 0 && dropped.length === cats.length
 
   return (
     <div className="enn-lab">
@@ -155,7 +156,12 @@ export default function EnNumbersLab() {
                 <b><Icon name={m.icon} size={16} /> {m.label}</b>
                 <p>{m.desc}</p>
                 {needVoice && <p className="enn-warn">Máy chưa có giọng đọc tiếng Anh — câu sẽ hiện bằng chữ thay cho âm thanh.</p>}
-                {m.id === 'type' && typeOnly && <p className="enn-warn">Ngày tháng và số thứ tự không có ở chế độ gõ — lượt này sẽ dùng các nhóm còn lại.</p>}
+                {m.id === 'type' && dropped.length > 0 && (
+                  <p className="enn-warn">
+                    {dropped.map((c) => CATS.find((x) => x.id === c)!.label).join(', ')} không có ở chế độ gõ —{' '}
+                    {allDropped ? 'lượt này dùng các nhóm số còn lại.' : 'lượt này chỉ dùng các nhóm khác bạn đã chọn.'}
+                  </p>
+                )}
                 <div className="enn-mode-foot">
                   <small>{best != null ? `Tốt nhất: ${best}%` : 'Chưa luyện'} · {ROUND} câu</small>
                   <button className="btn-primary sm" onClick={() => start(m.id)}><Icon name="play" size={14} /> Bắt đầu</button>
