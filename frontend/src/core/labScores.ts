@@ -7,7 +7,7 @@ import { useAuth } from '@/store/auth.store'
 // Chỉ đọc: lấy bản local, rồi bản server nếu đã đăng nhập và local không có thay đổi chưa lưu.
 
 export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
-  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare' | 'encond'
+  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare' | 'encond' | 'enpassive'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -78,12 +78,13 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   enconfuse: { local: 'vyling.en.confuse', score: bestMap },
   encompare: { local: 'vyling.en.compare', score: bestMap },
   encond: { local: 'vyling.en.cond', score: bestMap },
+  enpassive: { local: 'vyling.en.passive', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
-  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare', 'encond'],
+  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare', 'encond', 'enpassive'],
 }
 
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
@@ -105,6 +106,7 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   enconfuse: { view: 'english', tab: 'grammar', pane: 'confuse' },
   encompare: { view: 'english', tab: 'grammar', pane: 'compare' },
   encond: { view: 'english', tab: 'grammar', pane: 'cond' },
+  enpassive: { view: 'english', tab: 'grammar', pane: 'passive' },
 }
 
 // Tên ngắn của từng phòng (hiện ở trang chủ), theo ngôn ngữ giao diện
@@ -117,6 +119,7 @@ export const LAB_NAME: Record<LabKey, { vi: string; en: string }> = {
   enorder: { vi: 'Ghép câu', en: 'Word order' }, enprep: { vi: 'in / on / at', en: 'in / on / at' },
   entense: { vi: 'Chọn thì', en: 'Tenses' }, enconfuse: { vi: 'Từ dễ nhầm', en: 'Confusing words' },
   encompare: { vi: 'So sánh', en: 'Comparisons' }, encond: { vi: 'Câu điều kiện', en: 'Conditionals' },
+  enpassive: { vi: 'Câu bị động', en: 'Passive voice' },
 }
 
 // Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local). Phòng Động từ bất quy tắc ghi "chế độ:động từ"
