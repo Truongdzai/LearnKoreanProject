@@ -88,7 +88,7 @@ export default function HvQuiz({ items, title, canHear, onFinish, onAgain, onBac
                 key={m.id}
                 className="hg-wrong-row zv-wrong-row"
                 onClick={() => speakZH(m.speak, 0.8)}
-                aria-label={canHear ? `Nghe lại: ${m.speak}` : undefined}
+                aria-label={canHear ? `${m.reveal}. Nghe lại` : undefined}
               >
                 <Icon name="volume" size={14} />
                 <span><ZhText text={m.reveal} /></span>

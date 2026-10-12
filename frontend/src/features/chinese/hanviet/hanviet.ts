@@ -9,6 +9,8 @@ export interface HvEntry {
   py: string
   hv: string[]
   note?: string
+  // Chữ nhiều âm: pinyin (có thanh) → âm Hán–Việt tương ứng, vd 好 hǎo hảo / hào hiếu
+  by?: Record<string, string>
 }
 
 export interface ZhWord {
@@ -17,7 +19,7 @@ export interface ZhWord {
   vi: string
 }
 
-const DATA = RAW as Record<string, { py: string; hv: string[]; note?: string }>
+const DATA = RAW as Record<string, { py: string; hv: string[]; note?: string; by?: Record<string, string> }>
 
 export const CHARS: HvEntry[] = Object.entries(DATA).map(([c, e]) => ({ c, ...e }))
 export const BY_CHAR = new Map(CHARS.map((e) => [e.c, e]))
@@ -59,12 +61,31 @@ export function transparentReading(w: ZhWord): string | null {
   return combos(w.zh).find((x) => vi.includes(canon(x))) ?? null
 }
 
-// Đọc cả từ: ưu tiên cách đọc khớp nghĩa (银行 ngân hàng), không thì lấy âm đầu tiên của từng chữ
+// Từ mà âm theo pinyin chưa đủ phân biệt (面 diện / 麵 miến cùng đọc miàn)
+const WORD_READ: Record<string, string> = { 面条: 'miến điều' }
+
+// Âm của từng chữ theo pinyin của chính từ đó (好 trong 爱好 đọc hào → hiếu)
+function readByPinyin(zh: string, pinyin: string): string {
+  const cs = [...zh]
+  const syl = pinyin.trim().toLowerCase().split(/\s+/)
+  return cs.map((c, i) => {
+    const e = BY_CHAR.get(c)!
+    return (syl.length === cs.length && e.by?.[syl[i]]) || e.hv[0]
+  }).join(' ')
+}
+
+// Đọc cả từ: ưu tiên cách đọc khớp nghĩa (银行 ngân hàng), rồi theo pinyin của từ, cuối cùng là âm chính của từng chữ.
+// Chuỗi dán vào không phải từ trong kho thì bỏ bước khớp nghĩa (tránh bùng nổ tổ hợp với đoạn dài)
 export function readWord(zh: string): string | null {
   const cs = [...zh]
   if (!cs.every((c) => BY_CHAR.has(c))) return null
-  return transparentReading({ zh, pinyin: '', vi: WORDS.find((w) => w.zh === zh)?.vi ?? '' })
-    ?? cs.map((c) => BY_CHAR.get(c)!.hv[0]).join(' ')
+  if (WORD_READ[zh]) return WORD_READ[zh]
+  const w = WORDS.find((x) => x.zh === zh)
+  if (w && cs.length <= 6) {
+    const t = transparentReading(w)
+    if (t) return t
+  }
+  return w ? readByPinyin(zh, w.pinyin) : cs.map((c) => BY_CHAR.get(c)!.hv[0]).join(' ')
 }
 
 export function allReadings(zh: string): Set<string> {
@@ -81,13 +102,20 @@ export function fold(s: string): string {
   return s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim()
 }
 
+// i / y cuối âm tiết sau phụ âm là hai cách viết cùng một âm: lí = lý, kì = kỳ, tỉ = tỷ
+export function iy(s: string): string {
+  return s.replace(/(^|[bcdđghklmnpqrstvx])y(?=\d?$)/, '$1i')
+}
+
+export const sameHv = (a: string, b: string) => iy(canon(a)) === iy(canon(b))
+
 export function searchHv(q: string): HvEntry[] {
   const raw = canon(q.trim())
   if (!raw) return []
-  const exact = CHARS.filter((e) => e.hv.some((h) => canon(h) === raw))
+  const exact = CHARS.filter((e) => e.hv.some((h) => sameHv(h, q.trim())))
   if (exact.length) return exact
-  const f = fold(raw)
-  return CHARS.filter((e) => e.hv.some((h) => fold(h) === f))
+  const f = iy(fold(q))
+  return CHARS.filter((e) => e.hv.some((h) => iy(fold(h)) === f))
 }
 
 // ── Thanh điệu và phụ âm đầu của pinyin ──
@@ -161,8 +189,8 @@ export const RULES: Rule[] = [
     applies: (e) => /^sh/.test(plain(e.py)), hit: (e) => hvStarts(e, /^(th|s)/),
   },
   {
-    id: 'j', title: 'j → k, c, gi', desc: 'Pinyin j thường ứng với k / c / gi: 家 jiā gia, 见 jiàn kiến, 机 jī cơ.',
-    applies: (e) => /^j/.test(plain(e.py)), hit: (e) => hvStarts(e, /^(k|c|gi|q)/),
+    id: 'j', title: 'j → k, c, gi hoặc t', desc: 'Pinyin j ứng với k / c / gi (家 jiā gia, 见 jiàn kiến, 机 jī cơ) hoặc t (就 jiù tựu, 净 jìng tịnh).',
+    applies: (e) => /^j/.test(plain(e.py)), hit: (e) => hvStarts(e, /^(k|c|gi|q|t)/),
   },
   {
     id: 'x', title: 'x → t hoặc h', desc: 'Pinyin x ứng với t (小 xiǎo tiểu, 新 xīn tân) hoặc h (学 xué học, 夏 xià hạ).',
@@ -251,8 +279,18 @@ function distinctHv(answer: HvEntry, n: number): string[] {
   return [...out]
 }
 
+// Từ ví dụ mà chữ được đọc đúng như pinyin chính (行 trong 自行车, không lấy 银行 đọc háng)
+function contextWord(e: HvEntry): ZhWord | undefined {
+  return WORDS.find((w) => {
+    const cs = [...w.zh]
+    const syl = w.pinyin.trim().toLowerCase().split(/\s+/)
+    const at = cs.indexOf(e.c)
+    return at >= 0 && syl.length === cs.length && plain(syl[at]) === plain(e.py)
+  })
+}
+
 function hvItem(e: HvEntry): ZItem {
-  const w = wordsWith(e.c, 1)[0]
+  const w = contextWord(e)
   const answer = e.hv[0]
   return {
     id: `h${++seq}`,
@@ -268,7 +306,7 @@ function hvItem(e: HvEntry): ZItem {
 
 function charItem(e: HvEntry): ZItem {
   const hv = e.hv[0]
-  const others = shuffle(DRILL_CHARS.filter((x) => x.c !== e.c && !x.hv.includes(hv))).slice(0, 3).map((x) => x.c)
+  const others = shuffle(DRILL_CHARS.filter((x) => x.c !== e.c && !x.hv.some((h) => sameHv(h, hv)))).slice(0, 3).map((x) => x.c)
   return {
     id: `c${++seq}`,
     mode: 'char',
@@ -287,16 +325,23 @@ function wordItem(w: ZhWord): ZItem {
   const answer = readWord(w.zh)!
   const cs = [...w.zh]
   const valid = allReadings(w.zh)
+  const parts = answer.split(' ')
+  // Mỗi vị trí có một âm sai riêng; các phương án sai đổi vị trí sao cho âm đúng ở mỗi vị trí chỉ xuất hiện
+  // trong một nửa số phương án — không đoán được đáp án bằng cách chọn âm tiết lặp nhiều nhất
+  const plans = cs.length === 2 ? [[0], [1], [0, 1]] : cs.length === 3 ? [[0, 1], [1, 2], [0, 2]] : [[0, 1], [2, 3], [0, 1, 2, 3]]
   const wrong = new Set<string>()
-  // Đổi âm một chữ sang âm của chữ khác: phải nhìn từng chữ mới chọn đúng
-  for (let guard = 0; wrong.size < 3 && guard < 40; guard++) {
-    const k = Math.floor(Math.random() * cs.length)
-    const parts = cs.map((c) => BY_CHAR.get(c)!.hv[0])
-    const swap = pick(DRILL_CHARS).hv[0]
-    if (swap === parts[k]) continue
-    parts[k] = swap
-    const s = parts.join(' ')
-    if (!valid.has(canon(s))) wrong.add(s)
+  for (let guard = 0; wrong.size < 3 && guard < 30; guard++) {
+    const alt = parts.map((p, k) => {
+      const e = BY_CHAR.get(cs[k])!
+      const head = p.slice(0, 2)
+      const pool = shuffle(DRILL_CHARS).map((x) => x.hv[0]).filter((h) => !e.hv.some((v) => sameHv(v, h)))
+      return pool.find((h) => h.slice(0, 2) === head) ?? pool[0]
+    })
+    wrong.clear()
+    for (const plan of plans) {
+      const s = parts.map((p, k) => (plan.includes(k) ? alt[k] : p)).join(' ')
+      if (!valid.has(canon(s))) wrong.add(s)
+    }
   }
   const t = transparentReading(w)
   return {
