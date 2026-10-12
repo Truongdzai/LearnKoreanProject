@@ -43,6 +43,7 @@ export const PAIRS: Pair[] = [
   { id: 'ago', words: 'ago / before', set: 'small', tip: 'X ago = cách đây X, tính từ bây giờ (three years ago). X before = trước đó X, tính từ một mốc trong quá khứ. before đứng một mình cuối câu = trước đây (I have seen him before).' },
   { id: 'during', words: 'during / while', set: 'small', tip: 'during + danh từ: during the film. while + mệnh đề (chủ ngữ + động từ): while I was watching.' },
   { id: 'either', words: 'too / either', set: 'small', tip: 'Câu khẳng định dùng too ("cũng"). Câu phủ định dùng either: She doesn\'t like it either.' },
+  { id: 'an', words: 'a / an', set: 'small', tip: 'Chọn theo ÂM đầu, không theo chữ cái: an + nguyên âm (an apple, an hour — h câm, an honest man). a + phụ âm, kể cả chữ u, eu, o đọc /ju/, /w/: a university, a European, a one-way ticket.' },
   { id: 'job', words: 'job / work', set: 'small', tip: 'job đếm được (a job, two jobs). work với nghĩa công việc thì không đếm được: a lot of work, không nói "a work" (trừ nghĩa tác phẩm: a work of art).' },
 ]
 
@@ -112,6 +113,13 @@ const RAW: Raw[] = [
   ['I fell asleep ___ I was watching the film.', 'Tôi ngủ quên trong lúc đang xem phim.', ['while', 'during'], 'during'],
 
   ['I don\'t like coffee, and my sister doesn\'t like it ___.', 'Tôi không thích cà phê, và chị tôi cũng không.', ['either', 'too', 'also'], 'either'],
+
+  ['I waited for ___ hour at the airport.', 'Tôi đợi ở sân bay một tiếng đồng hồ.', ['an', 'a'], 'an'],
+  ['She is ___ university student.', 'Cô ấy là sinh viên đại học.', ['a', 'an'], 'an'],
+  ['He is ___ honest man.', 'Anh ấy là một người trung thực.', ['an', 'a'], 'an'],
+  ['It\'s ___ European company.', 'Đó là một công ty châu Âu.', ['a', 'an'], 'an'],
+  ['Don\'t forget to take ___ umbrella.', 'Đừng quên mang ô nhé.', ['an', 'a'], 'an'],
+  ['Can I have ___ one-way ticket to Hue?', 'Cho tôi một vé một chiều đi Huế.', ['a', 'an'], 'an'],
 
   ['I\'m looking for a new ___.', 'Tôi đang tìm việc mới.', ['job', 'work'], 'job'],
   ['I have a lot of ___ to do today.', 'Hôm nay tôi có nhiều việc phải làm.', ['work', 'job'], 'job'],
