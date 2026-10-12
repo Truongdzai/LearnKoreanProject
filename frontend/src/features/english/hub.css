@@ -1,4 +1,9 @@
-/* ── Tab Ngữ pháp tiếng Anh: dải Phòng luyện ── */
+/* ── Tab Ngữ pháp tiếng Anh: hàng mục và dải Phòng luyện ── */
+.en-grammar-hub{display:flex;flex-direction:column;gap:16px;min-width:0}
+@media (max-width:640px){
+  .en-grammar-hub .hg-panes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .en-grammar-hub .hg-panes .vl-mode{justify-content:flex-start;min-width:0;white-space:normal;text-align:left}
+}
 .en-lab-shelf{display:flex;flex-direction:column;gap:10px}
 .en-lab-shelf .section-title{margin:0}
 .en-lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
