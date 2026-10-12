@@ -1,0 +1,86 @@
+/* ── Số đếm tiếng Anh (tab Ngữ pháp → Số đếm & giờ) ── */
+.enn-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
+.enn-lab .grammar-intro{margin:0}
+.enn-lab .section-title{margin:0}
+.enn-chips{display:flex;flex-wrap:wrap;gap:6px}
+.enn-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
+.enn-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
+  border:1px solid var(--line2);color:var(--accent-d)}
+.enn-icon-btn:hover{border-color:var(--brass)}
+
+/* Cách đọc */
+.enn-rules{display:flex;flex-direction:column;gap:10px}
+.enn-rule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.enn-rule{display:flex;flex-direction:column;gap:9px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 0 3px 0 var(--brass-d);min-width:0}
+.enn-rule h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
+  font-weight:600;font-size:16px;color:var(--text)}
+.enn-rule h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
+.enn-rule p{margin:0;font-size:13px;line-height:1.58;color:var(--text2)}
+.enn-ex{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--bg);margin-top:auto}
+.enn-ex-row{display:grid;grid-template-columns:minmax(64px,auto) minmax(0,1fr);align-items:baseline;gap:10px;padding:7px 12px;
+  background:none;border:0;border-bottom:1px solid var(--line);color:var(--text);font-family:inherit;text-align:left}
+.enn-ex-row:last-child{border-bottom:0}
+.enn-ex-row b{font-family:var(--font-record);font-size:14px;color:var(--accent-d);white-space:nowrap}
+.enn-ex-row span{font-size:14px;line-height:1.45}
+.enn-ex-row small{font-size:12px;color:var(--muted)}
+.enn-ex-row.on{cursor:pointer}
+.enn-ex-row.on:hover{background:var(--accent-soft)}
+
+/* Chọn chế độ */
+.enn-practice{display:flex;flex-direction:column;gap:10px;scroll-margin-top:72px}
+.enn-practice .hg-group-title{margin:0}
+.enn-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:4px}
+.enn-mode{display:flex;flex-direction:column;gap:9px;padding:16px 18px;background:var(--panel);border:1px solid var(--line2)}
+.enn-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.enn-mode>b{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.enn-mode>b svg{color:var(--brass)}
+.enn-mode>p{margin:0;font-size:13px;line-height:1.55;color:var(--text2)}
+.enn-mode>p.enn-warn{font-size:12px;color:var(--muted)}
+.enn-mode-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:6px}
+.enn-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
+.enn-mode.done .enn-mode-foot small{color:var(--good)}
+
+/* Câu hỏi */
+.enn-q{display:flex;flex-direction:column;align-items:center;gap:8px}
+.enn-q .hg-ask{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;margin:0}
+.enn-cat{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:2px 8px;border:1px solid var(--line2);color:var(--accent-d)}
+.enn-value{font-family:var(--font-record);font-size:46px;line-height:1.15;font-weight:700;color:var(--text);overflow-wrap:anywhere}
+.enn-listen{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.enn-say{font-size:22px;line-height:1.4;color:var(--text);max-width:100%;overflow-wrap:anywhere}
+.enn-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
+.enn-opt-main{font-family:var(--font-record);font-size:22px;font-weight:600;line-height:1.3;overflow-wrap:anywhere;text-align:left}
+.enn-options.words{grid-template-columns:minmax(0,1fr)}
+.enn-options.words .enn-opt-main{font-family:inherit;font-size:17px;font-weight:500}
+
+.enn-type{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.enn-input{flex:1 1 220px;min-width:0;font-family:var(--font-record);font-size:24px;padding:10px 14px;color:var(--text);
+  background:var(--bg);border:1px solid var(--line2);border-radius:var(--r-sm)}
+.enn-input:focus{outline:2px solid var(--accent-ring);outline-offset:1px}
+.enn-input.ok{border-color:var(--good);color:var(--good)}
+.enn-input.bad{border-color:var(--bad);color:var(--bad)}
+
+.enn-feedback{align-items:flex-start}
+.enn-fb-body{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.enn-fb-body p{margin:0}
+.enn-fb-say{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.enn-fb-val{font-family:var(--font-record);font-size:17px;font-weight:700;color:var(--accent-d)}
+.enn-fb-say [lang="en"]{font-size:17px;color:var(--text)}
+.enn-note{font-size:13px;color:var(--muted)}
+.enn-feedback .btn-primary{align-self:flex-end}
+
+.enn-wrong-row{display:grid;grid-template-columns:16px minmax(64px,auto) minmax(0,1fr);align-items:center;gap:10px}
+.enn-wrong-q{font-family:var(--font-record);font-size:13px;color:var(--accent-d);white-space:nowrap}
+.enn-wrong-a{font-size:14px;color:var(--text);min-width:0}
+
+@media (max-width:640px){
+  .enn-rule-grid,.enn-modes{grid-template-columns:minmax(0,1fr)}
+  .enn-value{font-size:38px}
+  .enn-opt-main{font-size:19px}
+  .enn-options.words .enn-opt-main{font-size:16px}
+  .enn-options{grid-template-columns:minmax(0,1fr)}
+  .enn-say{font-size:19px}
+  .enn-type .btn-primary{flex:1 1 100%;justify-content:center}
+  .enn-feedback .btn-primary{align-self:stretch;justify-content:center}
+}
