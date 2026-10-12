@@ -1,9 +1,4 @@
 /* ── Động từ bất quy tắc (tab Ngữ pháp → Động từ BQT) ── */
-.en-grammar-hub{display:flex;flex-direction:column;gap:16px;min-width:0}
-@media (max-width:640px){
-  .en-grammar-hub .hg-panes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .en-grammar-hub .hg-panes .vl-mode{justify-content:flex-start;min-width:0;white-space:normal;text-align:left}
-}
 .ei-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
 .ei-lab .grammar-intro{margin:0}
 .ei-lab .section-title{margin:0}

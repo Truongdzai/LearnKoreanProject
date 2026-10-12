@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { clearUrlParams, useUrlParam } from '@/core/hooks/useTabParam'
 import { useLabScores, type LabKey } from '@/core/labScores'
 import GrammarLessons from './components/GrammarLessons'
 import { VoiceNotice } from './components/PronunciationLab'
-import IrregularLab from './irregular/IrregularLab'
-import EnNumbersLab from './numbers/EnNumbersLab'
-import SentenceBuilder from './builder/SentenceBuilder'
-import PrepLab from './prepositions/PrepLab'
-import TenseLab from './tenses/TenseLab'
+import { lazyPage } from '@/core/lazyPage'
+import Spinner from '@/core/components/Spinner'
 import './hub.css'
-import ConfuseLab from './confusables/ConfuseLab'
+
+// Mỗi phòng luyện là một gói riêng, chỉ tải khi mở — trang Tiếng Anh không phải chở sẵn cả 6 phòng
+const IrregularLab = lazyPage(() => import('./irregular/IrregularLab'))
+const EnNumbersLab = lazyPage(() => import('./numbers/EnNumbersLab'))
+const SentenceBuilder = lazyPage(() => import('./builder/SentenceBuilder'))
+const PrepLab = lazyPage(() => import('./prepositions/PrepLab'))
+const TenseLab = lazyPage(() => import('./tenses/TenseLab'))
+const ConfuseLab = lazyPage(() => import('./confusables/ConfuseLab'))
 
 type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'confuse' | 'verbs' | 'numbers'
 
@@ -98,12 +102,16 @@ export default function GrammarHub({ initialLesson }: Props) {
 
       {pane === 'lessons' && <GrammarLessons key={nonce} initialLesson={seed} aside={<LabShelf onOpen={pick} />} />}
       {pane !== 'lessons' && <VoiceNotice lang="en" />}
-      {pane === 'tense' && <TenseLab />}
-      {pane === 'order' && <SentenceBuilder />}
-      {pane === 'prep' && <PrepLab />}
-      {pane === 'confuse' && <ConfuseLab />}
-      {pane === 'verbs' && <IrregularLab />}
-      {pane === 'numbers' && <EnNumbersLab />}
+      {pane !== 'lessons' && (
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          {pane === 'tense' && <TenseLab />}
+          {pane === 'order' && <SentenceBuilder />}
+          {pane === 'prep' && <PrepLab />}
+          {pane === 'confuse' && <ConfuseLab />}
+          {pane === 'verbs' && <IrregularLab />}
+          {pane === 'numbers' && <EnNumbersLab />}
+        </Suspense>
+      )}
     </div>
   )
 }
