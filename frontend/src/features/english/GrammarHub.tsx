@@ -17,8 +17,9 @@ const TenseLab = lazyPage(() => import('./tenses/TenseLab'))
 const ConfuseLab = lazyPage(() => import('./confusables/ConfuseLab'))
 const CompareLab = lazyPage(() => import('./compare/CompareLab'))
 const CondLab = lazyPage(() => import('./conditionals/CondLab'))
+const PassiveLab = lazyPage(() => import('./passive/PassiveLab'))
 
-type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'compare' | 'cond' | 'confuse' | 'verbs' | 'numbers'
+type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'compare' | 'cond' | 'passive' | 'confuse' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: '18 bài ngữ pháp', icon: 'book' },
@@ -27,6 +28,7 @@ const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'prep', label: 'in / on / at', icon: 'map' },
   { id: 'compare', label: 'So sánh', icon: 'trending' },
   { id: 'cond', label: 'Câu điều kiện', icon: 'sparkles' },
+  { id: 'passive', label: 'Câu bị động', icon: 'refresh' },
   { id: 'confuse', label: 'Từ dễ nhầm', icon: 'bulb' },
   { id: 'verbs', label: 'Động từ bất quy tắc', icon: 'refresh' },
   { id: 'numbers', label: 'Số đếm & giờ giấc', icon: 'chart' },
@@ -40,6 +42,7 @@ const LABS: { pane: Pane; key: LabKey; parts: string[]; desc: string }[] = [
   { pane: 'prep', key: 'enprep', parts: ['time', 'place'], desc: 'Giới từ thời gian, nơi chốn' },
   { pane: 'compare', key: 'encompare', parts: ['mix'], desc: 'cheaper, more expensive, the best' },
   { pane: 'cond', key: 'encond', parts: ['mix'], desc: 'If it rains… / If I had…' },
+  { pane: 'passive', key: 'enpassive', parts: ['mix'], desc: 'was built, is spoken, will be sent' },
   { pane: 'confuse', key: 'enconfuse', parts: ['mix'], desc: 'borrow / lend, say / tell…' },
   { pane: 'verbs', key: 'enirregular', parts: ['v2', 'v3', 'type'], desc: '105 động từ V1 · V2 · V3' },
   { pane: 'numbers', key: 'ennumbers', parts: ['read', 'listen', 'type'], desc: 'Giá tiền, năm, giờ, ngày tháng' },
@@ -145,6 +148,7 @@ export default function GrammarHub({ initialLesson }: Props) {
           {pane === 'prep' && <PrepLab />}
           {pane === 'compare' && <CompareLab />}
           {pane === 'cond' && <CondLab />}
+          {pane === 'passive' && <PassiveLab />}
           {pane === 'confuse' && <ConfuseLab />}
           {pane === 'verbs' && <IrregularLab />}
           {pane === 'numbers' && <EnNumbersLab />}

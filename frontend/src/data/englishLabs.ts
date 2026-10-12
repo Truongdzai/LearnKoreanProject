@@ -26,6 +26,7 @@ const T_MIX = 'Chọn thì: một lượt trộn đủ các thì đạt 80% (nh�
 const C_MIX = 'Từ dễ nhầm: một lượt trộn đạt 80% (borrow / lend, say / tell, make / do, bored / boring…)'
 const CMP = 'So sánh: một lượt đạt 80% (cheaper, more expensive, better, the best — không nói more cheaper)'
 const COND = 'Câu điều kiện: một lượt đạt 80% (If + hiện tại → will, If + quá khứ → would; không đặt will / would vào vế if)'
+const PASSIVE = 'Câu bị động: một lượt đạt 80% (be chia theo thì + V3: was built, is spoken, will be sent)'
 const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
 const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
 const N_TYPE = 'Số đếm & giờ giấc: nghe & gõ số đạt 80% (chép lại giá tiền, giờ hẹn khi nghe)'
@@ -41,6 +42,7 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
     9: [lab('w', 9, 'enirregular', ['v3'], V3), lab('w', 9, 'entense', ['mix'], T_MIX)],
     10: [lab('w', 10, 'encond', ['mix'], COND), lab('w', 10, 'ennumbers', ['type'], N_TYPE)],
     11: [lab('w', 11, 'enirregular', ['type'], TYPE), lab('w', 11, 'enconfuse', ['mix'], C_MIX)],
+    12: [lab('w', 12, 'enpassive', ['mix'], PASSIVE)],
   },
   boot: {
     2: [lab('bw', 2, 'ennumbers', ['read'], N_READ)],
@@ -51,6 +53,7 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
     7: [lab('bw', 7, 'enirregular', ['v3'], V3), lab('bw', 7, 'entense', ['mix'], T_MIX)],
     8: [lab('bw', 8, 'enirregular', ['type'], TYPE), lab('bw', 8, 'enconfuse', ['mix'], C_MIX)],
     9: [lab('bw', 9, 'encond', ['mix'], COND), lab('bw', 9, 'ennumbers', ['type'], N_TYPE)],
+    10: [lab('bw', 10, 'enpassive', ['mix'], PASSIVE)],
   },
 }
 

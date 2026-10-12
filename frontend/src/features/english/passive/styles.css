@@ -1,0 +1,74 @@
+/* ── Câu bị động (tab Ngữ pháp → Bị động) ── */
+.epv-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
+.epv-lab .grammar-intro{margin:0}
+.epv-lab .section-title{margin:0}
+.epv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.epv-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
+.epv-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
+  border:1px solid var(--line2);color:var(--accent-d)}
+.epv-icon-btn:hover{border-color:var(--brass)}
+
+/* Dấu hiệu */
+.epv-signs{display:flex;flex-direction:column;gap:10px}
+.epv-sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.epv-sign{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 0 3px 0 var(--brass-d);min-width:0}
+.epv-sign h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
+  font-weight:600;font-size:15px;color:var(--text)}
+.epv-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
+.epv-sign p{margin:0}
+.epv-form{font-family:var(--font-record);font-size:12.5px;color:var(--accent-d)}
+.epv-rule-text{font-size:13px;line-height:1.55;color:var(--text2)}
+.epv-ex{display:block;width:100%;padding:5px 9px;background:var(--bg);border:1px solid var(--line);color:var(--text);
+  font-family:inherit;font-size:13.5px;text-align:left}
+.epv-ex.on{cursor:pointer}
+.epv-ex.on:hover{border-color:var(--brass)}
+
+/* Luyện */
+.epv-practice{display:flex;flex-direction:column;gap:10px;scroll-margin-top:72px}
+.epv-practice .hg-group-title{margin:0}
+.epv-mode{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;padding:16px 18px;
+  background:var(--panel);border:1px solid var(--line2);margin-top:4px}
+.epv-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.epv-mode b{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.epv-mode b svg{color:var(--brass)}
+.epv-mode p{margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--text2)}
+.epv-mode-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.epv-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
+.epv-mode.done .epv-mode-foot small{color:var(--good)}
+
+/* Câu hỏi */
+.epv-q{display:flex;flex-direction:column;align-items:center;gap:6px}
+.epv-q .hg-ask{margin:0 0 4px}
+.epv-frame{font-size:22px;line-height:1.5;color:var(--text);max-width:100%}
+.epv-sentence{overflow-wrap:anywhere}
+.epv-blank{display:inline-block;min-width:3em;margin:0 2px;padding:0 4px;border-bottom:2px solid var(--brass);color:var(--accent-d);
+  text-align:center;line-height:1.25}
+.epv-blank.filled.ok{color:var(--good);border-color:var(--good)}
+.epv-blank.filled.bad{color:var(--bad);border-color:var(--bad)}
+.epv-hint{color:var(--muted);font-style:italic}
+.epv-vi{font-size:14px;color:var(--text2)}
+.epv-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
+.epv-opt-main{font-size:19px;font-weight:600;line-height:1.3;overflow-wrap:anywhere;text-align:left}
+
+.epv-feedback{align-items:flex-start}
+.epv-fb-body{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.epv-fb-body p{margin:0}
+.epv-signal{font-weight:700;color:var(--accent-d)}
+.epv-rule{font-size:13px;color:var(--text2)}
+.epv-fb-say{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.epv-fb-say [lang="en"]{font-size:18px;color:var(--text)}
+.epv-feedback .btn-primary{align-self:flex-end}
+
+.epv-wrong-row{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:10px}
+.epv-wrong-a{display:flex;flex-direction:column;min-width:0}
+.epv-wrong-a [lang="en"]{font-size:15px;color:var(--text)}
+.epv-wrong-a small{font-size:12px;color:var(--muted);line-height:1.45}
+
+@media (max-width:640px){
+  .epv-sign-grid{grid-template-columns:minmax(0,1fr)}
+  .epv-frame{font-size:19px}
+  .epv-opt-main{font-size:17px}
+  .epv-mode-foot{flex:1 1 100%;justify-content:space-between}
+  .epv-feedback .btn-primary{align-self:stretch;justify-content:center}
+}
