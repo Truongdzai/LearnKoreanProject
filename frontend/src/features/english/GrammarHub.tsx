@@ -4,12 +4,14 @@ import { clearUrlParams, useUrlParam } from '@/core/hooks/useTabParam'
 import GrammarLessons from './components/GrammarLessons'
 import { VoiceNotice } from './components/PronunciationLab'
 import IrregularLab from './irregular/IrregularLab'
+import EnNumbersLab from './numbers/EnNumbersLab'
 
-type Pane = 'lessons' | 'verbs'
+type Pane = 'lessons' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: '18 bài ngữ pháp', icon: 'book' },
   { id: 'verbs', label: 'Động từ bất quy tắc', icon: 'refresh' },
+  { id: 'numbers', label: 'Số đếm & giờ giấc', icon: 'chart' },
 ]
 const PANE_IDS = PANES.map((p) => p.id) as string[]
 
@@ -49,12 +51,9 @@ export default function GrammarHub({ initialLesson }: Props) {
       </div>
 
       {pane === 'lessons' && <GrammarLessons key={nonce} initialLesson={seed} />}
-      {pane === 'verbs' && (
-        <>
-          <VoiceNotice lang="en" />
-          <IrregularLab />
-        </>
-      )}
+      {pane !== 'lessons' && <VoiceNotice lang="en" />}
+      {pane === 'verbs' && <IrregularLab />}
+      {pane === 'numbers' && <EnNumbersLab />}
     </div>
   )
 }

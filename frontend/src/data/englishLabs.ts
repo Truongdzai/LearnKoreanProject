@@ -17,18 +17,27 @@ const lab = (prefix: string, week: number, key: LabKey, modes: string[], label: 
 const V2 = 'Động từ bất quy tắc: chế độ Chọn V2 đạt 80% (went, saw, bought… để kể chuyện đã qua)'
 const V3 = 'Động từ bất quy tắc: chế độ Chọn V3 đạt 80% (gone, seen, written — dùng sau have / has)'
 const TYPE = 'Động từ bất quy tắc: tự gõ đủ V2 + V3 đạt 80% (không còn phương án để đoán)'
+const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
+const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
+const N_TYPE = 'Số đếm & giờ giấc: nghe & gõ số đạt 80% (chép lại giá tiền, giờ hẹn khi nghe)'
 
 export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
-  // Quá khứ đơn học ở tuần 6, hiện tại hoàn thành ở tuần 9
+  // Số đếm ở tuần 3 (con số & thời gian), quá khứ đơn ở tuần 6, hiện tại hoàn thành ở tuần 9
   lite: {
+    3: [lab('w', 3, 'ennumbers', ['read'], N_READ)],
     6: [lab('w', 6, 'enirregular', ['v2'], V2)],
+    7: [lab('w', 7, 'ennumbers', ['listen'], N_LISTEN)],
     9: [lab('w', 9, 'enirregular', ['v3'], V3)],
+    10: [lab('w', 10, 'ennumbers', ['type'], N_TYPE)],
     11: [lab('w', 11, 'enirregular', ['type'], TYPE)],
   },
   boot: {
+    2: [lab('bw', 2, 'ennumbers', ['read'], N_READ)],
     3: [lab('bw', 3, 'enirregular', ['v2'], V2)],
+    4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN)],
     7: [lab('bw', 7, 'enirregular', ['v3'], V3)],
     8: [lab('bw', 8, 'enirregular', ['type'], TYPE)],
+    9: [lab('bw', 9, 'ennumbers', ['type'], N_TYPE)],
   },
 }
 
