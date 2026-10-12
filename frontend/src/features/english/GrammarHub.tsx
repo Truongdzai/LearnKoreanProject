@@ -118,6 +118,13 @@ export default function GrammarHub({ initialLesson }: Props) {
 
   return (
     <div className="en-grammar-hub">
+      {/* Điện thoại: một ô chọn thay cho 10 nút */}
+      <label className="en-pane-select">
+        <span>Mục</span>
+        <select value={pane} onChange={(e) => pick(e.target.value as Pane)} aria-label="Chọn mục ngữ pháp">
+          {PANES.map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
+        </select>
+      </label>
       <div className="vl-modes hg-panes" role="group" aria-label="Ngữ pháp tiếng Anh">
         {PANES.map((p) => (
           <button

@@ -1,8 +1,12 @@
 /* ── Tab Ngữ pháp tiếng Anh: hàng mục và dải Phòng luyện ── */
 .en-grammar-hub{display:flex;flex-direction:column;gap:16px;min-width:0}
+.en-pane-select{display:none}
 @media (max-width:640px){
-  .en-grammar-hub .hg-panes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .en-grammar-hub .hg-panes .vl-mode{justify-content:flex-start;min-width:0;white-space:normal;text-align:left}
+  .en-grammar-hub .hg-panes{display:none}
+  .en-pane-select{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .en-pane-select span{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .en-pane-select select{flex:1;min-width:0;padding:9px 10px;font-family:inherit;font-size:16px;color:var(--text);background:var(--panel);
+    border:1px solid var(--line2);border-radius:var(--r-sm)}
 }
 .en-lab-shelf{display:flex;flex-direction:column;gap:10px;margin:18px 0}
 .en-lab-shelf .section-title{margin:0}
