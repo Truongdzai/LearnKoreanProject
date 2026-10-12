@@ -8,14 +8,16 @@ import EnNumbersLab from './numbers/EnNumbersLab'
 import SentenceBuilder from './builder/SentenceBuilder'
 import PrepLab from './prepositions/PrepLab'
 import TenseLab from './tenses/TenseLab'
+import ConfuseLab from './confusables/ConfuseLab'
 
-type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'verbs' | 'numbers'
+type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'confuse' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: '18 bài ngữ pháp', icon: 'book' },
   { id: 'tense', label: 'Chọn thì', icon: 'clock' },
   { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'prep', label: 'in / on / at', icon: 'map' },
+  { id: 'confuse', label: 'Từ dễ nhầm', icon: 'bulb' },
   { id: 'verbs', label: 'Động từ bất quy tắc', icon: 'refresh' },
   { id: 'numbers', label: 'Số đếm & giờ giấc', icon: 'chart' },
 ]
@@ -61,6 +63,7 @@ export default function GrammarHub({ initialLesson }: Props) {
       {pane === 'tense' && <TenseLab />}
       {pane === 'order' && <SentenceBuilder />}
       {pane === 'prep' && <PrepLab />}
+      {pane === 'confuse' && <ConfuseLab />}
       {pane === 'verbs' && <IrregularLab />}
       {pane === 'numbers' && <EnNumbersLab />}
     </div>

@@ -7,7 +7,7 @@ import { useAuth } from '@/store/auth.store'
 // Chỉ đọc: lấy bản local, rồi bản server nếu đã đăng nhập và local không có thay đổi chưa lưu.
 
 export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
-  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense'
+  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -75,12 +75,13 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   enorder: { local: 'vyling.en.order', score: bestMap },
   enprep: { local: 'vyling.en.prep', score: bestMap },
   entense: { local: 'vyling.en.tense', score: bestMap },
+  enconfuse: { local: 'vyling.en.confuse', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
-  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense'],
+  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse'],
 }
 
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
@@ -99,6 +100,7 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   enorder: { view: 'english', tab: 'grammar', pane: 'order' },
   enprep: { view: 'english', tab: 'grammar', pane: 'prep' },
   entense: { view: 'english', tab: 'grammar', pane: 'tense' },
+  enconfuse: { view: 'english', tab: 'grammar', pane: 'confuse' },
 }
 
 // Mục con của Phòng Pinyin theo phần cần luyện
