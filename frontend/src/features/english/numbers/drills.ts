@@ -70,7 +70,11 @@ export function shuffle<T>(arr: T[]): T[] {
 }
 
 const digitsOnly = (s: string) => s.replace(/[\s,._'’]/g, '')
-const acceptInt = (n: number) => (t: string) => /^\d+$/.test(digitsOnly(t)) && Number(digitsOnly(t)) === n
+// Chỉ nhận số liền hoặc tách đúng từng nhóm 3 chữ số (1500, 1,500, 1.500, 1 500) — không nhận 15.00 cho 1,500
+const acceptInt = (n: number) => (t: string) => {
+  const s = t.trim()
+  return (/^\d+$/.test(s) || /^\d{1,3}([ ,.'’_]\d{3})+$/.test(s)) && Number(digitsOnly(s)) === n
+}
 
 // ── 13 hay 30 ──
 const MISSPELL: Record<string, string> = {
@@ -123,9 +127,10 @@ function parsePrice(t: string): number | null {
   const cent = t.trim().toLowerCase().match(/^(\d{1,2})\s*(¢|c|cents?)$/)
   if (cent) return Number(cent[1])
   let s = t.trim().replace(/[$\s]/g, '').replace(/(dollars?|usd)$/i, '')
-  if (/^\.\d{1,2}$/.test(s)) s = '0' + s
-  if (/^\d+,\d{2}$/.test(s)) s = s.replace(',', '.')
-  s = s.replace(/,/g, '')
+  // Bàn phím số kiểu Việt dùng dấu phẩy thập phân: 5,20 / 5,2 / ,75
+  if (/^\d*,\d{1,2}$/.test(s)) s = s.replace(',', '.')
+  if (/^\.\d/.test(s)) s = '0' + s
+  s = s.replace(/,(?=\d{3}(\D|$))/g, '')
   if (!/^\d+(\.\d{1,2})?$/.test(s)) return null
   return Math.round(Number(s) * 100)
 }
@@ -135,6 +140,7 @@ function price(): Item {
   const d = roll < 0.12 ? 0 : roll < 0.75 ? 1 + rnd(20) : 20 + rnd(80)
   const c = d === 0 ? pick(CENTS) : roll < 0.25 ? 0 : pick(CENTS)
   const say = priceWord(d, c)
+  const alt = d && c ? `${cardinal(d)} ${c < 10 ? 'oh ' + ONE_WORD[c] : under100(c)}` : undefined
   const wrong: Wrong[] = []
   if (c && c % 10 === 0) {
     const c2 = c / 10
@@ -148,7 +154,7 @@ function price(): Item {
     wrong.push({ say: say.replace(/dollars/, 'dollar'), value: '', why: 'Từ 2 đô-la trở lên phải là dollars (số nhiều).' })
   }
   if (d && c) {
-    wrong.push({ say: `${cardinal(d)} point ${under100(c)} dollars`, value: '', why: 'Tiền không đọc "point" — nói "five dollars and twenty cents" hoặc "five twenty".' })
+    wrong.push({ say: `${cardinal(d)} point ${under100(c)} dollars`, value: '', why: `Tiền không đọc "point" — nói "${say}" hoặc gọn hơn "${alt}".` })
   }
   // Nhầm số khi nghe: đảo chữ số phần xu, -teen / -ty ở phần đô-la, lệch 10 đô-la
   const near: [number, number][] = []
@@ -173,7 +179,6 @@ function price(): Item {
     wrong.push({ say: priceWord(c, 0), value: priceNum(c, 0), why: `Dưới 1 đô-la chỉ đọc số cent: ${priceNum(0, c)} = ${say}.` })
     if (c > 1) wrong.push({ say: `${under100(c)} cent`, value: '', why: 'Từ 2 cent trở lên là cents (số nhiều).' })
   }
-  const alt = d && c ? `${cardinal(d)} ${c < 10 ? 'oh ' + ONE_WORD[c] : under100(c)}` : undefined
   const cents = d * 100 + c
   return {
     cat: 'price', value: priceNum(d, c), say, alt, wrong,
@@ -199,7 +204,7 @@ function year(): Item {
     wrong.unshift({ say: `twenty ${ONE_WORD[y % 10]}`, value: '', why: `twenty ${ONE_WORD[y % 10]} là số ${20 + (y % 10)}; năm ${y} đọc two thousand and ${ONE_WORD[y % 10]}.` })
   }
   if (y < 2000 && lo >= 10) {
-    wrong.unshift({ say: cardinal(y), value: '', why: 'Năm không đọc như số đếm (one thousand nine hundred…) mà tách đôi: nineteen + ninety-nine.' })
+    wrong.unshift({ say: cardinal(y), value: '', why: `Năm không đọc như số đếm mà tách đôi: ${under100(Math.floor(y / 100))} + ${under100(lo)}.` })
   }
   const alt = y >= 2010 && y < 2100 ? `two thousand and ${under100(lo)}` : undefined
   return { cat: 'year', value: String(y), say: yearWord(y), alt, wrong, accept: acceptInt(y) }
@@ -208,10 +213,14 @@ function year(): Item {
 // ── Giờ ──
 const MINS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
 
+// Nhận 7:45, 7.45, 7,45, 7h45, 7 45 và cả 745 / 0745 (bàn phím số không có dấu hai chấm)
 function parseTime(t: string): [number, number] | null {
-  const m = t.trim().toLowerCase().match(/^(\d{1,2})(?:\s*[:.h]\s*(\d{2}))?\s*(am|pm)?$/)
+  const s = t.trim().toLowerCase().replace(/\s*(am|pm|a\.m\.|p\.m\.)$/, '')
+  const m = s.match(/^(\d{1,2})(?:\s*[:.,h]\s*|\s+)(\d{2})$/) ?? s.match(/^(\d{1,2})(\d{2})$/) ?? s.match(/^(\d{1,2})()$/)
   if (!m) return null
-  return [Number(m[1]), m[2] ? Number(m[2]) : 0]
+  const h = Number(m[1])
+  const min = m[2] ? Number(m[2]) : 0
+  return h <= 24 && min < 60 ? [h, min] : null
 }
 
 function time(): Item {
