@@ -50,11 +50,11 @@ export default function TodaySession() {
     fetchMyQuests()
       .then((r) => {
         if (!alive) return
-        setClaimable(r.quests.filter((q) => q.active !== false && !q.claimed && (q.progress ?? 0) >= q.target).length)
+        setClaimable(r.quests.filter((q) => q.active !== false && !q.claimed && !(q.plus && !user?.isPlus) && (q.progress ?? 0) >= q.target).length)
       })
       .catch(() => { if (alive) setClaimable(0) })
     return () => { alive = false }
-  }, [])
+  }, [user?.isPlus])
 
   useEffect(() => {
     const id = window.setInterval(() => setNow(new Date()), 30_000)
@@ -116,7 +116,11 @@ export default function TodaySession() {
       text: t('td.resume', { title: resume.title, k: resume.passed, n: resume.total }),
       action: {
         label: t('td.continue'),
-        run: () => loadLesson(videoUrl(resume.video.id), { lang: resume.video.lang || learnLang, video: resume.video }),
+        run: () => {
+          // Mở thẳng tab luyện nói (Phát âm), đúng phần "Nói tiếp" đang nhắc
+          loadLesson(videoUrl(resume.video.id), { lang: resume.video.lang || learnLang, video: resume.video })
+          setUrlParam('tab', 'phatam')
+        },
       },
     })
   }

@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { env } from '@/config/env'
+import { getToken } from '@/core/api/token'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
 import { FLUSH_EVERY_SEC, STUDY_VIEWS, TICK_MS, takeMinutes, tick, youtubePlaying } from './studyTime'
@@ -14,9 +16,22 @@ function mediaPlaying(): boolean {
   try {
     if (typeof speechSynthesis !== 'undefined' && speechSynthesis.speaking) return true
   } catch {  }
+  // Chỉ tính âm thanh nghe được: video trang trí (khung avatar, nền) luôn tắt tiếng và lặp vô hạn
   const els = document.querySelectorAll<HTMLMediaElement>('video, audio')
-  for (const el of els) if (!el.paused && !el.ended) return true
+  for (const el of els) if (!el.paused && !el.ended && !el.muted && el.volume > 0) return true
   return false
+}
+
+function sendKeepalive(minutes: number, lang: string): void {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  const tk = getToken()
+  if (tk) headers.Authorization = 'Bearer ' + tk
+  void fetch(`${env.apiBase}/api/me/event`, {
+    method: 'POST',
+    keepalive: true,
+    headers,
+    body: JSON.stringify({ type: 'login', amount: 0, minutes, words: 0, lang }),
+  }).catch(() => {  })
 }
 
 function readCarry(): number {
@@ -47,7 +62,11 @@ export function useStudyClock(): void {
     const flush = (force: boolean) => {
       if (!force && sec < FLUSH_EVERY_SEC) return
       const [minutes, rest] = takeMinutes(sec)
-      if (minutes > 0) sendRef.current('login', 0, minutes, 0, langRef.current)
+      if (minutes > 0) {
+        // Đóng tab / tải lại: fetch thường bị trình duyệt huỷ, nên gửi bằng keepalive
+        if (force) sendKeepalive(minutes, langRef.current)
+        else sendRef.current('login', 0, minutes, 0, langRef.current)
+      }
       sec = rest
       writeCarry(sec)
     }
