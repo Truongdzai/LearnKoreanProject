@@ -7,7 +7,7 @@ import { useAuth } from '@/store/auth.store'
 // Chỉ đọc: lấy bản local, rồi bản server nếu đã đăng nhập và local không có thay đổi chưa lưu.
 
 export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
-  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse'
+  | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -76,12 +76,13 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   enprep: { local: 'vyling.en.prep', score: bestMap },
   entense: { local: 'vyling.en.tense', score: bestMap },
   enconfuse: { local: 'vyling.en.confuse', score: bestMap },
+  encompare: { local: 'vyling.en.compare', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
-  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse'],
+  en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare'],
 }
 
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
@@ -101,6 +102,7 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   enprep: { view: 'english', tab: 'grammar', pane: 'prep' },
   entense: { view: 'english', tab: 'grammar', pane: 'tense' },
   enconfuse: { view: 'english', tab: 'grammar', pane: 'confuse' },
+  encompare: { view: 'english', tab: 'grammar', pane: 'compare' },
 }
 
 // Tên ngắn của từng phòng (hiện ở trang chủ)
@@ -108,7 +110,7 @@ export const LAB_NAME: Record<LabKey, string> = {
   kohangul: 'Hangul', konumbers: 'Số đếm', koconj: 'Chia đuôi', kopart: 'Trợ từ', koorder: 'Ghép câu',
   zhpinyin: 'Pinyin', zhhanviet: 'Hán–Việt', zhnumbers: 'Số đếm', zhorder: 'Ghép câu',
   enirregular: 'Động từ bất quy tắc', ennumbers: 'Số đếm', enorder: 'Ghép câu', enprep: 'in / on / at',
-  entense: 'Chọn thì', enconfuse: 'Từ dễ nhầm',
+  entense: 'Chọn thì', enconfuse: 'Từ dễ nhầm', encompare: 'So sánh',
 }
 
 // Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local, phòng nào lưu danh sách weak)
