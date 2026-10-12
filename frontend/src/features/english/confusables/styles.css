@@ -4,9 +4,6 @@
 .ec-lab .section-title{margin:0}
 .ec-chips{display:flex;flex-wrap:wrap;gap:6px}
 .ec-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
-.ec-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
-  border:1px solid var(--line2);color:var(--accent-d)}
-.ec-icon-btn:hover{border-color:var(--brass)}
 
 /* Mẹo phân biệt */
 .ec-pairs{display:flex;flex-direction:column;gap:10px}
@@ -31,35 +28,7 @@
 .ec-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
 .ec-mode.done .ec-mode-foot small{color:var(--good)}
 
-/* Câu hỏi */
-.ec-q{display:flex;flex-direction:column;align-items:center;gap:6px}
-.ec-q .hg-ask{margin:0 0 4px}
-.ec-frame{font-size:22px;line-height:1.5;color:var(--text);max-width:100%}
-.ec-sentence{overflow-wrap:anywhere}
-.ec-blank{display:inline-block;min-width:3em;margin:0 2px;padding:0 4px;border-bottom:2px solid var(--brass);color:var(--accent-d);
-  text-align:center;line-height:1.25}
-.ec-blank.filled.ok{color:var(--good);border-color:var(--good)}
-.ec-blank.filled.bad{color:var(--bad);border-color:var(--bad)}
-.ec-vi{font-size:14px;color:var(--text2)}
-.ec-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
-.ec-opt-main{font-size:19px;font-weight:600;line-height:1.3;overflow-wrap:anywhere;text-align:left}
-
-.ec-feedback{align-items:flex-start}
-.ec-fb-body{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:6px}
-.ec-fb-body p{margin:0}
-.ec-fb-say{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
-.ec-fb-say [lang="en"]{font-size:18px;color:var(--text)}
-.ec-feedback .btn-primary{align-self:flex-end}
-
-.ec-wrong-row{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:10px}
-.ec-wrong-a{display:flex;flex-direction:column;min-width:0}
-.ec-wrong-a [lang="en"]{font-size:15px;color:var(--text)}
-.ec-wrong-a small{font-size:12px;color:var(--muted);line-height:1.45}
-
 @media (max-width:640px){
   .ec-pair-grid{grid-template-columns:minmax(0,1fr)}
-  .ec-frame{font-size:19px}
-  .ec-opt-main{font-size:17px}
   .ec-mode-foot{flex:1 1 100%;justify-content:space-between}
-  .ec-feedback .btn-primary{align-self:stretch;justify-content:center}
 }

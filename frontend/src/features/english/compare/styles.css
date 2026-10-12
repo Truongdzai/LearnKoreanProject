@@ -4,9 +4,6 @@
 .ecp-lab .section-title{margin:0}
 .ecp-chips{display:flex;flex-wrap:wrap;gap:6px}
 .ecp-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
-.ecp-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
-  border:1px solid var(--line2);color:var(--accent-d)}
-.ecp-icon-btn:hover{border-color:var(--brass)}
 
 /* Dấu hiệu */
 .ecp-signs{display:flex;flex-direction:column;gap:10px}
@@ -17,7 +14,6 @@
   font-weight:600;font-size:15px;color:var(--text)}
 .ecp-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
 .ecp-sign p{margin:0}
-.ecp-rule-text{font-size:13px;line-height:1.55;color:var(--text2)}
 .ecp-ex{display:block;width:100%;padding:5px 9px;background:var(--bg);border:1px solid var(--line);color:var(--text);
   font-family:inherit;font-size:13.5px;text-align:left}
 .ecp-ex.on{cursor:pointer}
@@ -36,38 +32,7 @@
 .ecp-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
 .ecp-mode.done .ecp-mode-foot small{color:var(--good)}
 
-/* Câu hỏi */
-.ecp-q{display:flex;flex-direction:column;align-items:center;gap:6px}
-.ecp-q .hg-ask{margin:0 0 4px}
-.ecp-frame{font-size:22px;line-height:1.5;color:var(--text);max-width:100%}
-.ecp-sentence{overflow-wrap:anywhere}
-.ecp-blank{display:inline-block;min-width:3em;margin:0 2px;padding:0 4px;border-bottom:2px solid var(--brass);color:var(--accent-d);
-  text-align:center;line-height:1.25}
-.ecp-blank.filled.ok{color:var(--good);border-color:var(--good)}
-.ecp-blank.filled.bad{color:var(--bad);border-color:var(--bad)}
-.ecp-hint{color:var(--muted);font-style:italic}
-.ecp-vi{font-size:14px;color:var(--text2)}
-.ecp-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
-.ecp-opt-main{font-size:19px;font-weight:600;line-height:1.3;overflow-wrap:anywhere;text-align:left}
-
-.ecp-feedback{align-items:flex-start}
-.ecp-fb-body{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:6px}
-.ecp-fb-body p{margin:0}
-.ecp-signal{font-weight:700;color:var(--accent-d)}
-.ecp-rule{font-size:13px;color:var(--text2)}
-.ecp-fb-say{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
-.ecp-fb-say [lang="en"]{font-size:18px;color:var(--text)}
-.ecp-feedback .btn-primary{align-self:flex-end}
-
-.ecp-wrong-row{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:10px}
-.ecp-wrong-a{display:flex;flex-direction:column;min-width:0}
-.ecp-wrong-a [lang="en"]{font-size:15px;color:var(--text)}
-.ecp-wrong-a small{font-size:12px;color:var(--muted);line-height:1.45}
-
 @media (max-width:640px){
   .ecp-sign-grid{grid-template-columns:minmax(0,1fr)}
-  .ecp-frame{font-size:19px}
-  .ecp-opt-main{font-size:17px}
   .ecp-mode-foot{flex:1 1 100%;justify-content:space-between}
-  .ecp-feedback .btn-primary{align-self:stretch;justify-content:center}
 }

@@ -37,6 +37,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
   const firstInput = useRef<HTMLInputElement>(null)
   const secondInput = useRef<HTMLInputElement>(null)
   const optsRef = useRef<HTMLDivElement>(null)
+  const againRef = useRef<HTMLButtonElement>(null)
   const rootRef = useRevealTop<HTMLDivElement>(done)
   const verb = verbs[i]
   const q = questions[i]
@@ -46,11 +47,15 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
     if (checked) nextRef.current?.focus({ preventScroll: true })
   }, [checked])
 
+  useEffect(() => {
+    if (done) againRef.current?.focus({ preventScroll: true })
+  }, [done])
+
   // Câu mới: con trỏ vào ô gõ V2, hoặc phương án đầu (nút "Câu tiếp" vừa biến mất)
   useEffect(() => {
     if (done) return
     if (mode === 'type') firstInput.current?.focus({ preventScroll: true })
-    else optsRef.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
+    else optsRef.current?.focus({ preventScroll: true })
   }, [i, mode, done])
 
   const say = () => { if (canHear && verb) speakEN(sayForms(verb), 0.85) }
@@ -148,7 +153,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
           </div>
         )}
         <div className="hg-actions">
-          <button className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
+          <button ref={againRef} className="btn-primary" onClick={onAgain}><Icon name="refresh" size={15} /> Làm lượt mới</button>
           <button className="btn-ghost" onClick={onBack}><Icon name="arrow-left" size={15} /> Chọn chế độ khác</button>
         </div>
       </div>
@@ -235,7 +240,7 @@ export default function IrrQuiz({ verbs, mode, title, canHear, onFinish, onAgain
           )}
         </form>
       ) : (
-        <div className="quiz-options ei-options" role="group" aria-label="Đáp án" ref={optsRef}>
+        <div className="quiz-options ei-options" role="group" aria-label="Đáp án" tabIndex={-1} ref={optsRef}>
           {q.options.map((opt, k) => {
             const cls = picked != null ? (opt === q.answer ? ' correct' : opt === picked ? ' wrong' : '') : ''
             return (

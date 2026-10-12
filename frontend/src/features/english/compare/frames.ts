@@ -31,7 +31,7 @@ const ADJ: Record<string, Adj> = Object.fromEntries([
 export const KIND_INFO: Record<AdjKind, { name: string; rule: string }> = {
   short: { name: 'Tính từ ngắn (1 âm tiết)', rule: 'Thêm -er / -est: cheap → cheaper → the cheapest. Tận cùng phụ âm – nguyên âm – phụ âm thì gấp đôi: big → bigger, hot → hottest. Không thêm more / most.' },
   y: { name: 'Tính từ tận cùng -y', rule: 'Đổi y thành i rồi thêm -er / -est: easy → easier → the easiest, happy → happier.' },
-  long: { name: 'Tính từ dài (từ 2–3 âm tiết)', rule: 'Dùng more / the most đứng trước, giữ nguyên tính từ: more expensive, the most beautiful. Không thêm -er.' },
+  long: { name: 'Tính từ dài (2 âm tiết trở lên, trừ loại tận cùng -y)', rule: 'Dùng more / the most đứng trước, giữ nguyên tính từ: more expensive, the most beautiful. Không thêm -er.' },
   irr: { name: 'Bất quy tắc', rule: 'good → better → the best, bad → worse → the worst. Không nói gooder, more good, badder.' },
 }
 
@@ -128,9 +128,11 @@ export function shuffle<T>(arr: T[]): T[] {
 }
 
 export function buildRound(weak: string[]): (Frame & { shuffled: string[] })[] {
-  const w = shuffle(FRAMES.filter((f) => weak.includes(f.id))).slice(0, Math.ceil(ROUND / 2))
+  // Câu từng sai chiếm tối đa nửa lượt; nếu câu mới không đủ thì lấy thêm câu sai còn lại để lượt luôn đủ số câu
+  const ws = shuffle(FRAMES.filter((f) => weak.includes(f.id)))
+  const half = Math.ceil(ROUND / 2)
   const rest = shuffle(FRAMES.filter((f) => !weak.includes(f.id)))
-  return shuffle([...w, ...rest].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
+  return shuffle([...ws.slice(0, half), ...rest, ...ws.slice(half)].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
 }
 
 export const filled = (f: Frame) => f.en.replace(/___\s*\([^)]*\)/, f.answer)

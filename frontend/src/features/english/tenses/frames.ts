@@ -99,9 +99,11 @@ export const groupOf = (f: Frame) => TENSES[f.tense].group
 // Một lượt trộn đều các nhóm đã chọn, ưu tiên câu vừa sai; phương án được xáo
 export function buildRound(groups: GroupId[], weak: string[]): (Frame & { shuffled: string[] })[] {
   const pool = FRAMES.filter((f) => !groups.length || groups.includes(groupOf(f)))
-  const w = shuffle(pool.filter((f) => weak.includes(f.id))).slice(0, Math.ceil(ROUND / 2))
+  // Câu từng sai chiếm tối đa nửa lượt; nếu câu mới không đủ thì lấy thêm câu sai còn lại để lượt luôn đủ số câu
+  const ws = shuffle(pool.filter((f) => weak.includes(f.id)))
+  const half = Math.ceil(ROUND / 2)
   const rest = shuffle(pool.filter((f) => !weak.includes(f.id)))
-  return shuffle([...w, ...rest].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
+  return shuffle([...ws.slice(0, half), ...rest, ...ws.slice(half)].slice(0, ROUND)).map((f) => ({ ...f, shuffled: shuffle(f.options) }))
 }
 
 // Câu đã điền đáp án (bỏ phần gợi ý trong ngoặc)

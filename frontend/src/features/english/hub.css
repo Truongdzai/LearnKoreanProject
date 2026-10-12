@@ -26,3 +26,4 @@
   .en-lab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 .en-more-labs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted)}
+.en-grammar-hub .quiz-options:focus{outline:none}
