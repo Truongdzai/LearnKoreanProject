@@ -69,8 +69,11 @@ def _generate() -> list[dict]:
         })
     return out
 
+def ai_enabled() -> bool:
+    return settings["llm"].get("provider", "none") != "none"
+
 def get(refresh: bool = False) -> dict:
-    ai_on = settings["llm"].get("provider", "none") != "none"
+    ai_on = ai_enabled()
 
     if not refresh:
         raw = db.get_setting(CACHE_KEY)

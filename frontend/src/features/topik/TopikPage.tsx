@@ -52,7 +52,7 @@ export default function TopikPage() {
   const [levelFilter, setLevelFilter] = useState<0 | 1 | 2>(0)
   const [session, setSession] = useState<Session | null>(null)
   const [nonce, setNonce] = useState(0)
-  const [result, setResult] = useState<{ res: RunResult; exam: boolean } | null>(null)
+  const [result, setResult] = useState<{ res: RunResult; exam: boolean; session: Session | null } | null>(null)
 
   const passed = TOPIK_CAPSULES.filter((c) => (state.capsules[c.id] ?? 0) >= CAPSULE_PASS).length
   const lastAttempt = state.attempts[state.attempts.length - 1]
@@ -60,6 +60,8 @@ export default function TopikPage() {
   const pickTab = (t: Tab) => { setTab(t); setCapsuleId(null); setResult(null) }
   const tabs = useTabs('topik', TAB_IDS, tab, pickTab, 'Luyện thi TOPIK')
 
+  // Chỉ phiên ôn câu sai mới phụ thuộc sổ câu sai; phiên khác không được xáo lại giữa chừng khi dữ liệu server về muộn
+  const wrongDep = session?.kind === 'wrong' ? state.wrong : null
   const items: RunItem[] = useMemo(() => {
     if (!session) return []
     void nonce
@@ -80,7 +82,7 @@ export default function TopikPage() {
       ...shuffle(TOPIK_LISTENING).slice(0, 10).map((item) => ({ kind: 'listen' as const, item })),
       ...shuffle(TOPIK_READING).slice(0, 15).map((item) => ({ kind: 'read' as const, item })),
     ]
-  }, [session, nonce, state.wrong])
+  }, [session, nonce, wrongDep])
 
   const finish = (res: RunResult) => {
     const exam = session?.kind === 'test'
@@ -97,7 +99,7 @@ export default function TopikPage() {
       })
     }
     recordEvent('lesson', 1)
-    setResult({ res, exam: !!exam })
+    setResult({ res, exam: !!exam, session })
     setSession(null)
   }
 
@@ -148,7 +150,14 @@ export default function TopikPage() {
           res={result.res}
           exam={result.exam}
           onClose={() => setResult(null)}
-          onRetry={() => { const s = result.exam ? { kind: 'test' as const } : { kind: 'reading' as const, n: 10 }; setResult(null); setNonce((n) => n + 1); setSession(s) }}
+          onRetry={() => {
+            const s = result.session
+            setResult(null)
+            // Sổ câu sai đã trống thì không còn gì để làm lại
+            if (!s || (s.kind === 'wrong' && !state.wrong.length)) return
+            setNonce((n) => n + 1)
+            setSession(s)
+          }}
         />
       )}
 
@@ -221,6 +230,7 @@ export default function TopikPage() {
       {!result && tab === 'grammar' && (
         capsule ? (
           <CapsuleView
+            key={capsule.id}
             capsule={capsule}
             best={state.capsules[capsule.id]}
             onDone={(pct) => { if (recordCapsule(capsule.id, pct)) recordEvent('lesson', 1) }}

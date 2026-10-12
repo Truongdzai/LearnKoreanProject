@@ -4,6 +4,7 @@ import { playAudioFiles, speakKO, stopSpeak } from '@/core/tts'
 import audioManifest from '@/data/korean/topik/audioManifest.json'
 import { track } from '@/core/monitor'
 import { TOPIK_SKILLS, estimateTopik, type TopikListening, type TopikReading } from '@/data/topikCore'
+import { shuffleOptions } from '../shuffle'
 
 export type RunItem =
   | { kind: 'read'; item: TopikReading }
@@ -50,12 +51,24 @@ function playScript(id: string, lines: TopikListening['script']) {
   speakAt(0)
 }
 
-export default function TopikRunner({ items, exam = false, seconds, title, onFinish, onQuit }: Props) {
+export default function TopikRunner({ items: source, exam = false, seconds, title, onFinish, onQuit }: Props) {
   const [i, setI] = useState(0)
   const [picks, setPicks] = useState<Record<string, number>>({})
   const [showScript, setShowScript] = useState(false)
   const [left, setLeft] = useState(seconds ?? 0)
   const doneRef = useRef(false)
+  // Giữ thứ tự phương án theo id để không bị đảo lại khi items đổi tham chiếu giữa chừng
+  const mixed = useRef(new Map<string, RunItem>())
+
+  const items = useMemo(() => source.map((it): RunItem => {
+    const hit = mixed.current.get(qid(it))
+    if (hit) return hit
+    const m: RunItem = it.kind === 'listen'
+      ? { kind: 'listen', item: shuffleOptions(it.item) }
+      : { kind: 'read', item: shuffleOptions(it.item) }
+    mixed.current.set(qid(it), m)
+    return m
+  }), [source])
 
   const cur = items[i]
   const picked = cur ? picks[qid(cur)] : undefined
@@ -99,12 +112,17 @@ export default function TopikRunner({ items, exam = false, seconds, title, onFin
     if (!exam || !seconds) return undefined
     const t = window.setInterval(() => {
       setLeft((s) => {
-        if (s <= 1) { window.clearInterval(t); submit(); return 0 }
+        if (s <= 1) { window.clearInterval(t); return 0 }
         return s - 1
       })
     }, 1000)
     return () => window.clearInterval(t)
   }, [exam, seconds])
+
+  // Nộp khi hết giờ ở effect (không trong updater của interval) để dùng result mới nhất
+  useEffect(() => {
+    if (exam && seconds && left === 0) submit()
+  }, [left])
 
   if (!cur) return null
 

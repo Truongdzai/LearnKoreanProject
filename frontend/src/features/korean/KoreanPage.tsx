@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { KO_UNITS, KO_ALL_WORDS } from '@/data/koreanCore'
 import { speakKO } from '@/core/tts'
@@ -11,13 +11,21 @@ import KoreanRoadmap from './KoreanRoadmap'
 import Expectations from '../english/components/Expectations'
 import { useTabs } from '@/core/a11y'
 import ViContentNote from '../shared/ViContentNote'
-import { useTabParam } from '@/core/hooks/useTabParam'
+import { clearUrlParams, setUrlParam, useTabParam } from '@/core/hooks/useTabParam'
+import { LAB_TARGET, labPane, type LabKey } from '@/core/labScores'
+import { lazyPage } from '@/core/lazyPage'
+import Spinner from '@/core/components/Spinner'
 
-type Tab = 'program' | 'learn' | 'pron' | 'quiz'
+const HangulLab = lazyPage(() => import('./hangul/HangulLab'))
+const GrammarLab = lazyPage(() => import('./grammar/GrammarLab'))
+
+type Tab = 'program' | 'hangul' | 'learn' | 'grammar' | 'pron' | 'quiz'
 
 const TABS: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'program', label: 'Lộ trình', icon: 'map' },
+  { id: 'hangul', label: 'Bảng chữ', icon: 'letters' },
   { id: 'learn', label: 'Học từ vựng', icon: 'cards' },
+  { id: 'grammar', label: 'Ngữ pháp', icon: 'tool' },
   { id: 'pron', label: 'Phát âm', icon: 'mic' },
   { id: 'quiz', label: 'Kiểm tra', icon: 'target' },
 ]
@@ -50,7 +58,14 @@ export default function KoreanPage() {
     setTab('quiz')
   }
 
+  // Nhiệm vụ phòng luyện trong lộ trình: mở đúng tab và đúng mục con
+  const openLab = (lab: LabKey, mode?: string) => {
+    setUrlParam('pane', labPane(lab, mode))
+    setTab(LAB_TARGET[lab].tab as Tab)
+  }
+
   const pickTab = (t: Tab) => {
+    if (t !== tab) clearUrlParams(['pane'])
     if (t === 'quiz') setWeekQuiz(null)
     if (t === 'learn') setLearnUnit(undefined)
     if (t === 'pron') setPronGroup(undefined)
@@ -107,7 +122,17 @@ export default function KoreanPage() {
 
       <div {...tabs.panel(tab)}>
       {tab === 'program' && (
-        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} />
+        <KoreanRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onHangul={() => pickTab('hangul')} onLab={openLab} />
+      )}
+      {tab === 'hangul' && (
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          <HangulLab />
+        </Suspense>
+      )}
+      {tab === 'grammar' && (
+        <Suspense fallback={<div className="center-state"><Spinner /></div>}>
+          <GrammarLab />
+        </Suspense>
       )}
       {tab === 'learn' && (
         <VocabLab

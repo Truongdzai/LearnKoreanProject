@@ -2,6 +2,7 @@ import { type WeekPlan } from './vocabCore'
 import { ZH_UNITS } from './chineseCore'
 import { ZH_PRON_GROUPS } from './chinesePronunciation'
 import { PRON_PASS } from './englishPronunciation'
+import type { LabKey } from '@/core/labScores'
 
 const unitName = (id: string): string => ZH_UNITS.find((u) => u.id === id)?.name ?? id
 
@@ -80,6 +81,16 @@ const hsk = (week: number, label: string) => ({
   go: 'hsk' as const,
 })
 
+
+const lab = (week: number, key: LabKey, modes: string[], label: string, passPct = 80) => ({
+  id: `zw${week}-${key}`,
+  kind: 'lab' as const,
+  lab: key,
+  modes,
+  passPct,
+  label,
+})
+
 export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
   {
     week: 1, month: 1, phase: 'Compress', title: 'Chào hỏi & xưng hô',
@@ -91,6 +102,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(1, 2, 'zh-people'),
       vocab(1, 3, 'zh-family'),
       pron(1, 'zh-four-tones'),
+      lab(1, 'zhpinyin', ['mark', 'spell'], 'Phòng Pinyin: đặt dấu thanh và ghép vần đúng từ 80% (mỗi phần ≥ 10 câu)'),
       quiz(1),
       bank(1, 36),
       video(1, 2),
@@ -113,6 +125,8 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(2, 2, 'zh-questions'),
       vocab(2, 3, 'zh-measure'),
       pron(2, 'zh-tone-2-3'),
+      lab(2, 'zhpinyin', ['type'], 'Phòng Pinyin: gõ pinyin kiểu số đúng từ 70% (≥ 10 từ)', 70),
+      lab(2, 'zhnumbers', ['count'], 'Số đếm: lượng từ + 两 (两个, 两本…) đạt 80%'),
       quiz(2),
       bank(2, 72),
       video(2, 2),
@@ -134,6 +148,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(3, 1, 'zh-verbs'),
       vocab(3, 2, 'zh-daily'),
       pron(3, 'zh-retroflex'),
+      lab(3, 'zhhanviet', ['hv'], 'Cầu Hán–Việt: Chữ → âm đạt 80%'),
       quiz(3),
       bank(3, 96),
       video(3, 2),
@@ -155,6 +170,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(4, 1, 'zh-time'),
       vocab(4, 2, 'zh-places'),
       pron(4, 'zh-jqx'),
+      lab(4, 'zhnumbers', ['mixed'], 'Số đếm: giờ, ngày, thứ, tuổi, số điện thoại đạt 80%'),
       quiz(4),
       bank(4, 120),
       speak(4, 'hẹn bạn đi chơi cuối tuần'),
@@ -177,6 +193,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(5, 1, 'zh-food'),
       vocab(5, 2, 'zh-restaurant'),
       pron(5, 'zh-u-umlaut'),
+      lab(5, 'zhhanviet', ['word'], 'Cầu Hán–Việt: Đọc cả từ đạt 80%'),
       quiz(5),
       bank(5, 144),
       speak(5, 'gọi món ở nhà hàng Trung Quốc'),
@@ -199,6 +216,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(6, 1, 'zh-shopping'),
       vocab(6, 2, 'zh-money'),
       pron(6, 'zh-n-ng'),
+      lab(6, 'zhnumbers', ['price'], 'Số đếm: đọc giá tiền (万, 零, 块 · 毛 · 分) đạt 80%'),
       quiz(6),
       bank(6, 168),
       speak(6, 'mặc cả khi mua đồ ở chợ'),
@@ -222,6 +240,8 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(7, 2, 'zh-adjectives'),
       vocab(7, 3, 'zh-common'),
       pron(7, 'zh-aspirate'),
+      lab(7, 'zhhanviet', ['char'], 'Cầu Hán–Việt: Âm → chữ đạt 80%'),
+      lab(7, 'zhorder', ['easy'], 'Ghép câu: cấp Câu ngắn đạt 80% (的, 吗, 也 / 都 đúng chỗ)'),
       quiz(7),
       bank(7, 204),
       video(7, 2),
@@ -287,6 +307,7 @@ export const ZH_PLAN_12_WEEKS: WeekPlan[] = [
       vocab(10, 1, 'zh-home'),
       vocab(10, 2, 'zh-clothes'),
       pron(10, 'zh-sandhi'),
+      lab(10, 'zhorder', ['hard'], 'Ghép câu: cấp Câu dài đạt 80% (thời gian, 在 + nơi chốn trước động từ)'),
       quiz(10),
       bank(10, 264),
       speak(10, 'hỏi thuê phòng và xem nhà'),

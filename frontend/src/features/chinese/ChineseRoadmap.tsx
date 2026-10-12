@@ -3,8 +3,9 @@ import { ZH_UNITS, ZH_ALL_WORDS, ZH_TARGET_WORDS } from '@/data/chineseCore'
 import { ZH_PLAN_12_WEEKS, ZH_PLAN_TASK_TOTAL } from '@/data/chineseRoadmap'
 import { ZH_PRON_GROUPS } from '@/data/chinesePronunciation'
 import { speakZH } from '@/core/tts'
-import { useLearnedWords, readPlan, planDay } from '../english/progress'
+import { useLearnedWords, usePlan, planDay } from '../english/progress'
 import RoadmapWeeks from '../english/components/RoadmapWeeks'
+import type { LabKey } from '@/core/labScores'
 
 const STEPS = [
   { k: 'Tháng 1', vi: 'Nền móng', tone: 'tone-a', desc: 'Chào hỏi, gia đình, số đếm, lượng từ, động từ gốc, thời gian và nơi chốn — đủ để mở lời và hỏi được điều mình cần.' },
@@ -17,11 +18,13 @@ interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onPron: (groupId?: string) => void
+  onLab: (lab: LabKey, mode?: string) => void
 }
 
-export default function ChineseRoadmap({ onStart, onLearn, onQuiz, onPron }: Props) {
+export default function ChineseRoadmap({ onStart, onLearn, onQuiz, onPron, onLab }: Props) {
   const { learned } = useLearnedWords('zh')
-  const day = Math.min(planDay(readPlan('zh').start), 90)
+  const { plan } = usePlan('zh')
+  const day = Math.min(planDay(plan.start), 90)
 
   return (
     <div className="en-overview">
@@ -52,6 +55,7 @@ export default function ChineseRoadmap({ onStart, onLearn, onQuiz, onPron }: Pro
         onLearn={onLearn}
         onQuiz={onQuiz}
         onPron={onPron}
+        onLab={onLab}
         pronGroups={ZH_PRON_GROUPS}
       />
 

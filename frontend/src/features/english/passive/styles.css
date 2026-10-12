@@ -1,0 +1,39 @@
+/* ── Câu bị động (tab Ngữ pháp → Bị động) ── */
+.epv-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
+.epv-lab .grammar-intro{margin:0}
+.epv-lab .section-title{margin:0}
+.epv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.epv-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
+
+/* Dấu hiệu */
+.epv-signs{display:flex;flex-direction:column;gap:10px}
+.epv-sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.epv-sign{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 0 3px 0 var(--brass-d);min-width:0}
+.epv-sign h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
+  font-weight:600;font-size:15px;color:var(--text)}
+.epv-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted)}
+.epv-sign p{margin:0}
+.epv-form{font-family:var(--font-record);font-size:12.5px;color:var(--accent-d)}
+.epv-ex{display:block;width:100%;padding:5px 9px;background:var(--bg);border:1px solid var(--line);color:var(--text);
+  font-family:inherit;font-size:13.5px;text-align:left}
+.epv-ex.on{cursor:pointer}
+.epv-ex.on:hover{border-color:var(--brass)}
+
+/* Luyện */
+.epv-practice{display:flex;flex-direction:column;gap:10px;scroll-margin-top:72px}
+.epv-practice .hg-group-title{margin:0}
+.epv-mode{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;padding:16px 18px;
+  background:var(--panel);border:1px solid var(--line2);margin-top:4px}
+.epv-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.epv-mode b{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.epv-mode b svg{color:var(--brass)}
+.epv-mode p{margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--text2)}
+.epv-mode-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.epv-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
+.epv-mode.done .epv-mode-foot small{color:var(--good)}
+
+@media (max-width:640px){
+  .epv-sign-grid{grid-template-columns:minmax(0,1fr)}
+  .epv-mode-foot{flex:1 1 100%;justify-content:space-between}
+}

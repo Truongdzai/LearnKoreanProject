@@ -1,0 +1,98 @@
+/* ── Động từ bất quy tắc (tab Ngữ pháp → Động từ BQT) ── */
+.ei-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ei-lab .grammar-intro{margin:0}
+.ei-lab .section-title{margin:0}
+.ei-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ei-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
+.ei-chip small,.ei-groups small{font-family:var(--font-record);font-size:11px;color:var(--muted)}
+.ei-sets{display:flex;flex-direction:column;gap:6px}
+.ei-sets .hg-group-title{margin:0}
+
+.ei-icon-btn{display:inline-grid;place-items:center;width:30px;height:30px;flex:none;cursor:pointer;background:var(--panel);
+  border:1px solid var(--line2);color:var(--accent-d)}
+.ei-icon-btn:hover{border-color:var(--brass)}
+
+/* Bảng */
+.ei-table-sec{display:flex;flex-direction:column;gap:10px}
+.ei-table-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.ei-search{flex:0 1 240px;font-family:inherit;font-size:16px}
+.ei-group-desc{margin:0;font-size:13px;line-height:1.55;color:var(--text2)}
+.ei-table-wrap{overflow-x:auto;border:1px solid var(--line2);background:var(--bg)}
+.ei-table{width:100%;border-collapse:collapse;font-size:14px}
+.ei-table th,.ei-table td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.ei-table thead th{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);background:var(--panel)}
+.ei-table tbody tr:last-child td{border-bottom:0}
+.ei-table td[lang="en"]{font-size:15.5px;color:var(--text);white-space:nowrap}
+.ei-c1{font-weight:700;color:var(--accent-d)!important}
+.ei-c1 svg{margin-left:5px;vertical-align:-2px;color:var(--good)}
+.ei-vi-cell{color:var(--text2);font-size:13px;min-width:140px}
+.ei-vi-cell em{display:block;font-style:normal;font-size:11.5px;line-height:1.45;color:var(--muted);margin-top:2px}
+.ei-say-cell{width:44px;vertical-align:middle!important}
+
+/* Chọn chế độ */
+.ei-practice{display:flex;flex-direction:column;gap:12px;scroll-margin-top:72px}
+.ei-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.ei-mode{display:flex;flex-direction:column;gap:9px;padding:16px 18px;background:var(--panel);border:1px solid var(--line2)}
+.ei-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.ei-mode>b{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.ei-mode>b svg{color:var(--brass)}
+.ei-mode>p{margin:0;font-size:13px;line-height:1.55;color:var(--text2)}
+.ei-mode-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:6px}
+.ei-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
+.ei-mode.done .ei-mode-foot small{color:var(--good)}
+
+/* Câu hỏi */
+.ei-q{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ei-q .hg-ask{margin:0 0 4px}
+.ei-verb{font-size:44px;line-height:1.15;font-weight:600;color:var(--text);overflow-wrap:anywhere}
+.ei-vi{font-size:14px;color:var(--text2)}
+.ei-frame{margin-top:10px;font-size:19px;color:var(--text2)}
+.ei-blank{display:inline-block;min-width:3.2em;padding:0 4px;border-bottom:2px solid var(--brass);color:var(--accent-d);text-align:center}
+.ei-blank.ok{color:var(--good);border-color:var(--good)}
+.ei-blank.bad{color:var(--bad);border-color:var(--bad)}
+.ei-options .quiz-opt{justify-content:flex-start;padding:12px 14px}
+.ei-opt-main{font-size:20px;font-weight:500;line-height:1.3;overflow-wrap:anywhere}
+
+.ei-type{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ei-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.ei-field span{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ei-field input{min-width:0;font-family:inherit;font-size:20px;padding:10px 12px;color:var(--text);background:var(--bg);
+  border:1px solid var(--line2);border-radius:var(--r-sm)}
+.ei-field input:focus{outline:2px solid var(--accent-ring);outline-offset:1px}
+.ei-field.ok input{border-color:var(--good);color:var(--good)}
+.ei-field.bad input{border-color:var(--bad);color:var(--bad)}
+.ei-submit{grid-column:1 / -1;justify-self:end}
+.ei-ime{grid-column:1 / -1;margin:0;padding:8px 12px;font-size:13px;color:var(--bad);border:1px solid var(--bad);background:var(--panel)}
+
+.ei-feedback{align-items:flex-start}
+.ei-fb-body{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.ei-fb-body p{margin:0}
+.ei-fb-say{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.ei-fb-say [lang="en"]{font-size:19px;font-weight:600;color:var(--text)}
+.ei-yours{font-weight:600}
+.ei-note{font-size:13px;color:var(--muted)}
+.ei-why{font-size:13px;color:var(--text2)}
+.ei-feedback .btn-primary{align-self:flex-end}
+
+.ei-wrong-row{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:10px}
+.ei-wrong-a{display:flex;flex-direction:column;min-width:0}
+.ei-wrong-a [lang="en"]{font-size:15px;color:var(--text)}
+.ei-wrong-a small{font-size:12px;color:var(--muted);line-height:1.45}
+
+@media (max-width:640px){
+  .ei-search{flex:1 1 100%}
+  .ei-table thead{display:none}
+  .ei-table,.ei-table tbody{display:block}
+  .ei-table tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 40px;border-bottom:1px solid var(--line)}
+  .ei-table tbody tr:last-child{border-bottom:0}
+  .ei-table td{border-bottom:0;padding:7px 8px}
+  .ei-table td[lang="en"]{white-space:normal;overflow-wrap:anywhere}
+  .ei-table td.ei-vi-cell{grid-column:1 / 4;grid-row:2;padding-top:0;min-width:0}
+  .ei-table td.ei-say-cell{grid-column:4;grid-row:1 / 3;width:auto;padding:7px 6px 7px 0}
+  .ei-verb{font-size:38px}
+  .ei-opt-main{font-size:18px}
+  .ei-type{grid-template-columns:minmax(0,1fr)}
+  .ei-submit{justify-self:stretch;justify-content:center}
+  .ei-feedback .btn-primary{align-self:stretch;justify-content:center}
+}

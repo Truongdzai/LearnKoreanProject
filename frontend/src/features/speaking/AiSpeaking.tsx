@@ -9,6 +9,7 @@ import { LEARN_GOALS } from '@/features/onboarding/goals'
 import { scenariosFor, randomScenario, type Scenario } from './scenarios'
 import { levelCode, type SpeakLevel } from './levels'
 import { fetchSpeakReply, type SpeakLine } from '@/core/api/speaking.api'
+import SpeakRecap from './SpeakRecap'
 
 interface ChatMsg { who: 'bot' | 'me'; ko: string; vi: string; feedback?: string }
 
@@ -278,7 +279,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
   }
 
   return (
-    <div className="sp-chat">
+    <div className={'sp-chat' + (finished ? ' done' : '')}>
       <div className="sp-head">
         <button className="btn-ghost sm" onClick={() => setScenario(null)}><Icon name="chevron-left" size={15} /> {t('sp.change')}</button>
         <div className="sp-head-who">
@@ -332,6 +333,7 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
       </div>
 
       {finished ? (
+        <>
         <div className="sp-done">
           <Icon name="party" size={26} />
           <b>{t('sp.doneTitle')}</b>
@@ -341,6 +343,14 @@ export default function AiSpeaking({ level, startTopic, onExit }: Props) {
             <button className="btn-ghost sm" onClick={() => setScenario(null)}>{t('sp.change')}</button>
           </div>
         </div>
+        <SpeakRecap
+          msgs={msgs}
+          keyPhrases={scenario.keyPhrases ?? []}
+          title={scenario.title}
+          lang={learnLang}
+          speak={(text) => speak(text, cfg.locale)}
+        />
+        </>
       ) : (
         <>
           {!!scenario.keyPhrases?.length && (

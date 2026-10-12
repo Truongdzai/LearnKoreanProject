@@ -33,6 +33,17 @@ const qid = (it: RunItem) => it.item.id
 const qSkill = (it: RunItem) => it.item.skill
 const qAnswer = (it: RunItem) => it.item.answer
 
+// Dữ liệu gốc gần như luôn để đáp án đúng ở vị trí 0 nên phải xáo thứ tự hiển thị.
+// Chỉ xáo vị trí, picks/answer vẫn dùng chỉ số gốc nên chấm điểm và sổ câu sai không đổi.
+export function shuffledOrder(n: number): number[] {
+  const a = Array.from({ length: n }, (_, k) => k)
+  for (let k = n - 1; k > 0; k--) {
+    const j = Math.floor(Math.random() * (k + 1))
+    ;[a[k], a[j]] = [a[j], a[k]]
+  }
+  return a
+}
+
 let scriptToken = 0
 
 function playScript(lines: HskListening['script']) {
@@ -53,6 +64,7 @@ export default function HskRunner({ items, exam = false, seconds, title, onFinis
   const [pinyin, setPinyin] = useState(true)
   const [left, setLeft] = useState(seconds ?? 0)
   const doneRef = useRef(false)
+  const orderRef = useRef<Record<string, number[]>>({})
 
   const cur = items[i]
   const picked = cur ? picks[qid(cur)] : undefined
@@ -97,14 +109,22 @@ export default function HskRunner({ items, exam = false, seconds, title, onFinis
     if (!exam || !seconds) return undefined
     const t = window.setInterval(() => {
       setLeft((s) => {
-        if (s <= 1) { window.clearInterval(t); submit(); return 0 }
+        if (s <= 1) { window.clearInterval(t); return 0 }
         return s - 1
       })
     }, 1000)
     return () => window.clearInterval(t)
   }, [exam, seconds])
 
+  // Nộp từ effect để dùng submit của lần render mới nhất (closure trong interval chỉ thấy picks rỗng)
+  useEffect(() => {
+    if (exam && seconds && left === 0) submit()
+  }, [left])
+
   if (!cur) return null
+
+  if (!orderRef.current[qid(cur)]) orderRef.current[qid(cur)] = shuffledOrder(cur.item.options.length)
+  const order = orderRef.current[qid(cur)]
 
   const pick = (k: number) => {
     if (!exam && picked != null) return
@@ -158,7 +178,7 @@ export default function HskRunner({ items, exam = false, seconds, title, onFinis
         <p className="topik-q">{cur.item.q}</p>
 
         <div className="quiz-options">
-          {cur.item.options.map((o, k) => {
+          {order.map((k) => {
             let cls = 'quiz-opt'
             if (exam) {
               if (picks[qid(cur)] === k) cls += ' picked'
@@ -168,7 +188,7 @@ export default function HskRunner({ items, exam = false, seconds, title, onFinis
             }
             return (
               <button key={k} className={cls} onClick={() => pick(k)}>
-                <PinyinText text={o} show={pinyin} />
+                <PinyinText text={cur.item.options[k]} show={pinyin} />
               </button>
             )
           })}

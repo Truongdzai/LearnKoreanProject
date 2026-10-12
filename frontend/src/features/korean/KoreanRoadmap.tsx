@@ -4,8 +4,9 @@ import { KO_PLAN_12_WEEKS, KO_PLAN_TASK_TOTAL, KO_TARGET_WORDS } from '@/data/ko
 import { KO_UNITS } from '@/data/koreanCore'
 import { KO_PRON_GROUPS } from '@/data/koreanPronunciation'
 import { speakKO } from '@/core/tts'
-import { useLearnedWords, readPlan, planDay } from '../english/progress'
+import { useLearnedWords, usePlan, planDay } from '../english/progress'
 import RoadmapWeeks from '../english/components/RoadmapWeeks'
+import type { LabKey } from '@/core/labScores'
 
 const STEPS = [
   { k: 'Tháng 1', vi: 'Nền móng', tone: 'tone-a', desc: 'Chào hỏi, gia đình, từ để hỏi, động từ gốc, thời gian và hai hệ số đếm — đủ để mở lời và hỏi được điều mình cần.' },
@@ -18,11 +19,14 @@ interface Props {
   onLearn: (unitId: string) => void
   onQuiz: (week: number, units: string[], pass: number) => void
   onPron: (groupId?: string) => void
+  onHangul: () => void
+  onLab: (lab: LabKey, mode?: string) => void
 }
 
-export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron }: Props) {
+export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron, onHangul, onLab }: Props) {
   const { learned } = useLearnedWords('ko')
-  const day = Math.min(planDay(readPlan('ko').start), 90)
+  const { plan } = usePlan('ko')
+  const day = Math.min(planDay(plan.start), 90)
 
   return (
     <div className="en-overview">
@@ -53,6 +57,7 @@ export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron }: Prop
         onLearn={onLearn}
         onQuiz={onQuiz}
         onPron={onPron}
+        onLab={onLab}
         pronGroups={KO_PRON_GROUPS}
       />
 
@@ -77,13 +82,15 @@ export default function KoreanRoadmap({ onStart, onLearn, onQuiz, onPron }: Prop
         <button className="btn-primary sm" onClick={() => onPron()}><Icon name="volume" size={15} /> Luyện phát âm</button>
       </div>
 
-      <div className="en-principle">
-        <Icon name="bulb" size={20} />
+      <div className="en-principle pron-cta">
+        <Icon name="letters" size={20} />
         <div>
-          <b>Vì sao học theo chủ đề chứ không học chữ cái trước?</b> Bảng chữ Hangeul đọc được sau vài buổi,
-          nhưng thứ giữ bạn lại là <b>nói được ngay tuần đầu</b>. Mỗi từ trong lộ trình đều kèm phiên âm La-tinh,
-          mẹo nhớ theo tiếng Việt và câu ví dụ có thể dùng thật — bạn vừa quen mặt chữ vừa dùng được luôn.
+          <b>Chưa đọc được chữ Hàn? Học bảng chữ song song với tuần 1.</b> Hangeul đọc được sau vài buổi, nhưng thứ
+          giữ bạn lại là <b>nói được ngay tuần đầu</b> — nên lộ trình không bắt bạn học xong chữ cái mới cho học từ.
+          Mỗi từ đều có phiên âm La-tinh; còn Phòng Hangul có 9 bài ngắn, bảng ghép âm tiết, luyện đọc và luyện gõ
+          phím 2-set để bạn sớm bỏ được phiên âm.
         </div>
+        <button className="btn-primary sm" onClick={onHangul}><Icon name="letters" size={15} /> Học bảng chữ</button>
       </div>
     </div>
   )
