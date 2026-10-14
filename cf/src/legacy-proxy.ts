@@ -210,6 +210,11 @@ export async function proxyToBackend(request: Request, env: Env): Promise<Respon
 		const headers = new Headers(request.headers)
 		headers.set('X-Forwarded-Host', incoming.host)
 		headers.set('X-Forwarded-Proto', incoming.protocol.replace(':', ''))
+		// Backend lấy IP từ phần tử đầu của X-Forwarded-For để giới hạn đăng ký và
+		// hạn mức. Cloudflare chỉ NỐI IP thật vào cuối, phần đầu do người dùng tự
+		// đặt được — nên ghi đè bằng CF-Connecting-IP, header người dùng không giả được.
+		const clientIp = request.headers.get('CF-Connecting-IP')
+		if (clientIp) headers.set('X-Forwarded-For', clientIp)
 
 		try {
 			const res = await fetch(

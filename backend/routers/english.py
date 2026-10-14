@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, Query, Request
 from fastapi.responses import FileResponse
 
-from ..errors import AppError
+from ..errors import AppError, upstream_ai
 from ..schemas.english import CoachIn
 from ..services import auth, dictionary, encoach, quota, wordimg, wordprofile
 
@@ -28,7 +28,7 @@ def api_en_coach(body: CoachIn, request: Request, user: dict | None = OptAuth):
     except AppError:
         raise
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"AI không chấm được lúc này: {exc}", 502)
+        raise upstream_ai("AI không chấm được lúc này", exc)
 
 
 @router.get("/image/file/{name}")
@@ -82,4 +82,4 @@ def api_en_profile(
     except AppError:
         raise
     except Exception as exc:
-        raise AppError("UPSTREAM_AI", f"Chưa dựng được hồ sơ từ lúc này: {exc}", 502)
+        raise upstream_ai("Chưa dựng được hồ sơ từ lúc này", exc)

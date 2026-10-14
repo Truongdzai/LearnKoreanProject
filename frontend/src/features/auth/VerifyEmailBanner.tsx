@@ -34,7 +34,7 @@ export default function VerifyEmailBanner() {
   }
 
   return (
-    <div className="verify-bar">
+    <section className="verify-bar" aria-label={t('verify.title')}>
       <span className="verify-ic"><Icon name="mail" size={17} /></span>
       <div className="verify-text">
         <b>{t('verify.title')}</b>
@@ -60,6 +60,6 @@ export default function VerifyEmailBanner() {
       <button className="verify-close" title={t('verify.later')} onClick={() => setHidden(true)}>
         <Icon name="x" size={15} />
       </button>
-    </div>
+    </section>
   )
 }

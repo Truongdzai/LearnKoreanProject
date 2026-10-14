@@ -3,6 +3,7 @@ import Icon, { type IconName } from '@/core/components/Icon'
 import { clearUrlParams, useUrlParam } from '@/core/hooks/useTabParam'
 import { readLabScores, useLabScores, type LabKey, type LabScores } from '@/core/labScores'
 import GrammarLessons from './components/GrammarLessons'
+import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
 import { VoiceNotice } from './components/PronunciationLab'
 import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
@@ -23,7 +24,7 @@ const GerundLab = lazyPage(() => import('./gerund/GerundLab'))
 type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'compare' | 'cond' | 'passive' | 'gerund' | 'confuse' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
-  { id: 'lessons', label: '18 bài ngữ pháp', icon: 'book' },
+  { id: 'lessons', label: `${GRAMMAR_LESSONS.length} bài ngữ pháp`, icon: 'book' },
   { id: 'tense', label: 'Chọn thì', icon: 'clock' },
   { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'prep', label: 'in / on / at', icon: 'map' },
@@ -56,6 +57,8 @@ const PASS = 80
 const LESSON_LABS: Record<string, Pane[]> = {
   e02: ['order'], e03: ['tense'], e04: ['tense'], e05: ['order'], e07: ['confuse'], e08: ['verbs', 'tense'], e09: ['tense'],
   e10: ['order'], e11: ['compare'], e12: ['order'], e13: ['prep'], e15: ['verbs', 'tense'], e16: ['cond'], e18: ['gerund'],
+  // Tầng B1
+  e19: ['tense'], e21: ['tense'], e22: ['verbs'], e23: ['passive', 'verbs'], e25: ['confuse'], e26: ['verbs'], e28: ['order'],
 }
 
 function MoreLabs({ ids, onOpen }: { ids: Pane[]; onOpen: (p: Pane) => void }) {
