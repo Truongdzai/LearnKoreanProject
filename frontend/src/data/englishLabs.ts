@@ -28,33 +28,41 @@ const CMP = 'So sánh: một lượt đạt 80% (cheaper, more expensive, better
 const COND = 'Câu điều kiện: một lượt đạt 80% (If + hiện tại → will, If + quá khứ → would; không đặt will / would vào vế if)'
 const PASSIVE = 'Câu bị động: một lượt đạt 80% (be chia theo thì + V3: was built, is spoken, will be sent)'
 const GERUND = 'V-ing hay to V: một lượt đạt 80% (enjoy swimming, decide to go, interested in learning, let me stay)'
+const ARTICLE = 'Mạo từ: một lượt đạt 80% (an hour, a university, the sun, không mạo từ khi nói chung: I like music)'
+const RELATIVE = 'Mệnh đề quan hệ: một lượt đạt 80% (who cho người, which cho vật, whose, where; có dấu phẩy thì không dùng that)'
+const QUESTION = 'Câu hỏi đuôi & gián tiếp: một lượt đạt 80% (isn\'t it?, aren\'t I?, Could you tell me where the station is?)'
+const PHRASAL = 'Cụm động từ: một lượt đạt 80% (look after, get on, give up; đại từ đứng giữa: turn it off)'
 const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
 const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
 const N_TYPE = 'Số đếm & giờ giấc: nghe & gõ số đạt 80% (chép lại giá tiền, giờ hẹn khi nghe)'
 
 export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
-  // Đặt theo nội dung tuần: con số và giới từ ở tuần 3, ghép câu đơn ở tuần 5, quá khứ đơn ở tuần 6, hiện tại hoàn thành ở tuần 9
+  // Đặt theo nội dung tuần: con số và giới từ ở tuần 3, mạo từ ở tuần 4 (sau bài e06), ghép câu đơn ở tuần 5, quá khứ đơn ở tuần 6,
+  // hiện tại hoàn thành và cụm động từ ở tuần 9
   lite: {
     3: [lab('w', 3, 'ennumbers', ['read'], N_READ), lab('w', 3, 'enprep', ['time'], P_TIME)],
+    4: [lab('w', 4, 'enarticle', ['mix'], ARTICLE)],
     5: [lab('w', 5, 'enorder', ['easy'], O_EASY)],
     6: [lab('w', 6, 'enirregular', ['v2'], V2)],
     7: [lab('w', 7, 'enprep', ['place'], P_PLACE), lab('w', 7, 'ennumbers', ['listen'], N_LISTEN)],
     8: [lab('w', 8, 'encompare', ['mix'], CMP), lab('w', 8, 'enorder', ['hard'], O_HARD)],
-    9: [lab('w', 9, 'enirregular', ['v3'], V3), lab('w', 9, 'entense', ['mix'], T_MIX)],
+    9: [lab('w', 9, 'enirregular', ['v3'], V3), lab('w', 9, 'entense', ['mix'], T_MIX), lab('w', 9, 'enphrasal', ['mix'], PHRASAL)],
     10: [lab('w', 10, 'encond', ['mix'], COND), lab('w', 10, 'ennumbers', ['type'], N_TYPE)],
     11: [lab('w', 11, 'enirregular', ['type'], TYPE), lab('w', 11, 'enconfuse', ['mix'], C_MIX)],
     12: [lab('w', 12, 'enpassive', ['mix'], PASSIVE), lab('w', 12, 'engerund', ['mix'], GERUND)],
   },
+  // Bootcamp: phòng B1 đi sau các nhiệm vụ ngữ pháp B1 (mệnh đề quan hệ tuần 9, câu hỏi đuôi tuần 11)
   boot: {
     2: [lab('bw', 2, 'ennumbers', ['read'], N_READ)],
-    3: [lab('bw', 3, 'enirregular', ['v2'], V2)],
+    3: [lab('bw', 3, 'enirregular', ['v2'], V2), lab('bw', 3, 'enarticle', ['mix'], ARTICLE)],
     4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN), lab('bw', 4, 'enorder', ['easy'], O_EASY)],
     5: [lab('bw', 5, 'encompare', ['mix'], CMP), lab('bw', 5, 'enorder', ['hard'], O_HARD)],
     6: [lab('bw', 6, 'enprep', ['time', 'place'], P_BOTH)],
     7: [lab('bw', 7, 'enirregular', ['v3'], V3), lab('bw', 7, 'entense', ['mix'], T_MIX)],
-    8: [lab('bw', 8, 'enirregular', ['type'], TYPE), lab('bw', 8, 'enconfuse', ['mix'], C_MIX)],
-    9: [lab('bw', 9, 'encond', ['mix'], COND), lab('bw', 9, 'ennumbers', ['type'], N_TYPE)],
+    8: [lab('bw', 8, 'enirregular', ['type'], TYPE), lab('bw', 8, 'enconfuse', ['mix'], C_MIX), lab('bw', 8, 'enphrasal', ['mix'], PHRASAL)],
+    9: [lab('bw', 9, 'encond', ['mix'], COND), lab('bw', 9, 'ennumbers', ['type'], N_TYPE), lab('bw', 9, 'enrelative', ['mix'], RELATIVE)],
     10: [lab('bw', 10, 'enpassive', ['mix'], PASSIVE), lab('bw', 10, 'engerund', ['mix'], GERUND)],
+    11: [lab('bw', 11, 'enquestion', ['mix'], QUESTION)],
   },
 }
 

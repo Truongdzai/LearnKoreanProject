@@ -21,7 +21,7 @@ export default function RelativeQuiz({ items, onFinish, ...rest }: Props) {
       filled={filled}
       backLabel="Xem lại quy tắc"
       onFinish={(oks, pct) => onFinish(items.map((f, k) => ({ id: f.id, group: f.group, ok: oks[k] })), pct)}
-      ask={() => 'Chọn đại từ quan hệ đúng cho chỗ trống:'}
+      ask={() => 'Chọn đại từ / trạng từ quan hệ đúng cho chỗ trống:'}
       doneTitle={(good) => (good ? 'Mệnh đề quan hệ đã vững — giỏi lắm!' : 'Xong một lượt — đọc lại quy tắc của các câu sai')}
       missedNote={(m) => `${GROUPS[m.group].name}: ${GROUPS[m.group].form}`}
       feedback={(f) => <>{GROUPS[f.group].name}: {GROUPS[f.group].form}.</>}

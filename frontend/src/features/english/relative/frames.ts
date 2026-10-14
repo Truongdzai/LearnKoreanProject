@@ -1,6 +1,8 @@
 // Mệnh đề quan hệ: who / which / whose / where / when và mệnh đề có dấu phẩy. Mỗi câu chỉ một phương án đúng:
-// câu không có dấu phẩy không đưa that làm phương án sai (that thay được who/which), chỗ trống luôn ở vị trí
+// câu không có dấu phẩy không đưa that làm phương án sai (that thay được who/which), chỗ trống ở đó luôn ở vị trí
 // chủ ngữ hoặc trước một mệnh đề đã đủ thành phần (nơi which sai hẳn), không dùng con vật hay danh từ tập thể.
+// Không đưa where làm phương án sai cho the day / the time (văn nói vẫn dùng), không để when sau "This is …"
+// (đọc được kiểu chú thích ảnh: This is the café when we first met).
 
 export type RelativeGroup = 'who' | 'which' | 'whose' | 'where' | 'comma'
 
@@ -22,26 +24,26 @@ export const GROUPS: Record<RelativeGroup, { name: string; form: string; rule: s
   },
   which: {
     name: 'which — chỉ vật',
-    form: 'vật / sự việc + which + động từ',
-    rule: 'which thay cho đồ vật, sự việc: the bus, a phone, the email. Không dùng who cho vật. Câu không có dấu phẩy thì that cũng được.',
+    form: 'vật / sự việc + which + động từ (hoặc chủ ngữ + động từ)',
+    rule: 'which thay cho đồ vật, sự việc: the bus, a phone, the email. Không dùng who cho vật. Câu không có dấu phẩy thì that cũng được; which làm tân ngữ (the laptop which I bought) thì bỏ được.',
     ex: 'The laptop which I bought last month is already broken.',
   },
   whose: {
     name: 'whose — sở hữu',
     form: 'danh từ + whose + danh từ',
-    rule: 'whose = "của người / vật đó", luôn đứng liền trước một danh từ: whose father, whose roof. Đừng nhầm với who\'s = who is.',
+    rule: 'whose = "của người / vật đó", luôn đứng liền trước một danh từ: whose father, whose roof. Đừng nhầm với who\'s = who is / who has.',
     ex: 'I have a friend whose father is a pilot.',
   },
   where: {
     name: 'where / when — nơi chốn, thời gian',
-    form: 'nơi chốn + where / thời gian + when + câu đủ chủ ngữ',
+    form: 'nơi chốn + where, thời gian + when + câu đã đủ thành phần',
     rule: 'where = ở nơi đó, when = vào lúc đó; theo sau là một câu đã đủ thành phần (we first met). Mệnh đề còn thiếu tân ngữ thì vẫn dùng which: the city which I visited.',
     ex: 'Da Lat is the city where my parents got married.',
   },
   comma: {
     name: 'Mệnh đề có dấu phẩy',
-    form: ', who / which / whose … ,',
-    rule: 'Thông tin thêm về người / vật đã rõ (tên riêng, mẹ tôi…) đặt giữa dấu phẩy: dùng who / which / whose, không dùng that và không được lược đại từ. which sau dấu phẩy còn thay được cho cả mệnh đề phía trước.',
+    form: 'dấu phẩy + who / which / whose, không dùng that',
+    rule: 'Thông tin thêm về người / vật đã rõ (tên riêng, mẹ tôi…) tách bằng dấu phẩy: dùng who / which / whose, không dùng that và không được lược đại từ. which sau dấu phẩy còn thay được cho cả mệnh đề phía trước.',
     ex: 'Ha Long Bay, which is in Quang Ninh, attracts millions of tourists.',
   },
 }
@@ -69,7 +71,7 @@ const RAW: Raw[] = [
   ['I can\'t find the key ___ opens the back door.', 'Tôi không tìm thấy chìa khóa mở cửa sau.', ['which', 'who', 'whose', 'where'], 'which'],
   ['The film ___ won the award is about life in Saigon.', 'Bộ phim đoạt giải kể về cuộc sống ở Sài Gòn.', ['which', 'who', 'whose', 'where'], 'which'],
 
-  ['I have a colleague ___ husband is a pilot.', 'Tôi có một đồng nghiệp có chồng là phi công.', ['whose', 'who\'s', 'who', 'which'], 'whose'],
+  ['I have a colleague ___ husband is a police officer.', 'Tôi có một chị đồng nghiệp có chồng là cảnh sát.', ['whose', 'who\'s', 'who', 'which'], 'whose'],
   ['The man ___ car was stolen called the police.', 'Người đàn ông bị trộm mất ô tô đã gọi cảnh sát.', ['whose', 'who\'s', 'who', 'which'], 'whose'],
   ['That\'s the girl ___ brother works with me.', 'Đó là cô gái có anh trai làm cùng chỗ với tôi.', ['whose', 'who\'s', 'who', 'which'], 'whose'],
   ['I talked to a woman ___ son is studying in Australia.', 'Tôi đã nói chuyện với một chị có con trai đang du học ở Úc.', ['whose', 'who\'s', 'who', 'which'], 'whose'],
@@ -79,14 +81,14 @@ const RAW: Raw[] = [
   ['This is the house ___ roof was damaged in the storm.', 'Đây là ngôi nhà bị bão làm hỏng mái.', ['whose', 'which', 'who\'s', 'who'], 'whose'],
   ['I bought a laptop ___ battery lasts all day.', 'Tôi đã mua một chiếc laptop có pin dùng được cả ngày.', ['whose', 'which', 'who\'s', 'who'], 'whose'],
 
-  ['This is the café ___ we first met.', 'Đây là quán cà phê nơi chúng tôi gặp nhau lần đầu.', ['where', 'which', 'when', 'who'], 'where'],
-  ['Hue is the city ___ my grandparents got married.', 'Huế là thành phố nơi ông bà tôi cưới nhau.', ['where', 'which', 'when', 'who'], 'where'],
-  ['I want to visit the village ___ my father grew up.', 'Tôi muốn về thăm ngôi làng nơi bố tôi lớn lên.', ['where', 'which', 'when', 'who'], 'where'],
+  ['This is the café ___ we first met.', 'Đây là quán cà phê nơi chúng tôi gặp nhau lần đầu.', ['where', 'which', 'whose', 'who'], 'where'],
+  ['Hoi An is the city ___ we spent our honeymoon.', 'Hội An là thành phố nơi vợ chồng tôi đi hưởng tuần trăng mật.', ['where', 'which', 'when', 'who'], 'where'],
+  ['I want to visit the village ___ my father grew up.', 'Tôi muốn về thăm ngôi làng nơi bố tôi lớn lên.', ['where', 'which', 'whose', 'who'], 'where'],
   ['Is there a shop near here ___ I can buy a SIM card?', 'Gần đây có cửa hàng nào để tôi mua thẻ SIM không?', ['where', 'which', 'when', 'who'], 'where'],
   ['The hotel ___ we stayed had a beautiful view of the sea.', 'Khách sạn chúng tôi ở nhìn ra biển rất đẹp.', ['where', 'which', 'who', 'whose'], 'where'],
-  ['This is the office ___ my mother works.', 'Đây là văn phòng nơi mẹ tôi làm việc.', ['where', 'which', 'when', 'who'], 'where'],
-  ['The hospital ___ I was born has been rebuilt.', 'Bệnh viện nơi tôi chào đời đã được xây lại.', ['where', 'which', 'when', 'who'], 'where'],
-  ['We found a quiet beach ___ we could swim all day.', 'Chúng tôi tìm được một bãi biển yên tĩnh, có thể bơi cả ngày.', ['where', 'which', 'who', 'whose'], 'where'],
+  ['This is the office ___ my mother works.', 'Đây là văn phòng nơi mẹ tôi làm việc.', ['where', 'which', 'whose', 'who'], 'where'],
+  ['The hospital ___ I was born has been rebuilt.', 'Bệnh viện nơi tôi chào đời đã được xây lại.', ['where', 'which', 'whose', 'who'], 'where'],
+  ['We found a quiet beach ___ we could swim all day.', 'Chúng tôi tìm được một bãi biển yên tĩnh, nơi chúng tôi có thể bơi suốt cả ngày.', ['where', 'which', 'who', 'whose'], 'where'],
   ['I\'ll never forget the day ___ I started my first job.', 'Tôi sẽ không bao giờ quên ngày tôi bắt đầu công việc đầu tiên.', ['when', 'which', 'who', 'whose'], 'where'],
   ['Tet is the time ___ families get together.', 'Tết là dịp các gia đình sum họp.', ['when', 'which', 'who', 'whose'], 'where'],
   ['The year ___ I moved to Saigon was the hardest of my life.', 'Năm tôi chuyển vào Sài Gòn là năm vất vả nhất đời tôi.', ['when', 'which', 'who', 'whose'], 'where'],
@@ -94,12 +96,12 @@ const RAW: Raw[] = [
   ['My mother, ___ is 60, still works.', 'Mẹ tôi năm nay 60 tuổi mà vẫn đi làm.', ['who', 'that', 'which', 'whose'], 'comma'],
   ['Phu Quoc, ___ is an island in the south, is famous for its beaches.', 'Phú Quốc, một hòn đảo ở phía nam, nổi tiếng với những bãi biển đẹp.', ['which', 'that', 'who', 'where'], 'comma'],
   ['My boss, ___ lives in Thu Duc, drives to work every day.', 'Sếp tôi sống ở Thủ Đức, ngày nào cũng lái xe đi làm.', ['who', 'that', 'which', 'whose'], 'comma'],
-  ['Mr Nam, ___ son is in my class, teaches maths.', 'Chú Nam, có con trai học cùng lớp với tôi, là giáo viên dạy toán.', ['whose', 'that', 'who', 'which'], 'comma'],
+  ['Mr Nam, ___ son is in my class, teaches music.', 'Chú Nam, người có con trai học cùng lớp với tôi, là giáo viên dạy nhạc.', ['whose', 'that', 'who', 'which'], 'comma'],
   ['The Mekong, ___ flows through six countries, is very important to farmers.', 'Sông Mê Kông chảy qua sáu nước và rất quan trọng với nông dân.', ['which', 'that', 'who', 'where'], 'comma'],
   ['My sister, ___ studied in Japan, speaks Japanese very well.', 'Chị tôi, người từng du học ở Nhật, nói tiếng Nhật rất giỏi.', ['who', 'that', 'which', 'whose'], 'comma'],
   ['Hanoi, ___ is the capital of Vietnam, has a lot of lakes.', 'Hà Nội, thủ đô của Việt Nam, có rất nhiều hồ.', ['which', 'that', 'where', 'who'], 'comma'],
   ['I sold my old motorbike, ___ I had used for ten years.', 'Tôi đã bán chiếc xe máy cũ, chiếc xe tôi đã đi suốt mười năm.', ['which', 'that', 'who', 'where'], 'comma'],
-  ['He passed the exam, ___ surprised everyone.', 'Anh ấy thi đỗ, điều này làm mọi người bất ngờ.', ['which', 'that', 'who', 'what'], 'comma'],
+  ['He passed the exam, ___ surprised everyone.', 'Anh ấy thi đỗ, điều này làm mọi người bất ngờ.', ['which', 'what', 'who', 'whose'], 'comma'],
   ['Our English teacher, ___ is from Canada, makes every lesson fun.', 'Thầy dạy tiếng Anh của chúng tôi, người Canada, khiến buổi học nào cũng vui.', ['who', 'that', 'which', 'whose'], 'comma'],
 ]
 

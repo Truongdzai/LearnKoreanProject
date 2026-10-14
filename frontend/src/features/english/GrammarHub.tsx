@@ -9,7 +9,7 @@ import { lazyPage } from '@/core/lazyPage'
 import Spinner from '@/core/components/Spinner'
 import './hub.css'
 
-// Mỗi phòng luyện là một gói riêng, chỉ tải khi mở — trang Tiếng Anh không phải chở sẵn cả 6 phòng
+// Mỗi phòng luyện là một gói riêng, chỉ tải khi mở — trang Tiếng Anh không phải chở sẵn mọi phòng
 const IrregularLab = lazyPage(() => import('./irregular/IrregularLab'))
 const EnNumbersLab = lazyPage(() => import('./numbers/EnNumbersLab'))
 const SentenceBuilder = lazyPage(() => import('./builder/SentenceBuilder'))
@@ -20,18 +20,27 @@ const CompareLab = lazyPage(() => import('./compare/CompareLab'))
 const CondLab = lazyPage(() => import('./conditionals/CondLab'))
 const PassiveLab = lazyPage(() => import('./passive/PassiveLab'))
 const GerundLab = lazyPage(() => import('./gerund/GerundLab'))
+const ArticleLab = lazyPage(() => import('./articles/ArticleLab'))
+const RelativeLab = lazyPage(() => import('./relative/RelativeLab'))
+const QuestionLab = lazyPage(() => import('./questions/QuestionLab'))
+const PhrasalLab = lazyPage(() => import('./phrasal/PhrasalLab'))
 
-type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'compare' | 'cond' | 'passive' | 'gerund' | 'confuse' | 'verbs' | 'numbers'
+type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'article' | 'compare' | 'cond' | 'passive' | 'gerund' | 'relative' | 'question'
+  | 'phrasal' | 'confuse' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: `${GRAMMAR_LESSONS.length} bài ngữ pháp`, icon: 'book' },
   { id: 'tense', label: 'Chọn thì', icon: 'clock' },
   { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'prep', label: 'in / on / at', icon: 'map' },
+  { id: 'article', label: 'a / an / the', icon: 'note' },
   { id: 'compare', label: 'So sánh', icon: 'trending' },
   { id: 'cond', label: 'Câu điều kiện', icon: 'sparkles' },
   { id: 'passive', label: 'Câu bị động', icon: 'refresh' },
   { id: 'gerund', label: 'V-ing hay to V', icon: 'letters' },
+  { id: 'relative', label: 'Mệnh đề quan hệ', icon: 'user' },
+  { id: 'question', label: 'Câu hỏi đuôi', icon: 'search' },
+  { id: 'phrasal', label: 'Cụm động từ', icon: 'tool' },
   { id: 'confuse', label: 'Từ dễ nhầm', icon: 'bulb' },
   { id: 'verbs', label: 'Động từ bất quy tắc', icon: 'refresh' },
   { id: 'numbers', label: 'Số đếm & giờ giấc', icon: 'chart' },
@@ -43,10 +52,14 @@ const LABS: { pane: Pane; key: LabKey; parts: string[]; desc: string }[] = [
   { pane: 'tense', key: 'entense', parts: ['mix'], desc: 'Nhìn dấu hiệu chọn đúng thì' },
   { pane: 'order', key: 'enorder', parts: ['easy', 'hard'], desc: 'Xếp thẻ thành câu đúng trật tự' },
   { pane: 'prep', key: 'enprep', parts: ['time', 'place'], desc: 'Giới từ thời gian, nơi chốn' },
+  { pane: 'article', key: 'enarticle', parts: ['mix'], desc: 'an hour, the sun, không mạo từ' },
   { pane: 'compare', key: 'encompare', parts: ['mix'], desc: 'cheaper, more expensive, the best' },
   { pane: 'cond', key: 'encond', parts: ['mix'], desc: 'If it rains… / If I had…' },
   { pane: 'passive', key: 'enpassive', parts: ['mix'], desc: 'was built, is spoken, will be sent' },
   { pane: 'gerund', key: 'engerund', parts: ['mix'], desc: 'enjoy swimming, decide to go' },
+  { pane: 'relative', key: 'enrelative', parts: ['mix'], desc: 'who, which, whose, where' },
+  { pane: 'question', key: 'enquestion', parts: ['mix'], desc: "isn't it?, Do you know where…" },
+  { pane: 'phrasal', key: 'enphrasal', parts: ['mix'], desc: 'look after, turn it off' },
   { pane: 'confuse', key: 'enconfuse', parts: ['mix'], desc: 'borrow / lend, say / tell…' },
   { pane: 'verbs', key: 'enirregular', parts: ['v2', 'v3', 'type'], desc: '105 động từ V1 · V2 · V3' },
   { pane: 'numbers', key: 'ennumbers', parts: ['read', 'listen', 'type'], desc: 'Giá tiền, năm, giờ, ngày tháng' },
@@ -55,10 +68,11 @@ const PASS = 80
 
 // Bài ngữ pháp → phòng luyện để luyện thêm đúng chủ điểm đó
 const LESSON_LABS: Record<string, Pane[]> = {
-  e02: ['order'], e03: ['tense'], e04: ['tense'], e05: ['order'], e07: ['confuse'], e08: ['verbs', 'tense'], e09: ['tense'],
+  e02: ['order'], e03: ['tense'], e04: ['tense'], e05: ['order'], e06: ['article'], e07: ['confuse'], e08: ['verbs', 'tense'], e09: ['tense'],
   e10: ['order'], e11: ['compare'], e12: ['order'], e13: ['prep'], e15: ['verbs', 'tense'], e16: ['cond'], e18: ['gerund'],
   // Tầng B1
-  e19: ['tense'], e21: ['tense'], e22: ['verbs'], e23: ['passive', 'verbs'], e25: ['confuse'], e26: ['verbs'], e28: ['order'],
+  e19: ['tense'], e21: ['tense'], e22: ['verbs'], e23: ['passive', 'verbs'], e24: ['relative'], e25: ['confuse'], e26: ['verbs'],
+  e28: ['order'], e29: ['question'], e30: ['phrasal'],
 }
 
 function MoreLabs({ ids, onOpen }: { ids: Pane[]; onOpen: (p: Pane) => void }) {
@@ -126,7 +140,7 @@ export default function GrammarHub({ initialLesson }: Props) {
 
   return (
     <div className="en-grammar-hub">
-      {/* Điện thoại: một ô chọn thay cho 10 nút */}
+      {/* Điện thoại: một ô chọn thay cho hàng nút */}
       <label className="en-pane-select">
         <span>Mục</span>
         <select value={pane} onChange={(e) => pick(e.target.value as Pane)} aria-label="Chọn mục ngữ pháp">
@@ -165,6 +179,10 @@ export default function GrammarHub({ initialLesson }: Props) {
           {pane === 'cond' && <CondLab />}
           {pane === 'passive' && <PassiveLab />}
           {pane === 'gerund' && <GerundLab />}
+          {pane === 'article' && <ArticleLab />}
+          {pane === 'relative' && <RelativeLab />}
+          {pane === 'question' && <QuestionLab />}
+          {pane === 'phrasal' && <PhrasalLab />}
           {pane === 'confuse' && <ConfuseLab />}
           {pane === 'verbs' && <IrregularLab />}
           {pane === 'numbers' && <EnNumbersLab />}
