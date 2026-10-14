@@ -1,0 +1,37 @@
+/* ── Mệnh đề quan hệ (tab Ngữ pháp → Mệnh đề quan hệ) ── */
+.erl-lab{display:flex;flex-direction:column;gap:18px;min-width:0}
+.erl-lab .grammar-intro{margin:0}
+.erl-lab .section-title{margin:0}
+
+/* Quy tắc */
+.erl-signs{display:flex;flex-direction:column;gap:10px}
+.erl-sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.erl-sign{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 0 3px 0 var(--brass-d);min-width:0}
+.erl-sign h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-family:var(--font-display);
+  font-weight:600;font-size:15px;color:var(--text)}
+.erl-sign h3 small{font-family:var(--font-record);font-size:11px;font-weight:400;color:var(--muted);white-space:nowrap}
+.erl-sign p{margin:0}
+.erl-form{font-family:var(--font-record);font-size:12.5px;color:var(--accent-d)}
+.erl-rule-text{font-size:13px;line-height:1.55;color:var(--text2)}
+.erl-ex{display:block;width:100%;margin-top:auto;padding:5px 9px;background:var(--bg);border:1px solid var(--line);color:var(--text);
+  font-family:inherit;font-size:13.5px;text-align:left}
+.erl-ex.on{cursor:pointer}
+.erl-ex.on:hover{border-color:var(--brass)}
+
+/* Luyện */
+.erl-practice{display:flex;flex-direction:column;gap:10px;scroll-margin-top:72px}
+.erl-mode{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;padding:16px 18px;
+  background:var(--panel);border:1px solid var(--line2);margin-top:4px}
+.erl-mode.done{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.erl-mode b{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text)}
+.erl-mode b svg{color:var(--brass)}
+.erl-mode p{margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--text2)}
+.erl-mode-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.erl-mode-foot small{font-family:var(--font-record);font-size:11.5px;color:var(--muted)}
+.erl-mode.done .erl-mode-foot small{color:var(--good)}
+
+@media (max-width:640px){
+  .erl-sign-grid{grid-template-columns:minmax(0,1fr)}
+  .erl-mode-foot{flex:1 1 100%;justify-content:space-between}
+}
