@@ -39,11 +39,11 @@ const PAGES = [
   {
     path: '/shadowing', title: 'Luyện Shadowing qua video · VyLing',
     h1: 'Luyện Shadowing qua video bạn thích',
-    lead: '113 video được chọn lọc cho 6 ngôn ngữ, mọi video đều đã xác nhận có phụ đề trước khi đưa vào kho.',
+    lead: '115 video được chọn lọc cho 4 ngôn ngữ, mọi video đều đã xác nhận có phụ đề trước khi đưa vào kho.',
     points: [
-      'Tiếng Hàn: 34 video từ mức vỡ lòng tới TOPIK 2',
-      'Tiếng Anh: 46 video từ BBC Learning English, TED-Ed và các kênh hội thoại',
-      'Tiếng Nhật, Trung, Đức, Việt: video cơ bản có phụ đề',
+      'Tiếng Hàn: 45 video từ mức vỡ lòng tới TOPIK 2',
+      'Tiếng Anh: 32 video từ BBC Learning English, TED-Ed và các kênh hội thoại',
+      'Tiếng Trung: 22 video, tiếng Nhật: 16 video cơ bản có phụ đề',
       'Lọc theo trình độ và độ dài; mỗi video hiện độ vừa sức so với vốn từ của bạn',
     ],
   },
@@ -100,7 +100,7 @@ const PAGES = [
     h1: 'Tiếng Anh giao tiếp từ số 0',
     lead: 'Theo quy tắc 3C (Compress – Compile – Consolidate): học đúng từ cần học, ghép thành câu, rồi củng cố bằng ôn tập ngắt quãng.',
     points: [
-      '3000 từ tần suất cao chia 117 chủ đề, học kiểu flashcard lật thẻ có giọng đọc US và UK — đủ hiểu khoảng 90% hội thoại hằng ngày',
+      '3000 từ tần suất cao chia 121 chủ đề, học kiểu flashcard lật thẻ có giọng đọc US và UK — đủ hiểu khoảng 90% hội thoại hằng ngày',
       '30 bài ngữ pháp từ A1 tới B1, từ to be tới câu điều kiện, kèm phòng luyện chọn thì, ghép câu, in / on / at, so sánh, câu điều kiện, câu bị động, V-ing hay to V, từ dễ nhầm, động từ bất quy tắc và số đếm – giờ giấc',
       '13 nhóm phát âm người Việt hay sai: âm cuối, /θ/, ship–sheep, trọng âm, nối âm',
       'Lịch 7 ngày cho từng tuần, mỗi việc có nút bấm đi thẳng tới chỗ học',
