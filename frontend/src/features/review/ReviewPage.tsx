@@ -219,7 +219,7 @@ export default function ReviewPage() {
       ) : loadErr !== null ? (
         <div className="soon" style={{ marginTop: 18 }}>
           <div className="big"><Icon name="frown" /></div>
-          <h3>{t('mc.errLoad')}</h3>
+          <h2>{t('mc.errLoad')}</h2>
           {loadErr && <p>{loadErr}</p>}
           <button className="btn-primary sm" onClick={load}><Icon name="refresh" size={14} /> {t('rv.reload')}</button>
         </div>

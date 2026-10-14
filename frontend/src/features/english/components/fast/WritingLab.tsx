@@ -175,7 +175,7 @@ export default function WritingLab({ onLog }: Props) {
                   ? <span className="read-card-badge"><Icon name="check" size={12} /> Xong</span>
                   : started && <span className="write-card-draft">Đang viết</span>}
               </div>
-              <h4>{p.title}</h4>
+              <h3>{p.title}</h3>
               <p>{p.task}</p>
               <div className="read-card-meta">
                 <span>{LEVEL_NAME[p.level]}</span>

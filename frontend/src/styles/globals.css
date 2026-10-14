@@ -6,6 +6,8 @@
   --accent:#C08A34; --accent-d:#DDA94E;
   --accent-soft:rgba(192,138,52,.14); --accent-ring:rgba(192,138,52,.42);
   --grad:#926521; --grad-soft:rgba(176,122,40,.14);
+  /* chữ tô màu (background-clip:text) cần sáng hơn nền nút để đủ tương phản trên nền tối */
+  --grad-text:#B07A28;
   --good:#6E9B3C; --bad:#C0392B; --pending:#C9812B; --coin:#C9A227;
   --shadow-sm:0 2px 4px rgba(0,0,0,.42);
   --shadow:0 4px 8px rgba(0,0,0,.38),0 14px 30px rgba(0,0,0,.44);
@@ -34,6 +36,7 @@
   --accent:#7A4E10; --accent-d:#63400C;
   --accent-soft:rgba(122,78,16,.12); --accent-ring:rgba(122,78,16,.38);
   --grad:#8A5D14; --grad-soft:rgba(138,93,20,.12);
+  --grad-text:#8A5D14;
   --good:#3D6314; --bad:#8E2018; --pending:#7A4E10; --coin:#5E4506;
   --shadow-sm:0 2px 3px rgba(48,36,20,.16);
   --shadow:0 3px 6px rgba(48,36,20,.14),0 12px 26px rgba(48,36,20,.16);
@@ -3244,7 +3247,7 @@ button.adm-kpi.on,.adm-metric.on{border-color:var(--a);box-shadow:0 0 0 1px var(
 .en-hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--accent-d);
   background:var(--panel);border:1px solid var(--accent-ring);border-radius:var(--r-lg);padding:5px 12px;margin-bottom:12px}
 .en-hero .en-hero-title{font-family:var(--font-display);font-size:30px;line-height:1.15;margin:0 0 10px;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .en-hero>p{margin:0 0 18px;max-width:680px;color:var(--text2);font-size:15px;line-height:1.6}
 .en-hero-stats{display:flex;flex-wrap:wrap;margin:0 0 20px;border:1px solid var(--line2);background:var(--bg)}
 .en-hero-stats div{flex:1 1 170px;display:flex;align-items:baseline;gap:9px;padding:10px 15px;
@@ -3429,7 +3432,7 @@ button.adm-kpi.on,.adm-metric.on{border-color:var(--a);box-shadow:0 0 0 1px var(
 .vl-speak:hover{background:var(--grad);color:#fff;transform:scale(1.07);box-shadow:0 6px 18px var(--accent-ring)}
 .vl-word{margin:0;font-family:var(--font-display);font-size:40px;font-weight:700;line-height:1.14;color:var(--accent-d)}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .vl-word{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .vl-word{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 }
 .vl-back-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding-right:52px}
 .vl-back-term{font-family:var(--font-display);font-size:23px;font-weight:700;color:var(--text2)}
@@ -5028,7 +5031,7 @@ button.adm-kpi.on,.adm-metric.on{border-color:var(--a);box-shadow:0 0 0 1px var(
 .lp-top-logo{line-height:0;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.24));transition:filter .3s var(--ease-out)}
 .lp-top-brand:hover .lp-top-logo{filter:drop-shadow(0 8px 20px rgba(0,0,0,0.37))}
 .lp-top-name b{display:block;font-family:var(--font-display);font-weight:800;font-size:20px;line-height:1.12;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .lp-top-name small{display:block;font-size:11px;font-weight:500;color:var(--muted);margin-top:1px}
 .lp-top-nav{display:flex;align-items:center;gap:2px;margin-left:20px}
 .lp-top-nav a{position:relative;text-decoration:none;font-size:14px;font-weight:600;color:var(--text2);
@@ -6071,7 +6074,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border-radius:3px;background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
 .write-card-draft{font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;
   background:var(--accent-soft);color:var(--accent-d)}
-.read-card h4,.write-card h4{margin:0 0 3px;font-family:var(--font-display);font-size:16px}
+.read-card h3,.write-card h3{margin:0 0 3px;font-family:var(--font-display);font-size:16px}
 .read-card-vi{display:block;font-size:12.5px;color:var(--muted);margin-bottom:9px}
 .write-card p{margin:0 0 10px;font-size:12.5px;line-height:1.55;color:var(--text2)}
 .read-card-meta{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}

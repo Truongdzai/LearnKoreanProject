@@ -152,6 +152,8 @@ export default function ChinesePage() {
       </div>
 
       <div {...tabs.panel(tab)}>
+        {/* Tiêu đề ẩn cho trình đọc màn hình: nội dung tab bắt đầu từ h3, không nhảy cấp sau h1 */}
+        <h2 className="sr-only">{TABS.find((t) => t.id === tab)?.label}</h2>
         {tab === 'program' && (
           <ChineseRoadmap onStart={() => openLearn()} onLearn={openLearn} onQuiz={openQuiz} onPron={openPron} onLab={openLab} />
         )}

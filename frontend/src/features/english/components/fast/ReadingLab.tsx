@@ -277,7 +277,7 @@ export default function ReadingLab({ onLog }: Props) {
                 <span className="read-card-emoji">{p.emoji}</span>
                 {pass && <span className="read-card-badge"><Icon name="check" size={12} /> {best}%</span>}
               </div>
-              <h4>{p.title}</h4>
+              <h3>{p.title}</h3>
               <span className="read-card-vi">{p.titleVi}</span>
               <div className="read-card-meta">
                 <span>{p.topic}</span>
