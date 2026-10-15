@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Icon from '@/core/components/Icon'
-import type { LabKey } from '@/core/labScores'
+import { readLabWeak, type LabKey } from '@/core/labScores'
 import { englishVoiceStatus, onVoicesChanged } from '@/core/tts'
 import { useAppStore } from '@/store/app.store'
 import BlankQuiz from '../shared/BlankQuiz'
@@ -21,7 +21,7 @@ interface Props {
   onOpen: (pane: string) => void
 }
 
-type Hook = { state: { weak: string[] }; reviewDone: (results: never[]) => void }
+type Hook = { state: { weak: string[] }; loaded: boolean; reviewDone: (results: never[]) => void }
 
 const BY_KEY = Object.fromEntries(SOURCES.map((s) => [s.key, s])) as Record<LabKey, (typeof SOURCES)[number]>
 
@@ -52,7 +52,34 @@ export default function WeakReview({ onOpen }: Props) {
   useEffect(() => onVoicesChanged(() => setCanHear(englishVoiceStatus() === 'ready')), [])
   const [quiz, setQuiz] = useState<{ items: ReviewItem[]; n: number } | null>(null)
 
-  const start = () => setQuiz((q) => ({ items: buildReview(weak), n: (q?.n ?? 0) + 1 }))
+  const listRef = useRef<HTMLElement>(null)
+  const headRef = useRef<HTMLDivElement>(null)
+
+  // Lượt vừa xong có thể đã xoá hết câu sai: khi đó quay về danh sách (hiện lời "Chưa có câu sai") thay vì mở lượt rỗng
+  const start = () => {
+    const items = buildReview(weak)
+    setQuiz((q) => (items.length ? { items, n: (q?.n ?? 0) + 1 } : null))
+  }
+
+  const back = () => {
+    setQuiz(null)
+    window.setTimeout(() => {
+      listRef.current?.scrollIntoView({ block: 'start' })
+      headRef.current?.focus({ preventScroll: true })
+    }, 0)
+  }
+
+  // Câu bị sửa nội dung thì id cũ không còn trong bộ câu: bản local (khách chưa đăng nhập) vẫn giữ id đó nên nút
+  // "Còn N câu sai" đếm sai. Ghi lại danh sách đã lọc để lần sau đếm đúng. Chỉ làm khi đã nạp xong bản server.
+  const allLoaded = SOURCES.every((s) => hooks[s.key]?.loaded !== false)
+  useEffect(() => {
+    if (!allLoaded) return
+    const raw = Object.fromEntries(readLabWeak('en').map((w) => [w.key, w.n]))
+    for (const s of SOURCES) {
+      if ((raw[s.key] ?? 0) > (hooks[s.key]?.state.weak.length ?? 0)) hooks[s.key]?.reviewDone([])
+    }
+  // Chỉ chạy một lần khi đủ dữ liệu
+  }, [allLoaded])
 
   // Gọi một lần khi trả lời xong câu cuối: chia kết quả về đúng phòng của từng câu
   const finish = (oks: boolean[]) => {
@@ -81,7 +108,7 @@ export default function WeakReview({ onOpen }: Props) {
           backLabel="Xem danh sách câu sai"
           onFinish={finish}
           onAgain={start}
-          onBack={() => setQuiz(null)}
+          onBack={back}
         />
       </div>
     )
@@ -105,8 +132,8 @@ export default function WeakReview({ onOpen }: Props) {
         </div>
       </div>
 
-      <section className="erv-list" aria-labelledby="erv-list-h">
-        <div className="section-title" id="erv-list-h"><span className="pin" /> Câu sai theo phòng</div>
+      <section className="erv-list" aria-labelledby="erv-list-h" ref={listRef}>
+        <div className="section-title" id="erv-list-h" tabIndex={-1} ref={headRef}><span className="pin" /> Câu sai theo phòng</div>
         {total === 0 ? (
           <p className="erv-empty">
             Chưa có câu sai nào. Làm vài lượt ở các phòng luyện, câu nào chưa đúng sẽ được gom về đây.
