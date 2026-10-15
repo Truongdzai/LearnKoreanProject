@@ -45,25 +45,37 @@ function normalize(raw: unknown): GerundState {
 
 const isEmpty = (s: GerundState) => !s.rounds && !Object.keys(s.best).length
 
+// Cộng kết quả một lượt vào thống kê; câu sai vào danh sách ôn, câu đã làm đúng thì rời danh sách
+function applyResults(p: GerundState, results: Result[]): Pick<GerundState, 'stats' | 'weak'> {
+  const stats = { ...p.stats }
+  for (const r of results) {
+    const [a, b] = stats[r.group] ?? [0, 0]
+    stats[r.group] = [a + (r.ok ? 1 : 0), b + 1]
+  }
+  const wrong = results.filter((r) => !r.ok).map((r) => r.id)
+  const right = new Set(results.filter((r) => r.ok).map((r) => r.id))
+  const weak = [...new Set([...wrong, ...p.weak.filter((w) => !right.has(w))])].slice(0, WEAK_CAP)
+  return { stats, weak }
+}
+
 export function useGerundProgress() {
   const { state, mutate, loaded } = useServerPlan<GerundState>('engerund', 'vyling.en.gerund', normalize, isEmpty)
 
   // Trả về true nếu đây là lần đầu lượt trộn đạt chuẩn (để cộng điểm ngữ pháp đúng một lần)
   const finishRound = useCallback((kind: RoundKind, pct: number, results: Result[]): boolean => {
     const first = kind === 'mix' && (state.best.mix ?? 0) < MASTERY && pct >= MASTERY
-    mutate((p) => {
-      const stats = { ...p.stats }
-      for (const r of results) {
-        const [a, b] = stats[r.group] ?? [0, 0]
-        stats[r.group] = [a + (r.ok ? 1 : 0), b + 1]
-      }
-      const wrong = results.filter((r) => !r.ok).map((r) => r.id)
-      const right = new Set(results.filter((r) => r.ok).map((r) => r.id))
-      const weak = [...new Set([...wrong, ...p.weak.filter((w) => !right.has(w))])].slice(0, WEAK_CAP)
-      return { best: { ...p.best, [kind]: Math.max(p.best[kind] ?? 0, pct) }, stats, weak, rounds: p.rounds + 1 }
-    })
+    mutate((p) => ({
+      ...applyResults(p, results),
+      best: { ...p.best, [kind]: Math.max(p.best[kind] ?? 0, pct) },
+      rounds: p.rounds + 1,
+    }))
     return first
   }, [state.best, mutate])
 
-  return { state, loaded, finishRound }
+  // Lượt "Ôn câu sai" trộn nhiều phòng: chỉ cộng thống kê và cập nhật danh sách câu sai, không đổi điểm tốt nhất
+  const reviewDone = useCallback((results: Result[]) => {
+    mutate((p) => ({ ...p, ...applyResults(p, results) }))
+  }, [mutate])
+
+  return { state, loaded, finishRound, reviewDone }
 }

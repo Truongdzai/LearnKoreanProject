@@ -5,7 +5,7 @@ import { fetchMyQuests } from '@/core/api/me.api'
 import { useLessonProgress } from '@/core/lessonProgress'
 import { todayISO } from '@/core/skills'
 import { setUrlParam } from '@/core/hooks/useTabParam'
-import { LAB_NAME, LAB_TARGET, labDone, labPane, readLabScores, readLabWeak, type LabKey } from '@/core/labScores'
+import { EN_REVIEW_KEYS, LAB_NAME, LAB_TARGET, labDone, labPane, readLabScores, readLabWeak, type LabKey } from '@/core/labScores'
 import { videoUrl } from '@/data/videos'
 import { useAppStore } from '@/store/app.store'
 import { useAuth } from '@/store/auth.store'
@@ -155,8 +155,14 @@ export default function TodaySession() {
 
   // Không có nhiệm vụ phòng luyện tuần này thì nhắc ôn các mục từng sai (phòng có nhiều mục sai nhất).
   // Đã mở phòng đó trong hôm nay thì tính là xong (danh sách sai chỉ vơi dần qua nhiều lượt).
+  // Tiếng Anh: các phòng điền chỗ trống có chung mục "Ôn câu sai", nên cộng dồn rồi mở thẳng mục đó
   const weakLab = useMemo(() => {
-    const top = readLabWeak(learnLang)[0]
+    const all = readLabWeak(learnLang)
+    if (learnLang === 'en') {
+      const mix = all.filter((w) => EN_REVIEW_KEYS.includes(w.key)).reduce((a, w) => a + w.n, 0)
+      if (mix >= 3) return { key: null, n: mix }
+    }
+    const top = all[0]
     return top && top.n >= 3 ? top : null
   }, [learnLang])
   const weakOpened = (() => {
@@ -165,11 +171,17 @@ export default function TodaySession() {
   if (lab === null && weakLab) {
     steps.push({
       id: 'weak', icon: 'refresh', done: weakOpened,
-      text: t('td.weak', { n: weakLab.n, name: LAB_NAME[weakLab.key][uiLang] }),
+      text: weakLab.key ? t('td.weak', { n: weakLab.n, name: LAB_NAME[weakLab.key][uiLang] }) : t('td.weakMix', { n: weakLab.n }),
       action: {
         label: t('td.practice'),
         run: () => {
           try { localStorage.setItem(WEAK_SEEN_KEY, todayISO()) } catch {  }
+          if (!weakLab.key) {
+            setView('english')
+            setUrlParam('tab', 'grammar')
+            setUrlParam('pane', 'review')
+            return
+          }
           const target = LAB_TARGET[weakLab.key]
           setView(target.view)
           setUrlParam('tab', target.tab)

@@ -1,7 +1,7 @@
 import { Suspense, useMemo, useState } from 'react'
 import Icon, { type IconName } from '@/core/components/Icon'
 import { clearUrlParams, useUrlParam } from '@/core/hooks/useTabParam'
-import { readLabScores, useLabScores, type LabKey, type LabScores } from '@/core/labScores'
+import { EN_REVIEW_KEYS, readLabScores, readLabWeak, useLabScores, type LabKey, type LabScores } from '@/core/labScores'
 import GrammarLessons from './components/GrammarLessons'
 import { GRAMMAR_LESSONS } from '@/data/englishGrammarData'
 import { VoiceNotice } from './components/PronunciationLab'
@@ -24,12 +24,14 @@ const ArticleLab = lazyPage(() => import('./articles/ArticleLab'))
 const RelativeLab = lazyPage(() => import('./relative/RelativeLab'))
 const QuestionLab = lazyPage(() => import('./questions/QuestionLab'))
 const PhrasalLab = lazyPage(() => import('./phrasal/PhrasalLab'))
+const WeakReview = lazyPage(() => import('./review/WeakReview'))
 
-type Pane = 'lessons' | 'tense' | 'order' | 'prep' | 'article' | 'compare' | 'cond' | 'passive' | 'gerund' | 'relative' | 'question'
+type Pane = 'lessons' | 'review' | 'tense' | 'order' | 'prep' | 'article' | 'compare' | 'cond' | 'passive' | 'gerund' | 'relative' | 'question'
   | 'phrasal' | 'confuse' | 'verbs' | 'numbers'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: `${GRAMMAR_LESSONS.length} bài ngữ pháp`, icon: 'book' },
+  { id: 'review', label: 'Ôn câu sai', icon: 'target' },
   { id: 'tense', label: 'Chọn thì', icon: 'clock' },
   { id: 'order', label: 'Ghép câu', icon: 'shuffle' },
   { id: 'prep', label: 'in / on / at', icon: 'map' },
@@ -95,9 +97,18 @@ function LabShelf({ scores, onOpen }: { scores: LabScores; onOpen: (p: Pane) => 
   // Bản local đọc lại mỗi lần dải hiện ra (vừa luyện xong một phòng là thấy ngay), lấy điểm cao hơn của hai nguồn
   const local = useMemo(() => readLabScores('en'), [])
   const best = (key: LabKey, m: string) => Math.max(scores[key]?.[m] ?? 0, local[key]?.[m] ?? 0)
+  // Số câu sai (bản local) ở các phòng mà mục Ôn câu sai gom về
+  const weak = useMemo(() => readLabWeak('en').filter((w) => EN_REVIEW_KEYS.includes(w.key)).reduce((a, w) => a + w.n, 0), [])
   return (
     <section className="en-lab-shelf" aria-labelledby="en-lab-shelf-h">
       <div className="section-title" id="en-lab-shelf-h"><span className="pin" /> Phòng luyện</div>
+      {weak > 0 && (
+        <button type="button" className="en-review-cta" onClick={() => onOpen('review')}>
+          <Icon name="target" size={16} />
+          <span>Còn <b>{weak}</b> câu từng làm sai ở các phòng luyện — ôn lại trong một lượt trộn</span>
+          <Icon name="arrow-right" size={15} />
+        </button>
+      )}
       <div className="en-lab-grid">
         {LABS.map((l) => {
           const reached = l.parts.filter((m) => best(l.key, m) >= PASS).length
@@ -183,6 +194,7 @@ export default function GrammarHub({ initialLesson }: Props) {
           {pane === 'relative' && <RelativeLab />}
           {pane === 'question' && <QuestionLab />}
           {pane === 'phrasal' && <PhrasalLab />}
+          {pane === 'review' && <WeakReview onOpen={(p) => pick(p as Pane)} />}
           {pane === 'confuse' && <ConfuseLab />}
           {pane === 'verbs' && <IrregularLab />}
           {pane === 'numbers' && <EnNumbersLab />}

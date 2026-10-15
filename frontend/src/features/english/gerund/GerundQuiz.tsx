@@ -1,4 +1,5 @@
 import BlankQuiz from '../shared/BlankQuiz'
+import type { LabView } from '../shared/labView'
 import { GROUPS, filled, type Frame } from './frames'
 import type { Result } from './progress'
 
@@ -13,6 +14,15 @@ interface Props {
   onBack: () => void
 }
 
+// Cách hỏi và giải thích từng câu (lượt Ôn câu sai cũng dùng)
+export const view: LabView<Frame, Result> = {
+  ask: () => 'Chọn dạng đúng của động từ trong ngoặc (V-ing, to V hay nguyên mẫu):',
+  feedback: (f) => <>{GROUPS[f.group].name}.</>,
+  extra: (f) => <p className="bq-rule">{GROUPS[f.group].rule}</p>,
+  missedNote: (m) => `${GROUPS[m.group].name}: ${GROUPS[m.group].words}`,
+  result: (f, ok) => ({ id: f.id, group: f.group, ok }),
+}
+
 export default function GerundQuiz({ items, onFinish, ...rest }: Props) {
   return (
     <BlankQuiz
@@ -20,12 +30,12 @@ export default function GerundQuiz({ items, onFinish, ...rest }: Props) {
       items={items}
       filled={filled}
       backLabel="Xem lại quy tắc"
-      onFinish={(oks, pct) => onFinish(items.map((f, k) => ({ id: f.id, group: f.group, ok: oks[k] })), pct)}
-      ask={() => 'Chọn dạng đúng của động từ trong ngoặc (V-ing, to V hay nguyên mẫu):'}
+      onFinish={(oks, pct) => onFinish(items.map((f, k) => view.result(f, oks[k])), pct)}
+      ask={view.ask}
+      feedback={view.feedback}
+      extra={view.extra}
+      missedNote={view.missedNote}
       doneTitle={(good) => (good ? 'V-ing hay to V đã rõ — giỏi lắm!' : 'Xong một lượt — đọc lại quy tắc của các câu sai')}
-      missedNote={(m) => `${GROUPS[m.group].name}: ${GROUPS[m.group].words}`}
-      feedback={(f) => <>{GROUPS[f.group].name}.</>}
-      extra={(f) => <p className="bq-rule">{GROUPS[f.group].rule}</p>}
     />
   )
 }

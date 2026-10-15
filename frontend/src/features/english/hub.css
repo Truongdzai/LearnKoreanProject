@@ -11,6 +11,13 @@
 .en-lab-shelf{display:flex;flex-direction:column;gap:10px;margin:18px 0}
 .en-lab-shelf .section-title{margin:0}
 .en-lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+/* Lối vào mục Ôn câu sai khi còn câu sai */
+.en-review-cta{display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;background:var(--panel);border:1px solid var(--line2);
+  box-shadow:inset 3px 0 0 var(--brass);color:var(--text);font-family:inherit;font-size:14px;line-height:1.45;text-align:left;cursor:pointer}
+.en-review-cta:hover{border-color:var(--brass)}
+.en-review-cta span{flex:1;min-width:0}
+.en-review-cta b{color:var(--accent-d)}
+.en-review-cta svg{flex:none;color:var(--brass)}
 .en-lab-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px;background:var(--panel);
   border:1px solid var(--line2);color:var(--text);font-family:inherit;text-align:left;cursor:pointer;min-width:0;
   transition:border-color .12s,transform .12s}

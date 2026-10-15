@@ -94,6 +94,11 @@ export const LAB_KEYS: Record<string, LabKey[]> = {
     'enarticle', 'enrelative', 'enquestion', 'enphrasal'],
 }
 
+// Các phòng tiếng Anh điền chỗ trống mà mục "Ôn câu sai" gom câu về (tab Ngữ pháp → Ôn câu sai)
+export const EN_REVIEW_KEYS: LabKey[] = [
+  'entense', 'enarticle', 'encompare', 'encond', 'enpassive', 'engerund', 'enrelative', 'enquestion', 'enphrasal', 'enconfuse',
+]
+
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
 export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'; tab: string; pane: string | null }> = {
   kohangul: { view: 'korean', tab: 'hangul', pane: null },
