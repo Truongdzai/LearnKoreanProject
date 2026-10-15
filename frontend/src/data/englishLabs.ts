@@ -31,6 +31,8 @@ const GERUND = 'V-ing hay to V: một lượt đạt 80% (enjoy swimming, decide
 const ARTICLE = 'Mạo từ: một lượt đạt 80% (an hour, a university, the sun, không mạo từ khi nói chung: I like music)'
 const RELATIVE = 'Mệnh đề quan hệ: một lượt đạt 80% (who cho người, which cho vật, whose, where; có dấu phẩy thì không dùng that)'
 const QUESTION = 'Câu hỏi đuôi & gián tiếp: một lượt đạt 80% (isn\'t it?, aren\'t I?, Could you tell me where the station is?)'
+const QUANTITY = 'Lượng từ: một lượt đạt 80% (much / many, a few / a little, some / any, không nói informations)'
+const MODAL = 'Động từ khuyết thiếu: một lượt đạt 80% (sau modal là nguyên mẫu; mustn\'t = không được, don\'t have to = không cần)'
 const PHRASAL = 'Cụm động từ: một lượt đạt 80% (look after, get on, give up; đại từ đứng giữa: turn it off)'
 const N_READ = 'Số đếm & giờ giấc: chế độ Đọc số đạt 80% (giá tiền, năm, giờ "a quarter to", ngày tháng)'
 const N_LISTEN = 'Số đếm & giờ giấc: chế độ Nghe số đạt 80% (phân biệt 13 / 30, 7:15 / 7:45)'
@@ -41,9 +43,9 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
   // hiện tại hoàn thành và cụm động từ ở tuần 9
   lite: {
     3: [lab('w', 3, 'ennumbers', ['read'], N_READ), lab('w', 3, 'enprep', ['time'], P_TIME)],
-    4: [lab('w', 4, 'enarticle', ['mix'], ARTICLE)],
+    4: [lab('w', 4, 'enarticle', ['mix'], ARTICLE), lab('w', 4, 'enquantity', ['mix'], QUANTITY)],
     5: [lab('w', 5, 'enorder', ['easy'], O_EASY)],
-    6: [lab('w', 6, 'enirregular', ['v2'], V2)],
+    6: [lab('w', 6, 'enirregular', ['v2'], V2), lab('w', 6, 'enmodal', ['mix'], MODAL)],
     7: [lab('w', 7, 'enprep', ['place'], P_PLACE), lab('w', 7, 'ennumbers', ['listen'], N_LISTEN)],
     8: [lab('w', 8, 'encompare', ['mix'], CMP), lab('w', 8, 'enorder', ['hard'], O_HARD)],
     9: [lab('w', 9, 'enirregular', ['v3'], V3), lab('w', 9, 'entense', ['mix'], T_MIX), lab('w', 9, 'enphrasal', ['mix'], PHRASAL)],
@@ -55,8 +57,8 @@ export const EN_LAB_TASKS: Record<EnPlanMode, Record<number, WeekTask[]>> = {
   boot: {
     2: [lab('bw', 2, 'ennumbers', ['read'], N_READ)],
     3: [lab('bw', 3, 'enirregular', ['v2'], V2), lab('bw', 3, 'enarticle', ['mix'], ARTICLE)],
-    4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN), lab('bw', 4, 'enorder', ['easy'], O_EASY)],
-    5: [lab('bw', 5, 'encompare', ['mix'], CMP), lab('bw', 5, 'enorder', ['hard'], O_HARD)],
+    4: [lab('bw', 4, 'ennumbers', ['listen'], N_LISTEN), lab('bw', 4, 'enorder', ['easy'], O_EASY), lab('bw', 4, 'enquantity', ['mix'], QUANTITY)],
+    5: [lab('bw', 5, 'encompare', ['mix'], CMP), lab('bw', 5, 'enorder', ['hard'], O_HARD), lab('bw', 5, 'enmodal', ['mix'], MODAL)],
     6: [lab('bw', 6, 'enprep', ['time', 'place'], P_BOTH)],
     7: [lab('bw', 7, 'enirregular', ['v3'], V3), lab('bw', 7, 'entense', ['mix'], T_MIX)],
     8: [lab('bw', 8, 'enirregular', ['type'], TYPE), lab('bw', 8, 'enconfuse', ['mix'], C_MIX), lab('bw', 8, 'enphrasal', ['mix'], PHRASAL)],

@@ -20,6 +20,10 @@ import * as question from '../questions/frames'
 import { view as questionView } from '../questions/QuestionQuiz'
 import * as phrasal from '../phrasal/frames'
 import { view as phrasalView } from '../phrasal/PhrasalQuiz'
+import * as quantity from '../quantity/frames'
+import { view as quantityView } from '../quantity/QuantityQuiz'
+import * as modal from '../modals/frames'
+import { view as modalView } from '../modals/ModalQuiz'
 
 // Các phòng điền chỗ trống mà lượt "Ôn câu sai" gom câu về: mỗi phòng có bộ câu, cách điền đáp án
 // và cách hỏi / giải thích riêng (lấy đúng từ phòng đó để lời giải thích không đổi).
@@ -51,6 +55,8 @@ function source<F extends BaseFrame, R>(
 export const SOURCES: ReviewSource[] = [
   source('entense', 'tense', 'Chọn thì', tense.FRAMES, tense.filled, tenseView),
   source('enarticle', 'article', 'Mạo từ', article.FRAMES, article.filled, articleView),
+  source('enquantity', 'quantity', 'Lượng từ', quantity.FRAMES, quantity.filled, quantityView),
+  source('enmodal', 'modal', 'Động từ khuyết thiếu', modal.FRAMES, modal.filled, modalView),
   source('encompare', 'compare', 'So sánh', compare.FRAMES, compare.filled, compareView),
   source('encond', 'cond', 'Câu điều kiện', cond.FRAMES, cond.filled, condView),
   source('enpassive', 'passive', 'Câu bị động', passive.FRAMES, passive.filled, passiveView),

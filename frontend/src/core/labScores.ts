@@ -8,7 +8,7 @@ import { useAuth } from '@/store/auth.store'
 
 export type LabKey = 'kohangul' | 'konumbers' | 'koconj' | 'kopart' | 'koorder' | 'zhpinyin' | 'zhhanviet' | 'zhnumbers' | 'zhorder'
   | 'enirregular' | 'ennumbers' | 'enorder' | 'enprep' | 'entense' | 'enconfuse' | 'encompare' | 'encond' | 'enpassive' | 'engerund'
-  | 'enarticle' | 'enrelative' | 'enquestion' | 'enphrasal'
+  | 'enarticle' | 'enrelative' | 'enquestion' | 'enphrasal' | 'enquantity' | 'enmodal'
 export type LabScores = Partial<Record<LabKey, Record<string, number>>>
 
 type Raw = Record<string, unknown>
@@ -85,18 +85,21 @@ const SOURCES: Record<LabKey, { local: string; score: (raw: Raw) => Record<strin
   enrelative: { local: 'vyling.en.relative', score: bestMap },
   enquestion: { local: 'vyling.en.question', score: bestMap },
   enphrasal: { local: 'vyling.en.phrasal', score: bestMap },
+  enquantity: { local: 'vyling.en.quantity', score: bestMap },
+  enmodal: { local: 'vyling.en.modal', score: bestMap },
 }
 
 export const LAB_KEYS: Record<string, LabKey[]> = {
   ko: ['kohangul', 'konumbers', 'koconj', 'kopart', 'koorder'],
   zh: ['zhpinyin', 'zhhanviet', 'zhnumbers', 'zhorder'],
   en: ['enirregular', 'ennumbers', 'enorder', 'enprep', 'entense', 'enconfuse', 'encompare', 'encond', 'enpassive', 'engerund',
-    'enarticle', 'enrelative', 'enquestion', 'enphrasal'],
+    'enarticle', 'enrelative', 'enquestion', 'enphrasal', 'enquantity', 'enmodal'],
 }
 
 // Các phòng tiếng Anh điền chỗ trống mà mục "Ôn câu sai" gom câu về (tab Ngữ pháp → Ôn câu sai)
 export const EN_REVIEW_KEYS: LabKey[] = [
   'entense', 'enarticle', 'encompare', 'encond', 'enpassive', 'engerund', 'enrelative', 'enquestion', 'enphrasal', 'enconfuse',
+  'enquantity', 'enmodal',
 ]
 
 // Phòng luyện nằm ở trang nào, tab nào, mục con nào
@@ -124,6 +127,8 @@ export const LAB_TARGET: Record<LabKey, { view: 'korean' | 'chinese' | 'english'
   enrelative: { view: 'english', tab: 'grammar', pane: 'relative' },
   enquestion: { view: 'english', tab: 'grammar', pane: 'question' },
   enphrasal: { view: 'english', tab: 'grammar', pane: 'phrasal' },
+  enquantity: { view: 'english', tab: 'grammar', pane: 'quantity' },
+  enmodal: { view: 'english', tab: 'grammar', pane: 'modal' },
 }
 
 // Tên ngắn của từng phòng (hiện ở trang chủ), theo ngôn ngữ giao diện
@@ -140,6 +145,7 @@ export const LAB_NAME: Record<LabKey, { vi: string; en: string }> = {
   engerund: { vi: 'V-ing hay to V', en: 'Gerunds & infinitives' },
   enarticle: { vi: 'Mạo từ', en: 'Articles' }, enrelative: { vi: 'Mệnh đề quan hệ', en: 'Relative clauses' },
   enquestion: { vi: 'Câu hỏi đuôi', en: 'Question tags' }, enphrasal: { vi: 'Cụm động từ', en: 'Phrasal verbs' },
+  enquantity: { vi: 'Lượng từ', en: 'Quantifiers' }, enmodal: { vi: 'Động từ khuyết thiếu', en: 'Modal verbs' },
 }
 
 // Số mục từng làm sai còn chờ ôn ở mỗi phòng (đọc bản local). Phòng Động từ bất quy tắc ghi "chế độ:động từ"
