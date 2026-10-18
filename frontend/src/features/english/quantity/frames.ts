@@ -41,7 +41,7 @@ export const GROUPS: Record<QuantityGroup, { name: string; form: string; rule: s
   someany: {
     name: 'some, any, no, none',
     form: 'some eggs · not any milk · no buses · none left',
-    rule: 'some trong câu khẳng định và khi mời, nhờ (Would you like some tea? Could you give me some napkins?); any trong câu phủ định và câu hỏi thường (I don\'t have any money, Did you get any sleep?). no = not any, đi với động từ khẳng định: There are no buses. none đứng một mình, không có danh từ đi sau: There were none left. Không phủ định hai lần (don\'t have no).',
+    rule: 'some trong câu khẳng định và khi mời, nhờ (Would you like some tea? Could you give me some napkins?); any trong câu phủ định và câu hỏi thường (I don\'t have any money, Did you get any sleep?). no = not any, đi với động từ khẳng định: There are no buses. none đứng một mình, không có danh từ ngay sau (hoặc none of the …): There were none left. Không phủ định hai lần (don\'t have no).',
     brief: 'some: khẳng định, mời, nhờ; any: phủ định, câu hỏi; no + danh từ, none đứng một mình.',
     ex: 'There isn\'t any milk, but there are some eggs.',
   },
@@ -57,7 +57,7 @@ const RAW: Raw[] = [
   ['Our ___ still at the airport.', 'Hành lý của chúng tôi vẫn còn ở sân bay.', ['luggage is', 'luggages are', 'luggage are'], 'count', 'luggage không đếm được: không thêm s và động từ chia số ít → luggage is.'],
   ['Can I borrow ___? I left my wallet at home.', 'Cho tôi mượn ít tiền được không? Tôi để quên ví ở nhà rồi.', ['some money', 'a money', 'some moneys'], 'count', 'money không đếm được: không thêm s, không đi với a → some money.'],
   ['They have two ___, a boy and a girl.', 'Họ có hai con, một trai một gái.', ['children', 'childs', 'childrens'], 'count', 'child → children (bất quy tắc). children đã là số nhiều, không thêm s nữa.'],
-  ['There were a lot of ___ at the night market.', 'Chợ đêm rất đông người.', ['people', 'peoples', 'person'], 'count', 'person → people. people đã là số nhiều, không thêm s.'],
+  ['There were a lot of ___ at the night market.', 'Chợ đêm rất đông người.', ['people', 'peoples', 'person'], 'count', 'person → people. people đã là số nhiều nên không thêm s (peoples là "các dân tộc", nghĩa khác hẳn).'],
   ['My ___ hurt after walking around Hanoi all day.', 'Đi bộ quanh Hà Nội cả ngày, hai bàn chân tôi đau nhức.', ['feet', 'foots', 'feets'], 'count', 'foot → feet: đổi nguyên âm, không thêm s.'],
   ['Brush your ___ before you go to bed.', 'Đánh răng trước khi đi ngủ nhé.', ['teeth', 'tooths', 'teeths'], 'count', 'tooth → teeth: đổi nguyên âm, không thêm s.'],
   ['There are three ___ and two women on my team.', 'Nhóm tôi có ba nam và hai nữ.', ['men', 'mans', 'mens'], 'count', 'man → men, woman → women: đổi nguyên âm, không thêm s.'],
@@ -99,10 +99,10 @@ const RAW: Raw[] = [
   ['Sorry, I don\'t have ___ change. I only have a 500,000-dong note.', 'Xin lỗi, tôi không có tiền lẻ. Tôi chỉ có tờ 500 nghìn.', ['any', 'some', 'many'], 'someany', 'Câu phủ định (don\'t have) → any. change (tiền lẻ) không đếm được nên không dùng many.'],
   ['I\'m sorry, we don\'t have ___ rooms left tonight.', 'Xin lỗi, tối nay khách sạn không còn phòng nào trống.', ['any', 'some', 'no'], 'someany', 'Câu phủ định (don\'t have) → any. don\'t … no là phủ định hai lần, sai.'],
   ['Did you get ___ sleep on the night bus?', 'Đi xe khách đêm bạn có ngủ được chút nào không?', ['any', 'many', 'a few'], 'someany', 'Câu hỏi thường → any. sleep không đếm được nên không dùng many / a few.'],
-  ['There are ___ buses after midnight, so take a taxi.', 'Sau nửa đêm không còn chuyến xe buýt nào, nên bạn đi taxi nhé.', ['no', 'any', 'some'], 'someany', 'Động từ khẳng định (are) + no = không có cái nào. any chỉ dùng khi động từ đã phủ định: There aren\'t any buses.'],
-  ['I have ___ idea where he is.', 'Tôi chẳng biết anh ấy đang ở đâu.', ['no', 'any', 'not'], 'someany', 'have no idea = hoàn toàn không biết. no đứng trước danh từ; not không đứng trước danh từ.'],
+  ['There are ___ buses after midnight, so take a taxi.', 'Sau nửa đêm không còn chuyến xe buýt nào, nên bạn đi taxi nhé.', ['no', 'any', 'some'], 'someany', 'Động từ khẳng định (are) + no = không có cái nào. Muốn dùng any với nghĩa "không… nào" thì động từ phải phủ định: There aren\'t any buses.'],
+  ['I have ___ idea where he is.', 'Tôi chẳng biết anh ấy đang ở đâu.', ['no', 'any', 'not'], 'someany', 'have no idea = hoàn toàn không biết. Động từ khẳng định (have) + no + danh từ; muốn dùng any thì phải phủ định động từ: I don\'t have any idea. not không thay cho no ở đây.'],
   ['I wanted to buy concert tickets, but there were ___ left.', 'Tôi định mua vé xem hoà nhạc, nhưng chẳng còn vé nào.', ['none', 'no', 'any'], 'someany', 'Không có danh từ đi sau thì dùng none (= not any tickets). no luôn phải có danh từ đi sau.'],
-  ['There\'s ___ sugar in this coffee, so it\'s really bitter.', 'Cà phê này không có chút đường nào nên đắng lắm.', ['no', 'any', 'none'], 'someany', 'There\'s no sugar = không có chút đường nào. none không đứng trước danh từ; any không dùng với động từ khẳng định.'],
+  ['There\'s ___ sugar in this coffee, so it\'s really bitter.', 'Cà phê này không có chút đường nào nên đắng lắm.', ['no', 'any', 'none'], 'someany', 'There\'s no sugar = không có chút đường nào. none không đứng ngay trước danh từ; any với nghĩa "không… chút nào" cần động từ phủ định: There isn\'t any sugar.'],
 ]
 
 export const FRAMES: Frame[] = RAW.map(([en, vi, opts, group, why]) => ({ id: en, en, vi, options: opts, answer: opts[0], group, why }))
