@@ -623,8 +623,10 @@ def activities(user_id: str) -> dict:
 PLAN_DATA_MAX = 128 * 1024
 # Client chỉ dùng vài chục khoá cố định (en90, engrammar, toeic60…). Chặn tên tuỳ ý
 # và số lượng để một tài khoản không thể nhồi vô hạn bản ghi 128 KB vào DB.
+# Học đủ ba ngôn ngữ đã dùng khoảng 50 khoá (mỗi phòng luyện một khoá) nên để dư gấp đôi:
+# chạm trần thì lượt lưu bị từ chối và người học mất tiến độ.
 PLAN_ID_RE = re.compile(r"^[a-z0-9_-]{1,32}$")
-MAX_PLANS_PER_USER = 64
+MAX_PLANS_PER_USER = 128
 
 
 def _check_plan_id(plan_id: str) -> None:
