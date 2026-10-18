@@ -101,7 +101,7 @@ const PAGES = [
     lead: 'Theo quy tắc 3C (Compress – Compile – Consolidate): học đúng từ cần học, ghép thành câu, rồi củng cố bằng ôn tập ngắt quãng.',
     points: [
       '3000 từ tần suất cao chia 121 chủ đề, học kiểu flashcard lật thẻ có giọng đọc US và UK — đủ hiểu khoảng 90% hội thoại hằng ngày',
-      '30 bài ngữ pháp từ A1 tới B1, từ to be tới câu điều kiện, kèm 14 phòng luyện: chọn thì, ghép câu, in / on / at, mạo từ a / an / the, so sánh, câu điều kiện, câu bị động, V-ing hay to V, mệnh đề quan hệ, câu hỏi đuôi, cụm động từ, từ dễ nhầm, động từ bất quy tắc và số đếm – giờ giấc',
+      '30 bài ngữ pháp từ A1 tới B1, từ to be tới câu điều kiện, kèm 18 phòng luyện: chọn thì, câu bị động, câu điều kiện, động từ khuyết thiếu, V-ing hay to V, cụm động từ, câu tường thuật, động từ bất quy tắc, ghép câu, so sánh, mệnh đề quan hệ, câu hỏi đuôi, liên từ, in / on / at, mạo từ a / an / the, some / any / much, từ dễ nhầm và số đếm – giờ giấc, cùng mục ôn lại câu từng làm sai',
       '13 nhóm phát âm người Việt hay sai: âm cuối, /θ/, ship–sheep, trọng âm, nối âm',
       'Lịch 7 ngày cho từng tuần, mỗi việc có nút bấm đi thẳng tới chỗ học',
     ],

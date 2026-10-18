@@ -16,6 +16,8 @@ import { useQuestionProgress } from '../questions/progress'
 import { usePhrasalProgress } from '../phrasal/progress'
 import { useQuantityProgress } from '../quantity/progress'
 import { useModalProgress } from '../modals/progress'
+import { useLinkerProgress } from '../linkers/progress'
+import { useReportedProgress } from '../reported/progress'
 import { ROUND, SOURCES, buildReview, type ReviewItem } from './sources'
 import './styles.css'
 
@@ -44,6 +46,8 @@ export default function WeakReview({ onOpen }: Props) {
     enphrasal: usePhrasalProgress(),
     enquantity: useQuantityProgress(),
     enmodal: useModalProgress(),
+    enlinker: useLinkerProgress(),
+    enreported: useReportedProgress(),
   }
   const weak = Object.fromEntries(SOURCES.map((s) => [s.key, hooks[s.key]?.state.weak ?? []])) as Record<LabKey, string[]>
   const counts = SOURCES.map((s) => {

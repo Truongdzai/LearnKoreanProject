@@ -26,10 +26,12 @@ const QuestionLab = lazyPage(() => import('./questions/QuestionLab'))
 const PhrasalLab = lazyPage(() => import('./phrasal/PhrasalLab'))
 const QuantityLab = lazyPage(() => import('./quantity/QuantityLab'))
 const ModalLab = lazyPage(() => import('./modals/ModalLab'))
+const LinkerLab = lazyPage(() => import('./linkers/LinkerLab'))
+const ReportedLab = lazyPage(() => import('./reported/ReportedLab'))
 const WeakReview = lazyPage(() => import('./review/WeakReview'))
 
 type Pane = 'lessons' | 'review' | 'tense' | 'order' | 'prep' | 'article' | 'compare' | 'cond' | 'passive' | 'gerund' | 'relative' | 'question'
-  | 'phrasal' | 'confuse' | 'verbs' | 'numbers' | 'quantity' | 'modal'
+  | 'phrasal' | 'confuse' | 'verbs' | 'numbers' | 'quantity' | 'modal' | 'linker' | 'reported'
 
 const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'lessons', label: `${GRAMMAR_LESSONS.length} bài ngữ pháp`, icon: 'book' },
@@ -50,6 +52,8 @@ const PANES: { id: Pane; label: string; icon: IconName }[] = [
   { id: 'numbers', label: 'Số đếm & giờ giấc', icon: 'chart' },
   { id: 'quantity', label: 'some / any / much', icon: 'droplet' },
   { id: 'modal', label: 'Động từ khuyết thiếu', icon: 'lock' },
+  { id: 'linker', label: 'Liên từ', icon: 'share' },
+  { id: 'reported', label: 'Câu tường thuật', icon: 'send' },
 ]
 const PANE_IDS = PANES.map((p) => p.id) as string[]
 const meta = (id: Pane) => PANES.find((p) => p.id === id)!
@@ -80,11 +84,13 @@ const LABS: { pane: Pane; key: LabKey; group: Group; parts: string[]; desc: stri
   { pane: 'modal', key: 'enmodal', group: 'verb', parts: ['mix'], desc: 'must / mustn\'t / don\'t have to, might' },
   { pane: 'gerund', key: 'engerund', group: 'verb', parts: ['mix'], desc: 'enjoy swimming, decide to go' },
   { pane: 'phrasal', key: 'enphrasal', group: 'verb', parts: ['mix'], desc: 'look after, turn it off' },
+  { pane: 'reported', key: 'enreported', group: 'verb', parts: ['mix'], desc: 'said / told, asked where I lived' },
   { pane: 'verbs', key: 'enirregular', group: 'verb', parts: ['v2', 'v3', 'type'], desc: '105 động từ V1 · V2 · V3' },
   { pane: 'order', key: 'enorder', group: 'sentence', parts: ['easy', 'hard'], desc: 'Xếp thẻ thành câu đúng trật tự' },
   { pane: 'compare', key: 'encompare', group: 'sentence', parts: ['mix'], desc: 'cheaper, more expensive, the best' },
   { pane: 'relative', key: 'enrelative', group: 'sentence', parts: ['mix'], desc: 'who, which, whose, where' },
   { pane: 'question', key: 'enquestion', group: 'sentence', parts: ['mix'], desc: "isn't it?, Do you know where…" },
+  { pane: 'linker', key: 'enlinker', group: 'sentence', parts: ['mix'], desc: 'but / although / despite, until' },
   { pane: 'prep', key: 'enprep', group: 'word', parts: ['time', 'place'], desc: 'Giới từ thời gian, nơi chốn' },
   { pane: 'article', key: 'enarticle', group: 'word', parts: ['mix'], desc: 'an hour, the sun, không mạo từ' },
   { pane: 'quantity', key: 'enquantity', group: 'word', parts: ['mix'], desc: 'much / many, a few / a little' },
@@ -96,9 +102,10 @@ const PASS = 80
 // Bài ngữ pháp → phòng luyện để luyện thêm đúng chủ điểm đó
 const LESSON_LABS: Record<string, Pane[]> = {
   e02: ['order'], e03: ['tense'], e04: ['tense'], e05: ['order'], e06: ['article'], e07: ['quantity', 'confuse'], e08: ['verbs', 'tense'], e09: ['tense'],
-  e10: ['order'], e11: ['compare'], e12: ['modal', 'order'], e13: ['prep'], e15: ['verbs', 'tense'], e16: ['cond'], e18: ['gerund'],
+  e10: ['order'], e11: ['compare'], e12: ['modal', 'order'], e13: ['prep'], e14: ['linker'], e15: ['verbs', 'tense'], e16: ['cond'],
+  e18: ['gerund'],
   // Tầng B1
-  e19: ['tense'], e21: ['tense'], e22: ['verbs'], e23: ['passive', 'verbs'], e24: ['relative'], e25: ['confuse'], e26: ['verbs'], e27: ['modal'],
+  e19: ['tense'], e21: ['tense'], e22: ['verbs'], e23: ['passive', 'verbs'], e24: ['relative'], e25: ['reported', 'confuse'], e26: ['verbs'], e27: ['modal'],
   e28: ['order'], e29: ['question'], e30: ['phrasal'],
 }
 
@@ -233,6 +240,8 @@ export default function GrammarHub({ initialLesson }: Props) {
           {pane === 'phrasal' && <PhrasalLab />}
           {pane === 'quantity' && <QuantityLab />}
           {pane === 'modal' && <ModalLab />}
+          {pane === 'linker' && <LinkerLab />}
+          {pane === 'reported' && <ReportedLab />}
           {pane === 'review' && <WeakReview onOpen={(p) => pick(p as Pane)} />}
           {pane === 'confuse' && <ConfuseLab />}
           {pane === 'verbs' && <IrregularLab />}

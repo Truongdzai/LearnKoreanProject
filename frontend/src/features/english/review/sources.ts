@@ -24,6 +24,10 @@ import * as quantity from '../quantity/frames'
 import { view as quantityView } from '../quantity/QuantityQuiz'
 import * as modal from '../modals/frames'
 import { view as modalView } from '../modals/ModalQuiz'
+import * as linker from '../linkers/frames'
+import { view as linkerView } from '../linkers/LinkerQuiz'
+import * as reported from '../reported/frames'
+import { view as reportedView } from '../reported/ReportedQuiz'
 
 // Các phòng điền chỗ trống mà lượt "Ôn câu sai" gom câu về: mỗi phòng có bộ câu, cách điền đáp án
 // và cách hỏi / giải thích riêng (lấy đúng từ phòng đó để lời giải thích không đổi).
@@ -62,6 +66,8 @@ export const SOURCES: ReviewSource[] = [
   source('enpassive', 'passive', 'Câu bị động', passive.FRAMES, passive.filled, passiveView),
   source('engerund', 'gerund', 'V-ing hay to V', gerund.FRAMES, gerund.filled, gerundView),
   source('enrelative', 'relative', 'Mệnh đề quan hệ', relative.FRAMES, relative.filled, relativeView),
+  source('enlinker', 'linker', 'Liên từ', linker.FRAMES, linker.filled, linkerView),
+  source('enreported', 'reported', 'Câu tường thuật', reported.FRAMES, reported.filled, reportedView),
   source('enquestion', 'question', 'Câu hỏi đuôi', question.FRAMES, question.filled, questionView),
   source('enphrasal', 'phrasal', 'Cụm động từ', phrasal.FRAMES, phrasal.filled, phrasalView),
   source('enconfuse', 'confuse', 'Từ dễ nhầm', confuse.FRAMES, confuse.filled, confuseView),
